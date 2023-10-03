@@ -1,22 +1,11 @@
 ---
-layout: home
+layout: default
 title:  "i9wa4's blog"
 categories: home
 ---
 
 # top
 
-- test
+## 記事一覧
 
-## test
-
-test
-
-- test
-  - test
-
-| test1 | test2 |
-| ----- | ----- |
-| test3 | test4 |
-
-- [init](./blog/diary/20231003090651_init.md)
+- [2023-10-03 初投稿](./blog/diary/20231003090651_init.md)
