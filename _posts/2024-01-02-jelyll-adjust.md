@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GitHub Pages (Jekyll) blog のタグ追加対応などを行った"
+title:  "GitHub Pages (Jekyll) blog のタグ追加対応"
 date:   2024-01-02 17:34:55 +0900
 categories: blog
 tags: jekyll dev
@@ -13,6 +13,9 @@ Table of Content:
 {% include tag.html %}
 
 <!-- # h1 -->
+
+こんにちは。i9wa4です。
+ブログを作ったので少しだけ機能と見た目を手入れしてみました。
 
 ## 1. 調整前
 
@@ -29,7 +32,7 @@ Table of Content:
 
 ## 3. タグ対応
 
-- syudead さんの記事とリポジトリを参考に実装した。私は HTML ではなく Markdown 中心の構成としたかったのであくまで参考という感じ。
+- syudead さんの記事とリポジトリを参考に実装しました。私は HTML ではなく Markdown 中心の構成としたかったのであくまで参考という感じです。
     - [Jekyllのブログでタグ機能を実装する](https://rainyflow.net/2016/03/13/jekyll-tags.html)
         - 各記事へのタグ付け方法
         - 一覧ページの html 記述
@@ -38,14 +41,14 @@ Table of Content:
             - `./_inclides/tag.html` を `./blog.html` などの一覧ページ内にて include する
         - 各記述でのタグ一覧ページリンク表示
             - `./_layouts/post.html` 参照
-- トップページに各タグの一覧ページへのリンクを追加する対応については `./index.md` に地道にリンクを追加する方法を取ることとした。
+- トップページに各タグの一覧ページへのリンクを追加する対応については `./index.md` に地道にリンクを追加する方法を取ることとしました。
 
 
 ## 4. ヘッダ簡素化
 
-- Minima の HTML ファイル ([minima/_includes/header.html at master · jekyll/minima](https://github.com/jekyll/minima/blob/master/_includes/header.html)) をリポジトリに追加して対象箇所を削除すれば OK。
+- Minima の HTML ファイル ([minima/\_includes/header.html at master · jekyll/minima](https://github.com/jekyll/minima/blob/master/_includes/header.html)) をリポジトリに追加して対象箇所を削除すれば OK。
 
 ## 5. 感想
 
-- 必要最低限の機能は実装できたので割と満足。
-- 見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってくるが、あんまりやりたくないので当面このままでいきたい。
+- 必要最低限の機能は実装できたので割と満足です。
+- 見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。
