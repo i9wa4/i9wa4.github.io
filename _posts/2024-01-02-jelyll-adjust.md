@@ -6,7 +6,7 @@ categories: blog
 tags: jekyll dev
 ---
 
-Table of Content
+Table of Content:
 - Table of Content
 {:toc}
 
@@ -43,7 +43,7 @@ Table of Content
 
 ## 4. ヘッダ簡素化
 
-Minima の HTML ファイル ([minima/_includes/header.html at master · jekyll/minima](https://github.com/jekyll/minima/blob/master/_includes/header.html)) をリポジトリに追加して対象箇所を削除すれば OK。
+- Minima の HTML ファイル ([minima/_includes/header.html at master · jekyll/minima](https://github.com/jekyll/minima/blob/master/_includes/header.html)) をリポジトリに追加して対象箇所を削除すれば OK。
 
 ## 5. 感想
 
