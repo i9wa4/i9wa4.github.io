@@ -34,11 +34,13 @@ plugins:
   - jekyll-feed
 
 
-# Minima date format.
-# The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
-# Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-date_format: "%Y-%m-%d %H:%M"
 timezone: Asia/Tokyo
+
+minima:
+  # Minima date format.
+  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
+  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
+  date_format: "%Y-%m-%d %H:%M"
 
 
 # Exclude from processing.
