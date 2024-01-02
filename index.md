@@ -6,7 +6,7 @@ layout: home
 ---
 
 - タグ一覧
-    - ->
+    -
 [blog](./blog.md)
 [dev](./dev.md)
 [jekyll](./jekyll.md)
