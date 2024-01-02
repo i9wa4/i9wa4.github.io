@@ -4,3 +4,8 @@
 
 layout: home
 ---
+
+tags:
+[blog](./blog.md)
+[dev](./dev.md)
+[jekyll](./jekyll.md)

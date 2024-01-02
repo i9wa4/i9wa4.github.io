@@ -2,8 +2,13 @@
 layout: post
 title:  "Jekyll サンプル記事"
 date:   2024-01-01 03:40:13 +0900
-categories: jekyll test
+categories: blog
+tags: jekyll dev
 ---
+
+<!-- # h1 -->
+
+{% include tag.html %}
 
 自分の参考のために Jekyll サンプル記事を置いておきます。
 
