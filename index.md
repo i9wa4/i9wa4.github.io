@@ -9,3 +9,4 @@ tags:
 [blog](./blog.md)
 [dev](./dev.md)
 [jekyll](./jekyll.md)
+[vim](./vim.md)
