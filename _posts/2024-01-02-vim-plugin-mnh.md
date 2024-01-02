@@ -26,22 +26,22 @@ Table of Content:
 
 ## 2. プラグインを作ることになったきっかけ
 
-- 下記 VSCode 拡張の Markdown 見出し番号を付ける機能を多用していたので Vim でも使いたかったのですが、探しても見つからなかったことがきっかけで自作しようと思い至りました。
-    - [Markdown All in One - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+[Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。
 
 ## 3. Denops プラグインとして作ろうと思った理由
 
 まず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。  
 そして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。
 
-## 4. 苦労した点
+## 4. Denops プラグイン開発体験について
 
 初めて Denops プラグインを作った & TypeScript に触れたことがなかったのですが意外と困ることは少なかったです。  
 核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。  
-以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗きにいき完成させました。
+以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつ完成させました。
 
 チュートリアル
-- [Deno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn](https://zenn.dev/lambdalisue/articles/b4a31fba0b1ce95104c9)
+- [Deno で Vim/Neovim のプラグインを書く (denops.vim) \| Zenn](https://zenn.dev/lambdalisue/articles/b4a31fba0b1ce95104c9)
     - 英語版: [Introduction - Denops Documentation](https://vim-denops.github.io/denops-documentation/)
 
 ## 5. 感想
