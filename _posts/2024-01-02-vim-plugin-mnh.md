@@ -36,15 +36,15 @@ Table of Content:
 
 ## 4. Denops プラグイン開発体験について
 
-初めて Denops プラグインを作った & TypeScript に触れたことがなかったのですが意外と困ることは少なかったです。  
+初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。  
 核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。  
-以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつ完成させました。
+まず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。
 
-チュートリアル
+参考ページ:
 - [Deno で Vim/Neovim のプラグインを書く (denops.vim) \| Zenn](https://zenn.dev/lambdalisue/articles/b4a31fba0b1ce95104c9)
-    - 英語版: [Introduction - Denops Documentation](https://vim-denops.github.io/denops-documentation/)
+- 英語版: [Introduction - Denops Documentation](https://vim-denops.github.io/denops-documentation/)
 
 ## 5. 感想
 
-毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。  
+今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。  
 今後も必要なものは自分で作っていたいですね。
