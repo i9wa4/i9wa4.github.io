@@ -98,6 +98,7 @@ let g:lsp_settings = {
   \     'allowlist': ['sh'],
   \   }
   \ }
+'''
 {% endhighlight %}
 
 ## 5. Neovim の設定
