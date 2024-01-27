@@ -4,5 +4,7 @@
 
 ## 1. How to test this site locally
 
-- Follow this page.
+1. Follow this page to meet prerequisites.
     - [Testing your GitHub Pages site locally with Jekyll - GitHub Docs](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll?platform=linux)
+1. Run `bundle exec jekyll serve`.
+1. Open `http://localhost:4000`.
