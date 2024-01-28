@@ -44,10 +44,10 @@ Table of Content:
             - `./_layouts/post.html` 参照
 - トップページに各タグの一覧ページへのリンクを追加する対応については `./index.md` に地道にリンクを追加する方法を取ることとしました。
 
-
 ## 4. ヘッダ簡素化
 
 - Minima の HTML ファイル ([minima/\_includes/header.html at master · jekyll/minima](https://github.com/jekyll/minima/blob/master/_includes/header.html)) をリポジトリに追加して対象箇所を削除すれば OK。
+    - (2024/01/28 追記) スマホ版のハンバーガーメニューが寂しかったのでヘッダ簡素化は取りやめました。
 
 ## 5. 感想
 
