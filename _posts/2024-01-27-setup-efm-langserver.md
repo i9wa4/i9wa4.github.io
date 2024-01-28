@@ -14,7 +14,8 @@ Table of Content:
 
 <!-- # h1 -->
 
-こんにちは。i9wa4です。  
+こんにちは。i9wa4です。
+
 最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。
 
 ## 1. efm-langserver とは

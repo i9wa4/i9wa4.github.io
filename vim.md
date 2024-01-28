@@ -1,6 +1,6 @@
 ---
 layout: page
-title: vim
+title: Vim
 permalink: /vim/
 tag: vim
 ---
