@@ -8,8 +8,12 @@ layout: home
 **Tags**
 
 [[blog]](./blog.md)
+[[book]](./book.md)
+[[cicd]](./cicd.md)
 [[dev]](./dev.md)
+[[docker]](./docker.md)
 [[jekyll]](./jekyll.md)
+[[kubernetes]](./kubernetes.md)
 [[vim]](./vim.md)
 
 **Recommended Posts**
