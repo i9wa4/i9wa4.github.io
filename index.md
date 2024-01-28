@@ -5,7 +5,7 @@
 layout: home
 ---
 
-**Tags**
+Tags
 
 [[book]](./tags/book.md)
 [[cicd]](./tags/cicd.md)
@@ -15,7 +15,3 @@ layout: home
 [[jekyll]](./tags/jekyll.md)
 [[kubernetes]](./tags/kubernetes.md)
 [[vim]](./tags/vim.md)
-
-**Recommended Posts**
-
-- [Initial Post](./_posts/2024-01-01-init.md)
