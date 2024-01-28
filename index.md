@@ -14,4 +14,5 @@ Tags
 [[docker]](./tags/docker.md)
 [[jekyll]](./tags/jekyll.md)
 [[kubernetes]](./tags/kubernetes.md)
+[[tips]](./tags/tips.md)
 [[vim]](./tags/vim.md)
