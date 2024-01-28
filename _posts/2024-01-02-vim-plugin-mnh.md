@@ -6,11 +6,11 @@ categories: blog
 tags: vim dev
 ---
 
+{% include tag.html %}
+
 Table of Content:
 - Table of Content
 {:toc}
-
-{% include tag.html %}
 
 <!-- # h1 -->
 

@@ -6,11 +6,11 @@ categories: blog
 tags: book docker kubernetes cicd
 ---
 
+{% include tag.html %}
+
 Table of Content:
 - Table of Content
 {:toc}
-
-{% include tag.html %}
 
 <!-- # h1 -->
 
