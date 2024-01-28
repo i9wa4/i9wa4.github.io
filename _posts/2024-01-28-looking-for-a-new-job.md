@@ -3,7 +3,7 @@ layout: post
 title:  "転職活動を始めました"
 date:   2024-01-28 00:34:12 +0900
 categories: blog
-tags: blog
+tags: diary
 ---
 
 {% include tag.html %}

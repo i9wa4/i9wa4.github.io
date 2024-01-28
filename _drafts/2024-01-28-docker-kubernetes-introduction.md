@@ -2,7 +2,7 @@
 layout: post
 title:  "書籍「たった1日で基本が身に付く! Docker/Kubernetes超入門」を読んでみた感想"
 date:   2024-01-28 20:26:36 +0900
-categories: blog
+categories:
 tags: book docker kubernetes cicd
 ---
 

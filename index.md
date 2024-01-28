@@ -7,15 +7,15 @@ layout: home
 
 **Tags**
 
-[[blog]](./blog.md)
-[[book]](./book.md)
-[[cicd]](./cicd.md)
-[[dev]](./dev.md)
-[[docker]](./docker.md)
-[[jekyll]](./jekyll.md)
-[[kubernetes]](./kubernetes.md)
-[[vim]](./vim.md)
+[[book]](./tags/book.md)
+[[cicd]](./tags/cicd.md)
+[[dev]](./tags/dev.md)
+[[diary]](./tags/diary.md)
+[[docker]](./tags/docker.md)
+[[jekyll]](./tags/jekyll.md)
+[[kubernetes]](./tags/kubernetes.md)
+[[vim]](./tags/vim.md)
 
 **Recommended Posts**
 
-- [Initial Post](https://i9wa4.github.io/blog/2024/01/01/init.html)
+- [Initial Post](./_posts/2024-01-01-init.md)

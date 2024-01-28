@@ -1,8 +1,8 @@
 ---
 layout: page
-title: blog
-permalink: /blog/
-tag: blog
+title: diary
+permalink: /diary/
+tag: diary
 ---
 
 {% include tag.html %}
