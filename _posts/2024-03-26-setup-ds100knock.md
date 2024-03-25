@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "データサイエンス100本ノックの実行環境構築 (WSL2)"
-date:   2024-03-25 23:59:51 +0900
+date:   2024-03-26 00:19:36 +0900
 categories: blog
 tags: wsl2
 ---
