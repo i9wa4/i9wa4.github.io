@@ -16,3 +16,4 @@ Tags
 [[kubernetes]](./tags/kubernetes.md)
 [[tips]](./tags/tips.md)
 [[vim]](./tags/vim.md)
+[[wsl2]](./tags/wsl2.md)
