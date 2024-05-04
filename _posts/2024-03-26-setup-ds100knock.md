@@ -18,4 +18,4 @@ Table of Content:
 
 下記リポジトリを見てください。以上。
 
-[i9wa4/wsl2-100knocks-preprocess: Set up "The-Japan-DataScientist-Society/100knocks-preprocess" environment in WSL2.](https://github.com/i9wa4/wsl2-100knocks-preprocess)
+<https://github.com/i9wa4/wsl2-100knocks-preprocess>

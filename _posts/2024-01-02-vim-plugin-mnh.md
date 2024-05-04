@@ -20,7 +20,7 @@ Table of Content:
 
 ## 1. プラグイン概要
 
-- [i9wa4/markdown-number-header.vim: Automatic numbering for headings.](https://github.com/i9wa4/markdown-number-header.vim)
+- <https://github.com/i9wa4/markdown-number-header.vim>
     - Markdown の見出し番号を付ける or 更新するプラグインです。
     - Deno と Denops に依存しています。
 

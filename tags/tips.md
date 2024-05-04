@@ -1,6 +1,6 @@
 ---
 layout: page
-title: tips
+title: Tips
 permalink: /tips/
 tag: tips
 ---

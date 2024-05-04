@@ -1,6 +1,6 @@
 ---
 layout: page
-title: diary
+title: Diary
 permalink: /diary/
 tag: diary
 ---

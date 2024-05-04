@@ -1,6 +1,6 @@
 ---
 layout: page
-title: book
+title: Book
 permalink: /book/
 tag: book
 ---

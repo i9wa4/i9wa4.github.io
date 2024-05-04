@@ -22,7 +22,7 @@ Table of Content:
 
 .git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。
 
-[itchyny/vim-gitbranch: Provides the branch name of the current git repository](https://github.com/itchyny/vim-gitbranch)
+<https://github.com/itchyny/vim-gitbranch>
 
 Gemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。
 
@@ -160,7 +160,7 @@ echo "現在のブランチ: " . branch
 
 この時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。
 
-[itchyny/vim-gitbranch: Provides the branch name of the current git repository](https://github.com/itchyny/vim-gitbranch)
+<https://github.com/itchyny/vim-gitbranch>
 
 ここまで分かればあとは動作を確認しながら書けそうです。
 
@@ -170,4 +170,4 @@ Gemini と考えたコードが跡形もなくなっている。。なぜ。。
 
 TODO: 繰り返し呼ばれることを念頭に処理を軽くしたい
 
-[i9wa4/get-git-branch-name.vim](https://github.com/i9wa4/get-git-branch-name.vim)
+<https://github.com/i9wa4/get-git-branch-name.vim>

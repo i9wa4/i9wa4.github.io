@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "Quarto で作ったスライドを GitHub Pages にデプロイする"
+date:   2024-05-05 03:23:09 +0900
+categories:
+tags: dev
+---
+
+{% include tag.html %}
+
+Table of Content:
+- Table of Content
+{:toc}
+
+<!-- # h1 -->
+
+こんにちは。i9wa4 です。
+
+## 1. 前提
+
+スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (<https://quarto.org/>) に決めました。
+
+.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。
+- 環境構築が pip で完了する
+- VS Code で開くと Jupyter Notebook っぽくセルを実行できる
+
+## 2. やったこと
+
+下記リポジトリを整備しました。
+
+<https://github.com/i9wa4/slides>
+
+README.md にも書いてますが
+
+[Quartoでスライドを作ってGitHub Pagesで公開する #GitHubActions - Qiita](https://qiita.com/cm-ayf/items/512728ebea65467ba874)
+
+を参考にしてます。
+
+ついでにブログにも [スライド一覧](./slides.md) を作ってみました。
+
+このページを作るために全く知識のない HTML と格闘してましたが Gemini に聞きながら何とか書けました。
+
+## 3. 感想
+
+GitHub Actions はまだよく分かってないままなのですが、一旦動くようになってよかったです。
+
+スライド一覧に関しては Gemini も意外とやるじゃんと思いました。質問しながらコードの不備を指摘すると正しいコードを書いてくれますね。
