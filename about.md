@@ -11,6 +11,6 @@ permalink: /about/
 - ブログのリポジトリ
     - <https://github.com/i9wa4/i9wa4.github.io>
 - スライド
-    - [Slides](./slides)
+    - [Slides](/slides)
 - スライドのリポジトリ
     - <https://github.com/i9wa4/slides>
