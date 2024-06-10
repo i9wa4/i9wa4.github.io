@@ -10,7 +10,7 @@ website:
       - href: https://github.com/i9wa4
         icon: github
       - href: https://x.com/i9wa4_
-        icon: twitter
+        icon: twitter-x
       - href: https://i9wa4.github.io/blog/about.html
         text: About
       - href: https://i9wa4.github.io/blog
@@ -23,7 +23,7 @@ website:
     right:
       - icon: github
         href: https://github.com/i9wa4
-      - icon: twitter
+      - icon: twitter-x
         href: https://x.com/i9wa4_
 
 format:
