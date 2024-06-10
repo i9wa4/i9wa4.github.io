@@ -1,5 +1,10 @@
 ---
-title: "i9wa4.github.io top"
+title: "i9wa4's page"
 ---
 
-test
+| Name   | URL                               |
+| ---    | ---                               |
+| GitHub | <https://github.com/i9wa4>        |
+| X      | <https://x.com/i9wa4_>            |
+| Blog   | <https://github.com/i9wa4/blog>   |
+| Slides | <https://github.com/i9wa4/slides> |
