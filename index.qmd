@@ -2,10 +2,4 @@
 title: "i9wa4's page"
 ---
 
-| Name   | URL                                       |
-| ---    | ---                                       |
-| GitHub | <https://github.com/i9wa4>                |
-| X      | <https://x.com/i9wa4_>                    |
-| About  | <https://i9wa4.github.io/blog/about.html> |
-| Blog   | <https://i9wa4.github.io/blog>            |
-| Slides | <https://i9wa4.github.io/slides>          |
+Welcome to i9wa4's page!
