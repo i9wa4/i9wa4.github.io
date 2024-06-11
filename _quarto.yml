@@ -14,10 +14,4 @@ website:
       - icon: twitter-x
         href: https://x.com/i9wa4_
 
-# format:
-#   html:
-#     theme: flatly
-
-lang: en
-date-format: iso
 theme: flatly
