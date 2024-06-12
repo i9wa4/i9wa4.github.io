@@ -2,13 +2,13 @@
 
 <https://i9wa4.github.io>
 
-## 1. How to render this blog locally
+## 1. How to render this page locally
 
 ```sh
 quarto render
 ```
 
-## 2. How to deploy this blog
+## 2. How to deploy this page
 
 ```sh
 quarto publish
