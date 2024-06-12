@@ -4,20 +4,17 @@ title: "i9wa4's page"
 
 Welcome to i9wa4's page!
 
-
 :My accounts {#tbl-accounts tbl-colwidths="[20,80]"}
 
-|          |                                   |
-| ---      | ---                               |
-| GitHub   | <https://github.com/i9wa4>        |
-| X        | <https://x.com/i9wa4_>            |
-| connpass | <https://connpass.com/user/19wa4> |
-
+|        |                            |
+| ---    | ---                        |
+| GitHub | <https://github.com/i9wa4> |
+| X      | <https://x.com/i9wa4_>     |
 
 :My posts {#tbl-posts tbl-colwidths="[20,80]"}
 
-|          |                                           |
-| ---      | ---                                       |
-| About    | <https://i9wa4.github.io/blog/about.html> |
-| Blog     | <https://i9wa4.github.io/blog>            |
-| Slides   | <https://i9wa4.github.io/slides>          |
+|        |                                           |
+| ---    | ---                                       |
+| About  | <https://i9wa4.github.io/blog/about.html> |
+| Blog   | <https://i9wa4.github.io/blog>            |
+| Slides | <https://i9wa4.github.io/slides>          |
