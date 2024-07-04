@@ -4,15 +4,18 @@ title: "i9wa4's page"
 
 Welcome to i9wa4's page!
 
-: Accounts {#tbl-accounts tbl-colwidths="[30,70]"}
+## 1. Accounts
+
+: {#tbl-accounts tbl-colwidths="[30,70]"}
 
 |        |                            |
 | ---:   | :---                       |
 | GitHub | <https://github.com/i9wa4> |
 | X      | <https://x.com/i9wa4_>     |
 
+## 2. About Me
 
-: Posts {#tbl-posts tbl-colwidths="[30,70]"}
+: {#tbl-posts tbl-colwidths="[30,70]"}
 
 |        |                                           |
 | ---:   | :---                                      |
@@ -20,3 +23,11 @@ Welcome to i9wa4's page!
 | Blog   | <https://i9wa4.github.io/blog>            |
 | Slides | <https://i9wa4.github.io/slides>          |
 | Resume | <https://i9wa4.github.io/resume>          |
+
+## 3. Posts
+
+: {#tbl-outposts}
+
+| Date       | Title                                                                                                                             |
+| ---:       | :---                                                                                                                              |
+| 2024-07-02 | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100) |
