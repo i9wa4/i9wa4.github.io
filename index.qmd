@@ -4,7 +4,7 @@ title: "i9wa4's page"
 
 Welcome to i9wa4's page!
 
-## 1. Accounts
+## 1. アカウント
 
 : {#tbl-accounts tbl-colwidths="[30,70]"}
 
@@ -17,17 +17,18 @@ Welcome to i9wa4's page!
 
 : {#tbl-posts tbl-colwidths="[30,70]"}
 
-|        |                                           |
-| ---:   | :---                                      |
-| About  | <https://i9wa4.github.io/blog/about.html> |
-| Blog   | <https://i9wa4.github.io/blog>            |
-| Slides | <https://i9wa4.github.io/slides>          |
-| Resume | <https://i9wa4.github.io/resume>          |
+|          |                                           |
+| ---:     | :---                                      |
+| 自己紹介 | <https://i9wa4.github.io/blog/about.html> |
+| ブログ   | <https://i9wa4.github.io/blog>            |
+| 職務経歴 | <https://i9wa4.github.io/resume>          |
 
-## 3. Posts
+<!-- | スライド | <https://i9wa4.github.io/slides> | -->
+
+## 3. 社外へのアウトプット
 
 : {#tbl-outposts}
 
-| Date       | Title                                                                                                                             |
-| ---:       | :---                                                                                                                              |
-| 2024-07-02 | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100) |
+| Date       | Category   | Title                                                                                                                             |
+| ---:       | :---       | :---                                                                                                                              |
+| 2024-07-02 | 自社ブログ | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100) |
