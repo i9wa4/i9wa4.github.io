@@ -18,10 +18,10 @@ Welcome to i9wa4's page!
 
 : {#tbl-posts tbl-colwidths="[30,70]"}
 
-|          |                                           |
-| ---:     | :---                                      |
-| 自己紹介 | <https://i9wa4.github.io/blog/about.html> |
-| ブログ   | <https://i9wa4.github.io/blog>            |
-| 職務経歴 | <https://i9wa4.github.io/resume>          |
+|          |                                  |
+| ---:     | :---                             |
+| 自己紹介 | <https://i9wa4.github.io/i9wa4>  |
+| ブログ   | <https://i9wa4.github.io/blog>   |
+| 職務経歴 | <https://i9wa4.github.io/resume> |
 
 <!-- | スライド | <https://i9wa4.github.io/slides> | -->
