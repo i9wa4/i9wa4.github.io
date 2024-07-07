@@ -25,11 +25,3 @@ Welcome to i9wa4's page!
 | 職務経歴 | <https://i9wa4.github.io/resume>          |
 
 <!-- | スライド | <https://i9wa4.github.io/slides> | -->
-
-## 3. 社外へのアウトプット
-
-: {#tbl-outputs tbl-colwidths="[15,15,70]"}
-
-| Date       | Category   | Title                                                                                                                             |
-| :---       | :---       | :---                                                                                                                              |
-| 2024-07-02 | 自社ブログ | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100) |
