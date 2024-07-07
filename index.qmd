@@ -24,4 +24,4 @@ Welcome to i9wa4's page!
 | Blog    | <https://i9wa4.github.io/blog>   |
 | Resume  | <https://i9wa4.github.io/resume> |
 
-<!-- | スライド | <https://i9wa4.github.io/slides> | -->
+<!-- | Slides | <https://i9wa4.github.io/slides> | -->
