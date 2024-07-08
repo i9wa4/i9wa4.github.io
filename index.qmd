@@ -4,9 +4,9 @@ title: "i9wa4's main page"
 
 Welcome to i9wa4's main page!
 
-## Account
+## 1. Account
 
-: {#tbl-accounts tbl-colwidths="[30,70]"}
+: {tbl-colwidths="[30,70]"}
 
 |         |                                              |
 | ---:    | :---                                         |
@@ -14,9 +14,9 @@ Welcome to i9wa4's main page!
 | X       | <https://x.com/i9wa4_>                       |
 | Bluesky | <https://bsky.app/profile/i9wa4.bsky.social> |
 
-## About Me
+## 2. About Me
 
-: {#tbl-posts tbl-colwidths="[30,70]"}
+: {tbl-colwidths="[30,70]"}
 
 |         |                                  |
 | ---:    | :---                             |
@@ -24,4 +24,6 @@ Welcome to i9wa4's main page!
 | Blog    | <https://i9wa4.github.io/blog>   |
 | Resume  | <https://i9wa4.github.io/resume> |
 
+
+<!-- TODO: add -->
 <!-- | Slides | <https://i9wa4.github.io/slides> | -->
