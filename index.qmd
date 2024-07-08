@@ -1,8 +1,8 @@
 ---
-title: "i9wa4's page"
+title: "i9wa4's main page"
 ---
 
-Welcome to i9wa4's page!
+Welcome to i9wa4's main page!
 
 ## Account
 
