@@ -7,17 +7,10 @@
     "text": "Welcome to i9wa4’s main page!"
   },
   {
-    "objectID": "index.html#account",
-    "href": "index.html#account",
+    "objectID": "index.html#my-profile",
+    "href": "index.html#my-profile",
     "title": "i9wa4’s main page",
-    "section": "1. Account",
-    "text": "1. Account\n\n\n\n\n\n\n\nGitHub\nhttps://github.com/i9wa4\n\n\nX\nhttps://x.com/i9wa4_\n\n\nBluesky\nhttps://bsky.app/profile/i9wa4.bsky.social"
-  },
-  {
-    "objectID": "index.html#about-me",
-    "href": "index.html#about-me",
-    "title": "i9wa4’s main page",
-    "section": "2. About Me",
-    "text": "2. About Me\n\n\n\n\n\n\n\nProfile\nhttps://i9wa4.github.io/i9wa4\n\n\nBlog\nhttps://i9wa4.github.io/blog\n\n\nResume\nhttps://i9wa4.github.io/resume"
+    "section": "My Profile",
+    "text": "My Profile\nhttps://i9wa4.github.io/i9wa4"
   }
 ]
