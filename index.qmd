@@ -7,26 +7,3 @@ Welcome to i9wa4's main page!
 ## My Profile
 
 <https://i9wa4.github.io/i9wa4>
-
-<!--
-## Account
-
-: {#tbl-accounts tbl-colwidths="[30,70]"}
-
-|         |                                              |
-| ---:    | :---                                         |
-| GitHub  | <https://github.com/i9wa4>                   |
-| X       | <https://x.com/i9wa4_>                       |
-| Bluesky | <https://bsky.app/profile/i9wa4.bsky.social> |
-
-## About Me
-
-: {#tbl-posts tbl-colwidths="[30,70]"}
-
-|         |                                  |
-| ---:    | :---                             |
-| Profile | <https://i9wa4.github.io/i9wa4>  |
-| Blog    | <https://i9wa4.github.io/blog>   |
-| Slides  | <https://i9wa4.github.io/slides> |
-| Resume  | <https://i9wa4.github.io/resume> |
--->
