@@ -4,6 +4,11 @@ title: "i9wa4's main page"
 
 Welcome to i9wa4's main page!
 
+## My Profile
+
+<https://i9wa4.github.io/i9wa4>
+
+<!--
 ## Account
 
 : {#tbl-accounts tbl-colwidths="[30,70]"}
@@ -22,6 +27,6 @@ Welcome to i9wa4's main page!
 | ---:    | :---                             |
 | Profile | <https://i9wa4.github.io/i9wa4>  |
 | Blog    | <https://i9wa4.github.io/blog>   |
+| Slides  | <https://i9wa4.github.io/slides> |
 | Resume  | <https://i9wa4.github.io/resume> |
-
-<!-- | Slides | <https://i9wa4.github.io/slides> | -->
+-->
