@@ -1,6 +1,11 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: "docs"
+
+date-format: iso
+theme:
+  light: flatly
+  dark: darkly
 
 website:
   title: "i9wa4's main page"
@@ -10,8 +15,10 @@ website:
     center: "&copy;2024, i9wa4"
     right:
       - icon: github
-        href: https://github.com/i9wa4
+        href: "https://github.com/i9wa4"
       - icon: twitter-x
-        href: https://x.com/i9wa4_
-
-theme: flatly
+        href: "https://x.com/i9wa4_"
+  twitter-card:
+    creator: "@i9wa4_"
+    site: "@i9wa4_"
+  open-graph: true
