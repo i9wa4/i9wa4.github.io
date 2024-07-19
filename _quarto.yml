@@ -1,4 +1,3 @@
-# image: "/assets/icon_hhkb2.jpg"
 project:
   type: website
   output-dir: "docs"
@@ -15,6 +14,8 @@ website:
   search: false
   twitter-card:
     card-style: summary
+    image: "/assets/icon_hhkb2.jpg"
+    image-width: 3em
     creator: "@i9wa4_"
     site: "@i9wa4_"
   open-graph: true
