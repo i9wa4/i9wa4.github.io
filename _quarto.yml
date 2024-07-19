@@ -10,12 +10,12 @@ theme:
 website:
   title: "i9wa4's main page"
   site-url: "https://i9wa4.github.io/"
-  favicon: "/assets/icon_hhkb2.jpg"
+  # favicon: "/assets/icon_hhkb2.jpg"
   search: false
   twitter-card:
     card-style: summary
-    image: "/assets/icon_hhkb2.jpg"
-    image-width: 10
+    # image: "/assets/icon_hhkb2.jpg"
+    # image-width: 10
     creator: "@i9wa4_"
     site: "@i9wa4_"
   open-graph: true
