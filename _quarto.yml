@@ -11,6 +11,7 @@ website:
   title: "i9wa4's main page"
   site-url: "https://i9wa4.github.io/"
   favicon: "/assets/icon_hhkb2.jpg"
+  image: "/assets/icon_hhkb2.jpg"
   search: false
   twitter-card:
     card-style: summary
