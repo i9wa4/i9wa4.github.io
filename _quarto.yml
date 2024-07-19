@@ -10,6 +10,8 @@ theme:
 website:
   title: "i9wa4's main page"
   site-url: "https://i9wa4.github.io/"
+  image: "./assets/icon_hhkb2.jpg"
+  favicon: "./assets/icon_hhkb2.jpg"
   page-footer:
     left: "Built with [Quarto](https://quarto.org/)"
     center: "&copy;2024, i9wa4"
