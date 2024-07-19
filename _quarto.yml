@@ -15,7 +15,7 @@ website:
   twitter-card:
     card-style: summary
     image: "/assets/icon_hhkb2.jpg"
-    image-width: 3em
+    image-width: 10
     creator: "@i9wa4_"
     site: "@i9wa4_"
   open-graph: true
