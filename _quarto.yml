@@ -1,4 +1,4 @@
-image: "./assets/icon_hhkb2.jpg"
+# image: "./assets/icon_hhkb2.jpg"
 project:
   type: website
   output-dir: "docs"
