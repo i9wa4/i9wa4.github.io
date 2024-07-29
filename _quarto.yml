@@ -13,16 +13,3 @@ website:
   favicon: "/assets/icon_hhkb2.jpg"
   image: "/assets/icon_hhkb2.jpg"
   search: false
-  twitter-card:
-    card-style: summary
-    creator: "@i9wa4_"
-    site: "@i9wa4_"
-  open-graph: true
-  page-footer:
-    left: "Built with [Quarto](https://quarto.org/)"
-    center: "&copy;2024, i9wa4"
-    right:
-      - icon: github
-        href: "https://github.com/i9wa4"
-      - icon: twitter-x
-        href: "https://x.com/i9wa4_"
