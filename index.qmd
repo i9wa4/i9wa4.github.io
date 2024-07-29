@@ -1,9 +1,1 @@
----
-title: "i9wa4's main page"
----
-
-Welcome to i9wa4's main page!
-
-## My Profile
-
-<https://i9wa4.github.io/i9wa4>
+[i9wa4's profile](https://i9wa4.github.io/i9wa4)
