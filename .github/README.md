@@ -7,8 +7,3 @@
 ```sh
 quarto preview
 ```
-## How to render this page locally
-
-```sh
-quarto render
-```
