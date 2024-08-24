@@ -1,0 +1,127 @@
+---
+title: "Mac 環境構築手順"
+date: 2024-06-17 12:21:36 +0900
+date-modified: last-modified
+categories: [mac]
+---
+
+こんにちは。i9wa4 です。
+
+私の Mac 環境構築手順をまとめておきます。
+
+## 1. dotfiles 導入
+
+cf. <https://github.com/i9wa4/dotfiles>
+
+## 2. システム設定
+
+- マウスのスクロール方向変更
+- プライバシーとセキュリティ
+    - 画面収録とシステムオーディオ録音
+        - 画面の収録とオーディオの録音を両方許可する
+            - Chrome, Slack, Zoom
+- デスクトップ
+    - 壁紙をクリックしてデスクトップを表示
+        - ステージマネージャー使用時のみ
+- Dock
+    - 配置
+    - 自動的に表示/非表示
+- コントロールセンター
+    - Bluetoothアイコンをメニューバーに表示する
+    - メニューバー
+        - メニューバーを自動的に非表示しない
+        - 時計
+            - 日付を常に表示
+            - 秒を表示
+- キーボード
+    - 日本語入力が重いので設定見直す
+        - [Macの日本語入力（日本語IM）が遅いのを解消する5のTips \| 8vivid](https://mupon.net/mac-im-slow-5-tips/)
+    - ショートカット
+        - [\[macOS\]キーボードでウィンドウを左半分や右半分に移動する - エンジニアによる投資](https://eng-investor.com/mac-move-window-keyboard-shortcut/)
+
+## 3. ターミナル
+
+- Alacritty を使う
+    - Wezterm でもいいかもしれない
+
+## 4. Zsh
+
+- Ctrl-R のコマンド履歴検索が実行できないとき
+    - [zshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI](https://wayohoo.com/article/6922)
+- ~/.zshenv
+
+    ```sh
+    # あれば書く
+    ```
+
+- ~/.zshrc
+
+    ```sh
+    # あれば書く
+    ```
+
+## 6. AWS
+
+### 6.1. Okta 経由
+
+- [AWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法](https://www.notion.so/AWS-IAM-Identity-Center-a4eda510decb43f6a51c1df902acf84a?pvs=21)
+
+### 6.2. AWS CLI 経由
+
+- [AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
+    - これに従って AWS CLI をインストールする
+- [自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/sso-configure-profile-token.html)
+- ログイン (毎回やる必要なし)
+
+    ```sh
+    aws sso login --profile xxx
+    ```
+
+- 動作確認
+
+    ```sh
+    aws ec2 describe-instances --profile xxx
+    ```
+
+- default profile の設定手順
+
+    ```sh
+    # ~/.zshrc 等に以下を記載しておく
+    export AWS_DEFAULT_PROFILE=
+
+    # シェルの補完を使いながら以下のように入力する
+    AWS_DEFAULT_PROFILE=xxx
+    aws ec2 describe-instances
+    aws s3 ls
+    ```
+
+- `~/.aws/credentials` の設定
+    - Access Keys の説明を読む！
+
+## 7. その他
+
+- [【Mac】.DS_Storeを一括削除&作らないようにするコマンド - Kizineko](https://kizineko.com/delete-dsstore/)
+- Finder
+    - よく使う項目 username 追加
+    - コマンド実行
+
+        ```sh
+        # Finderを終了させられるようにする (Command+Q で終了できるようになる)
+        defaults write com.apple.Finder QuitMenuItem -bool YES
+
+        # 元に戻す場合
+        defaults write com.apple.Finder QuitMenuItem -bool NO
+        ```
+
+- プログラミング用フォント MyricaM をダウンロード・インストールする
+- Docker Desktop の Docker Daemon 設定
+
+## 8. (おまけ) ショートカット集
+
+| カテゴリ       | ショートカット           | 説明                           |
+| ---            | ---                      | ---                            |
+| ウインドウ操作 | Command + Tab            | アプリケーション切り替え       |
+| ウインドウ操作 | Command + @              | 同一アプリケーションの切り替え |
+| ウインドウ操作 | Command + Option + Arrow | Chrome タブ切り替え            |
+| その他         | Commad  + Q              | Finder 終了                    |
+| その他         | Command + Ctrl + Q       | ロック                         |

@@ -1,0 +1,9 @@
+---
+title: "Ubuntu マシン上での Minecraft 統合版サーバー構築手順"
+date: 2099-12-31
+date-modified: last-modified
+categories: [dev, game, minecraft]
+draft: true
+---
+
+こんにちは。i9wa4 です。

@@ -1,0 +1,63 @@
+---
+title: "WSL2 のセットアップ"
+date: 2024-03-25 23:00:48 +0900
+date-modified: last-modified
+categories: [wsl2]
+---
+
+こんにちは。i9wa4 です。
+
+Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。
+
+## 1. WSL コマンドのインストール
+
+[WSL のインストール \| Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install#install-wsl-command) に従います。
+
+1. 管理者権限で PowerShell or コマンドプロンプトを開きます。
+1. `wsl --install` を実行します。
+    ![20240325-setup-wsl2-01](/assets/20240325-posts-setup-wsl2/setup-wsl2-01.png)
+1. 以下のように表示されるのでマシンを再起動します。
+    ![20240325-setup-wsl2-02](/assets/20240325-posts-setup-wsl2/setup-wsl2-02.png)
+
+## 2. ディストリビューションのインストール
+
+1. PowerShell or コマンドプロンプトを開きます。
+1. インストール可能なディストリビューションを表示します。
+
+    ```{.dosbat}
+    wsl --list --oneline
+    ```
+
+1. Ubuntu 22.04 LTS をインストールする場合は以下のように入力します。
+
+    ```{.dosbat}
+    wsl --install -d Ubuntu-22.04
+    ```
+
+1. 画面表示に従ってユーザー名とパスワードを入力します。
+1. Ubuntu を終了します。
+
+    ```{.sh}
+    exit
+    ```
+
+1. (必要に応じて) 既定のディストリビューションを設定します。
+
+    ```{.dosbat}
+    wsl --set-default Ubuntu-22.04
+    ```
+
+## 3. ディストリビューションのアンインストール
+
+1. PowerShell or コマンドプロンプトを開きます。
+1. インストール済みのディストリビューションを表示します。
+
+    ```{.dosbat}
+    wsl --list
+    ```
+
+1. 不要なディストリビューションをアンインストールします。
+
+    ```{.dosbat}
+    wsl --unregister Ubuntu-22.04
+    ```

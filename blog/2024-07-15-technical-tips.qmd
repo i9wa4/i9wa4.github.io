@@ -1,0 +1,99 @@
+---
+title: "技術系 Tips まとめ"
+date: 2024-07-15 16:15:11 +0900
+date-modified: last-modified
+categories: [tips]
+---
+
+こんにちは。i9wa4 です。
+
+たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。
+
+分量が増えてきた分野は別記事に切り出すかもしれません。
+
+## 1. Git
+
+```{.sh}
+# よく使うコマンド
+git add -n .
+git log --graph
+git diff --name-only HEAD HEAD~2
+git diff ID1 ID2 filename
+git difftool ID1 ID2
+git show ID
+
+git reflog
+git rebase
+
+# リモートリポジトリ作成
+git init --bare --shared
+git remote add origin url
+git clone url
+```
+
+## 2. PostgreSQL
+
+```{.sh}
+# 起動～データベースへのアクセス
+pg_ctl restart
+psql -U postgres -d db_name
+
+pg_ctl restart
+psql -U postgres
+CREATE DATABASE db_name;
+\c db_name
+CREATE SCHEMA sc_name;
+```
+
+## 3. Google Cloud CLI (gcloud CLI)
+
+```{.sh}
+# keyfile 登録からテーブル確認まで
+gcloud auth activate-service-account --key-file ***.json
+gcloud auth list
+gcloud set account ***
+bq --project_id=aaaaa ls dataset
+bq --project_id=aaaaa show dataset.table_name
+bq --project_id=aaaaa head dataset.table_name -n 5
+```
+
+```{.sh}
+# ログイン
+gcloud auth login
+```
+
+## 4. Google Chrome
+
+### 4.1. 検索エンジン設定
+
+- Google 日本語検索
+    - `https://www.google.com/search?q=%s`
+- Google 英語検索
+    - `https://www.google.com/search?q=%s&gl=us&hl=en&gws_rd=cr&pws=0`
+- DuckDuckGo 日本語検索
+    - `https://duckduckgo.com/?q=%s&kl=jp-jp&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
+- DuckDuckGo 英語検索
+    - `https://duckduckgo.com/?q=%s&kl=us-en&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
+
+## 5. Excel
+
+### 5.1. Excel VBA
+
+- アドイン追加先
+    - `%USERPROFILE%\AppData\Roaming\Microsoft\AddIns`
+
+### 5.2. Excel 関数
+
+- シート名を記載したセルB2を利用したハイパーリンク作成
+    - `=HYPERLINK("#'"&B2&"'!$A$1",B2)`
+
+## 6. Word
+
+### 6.1. Normal.dotm 作成
+
+1. `%APPDATA%\Microsoft\Templates\Normal.dotm` 削除
+1. デザインを作成し既定に設定する
+    - テーマ設定
+        - 見出し: 游ゴシック Arial
+        - 本文: 游ゴシック Medium Arial
+    - アウトライン --> 新しいアウトラインの定義 --> オプション --> レベルと対応付ける見出しスタイル

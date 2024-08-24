@@ -1,0 +1,11 @@
+---
+title: "Embulk の仕様調査"
+date: 2099-12-31
+date-modified: last-modified
+categories: [embulk]
+draft: true
+---
+
+こんにちは。i9wa4 です。
+
+Embulk の仕様を詳しく調べはじめたのでぼちぼち記事にしてみようかと思います。

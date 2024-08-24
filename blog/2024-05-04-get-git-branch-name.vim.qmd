@@ -1,0 +1,164 @@
+---
+title: "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた"
+date: 2024-05-04 04:07:04 +0900
+date-modified: last-modified
+categories: [dev, vim]
+---
+
+こんにちは。i9wa4 です。
+
+## 1. 経緯
+
+私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。
+
+.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。
+
+<https://github.com/itchyny/vim-gitbranch>
+
+Gemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。
+
+## 2. Gemini との開発過程
+
+Gemini とのやりとりを書き残しておきます。
+
+### 2.1. .git 探索関数作成
+
+#### 2.1.1. 質問
+
+```plaintext
+Vim script で以下の関数を作成してほしいです。
+- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。
+```
+
+#### 2.1.2. 回答
+
+```plaintext
+Vim script で .git ディレクトリを探す関数
+
+以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。
+
+function! FindGitDir(dir)
+  " 引数がない場合はカレントディレクトリを代入 "
+  if (empty(a:dir))
+    let dir = expand('%:p')
+  endif
+
+  " ループフラグを初期化 "
+  let found = 0
+
+  " 順に上の階層をたどる "
+  while (!found && !empty(dir) && dir != '/')
+    " .git ディレクトリが存在するか確認 "
+    if (isdirectory(dir . '/.git'))
+      let found = 1
+      let gitdir = dir . '/.git'
+    endif
+
+    " 上の階層へ移動 "
+    let dir = expand(dirname(dir))
+  endwhile
+
+  " 結果を返す "
+  if (found)
+    return gitdir
+  else
+    return ''
+  endif
+endfunction
+```
+
+### 2.2. ブランチ名取得関数作成
+
+#### 2.2.1. 質問
+
+```plaintext
+Vim script で以下の関数を作成してほしいです。
+- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。
+```
+
+#### 2.2.2. 回答
+
+```plaintext
+以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。
+
+function! GetCurrentBranch(gitdir)
+  " 引数が空の場合、エラーを返す "
+  if (empty(a:gitdir))
+    error('引数が空です')
+  endif
+
+  " カレントブランチ名の取得 "
+  let branch = system('git --git-dir="' . a:gitdir . '" rev-parse --abbrev-ref HEAD')
+
+  " .git ディレクトリを除いたブランチ名を返す "
+  return substitute(branch, a:gitdir . '/', '', 'g')
+endfunction
+```
+
+#### 2.2.3. 質問
+
+```plaintext
+system() を使わず、gitコマンドを使わずに実現させてほしいです。
+```
+
+#### 2.2.4. 回答
+
+```plaintext
+Vim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。
+
+
+1. :echo %b コマンドを使用する
+
+この方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。
+
+" 現在のブランチ名をエコーする "
+:echo %b
+
+
+2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む
+
+この方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。
+
+" .git/HEAD ファイルのパスを取得 "
+let headfile = expand('%:p:h') . '/.git/HEAD'
+
+" HEAD ファイルの内容を読み込む "
+let headcontent = readfile(headfile)
+
+" ブランチ名を抽出する "
+let branch = match(headcontent, 'ref: refs/heads/(.+)')
+
+" 結果を確認 "
+echo "現在のブランチ: " . branch
+
+
+3. git log の出力を解析する
+
+この方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。
+Vim Script
+
+" git log の出力をバッファに読み込む "
+:redir > /dev/null git log -1
+
+" ブランチ名を抽出する "
+let branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')
+
+" 結果を確認 "
+echo "現在のブランチ: " . branch
+```
+
+回答1が嘘すぎてびっくり。今回は回答2がよさそう。
+
+この時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。
+
+<https://github.com/itchyny/vim-gitbranch>
+
+ここまで分かればあとは動作を確認しながら書けそうです。
+
+## 3. 完成品
+
+Gemini と考えたコードが跡形もなくなっている。。なぜ。。
+
+TODO: 繰り返し呼ばれることを念頭に処理を軽くしたい
+
+<https://github.com/i9wa4/get-git-branch-name.vim>

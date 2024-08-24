@@ -1,0 +1,9 @@
+---
+title: "Vim step"
+date: 2099-12-31
+date-modified: last-modified
+categories: [vim]
+draft: true
+---
+
+こんにちは。i9wa4 です。
