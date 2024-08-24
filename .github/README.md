@@ -4,6 +4,14 @@
 
 ## How to preview this page locally
 
-```sh
-quarto preview
-```
+1. Install Quarto.
+
+    ```sh
+    pip install quarto-cli
+    ```
+
+1. Preview with Quarto.
+
+    ```sh
+    quarto preview
+    ```
