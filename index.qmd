@@ -5,7 +5,7 @@ listing:
   contents: ["blog"]
   feed: true
   fields: [date, categories, title]
-  page-size: 4
+  page-size: 20
   sort-ui: [date]
   sort: ["date desc", "title"]
   type: default
@@ -15,9 +15,9 @@ listing:
 
 Welcome to i9wa4's page!
 
-|          |                                  |
-| ---:     | :---                             |
-| About me | <https://i9wa4.github.io/i9wa4>  |
-| Blog     | <https://i9wa4.github.io/blog>   |
-| Slides   | <https://i9wa4.github.io/slides> |
-| Resume   | <https://i9wa4.github.io/resume> |
+- [About me](https://i9wa4.github.io/i9wa4)
+- [Blog](./blog)
+- [Slides](./slides)
+- [Resume](./resume)
+
+## Blog
