@@ -1,6 +1,6 @@
 ---
 title: ""
-date:
+date: 2024-08-24 21:25:32 +0900
 date-modified: last-modified
 categories:
   - "game"
