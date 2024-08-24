@@ -252,90 +252,6 @@
     "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
   },
   {
-    "objectID": "blog/2024-06-17-purchased-gadgets.html",
-    "href": "blog/2024-06-17-purchased-gadgets.html",
-    "title": "購入したガジェットの紹介",
-    "section": "",
-    "text": "こんにちは。i9wa4 です。\n詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン"
-  },
-  {
-    "objectID": "slides/20240204-sapporo.vim.html#自己紹介",
-    "href": "slides/20240204-sapporo.vim.html#自己紹介",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
-  },
-  {
-    "objectID": "slides/20240204-sapporo.vim.html#本日のタスク",
-    "href": "slides/20240204-sapporo.vim.html#本日のタスク",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
-  },
-  {
-    "objectID": "slides/20240204-sapporo.vim.html#結果",
-    "href": "slides/20240204-sapporo.vim.html#結果",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "3. 結果",
-    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に\n\n\n\n\n\nhttps://connpass.com/event/307552/"
-  },
-  {
-    "objectID": "slides/20231216-sapporo.vim.html#自己紹介",
-    "href": "slides/20231216-sapporo.vim.html#自己紹介",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
-  },
-  {
-    "objectID": "slides/20231216-sapporo.vim.html#本日のタスク",
-    "href": "slides/20231216-sapporo.vim.html#本日のタスク",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
-  },
-  {
-    "objectID": "slides/20231216-sapporo.vim.html#本日の成果",
-    "href": "slides/20231216-sapporo.vim.html#本日の成果",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "3. 本日の成果",
-    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい\n\n\n\n\n\nhttps://connpass.com/event/302060/"
-  },
-  {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslide\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslide\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "",
-    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
-  },
-  {
     "objectID": "blog/2024-01-27-setup-efm-langserver.html",
     "href": "blog/2024-01-27-setup-efm-langserver.html",
     "title": "efm-langserver を Vim/Neovim で利用する",
@@ -383,6 +299,90 @@
     "title": "efm-langserver を Vim/Neovim で利用する",
     "section": "6. 感想",
     "text": "6. 感想\nLinter をインストールできていれば出力形式を見て自力で Language Server として組み込める……素晴らしいですね！\nLinter は手動でインストールして設定ファイルを管理しておくのが結局一番分かりやすいなと実感しているのですが、その状態で簡単に Vim/Neovim に反映できる efm-langserver はかなり有り難いです。"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "",
+    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslide\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslide\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/20231216-sapporo.vim.html#自己紹介",
+    "href": "slides/20231216-sapporo.vim.html#自己紹介",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "1. 自己紹介",
+    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
+  },
+  {
+    "objectID": "slides/20231216-sapporo.vim.html#本日のタスク",
+    "href": "slides/20231216-sapporo.vim.html#本日のタスク",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "2. 本日のタスク",
+    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
+  },
+  {
+    "objectID": "slides/20231216-sapporo.vim.html#本日の成果",
+    "href": "slides/20231216-sapporo.vim.html#本日の成果",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "3. 本日の成果",
+    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい\n\n\n\n\n\nhttps://connpass.com/event/302060/"
+  },
+  {
+    "objectID": "slides/20240204-sapporo.vim.html#自己紹介",
+    "href": "slides/20240204-sapporo.vim.html#自己紹介",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "1. 自己紹介",
+    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
+  },
+  {
+    "objectID": "slides/20240204-sapporo.vim.html#本日のタスク",
+    "href": "slides/20240204-sapporo.vim.html#本日のタスク",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "2. 本日のタスク",
+    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
+  },
+  {
+    "objectID": "slides/20240204-sapporo.vim.html#結果",
+    "href": "slides/20240204-sapporo.vim.html#結果",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "3. 結果",
+    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に\n\n\n\n\n\nhttps://connpass.com/event/307552/"
+  },
+  {
+    "objectID": "blog/2024-06-17-purchased-gadgets.html",
+    "href": "blog/2024-06-17-purchased-gadgets.html",
+    "title": "購入したガジェットの紹介",
+    "section": "",
+    "text": "こんにちは。i9wa4 です。\n詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン"
   },
   {
     "objectID": "blog/2024-07-20-minecraft-note.html",
