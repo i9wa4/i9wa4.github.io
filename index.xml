@@ -91,7 +91,6 @@
 
  ]]></description>
   <category>game</category>
-  <category>aigis</category>
   <guid>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</guid>
   <pubDate>Sat, 20 Jul 2024 13:46:56 GMT</pubDate>
 </item>
@@ -275,7 +274,6 @@
 
  ]]></description>
   <category>game</category>
-  <category>minecraft</category>
   <guid>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</guid>
   <pubDate>Sat, 20 Jul 2024 13:39:28 GMT</pubDate>
 </item>
@@ -1838,7 +1836,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
   </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="game,aigis" data-listing-date-sort="1721483216000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
+<div class="quarto-post image-right" data-index="0" data-categories="game" data-listing-date-sort="1721483216000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1847,9 +1845,6 @@ font-style: inherit;">'''</span></span></code></pre></div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('game'); return false;">
 game
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aigis'); return false;">
-aigis
 </div>
 </div>
 </div>
@@ -1861,7 +1856,7 @@ aigis
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="game,minecraft" data-listing-date-sort="1721482768000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<div class="quarto-post image-right" data-index="1" data-categories="game" data-listing-date-sort="1721482768000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1870,9 +1865,6 @@ aigis
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('game'); return false;">
 game
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('minecraft'); return false;">
-minecraft
 </div>
 </div>
 </div>
@@ -1884,7 +1876,7 @@ minecraft
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="tips" data-listing-date-sort="1721027711000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
+<div class="quarto-post image-right" data-index="2" data-categories="tips" data-listing-date-sort="1721027711000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1904,7 +1896,7 @@ tips
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="dev" data-listing-date-sort="1719507392000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
+<div class="quarto-post image-right" data-index="3" data-categories="dev" data-listing-date-sort="1719507392000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1924,7 +1916,7 @@ dev
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="gadget" data-listing-date-sort="1718595737000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1210">
+<div class="quarto-post image-right" data-index="4" data-categories="gadget" data-listing-date-sort="1718595737000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1210">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1944,7 +1936,7 @@ gadget
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="mac" data-listing-date-sort="1718594496000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="4" data-listing-word-count-sort="702">
+<div class="quarto-post image-right" data-index="5" data-categories="mac" data-listing-date-sort="1718594496000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="4" data-listing-word-count-sort="702">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1964,7 +1956,7 @@ mac
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="dev" data-listing-date-sort="1714846989000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
+<div class="quarto-post image-right" data-index="6" data-categories="dev" data-listing-date-sort="1714846989000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -1984,7 +1976,7 @@ dev
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="dev,vim" data-listing-date-sort="1714763224000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
+<div class="quarto-post image-right" data-index="7" data-categories="dev,vim" data-listing-date-sort="1714763224000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2007,7 +1999,7 @@ vim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="wsl2" data-listing-date-sort="1711379976000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
+<div class="quarto-post image-right" data-index="8" data-categories="wsl2" data-listing-date-sort="1711379976000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2027,7 +2019,7 @@ wsl2
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="wsl2" data-listing-date-sort="1711375248000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
+<div class="quarto-post image-right" data-index="9" data-categories="wsl2" data-listing-date-sort="1711375248000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2047,7 +2039,7 @@ wsl2
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="vim,dev" data-listing-date-sort="1706362659000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="2" data-listing-word-count-sort="228">
+<div class="quarto-post image-right" data-index="10" data-categories="vim,dev" data-listing-date-sort="1706362659000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="2" data-listing-word-count-sort="228">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2070,7 +2062,7 @@ dev
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="vim,dev" data-listing-date-sort="1704199666000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
+<div class="quarto-post image-right" data-index="11" data-categories="vim,dev" data-listing-date-sort="1704199666000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2093,7 +2085,7 @@ dev
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="jekyll,dev" data-listing-date-sort="1704184495000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
+<div class="quarto-post image-right" data-index="12" data-categories="jekyll,dev" data-listing-date-sort="1704184495000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2116,7 +2108,7 @@ dev
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="diary" data-listing-date-sort="1704047292000" data-listing-file-modified-sort="1724487323744" data-listing-date-modified-sort="1724487323000" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<div class="quarto-post image-right" data-index="13" data-categories="diary" data-listing-date-sort="1704047292000" data-listing-file-modified-sort="1724488989876" data-listing-date-modified-sort="1724488989000" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
 <div class="body">
 
 <div class="listing-subtitle">
@@ -2142,7 +2134,7 @@ No matching items
 </div>
 </div> ]]></description>
   <guid>https://i9wa4.github.io/blog/</guid>
-  <pubDate>Sat, 24 Aug 2024 08:16:05 GMT</pubDate>
+  <pubDate>Sat, 24 Aug 2024 08:43:51 GMT</pubDate>
 </item>
 </channel>
 </rss>
