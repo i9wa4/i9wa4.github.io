@@ -20,6 +20,8 @@ website:
   open-graph: true
   navbar:
     left:
+      - href: "."
+        text: "Top"
       - href: "https://i9wa4.github.io/i9wa4"
         text: "About"
       - href: "./blog"
