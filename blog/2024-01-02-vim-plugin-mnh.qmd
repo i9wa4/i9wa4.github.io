@@ -2,7 +2,9 @@
 title: "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介"
 date: 2024-01-02 21:47:46 +0900
 date-modified: last-modified
-categories: [vim, dev]
+categories:
+  - "vim"
+  - "dev"
 ---
 
 こんにちは。i9wa4 です。

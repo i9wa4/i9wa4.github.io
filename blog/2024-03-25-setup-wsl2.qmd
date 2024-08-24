@@ -2,7 +2,8 @@
 title: "WSL2 のセットアップ"
 date: 2024-03-25 23:00:48 +0900
 date-modified: last-modified
-categories: [wsl2]
+categories:
+  - "wsl2"
 ---
 
 こんにちは。i9wa4 です。

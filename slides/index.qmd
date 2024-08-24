@@ -2,11 +2,18 @@
 title: "Slides"
 listing:
   categories: numbered
-  contents: ["."]
+  contents:
+    - "."
   feed: true
-  fields: [date, categories, title]
+  fields:
+    - "date"
+    - "categories"
+    - "title"
   page-size: 20
-  sort-ui: [date]
-  sort: ["date desc", "title"]
+  sort-ui:
+    - "date"
+  sort:
+    - "date desc"
+    - "title"
   type: default
 ---

@@ -2,7 +2,8 @@
 title: "Embulk の仕様調査"
 date: 2099-12-31
 date-modified: last-modified
-categories: [embulk]
+categories:
+  - "embulk"
 draft: true
 ---
 

@@ -2,7 +2,8 @@
 title: "systemd がユーザー権限でも使える"
 date: 2024-06-28 01:56:32 +0900
 date-modified: last-modified
-categories: [dev]
+categories:
+  - "dev"
 ---
 
 こんにちは。i9wa4 です。

@@ -3,7 +3,9 @@ title: "Sapporo.vim 自己紹介"
 author: i9wa4
 date: 2023-12-16
 date-modified: last-modified
-categories: [slide, vim-jp]
+categories:
+  - "slide"
+  - "vim-jp"
 format:
   revealjs:
     # embed-resources: true

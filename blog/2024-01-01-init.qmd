@@ -2,7 +2,8 @@
 title: "Initial Post"
 date: 2024-01-01 03:28:12 +0900
 date-modified: last-modified
-categories: [diary]
+categories:
+  - "diary"
 ---
 
 <!-- # h1 -->

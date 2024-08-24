@@ -2,7 +2,8 @@
 title: "Terraform で MWAA (Airflow) を構築してみる"
 date: 2099-12-31
 date-modified: last-modified
-categories: [aws, terraform, airflow]
+categories:
+  - "aws"
 draft: true
 ---
 
