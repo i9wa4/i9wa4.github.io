@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-05-03">
 
-<title>i9wa4’s page</title>
+<title>Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた – i9wa4’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//assets/common/icon_hhkb2.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//assets/common/icon_hhkb2.jpg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,11 +72,11 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="i9wa4’s page">
+<meta property="og:title" content="Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた – i9wa4’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
-<meta name="twitter:title" content="i9wa4’s page">
+<meta name="twitter:title" content="Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた – i9wa4’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -83,14 +84,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">i9wa4’s page</span>
     </a>
   </div>
@@ -105,15 +106,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="././blog"> 
+    <a class="nav-link" href=".././blog"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="././slides"> 
+    <a class="nav-link" href=".././slides"> 
 <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="././resume"> 
+    <a class="nav-link" href=".././resume"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item compact">
@@ -133,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Built with Quarto</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -149,32 +150,192 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">TOC</h2>
+   
+  <ul class="collapse">
+  <li><a href="#経緯" id="toc-経緯" class="nav-link active" data-scroll-target="#経緯">1. 経緯</a></li>
+  <li><a href="#gemini-との開発過程" id="toc-gemini-との開発過程" class="nav-link" data-scroll-target="#gemini-との開発過程">2. Gemini との開発過程</a></li>
+  <li><a href="#完成品" id="toc-完成品" class="nav-link" data-scroll-target="#完成品">3. 完成品</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">dev</div>
+    <div class="quarto-category">vim</div>
+  </div>
+  </div>
 
 
 
-<section id="i9wa4s-page-h1" class="level1">
-<h1>i9wa4’s page h1</h1>
-<p>Welcome to i9wa4’s page!</p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Profile</td>
-<td style="text-align: left;"><a href="https://i9wa4.github.io/i9wa4" class="uri">https://i9wa4.github.io/i9wa4</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Blog</td>
-<td style="text-align: left;"><a href="https://i9wa4.github.io/blog" class="uri">https://i9wa4.github.io/blog</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Resume</td>
-<td style="text-align: left;"><a href="https://i9wa4.github.io/resume" class="uri">https://i9wa4.github.io/resume</a></td>
-</tr>
-</tbody>
-</table>
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-05-03</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024-08-24</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>こんにちは。i9wa4 です。</p>
+<section id="経緯" class="level2">
+<h2 class="anchored" data-anchor-id="経緯">1. 経緯</h2>
+<p>私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。</p>
+<p>.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。</p>
+<p><a href="https://github.com/itchyny/vim-gitbranch" class="uri">https://github.com/itchyny/vim-gitbranch</a></p>
+<p>Gemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。</p>
+</section>
+<section id="gemini-との開発過程" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-との開発過程">2. Gemini との開発過程</h2>
+<p>Gemini とのやりとりを書き残しておきます。</p>
+<section id="git-探索関数作成" class="level3">
+<h3 class="anchored" data-anchor-id="git-探索関数作成">2.1. .git 探索関数作成</h3>
+<section id="質問" class="level4">
+<h4 class="anchored" data-anchor-id="質問">2.1.1. 質問</h4>
+<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
+- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。</code></pre>
+</section>
+<section id="回答" class="level4">
+<h4 class="anchored" data-anchor-id="回答">2.1.2. 回答</h4>
+<pre class="plaintext"><code>Vim script で .git ディレクトリを探す関数
+
+以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。
+
+function! FindGitDir(dir)
+  " 引数がない場合はカレントディレクトリを代入 "
+  if (empty(a:dir))
+    let dir = expand('%:p')
+  endif
+
+  " ループフラグを初期化 "
+  let found = 0
+
+  " 順に上の階層をたどる "
+  while (!found &amp;&amp; !empty(dir) &amp;&amp; dir != '/')
+    " .git ディレクトリが存在するか確認 "
+    if (isdirectory(dir . '/.git'))
+      let found = 1
+      let gitdir = dir . '/.git'
+    endif
+
+    " 上の階層へ移動 "
+    let dir = expand(dirname(dir))
+  endwhile
+
+  " 結果を返す "
+  if (found)
+    return gitdir
+  else
+    return ''
+  endif
+endfunction</code></pre>
+</section>
+</section>
+<section id="ブランチ名取得関数作成" class="level3">
+<h3 class="anchored" data-anchor-id="ブランチ名取得関数作成">2.2. ブランチ名取得関数作成</h3>
+<section id="質問-1" class="level4">
+<h4 class="anchored" data-anchor-id="質問-1">2.2.1. 質問</h4>
+<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
+- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。</code></pre>
+</section>
+<section id="回答-1" class="level4">
+<h4 class="anchored" data-anchor-id="回答-1">2.2.2. 回答</h4>
+<pre class="plaintext"><code>以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。
+
+function! GetCurrentBranch(gitdir)
+  " 引数が空の場合、エラーを返す "
+  if (empty(a:gitdir))
+    error('引数が空です')
+  endif
+
+  " カレントブランチ名の取得 "
+  let branch = system('git --git-dir="' . a:gitdir . '" rev-parse --abbrev-ref HEAD')
+
+  " .git ディレクトリを除いたブランチ名を返す "
+  return substitute(branch, a:gitdir . '/', '', 'g')
+endfunction</code></pre>
+</section>
+<section id="質問-2" class="level4">
+<h4 class="anchored" data-anchor-id="質問-2">2.2.3. 質問</h4>
+<pre class="plaintext"><code>system() を使わず、gitコマンドを使わずに実現させてほしいです。</code></pre>
+</section>
+<section id="回答-2" class="level4">
+<h4 class="anchored" data-anchor-id="回答-2">2.2.4. 回答</h4>
+<pre class="plaintext"><code>Vim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。
+
+
+1. :echo %b コマンドを使用する
+
+この方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。
+
+" 現在のブランチ名をエコーする "
+:echo %b
+
+
+2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む
+
+この方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。
+
+" .git/HEAD ファイルのパスを取得 "
+let headfile = expand('%:p:h') . '/.git/HEAD'
+
+" HEAD ファイルの内容を読み込む "
+let headcontent = readfile(headfile)
+
+" ブランチ名を抽出する "
+let branch = match(headcontent, 'ref: refs/heads/(.+)')
+
+" 結果を確認 "
+echo "現在のブランチ: " . branch
+
+
+3. git log の出力を解析する
+
+この方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。
+Vim Script
+
+" git log の出力をバッファに読み込む "
+:redir &gt; /dev/null git log -1
+
+" ブランチ名を抽出する "
+let branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')
+
+" 結果を確認 "
+echo "現在のブランチ: " . branch</code></pre>
+<p>回答1が嘘すぎてびっくり。今回は回答2がよさそう。</p>
+<p>この時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。</p>
+<p><a href="https://github.com/itchyny/vim-gitbranch" class="uri">https://github.com/itchyny/vim-gitbranch</a></p>
+<p>ここまで分かればあとは動作を確認しながら書けそうです。</p>
+</section>
+</section>
+</section>
+<section id="完成品" class="level2">
+<h2 class="anchored" data-anchor-id="完成品">3. 完成品</h2>
+<p>Gemini と考えたコードが跡形もなくなっている。。なぜ。。</p>
+<p>TODO: 繰り返し呼ばれることを念頭に処理を軽くしたい</p>
+<p><a href="https://github.com/i9wa4/get-git-branch-name.vim" class="uri">https://github.com/i9wa4/get-git-branch-name.vim</a></p>
 
 
 </section>
