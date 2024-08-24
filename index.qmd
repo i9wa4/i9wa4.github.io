@@ -15,6 +15,10 @@ listing:
 
 Welcome to i9wa4's page!
 
+[![GitHub](https://img.shields.io/badge/GitHub-181717.svg?logo=github&logoColor=white)](https://github.com/i9wa4)
+[![X](https://img.shields.io/badge/X_(Twitter)-000000.svg?logo=x&logoColor=white)](https://x.com/i9wa4_)
+[![Bluesky](https://img.shields.io/badge/Bluesky-0285FF.svg?logo=bluesky&logoColor=white)](https://bsky.app/profile/i9wa4.bsky.social)
+
 - [About me](https://i9wa4.github.io/i9wa4)
 - [Blog](./blog)
 - [Slides](./slides)
