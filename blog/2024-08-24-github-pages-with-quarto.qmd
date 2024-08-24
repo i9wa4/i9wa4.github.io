@@ -1,0 +1,10 @@
+---
+title: ""
+date:
+date-modified: last-modified
+categories:
+  - "game"
+draft: true
+---
+
+こんにちは。i9wa4 です。
