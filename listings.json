@@ -1,5 +1,25 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/blog/index.html",
+      "/blog/2024-07-20-aigis-note.html",
+      "/blog/2024-07-20-minecraft-note.html",
+      "/blog/2024-07-15-technical-tips.html",
+      "/blog/2024-06-28-systemd-user.html",
+      "/blog/2024-06-17-purchased-gadgets.html",
+      "/blog/2024-06-17-setup-mac.html",
+      "/blog/2024-05-05-deploy-quarto.html",
+      "/blog/2024-05-04-get-git-branch-name.vim.html",
+      "/blog/2024-03-26-setup-ds100knock.html",
+      "/blog/2024-03-25-setup-wsl2.html",
+      "/blog/2024-01-27-setup-efm-langserver.html",
+      "/blog/2024-01-02-vim-plugin-mnh.html",
+      "/blog/2024-01-02-jelyll-adjust.html",
+      "/blog/2024-01-01-init.html"
+    ]
+  },
+  {
     "listing": "/slides/index.html",
     "items": [
       "/slides/20240204-sapporo.vim.html",

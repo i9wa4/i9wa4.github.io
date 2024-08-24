@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href=".//assets/common/icon_hhkb2.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,9 +71,68 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<meta property="og:title" content="i9wa4’s page">
+    const options = {
+      valueNames: ['listing-date','listing-categories','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      page: 4,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="i9wa4's page" href="index.xml" data-external="1"><meta property="og:title" content="i9wa4’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
@@ -83,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -149,7 +210,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="aigis">aigis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dev">dev <span class="quarto-category-count">(6)</span></div><div class="category" data-category="diary">diary <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gadget">gadget <span class="quarto-category-count">(1)</span></div><div class="category" data-category="game">game <span class="quarto-category-count">(2)</span></div><div class="category" data-category="jekyll">jekyll <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mac">mac <span class="quarto-category-count">(1)</span></div><div class="category" data-category="minecraft">minecraft <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tips">tips <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vim">vim <span class="quarto-category-count">(3)</span></div><div class="category" data-category="wsl2">wsl2 <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -162,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">Profile</td>
+<td style="text-align: right;">About me</td>
 <td style="text-align: left;"><a href="https://i9wa4.github.io/i9wa4" class="uri">https://i9wa4.github.io/i9wa4</a></td>
 </tr>
 <tr class="even">
@@ -181,9 +243,374 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1724486263038" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/index.html" class="no-external">Blog</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/index.html" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./blog/index.html" class="no-external"></a></p><a href="./blog/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="game,aigis" data-listing-date-sort="1721483216000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-07-20-aigis-note.html" class="no-external">自分用千年戦争アイギスメモ</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-07-20-aigis-note.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('game'); return false;">
+game
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('aigis'); return false;">
+aigis
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-07-20-aigis-note.html" class="no-external">
+<div class="listing-date">
+2024-07-20
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="game,minecraft" data-listing-date-sort="1721482768000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-07-20-minecraft-note.html" class="no-external">自分用 Minecraft メモ</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-07-20-minecraft-note.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('game'); return false;">
+game
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('minecraft'); return false;">
+minecraft
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-07-20-minecraft-note.html" class="no-external">
+<div class="listing-date">
+2024-07-20
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="tips" data-listing-date-sort="1721027711000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-07-15-technical-tips.html" class="no-external">技術系 Tips まとめ</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-07-15-technical-tips.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tips'); return false;">
+tips
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-07-15-technical-tips.html" class="no-external">
+<div class="listing-date">
+2024-07-15
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="dev" data-listing-date-sort="1719507392000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-06-28-systemd-user.html" class="no-external">systemd がユーザー権限でも使える</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-06-28-systemd-user.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dev'); return false;">
+dev
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-06-28-systemd-user.html" class="no-external">
+<div class="listing-date">
+2024-06-27
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="gadget" data-listing-date-sort="1718595737000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1210">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-06-17-purchased-gadgets.html" class="no-external">購入したガジェットの紹介</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-06-17-purchased-gadgets.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('gadget'); return false;">
+gadget
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-06-17-purchased-gadgets.html" class="no-external">
+<div class="listing-date">
+2024-06-17
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="mac" data-listing-date-sort="1718594496000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="4" data-listing-word-count-sort="702">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-06-17-setup-mac.html" class="no-external">Mac 環境構築手順</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-06-17-setup-mac.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('mac'); return false;">
+mac
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-06-17-setup-mac.html" class="no-external">
+<div class="listing-date">
+2024-06-17
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="dev" data-listing-date-sort="1714846989000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-05-05-deploy-quarto.html" class="no-external">Quarto で作ったスライドを GitHub Pages にデプロイする</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-05-05-deploy-quarto.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dev'); return false;">
+dev
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-05-05-deploy-quarto.html" class="no-external">
+<div class="listing-date">
+2024-05-04
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="dev,vim" data-listing-date-sort="1714763224000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-05-04-get-git-branch-name.vim.html" class="no-external">Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-05-04-get-git-branch-name.vim.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dev'); return false;">
+dev
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('vim'); return false;">
+vim
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-05-04-get-git-branch-name.vim.html" class="no-external">
+<div class="listing-date">
+2024-05-03
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="wsl2" data-listing-date-sort="1711379976000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-03-26-setup-ds100knock.html" class="no-external">データサイエンス100本ノックの実行環境構築 (WSL2)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-03-26-setup-ds100knock.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('wsl2'); return false;">
+wsl2
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-03-26-setup-ds100knock.html" class="no-external">
+<div class="listing-date">
+2024-03-25
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="wsl2" data-listing-date-sort="1711375248000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-03-25-setup-wsl2.html" class="no-external">WSL2 のセットアップ</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-03-25-setup-wsl2.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('wsl2'); return false;">
+wsl2
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-03-25-setup-wsl2.html" class="no-external">
+<div class="listing-date">
+2024-03-25
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="vim,dev" data-listing-date-sort="1706362659000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="2" data-listing-word-count-sort="228">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-01-27-setup-efm-langserver.html" class="no-external">efm-langserver を Vim/Neovim で利用する</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-01-27-setup-efm-langserver.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('vim'); return false;">
+vim
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dev'); return false;">
+dev
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-01-27-setup-efm-langserver.html" class="no-external">
+<div class="listing-date">
+2024-01-27
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="vim,dev" data-listing-date-sort="1704199666000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-01-02-vim-plugin-mnh.html" class="no-external">自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-01-02-vim-plugin-mnh.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('vim'); return false;">
+vim
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dev'); return false;">
+dev
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-01-02-vim-plugin-mnh.html" class="no-external">
+<div class="listing-date">
+2024-01-02
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="jekyll,dev" data-listing-date-sort="1704184495000" data-listing-file-modified-sort="1724486263038" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-01-02-jelyll-adjust.html" class="no-external">GitHub Pages (Jekyll) blog のタグ追加対応</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-01-02-jelyll-adjust.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('jekyll'); return false;">
+jekyll
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dev'); return false;">
+dev
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-01-02-jelyll-adjust.html" class="no-external">
+<div class="listing-date">
+2024-01-02
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="diary" data-listing-date-sort="1704047292000" data-listing-file-modified-sort="1724486263034" data-listing-date-modified-sort="1724486263000" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/2024-01-01-init.html" class="no-external">Initial Post</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/2024-01-01-init.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
+diary
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/2024-01-01-init.html" class="no-external">
+<div class="listing-date">
+2023-12-31
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
