@@ -1161,8 +1161,8 @@ echo "現在のブランチ: " . branch</code></pre>
 </section>
 
  ]]></description>
-  <category>dev</category>
   <category>vim</category>
+  <category>dev</category>
   <guid>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</guid>
   <pubDate>Fri, 03 May 2024 19:07:04 GMT</pubDate>
 </item>

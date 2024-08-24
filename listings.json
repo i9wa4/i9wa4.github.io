@@ -2,8 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/blog/index.html",
-      "/slides/index.html",
       "/blog/2024-07-20-aigis-note.html",
       "/blog/2024-07-20-minecraft-note.html",
       "/blog/2024-07-15-technical-tips.html",
@@ -19,13 +17,6 @@
       "/blog/2024-01-02-vim-plugin-mnh.html",
       "/blog/2024-01-02-jelyll-adjust.html",
       "/blog/2024-01-01-init.html",
-      "/slides/20231216-sapporo.vim.html"
-    ]
-  },
-  {
-    "listing": "/slides/index.html",
-    "items": [
-      "/slides/20240204-sapporo.vim.html",
       "/slides/20231216-sapporo.vim.html"
     ]
   },
@@ -46,6 +37,13 @@
       "/blog/2024-01-02-vim-plugin-mnh.html",
       "/blog/2024-01-02-jelyll-adjust.html",
       "/blog/2024-01-01-init.html"
+    ]
+  },
+  {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/20240204-sapporo.vim.html",
+      "/slides/20231216-sapporo.vim.html"
     ]
   }
 ]
