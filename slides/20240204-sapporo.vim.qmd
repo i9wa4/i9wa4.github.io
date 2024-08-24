@@ -3,7 +3,7 @@ title: "Sapporo.vim 自己紹介"
 author: i9wa4
 date: 2024-02-04
 date-modified: last-modified
-categories: [vim-jp]
+categories: [slide, vim-jp]
 format:
   revealjs:
     # embed-resources: true
@@ -18,7 +18,7 @@ format:
 # jupyter: python3
 ---
 
-## 1. 自己紹介
+## 自己紹介
 
 - **【HN】** i9wa4 (いくわよ)
 - **【札幌在住歴】** 9年
@@ -28,11 +28,11 @@ format:
     - vim-lsp 導入
     - efm-langserver 導入
 
-## 2. 本日のタスク
+## 本日のタスク
 
 1. Docker / Kubernetes の入門書を読む
 
-## 3. 結果
+## 結果
 
 1. 何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも
 1. ちょっと古い本だったので Compose Spec について追加で調べた
