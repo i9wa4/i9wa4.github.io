@@ -2,7 +2,7 @@
 title: "自分用 Minecraft メモ"
 date: 2024-07-20 22:39:28 +0900
 date-modified: last-modified
-categories: [game, minecraft]
+categories: [game]
 ---
 
 こんにちは。i9wa4 です。
