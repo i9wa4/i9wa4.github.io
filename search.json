@@ -304,22 +304,22 @@
     "objectID": "slides/20240204-sapporo.vim.html#自己紹介",
     "href": "slides/20240204-sapporo.vim.html#自己紹介",
     "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
+    "section": "自己紹介",
+    "text": "自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
   },
   {
     "objectID": "slides/20240204-sapporo.vim.html#本日のタスク",
     "href": "slides/20240204-sapporo.vim.html#本日のタスク",
     "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
+    "section": "本日のタスク",
+    "text": "本日のタスク\n\nDocker / Kubernetes の入門書を読む"
   },
   {
     "objectID": "slides/20240204-sapporo.vim.html#結果",
     "href": "slides/20240204-sapporo.vim.html#結果",
     "title": "Sapporo.vim 自己紹介",
-    "section": "3. 結果",
-    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に\n\n\n\n\n\nhttps://connpass.com/event/307552/"
+    "section": "結果",
+    "text": "結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に\n\n\n\n\n\nhttps://connpass.com/event/307552/"
   },
   {
     "objectID": "slides/20231216-sapporo.vim.html#自己紹介",
@@ -347,7 +347,7 @@
     "href": "slides/index.html",
     "title": "Slides",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslide\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslide\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/2024-06-28-systemd-user.html",
