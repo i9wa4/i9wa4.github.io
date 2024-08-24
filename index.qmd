@@ -2,7 +2,7 @@
 toc: false
 listing:
   categories: numbered
-  contents: ["blog"]
+  contents: ["blog", "slides"]
   feed: true
   fields: [date, categories, title]
   page-size: 20
@@ -17,9 +17,4 @@ listing:
 [![X](https://img.shields.io/badge/X_(Twitter)-000000.svg?logo=x&logoColor=white)](https://x.com/i9wa4_)
 [![Bluesky](https://img.shields.io/badge/Bluesky-0285FF.svg?logo=bluesky&logoColor=white)](https://bsky.app/profile/i9wa4.bsky.social)
 
-- [About me](https://i9wa4.github.io/i9wa4)
-- [Blog](./blog)
-- [Slides](./slides)
-- [Resume](./resume)
-
-## Blog
+## Blog & Slides
