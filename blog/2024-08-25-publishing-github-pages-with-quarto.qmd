@@ -16,11 +16,10 @@ GitHub でブログやスライドを管理したい方にオススメな Quarto
 
 [Quarto – GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
 
-## 1. 想定する対象者
+## 1. 想定する読者
 
-- Linux (WSL2) もしくは Mac 利用者
-- Git/GitHub の基本操作の説明がなくても読める方
-- 取り急ぎドキュメント内のコード実行は不要な方
+- Python の環境構築ができている方
+- Git/GitHub 操作の説明がなくても問題ない方
 
 ## 2. 事前準備
 
