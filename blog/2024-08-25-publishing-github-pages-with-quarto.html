@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-25">
+<meta name="dcterms.date" content="2024-08-25">
 
-<title>WSL2 のセットアップ – i9wa4’s page</title>
+<title>Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する – i9wa4’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,11 +90,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="WSL2 のセットアップ – i9wa4’s page">
+<meta property="og:title" content="Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する – i9wa4’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
-<meta name="twitter:title" content="WSL2 のセットアップ – i9wa4’s page">
+<meta name="twitter:title" content="Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する – i9wa4’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -176,9 +176,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">TOC</h2>
    
   <ul class="collapse">
-  <li><a href="#wsl-コマンドのインストール" id="toc-wsl-コマンドのインストール" class="nav-link active" data-scroll-target="#wsl-コマンドのインストール">1. WSL コマンドのインストール</a></li>
-  <li><a href="#ディストリビューションのインストール" id="toc-ディストリビューションのインストール" class="nav-link" data-scroll-target="#ディストリビューションのインストール">2. ディストリビューションのインストール</a></li>
-  <li><a href="#ディストリビューションのアンインストール" id="toc-ディストリビューションのアンインストール" class="nav-link" data-scroll-target="#ディストリビューションのアンインストール">3. ディストリビューションのアンインストール</a></li>
+  <li><a href="#想定する対象者" id="toc-想定する対象者" class="nav-link active" data-scroll-target="#想定する対象者">1. 想定する対象者</a></li>
+  <li><a href="#事前準備" id="toc-事前準備" class="nav-link" data-scroll-target="#事前準備">2. 事前準備</a></li>
+  <li><a href="#基本構造を整える" id="toc-基本構造を整える" class="nav-link" data-scroll-target="#基本構造を整える">3. 基本構造を整える</a></li>
+  <li><a href="#初回デプロイを行う" id="toc-初回デプロイを行う" class="nav-link" data-scroll-target="#初回デプロイを行う">4. 初回デプロイを行う</a></li>
+  <li><a href="#回目以降のデプロイを自動化する" id="toc-回目以降のデプロイを自動化する" class="nav-link" data-scroll-target="#回目以降のデプロイを自動化する">5. 2回目以降のデプロイを自動化する</a></li>
+  <li><a href="#ブログ記事とスライドのための構造を整える" id="toc-ブログ記事とスライドのための構造を整える" class="nav-link" data-scroll-target="#ブログ記事とスライドのための構造を整える">6. ブログ記事とスライドのための構造を整える</a></li>
   </ul>
 </nav>
     </div>
@@ -187,9 +190,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">WSL2 のセットアップ</h1>
+<h1 class="title">Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">wsl2</div>
+    <div class="quarto-category">quarto</div>
   </div>
   </div>
 
@@ -201,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-03-25</p>
+      <p class="date">2024-08-25</p>
     </div>
   </div>
   
@@ -220,42 +223,263 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>こんにちは。i9wa4 です。</p>
-<p>Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。</p>
-<section id="wsl-コマンドのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="wsl-コマンドのインストール">1. WSL コマンドのインストール</h2>
-<p><a href="https://learn.microsoft.com/ja-jp/windows/wsl/install#install-wsl-command">WSL のインストール | Microsoft Learn</a> に従います。</p>
-<ol type="1">
-<li>管理者権限で PowerShell or コマンドプロンプトを開きます。</li>
-<li><code>wsl --install</code> を実行します。 <img src="../assets/20240325-posts-setup-wsl2/setup-wsl2-01.png" class="img-fluid" alt="20240325-setup-wsl2-01"></li>
-<li>以下のように表示されるのでマシンを再起動します。 <img src="../assets/20240325-posts-setup-wsl2/setup-wsl2-02.png" class="img-fluid" alt="20240325-setup-wsl2-02"></li>
-</ol>
+<p>Markdown でブログやスライドを管理したい方に最適な Quarto による GitHub Pages 公開手順を紹介していきます。</p>
+<p>スライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。</p>
+<p>ここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのページ構成を導入します。</p>
+<p><a href="https://quarto.org/docs/publishing/github-pages.html">Quarto – GitHub Pages</a></p>
+<section id="想定する対象者" class="level2">
+<h2 class="anchored" data-anchor-id="想定する対象者">1. 想定する対象者</h2>
+<ul>
+<li>Linux (WSL2) もしくは Mac 利用者</li>
+<li>Git/GitHub の基本操作の説明がなくても読める方</li>
+<li>取り急ぎドキュメント内のコード実行は不要な方</li>
+</ul>
 </section>
-<section id="ディストリビューションのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="ディストリビューションのインストール">2. ディストリビューションのインストール</h2>
-<ol type="1">
-<li><p>PowerShell or コマンドプロンプトを開きます。</p></li>
-<li><p>インストール可能なディストリビューションを表示します。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-list</span> -<span class="at">-oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Ubuntu 22.04 LTS をインストールする場合は以下のように入力します。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-install</span> <span class="at">-d</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>画面表示に従ってユーザー名とパスワードを入力します。</p></li>
-<li><p>Ubuntu を終了します。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>(必要に応じて) 既定のディストリビューションを設定します。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-set-default</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
+<section id="事前準備" class="level2">
+<h2 class="anchored" data-anchor-id="事前準備">2. 事前準備</h2>
+<section id="quarto-のインストール" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-のインストール">2.1. Quarto のインストール</h3>
+<p>まずは Quarto をインストールしておきましょう。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install quarto-cli</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>なぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。</p>
+<p><a href="https://github.com/quarto-dev/quarto-cli/discussions/8597">Installing quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597</a></p>
 </section>
-<section id="ディストリビューションのアンインストール" class="level2">
-<h2 class="anchored" data-anchor-id="ディストリビューションのアンインストール">3. ディストリビューションのアンインストール</h2>
-<ol type="1">
-<li><p>PowerShell or コマンドプロンプトを開きます。</p></li>
-<li><p>インストール済みのディストリビューションを表示します。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>不要なディストリビューションをアンインストールします。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-unregister</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
+<section id="github-リポジトリ作成" class="level3">
+<h3 class="anchored" data-anchor-id="github-リポジトリ作成">2.2. GitHub リポジトリ作成</h3>
+<p>任意の名前でリポジトリを作成しましょう。</p>
+<p>私は GitHub リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a> を作成していて公開 URL は <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a> になります。</p>
+<p>ここではデモ用に <a href="https://github.com/i9wa4/quarto-page" class="uri">https://github.com/i9wa4/quarto-page</a> というリポジトリを作成してみます。こちらの公開 URL は <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> になります。</p>
+<p>特にこだわりがなければ <code>username.github.io</code> がオススメです。</p>
+</section>
+</section>
+<section id="基本構造を整える" class="level2">
+<h2 class="anchored" data-anchor-id="基本構造を整える">3. 基本構造を整える</h2>
+<p>作成したリポジトリをクローンして以下のファイルを作成します。</p>
+<ul>
+<li><p><code>_quarto.yml</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>_quarto.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="_quarto.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>.nojelyll</code></p>
+<p>空ファイルなので下記コマンドで作成します。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch .nojekyll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>.gitignore</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.gitignore</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename=".gitignore"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>/.quarto/</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>/docs/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="index.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> トップページ index.qmd</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>本文</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+<p>作成できたら main ブランチに push しておきましょう。</p>
+</section>
+<section id="初回デプロイを行う" class="level2">
+<h2 class="anchored" data-anchor-id="初回デプロイを行う">4. 初回デプロイを行う</h2>
+<p>初回はローカル環境からデプロイを実行します。</p>
+<p>指示に従って yes と入力すると <code>gh-pages</code> ブランチが作成されて初回デプロイが完了します。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto publish gh-pages</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages<span class="pp">?</span> <span class="er">(</span><span class="ex">Y/n</span><span class="kw">)</span> <span class="ex">›</span> Yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="回目以降のデプロイを自動化する" class="level2">
+<h2 class="anchored" data-anchor-id="回目以降のデプロイを自動化する">5. 2回目以降のデプロイを自動化する</h2>
+<p>2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.github/workflows/publish.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb7" data-filename=".github/workflows/publish.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Quarto Publish</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">permissions</span><span class="kw">:</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> write</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/publish@v2</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">target</span><span class="kw">:</span><span class="at"> gh-pages</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ブログ記事とスライドのための構造を整える" class="level2">
+<h2 class="anchored" data-anchor-id="ブログ記事とスライドのための構造を整える">6. ブログ記事とスライドのための構造を整える</h2>
+<p>以下の内容を push すると <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> が完成します。</p>
+<ul>
+<li><p><code>index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename="index.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> トップページ index.qmd</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co">  # トップページにリスト表示させたくない場合は listing の設定は不要</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">  contents:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - "blog"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - "slides"  # トップページにスライドを表示させる場合</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">  exclude:</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    filename: "index.qmd"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">  sort:</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - "date desc"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>本文</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ブログ記事一覧</span><span class="co">](./blog)</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">スライド一覧</span><span class="co">](./slides)</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## ブログとスライドの新着一覧</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>ブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+<section id="ブログ" class="level3">
+<h3 class="anchored" data-anchor-id="ブログ">6.1. ブログ</h3>
+<ul>
+<li><p><code>blog/index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>blog/index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="blog/index.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> ブログ記事一覧</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">  contents:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - "."</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">  sort:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - "date desc"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>blog/2024-08-25-test1.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>blog/2024-08-25-test1.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename="blog/2024-08-25-test1.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> test1</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024-08-25</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>1行目</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>blog/test2.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>blog/test2.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb11" data-filename="blog/test2.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> test2</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024-08-26</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ここが1行目</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+</section>
+<section id="スライド" class="level3">
+<h3 class="anchored" data-anchor-id="スライド">6.2. スライド</h3>
+<ul>
+<li><p><code>slides/index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>slides/index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb12" data-filename="slides/index.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> スライド一覧</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">  contents:</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - "."</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">  sort:</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - "date desc"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>slides/test1-slide.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>slides/test1-slide.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb13" data-filename="slides/test1-slide.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "test1-slide タイトル"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> i9wa4</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024-08-25</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    slide-level: 2</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    slide-number: true</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>本文</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## サブタイトル1</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>本文</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## サブタイトル2</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>本文</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><code>slides/test2-slide.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>slides/test2-slide.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb14" data-filename="slides/test2-slide.qmd"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "test2-slide タイトル"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> i9wa4</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024-08-25</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">    slide-level: 2</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">    slide-number: true</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>本文</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## サブタイトル1</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>本文</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## サブタイトル2</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>本文</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

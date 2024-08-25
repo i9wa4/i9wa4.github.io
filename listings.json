@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2024-08-25-publishing-github-pages-with-quarto.html",
       "/blog/2024-07-20-aigis-note.html",
       "/blog/2024-07-20-minecraft-note.html",
       "/blog/2024-07-15-technical-tips.html",
@@ -23,6 +24,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2024-08-25-publishing-github-pages-with-quarto.html",
       "/blog/2024-07-20-aigis-note.html",
       "/blog/2024-07-20-minecraft-note.html",
       "/blog/2024-07-15-technical-tips.html",
