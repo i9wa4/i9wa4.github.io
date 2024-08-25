@@ -249,7 +249,7 @@
     "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#事前準備",
     "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
     "section": "2. 事前準備",
-    "text": "2. 事前準備\n\n2.1. Quarto のインストール\nまずは Quarto をインストールしておきましょう。\n$ pip install quarto-cli\nなぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。\nInstalling quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597\n\n\n2.2. GitHub リポジトリ作成\n任意の名前でリポジトリを作成しましょう。\n私は GitHub リポジトリ https://github.com/i9wa4/i9wa4.github.io を作成していて公開 URL は https://i9wa4.github.io になります。\nここではデモ用に https://github.com/i9wa4/quarto-page というリポジトリを作成してみます。こちらの公開 URL は https://i9wa4.github.io/quarto-page になります。\n特にこだわりがなければ username.github.io がオススメです。"
+    "text": "2. 事前準備\n\n2.1. Quarto のインストール\nまずは Quarto をインストールしておきましょう。\n$ pip install quarto-cli\nなぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。\nInstalling quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597\n\n\n2.2. GitHub リポジトリ作成\n任意の名前でリポジトリを作成しましょう。\n私は GitHub リポジトリ https://github.com/i9wa4/i9wa4.github.io を作成していて公開 URL は https://i9wa4.github.io になります。\nここではデモ用に https://github.com/i9wa4/quarto-page というリポジトリを作成してみます。こちらの公開 URL は https://i9wa4.github.io/quarto-page になります。\n特にこだわりがなければリポジトリ名は username.github.io でよいでしょう。"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#基本構造を整える",

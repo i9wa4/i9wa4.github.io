@@ -52,7 +52,7 @@ font-style: inherit;">$</span> pip install quarto-cli</span></code></pre></div>
 <p>任意の名前でリポジトリを作成しましょう。</p>
 <p>私は GitHub リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a> を作成していて公開 URL は <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a> になります。</p>
 <p>ここではデモ用に <a href="https://github.com/i9wa4/quarto-page" class="uri">https://github.com/i9wa4/quarto-page</a> というリポジトリを作成してみます。こちらの公開 URL は <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> になります。</p>
-<p>特にこだわりがなければ <code>username.github.io</code> がオススメです。</p>
+<p>特にこだわりがなければリポジトリ名は <code>username.github.io</code> でよいでしょう。</p>
 </section>
 </section>
 <section id="基本構造を整える" class="level2">
