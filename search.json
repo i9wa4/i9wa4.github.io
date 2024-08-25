@@ -238,11 +238,11 @@
     "text": "こんにちは。i9wa4 です。\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。\nスライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。\nここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。\nQuarto – GitHub Pages"
   },
   {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する対象者",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する対象者",
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
     "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "1. 想定する対象者",
-    "text": "1. 想定する対象者\n\nLinux (WSL2) もしくは Mac 利用者\nGit/GitHub の基本操作の説明がなくても読める方\n取り急ぎドキュメント内のコード実行は不要な方"
+    "section": "1. 想定する読者",
+    "text": "1. 想定する読者\n\nPython の環境構築ができている方\nGit/GitHub 操作の説明がなくても問題ない方"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#事前準備",
