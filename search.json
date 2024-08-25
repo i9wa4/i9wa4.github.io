@@ -280,6 +280,13 @@
     "text": "6. ブログ記事とスライドのための構造を整える\n以下の内容を push すると https://i9wa4.github.io/quarto-page が完成します。\n\nindex.qmd\n\n\nindex.qmd\n\n---\ntitle: トップページ index.qmd\nlisting:  # トップページにリスト表示させたくない場合は listing の設定は不要\n  contents:\n    - \"blog\"\n    - \"slides\"  # トップページにスライドを表示させる場合\n  exclude:\n    filename: \"index.qmd\"\n  sort:\n    - \"date desc\"\n---\n\n本文\n\n- [ブログ記事一覧](./blog)\n- [スライド一覧](./slides)\n\n## ブログとスライドの新着一覧\n\nブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。\n\n\n\n6.1. ブログ\n\nblog/index.qmd\n\n\nblog/index.qmd\n\n---\ntitle: ブログ記事一覧\nlisting:\n  contents:\n    - \".\"\n  sort:\n    - \"date desc\"\n---\n\nblog/2024-08-25-test1.qmd\n\n\nblog/2024-08-25-test1.qmd\n\n---\ntitle: test1\ndate: 2024-08-25\n---\n\n1行目\n\nファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。\n\nblog/test2.qmd\n\n\nblog/test2.qmd\n\n---\ntitle: test2\ndate: 2024-08-26\n---\n\nここが1行目\n\nファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。\n\n\n\n\n6.2. スライド\n\nslides/index.qmd\n\n\nslides/index.qmd\n\n---\ntitle: スライド一覧\nlisting:\n  contents:\n    - \".\"\n  sort:\n    - \"date desc\"\n---\n\nslides/test1-slide.qmd\n\n\nslides/test1-slide.qmd\n\n---\ntitle: \"test1-slide タイトル\"\nauthor: i9wa4\ndate: 2024-08-25\nformat:\n  revealjs:\n    slide-level: 2\n    slide-number: true\n---\n\n本文\n\n## サブタイトル1\n\n本文\n\n## サブタイトル2\n\n本文\n\nslides/test2-slide.qmd\n\n\nslides/test2-slide.qmd\n\n---\ntitle: \"test2-slide タイトル\"\nauthor: i9wa4\ndate: 2024-08-25\nformat:\n  revealjs:\n    slide-level: 2\n    slide-number: true\n---\n\n本文\n\n## サブタイトル1\n\n本文\n\n## サブタイトル2\n\n本文"
   },
   {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "7. おわりに",
+    "text": "7. おわりに\nもっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。\n\nQuarto 公式ドキュメント Guide – Quarto\ni9wa4 の GitHub Pages\n\nリポジトリ https://github.com/i9wa4/i9wa4.github.io\nページ https://i9wa4.github.io"
+  },
+  {
     "objectID": "blog/2024-01-27-setup-efm-langserver.html",
     "href": "blog/2024-01-27-setup-efm-langserver.html",
     "title": "efm-langserver を Vim/Neovim で利用する",

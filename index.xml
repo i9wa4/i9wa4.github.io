@@ -669,9 +669,21 @@ font-style: inherit;">## サブタイトル2</span></span>
 <span id="cb14-19">本文</span></code></pre></div>
 </div></li>
 </ul>
-
-
 </section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">7. おわりに</h2>
+<p>もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。</p>
+<ul>
+<li>Quarto 公式ドキュメント <a href="https://quarto.org/docs/guide/">Guide – Quarto</a></li>
+<li>i9wa4 の GitHub Pages
+<ul>
+<li>リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a></li>
+<li>ページ <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a></li>
+</ul></li>
+</ul>
+
+
 </section>
 
  ]]></description>
