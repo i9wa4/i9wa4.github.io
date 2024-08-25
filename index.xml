@@ -670,8 +670,16 @@ font-style: inherit;">## サブタイトル2</span></span>
 </ul>
 </section>
 </section>
+<section id="プレビューを確認しつつ編集する" class="level2">
+<h2 class="anchored" data-anchor-id="プレビューを確認しつつ編集する">7. プレビューを確認しつつ編集する</h2>
+<p>プレビューを Web ブラウザで確認しながら編集が可能です。</p>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> quarto preview</span></code></pre></div>
+<p>編集内容がリアルタイムに反映されるので執筆体験がとても良いです！</p>
+</section>
 <section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">7. おわりに</h2>
+<h2 class="anchored" data-anchor-id="おわりに">8. おわりに</h2>
 <p>もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。</p>
 <ul>
 <li>Quarto 公式ドキュメント <a href="https://quarto.org/docs/guide/">Guide – Quarto</a></li>
