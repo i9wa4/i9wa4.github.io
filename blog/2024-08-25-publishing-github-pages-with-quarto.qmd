@@ -43,7 +43,7 @@ $ pip install quarto-cli
 
 ここではデモ用に <https://github.com/i9wa4/quarto-page> というリポジトリを作成してみます。こちらの公開 URL は <https://i9wa4.github.io/quarto-page> になります。
 
-特にこだわりがなければ `username.github.io` がオススメです。
+特にこだわりがなければリポジトリ名は `username.github.io` でよいでしょう。
 
 ## 3. 基本構造を整える
 
