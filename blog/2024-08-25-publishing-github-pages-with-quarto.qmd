@@ -260,3 +260,12 @@ jobs:
 
     本文
     ```
+
+## 7. おわりに
+
+もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。
+
+- Quarto 公式ドキュメント [Guide – Quarto](https://quarto.org/docs/guide/)
+- i9wa4 の GitHub Pages
+    - リポジトリ <https://github.com/i9wa4/i9wa4.github.io>
+    - ページ <https://i9wa4.github.io>
