@@ -6,7 +6,7 @@ listing:
     - "blog"
     - "slides"
   exclude:
-    title: "{Blog,Slides}"
+    filename: "index.qmd"
   feed: true
   fields:
     - "date"

@@ -3,7 +3,7 @@ title: "Quarto で作ったスライドを GitHub Pages にデプロイする"
 date: 2024-05-05 03:23:09 +0900
 date-modified: last-modified
 categories:
-  - "dev"
+  - "quarto"
 ---
 
 こんにちは。i9wa4 です。

@@ -1,0 +1,262 @@
+---
+title: "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する"
+date: 2024-08-25 17:25:32 +0900
+date-modified: last-modified
+categories:
+    - "quarto"
+---
+
+こんにちは。i9wa4 です。
+
+Markdown でブログやスライドを管理したい方に最適な Quarto による GitHub Pages 公開手順を紹介していきます。
+
+スライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。
+
+ここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのページ構成を導入します。
+
+[Quarto – GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
+
+## 1. 想定する対象者
+
+- Linux (WSL2) もしくは Mac 利用者
+- Git/GitHub の基本操作の説明がなくても読める方
+- 取り急ぎドキュメント内のコード実行は不要な方
+
+## 2. 事前準備
+
+### 2.1. Quarto のインストール
+
+まずは Quarto をインストールしておきましょう。
+
+```{.sh}
+$ pip install quarto-cli
+```
+
+なぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。
+
+[Installing quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597](https://github.com/quarto-dev/quarto-cli/discussions/8597)
+
+### 2.2. GitHub リポジトリ作成
+
+任意の名前でリポジトリを作成しましょう。
+
+私は GitHub リポジトリ <https://github.com/i9wa4/i9wa4.github.io> を作成していて公開 URL は <https://i9wa4.github.io> になります。
+
+ここではデモ用に <https://github.com/i9wa4/quarto-page> というリポジトリを作成してみます。こちらの公開 URL は <https://i9wa4.github.io/quarto-page> になります。
+
+特にこだわりがなければ `username.github.io` がオススメです。
+
+## 3. 基本構造を整える
+
+作成したリポジトリをクローンして以下のファイルを作成します。
+
+- `_quarto.yml`
+
+    ```{.yml filename="_quarto.yml"}
+    project:
+      type: website
+      output-dir: docs
+    ```
+
+- `.nojelyll`
+
+    空ファイルなので下記コマンドで作成します。
+
+    ```{.sh}
+    $ touch .nojekyll
+    ```
+
+- `.gitignore`
+
+    ```{.txt filename=".gitignore"}
+    /.quarto/
+    /docs/
+    ```
+
+- `index.qmd`
+
+    ```{.md filename="index.qmd"}
+    ---
+    title: トップページ index.qmd
+    ---
+
+    本文
+    ```
+
+作成できたら main ブランチに push しておきましょう。
+
+## 4. 初回デプロイを行う
+
+初回はローカル環境からデプロイを実行します。
+
+指示に従って yes と入力すると `gh-pages` ブランチが作成されて初回デプロイが完了します。
+
+```{.sh}
+$ quarto publish gh-pages
+? Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages? (Y/n) › Yes
+```
+
+## 5. 2回目以降のデプロイを自動化する
+
+2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。
+
+```{.yml filename=".github/workflows/publish.yml"}
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## 6. ブログ記事とスライドのための構造を整える
+
+以下の内容を push すると <https://i9wa4.github.io/quarto-page> が完成します。
+
+- `index.qmd`
+
+    ```{.md filename="index.qmd"}
+    ---
+    title: トップページ index.qmd
+    listing:  # トップページにリスト表示させたくない場合は listing の設定は不要
+      contents:
+        - "blog"
+        - "slides"  # トップページにスライドを表示させる場合
+      exclude:
+        filename: "index.qmd"
+      sort:
+        - "date desc"
+    ---
+
+    本文
+
+    - [ブログ記事一覧](./blog)
+    - [スライド一覧](./slides)
+
+    ## ブログとスライドの新着一覧
+
+    ブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。
+    ```
+
+### 6.1. ブログ
+
+- `blog/index.qmd`
+
+    ```{.md filename="blog/index.qmd"}
+    ---
+    title: ブログ記事一覧
+    listing:
+      contents:
+        - "."
+      sort:
+        - "date desc"
+    ---
+    ```
+
+- `blog/2024-08-25-test1.qmd`
+
+    ```{.md filename="blog/2024-08-25-test1.qmd"}
+    ---
+    title: test1
+    date: 2024-08-25
+    ---
+
+    1行目
+
+    ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。
+    ```
+
+- `blog/test2.qmd`
+
+    ```{.md filename="blog/test2.qmd"}
+    ---
+    title: test2
+    date: 2024-08-26
+    ---
+
+    ここが1行目
+
+    ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。
+    ```
+
+### 6.2. スライド
+
+- `slides/index.qmd`
+
+    ```{.md filename="slides/index.qmd"}
+    ---
+    title: スライド一覧
+    listing:
+      contents:
+        - "."
+      sort:
+        - "date desc"
+    ---
+    ```
+
+- `slides/test1-slide.qmd`
+
+    ```{.md filename="slides/test1-slide.qmd"}
+    ---
+    title: "test1-slide タイトル"
+    author: i9wa4
+    date: 2024-08-25
+    format:
+      revealjs:
+        slide-level: 2
+        slide-number: true
+    ---
+
+    本文
+
+    ## サブタイトル1
+
+    本文
+
+    ## サブタイトル2
+
+    本文
+    ```
+
+- `slides/test2-slide.qmd`
+
+    ```{.md filename="slides/test2-slide.qmd"}
+    ---
+    title: "test2-slide タイトル"
+    author: i9wa4
+    date: 2024-08-25
+    format:
+      revealjs:
+        slide-level: 2
+        slide-number: true
+    ---
+
+    本文
+
+    ## サブタイトル1
+
+    本文
+
+    ## サブタイトル2
+
+    本文
+    ```
