@@ -694,6 +694,7 @@ font-style: inherit;">$</span> quarto preview</span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>quarto</category>
   <guid>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</guid>
   <pubDate>Sun, 25 Aug 2024 08:25:32 GMT</pubDate>
@@ -1181,7 +1182,7 @@ font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
 </section>
 
  ]]></description>
-  <category>tips</category>
+  <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</guid>
   <pubDate>Mon, 15 Jul 2024 07:15:11 GMT</pubDate>
 </item>
@@ -1303,7 +1304,7 @@ font-style: inherit;">sudo</span> loginctl enable-linger i9wa4</span></code></pr
 </section>
 
  ]]></description>
-  <category>dev</category>
+  <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</guid>
   <pubDate>Thu, 27 Jun 2024 16:56:32 GMT</pubDate>
 </item>
@@ -1651,6 +1652,7 @@ font-style: inherit;">-bool</span> NO</span></code></pre></div></li>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>mac</category>
   <guid>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</guid>
   <pubDate>Mon, 17 Jun 2024 03:21:36 GMT</pubDate>
@@ -1689,6 +1691,7 @@ font-style: inherit;">-bool</span> NO</span></code></pre></div></li>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>quarto</category>
   <guid>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</guid>
   <pubDate>Sat, 04 May 2024 18:23:09 GMT</pubDate>
@@ -1843,6 +1846,7 @@ echo "現在のブランチ: " . branch</code></pre>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>vim</category>
   <category>dev</category>
   <guid>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</guid>
@@ -1863,6 +1867,7 @@ echo "現在のブランチ: " . branch</code></pre>
 
 
  ]]></description>
+  <category>tech</category>
   <category>wsl2</category>
   <guid>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</guid>
   <pubDate>Mon, 25 Mar 2024 15:19:36 GMT</pubDate>
@@ -1937,6 +1942,7 @@ font-style: inherit;">-22</span>.04</span></code></pre></div></li>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>wsl2</category>
   <guid>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</guid>
   <pubDate>Mon, 25 Mar 2024 14:00:48 GMT</pubDate>
@@ -2320,8 +2326,8 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>vim</category>
-  <category>dev</category>
   <guid>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</guid>
   <pubDate>Sat, 27 Jan 2024 13:37:39 GMT</pubDate>
 </item>
@@ -2376,6 +2382,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>tech</category>
   <category>vim</category>
   <category>dev</category>
   <guid>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</guid>
@@ -2458,8 +2465,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
-  <category>jekyll</category>
-  <category>dev</category>
+  <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</guid>
   <pubDate>Tue, 02 Jan 2024 08:34:55 GMT</pubDate>
 </item>
