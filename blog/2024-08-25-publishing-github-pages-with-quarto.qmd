@@ -271,6 +271,16 @@ $ quarto preview
 
 編集内容がリアルタイムに反映されるので執筆体験がとても良いです！
 
+[2024-08-26 追記] Firefox 以外の Web ブラウザで `quarto preview` ができない事象が発生している模様。
+
+[Quarto preview only loading homepage in Firefox · Issue #3045 · quarto-dev/quarto-cli](https://github.com/quarto-dev/quarto-cli/issues/3045)
+
+以下のコマンドで `docs/` 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。
+
+```{.sh}
+$ quarto render
+```
+
 ## 8. おわりに
 
 もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。
