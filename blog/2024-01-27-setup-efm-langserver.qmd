@@ -3,8 +3,8 @@ title: "efm-langserver を Vim/Neovim で利用する"
 date: 2024-01-27 22:37:39 +0900
 date-modified: last-modified
 categories:
+  - "tech"
   - "vim"
-  - "dev"
 ---
 
 こんにちは。i9wa4 です。

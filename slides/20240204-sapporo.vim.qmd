@@ -8,13 +8,11 @@ categories:
   - "vim-jp"
 format:
   revealjs:
-    # embed-resources: true
     incremental: false
     logo: /assets/common/icon_hhkb2.jpg
     slide-level: 2
     slide-number: true
     smaller: false
-    # standalone: true
     theme: white
     footer: "https://connpass.com/event/307552/"
 # jupyter: python3
