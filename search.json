@@ -284,7 +284,7 @@
     "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#プレビューを確認しつつ編集する",
     "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
     "section": "7. プレビューを確認しつつ編集する",
-    "text": "7. プレビューを確認しつつ編集する\nプレビューを Web ブラウザで確認しながら編集が可能です。\n$ quarto preview\n編集内容がリアルタイムに反映されるので執筆体験がとても良いです！"
+    "text": "7. プレビューを確認しつつ編集する\nプレビューを Web ブラウザで確認しながら編集が可能です。\n$ quarto preview\n編集内容がリアルタイムに反映されるので執筆体験がとても良いです！\n[2024-08-26 追記] Firefox 以外の Web ブラウザで quarto preview ができない事象が発生している模様。\nQuarto preview only loading homepage in Firefox · Issue #3045 · quarto-dev/quarto-cli\n以下のコマンドで docs/ 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。\n$ quarto render"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",

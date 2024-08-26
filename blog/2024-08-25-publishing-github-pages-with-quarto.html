@@ -486,6 +486,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>プレビューを Web ブラウザで確認しながら編集が可能です。</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>編集内容がリアルタイムに反映されるので執筆体験がとても良いです！</p>
+<p>[2024-08-26 追記] Firefox 以外の Web ブラウザで <code>quarto preview</code> ができない事象が発生している模様。</p>
+<p><a href="https://github.com/quarto-dev/quarto-cli/issues/3045">Quarto preview only loading homepage in Firefox · Issue #3045 · quarto-dev/quarto-cli</a></p>
+<p>以下のコマンドで <code>docs/</code> 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="おわりに" class="level2">
 <h2 class="anchored" data-anchor-id="おわりに">8. おわりに</h2>
