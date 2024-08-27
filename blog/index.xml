@@ -1943,6 +1943,11 @@ font-style: inherit;">-unregister</span> Ubuntu<span class="at" style="color: #6
 background-color: null;
 font-style: inherit;">-22</span>.04</span></code></pre></div></li>
 </ol>
+</section>
+<section id="詳細設定" class="level2">
+<h2 class="anchored" data-anchor-id="詳細設定">4. 詳細設定</h2>
+<p>設定ファイルや systemd に関しては以下のページを参考にするとよいです。</p>
+<p><a href="https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config">WSL での詳細設定の構成 | Microsoft Learn</a></p>
 
 
 </section>
