@@ -3,7 +3,7 @@ title: "職務経歴書"
 date: last-modified
 ---
 
-- 現住所 北海道札幌市
+- 現住所 北海道札幌市 (札幌以外の勤務地の場合リモート勤務希望)
 - 職務経歴書公開先 <https://i9wa4.github.io/resume>
 - GitHub <https://github.com/i9wa4>
 
