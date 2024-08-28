@@ -18,14 +18,14 @@ GitHub でブログやスライドを管理したい方にオススメな Quarto
 
 [Quarto – GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
 
-## 1. 想定する読者
+## 想定する読者
 
 - Python の環境構築ができている方
 - Git/GitHub 操作の説明がなくても問題ない方
 
-## 2. 事前準備
+## 事前準備
 
-### 2.1. Quarto のインストール
+### Quarto のインストール
 
 まずは Quarto をインストールしておきましょう。
 
@@ -37,7 +37,7 @@ $ pip install quarto-cli
 
 [Installing quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597](https://github.com/quarto-dev/quarto-cli/discussions/8597)
 
-### 2.2. GitHub リポジトリ作成
+### GitHub リポジトリ作成
 
 任意の名前でリポジトリを作成しましょう。
 
@@ -47,7 +47,7 @@ $ pip install quarto-cli
 
 特にこだわりがなければリポジトリ名は `username.github.io` でよいでしょう。
 
-## 3. 基本構造を整える
+## 基本構造を整える
 
 作成したリポジトリをクローンして以下のファイルを作成します。
 
@@ -86,7 +86,7 @@ $ pip install quarto-cli
 
 作成できたら main ブランチに push しておきましょう。
 
-## 4. 初回デプロイを行う
+## 初回デプロイを行う
 
 初回はローカル環境からデプロイを実行します。
 
@@ -97,7 +97,7 @@ $ quarto publish gh-pages
 ? Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages? (Y/n) › Yes
 ```
 
-## 5. 2回目以降のデプロイを自動化する
+## 2回目以降のデプロイを自動化する
 
 2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。
 
@@ -129,7 +129,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-## 6. ブログ記事とスライドのための構造を整える
+## ブログ記事とスライドのための構造を整える
 
 以下の内容を push すると <https://i9wa4.github.io/quarto-page> が完成します。
 
@@ -158,7 +158,7 @@ jobs:
     ブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。
     ```
 
-### 6.1. ブログ
+### ブログ
 
 - `blog/index.qmd`
 
@@ -199,7 +199,7 @@ jobs:
     ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。
     ```
 
-### 6.2. スライド
+### スライド
 
 - `slides/index.qmd`
 
@@ -262,7 +262,7 @@ jobs:
     本文
     ```
 
-## 7. プレビューを確認しつつ編集する
+## プレビューを確認しつつ編集する
 
 プレビューを Web ブラウザで確認しながら編集が可能です。
 
@@ -282,11 +282,13 @@ $ quarto preview
 $ quarto render
 ```
 
-## 8. おわりに
+## おわりに
 
 もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。
 
-- Quarto 公式ドキュメント [Guide – Quarto](https://quarto.org/docs/guide/)
+- Quarto 公式
+    - ページ <https://quarto.org>
+    - リポジトリ <https://github.com/quarto-dev/quarto-web>
 - i9wa4 の GitHub Pages
-    - リポジトリ <https://github.com/i9wa4/i9wa4.github.io>
     - ページ <https://i9wa4.github.io>
+    - リポジトリ <https://github.com/i9wa4/i9wa4.github.io>
