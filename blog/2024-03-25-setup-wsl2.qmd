@@ -63,3 +63,9 @@ Windows マシンを新調する度に WSL2 をインストールしているの
     ```{.dosbat}
     wsl --unregister Ubuntu-22.04
     ```
+
+## 4. 詳細設定
+
+設定ファイルや systemd に関しては以下のページを参考にするとよいです。
+
+[WSL での詳細設定の構成 | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config)
