@@ -3,6 +3,7 @@ title: "Markdown ライクな Quarto でブログやスライドを作って Git
 date: 2024-08-25 17:25:32 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "quarto"
 ---

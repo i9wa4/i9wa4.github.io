@@ -3,6 +3,7 @@ title: "GitHub Pages (Jekyll) blog のタグ追加対応"
 date: 2024-01-02 17:34:55 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
 ---
 

@@ -3,6 +3,7 @@ title: "Mac 環境構築手順"
 date: 2024-06-17 12:21:36 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "mac"
 ---
