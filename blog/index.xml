@@ -30,16 +30,16 @@
 <p>ここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。</p>
 <p><a href="https://quarto.org/docs/publishing/github-pages.html">Quarto – GitHub Pages</a></p>
 <section id="想定する読者" class="level2">
-<h2 class="anchored" data-anchor-id="想定する読者">1. 想定する読者</h2>
+<h2 class="anchored" data-anchor-id="想定する読者">想定する読者</h2>
 <ul>
 <li>Python の環境構築ができている方</li>
 <li>Git/GitHub 操作の説明がなくても問題ない方</li>
 </ul>
 </section>
 <section id="事前準備" class="level2">
-<h2 class="anchored" data-anchor-id="事前準備">2. 事前準備</h2>
+<h2 class="anchored" data-anchor-id="事前準備">事前準備</h2>
 <section id="quarto-のインストール" class="level3">
-<h3 class="anchored" data-anchor-id="quarto-のインストール">2.1. Quarto のインストール</h3>
+<h3 class="anchored" data-anchor-id="quarto-のインストール">Quarto のインストール</h3>
 <p>まずは Quarto をインストールしておきましょう。</p>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
@@ -48,7 +48,7 @@ font-style: inherit;">$</span> pip install quarto-cli</span></code></pre></div>
 <p><a href="https://github.com/quarto-dev/quarto-cli/discussions/8597">Installing quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597</a></p>
 </section>
 <section id="github-リポジトリ作成" class="level3">
-<h3 class="anchored" data-anchor-id="github-リポジトリ作成">2.2. GitHub リポジトリ作成</h3>
+<h3 class="anchored" data-anchor-id="github-リポジトリ作成">GitHub リポジトリ作成</h3>
 <p>任意の名前でリポジトリを作成しましょう。</p>
 <p>私は GitHub リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a> を作成していて公開 URL は <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a> になります。</p>
 <p>ここではデモ用に <a href="https://github.com/i9wa4/quarto-page" class="uri">https://github.com/i9wa4/quarto-page</a> というリポジトリを作成してみます。こちらの公開 URL は <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> になります。</p>
@@ -56,7 +56,7 @@ font-style: inherit;">$</span> pip install quarto-cli</span></code></pre></div>
 </section>
 </section>
 <section id="基本構造を整える" class="level2">
-<h2 class="anchored" data-anchor-id="基本構造を整える">3. 基本構造を整える</h2>
+<h2 class="anchored" data-anchor-id="基本構造を整える">基本構造を整える</h2>
 <p>作成したリポジトリをクローンして以下のファイルを作成します。</p>
 <ul>
 <li><p><code>_quarto.yml</code></p>
@@ -127,7 +127,7 @@ font-style: inherit;">---</span></span>
 <p>作成できたら main ブランチに push しておきましょう。</p>
 </section>
 <section id="初回デプロイを行う" class="level2">
-<h2 class="anchored" data-anchor-id="初回デプロイを行う">4. 初回デプロイを行う</h2>
+<h2 class="anchored" data-anchor-id="初回デプロイを行う">初回デプロイを行う</h2>
 <p>初回はローカル環境からデプロイを実行します。</p>
 <p>指示に従って yes と入力すると <code>gh-pages</code> ブランチが作成されて初回デプロイが完了します。</p>
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
@@ -149,7 +149,7 @@ background-color: null;
 font-style: inherit;">›</span> Yes</span></code></pre></div>
 </section>
 <section id="回目以降のデプロイを自動化する" class="level2">
-<h2 class="anchored" data-anchor-id="回目以降のデプロイを自動化する">5. 2回目以降のデプロイを自動化する</h2>
+<h2 class="anchored" data-anchor-id="回目以降のデプロイを自動化する">2回目以降のデプロイを自動化する</h2>
 <p>2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -363,7 +363,7 @@ font-style: inherit;"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></d
 </div>
 </section>
 <section id="ブログ記事とスライドのための構造を整える" class="level2">
-<h2 class="anchored" data-anchor-id="ブログ記事とスライドのための構造を整える">6. ブログ記事とスライドのための構造を整える</h2>
+<h2 class="anchored" data-anchor-id="ブログ記事とスライドのための構造を整える">ブログ記事とスライドのための構造を整える</h2>
 <p>以下の内容を push すると <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> が完成します。</p>
 <ul>
 <li><p><code>index.qmd</code></p>
@@ -438,7 +438,7 @@ font-style: inherit;">## ブログとスライドの新着一覧</span></span>
 </div></li>
 </ul>
 <section id="ブログ" class="level3">
-<h3 class="anchored" data-anchor-id="ブログ">6.1. ブログ</h3>
+<h3 class="anchored" data-anchor-id="ブログ">ブログ</h3>
 <ul>
 <li><p><code>blog/index.qmd</code></p>
 <div class="code-with-filename">
@@ -527,7 +527,7 @@ font-style: inherit;">---</span></span>
 </ul>
 </section>
 <section id="スライド" class="level3">
-<h3 class="anchored" data-anchor-id="スライド">6.2. スライド</h3>
+<h3 class="anchored" data-anchor-id="スライド">スライド</h3>
 <ul>
 <li><p><code>slides/index.qmd</code></p>
 <div class="code-with-filename">
@@ -671,7 +671,7 @@ font-style: inherit;">## サブタイトル2</span></span>
 </section>
 </section>
 <section id="プレビューを確認しつつ編集する" class="level2">
-<h2 class="anchored" data-anchor-id="プレビューを確認しつつ編集する">7. プレビューを確認しつつ編集する</h2>
+<h2 class="anchored" data-anchor-id="プレビューを確認しつつ編集する">プレビューを確認しつつ編集する</h2>
 <p>プレビューを Web ブラウザで確認しながら編集が可能です。</p>
 <div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="ex" style="color: null;
 background-color: null;
@@ -685,14 +685,18 @@ background-color: null;
 font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </section>
 <section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">8. おわりに</h2>
+<h2 class="anchored" data-anchor-id="おわりに">おわりに</h2>
 <p>もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。</p>
 <ul>
-<li>Quarto 公式ドキュメント <a href="https://quarto.org/docs/guide/">Guide – Quarto</a></li>
+<li>Quarto 公式
+<ul>
+<li>ページ <a href="https://quarto.org" class="uri">https://quarto.org</a></li>
+<li>リポジトリ <a href="https://github.com/quarto-dev/quarto-web" class="uri">https://github.com/quarto-dev/quarto-web</a></li>
+</ul></li>
 <li>i9wa4 の GitHub Pages
 <ul>
-<li>リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a></li>
 <li>ページ <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a></li>
+<li>リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a></li>
 </ul></li>
 </ul>
 
