@@ -704,6 +704,7 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>quarto</category>
   <guid>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</guid>
@@ -783,6 +784,7 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>game</category>
   <guid>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</guid>
   <pubDate>Sat, 20 Jul 2024 13:46:56 GMT</pubDate>
@@ -966,6 +968,7 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>game</category>
   <guid>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</guid>
   <pubDate>Sat, 20 Jul 2024 13:39:28 GMT</pubDate>
@@ -1192,6 +1195,7 @@ font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</guid>
   <pubDate>Mon, 15 Jul 2024 07:15:11 GMT</pubDate>
@@ -1314,6 +1318,7 @@ font-style: inherit;">sudo</span> loginctl enable-linger i9wa4</span></code></pr
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</guid>
   <pubDate>Thu, 27 Jun 2024 16:56:32 GMT</pubDate>
@@ -1427,6 +1432,7 @@ Table&nbsp;1: 購入ガジェット一覧
 
 
  ]]></description>
+  <category>blog</category>
   <category>gadget</category>
   <guid>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</guid>
   <pubDate>Mon, 17 Jun 2024 03:42:17 GMT</pubDate>
@@ -1662,6 +1668,7 @@ font-style: inherit;">-bool</span> NO</span></code></pre></div></li>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>mac</category>
   <guid>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</guid>
@@ -1701,6 +1708,7 @@ font-style: inherit;">-bool</span> NO</span></code></pre></div></li>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>quarto</category>
   <guid>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</guid>
@@ -1856,6 +1864,7 @@ echo "現在のブランチ: " . branch</code></pre>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>vim</category>
   <category>dev</category>
@@ -1877,6 +1886,7 @@ echo "現在のブランチ: " . branch</code></pre>
 
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>wsl2</category>
   <guid>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</guid>
@@ -1957,6 +1967,7 @@ font-style: inherit;">-22</span>.04</span></code></pre></div></li>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>wsl2</category>
   <guid>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</guid>
@@ -2331,6 +2342,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>vim</category>
   <guid>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</guid>
@@ -2387,6 +2399,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <category>vim</category>
   <category>dev</category>
@@ -2470,6 +2483,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
+  <category>blog</category>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</guid>
   <pubDate>Tue, 02 Jan 2024 08:34:55 GMT</pubDate>
@@ -2506,7 +2520,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 </section>
 
  ]]></description>
-  <category>diary</category>
+  <category>blog</category>
   <guid>https://i9wa4.github.io/blog/2024-01-01-init.html</guid>
   <pubDate>Sun, 31 Dec 2023 18:28:12 GMT</pubDate>
 </item>
