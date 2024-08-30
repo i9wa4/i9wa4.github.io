@@ -7,11 +7,11 @@
     "text": "Table 1: 会社概要・雇用形態 (2024年時点)\n\n\n\n\n\n\n\n\n\n事業内容\nアプリケーション開発・インフラ構築事業、クラウド構築事業、データ分析・AI事業、DX支援事業\n\n\n資本金\n2500万円\n\n\n売上高\n7億5,351万円\n\n\n従業員数\n39名\n\n\n上場／非上場\n非上場\n\n\n雇用形態\n正社員\n\n\n勤務地\n北海道札幌市週に約4回リモートワーク実施\n以下、新しい順にプロジェクトを記載しております。"
   },
   {
-    "objectID": "resume/03-cnsh.html#プロジェクト以外の社内業務",
-    "href": "resume/03-cnsh.html#プロジェクト以外の社内業務",
+    "objectID": "resume/03-cnsh.html#プロジェクト以外の業務",
+    "href": "resume/03-cnsh.html#プロジェクト以外の業務",
     "title": "職務経歴 株式会社シイエヌエス北海道",
-    "section": "1. プロジェクト以外の社内業務",
-    "text": "1. プロジェクト以外の社内業務\n\n1.1. 新卒採用一次選考の面接官対応\n\n2024年新卒採用：学生6名分\n2025年新卒採用：学生6名分\n\n\n\n1.2. データ分析業務担当者育成\n\n育成用プログラム進捗管理 (2023/06 - 2023/12)\n\n利用教材：データサイエンス100本ノック\n育成対象者：7名 (2023年度)\n業務：環境構築手順作成・質疑応答対応・作業進捗管理 (すべて私1名で対応)\n\nローカル上の環境構築手順の共有 (随時)\n\n社内 Wiki にて記事作成\n具体例\n\nAmazon Linux (EC2) + Anaconda + PyStan 環境構築\nWindows + Anaconda + PyStan 環境構築\nUbuntu (WSL2) + Docker (Dockerfile) + CPython + venv 環境構築\nUbuntu (WSL2) + Docker 環境構築 (データサイエンス100本ノック向け)\nAmazon Linux (Cloud9) + pyenv 環境構築\nVSCode と Vim での Linter Formatter 導入方法\n\n\nデータ分析関連技術情報共有 (随時)\n\nニュースサイト・技術ブログ・技術コミュニティにて情報収集し、社内チャットにて随時共有"
+    "section": "1. プロジェクト以外の業務",
+    "text": "1. プロジェクト以外の業務\n\n1.1. 新卒採用一次選考の面接官対応\n\n2024年新卒採用：学生6名分\n2025年新卒採用：学生6名分\n\n\n\n1.2. データ分析業務担当者育成\n\n育成用プログラム進捗管理 (2023/06 - 2023/12)\n\n利用教材：データサイエンス100本ノック\n育成対象者：7名 (2023年度)\n業務：環境構築手順作成・質疑応答対応・作業進捗管理 (すべて私1名で対応)\n\nローカル上の環境構築手順の共有 (随時)\n\n社内 Wiki にて記事作成\n具体例\n\nAmazon Linux (EC2) + Anaconda + PyStan 環境構築\nWindows + Anaconda + PyStan 環境構築\nUbuntu (WSL2) + Docker (Dockerfile) + CPython + venv 環境構築\nUbuntu (WSL2) + Docker 環境構築 (データサイエンス100本ノック向け)\nAmazon Linux (Cloud9) + pyenv 環境構築\nVSCode と Vim での Linter Formatter 導入方法\n\n\nデータ分析関連技術情報共有 (随時)\n\nニュースサイト・技術ブログ・技術コミュニティにて情報収集し、社内チャットにて随時共有"
   },
   {
     "objectID": "resume/03-cnsh.html#情報通信企業向け-機械学習ワークフローと-ai-プラットフォーム移管",
@@ -637,32 +637,32 @@
     "text": "Table 1: 会社概要・雇用形態 (2024年時点)\n\n\n\n\n\n\n\n\n\n事業内容\n月額型店舗のための会員管理・予約・キャッシュレス決済システム「hacomono」開発・販売\n\n\n資本金\n100百万円\n\n\n売上高\n非公開\n\n\n従業員数\n217名\n\n\n上場／非上場\n非上場\n\n\n雇用形態\n正社員\n\n\n勤務地\nフルリモート (居住地 北海道札幌市)年に数回東京原宿本社へ出社\n以下、新しい順にプロジェクトを記載しております。"
   },
   {
-    "objectID": "resume/04-hacomono.html#プロジェクト以外の社内業務",
-    "href": "resume/04-hacomono.html#プロジェクト以外の社内業務",
+    "objectID": "resume/04-hacomono.html#プロジェクト以外の業務",
+    "href": "resume/04-hacomono.html#プロジェクト以外の業務",
     "title": "職務経歴 株式会社hacomono",
-    "section": "1. プロジェクト以外の社内業務",
-    "text": "1. プロジェクト以外の社内業務\n\n1.1. 会社テックブログ執筆\n\n[2024/07/02] hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG"
-  },
-  {
-    "objectID": "resume/04-hacomono.html#顧客環境-bigquery-へのリアルタイム転送システム開発運用",
-    "href": "resume/04-hacomono.html#顧客環境-bigquery-へのリアルタイム転送システム開発運用",
-    "title": "職務経歴 株式会社hacomono",
-    "section": "2. 顧客環境 BigQuery へのリアルタイム転送システム開発・運用",
-    "text": "2. 顧客環境 BigQuery へのリアルタイム転送システム開発・運用\n\n2.1. 概要\n\nhacomono に蓄積されたデータを顧客環境 BigQuery へリアルタイム転送するためのシステム開発・運用\n\n\n\n2.2. 期間\n\n2024/04 - 現在\n\n\n\n2.3. 規模・役割\n\n[2024/04 - 2024/05]\n\n役割：メンバー\n規模：2名\n\n[2024/06 - 現在]\n\n役割：リーダー\n規模：1名\n\n\n\n\n2.4. 担当業務\n\n[2024/04 - 2024/05] (2名) 開発引き継ぎ\n[2024/06 - 現在] (私1名) 開発・運用\n\n\n\n2.5. 機能開発・実装詳細\n\n\nGitHub と Terraform (Terragrunt) を用いて以下の構成を実装します。\n\n[主機能] RDS MySQL のデータを Datastream によってリアルタイムに転送させる\n\n(新規実装) [周辺機能] ログ出力\n\n\n\n\n\n2.6. 目的・背景\n\n顧客要望がありリアルタイム性を重視したテーブルに絞って機能を提供することとなりました。\n個社向け開発として進めていますが他社への展開も可能な状態に整備する必要があります。\n\n\n\n2.7. 課題\n\n前任者から引き継いだ状態のリポジトリが雑然としており各社向けの設定ファイルを切り替えることができず大規模なリファクタリングが必要でした。\nDatastream の知見のある方が社内にいないため障害発生時の対応のノウハウがない状態でした。\n\n\n\n2.8. 工夫した点\n\n\n現在工夫中です。\n\n\n\n2.9. 成果\n\n\nDatastream の知見のある方が社内にいないため障害発生時の対応のノウハウがない状態でした。\n\n\nRDS 再起動による接続断から復旧する必要がありストリームの復元を行うことがありましたが、この経験により障害発生時に欠損し得るデータに関して説明ができるようになりました。\n本機能のオプションサービス化にあたり懸念事項の解像度を上げ、サービスのマニュアル更新の準備に役立てることができました。\ncf. ストリームを復元する | Datastream | Google Cloud\n\n\n2.10. 担当フェーズ\n\n詳細設計\n開発\nテスト\n運用\n保守\n\n\n\n2.11. 開発環境\n\nGitHub\nTerraform\nTerragrunt\nAWS\n\nRDS MySQL\nVPC\n\nGoogle Cloud\n\nBigQuery\nDatastream"
+    "section": "1. プロジェクト以外の業務",
+    "text": "1. プロジェクト以外の業務\n\n1.1. 社外へのアウトプット\n\n[2024/07/02] hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG\n[2024/08/21] Findy Tools への BigQuery レビュー寄稿 株式会社hacomonoのBigQuery導入事例"
   },
   {
     "objectID": "resume/04-hacomono.html#顧客環境-bigquery-へのバッチ転送システム開発運用",
     "href": "resume/04-hacomono.html#顧客環境-bigquery-へのバッチ転送システム開発運用",
     "title": "職務経歴 株式会社hacomono",
-    "section": "3. 顧客環境 BigQuery へのバッチ転送システム開発・運用",
-    "text": "3. 顧客環境 BigQuery へのバッチ転送システム開発・運用\n\n3.1. 概要\n\nhacomono に蓄積されたデータを顧客環境 BigQuery へ日次バッチ転送するためのシステム開発・運用\n\n\n\n3.2. 期間\n\n2024/04 - 現在\n\n\n\n3.3. 規模・役割\n\n[2024/04 - 2024/05]\n\n役割：メンバー\n規模：2名\n\n[2024/06 - 現在]\n\n役割：リーダー\n規模：1名\n\n\n\n\n3.4. 担当業務\n\n[2024/04 - 2024/05] (2名) 定常運用業務・業務引き継ぎ\n[2024/06 - 現在] (私1名) 定常運用業務・障害対応\n\n\n\n3.5. 機能開発・実装詳細\n\nGitHub と Terraform (Terragrunt) を用いて以下の構成を実装します。\n\nRDS MySQL or Aurora MySQL をデータソースとして Embulk で顧客環境 BigQuery にデータ転送を行う\n\nシステム構成図は下記ブログをご参照ください。\n\nhacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG\n\n\n\n\n3.6. 目的・背景\n\n顧客に向けて DWH 提供を行うサービスを開始するために暫定的に構築したシステムを運用し続けている状況です。\n\n\n\n3.7. 課題\n\n全量のデータを転送させているためデータ増加により転送時間が延びてしまい、具体的には以下の問題が起こるようになりました。\n\nRDS BurstBalance を使い切ることによる転送の不安定化が起こる\nデータソース側の DB で一時領域不足になる\n顧客約束の時刻に転送が間に合わなくなる\n\n\n\n\n3.8. 工夫した点\n\n問題発生源の特定のために Embulk のログやデータソースのメトリクスから真因を究明するよう努めました。\n\n\n\n3.9. 成果\n\n\n\nRDS BurstBalance を使い切ることによる転送の不安定化が起こる\n\n\nReadIOPS の数値が支配的だったため並列実行数を減らしたり、Embulk の読み込み量のパラメータを調整したりすることで BurstBalance を使い切らないまま可能な限り早く転送させるよう調整を行いました。\n\n\n3.10. 担当フェーズ\n\n運用\n保守\n\n\n\n3.11. 開発環境\n\nGitHub\nTerraform\nEmbulk\nAWS\n\nECS\nRDS MySQL\nAurora MySQL\nVPC\n\nGoogle Cloud\n\nBigQuery"
+    "section": "2. 顧客環境 BigQuery へのバッチ転送システム開発・運用",
+    "text": "2. 顧客環境 BigQuery へのバッチ転送システム開発・運用\n\n2.1. 概要\n\nhacomono に蓄積されたデータを顧客環境 BigQuery へ日次バッチ転送するためのシステム開発・運用\n\n\n\n2.2. 期間\n\n2024/04 - 現在\n\n\n\n2.3. 規模・役割\n\n[2024/04 - 2024/05]\n\n役割：メンバー\n規模：2名\n\n[2024/06 - 現在]\n\n役割：リーダー\n規模：1名\n\n\n\n\n2.4. 担当業務\n\n[2024/04 - 2024/05] (2名) 定常運用業務・業務引き継ぎ\n[2024/06 - 現在] (私1名) 定常運用業務・障害対応\n\n\n\n2.5. 機能開発・実装詳細\n\nGitHub と Terraform (Terragrunt) を用いて以下の構成を実装します。\n\nRDS MySQL or Aurora MySQL をデータソースとして Embulk で顧客環境 BigQuery にデータ転送を行う\n\nシステム構成図は下記ブログをご参照ください。\n\nhacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG\n\n\n\n\n2.6. 目的・背景\n\n顧客に向けて DWH 提供を行うサービスを開始するために暫定的に構築したシステムを運用し続けている状況です。\n\n\n\n2.7. 課題\n\n全量のデータを転送させているためデータ増加により転送時間が延びてしまい、具体的には以下の問題が起こるようになりました。\n\nRDS BurstBalance を使い切ることによる転送の不安定化が起こる\nデータソース側の DB で一時領域不足になる\n顧客約束の時刻に転送が間に合わなくなる\n\n\n\n\n2.8. 工夫した点\n\n問題発生源の特定のために Embulk のログやデータソースのメトリクスから真因を究明するよう努めました。\n\n\n\n2.9. 成果\n\n\nRDS BurstBalance を使い切ることによる転送の不安定化が起こる\n\n\nReadIOPS の数値が支配的だったため並列実行数を減らしたり、Embulk の読み込み量のパラメータを調整したりすることで BurstBalance を使い切らないまま可能な限り早く転送させるよう調整を行いました。\n\n\n2.10. 担当フェーズ\n\n運用\n保守\n\n\n\n2.11. 開発環境\n\nGitHub\nTerraform\nEmbulk\nAWS\n\nECS\nRDS MySQL\nAurora MySQL\nVPC\n\nGoogle Cloud\n\nBigQuery"
   },
   {
     "objectID": "resume/04-hacomono.html#社内-bigquery-環境構築運用",
     "href": "resume/04-hacomono.html#社内-bigquery-環境構築運用",
     "title": "職務経歴 株式会社hacomono",
-    "section": "4. 社内 BigQuery 環境構築・運用",
-    "text": "4. 社内 BigQuery 環境構築・運用\n\n4.1. 概要\n\nhacomono プロダクトのデータベースから BigQuery へデータを転送し社内向けに DWH を作成するシステムの運用・保守\n\n\n\n4.2. 期間\n\n2024/04 - 現在\n\n\n\n4.3. 規模・役割\n\n[2024/04 - 2024/05]\n\n役割：メンバー\n規模：2名\n\n[2024/06 - 現在]\n\n役割：リーダー\n規模：1名\n\n\n\n\n4.4. 担当業務\n\n[2024/04 - 2024/05] (2名) 定常運用業務・業務引き継ぎ\n[2024/06 - 現在] (私1名) 定常運用業務・運用改善業務\n\n\n\n4.5. 機能開発・実装詳細\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\n\n4.6. 目的・背景\n\n社内の分析需要に応えるために権限管理の行き届いた新しい BigQuery 環境を構築・運用が必要となりました。\n\n\n\n4.7. 課題\n\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\n概ね IaC 対応が済んでいましたが権限追加に関してはコンソールからの手動追加対応となっておりました。これにより環境差分が生じ terraform apply が通らなくなる状況でした。\n\n\n4.8. 工夫した点\n\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\n権限を最小限に留めるためにプロジェクトレベルでの権限付与をせず、データセット毎に権限を付与する運用に変更しました。\n\n\n4.9. 成果\n\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\nIaC 化により権限の種類とユーザーを CSV ファイルに集約でき、権限付与状況をリポジトリで管理できるようになりました。\n\n\n4.10. 担当フェーズ\n\n運用\n保守\n\n\n\n4.11. 開発環境\n\nGitHub\nTerraform\nEmbulk\nAWS\n\nECS\nRDS MySQL\nAurora MySQL\nVPC\n\nGoogle Cloud\n\nBigQuery"
+    "section": "3. 社内 BigQuery 環境構築・運用",
+    "text": "3. 社内 BigQuery 環境構築・運用\n\n3.1. 概要\n\nhacomono プロダクトのデータベースから BigQuery へデータを転送し社内向けに DWH を作成するシステムの運用・保守\n\n\n\n3.2. 期間\n\n2024/04 - 現在\n\n\n\n3.3. 規模・役割\n\n[2024/04 - 2024/05]\n\n役割：メンバー\n規模：2名\n\n[2024/06 - 現在]\n\n役割：リーダー\n規模：1名\n\n\n\n\n3.4. 担当業務\n\n[2024/04 - 2024/05] (2名) 定常運用業務・業務引き継ぎ\n[2024/06 - 現在] (私1名) 定常運用業務・運用改善業務\n\n\n\n3.5. 機能開発・実装詳細\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\n\n3.6. 目的・背景\n\n社内の分析需要に応えるために権限管理の行き届いた新しい BigQuery 環境を構築・運用が必要となりました。\n\n\n\n3.7. 課題\n\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\n概ね IaC 対応が済んでいましたが権限追加に関してはコンソールからの手動追加対応となっておりました。これにより環境差分が生じ terraform apply が通らなくなる状況でした。\n\n\n3.8. 工夫した点\n\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\n権限を最小限に留めるためにプロジェクトレベルでの権限付与をせず、データセット毎に権限を付与する運用に変更しました。\n\n\n3.9. 成果\n\n\n(新規実装) Google Cloud プロジェクトと BigQuery の権限管理機能\n\n\nIaC 化により権限の種類とユーザーを CSV ファイルに集約でき、権限付与状況をリポジトリで管理できるようになりました。\n\n\n3.10. 担当フェーズ\n\n運用\n保守\n\n\n\n3.11. 開発環境\n\nGitHub\nTerraform\nEmbulk\nAWS\n\nECS\nRDS MySQL\nAurora MySQL\nVPC\n\nGoogle Cloud\n\nBigQuery"
+  },
+  {
+    "objectID": "resume/04-hacomono.html#顧客環境-bigquery-へのリアルタイム転送システム開発運用",
+    "href": "resume/04-hacomono.html#顧客環境-bigquery-へのリアルタイム転送システム開発運用",
+    "title": "職務経歴 株式会社hacomono",
+    "section": "4. 顧客環境 BigQuery へのリアルタイム転送システム開発・運用",
+    "text": "4. 顧客環境 BigQuery へのリアルタイム転送システム開発・運用\n\n4.1. 概要\n\nhacomono に蓄積されたデータを顧客環境 BigQuery へリアルタイム転送するためのシステム開発・運用\n2024年8月まで開発を続けていましたが、契約締結できず検証段階で開発を中断しています。\n\n\n\n4.2. 期間\n\n2024/04 - 2024/08\n\n\n\n4.3. 規模・役割\n\n[2024/04 - 2024/05]\n\n役割：メンバー\n規模：2名\n\n[2024/06 - 2024/08]\n\n役割：リーダー\n規模：2名\n\n\n\n\n4.4. 担当業務\n\n[2024/04 - 2024/05] (2名) 開発引き継ぎ\n[2024/06 - 2024/08] 主機能開発・進捗管理\n\n\n\n4.5. 機能開発・実装詳細\n\nGitHub と Terraform (Terragrunt) を用いて以下の構成を実装します。\n\n[主機能] RDS MySQL のデータを Datastream によってリアルタイムに転送させる\n\n(新規実装) [周辺機能] ログ出力\n\n\n\n\n\n4.6. 目的・背景\n\n顧客要望がありリアルタイム性を重視したテーブルに絞って機能を提供することとなりました。\n個社向け開発として進めていますが他社への展開も可能な状態に整備する必要があります。\n\n\n\n4.7. 課題\n\n前任者から引き継いだ状態のリポジトリが雑然としており各社向けの設定ファイルを切り替えることができず大規模なリファクタリングが必要でした。\nDatastream の知見のある方が社内にいないため障害発生時の対応のノウハウがない状態でした。\n\n\n\n\n4.8. 成果\n\n\nDatastream の知見のある方が社内にいないため障害発生時の対応のノウハウがない状態でした。\n\n\nRDS 再起動による接続断から復旧する必要がありストリームの復元を行うことがありましたが、この経験により障害発生時に欠損し得るデータに関して説明ができるようになりました。\n本機能のオプションサービス化にあたり懸念事項の解像度を上げ、サービスのマニュアル更新の準備に役立てることができました。\ncf. ストリームを復元する | Datastream | Google Cloud\n\n\n4.9. 担当フェーズ\n\n詳細設計\n開発\nテスト\n運用\n保守\n\n\n\n4.10. 開発環境\n\nGitHub\nTerraform\nTerragrunt\nAWS\n\nRDS MySQL\nVPC\n\nGoogle Cloud\n\nBigQuery\nDatastream"
   },
   {
     "objectID": "resume/02-sld.html",
@@ -711,7 +711,7 @@
     "href": "resume/index.html",
     "title": "職務経歴書",
     "section": "",
-    "text": "現住所 北海道札幌市 (札幌以外の勤務地の場合リモート勤務希望)\n職務経歴書公開先 https://i9wa4.github.io/resume\nGitHub https://github.com/i9wa4"
+    "text": "現住所 北海道札幌市\n職務経歴書公開先 https://i9wa4.github.io/resume\nGitHub https://github.com/i9wa4"
   },
   {
     "objectID": "resume/index.html#職務要約",
@@ -721,45 +721,45 @@
     "text": "1. 職務要約\n北海道大学卒業後、Windowsアプリエンジニアや組込エンジニアとして6年勤務しました。\nその後株式会社シイエヌエス北海道にてデータエンジニアとして2年間データパイプライン構築や機械学習ワークフロー構築業務に従事し、サブリーダーやリーダーを任されてきました。\n2024年4月から現職である株式会社hacomonoにて一人データエンジニアとしてデータ基盤の構築・運用・保守業務に従事しております。"
   },
   {
-    "objectID": "resume/index.html#活かせる経験知識技術",
-    "href": "resume/index.html#活かせる経験知識技術",
+    "objectID": "resume/index.html#自己pr",
+    "href": "resume/index.html#自己pr",
     "title": "職務経歴書",
-    "section": "2. 活かせる経験・知識・技術",
-    "text": "2. 活かせる経験・知識・技術\n役割面では前職シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。現職 hacomono ではメンバー採用ではあるものの、入社直後にデータエンジニアが私1名のみになった都合でデータ基盤関連のタスク管理・社内調整・目標管理といったリーダー相当の業務を担当しております。\n技術面では Snowflake データマート整備、Airflow & dbt のデータパイプライン構築運用保守、Embulk による BigQuery へのデータ転送の運用保守、Terraform によるデータ基盤の IaC 化の推進、機械学習ワークフロー構築運用保守などの知見があります。"
-  },
-  {
-    "objectID": "resume/index.html#スキルレベル",
-    "href": "resume/index.html#スキルレベル",
-    "title": "職務経歴書",
-    "section": "3. スキルレベル",
-    "text": "3. スキルレベル\n★：業務経験あり\n\n\n\n\n\n\n\n\n\n項目\n種類\n使用期間\nレベル\n\n\n\n\nOS\nAmazon Linux / Ubuntu\n★3年\n要件に応じた環境構築や開発環境利用が可能\n\n\n言語\nPython\n★3年\n一人称で作業可能\n\n\n言語\nSQL\n★2年\n一人称で作業可能\n\n\n言語\nShell Script\n★3年\n一人称で作業可能\n\n\nDB\nMySQL / PostgreSQL\n★1年\n不具合調査等でのデータ閲覧可能\n\n\nCloud\nAWS\n★2年\nEC2 / ECS / StepFunctions / SageMaker / Cloud9 / Airflow (MWAA) 等を含む環境構築や作業が可能\n\n\nCloud\nGoogle Cloud\n★0.5年\nCompute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能\n\n\nCloud (Data)\nSnowflake\n★2年\nデータマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能\n\n\nCloud (Data)\nBigQuery\n★0.3年\nBigQuery 関連の権限管理やデータセット・テーブル作成を Terraform 管理に移行することが可能\n\n\nCloud (ML)\nDataRobot\n★2年\nオートパイロットや blueprint 固定でのモデルデプロイ・運用、各種評価指標の取得の実装が可能\n\n\nIaC\nDocker\n★2年\nDockerfile や Docker Compose の記述・実行が可能\n\n\nIaC\nTerraform\n★0.3年\nBigQuery 関連の IaC 化作業が可能\n\n\nその他\nGitHub / CodeCommit\n★3年\nGit flow や GitHub flow に則った開発利用やレビューが可能\n\n\nその他\nGitHub Actions\n★0.5年\n既存ワークフロー改修 / GitHub Pages 関連のワークフロー作成が可能\n\n\nその他 (Data)\ndbt Core\n★0.5年\nスクラッチから marts まで書きあげることが可能\n\n\nその他 (Data)\nEmbulk\n★0.3年\n転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能"
+    "section": "2. 自己PR",
+    "text": "2. 自己PR\n【役割】前職シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。現職 hacomono ではメンバー採用ではあるものの、入社直後にデータエンジニアが私1名のみになった都合でデータ基盤関連のタスク管理・社内調整・目標管理といったリーダー相当の業務を担当しております。\n【技術】Snowflake データマート整備、Airflow & dbt のデータパイプライン構築運用保守、Embulk による BigQuery へのデータ転送の運用保守、Terraform によるデータ基盤の IaC 化の推進、機械学習ワークフロー構築運用保守などの知見をもちます。\n【性格】周囲の社員に貢献できるような業務にモチベーション高く取り組むことができます。具体的にはドキュメント整備・勉強会開催・情報共有などです。データ利活用に向けた業務は中長期的に周囲の社員に貢献できるものと信じて取り組めるため、自分にマッチした業務であると感じています。"
   },
   {
     "objectID": "resume/index.html#職務経歴",
     "href": "resume/index.html#職務経歴",
     "title": "職務経歴書",
-    "section": "4. 職務経歴",
-    "text": "4. 職務経歴\n新しい順に記載しております。\n\n\n\n\n\n\n\n\n\n在籍期間\n所属\n概要\n詳細\n\n\n\n\n2024/04 - 現在\n株式会社hacomono基盤本部 データ基盤部\nデータエンジニアのメンバーとして以下に従事- 自社環境・顧客環境の DWH 構築・運用- 自社データ基盤の運用改善・機能追加\n詳細\n\n\n2022/04 - 2024/03\n株式会社シイエヌエス北海道デジタルビジネス推進部\nデータエンジニアのサブリーダーやリーダーとして以下に従事- データパイプライン構築- 機械学習ワークフロー構築\n詳細\n\n\n2018/08 - 2022/03\n新光商事LSIデザインセンター株式会社ソフト開発一部\n組込エンジニアのメンバーとして以下に従事- 車載マイコンの機能開発- インバータやモータの制御開発\n詳細\n\n\n2016/04 - 2018/07\nオークマ株式会社FAシステム本部 FA開発部\nアプリエンジニアのメンバーとして以下に従事- Windows 用 CAD/CAM アプリ開発の要件定義・テスト\n詳細\n\n\n\n\n4.1. 最も苦労したプロジェクト\n前職で2023年12月～2024年3月にリーダーとして参画していた以下です。AI プラットフォームのリプレイスのためにワークフロー全体の技術選定から設計まで行いました。\n情報通信企業向け 機械学習ワークフローと AI プラットフォーム移管 | 職務経歴 株式会社シイエヌエス北海道"
+    "section": "3. 職務経歴",
+    "text": "3. 職務経歴\n新しい順に記載しております。\n\n\n\n\n\n\n\n\n\n在籍期間\n所属\n概要\n詳細\n\n\n\n\n2024/04 - 現在\n株式会社hacomono基盤本部 データ基盤部\nデータエンジニアのメンバーとして以下に従事- 自社環境・顧客環境の DWH 構築・運用- 自社データ基盤の運用改善・機能追加\n詳細\n\n\n2022/04 - 2024/03\n株式会社シイエヌエス北海道デジタルビジネス推進部\nデータエンジニアのサブリーダーやリーダーとして以下に従事- データパイプライン構築- 機械学習ワークフロー構築\n詳細\n\n\n2018/08 - 2022/03\n新光商事LSIデザインセンター株式会社ソフト開発一部\n組込エンジニアのメンバーとして以下に従事- 車載マイコンの機能開発- インバータやモータの制御開発\n詳細\n\n\n2016/04 - 2018/07\nオークマ株式会社FAシステム本部 FA開発部\nアプリエンジニアのメンバーとして以下に従事- Windows 用 CAD/CAM アプリ開発の要件定義・テスト\n詳細\n\n\n\n\n3.1. 最も苦労したプロジェクト\n前職で2023年12月～2024年3月にリーダーとして参画していた以下です。AI プラットフォームのリプレイスのためにワークフロー全体の技術選定から設計まで行いました。顧客との方針調整を密に実施し PoC 段階から設計・実装へフェーズを進めることができました。\n情報通信企業向け 機械学習ワークフローと AI プラットフォーム移管 | 職務経歴 株式会社シイエヌエス北海道"
   },
   {
-    "objectID": "resume/index.html#資格",
-    "href": "resume/index.html#資格",
+    "objectID": "resume/index.html#今後取り組みたいこと",
+    "href": "resume/index.html#今後取り組みたいこと",
     "title": "職務経歴書",
-    "section": "5. 資格",
-    "text": "5. 資格\n\n[2012/11] 普通自動車第一種運転免許\n[2015/03] TOEIC スコア 805\n[2023/04] 統計検定2級"
-  },
-  {
-    "objectID": "resume/index.html#今後やりたいこと",
-    "href": "resume/index.html#今後やりたいこと",
-    "title": "職務経歴書",
-    "section": "6. 今後やりたいこと",
-    "text": "6. 今後やりたいこと\n\n\n\n6.1. 技術面\n\nSnowflake / BigQuery / dbt の知見を深める\nデータガバナンスや信頼性に関する経験を積む\nLLM の下支え (ベクトルデータベース構築など)\nMLOps の実践\n\n\n\n\n6.2. 役割面\n\n[直近] データエンジニアとしてリーダー経験・マネジメント経験を積む\n[3-5年後] データ関連業務のリーダーや PjM としてリーダーシップを発揮する、あるいはデータマネージャーのような形でデータで売上貢献できるようになる"
+    "section": "4. 今後取り組みたいこと",
+    "text": "4. 今後取り組みたいこと\n\n\n\n4.1. 役割面\n\n[直近] データエンジニアとしてリーダー経験・マネジメント経験を積む\n[3-5年後] データ関連業務のリーダーや PjM としてリーダーシップを発揮する、あるいはデータマネージャーのような形でデータで売上貢献できるようになる\n\n\n\n\n4.2. 技術面\n\nSnowflake / BigQuery / dbt の知見を深める\nデータガバナンスや信頼性に関する経験を積む\nLLM の下支え (ベクトルデータベース構築など)\nMLOps の実践"
   },
   {
     "objectID": "resume/index.html#通常業務以外の活動",
     "href": "resume/index.html#通常業務以外の活動",
     "title": "職務経歴書",
-    "section": "7. 通常業務以外の活動",
-    "text": "7. 通常業務以外の活動\n\n7.1. 社外へのアウトプット\n\n[2024/07/02] hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG\n[2024/08/21] Findy Tools への BigQuery レビュー寄稿 株式会社hacomonoのBigQuery導入事例\n\n\n\n7.2. 自宅用ゲームサーバー構築\n\nGCE (Ubuntu) / Cloud Functions / GAS により Slack 経由で起動・停止できるゲームサーバーを構築しました。\n自宅 Ubuntu マシンにも Docker でゲームサーバーを構築し systemd によるサーバーの自動アップデート機能と AWS S3 への自動バックアップ機能を実装しました。\n\nRepository: https://github.com/i9wa4/minecraft-bedrock-server-setup\n\n\n\n\n7.3. Vim 活動\n\nVim コミュニティのイベントに複数参加し Vim に関する技術情報収集や交流を行っています。\nMarkdown 向け Formatter を Vim プラグインとして TypeScript (Deno) で作成しました。\n\nRepository: https://github.com/i9wa4/vim-markdown-number-header"
+    "section": "5. 通常業務以外の活動",
+    "text": "5. 通常業務以外の活動\n\n5.1. 社外へのアウトプット\n\n[2024/07/02] hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG\n[2024/08/21] Findy Tools への BigQuery レビュー寄稿 株式会社hacomonoのBigQuery導入事例"
+  },
+  {
+    "objectID": "resume/index.html#スキルレベル",
+    "href": "resume/index.html#スキルレベル",
+    "title": "職務経歴書",
+    "section": "6. スキルレベル",
+    "text": "6. スキルレベル\n★：業務経験あり\n\n\n\n\n\n\n\n\n\n項目\n種類\n使用期間\nレベル\n\n\n\n\nOS\nAmazon Linux / Ubuntu\n★3年\n要件に応じた環境構築や開発環境利用が可能\n\n\n言語\nPython\n★3年\n一人称で作業可能\n\n\n言語\nSQL\n★2年\n一人称で作業可能\n\n\n言語\nShell Script\n★3年\n一人称で作業可能\n\n\nDB\nMySQL / PostgreSQL\n★1年\n不具合調査等でのデータ閲覧可能\n\n\nCloud\nAWS\n★2年\nEC2 / ECS / StepFunctions / SageMaker / Cloud9 / Airflow (MWAA) 等を含む環境構築や作業が可能\n\n\nCloud\nGoogle Cloud\n★0.5年\nCompute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能\n\n\nCloud (Data)\nSnowflake\n★2年\nデータマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能\n\n\nCloud (Data)\nBigQuery\n★0.3年\nBigQuery 関連の権限管理やデータセット・テーブル作成を Terraform 管理に移行することが可能\n\n\nCloud (ML)\nDataRobot\n★2年\nオートパイロットや blueprint 固定でのモデルデプロイ・運用、各種評価指標の取得の実装が可能\n\n\nIaC\nDocker\n★2年\nDockerfile や Docker Compose の記述・実行が可能\n\n\nIaC\nTerraform\n★0.3年\nBigQuery 関連の IaC 化作業が可能\n\n\nその他\nGitHub / CodeCommit\n★3年\nGit flow や GitHub flow に則った開発利用やレビューが可能\n\n\nその他\nGitHub Actions\n★0.5年\n既存ワークフロー改修 / GitHub Pages 関連のワークフロー作成が可能\n\n\nその他 (Data)\ndbt Core\n★0.5年\nスクラッチから marts まで書きあげることが可能\n\n\nその他 (Data)\nEmbulk\n★0.3年\n転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能"
+  },
+  {
+    "objectID": "resume/index.html#資格",
+    "href": "resume/index.html#資格",
+    "title": "職務経歴書",
+    "section": "7. 資格",
+    "text": "7. 資格\n\n\n[2015/03] TOEIC スコア 805\n[2023/04] 統計検定2級"
   }
 ]
