@@ -41,6 +41,8 @@ cf. <https://github.com/i9wa4/dotfiles>
         - [Macの日本語入力（日本語IM）が遅いのを解消する5のTips \| 8vivid](https://mupon.net/mac-im-slow-5-tips/)
     - ショートカット
         - [\[macOS\]キーボードでウィンドウを左半分や右半分に移動する - エンジニアによる投資](https://eng-investor.com/mac-move-window-keyboard-shortcut/)
+- バッテリー
+    - バッテリーの状態 最適化
 
 ## 3. ターミナル
 
