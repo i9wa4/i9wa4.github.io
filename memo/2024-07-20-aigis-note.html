@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-07-15">
+<meta name="dcterms.date" content="2024-07-20">
 
-<title>技術系 Tips まとめ – i9wa4’s page</title>
+<title>自分用千年戦争アイギスメモ – i9wa4’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -90,11 +56,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="技術系 Tips まとめ – i9wa4’s page">
+<meta property="og:title" content="自分用千年戦争アイギスメモ – i9wa4’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
-<meta name="twitter:title" content="技術系 Tips まとめ – i9wa4’s page">
+<meta name="twitter:title" content="自分用千年戦争アイギスメモ – i9wa4’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -186,12 +152,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">TOC</h2>
    
   <ul class="collapse">
-  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">1. Git</a></li>
-  <li><a href="#postgresql" id="toc-postgresql" class="nav-link" data-scroll-target="#postgresql">2. PostgreSQL</a></li>
-  <li><a href="#google-cloud-cli-gcloud-cli" id="toc-google-cloud-cli-gcloud-cli" class="nav-link" data-scroll-target="#google-cloud-cli-gcloud-cli">3. Google Cloud CLI (gcloud CLI)</a></li>
-  <li><a href="#google-chrome" id="toc-google-chrome" class="nav-link" data-scroll-target="#google-chrome">4. Google Chrome</a></li>
-  <li><a href="#excel" id="toc-excel" class="nav-link" data-scroll-target="#excel">5. Excel</a></li>
-  <li><a href="#word" id="toc-word" class="nav-link" data-scroll-target="#word">6. Word</a></li>
+  <li><a href="#週次周回" id="toc-週次周回" class="nav-link active" data-scroll-target="#週次周回">1. 週次周回</a></li>
+  <li><a href="#月次の交換先" id="toc-月次の交換先" class="nav-link" data-scroll-target="#月次の交換先">2. 月次の交換先</a></li>
   </ul>
 </nav>
     </div>
@@ -200,10 +162,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">技術系 Tips まとめ</h1>
+<h1 class="title">自分用千年戦争アイギスメモ</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
-    <div class="quarto-category">tech</div>
+    <div class="quarto-category">game</div>
   </div>
   </div>
 
@@ -215,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-07-15</p>
+      <p class="date">2024-07-20</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-08-28</p>
+      <p class="date-modified">2024-09-03</p>
     </div>
   </div>
     
@@ -234,114 +196,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>こんにちは。i9wa4 です。</p>
-<p>たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。</p>
-<p>分量が増えてきた分野は別記事に切り出すかもしれません。</p>
-<section id="git" class="level2">
-<h2 class="anchored" data-anchor-id="git">1. Git</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># よく使うコマンド</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-n</span> .</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--graph</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--name-only</span> HEAD HEAD~2</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff ID1 ID2 filename</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> difftool ID1 ID2</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show ID</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reflog</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># リモートリポジトリ作成</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="at">--bare</span> <span class="at">--shared</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin url</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。</p>
+<p>本当に自分用なのでご容赦ください。</p>
+<section id="週次周回" class="level2">
+<h2 class="anchored" data-anchor-id="週次周回">1. 週次周回</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>曜日</th>
+<th>対象</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>月</td>
+<td>刻水晶</td>
+</tr>
+<tr class="even">
+<td>火</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>水</td>
+<td>魔水晶</td>
+</tr>
+<tr class="even">
+<td>木</td>
+<td>好感度</td>
+</tr>
+<tr class="odd">
+<td>金</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>土</td>
+<td>刻水晶, 魔水晶</td>
+</tr>
+<tr class="odd">
+<td>日</td>
+<td>好感度</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="postgresql" class="level2">
-<h2 class="anchored" data-anchor-id="postgresql">2. PostgreSQL</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 起動～データベースへのアクセス</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pg_ctl</span> restart</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-U</span> postgres <span class="at">-d</span> db_name</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pg_ctl</span> restart</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-U</span> postgres</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> DATABASE db_name<span class="kw">;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">\c</span> db_name</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">CREATE</span> SCHEMA sc_name<span class="kw">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="google-cloud-cli-gcloud-cli" class="level2">
-<h2 class="anchored" data-anchor-id="google-cloud-cli-gcloud-cli">3. Google Cloud CLI (gcloud CLI)</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># keyfile 登録からテーブル確認まで</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> auth activate-service-account <span class="at">--key-file</span> <span class="pp">***</span>.json</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> auth list</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> set account <span class="pp">***</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">bq</span> <span class="at">--project_id</span><span class="op">=</span>aaaaa ls dataset</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">bq</span> <span class="at">--project_id</span><span class="op">=</span>aaaaa show dataset.table_name</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bq</span> <span class="at">--project_id</span><span class="op">=</span>aaaaa head dataset.table_name <span class="at">-n</span> 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ログイン</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> auth login</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="google-chrome" class="level2">
-<h2 class="anchored" data-anchor-id="google-chrome">4. Google Chrome</h2>
-<section id="検索エンジン設定" class="level3">
-<h3 class="anchored" data-anchor-id="検索エンジン設定">4.1. 検索エンジン設定</h3>
+<section id="月次の交換先" class="level2">
+<h2 class="anchored" data-anchor-id="月次の交換先">2. 月次の交換先</h2>
 <ul>
-<li>Google 日本語検索
+<li>刻水晶 400
 <ul>
-<li><code>https://www.google.com/search?q=%s</code></li>
+<li>白の皇帝 * 4 に交換する</li>
+<li>白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする</li>
 </ul></li>
-<li>Google 英語検索
+<li>魔水晶 900
 <ul>
-<li><code>https://www.google.com/search?q=%s&amp;gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0</code></li>
+<li>リングと勲章に交換する</li>
 </ul></li>
-<li>DuckDuckGo 日本語検索
+<li>覚醒聖霊ヴィクトワール
 <ul>
-<li><code>https://duckduckgo.com/?q=%s&amp;kl=jp-jp&amp;kz=-1&amp;kav=1&amp;kaf=1&amp;k1=-1&amp;ia=web</code></li>
-</ul></li>
-<li>DuckDuckGo 英語検索
-<ul>
-<li><code>https://duckduckgo.com/?q=%s&amp;kl=us-en&amp;kz=-1&amp;kav=1&amp;kaf=1&amp;k1=-1&amp;ia=web</code></li>
+<li>統帥結晶ではなく魔水晶で交換する</li>
 </ul></li>
 </ul>
-</section>
-</section>
-<section id="excel" class="level2">
-<h2 class="anchored" data-anchor-id="excel">5. Excel</h2>
-<section id="excel-vba" class="level3">
-<h3 class="anchored" data-anchor-id="excel-vba">5.1. Excel VBA</h3>
-<ul>
-<li>アドイン追加先
-<ul>
-<li><code>%USERPROFILE%\AppData\Roaming\Microsoft\AddIns</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="excel-関数" class="level3">
-<h3 class="anchored" data-anchor-id="excel-関数">5.2. Excel 関数</h3>
-<ul>
-<li>シート名を記載したセルB2を利用したハイパーリンク作成
-<ul>
-<li><code>=HYPERLINK("#'"&amp;B2&amp;"'!$A$1",B2)</code></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="word" class="level2">
-<h2 class="anchored" data-anchor-id="word">6. Word</h2>
-<section id="normal.dotm-作成" class="level3">
-<h3 class="anchored" data-anchor-id="normal.dotm-作成">6.1. Normal.dotm 作成</h3>
-<ol type="1">
-<li><code>%APPDATA%\Microsoft\Templates\Normal.dotm</code> 削除</li>
-<li>デザインを作成し既定に設定する
-<ul>
-<li>テーマ設定
-<ul>
-<li>見出し: 游ゴシック Arial</li>
-<li>本文: 游ゴシック Medium Arial</li>
-</ul></li>
-<li>アウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル</li>
-</ul></li>
-</ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

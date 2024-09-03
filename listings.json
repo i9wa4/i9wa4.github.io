@@ -1,10 +1,15 @@
 [
   {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/20240204-sapporo.vim.html",
+      "/slides/20231216-sapporo.vim.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/blog/2024-08-25-publishing-github-pages-with-quarto.html",
-      "/blog/2024-07-20-aigis-note.html",
-      "/blog/2024-07-20-minecraft-note.html",
       "/blog/2024-07-15-technical-tips.html",
       "/blog/2024-06-28-systemd-user.html",
       "/blog/2024-06-17-purchased-gadgets.html",
@@ -25,8 +30,6 @@
     "listing": "/blog/index.html",
     "items": [
       "/blog/2024-08-25-publishing-github-pages-with-quarto.html",
-      "/blog/2024-07-20-aigis-note.html",
-      "/blog/2024-07-20-minecraft-note.html",
       "/blog/2024-07-15-technical-tips.html",
       "/blog/2024-06-28-systemd-user.html",
       "/blog/2024-06-17-purchased-gadgets.html",
@@ -42,10 +45,10 @@
     ]
   },
   {
-    "listing": "/slides/index.html",
+    "listing": "/memo/index.html",
     "items": [
-      "/slides/20240204-sapporo.vim.html",
-      "/slides/20231216-sapporo.vim.html"
+      "/memo/2024-07-20-aigis-note.html",
+      "/memo/2024-07-20-minecraft-note.html"
     ]
   }
 ]
