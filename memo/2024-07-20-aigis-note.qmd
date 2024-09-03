@@ -3,7 +3,7 @@ title: "自分用千年戦争アイギスメモ"
 date: 2024-07-20 22:46:56 +0900
 date-modified: last-modified
 categories:
-  - "blog"
+  - "memo"
   - "game"
 ---
 

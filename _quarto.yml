@@ -29,9 +29,9 @@ website:
         text: "Blog"
       - href: "./slides"
         text: "Slides"
-      - href: "./resume"
-        text: "Memo"
       - href: "./memo"
+        text: "Memo"
+      - href: "./resume"
         text: "Resume"
       - href: "https://github.com/i9wa4"
         icon: github
