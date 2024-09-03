@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/slides/index.html",
-    "items": [
-      "/slides/20240204-sapporo.vim.html",
-      "/slides/20231216-sapporo.vim.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/blog/2024-08-25-publishing-github-pages-with-quarto.html",
@@ -42,6 +35,13 @@
       "/blog/2024-01-02-vim-plugin-mnh.html",
       "/blog/2024-01-02-jelyll-adjust.html",
       "/blog/2024-01-01-init.html"
+    ]
+  },
+  {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/20240204-sapporo.vim.html",
+      "/slides/20231216-sapporo.vim.html"
     ]
   },
   {
