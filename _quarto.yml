@@ -30,6 +30,8 @@ website:
       - href: "./slides"
         text: "Slides"
       - href: "./resume"
+        text: "Memo"
+      - href: "./memo"
         text: "Resume"
       - href: "https://github.com/i9wa4"
         icon: github
