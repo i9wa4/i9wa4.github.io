@@ -19,9 +19,10 @@ website:
     site: "@i9wa4_"
   open-graph: true
   navbar:
+    # https://icons.getbootstrap.com/
     left:
       - href: "."
-        text: "Top"
+        icon: house-fill
       - href: "https://i9wa4.github.io/i9wa4"
         text: "About"
       - href: "./blog"
@@ -30,25 +31,27 @@ website:
         text: "Slides"
       - href: "./resume"
         text: "Resume"
-      - icon: github
-        href: "https://github.com/i9wa4"
-      - icon: twitter-x
-        href: "https://x.com/i9wa4_"
+      - href: "https://github.com/i9wa4"
+        icon: github
+      - href: "https://x.com/i9wa4_"
+        icon: twitter-x
+      - href: "https://www.linkedin.com/in/daiki-mawatari/"
+        icon: linkedin
     right:
       - href: "https://quarto.org/"
         text: "Built with Quarto"
-      - icon: rss
-        href: "index.xml"
+      - href: "index.xml"
+        icon: rss
   # page-footer:
   #   left: "Built with [Quarto](https://quarto.org/)"
   #   center: "&copy;2024, i9wa4"
   #   right:
-  #     - icon: github
-  #       href: "https://github.com/i9wa4"
-  #     - icon: twitter-x
-  #       href: "https://x.com/i9wa4_"
-  #     - icon: rss
-  #       href: "index.xml"
+  #     - href: "https://github.com/i9wa4"
+  #       icon: github
+  #     - href: "https://x.com/i9wa4_"
+  #       icon: twitter-x
+  #     - href: "index.xml"
+  #       icon: rss
 
 format:
   html:
