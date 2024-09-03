@@ -3,7 +3,7 @@ title: "自分用 Minecraft メモ"
 date: 2024-07-20 22:39:28 +0900
 date-modified: last-modified
 categories:
-  - "blog"
+  - "memo"
   - "game"
 ---
 
