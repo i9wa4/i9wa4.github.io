@@ -55,8 +55,8 @@ jobs:
 
       - name: Commit files
         run: |
-          sudo mv dist/resume.pdf docs/resume/
-          git add docs/resume/resume.pdf
+          sudo mv dist/resume.pdf resume/
+          git add resume/resume.pdf
           git commit -m "add pdf" -a
           git pull
           git push origin gh-pages
