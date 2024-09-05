@@ -16,20 +16,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Font
-        run: sudo apt-get install -y fonts-motoya-l-cedar && sudo fc-cache -fv
-
       - name: Set up Python
         uses: actions/setup-python@v5
-
-      - name: Set up Jupyter
-        run: python3 -m pip install jupyter
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Fix timestamps
+      - name: (Optional) Set up Jupyter
+        run: python3 -m pip install jupyter
+
+      - name: (Optional) Fix timestamps
         run: bash .github/scripts/fix-timestamps.sh
+
+      - name: (Optional) Install Font
+        run: sudo apt-get install -y fonts-motoya-l-cedar && sudo fc-cache -fv
+
+      - name: (Optional) Install TinyTeX
+        run: quarto install tinytex
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
