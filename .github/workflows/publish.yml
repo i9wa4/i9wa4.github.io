@@ -31,6 +31,9 @@ jobs:
       - name: (Optional) Install Font
         run: sudo apt-get install -y fonts-motoya-l-cedar && sudo fc-cache -fv
 
+      - name: (Optional) Install LuaTex-ja
+        run: sudo apt-get install -y texlive-lang-japanese
+
       - name: (Optional) Install TinyTeX
         run: quarto install tinytex
 
