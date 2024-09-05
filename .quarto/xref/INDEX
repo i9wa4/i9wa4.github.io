@@ -1,0 +1,193 @@
+{
+  "index.qmd": {
+    "index.html": "6fe1de5d"
+  },
+  "resume-test/01-okuma.qmd": {
+    "01-okuma.html": "10f420b8"
+  },
+  "resume-test/03-cnsh.qmd": {
+    "03-cnsh.html": "891c2728"
+  },
+  "resume-test/04-hacomono.qmd": {
+    "04-hacomono.html": "27c7bd85"
+  },
+  "resume-test/02-sld.qmd": {
+    "02-sld.html": "651b7b53"
+  },
+  "resume-test/index.qmd": {
+    "index.html": "9f9c1c33"
+  },
+  "slides/20240204-sapporo.vim.qmd": {
+    "20240204-sapporo.vim.html": "f83f35c0"
+  },
+  "slides/20231216-sapporo.vim.qmd": {
+    "20231216-sapporo.vim.html": "530cd093"
+  },
+  "slides/index.qmd": {
+    "index.html": "60388891"
+  },
+  "posts/2024-06-17-purchased-gadgets.qmd": {
+    "2024-06-17-purchased-gadgets.html": "b571145e"
+  },
+  "posts/2024-01-27-setup-efm-langserver.qmd": {
+    "2024-01-27-setup-efm-langserver.html": "715d86da"
+  },
+  "posts/xxxx-xx-xx-tf-mwaa.qmd": {
+    "xxxx-xx-xx-tf-mwaa.html": "61f72888"
+  },
+  "posts/2024-01-28-looking-for-a-new-job.qmd": {
+    "2024-01-28-looking-for-a-new-job.html": "7e6b30ea"
+  },
+  "posts/2024-03-26-setup-ds100knock.qmd": {
+    "2024-03-26-setup-ds100knock.html": "dcb671a6"
+  },
+  "posts/xxxx-xx-xx-vim-steps.qmd": {
+    "xxxx-xx-xx-vim-steps.html": "77c2df55"
+  },
+  "posts/2024-07-20-aigis-note.qmd": {
+    "2024-07-20-aigis-note.html": "d3788785"
+  },
+  "posts/2024-03-24-resignation.qmd": {
+    "2024-03-24-resignation.html": "e8274d76"
+  },
+  "posts/2024-05-04-get-git-branch-name.vim.qmd": {
+    "2024-05-04-get-git-branch-name.vim.html": "9d113f73"
+  },
+  "posts/2024-01-02-jelyll-adjust.qmd": {
+    "2024-01-02-jelyll-adjust.html": "3dd97469"
+  },
+  "posts/2024-06-17-setup-mac.qmd": {
+    "2024-06-17-setup-mac.html": "e25bff30"
+  },
+  "posts/xxxx-xx-xx-embulk-specification.qmd": {
+    "xxxx-xx-xx-embulk-specification.html": "ed00e1f4"
+  },
+  "posts/2024-01-01-init.qmd": {
+    "2024-01-01-init.html": "40b2ac22"
+  },
+  "posts/2024-03-25-setup-wsl2.qmd": {
+    "2024-03-25-setup-wsl2.html": "1c565924"
+  },
+  "posts/2024-06-28-systemd-user.qmd": {
+    "2024-06-28-systemd-user.html": "8fb3c474"
+  },
+  "posts/2024-07-20-minecraft-note.qmd": {
+    "2024-07-20-minecraft-note.html": "bfb76e9f"
+  },
+  "posts/2024-05-05-deploy-quarto.qmd": {
+    "2024-05-05-deploy-quarto.html": "0961879f"
+  },
+  "posts/2024-01-02-vim-plugin-mnh.qmd": {
+    "2024-01-02-vim-plugin-mnh.html": "b1b9ba75"
+  },
+  "posts/2024-07-15-technical-tips.qmd": {
+    "2024-07-15-technical-tips.html": "f5c84ce5"
+  },
+  "posts/xxxx-xx-xx-minecraft-bedrock-server.qmd": {
+    "xxxx-xx-xx-minecraft-bedrock-server.html": "1644e0f8"
+  },
+  "posts/xxxx-xx-xx-vim-local-setting.qmd": {
+    "xxxx-xx-xx-vim-local-setting.html": "47159dfa"
+  },
+  "posts/index.qmd": {
+    "index.html": "93b81921"
+  },
+  "blog/2024-06-17-purchased-gadgets.qmd": {
+    "2024-06-17-purchased-gadgets.html": "eca34434"
+  },
+  "blog/2024-01-27-setup-efm-langserver.qmd": {
+    "2024-01-27-setup-efm-langserver.html": "1bf319d6"
+  },
+  "blog/xxxx-xx-xx-tf-mwaa.qmd": {
+    "xxxx-xx-xx-tf-mwaa.html": "417c84ba"
+  },
+  "blog/2024-01-28-looking-for-a-new-job.qmd": {
+    "2024-01-28-looking-for-a-new-job.html": "8df7474f"
+  },
+  "blog/2024-03-26-setup-ds100knock.qmd": {
+    "2024-03-26-setup-ds100knock.html": "d742dd47"
+  },
+  "blog/xxxx-xx-xx-vim-steps.qmd": {
+    "xxxx-xx-xx-vim-steps.html": "5c8f0ec2"
+  },
+  "blog/2024-07-20-aigis-note.qmd": {
+    "2024-07-20-aigis-note.html": "78a86907"
+  },
+  "blog/2024-03-24-resignation.qmd": {
+    "2024-03-24-resignation.html": "71578694"
+  },
+  "blog/2024-05-04-get-git-branch-name.vim.qmd": {
+    "2024-05-04-get-git-branch-name.vim.html": "6568c8f5"
+  },
+  "blog/2024-01-02-jelyll-adjust.qmd": {
+    "2024-01-02-jelyll-adjust.html": "3a76ce6e"
+  },
+  "blog/2024-06-17-setup-mac.qmd": {
+    "2024-06-17-setup-mac.html": "90e6519f"
+  },
+  "blog/xxxx-xx-xx-embulk-specification.qmd": {
+    "xxxx-xx-xx-embulk-specification.html": "a5af33eb"
+  },
+  "blog/2024-01-01-init.qmd": {
+    "2024-01-01-init.html": "9e2e9dcc"
+  },
+  "blog/2024-03-25-setup-wsl2.qmd": {
+    "2024-03-25-setup-wsl2.html": "17ce8b7c"
+  },
+  "blog/2024-06-28-systemd-user.qmd": {
+    "2024-06-28-systemd-user.html": "e4718018"
+  },
+  "blog/2024-07-20-minecraft-note.qmd": {
+    "2024-07-20-minecraft-note.html": "1b5e1738"
+  },
+  "blog/2024-05-05-deploy-quarto.qmd": {
+    "2024-05-05-deploy-quarto.html": "a870dc21"
+  },
+  "blog/2024-01-02-vim-plugin-mnh.qmd": {
+    "2024-01-02-vim-plugin-mnh.html": "7e5f028f"
+  },
+  "blog/2024-07-15-technical-tips.qmd": {
+    "2024-07-15-technical-tips.html": "4f1eb461"
+  },
+  "blog/xxxx-xx-xx-minecraft-bedrock-server.qmd": {
+    "xxxx-xx-xx-minecraft-bedrock-server.html": "d58e1cf9"
+  },
+  "blog/xxxx-xx-xx-vim-local-setting.qmd": {
+    "xxxx-xx-xx-vim-local-setting.html": "10e4a285"
+  },
+  "blog/index.qmd": {
+    "index.html": "fb478385"
+  },
+  "resume/01-okuma.qmd": {
+    "01-okuma.html": "d93e3b5c"
+  },
+  "resume/03-cnsh.qmd": {
+    "03-cnsh.html": "f2732722"
+  },
+  "resume/04-hacomono.qmd": {
+    "04-hacomono.html": "73e8e608"
+  },
+  "resume/02-sld.qmd": {
+    "02-sld.html": "7ca5e410"
+  },
+  "resume/index.qmd": {
+    "index.html": "6bfac900",
+    "index.tex": "ebd8c167",
+    "index.pdf": "bf44a4dc"
+  },
+  "blog/xxxx-xx-xx-terraform-mwaa.qmd": {
+    "xxxx-xx-xx-terraform-mwaa.html": "2bd0a0f1"
+  },
+  "blog/2024-08-25-publishing-github-pages-with-quarto.qmd": {
+    "2024-08-25-publishing-github-pages-with-quarto.html": "5d712af3"
+  },
+  "memo/2024-07-20-aigis-note.qmd": {
+    "2024-07-20-aigis-note.html": "5e5f7edd"
+  },
+  "memo/2024-07-20-minecraft-note.qmd": {
+    "2024-07-20-minecraft-note.html": "835b07dc"
+  },
+  "memo/index.qmd": {
+    "index.html": "447f1e66"
+  }
+}
