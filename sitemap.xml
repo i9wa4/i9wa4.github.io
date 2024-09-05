@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://i9wa4.github.io/slides/index.html</loc>
+    <lastmod>2024-08-24T09:20:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/slides/20240204-sapporo.vim.html</loc>
+    <lastmod>2024-08-26T00:48:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/memo/2024-07-20-minecraft-note.html</loc>
+    <lastmod>2024-09-03T01:31:28.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://i9wa4.github.io/index.html</loc>
     <lastmod>2024-09-03T01:28:45.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/resume/03-cnsh.html</loc>
-    <lastmod>2024-08-30T01:42:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/resume/01-okuma.html</loc>
-    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
@@ -21,15 +29,7 @@
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/index.html</loc>
-    <lastmod>2024-08-24T09:20:45.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
@@ -41,36 +41,40 @@
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/memo/2024-07-20-minecraft-note.html</loc>
-    <lastmod>2024-09-03T01:31:28.000Z</lastmod>
+    <loc>https://i9wa4.github.io/resume/02-sld.html</loc>
+    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/slides/20240204-sapporo.vim.html</loc>
-    <lastmod>2024-08-26T00:48:55.000Z</lastmod>
+    <loc>https://i9wa4.github.io/resume/03-cnsh.html</loc>
+    <lastmod>2024-08-30T01:42:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/slides/20231216-sapporo.vim.html</loc>
-    <lastmod>2024-08-26T00:48:55.000Z</lastmod>
+    <loc>https://i9wa4.github.io/resume/04-hacomono.html</loc>
+    <lastmod>2024-09-03T08:59:51.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/slides/index.html</loc>
-    <lastmod>2024-08-24T09:20:45.000Z</lastmod>
+    <loc>https://i9wa4.github.io/resume/01-okuma.html</loc>
+    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/memo/2024-07-20-aigis-note.html</loc>
-    <lastmod>2024-09-03T01:31:28.000Z</lastmod>
+    <loc>https://i9wa4.github.io/resume/index.html</loc>
+    <lastmod>2024-09-05T12:39:11.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/memo/index.html</loc>
-    <lastmod>2024-09-03T07:45:35.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <lastmod>2024-08-24T09:20:45.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
@@ -81,27 +85,23 @@
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://i9wa4.github.io/blog/2024-01-01-init.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/resume/04-hacomono.html</loc>
-    <lastmod>2024-09-03T08:59:51.000Z</lastmod>
+    <loc>https://i9wa4.github.io/memo/2024-07-20-aigis-note.html</loc>
+    <lastmod>2024-09-03T01:31:28.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/resume/02-sld.html</loc>
-    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
+    <loc>https://i9wa4.github.io/memo/index.html</loc>
+    <lastmod>2024-09-03T07:45:35.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/resume/index.html</loc>
-    <lastmod>2024-08-30T01:42:01.000Z</lastmod>
+    <loc>https://i9wa4.github.io/slides/20231216-sapporo.vim.html</loc>
+    <lastmod>2024-08-26T00:48:55.000Z</lastmod>
   </url>
 </urlset>
