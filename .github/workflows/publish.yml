@@ -16,14 +16,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Fix timestamps
+        run: bash .github/scripts/fix-timestamps.sh
+
       - name: Set up Python
         uses: actions/setup-python@v5
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Fix timestamps
-        run: bash .github/scripts/fix-timestamps.sh
 
       - name: (Optional) Set up Jupyter
         run: python3 -m pip install jupyter
@@ -52,3 +52,10 @@ jobs:
         with:
           htmlPath: 'docs/resume/index.html'
           pdfName: 'resume'
+
+      - name: Commit files
+        run: |
+          git add .
+          git commit -m "add pdf" -a
+          git pull
+          git push origin gh-pages
