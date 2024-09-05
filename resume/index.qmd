@@ -1,12 +1,12 @@
 ---
 title: "職務経歴書"
 date: last-modified
-format:
-  pdf:
-    colorlinks: true
-    CJKmainfont: "MotoyaLCedar"
-pdf-engine: lualatex
-documentclass: ltjsarticle
+# format:
+#   pdf:
+#     colorlinks: true
+#     CJKmainfont: "MotoyaLCedar"
+# pdf-engine: lualatex
+# documentclass: ltjsarticle
 ---
 
 - 現住所 北海道札幌市

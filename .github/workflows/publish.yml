@@ -28,9 +28,6 @@ jobs:
       - name: (Optional) Set up Jupyter
         run: python3 -m pip install jupyter
 
-      - name: (Optional) Install TinyTeX
-        run: quarto install tinytex
-
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
