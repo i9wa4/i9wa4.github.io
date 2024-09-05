@@ -19,15 +19,15 @@ jobs:
       - name: Fix timestamps
         run: bash .github/scripts/fix-timestamps.sh
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: (Optional) Set up Jupyter
-        run: python3 -m pip install jupyter
+      - name: (Optional) Set up Python
+        uses: actions/setup-python@v5
 
+      # - name: (Optional) Set up Jupyter
+      #   run: python3 -m pip install jupyter
+      #
       # - name: (Optional) Install Font
       #   run: sudo apt-get install -y fonts-motoya-l-cedar && sudo fc-cache -fv
       #
@@ -55,6 +55,7 @@ jobs:
 
       - name: Commit files
         run: |
+          ls -la
           mv /github/workspace/dist/resume.pdf docs/resume/
           git add docs/resume/resume.pdf
           git commit -m "add pdf" -a
