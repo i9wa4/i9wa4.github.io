@@ -1,0 +1,2289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>i9wa4&#39;s page</title>
+<link>https://i9wa4.github.io/</link>
+<atom:link href="https://i9wa4.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<image>
+<url>https://i9wa4.github.io/assets/common/icon_hhkb2.jpg</url>
+<title>i9wa4&#39;s page</title>
+<link>https://i9wa4.github.io/</link>
+</image>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Sun, 25 Aug 2024 08:25:32 GMT</lastBuildDate>
+<item>
+  <title>Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する</title>
+  <link>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。</p>
+<p>スライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。</p>
+<p>ここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。</p>
+<p><a href="https://quarto.org/docs/publishing/github-pages.html">Quarto – GitHub Pages</a></p>
+<section id="想定する読者" class="level2">
+<h2 class="anchored" data-anchor-id="想定する読者">想定する読者</h2>
+<ul>
+<li>Python の環境構築ができている方</li>
+<li>Git/GitHub 操作の説明がなくても問題ない方</li>
+</ul>
+</section>
+<section id="事前準備" class="level2">
+<h2 class="anchored" data-anchor-id="事前準備">事前準備</h2>
+<section id="quarto-のインストール" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-のインストール">Quarto のインストール</h3>
+<p>まずは Quarto をインストールしておきましょう。</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> pip install quarto-cli</span></code></pre></div>
+<p>なぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。</p>
+<p><a href="https://github.com/quarto-dev/quarto-cli/discussions/8597">Installing quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597</a></p>
+</section>
+<section id="github-リポジトリ作成" class="level3">
+<h3 class="anchored" data-anchor-id="github-リポジトリ作成">GitHub リポジトリ作成</h3>
+<p>任意の名前でリポジトリを作成しましょう。</p>
+<p>私は GitHub リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a> を作成していて公開 URL は <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a> になります。</p>
+<p>ここではデモ用に <a href="https://github.com/i9wa4/quarto-page" class="uri">https://github.com/i9wa4/quarto-page</a> というリポジトリを作成してみます。こちらの公開 URL は <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> になります。</p>
+<p>特にこだわりがなければリポジトリ名は <code>username.github.io</code> でよいでしょう。</p>
+</section>
+</section>
+<section id="基本構造を整える" class="level2">
+<h2 class="anchored" data-anchor-id="基本構造を整える">基本構造を整える</h2>
+<p>作成したリポジトリをクローンして以下のファイルを作成します。</p>
+<ul>
+<li><p><code>_quarto.yml</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>_quarto.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="_quarto.yml" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">project</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">type</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> website</span></span>
+<span id="cb2-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">output-dir</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> docs</span></span></code></pre></div>
+</div></li>
+<li><p><code>.nojelyll</code></p>
+<p>空ファイルなので下記コマンドで作成します。</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> touch .nojekyll</span></code></pre></div></li>
+<li><p><code>.gitignore</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.gitignore</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename=".gitignore" style="background: #f1f3f5;"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb4-1">/.quarto/</span>
+<span id="cb4-2">/docs/</span></code></pre></div>
+</div></li>
+<li><p><code>index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="index.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb5-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> トップページ index.qmd</span></span>
+<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb5-4"></span>
+<span id="cb5-5">本文</span></code></pre></div>
+</div></li>
+</ul>
+<p>作成できたら main ブランチに push しておきましょう。</p>
+</section>
+<section id="初回デプロイを行う" class="level2">
+<h2 class="anchored" data-anchor-id="初回デプロイを行う">初回デプロイを行う</h2>
+<p>初回はローカル環境からデプロイを実行します。</p>
+<p>指示に従って yes と入力すると <code>gh-pages</code> ブランチが作成されて初回デプロイが完了します。</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> quarto publish gh-pages</span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">?</span> Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">?</span> <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Y/n</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">›</span> Yes</span></code></pre></div>
+</section>
+<section id="回目以降のデプロイを自動化する" class="level2">
+<h2 class="anchored" data-anchor-id="回目以降のデプロイを自動化する">2回目以降のデプロイを自動化する</h2>
+<p>2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.github/workflows/publish.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb7" data-filename=".github/workflows/publish.yml" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">workflow_dispatch</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">branches</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> main</span></span>
+<span id="cb7-5"></span>
+<span id="cb7-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Quarto Publish</span></span>
+<span id="cb7-7"></span>
+<span id="cb7-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">jobs</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">build-deploy</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runs-on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ubuntu-latest</span></span>
+<span id="cb7-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">permissions</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contents</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> write</span></span>
+<span id="cb7-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">steps</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Check out repository</span></span>
+<span id="cb7-15"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/checkout@v4</span></span>
+<span id="cb7-16"></span>
+<span id="cb7-17"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Set up Quarto</span></span>
+<span id="cb7-18"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> quarto-dev/quarto-actions/setup@v2</span></span>
+<span id="cb7-19"></span>
+<span id="cb7-20"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Render and Publish</span></span>
+<span id="cb7-21"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> quarto-dev/quarto-actions/publish@v2</span></span>
+<span id="cb7-22"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-23"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">target</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> gh-pages</span></span>
+<span id="cb7-24"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">env</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb7-25"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">GITHUB_TOKEN</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></div>
+</div>
+</section>
+<section id="ブログ記事とスライドのための構造を整える" class="level2">
+<h2 class="anchored" data-anchor-id="ブログ記事とスライドのための構造を整える">ブログ記事とスライドのための構造を整える</h2>
+<p>以下の内容を push すると <a href="https://i9wa4.github.io/quarto-page" class="uri">https://i9wa4.github.io/quarto-page</a> が完成します。</p>
+<ul>
+<li><p><code>index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename="index.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb8-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> トップページ index.qmd</span></span>
+<span id="cb8-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">listing:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  # トップページにリスト表示させたくない場合は listing の設定は不要</span></span>
+<span id="cb8-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  contents:</span></span>
+<span id="cb8-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "blog"</span></span>
+<span id="cb8-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "slides"  # トップページにスライドを表示させる場合</span></span>
+<span id="cb8-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  exclude:</span></span>
+<span id="cb8-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    filename: "index.qmd"</span></span>
+<span id="cb8-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  sort:</span></span>
+<span id="cb8-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "date desc"</span></span>
+<span id="cb8-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb8-12"></span>
+<span id="cb8-13">本文</span>
+<span id="cb8-14"></span>
+<span id="cb8-15"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ブログ記事一覧</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](./blog)</span></span>
+<span id="cb8-16"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">スライド一覧</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">](./slides)</span></span>
+<span id="cb8-17"></span>
+<span id="cb8-18"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## ブログとスライドの新着一覧</span></span>
+<span id="cb8-19"></span>
+<span id="cb8-20">ブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。</span></code></pre></div>
+</div></li>
+</ul>
+<section id="ブログ" class="level3">
+<h3 class="anchored" data-anchor-id="ブログ">ブログ</h3>
+<ul>
+<li><p><code>blog/index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>blog/index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="blog/index.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb9-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> ブログ記事一覧</span></span>
+<span id="cb9-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">listing:</span></span>
+<span id="cb9-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  contents:</span></span>
+<span id="cb9-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "."</span></span>
+<span id="cb9-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  sort:</span></span>
+<span id="cb9-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "date desc"</span></span>
+<span id="cb9-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div></li>
+<li><p><code>blog/2024-08-25-test1.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>blog/2024-08-25-test1.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename="blog/2024-08-25-test1.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb10-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> test1</span></span>
+<span id="cb10-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">date:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> 2024-08-25</span></span>
+<span id="cb10-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb10-5"></span>
+<span id="cb10-6">1行目</span>
+<span id="cb10-7"></span>
+<span id="cb10-8">ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。</span></code></pre></div>
+</div></li>
+<li><p><code>blog/test2.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>blog/test2.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb11" data-filename="blog/test2.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb11-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> test2</span></span>
+<span id="cb11-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">date:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> 2024-08-26</span></span>
+<span id="cb11-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb11-5"></span>
+<span id="cb11-6">ここが1行目</span>
+<span id="cb11-7"></span>
+<span id="cb11-8">ファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。</span></code></pre></div>
+</div></li>
+</ul>
+</section>
+<section id="スライド" class="level3">
+<h3 class="anchored" data-anchor-id="スライド">スライド</h3>
+<ul>
+<li><p><code>slides/index.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>slides/index.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb12" data-filename="slides/index.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb12-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> スライド一覧</span></span>
+<span id="cb12-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">listing:</span></span>
+<span id="cb12-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  contents:</span></span>
+<span id="cb12-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "."</span></span>
+<span id="cb12-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  sort:</span></span>
+<span id="cb12-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - "date desc"</span></span>
+<span id="cb12-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</div></li>
+<li><p><code>slides/test1-slide.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>slides/test1-slide.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb13" data-filename="slides/test1-slide.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb13-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> "test1-slide タイトル"</span></span>
+<span id="cb13-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">author:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> i9wa4</span></span>
+<span id="cb13-4"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">date:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> 2024-08-25</span></span>
+<span id="cb13-5"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">format:</span></span>
+<span id="cb13-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  revealjs:</span></span>
+<span id="cb13-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    slide-level: 2</span></span>
+<span id="cb13-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    slide-number: true</span></span>
+<span id="cb13-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb13-10"></span>
+<span id="cb13-11">本文</span>
+<span id="cb13-12"></span>
+<span id="cb13-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## サブタイトル1</span></span>
+<span id="cb13-14"></span>
+<span id="cb13-15">本文</span>
+<span id="cb13-16"></span>
+<span id="cb13-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## サブタイトル2</span></span>
+<span id="cb13-18"></span>
+<span id="cb13-19">本文</span></code></pre></div>
+</div></li>
+<li><p><code>slides/test2-slide.qmd</code></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>slides/test2-slide.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb14" data-filename="slides/test2-slide.qmd" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb14-2"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">title:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> "test2-slide タイトル"</span></span>
+<span id="cb14-3"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">author:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> i9wa4</span></span>
+<span id="cb14-4"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">date:</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> 2024-08-25</span></span>
+<span id="cb14-5"><span class="an" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">format:</span></span>
+<span id="cb14-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  revealjs:</span></span>
+<span id="cb14-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    slide-level: 2</span></span>
+<span id="cb14-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    slide-number: true</span></span>
+<span id="cb14-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb14-10"></span>
+<span id="cb14-11">本文</span>
+<span id="cb14-12"></span>
+<span id="cb14-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## サブタイトル1</span></span>
+<span id="cb14-14"></span>
+<span id="cb14-15">本文</span>
+<span id="cb14-16"></span>
+<span id="cb14-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">## サブタイトル2</span></span>
+<span id="cb14-18"></span>
+<span id="cb14-19">本文</span></code></pre></div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="プレビューを確認しつつ編集する" class="level2">
+<h2 class="anchored" data-anchor-id="プレビューを確認しつつ編集する">プレビューを確認しつつ編集する</h2>
+<p>プレビューを Web ブラウザで確認しながら編集が可能です。</p>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> quarto preview</span></code></pre></div>
+<p>編集内容がリアルタイムに反映されるので執筆体験がとても良いです！</p>
+<p>[2024-08-26 追記] プロジェクト構成によっては Firefox 以外の Web ブラウザでうまくプレビューできない事象が発生している模様。</p>
+<p><a href="https://github.com/quarto-dev/quarto-cli/issues/3045">Quarto preview only loading homepage in Firefox · Issue #3045 · quarto-dev/quarto-cli</a></p>
+<p>遭遇した場合は以下のコマンドで <code>docs/</code> 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。</p>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> quarto render</span></code></pre></div>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">おわりに</h2>
+<p>もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。</p>
+<ul>
+<li>Quarto 公式
+<ul>
+<li>ページ <a href="https://quarto.org" class="uri">https://quarto.org</a></li>
+<li>リポジトリ <a href="https://github.com/quarto-dev/quarto-web" class="uri">https://github.com/quarto-dev/quarto-web</a></li>
+</ul></li>
+<li>i9wa4 の GitHub Pages
+<ul>
+<li>ページ <a href="https://i9wa4.github.io" class="uri">https://i9wa4.github.io</a></li>
+<li>リポジトリ <a href="https://github.com/i9wa4/i9wa4.github.io" class="uri">https://github.com/i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>quarto</category>
+  <guid>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</guid>
+  <pubDate>Sun, 25 Aug 2024 08:25:32 GMT</pubDate>
+</item>
+<item>
+  <title>技術系 Tips まとめ</title>
+  <link>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。</p>
+<p>分量が増えてきた分野は別記事に切り出すかもしれません。</p>
+<section id="git" class="level2">
+<h2 class="anchored" data-anchor-id="git">1. Git</h2>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># よく使うコマンド</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> add <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> .</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> log <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--graph</span></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> diff <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--name-only</span> HEAD HEAD~2</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> diff ID1 ID2 filename</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> difftool ID1 ID2</span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> show ID</span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reflog</span>
+<span id="cb1-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> rebase</span>
+<span id="cb1-11"></span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># リモートリポジトリ作成</span></span>
+<span id="cb1-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> init <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--bare</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--shared</span></span>
+<span id="cb1-14"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> remote add origin url</span>
+<span id="cb1-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone url</span></code></pre></div>
+</section>
+<section id="postgresql" class="level2">
+<h2 class="anchored" data-anchor-id="postgresql">2. PostgreSQL</h2>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 起動～データベースへのアクセス</span></span>
+<span id="cb2-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pg_ctl</span> restart</span>
+<span id="cb2-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">psql</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-U</span> postgres <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> db_name</span>
+<span id="cb2-4"></span>
+<span id="cb2-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pg_ctl</span> restart</span>
+<span id="cb2-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">psql</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-U</span> postgres</span>
+<span id="cb2-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">CREATE</span> DATABASE db_name<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span></span>
+<span id="cb2-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">\c</span> db_name</span>
+<span id="cb2-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">CREATE</span> SCHEMA sc_name<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span></span></code></pre></div>
+</section>
+<section id="google-cloud-cli-gcloud-cli" class="level2">
+<h2 class="anchored" data-anchor-id="google-cloud-cli-gcloud-cli">3. Google Cloud CLI (gcloud CLI)</h2>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># keyfile 登録からテーブル確認まで</span></span>
+<span id="cb3-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">gcloud</span> auth activate-service-account <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--key-file</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">***</span>.json</span>
+<span id="cb3-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">gcloud</span> auth list</span>
+<span id="cb3-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">gcloud</span> set account <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">***</span></span>
+<span id="cb3-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">bq</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>aaaaa ls dataset</span>
+<span id="cb3-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">bq</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>aaaaa show dataset.table_name</span>
+<span id="cb3-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">bq</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>aaaaa head dataset.table_name <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> 5</span></code></pre></div>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ログイン</span></span>
+<span id="cb4-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
+</section>
+<section id="google-chrome" class="level2">
+<h2 class="anchored" data-anchor-id="google-chrome">4. Google Chrome</h2>
+<section id="検索エンジン設定" class="level3">
+<h3 class="anchored" data-anchor-id="検索エンジン設定">4.1. 検索エンジン設定</h3>
+<ul>
+<li>Google 日本語検索
+<ul>
+<li><code>https://www.google.com/search?q=%s</code></li>
+</ul></li>
+<li>Google 英語検索
+<ul>
+<li><code>https://www.google.com/search?q=%s&amp;gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0</code></li>
+</ul></li>
+<li>DuckDuckGo 日本語検索
+<ul>
+<li><code>https://duckduckgo.com/?q=%s&amp;kl=jp-jp&amp;kz=-1&amp;kav=1&amp;kaf=1&amp;k1=-1&amp;ia=web</code></li>
+</ul></li>
+<li>DuckDuckGo 英語検索
+<ul>
+<li><code>https://duckduckgo.com/?q=%s&amp;kl=us-en&amp;kz=-1&amp;kav=1&amp;kaf=1&amp;k1=-1&amp;ia=web</code></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="excel" class="level2">
+<h2 class="anchored" data-anchor-id="excel">5. Excel</h2>
+<section id="excel-vba" class="level3">
+<h3 class="anchored" data-anchor-id="excel-vba">5.1. Excel VBA</h3>
+<ul>
+<li>アドイン追加先
+<ul>
+<li><code>%USERPROFILE%\AppData\Roaming\Microsoft\AddIns</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="excel-関数" class="level3">
+<h3 class="anchored" data-anchor-id="excel-関数">5.2. Excel 関数</h3>
+<ul>
+<li>シート名を記載したセルB2を利用したハイパーリンク作成
+<ul>
+<li><code>=HYPERLINK("#'"&amp;B2&amp;"'!$A$1",B2)</code></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="word" class="level2">
+<h2 class="anchored" data-anchor-id="word">6. Word</h2>
+<section id="normal.dotm-作成" class="level3">
+<h3 class="anchored" data-anchor-id="normal.dotm-作成">6.1. Normal.dotm 作成</h3>
+<ol type="1">
+<li><code>%APPDATA%\Microsoft\Templates\Normal.dotm</code> 削除</li>
+<li>デザインを作成し既定に設定する
+<ul>
+<li>テーマ設定
+<ul>
+<li>見出し: 游ゴシック Arial</li>
+<li>本文: 游ゴシック Medium Arial</li>
+</ul></li>
+<li>アウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル</li>
+</ul></li>
+</ol>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <guid>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</guid>
+  <pubDate>Mon, 15 Jul 2024 07:15:11 GMT</pubDate>
+</item>
+<item>
+  <title>systemd がユーザー権限でも使える</title>
+  <link>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>systemd がユーザー権限でも設定できると知ったので記事にします。</p>
+<section id="基本的な情報まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="基本的な情報まとめ">1. 基本的な情報まとめ</h2>
+<ul>
+<li>設定ファイル格納先
+<ul>
+<li><code>~/.config/systemd/user/</code></li>
+</ul></li>
+<li>コマンド
+<ul>
+<li><code>systemd --user</code></li>
+<li>user オプションを付けて通常の systemd と同様に使用する</li>
+</ul></li>
+</ul>
+</section>
+<section id="timer-設定手順" class="level2">
+<h2 class="anchored" data-anchor-id="timer-設定手順">2. timer 設定手順</h2>
+<p>私の用途では timer 設定ができれば OK です。</p>
+<p>下記リポジトリの設定を使って説明していきます。</p>
+<p><a href="https://github.com/i9wa4/minecraft-bedrock-server-setup/blob/21631d662eb510f972dc0142faecdf27d804398f/bin/init.sh">i9wa4/minecraft-bedrock-server-setup/bin/init.sh</a></p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ~/.config/systemd/user/ に設定ファイルを配置する</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ln</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-fs</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${DIR_REPO}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/etc/mbs-backup.service <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb1-3">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/.config/systemd/user/mbs-backup.service</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ln</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-fs</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${DIR_REPO}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/etc/mbs-backup.timer <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb1-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/.config/systemd/user/mbs-backup.timer</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 設定ファイルを読み込む</span></span>
+<span id="cb1-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> daemon-reload</span>
+<span id="cb1-9"></span>
+<span id="cb1-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># timer をログイン時に実行する</span></span>
+<span id="cb1-11"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> enable mbs-backup.timer</span>
+<span id="cb1-12"></span>
+<span id="cb1-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># timer を実行する</span></span>
+<span id="cb1-14"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> start mbs-backup.timer</span>
+<span id="cb1-15"></span>
+<span id="cb1-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># サーバーの起動時にサービスを立ち上げる</span></span>
+<span id="cb1-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> loginctl enable-linger i9wa4</span></code></pre></div>
+</section>
+<section id="参考リンク" class="level2">
+<h2 class="anchored" data-anchor-id="参考リンク">3. 参考リンク</h2>
+<ul>
+<li><a href="https://wiki.archlinux.jp/index.php/Systemd/ユーザー">systemd/ユーザー - ArchWiki</a></li>
+<li><a href="https://qiita.com/k0kubun/items/3c94473506e0e370a227">サーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita</a></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <guid>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</guid>
+  <pubDate>Thu, 27 Jun 2024 16:56:32 GMT</pubDate>
+</item>
+<item>
+  <title>購入したガジェットの紹介</title>
+  <link>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。</p>
+<div id="tbl-gadgets" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gadgets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: 購入ガジェット一覧
+</figcaption>
+<div aria-describedby="tbl-gadgets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">購入日</th>
+<th style="text-align: left;">メーカー</th>
+<th style="text-align: left;">製品名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2019-07-01</td>
+<td style="text-align: left;">Logicool</td>
+<td style="text-align: left;"><a href="https://www.yodobashi.com/product/100000001004464218/">Pebble M350</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020-07-19</td>
+<td style="text-align: left;">PFU</td>
+<td style="text-align: left;"><a href="https://www.pfu.ricoh.com/direct/hhkb/detail_pd-kb800bs.html">HHKB Professional HYBRID Type-S 英語配列／墨</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-03-12</td>
+<td style="text-align: left;">Logicool</td>
+<td style="text-align: left;"><a href="https://www.logicool.co.jp/ja-jp/products/mice/m575-ergo-wireless-trackball.910-005876.html">ERGO M575</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-12-05</td>
+<td style="text-align: left;">Kensington</td>
+<td style="text-align: left;"><a href="https://www.kensington.com/ja-jp/p/製品/コントロール/トラックボール/スリムブレードトラックボール/">スリムブレードトラックボール</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2023-03-05</td>
+<td style="text-align: left;">Google</td>
+<td style="text-align: left;"><a href="https://www.amazon.co.jp/dp/B0CJ39LD8D">Pixel 6a</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023-03-12</td>
+<td style="text-align: left;">SONY</td>
+<td style="text-align: left;"><a href="https://www.sony.jp/headphone/products/WF-1000XM4/">WF-1000XM4</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2023-08-05</td>
+<td style="text-align: left;">Beelink</td>
+<td style="text-align: left;"><a href="https://www.amazon.co.jp/dp/B0CB4FFVYY">Beelink SEi10 Mini PC</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-02-28</td>
+<td style="text-align: left;">Anker</td>
+<td style="text-align: left;"><a href="https://www.ankerjapan.com/products/a8365">Anker PowerExpand 6-in-1 USB-C PD イーサネット ハブ</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-03-02</td>
+<td style="text-align: left;">Lenovo</td>
+<td style="text-align: left;"><a href="https://www.lenovo.com/jp/ja/p/laptops/thinkpad/thinkpad-t-series/thinkpad-t14s-gen-4-(14-inch-amd)/len101t0080">ThinkPad T14s Gen 4 (AMD)</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-04-05</td>
+<td style="text-align: left;">Shokz</td>
+<td style="text-align: left;"><a href="https://jp.shokz.com/products/openrun-pro">OpenRun Pro Mini</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-05-06</td>
+<td style="text-align: left;">Fitbit</td>
+<td style="text-align: left;"><a href="https://www.fitbit.com/global/jp/products/trackers/charge6">Fitbit Charge 6</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-06-03</td>
+<td style="text-align: left;">Dell</td>
+<td style="text-align: left;"><a href="https://www.dell.com/ja-jp/shop/dell-27-usb-c-モニター-s2722dc/apd/210-bcde/モニター-モニターアクセサリー">Dell 27 USB-C モニター - S2722DC</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-06-07</td>
+<td style="text-align: left;">Logicool</td>
+<td style="text-align: left;"><a href="https://www.logicool.co.jp/ja-jp/products/webcams/hd-webcam-c270n.960-001265.html">C270n HDウェブカメラ</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-07-07</td>
+<td style="text-align: left;">Panasonic</td>
+<td style="text-align: left;"><a href="https://panasonic.jp/shaver/products/ES-PV3A.html">ラムダッシュ パームイン ES-PV3A</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-08-18</td>
+<td style="text-align: left;">OMRON</td>
+<td style="text-align: left;"><a href="https://www.healthcare.omron.co.jp/product/hbf/hbf-702t.html">体重体組成計 HBF-702T カラダスキャン</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>gadget</category>
+  <guid>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</guid>
+  <pubDate>Mon, 17 Jun 2024 03:42:17 GMT</pubDate>
+</item>
+<item>
+  <title>Mac 環境構築手順</title>
+  <link>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>私の Mac 環境構築手順をまとめておきます。</p>
+<section id="dotfiles-導入" class="level2">
+<h2 class="anchored" data-anchor-id="dotfiles-導入">1. dotfiles 導入</h2>
+<p>cf.&nbsp;<a href="https://github.com/i9wa4/dotfiles" class="uri">https://github.com/i9wa4/dotfiles</a></p>
+</section>
+<section id="システム設定" class="level2">
+<h2 class="anchored" data-anchor-id="システム設定">2. システム設定</h2>
+<ul>
+<li>マウスのスクロール方向変更</li>
+<li>プライバシーとセキュリティ
+<ul>
+<li>画面収録とシステムオーディオ録音
+<ul>
+<li>画面の収録とオーディオの録音を両方許可する
+<ul>
+<li>Chrome, Slack, Zoom</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>デスクトップ
+<ul>
+<li>壁紙をクリックしてデスクトップを表示
+<ul>
+<li>ステージマネージャー使用時のみ</li>
+</ul></li>
+</ul></li>
+<li>Dock
+<ul>
+<li>配置</li>
+<li>自動的に表示/非表示</li>
+</ul></li>
+<li>コントロールセンター
+<ul>
+<li>Bluetoothアイコンをメニューバーに表示する</li>
+<li>メニューバー
+<ul>
+<li>メニューバーを自動的に非表示しない</li>
+<li>時計
+<ul>
+<li>日付を常に表示</li>
+<li>秒を表示</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>キーボード
+<ul>
+<li>日本語入力が重いので設定見直す
+<ul>
+<li><a href="https://mupon.net/mac-im-slow-5-tips/">Macの日本語入力（日本語IM）が遅いのを解消する5のTips | 8vivid</a></li>
+</ul></li>
+<li>ショートカット
+<ul>
+<li><a href="https://eng-investor.com/mac-move-window-keyboard-shortcut/">[macOS]キーボードでウィンドウを左半分や右半分に移動する - エンジニアによる投資</a></li>
+</ul></li>
+</ul></li>
+<li>バッテリー
+<ul>
+<li>バッテリーの状態 最適化</li>
+</ul></li>
+</ul>
+</section>
+<section id="ターミナル" class="level2">
+<h2 class="anchored" data-anchor-id="ターミナル">3. ターミナル</h2>
+<ul>
+<li>Alacritty を使う
+<ul>
+<li>Wezterm でもいいかもしれない</li>
+</ul></li>
+</ul>
+</section>
+<section id="zsh" class="level2">
+<h2 class="anchored" data-anchor-id="zsh">4. Zsh</h2>
+<ul>
+<li><p>Ctrl-R のコマンド履歴検索が実行できないとき</p>
+<ul>
+<li><a href="https://wayohoo.com/article/6922">zshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI</a></li>
+</ul></li>
+<li><p>~/.zshenv</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># あれば書く</span></span></code></pre></div></li>
+<li><p>~/.zshrc</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># あれば書く</span></span></code></pre></div></li>
+</ul>
+</section>
+<section id="aws" class="level2">
+<h2 class="anchored" data-anchor-id="aws">6. AWS</h2>
+<section id="okta-経由" class="level3">
+<h3 class="anchored" data-anchor-id="okta-経由">6.1. Okta 経由</h3>
+<ul>
+<li><a href="https://www.notion.so/AWS-IAM-Identity-Center-a4eda510decb43f6a51c1df902acf84a?pvs=21">AWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法</a></li>
+</ul>
+</section>
+<section id="aws-cli-経由" class="level3">
+<h3 class="anchored" data-anchor-id="aws-cli-経由">6.2. AWS CLI 経由</h3>
+<ul>
+<li><p><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface</a></p>
+<ul>
+<li>これに従って AWS CLI をインストールする</li>
+</ul></li>
+<li><p><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/sso-configure-profile-token.html">自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface</a></p></li>
+<li><p>ログイン (毎回やる必要なし)</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">aws</span> sso login <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--profile</span> xxx</span></code></pre></div></li>
+<li><p>動作確認</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">aws</span> ec2 describe-instances <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--profile</span> xxx</span></code></pre></div></li>
+<li><p>default profile の設定手順</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ~/.zshrc 等に以下を記載しておく</span></span>
+<span id="cb5-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">export</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">AWS_DEFAULT_PROFILE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span></span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># シェルの補完を使いながら以下のように入力する</span></span>
+<span id="cb5-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">AWS_DEFAULT_PROFILE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>xxx</span>
+<span id="cb5-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">aws</span> ec2 describe-instances</span>
+<span id="cb5-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">aws</span> s3 ls</span></code></pre></div></li>
+<li><p><code>~/.aws/credentials</code> の設定</p>
+<ul>
+<li>Access Keys の説明を読む！</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="その他" class="level2">
+<h2 class="anchored" data-anchor-id="その他">7. その他</h2>
+<ul>
+<li><a href="https://kizineko.com/delete-dsstore/">【Mac】.DS_Storeを一括削除&amp;作らないようにするコマンド - Kizineko</a></li>
+<li>Finder
+<ul>
+<li><p>よく使う項目 username 追加</p></li>
+<li><p>コマンド実行</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Finderを終了させられるようにする (Command+Q で終了できるようになる)</span></span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">defaults</span> write com.apple.Finder QuitMenuItem <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-bool</span> YES</span>
+<span id="cb6-3"></span>
+<span id="cb6-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 元に戻す場合</span></span>
+<span id="cb6-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">defaults</span> write com.apple.Finder QuitMenuItem <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-bool</span> NO</span></code></pre></div></li>
+</ul></li>
+<li>プログラミング用フォント MyricaM をダウンロード・インストールする</li>
+<li>Docker Desktop の Docker Daemon 設定</li>
+</ul>
+</section>
+<section id="おまけ-ショートカット集" class="level2">
+<h2 class="anchored" data-anchor-id="おまけ-ショートカット集">8. (おまけ) ショートカット集</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>カテゴリ</th>
+<th>ショートカット</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ウインドウ操作</td>
+<td>Command + Tab</td>
+<td>アプリケーション切り替え</td>
+</tr>
+<tr class="even">
+<td>ウインドウ操作</td>
+<td>Command + @</td>
+<td>同一アプリケーションの切り替え</td>
+</tr>
+<tr class="odd">
+<td>ウインドウ操作</td>
+<td>Command + Option + Arrow</td>
+<td>Chrome タブ切り替え</td>
+</tr>
+<tr class="even">
+<td>その他</td>
+<td>Commad + Q</td>
+<td>Finder 終了</td>
+</tr>
+<tr class="odd">
+<td>その他</td>
+<td>Command + Ctrl + Q</td>
+<td>ロック</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>mac</category>
+  <guid>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</guid>
+  <pubDate>Mon, 17 Jun 2024 03:21:36 GMT</pubDate>
+</item>
+<item>
+  <title>Quarto で作ったスライドを GitHub Pages にデプロイする</title>
+  <link>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<section id="前提" class="level2">
+<h2 class="anchored" data-anchor-id="前提">1. 前提</h2>
+<p>スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>) に決めました。</p>
+<p>.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。</p>
+<ul>
+<li>環境構築が pip で完了する</li>
+<li>VS Code で開くと Jupyter Notebook っぽくセルを実行できる</li>
+</ul>
+</section>
+<section id="やったこと" class="level2">
+<h2 class="anchored" data-anchor-id="やったこと">2. やったこと</h2>
+<p>下記リポジトリを整備しました。</p>
+<p><a href="https://github.com/i9wa4/slides" class="uri">https://github.com/i9wa4/slides</a></p>
+<p>README.md にも書いてますが</p>
+<p><a href="https://qiita.com/cm-ayf/items/512728ebea65467ba874">Quartoでスライドを作ってGitHub Pagesで公開する #GitHubActions - Qiita</a></p>
+<p>を参考にしてます。</p>
+</section>
+<section id="感想" class="level2">
+<h2 class="anchored" data-anchor-id="感想">3. 感想</h2>
+<p>GitHub Actions はまだよく分かってないままなのですが、一旦動くようになってよかったです。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>quarto</category>
+  <guid>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</guid>
+  <pubDate>Sat, 04 May 2024 18:23:09 GMT</pubDate>
+</item>
+<item>
+  <title>Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</title>
+  <link>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<section id="経緯" class="level2">
+<h2 class="anchored" data-anchor-id="経緯">1. 経緯</h2>
+<p>私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。</p>
+<p>.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。</p>
+<p><a href="https://github.com/itchyny/vim-gitbranch" class="uri">https://github.com/itchyny/vim-gitbranch</a></p>
+<p>Gemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。</p>
+</section>
+<section id="gemini-との開発過程" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-との開発過程">2. Gemini との開発過程</h2>
+<p>Gemini とのやりとりを書き残しておきます。</p>
+<section id="git-探索関数作成" class="level3">
+<h3 class="anchored" data-anchor-id="git-探索関数作成">2.1. .git 探索関数作成</h3>
+<section id="質問" class="level4">
+<h4 class="anchored" data-anchor-id="質問">2.1.1. 質問</h4>
+<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
+- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。</code></pre>
+</section>
+<section id="回答" class="level4">
+<h4 class="anchored" data-anchor-id="回答">2.1.2. 回答</h4>
+<pre class="plaintext"><code>Vim script で .git ディレクトリを探す関数
+
+以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。
+
+function! FindGitDir(dir)
+  " 引数がない場合はカレントディレクトリを代入 "
+  if (empty(a:dir))
+    let dir = expand('%:p')
+  endif
+
+  " ループフラグを初期化 "
+  let found = 0
+
+  " 順に上の階層をたどる "
+  while (!found &amp;&amp; !empty(dir) &amp;&amp; dir != '/')
+    " .git ディレクトリが存在するか確認 "
+    if (isdirectory(dir . '/.git'))
+      let found = 1
+      let gitdir = dir . '/.git'
+    endif
+
+    " 上の階層へ移動 "
+    let dir = expand(dirname(dir))
+  endwhile
+
+  " 結果を返す "
+  if (found)
+    return gitdir
+  else
+    return ''
+  endif
+endfunction</code></pre>
+</section>
+</section>
+<section id="ブランチ名取得関数作成" class="level3">
+<h3 class="anchored" data-anchor-id="ブランチ名取得関数作成">2.2. ブランチ名取得関数作成</h3>
+<section id="質問-1" class="level4">
+<h4 class="anchored" data-anchor-id="質問-1">2.2.1. 質問</h4>
+<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
+- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。</code></pre>
+</section>
+<section id="回答-1" class="level4">
+<h4 class="anchored" data-anchor-id="回答-1">2.2.2. 回答</h4>
+<pre class="plaintext"><code>以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。
+
+function! GetCurrentBranch(gitdir)
+  " 引数が空の場合、エラーを返す "
+  if (empty(a:gitdir))
+    error('引数が空です')
+  endif
+
+  " カレントブランチ名の取得 "
+  let branch = system('git --git-dir="' . a:gitdir . '" rev-parse --abbrev-ref HEAD')
+
+  " .git ディレクトリを除いたブランチ名を返す "
+  return substitute(branch, a:gitdir . '/', '', 'g')
+endfunction</code></pre>
+</section>
+<section id="質問-2" class="level4">
+<h4 class="anchored" data-anchor-id="質問-2">2.2.3. 質問</h4>
+<pre class="plaintext"><code>system() を使わず、gitコマンドを使わずに実現させてほしいです。</code></pre>
+</section>
+<section id="回答-2" class="level4">
+<h4 class="anchored" data-anchor-id="回答-2">2.2.4. 回答</h4>
+<pre class="plaintext"><code>Vim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。
+
+
+1. :echo %b コマンドを使用する
+
+この方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。
+
+" 現在のブランチ名をエコーする "
+:echo %b
+
+
+2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む
+
+この方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。
+
+" .git/HEAD ファイルのパスを取得 "
+let headfile = expand('%:p:h') . '/.git/HEAD'
+
+" HEAD ファイルの内容を読み込む "
+let headcontent = readfile(headfile)
+
+" ブランチ名を抽出する "
+let branch = match(headcontent, 'ref: refs/heads/(.+)')
+
+" 結果を確認 "
+echo "現在のブランチ: " . branch
+
+
+3. git log の出力を解析する
+
+この方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。
+Vim Script
+
+" git log の出力をバッファに読み込む "
+:redir &gt; /dev/null git log -1
+
+" ブランチ名を抽出する "
+let branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')
+
+" 結果を確認 "
+echo "現在のブランチ: " . branch</code></pre>
+<p>回答1が嘘すぎてびっくり。今回は回答2がよさそう。</p>
+<p>この時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。</p>
+<p><a href="https://github.com/itchyny/vim-gitbranch" class="uri">https://github.com/itchyny/vim-gitbranch</a></p>
+<p>ここまで分かればあとは動作を確認しながら書けそうです。</p>
+</section>
+</section>
+</section>
+<section id="完成品" class="level2">
+<h2 class="anchored" data-anchor-id="完成品">3. 完成品</h2>
+<p>Gemini と考えたコードが跡形もなくなっている。。なぜ。。</p>
+<p>TODO: 繰り返し呼ばれることを念頭に処理を軽くしたい</p>
+<p><a href="https://github.com/i9wa4/get-git-branch-name.vim" class="uri">https://github.com/i9wa4/get-git-branch-name.vim</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>vim</category>
+  <category>dev</category>
+  <guid>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</guid>
+  <pubDate>Fri, 03 May 2024 19:07:04 GMT</pubDate>
+</item>
+<item>
+  <title>データサイエンス100本ノックの実行環境構築 (WSL2)</title>
+  <link>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>下記リポジトリを見てください。以上。</p>
+<p><a href="https://github.com/i9wa4/wsl2-100knocks-preprocess" class="uri">https://github.com/i9wa4/wsl2-100knocks-preprocess</a></p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>wsl2</category>
+  <guid>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</guid>
+  <pubDate>Mon, 25 Mar 2024 15:19:36 GMT</pubDate>
+</item>
+<item>
+  <title>WSL2 のセットアップ</title>
+  <link>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。</p>
+<section id="wsl-コマンドのインストール" class="level2">
+<h2 class="anchored" data-anchor-id="wsl-コマンドのインストール">1. WSL コマンドのインストール</h2>
+<p><a href="https://learn.microsoft.com/ja-jp/windows/wsl/install#install-wsl-command">WSL のインストール | Microsoft Learn</a> に従います。</p>
+<ol type="1">
+<li>管理者権限で PowerShell or コマンドプロンプトを開きます。</li>
+<li><code>wsl --install</code> を実行します。 <img src="https://i9wa4.github.io/assets/20240325-posts-setup-wsl2/setup-wsl2-01.png" class="img-fluid" alt="20240325-setup-wsl2-01"></li>
+<li>以下のように表示されるのでマシンを再起動します。 <img src="https://i9wa4.github.io/assets/20240325-posts-setup-wsl2/setup-wsl2-02.png" class="img-fluid" alt="20240325-setup-wsl2-02"></li>
+</ol>
+</section>
+<section id="ディストリビューションのインストール" class="level2">
+<h2 class="anchored" data-anchor-id="ディストリビューションのインストール">2. ディストリビューションのインストール</h2>
+<ol type="1">
+<li><p>PowerShell or コマンドプロンプトを開きます。</p></li>
+<li><p>インストール可能なディストリビューションを表示します。</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb1-1">wsl -<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-list</span> -<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-oneline</span></span></code></pre></div></li>
+<li><p>Ubuntu 22.04 LTS をインストールする場合は以下のように入力します。</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1">wsl -<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-install</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> Ubuntu<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-22</span>.04</span></code></pre></div></li>
+<li><p>画面表示に従ってユーザー名とパスワードを入力します。</p></li>
+<li><p>Ubuntu を終了します。</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">exit</span></span></code></pre></div></li>
+<li><p>(必要に応じて) 既定のディストリビューションを設定します。</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1">wsl -<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-set-default</span> Ubuntu<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-22</span>.04</span></code></pre></div></li>
+</ol>
+</section>
+<section id="ディストリビューションのアンインストール" class="level2">
+<h2 class="anchored" data-anchor-id="ディストリビューションのアンインストール">3. ディストリビューションのアンインストール</h2>
+<ol type="1">
+<li><p>PowerShell or コマンドプロンプトを開きます。</p></li>
+<li><p>インストール済みのディストリビューションを表示します。</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1">wsl -<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-list</span></span></code></pre></div></li>
+<li><p>不要なディストリビューションをアンインストールします。</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1">wsl -<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-unregister</span> Ubuntu<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-22</span>.04</span></code></pre></div></li>
+</ol>
+</section>
+<section id="詳細設定" class="level2">
+<h2 class="anchored" data-anchor-id="詳細設定">4. 詳細設定</h2>
+<p>設定ファイルや systemd に関しては以下のページを参考にするとよいです。</p>
+<p><a href="https://learn.microsoft.com/ja-jp/windows/wsl/wsl-config">WSL での詳細設定の構成 | Microsoft Learn</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>wsl2</category>
+  <guid>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</guid>
+  <pubDate>Mon, 25 Mar 2024 14:00:48 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>i9wa4 </dc:creator>
+  <link>https://i9wa4.github.io/slides/20240204-sapporo.vim.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>slide</category>
+  <category>vim-jp</category>
+  <guid>https://i9wa4.github.io/slides/20240204-sapporo.vim.html</guid>
+  <pubDate>Sun, 04 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>efm-langserver を Vim/Neovim で利用する</title>
+  <link>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。</p>
+<section id="efm-langserver-とは" class="level2">
+<h2 class="anchored" data-anchor-id="efm-langserver-とは">1. efm-langserver とは</h2>
+<p>mattn さんの記事を見るのが最良ですね。</p>
+<p><a href="https://mattn.kaoriya.net/software/lang/go/20190205190203.htm">Big Sky :: Lint ツールを Language Server に対応させるコマンド efm-langserver 作った。</a></p>
+<blockquote class="blockquote">
+<p>どんな言語であろうとも Lint ツールが grep と同様の形式で結果を出力してくれさえすれば Language Server にしてしまうコマンド</p>
+</blockquote>
+<p>Linter をインストールした後 Vim/Neovim で Info や Error を画面内に表示させたいときに efm-langserver が活用できると思えばよいです。</p>
+</section>
+<section id="efm-langserver-のインストール" class="level2">
+<h2 class="anchored" data-anchor-id="efm-langserver-のインストール">2. efm-langserver のインストール</h2>
+<p>Ubuntu 22.04 (WSL2) でのインストール手順を記載しておきます。</p>
+<p>Go 言語を <a href="https://go.dev/wiki/Ubuntu">Go Wiki: Ubuntu - The Go Programming Language</a> に従ってインストールします。</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> add-apt-repository <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-y</span> ppa:longsleep/golang-backports</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> apt update</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sudo</span> apt install <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-y</span> golang-go</span></code></pre></div>
+<p>efm-langserver を <a href="https://github.com/mattn/efm-langserver#installation">GitHub - mattn/efm-langserver: General purpose Language Server</a> に従ってインストールします。</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">go</span> install github.com/mattn/efm-langserver@latest</span></code></pre></div>
+<p><code>~/.profile</code> などに以下を追記して PATH を通しておきます。</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">export</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PATH</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/go/bin:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${PATH}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span></code></pre></div>
+</section>
+<section id="config.yaml-の作成" class="level2">
+<h2 class="anchored" data-anchor-id="config.yaml-の作成">3. config.yaml の作成</h2>
+<p>efm-langserver 用設定ファイル <code>$XDG_CONFIG_HOME/efm-langserver/config.yaml</code> に必要な設定を記述していきます。</p>
+<p><a href="https://github.com/mattn/efm-langserver#example-for-configyaml">README</a> を参考に shellcheck を使うための設定のみ抽出したものが以下です。</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">version</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">root-markers</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb4-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> .git/</span></span>
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lint-debounce</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> 1s</span></span>
+<span id="cb4-5"></span>
+<span id="cb4-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tools</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb4-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sh-shellcheck</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&amp;sh-shellcheck</span></span>
+<span id="cb4-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lint-command</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'shellcheck -f gcc -x'</span></span>
+<span id="cb4-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lint-source</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'shellcheck'</span></span>
+<span id="cb4-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lint-formats</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb4-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'%f:%l:%c: %trror: %m'</span></span>
+<span id="cb4-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'%f:%l:%c: %tarning: %m'</span></span>
+<span id="cb4-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'%f:%l:%c: %tote: %m'</span></span>
+<span id="cb4-14"></span>
+<span id="cb4-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">languages</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb4-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sh</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb4-17"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">&lt;&lt;</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">*sh-shellcheck</span></span></code></pre></div>
+</section>
+<section id="vim-の設定" class="level2">
+<h2 class="anchored" data-anchor-id="vim-の設定">4. Vim の設定</h2>
+<p>プラグインマネージャー <a href="https://github.com/Shougo/dein.vim">dein.vim</a> や <a href="https://github.com/Shougo/dpp.vim">dpp.vim</a> などで採用されている TOML ファイルでのプラグイン設定箇所を抽出しました。遅延起動設定はお好みで。</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[plugins]]</span></span>
+<span id="cb5-2"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">repo</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">prabirshrestha/vim-lsp</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span></span>
+<span id="cb5-3"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">on_event</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">VimEnter</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb5-4"></span>
+<span id="cb5-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[plugins]]</span></span>
+<span id="cb5-6"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">repo</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">mattn/vim-lsp-settings</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span></span>
+<span id="cb5-7"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">on_source</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">vim-lsp</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb5-8"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">hook_source</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'''</span></span>
+<span id="cb5-9"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">let g:lsp_auto_enable = 1</span></span>
+<span id="cb5-10"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">let g:lsp_log_file = ''</span></span>
+<span id="cb5-11"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">let g:lsp_settings = {</span></span>
+<span id="cb5-12"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  \   'efm-langserver': {</span></span>
+<span id="cb5-13"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  \     'disabled': v:false,</span></span>
+<span id="cb5-14"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  \     'allowlist': ['sh'],</span></span>
+<span id="cb5-15"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  \   }</span></span>
+<span id="cb5-16"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">  \ }</span></span>
+<span id="cb5-17"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'''</span></span></code></pre></div>
+</section>
+<section id="neovim-の設定" class="level2">
+<h2 class="anchored" data-anchor-id="neovim-の設定">5. Neovim の設定</h2>
+<p>Vim 同様に TOML ファイルの記述を抽出しました。こちらも遅延起動設定はお好みで。</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[plugins]]</span></span>
+<span id="cb6-2"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">repo</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">neovim/nvim-lspconfig</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span></span>
+<span id="cb6-3"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">on_event</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">VimEnter</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb6-4"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">lua_source</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'''</span></span>
+<span id="cb6-5"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">local lspconfig = require('lspconfig')</span></span>
+<span id="cb6-6"><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">lspconfig.efm.setup{}</span></span>
+<span id="cb6-7"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'''</span></span></code></pre></div>
+</section>
+<section id="感想" class="level2">
+<h2 class="anchored" data-anchor-id="感想">6. 感想</h2>
+<p>Linter をインストールできていれば出力形式を見て自力で Language Server として組み込める……素晴らしいですね！</p>
+<p>Linter は手動でインストールして設定ファイルを管理しておくのが結局一番分かりやすいなと実感しているのですが、その状態で簡単に Vim/Neovim に反映できる efm-langserver はかなり有り難いです。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>vim</category>
+  <guid>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</guid>
+  <pubDate>Sat, 27 Jan 2024 13:37:39 GMT</pubDate>
+</item>
+<item>
+  <title>自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介</title>
+  <link>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。i9wa4 です。</p>
+<p>少し前に作った Vim/Neovim プラグインの紹介記事となります。</p>
+<section id="プラグイン概要" class="level2">
+<h2 class="anchored" data-anchor-id="プラグイン概要">1. プラグイン概要</h2>
+<ul>
+<li><a href="https://github.com/i9wa4/markdown-number-header.vim" class="uri">https://github.com/i9wa4/markdown-number-header.vim</a>
+<ul>
+<li>Markdown の見出し番号を付ける or 更新するプラグインです。</li>
+<li>Deno と Denops に依存しています。</li>
+</ul></li>
+</ul>
+</section>
+<section id="プラグインを作ることになったきっかけ" class="level2">
+<h2 class="anchored" data-anchor-id="プラグインを作ることになったきっかけ">2. プラグインを作ることになったきっかけ</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All in One</a> という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。</p>
+</section>
+<section id="denops-プラグインとして作ろうと思った理由" class="level2">
+<h2 class="anchored" data-anchor-id="denops-プラグインとして作ろうと思った理由">3. Denops プラグインとして作ろうと思った理由</h2>
+<p>まず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。<br>
+そして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。</p>
+</section>
+<section id="denops-プラグイン開発体験について" class="level2">
+<h2 class="anchored" data-anchor-id="denops-プラグイン開発体験について">4. Denops プラグイン開発体験について</h2>
+<p>初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。<br>
+核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。<br>
+まず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。</p>
+<ul>
+<li>参考ページ:
+<ul>
+<li><a href="https://zenn.dev/lambdalisue/articles/b4a31fba0b1ce95104c9">Deno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn</a></li>
+<li><a href="https://vim-denops.github.io/denops-documentation/">Introduction - Denops Documentation</a> (英語版)</li>
+</ul></li>
+</ul>
+</section>
+<section id="感想" class="level2">
+<h2 class="anchored" data-anchor-id="感想">5. 感想</h2>
+<p>今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。<br>
+今後も必要なものは自分で作っていたいですね。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>vim</category>
+  <category>dev</category>
+  <guid>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</guid>
+  <pubDate>Tue, 02 Jan 2024 12:47:46 GMT</pubDate>
+</item>
+<item>
+  <title>GitHub Pages (Jekyll) blog のタグ追加対応</title>
+  <link>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>[2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。</p>
+<p>こんにちは。i9wa4 です。</p>
+<p>ブログを作ったので少しだけ機能と見た目を手入れしてみました。</p>
+<section id="調整前" class="level2">
+<h2 class="anchored" data-anchor-id="調整前">1. 調整前</h2>
+<ul>
+<li>現在 Jekyll (GitHub Pages) の Minima (<a href="https://github.com/jekyll/minima">jekyll/minima: Minima is a one-size-fits-all Jekyll theme for writers.</a>) が適用されている状態
+<ul>
+<li>HTML ファイルが必要になったらここから持ってくる！</li>
+</ul></li>
+</ul>
+</section>
+<section id="やりたいこと" class="level2">
+<h2 class="anchored" data-anchor-id="やりたいこと">2. やりたいこと</h2>
+<ul>
+<li>タグ対応
+<ul>
+<li>タグ毎の一覧ページの追加</li>
+<li>トップページに各タグの一覧ページへのリンク追加</li>
+<li>各記事にて付与したタグの一覧ページリンクの追加</li>
+</ul></li>
+<li>リポジトリルートの Markdown ファイルへのリンクがヘッダに追加されてしまうためヘッダの記述の簡素化</li>
+</ul>
+</section>
+<section id="タグ対応" class="level2">
+<h2 class="anchored" data-anchor-id="タグ対応">3. タグ対応</h2>
+<ul>
+<li>syudead さんの記事とリポジトリを参考に実装しました。私は HTML ではなく Markdown 中心の構成としたかったのであくまで参考という感じです。
+<ul>
+<li><a href="https://rainyflow.net/2016/03/13/jekyll-tags.html">Jekyllのブログでタグ機能を実装する</a>
+<ul>
+<li>各記事へのタグ付け方法</li>
+<li>一覧ページの html 記述</li>
+</ul></li>
+<li><a href="https://github.com/syudead/syudead.github.io">syudead/syudead.github.io</a>
+<ul>
+<li>ページ一覧の作成方法
+<ul>
+<li><code>./_inclides/tag.html</code> を <code>./blog.html</code> などの一覧ページ内にて include する</li>
+</ul></li>
+<li>各記述でのタグ一覧ページリンク表示
+<ul>
+<li><code>./_layouts/post.html</code> 参照</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>トップページに各タグの一覧ページへのリンクを追加する対応については <code>./index.md</code> に地道にリンクを追加する方法を取ることとしました。</li>
+</ul>
+</section>
+<section id="ヘッダ簡素化" class="level2">
+<h2 class="anchored" data-anchor-id="ヘッダ簡素化">4. ヘッダ簡素化</h2>
+<ul>
+<li>Minima の HTML ファイル (<a href="https://github.com/jekyll/minima/blob/master/_includes/header.html">minima/_includes/header.html at master · jekyll/minima</a>) をリポジトリに追加して対象箇所を削除すれば OK。
+<ul>
+<li>(2024/01/28 追記) スマホ版のハンバーガーメニューが寂しかったのでヘッダ簡素化は取りやめました。</li>
+</ul></li>
+</ul>
+</section>
+<section id="感想" class="level2">
+<h2 class="anchored" data-anchor-id="感想">5. 感想</h2>
+<ul>
+<li>必要最低限の機能は実装できたので割と満足です。</li>
+<li>見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <guid>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</guid>
+  <pubDate>Tue, 02 Jan 2024 08:34:55 GMT</pubDate>
+</item>
+<item>
+  <title>Initial Post</title>
+  <link>https://i9wa4.github.io/blog/2024-01-01-init.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<!-- # h1 -->
+<p>こんにちは。i9wa4 です。</p>
+<p>初投稿になります。</p>
+<section id="i9wa4-とは" class="level2">
+<h2 class="anchored" data-anchor-id="i9wa4-とは">1. i9wa4 とは</h2>
+<ul>
+<li>読み：いくわよ</li>
+<li>仕事：データエンジニア・MLOpsエンジニア
+<ul>
+<li>業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです。</li>
+</ul></li>
+</ul>
+</section>
+<section id="このブログの運用方針" class="level2">
+<h2 class="anchored" data-anchor-id="このブログの運用方針">2. このブログの運用方針</h2>
+<ul>
+<li>他サービスに流用するかもしれないけど記事の元データはここで一元管理したい</li>
+<li>これまで色々書いてきた記事もここに集約していきたい</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <guid>https://i9wa4.github.io/blog/2024-01-01-init.html</guid>
+  <pubDate>Sun, 31 Dec 2023 18:28:12 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>i9wa4 </dc:creator>
+  <link>https://i9wa4.github.io/slides/20231216-sapporo.vim.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>slide</category>
+  <category>vim-jp</category>
+  <guid>https://i9wa4.github.io/slides/20231216-sapporo.vim.html</guid>
+  <pubDate>Sat, 16 Dec 2023 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
