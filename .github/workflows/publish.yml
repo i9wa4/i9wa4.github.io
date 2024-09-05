@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install Font
-        run: apt install -y fonts-motoya-l-cedar && fc-cache -fv
+        run: sudo apt-get install -y fonts-motoya-l-cedar && sudo fc-cache -fv
 
       - name: Set up Python
         uses: actions/setup-python@v5
