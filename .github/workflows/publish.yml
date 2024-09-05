@@ -55,7 +55,7 @@ jobs:
 
       - name: Commit files
         run: |
-          mv dist/resume.pdf docs/resume/
+          sudo mv dist/resume.pdf docs/resume/
           git add docs/resume/resume.pdf
           git commit -m "add pdf" -a
           git pull
