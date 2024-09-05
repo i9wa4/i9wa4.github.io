@@ -55,8 +55,7 @@ jobs:
 
       - name: Commit files
         run: |
-          ls -la
-          mv /github/workspace/dist/resume.pdf docs/resume/
+          mv dist/resume.pdf docs/resume/
           git add docs/resume/resume.pdf
           git commit -m "add pdf" -a
           git pull
