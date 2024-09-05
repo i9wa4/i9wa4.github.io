@@ -1,19 +1,19 @@
 ---
 title: "職務経歴書"
 date: last-modified
-# format:
-#   pdf:
-#     colorlinks: true
-#     CJKmainfont: "MotoyaLCedar"
-# pdf-engine: lualatex
-# documentclass: ltjsarticle
+format:
+  pdf:
+    colorlinks: true
+    CJKmainfont: "MotoyaLCedar"
+pdf-engine: lualatex
+documentclass: ltjsarticle
 ---
 
 - 現住所 北海道札幌市
 - 職務経歴書公開先 <https://i9wa4.github.io/resume>
 - GitHub <https://github.com/i9wa4>
 
-## 1. 職務要約
+## 職務要約
 
 北海道大学卒業後、Windowsアプリエンジニアや組込エンジニアとして6年勤務しました。
 
@@ -21,7 +21,7 @@ date: last-modified
 
 2024年4月から現職である株式会社hacomonoにて一人データエンジニアとしてデータ基盤の構築・運用・保守業務に従事しております。
 
-## 2. 自己PR
+## 自己PR
 
 【役割】前職シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。現職 hacomono ではメンバー採用ではあるものの、入社直後にデータエンジニアが私1名のみになった都合でデータ基盤関連のタスク管理・社内調整・目標管理といったリーダー相当の業務を担当しております。
 
@@ -29,7 +29,7 @@ date: last-modified
 
 【性格】周囲の社員に貢献できるような業務にモチベーション高く取り組むことができます。具体的にはドキュメント整備・勉強会開催・情報共有などです。データ利活用に向けた業務は中長期的に周囲の社員に貢献できるものと信じて取り組めるため、自分にマッチした業務であると感じています。
 
-## 3. 職務経歴
+## 職務経歴
 
 新しい順に記載しております。
 
@@ -42,18 +42,18 @@ date: last-modified
 | 2018/08 - 2022/03 | 新光商事LSIデザインセンター株式会社<br>ソフト開発一部 | 組込エンジニアのメンバーとして以下に従事<br>- 車載マイコンの機能開発<br>- インバータやモータの制御開発                      | [詳細](./02-sld.qmd)      |
 | 2016/04 - 2018/07 | オークマ株式会社<br>FAシステム本部 FA開発部           | アプリエンジニアのメンバーとして以下に従事<br>- Windows 用 CAD/CAM アプリ開発の要件定義・テスト                             | [詳細](./01-okuma.qmd)    |
 
-### 3.1. 最も苦労したプロジェクト
+### 最も苦労したプロジェクト
 
 前職で2023年12月～2024年3月にリーダーとして参画していた以下です。AI プラットフォームのリプレイスのためにワークフロー全体の技術選定から設計まで行いました。顧客との方針調整を密に実施し PoC 段階から設計・実装へフェーズを進めることができました。
 
 [情報通信企業向け 機械学習ワークフローと AI プラットフォーム移管 | 職務経歴 株式会社シイエヌエス北海道](./03-cnsh.qmd#情報通信企業向け-機械学習ワークフローと-ai-プラットフォーム移管)
 
-## 4. 今後取り組みたいこと
+## 今後取り組みたいこと
 
 :::: {.columns}
 ::: {.column}
 
-### 4.1. 役割面
+### 役割面
 
 - [直近] データエンジニアとしてリーダー経験・マネジメント経験を積む
 - [3-5年後] データ関連業務のリーダーや PjM としてリーダーシップを発揮する、あるいはデータマネージャーのような形でデータで売上貢献できるようになる
@@ -61,7 +61,7 @@ date: last-modified
 :::
 ::: {.column}
 
-### 4.2. 技術面
+### 技術面
 
 -  Snowflake / BigQuery / dbt の知見を深める
 -  データガバナンスや信頼性に関する経験を積む
@@ -71,28 +71,28 @@ date: last-modified
 :::
 ::::
 
-## 5. 通常業務以外の活動
+## 通常業務以外の活動
 
-### 5.1. 社外へのアウトプット
+### 社外へのアウトプット
 
 - [2024/07/02] [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)
 - [2024/08/21] Findy Tools への BigQuery レビュー寄稿 [株式会社hacomonoのBigQuery導入事例](https://findy-tools.io/products/bigquery/49/231)
 
 <!--
-### 5.2. Vim 活動
+### Vim 活動
 
 - Vim コミュニティのイベントに複数参加し Vim に関する技術情報収集や交流を行っています。
 - Markdown 向け Formatter を Vim プラグインとして TypeScript (Deno) で作成しました。
     - Repository: <https://github.com/i9wa4/vim-markdown-number-header>
 
-### 5.3. 自宅用ゲームサーバー構築
+### 自宅用ゲームサーバー構築
 
 - GCE (Ubuntu) / Cloud Functions / GAS により Slack 経由で起動・停止できるゲームサーバーを構築しました。
 - 自宅 Ubuntu マシンにも Docker でゲームサーバーを構築し systemd によるサーバーの自動アップデート機能と AWS S3 への自動バックアップ機能を実装しました。
     - Repository: <https://github.com/i9wa4/minecraft-bedrock-server-setup>
 -->
 
-## 6. スキルレベル
+## スキルレベル
 
 ★：業務経験あり
 
@@ -117,7 +117,7 @@ date: last-modified
 | その他 (Data) | dbt Core              | ★0.5年  | スクラッチから marts まで書きあげることが可能                                                |
 | その他 (Data) | Embulk                | ★0.3年  | 転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能                        |
 
-## 7. 資格
+## 資格
 
 <!-- - [2012/11] 普通自動車第一種運転免許 -->
 - [2015/03] TOEIC スコア 805
