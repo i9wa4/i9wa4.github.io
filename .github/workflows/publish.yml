@@ -55,7 +55,8 @@ jobs:
 
       - name: Commit files
         run: |
-          git add .
+          mv /github/workspace/dist/resume.pdf docs/resume/
+          git add docs/resume/resume.pdf
           git commit -m "add pdf" -a
           git pull
           git push origin gh-pages
