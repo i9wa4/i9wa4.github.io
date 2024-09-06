@@ -1,7 +1,6 @@
 ---
 title: "職務経歴書"
 date: last-modified
-jupyter: python3
 ---
 
 - 現住所 北海道札幌市
