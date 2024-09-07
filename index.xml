@@ -15,7 +15,7 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Sat, 07 Sep 2024 12:41:45 GMT</lastBuildDate>
+<lastBuildDate>Sat, 07 Sep 2024 15:23:52 GMT</lastBuildDate>
 <item>
   <title>Quarto による DataFrame の表示テスト</title>
   <link>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</link>
@@ -28,7 +28,7 @@
 <p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="e582aff4" class="cell" data-execution_count="1">
+<div id="385998c4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
@@ -48,15 +48,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/13.0 MB 42.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 6.2/13.0 MB 91.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ 11.8/13.0 MB 151.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 155.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 93.4 MB/s eta 0:00:00
-Collecting tzdata&gt;=2022.7
-  Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 84.5 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.0 MB 13.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ 5.3/13.0 MB 77.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ 12.3/13.0 MB 199.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 197.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 105.6 MB/s eta 0:00:00
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Collecting numpy&gt;=1.22.4
   Downloading numpy-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/16.3 MB 169.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 11.3/16.3 MB 167.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 174.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 174.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 89.0 MB/s eta 0:00:00
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.7/16.3 MB 202.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ 13.6/16.3 MB 200.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 196.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 196.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 93.8 MB/s eta 0:00:00
+Collecting tzdata&gt;=2022.7
+  Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 78.7 MB/s eta 0:00:00
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.1.1 pandas-2.2.2 tzdata-2024.1
@@ -64,7 +64,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.4 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 5.9 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -73,7 +73,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="データの読み込み" class="level2">
 <h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="0aa7f2c2" class="cell" data-execution_count="2">
+<div id="8b9ab59d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
@@ -218,7 +218,7 @@ font-style: inherit;">return</span> _dfs</span></code></pre></div>
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="b0e19d8e" class="cell" data-execution_count="3">
+<div id="f6f9f606" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
@@ -229,7 +229,7 @@ font-style: inherit;">'TagB'</span>)</span></code></pre></div>
 <style type="text/css">
 </style>
 
-<table id="T_be0b0" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_e1fc1" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -239,43 +239,43 @@ font-style: inherit;">'TagB'</span>)</span></code></pre></div>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_be0b0_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Date</th>
-<th id="T_be0b0_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Title</th>
-<th id="T_be0b0_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">URL</th>
+<th id="T_e1fc1_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Date</th>
+<th id="T_e1fc1_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Title</th>
+<th id="T_e1fc1_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">URL</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_be0b0_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
-<td id="T_be0b0_row0_col0" class="data row0 col0">2024-09-07</td>
-<td id="T_be0b0_row0_col1" class="data row0 col1">testtesttesttesttesttesttesttestte<br>
+<td id="T_e1fc1_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_e1fc1_row0_col0" class="data row0 col0">2024-09-07</td>
+<td id="T_e1fc1_row0_col1" class="data row0 col1">testtesttesttesttesttesttesttestte<br>
 sttesttesttesttesttesttesttestt</td>
-<td id="T_be0b0_row0_col2" class="data row0 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_e1fc1_row0_col2" class="data row0 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="even">
-<td id="T_be0b0_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
-<td id="T_be0b0_row1_col0" class="data row1 col0">2024-09-08</td>
-<td id="T_be0b0_row1_col1" class="data row1 col1">testtesttesttesttesttesttesttestte<br>
+<td id="T_e1fc1_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_e1fc1_row1_col0" class="data row1 col0">2024-09-08</td>
+<td id="T_e1fc1_row1_col1" class="data row1 col1">testtesttesttesttesttesttesttestte<br>
 sttesttesttesttesttesttesttestt</td>
-<td id="T_be0b0_row1_col2" class="data row1 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_e1fc1_row1_col2" class="data row1 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="odd">
-<td id="T_be0b0_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
-<td id="T_be0b0_row2_col0" class="data row2 col0">2024-09-08</td>
-<td id="T_be0b0_row2_col1" class="data row2 col1">testtesttesttesttesttesttesttesttesttesttesttestte</td>
-<td id="T_be0b0_row2_col2" class="data row2 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_e1fc1_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_e1fc1_row2_col0" class="data row2 col0">2024-09-08</td>
+<td id="T_e1fc1_row2_col1" class="data row2 col1">testtesttesttesttesttesttesttesttesttesttesttestte</td>
+<td id="T_e1fc1_row2_col2" class="data row2 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="even">
-<td id="T_be0b0_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
-<td id="T_be0b0_row3_col0" class="data row3 col0">2024-09-09</td>
-<td id="T_be0b0_row3_col1" class="data row3 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</td>
-<td id="T_be0b0_row3_col2" class="data row3 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_e1fc1_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
+<td id="T_e1fc1_row3_col0" class="data row3 col0">2024-09-09</td>
+<td id="T_e1fc1_row3_col1" class="data row3 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</td>
+<td id="T_e1fc1_row3_col2" class="data row3 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="odd">
-<td id="T_be0b0_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
-<td id="T_be0b0_row4_col0" class="data row4 col0">2024-09-09</td>
-<td id="T_be0b0_row4_col1" class="data row4 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</td>
-<td id="T_be0b0_row4_col2" class="data row4 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_e1fc1_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
+<td id="T_e1fc1_row4_col0" class="data row4 col0">2024-09-09</td>
+<td id="T_e1fc1_row4_col1" class="data row4 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</td>
+<td id="T_e1fc1_row4_col2" class="data row4 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 </tbody>
 </table>
@@ -288,7 +288,7 @@ sttesttesttesttesttesttesttestt</td>
  ]]></description>
   <category>memo</category>
   <guid>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</guid>
-  <pubDate>Sat, 07 Sep 2024 12:41:45 GMT</pubDate>
+  <pubDate>Sat, 07 Sep 2024 15:23:52 GMT</pubDate>
 </item>
 <item>
   <title>Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する</title>
