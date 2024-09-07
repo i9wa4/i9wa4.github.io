@@ -28,7 +28,7 @@ def make_clickable(val):
     return '<a href="{}">URL</a>'.format(val,val)
 
 
-def df2dfs(df, tag):
+def extract_tag(tag, df=df_all):
     _df = df.query(f'Tags == "{tag}"')
     _df = _df.loc[:, ["Date", "Title", "URL"]].reset_index(drop=True)
     _dfs = _df.style.format(formatter={'URL': make_clickable})
@@ -40,5 +40,5 @@ df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
 
 ```{python}
 #| code-fold: true
-df2dfs(df_all, 'TagB')
+extract_tag('TagB')
 ```
