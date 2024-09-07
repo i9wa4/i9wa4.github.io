@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-python@v5
 
       - name: (Optional) Set up Jupyter
-        run: python3 -m pip install jupyter
+        run: python3 -m pip install jupyter numpy
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
