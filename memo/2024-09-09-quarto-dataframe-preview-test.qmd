@@ -12,6 +12,11 @@ jupyter: python3
 
 ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。
 
+```{bash}
+#| include: false
+pip install pandas
+```
+
 ```{python}
 #| include: false
 import pandas as pd
