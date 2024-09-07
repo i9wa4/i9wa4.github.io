@@ -12,14 +12,20 @@ jupyter: python3
 
 ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。
 
+## 1. ライブラリのインストール
+
 ```{python}
 #| include: true
+# #| include: false と設定するとセルを隠すことができる
 !python3 -m pip install pandas
 !python3 -m pip install --upgrade jinja2
 ```
 
+## 2. データの読み込み
+
 ```{python}
 #| include: true
+# #| include: false と設定するとセルを隠すことができる
 import pandas as pd
 
 df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
@@ -37,7 +43,10 @@ def extract_tag(tag, df=df_all):
     return _dfs
 ```
 
+## 3. TagB
+
 ```{python}
-#| code-fold: true
+#| code-fold: false
+# #| code-fold: true と設定するとセルを折りたたむことができる
 extract_tag('TagB')
 ```
