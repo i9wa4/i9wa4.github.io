@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-09-07">
 
-<title>Memo – i9wa4’s page</title>
+<title>Quarto DataFrame Preview Test – i9wa4’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,14 +21,46 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <link href="..//assets/common/icon_hhkb2.jpg" rel="icon" type="image/jpeg">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -55,71 +88,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-    const options = {
-      valueNames: ['listing-date','listing-categories','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
 
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="i9wa4's page" href="index.xml" data-external="1"><meta property="og:title" content="Memo – i9wa4’s page">
+<meta property="og:title" content="Quarto DataFrame Preview Test – i9wa4’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
-<meta name="twitter:title" content="Memo – i9wa4’s page">
+<meta name="twitter:title" content="Quarto DataFrame Preview Test – i9wa4’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -206,23 +184,38 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="game">game <span class="quarto-category-count">(2)</span></div><div class="category" data-category="memo">memo <span class="quarto-category-count">(3)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Memo</h1>
-</div>
+<h1 class="title">Quarto DataFrame Preview Test</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">memo</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-09-07</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024-09-07</p>
+    </div>
+  </div>
     
   </div>
   
@@ -231,105 +224,73 @@ window.Quarto = {
 </header>
 
 
-<p>自分以外には全く価値がなさそうなメモ達</p>
+<p>こんにちは。i9wa4 です。</p>
+<p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
+<div id="2017e1d7" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df2dfs(df_all, <span class="st">'TagB'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<style type="text/css">
+</style>
+
+<table id="T_5be4a" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_5be4a_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Date</th>
+<th id="T_5be4a_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Title</th>
+<th id="T_5be4a_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_5be4a_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_5be4a_row0_col0" class="data row0 col0">2024-09-07</td>
+<td id="T_5be4a_row0_col1" class="data row0 col1">testtesttesttesttesttesttesttestte<br>
+sttesttesttesttesttesttesttestt</td>
+<td id="T_5be4a_row0_col2" class="data row0 col2"><a href="htps://www.google.com">URL</a></td>
+</tr>
+<tr class="even">
+<td id="T_5be4a_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_5be4a_row1_col0" class="data row1 col0">2024-09-08</td>
+<td id="T_5be4a_row1_col1" class="data row1 col1">testtesttesttesttesttesttesttestte<br>
+sttesttesttesttesttesttesttestt</td>
+<td id="T_5be4a_row1_col2" class="data row1 col2"><a href="htps://www.google.com">URL</a></td>
+</tr>
+<tr class="odd">
+<td id="T_5be4a_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_5be4a_row2_col0" class="data row2 col0">2024-09-08</td>
+<td id="T_5be4a_row2_col1" class="data row2 col1">testtesttesttesttesttesttesttesttesttesttesttestte</td>
+<td id="T_5be4a_row2_col2" class="data row2 col2"><a href="htps://www.google.com">URL</a></td>
+</tr>
+<tr class="even">
+<td id="T_5be4a_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
+<td id="T_5be4a_row3_col0" class="data row3 col0">2024-09-09</td>
+<td id="T_5be4a_row3_col1" class="data row3 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</td>
+<td id="T_5be4a_row3_col2" class="data row3 col2"><a href="htps://www.google.com">URL</a></td>
+</tr>
+<tr class="odd">
+<td id="T_5be4a_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
+<td id="T_5be4a_row4_col0" class="data row4 col0">2024-09-09</td>
+<td id="T_5be4a_row4_col1" class="data row4 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</td>
+<td id="T_5be4a_row4_col2" class="data row4 col2"><a href="htps://www.google.com">URL</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="memo" data-listing-date-sort="1725712905000" data-listing-file-modified-sort="1725721240000" data-listing-date-modified-sort="1725721240000" data-listing-reading-time-sort="1" data-listing-word-count-sort="68">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../memo/2024-09-09-quarto-dataframe-preview-test.html" class="no-external">Quarto DataFrame Preview Test</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../memo/2024-09-09-quarto-dataframe-preview-test.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('memo'); return false;">
-memo
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../memo/2024-09-09-quarto-dataframe-preview-test.html" class="no-external">
-<div class="listing-date">
-2024-09-07
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="memo,game" data-listing-date-sort="1721483216000" data-listing-file-modified-sort="1725327088000" data-listing-date-modified-sort="1725327088000" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../memo/2024-07-20-aigis-note.html" class="no-external">自分用千年戦争アイギスメモ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../memo/2024-07-20-aigis-note.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('memo'); return false;">
-memo
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('game'); return false;">
-game
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../memo/2024-07-20-aigis-note.html" class="no-external">
-<div class="listing-date">
-2024-07-20
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="memo,game" data-listing-date-sort="1721482768000" data-listing-file-modified-sort="1725327088000" data-listing-date-modified-sort="1725327088000" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../memo/2024-07-20-minecraft-note.html" class="no-external">自分用 Minecraft メモ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../memo/2024-07-20-minecraft-note.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('memo'); return false;">
-memo
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('game'); return false;">
-game
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../memo/2024-07-20-minecraft-note.html" class="no-external">
-<div class="listing-date">
-2024-07-20
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -13,75 +13,11 @@
     <lastmod>2024-09-03T01:31:28.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/index.html</loc>
-    <lastmod>2024-09-03T01:28:45.000Z</lastmod>
+    <loc>https://i9wa4.github.io/memo/2024-09-09-quarto-dataframe-preview-test.html</loc>
+    <lastmod>2024-09-07T15:00:40.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
-    <lastmod>2024-09-03T07:40:54.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/resume/02-sld.html</loc>
-    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/resume/03-cnsh.html</loc>
-    <lastmod>2024-08-30T01:42:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/resume/04-hacomono.html</loc>
-    <lastmod>2024-09-03T08:59:51.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/resume/01-okuma.html</loc>
-    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/resume/index.html</loc>
-    <lastmod>2024-09-06T02:55:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</loc>
-    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/index.html</loc>
-    <lastmod>2024-08-24T09:20:45.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
-    <lastmod>2024-08-28T12:18:24.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
@@ -89,8 +25,76 @@
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</loc>
     <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
+    <lastmod>2024-08-28T12:18:24.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <lastmod>2024-08-24T09:20:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/resume/index.html</loc>
+    <lastmod>2024-09-06T02:55:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/resume/01-okuma.html</loc>
+    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/resume/04-hacomono.html</loc>
+    <lastmod>2024-09-03T08:59:51.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/resume/03-cnsh.html</loc>
+    <lastmod>2024-08-30T01:42:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/resume/02-sld.html</loc>
+    <lastmod>2024-08-24T07:49:03.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
+    <lastmod>2024-09-03T07:40:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
+    <lastmod>2024-08-28T12:18:01.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/index.html</loc>
+    <lastmod>2024-09-03T01:28:45.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/memo/2024-07-20-aigis-note.html</loc>
