@@ -67,7 +67,7 @@
     "href": "memo/2024-09-09-quarto-dataframe-preview-test.html",
     "title": "Quarto DataFrame Preview Test",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。\n\n\nCode\ndf2dfs(df_all, 'TagB')\n\n\n\n\n\n\n\n\n\n\n\n\n\n \nDate\nTitle\nURL\n\n\n\n\n0\n2024-09-07\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n1\n2024-09-08\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n2\n2024-09-08\ntesttesttesttesttesttesttesttesttesttesttesttestte\nURL\n\n\n3\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\nURL\n\n\n4\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\nURL"
+    "text": "こんにちは。i9wa4 です。\nブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\n\n\n\n\n \nDate\nTitle\nURL\n\n\n\n\n0\n2024-09-07\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n1\n2024-09-08\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n2\n2024-09-08\ntesttesttesttesttesttesttesttesttesttesttesttestte\nURL\n\n\n3\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\nURL\n\n\n4\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\nURL"
   },
   {
     "objectID": "blog/2024-03-25-setup-wsl2.html",
