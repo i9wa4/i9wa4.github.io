@@ -23,7 +23,7 @@ jupyter: python3
 import pandas as pd
 
 df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
-df_all
+display(df_all)
 
 
 def make_clickable(val):
