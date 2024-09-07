@@ -63,186 +63,137 @@
     "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
   },
   {
-    "objectID": "memo/2024-09-09-quarto-dataframe-preview-test.html",
-    "href": "memo/2024-09-09-quarto-dataframe-preview-test.html",
-    "title": "Quarto DataFrame Preview Test",
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。"
+    "text": "こんにちは。i9wa4 です。\n少し前に作った Vim/Neovim プラグインの紹介記事となります。"
   },
   {
-    "objectID": "memo/2024-09-09-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "href": "memo/2024-09-09-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "title": "Quarto DataFrame Preview Test",
-    "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.1/13.0 MB 2.8 MB/s eta 0:00:05     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.0 MB 6.7 MB/s eta 0:00:02     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/13.0 MB 14.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/13.0 MB 33.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ 9.4/13.0 MB 55.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 134.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 134.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 84.0 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/16.3 MB 163.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ 8.7/16.3 MB 128.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ 12.5/16.3 MB 112.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 123.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 111.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 69.1 MB/s eta 0:00:00\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 82.9 MB/s eta 0:00:00\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.1 pandas-2.2.2 tzdata-2024.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ 92.2/133.3 KB 2.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 3.0 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "1. プラグイン概要",
+    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
   },
   {
-    "objectID": "memo/2024-09-09-quarto-dataframe-preview-test.html#データの読み込み",
-    "href": "memo/2024-09-09-quarto-dataframe-preview-test.html#データの読み込み",
-    "title": "Quarto DataFrame Preview Test",
-    "section": "2. データの読み込み",
-    "text": "2. データの読み込み\n\n# #| include: false と設定するとセルを隠すことができる\nimport pandas as pd\n\ndf_all = pd.read_csv(\"../assets/20240907-quarto-df/quarto-df.csv\")\ndisplay(df_all)\n\n\ndef make_clickable(val):\n    return '&lt;a href=\"{}\"&gt;URL&lt;/a&gt;'.format(val,val)\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df.query(f'Tags == \"{tag}\"')\n    _df = _df.loc[:, [\"Date\", \"Title\", \"URL\"]].reset_index(drop=True)\n    _dfs = _df.style.format(formatter={'URL': make_clickable})\n    return _dfs\n\n\n\n\n\n\n\n\nDate\nTags\nTitle\nURL\n\n\n\n\n0\n2024-09-04\nTagA\ntesttest\nhttps://www.google.com\n\n\n1\n2024-09-07\nTagB\ntesttesttesttesttesttesttesttestte&lt;br&gt;sttestte...\nhtps://www.google.com\n\n\n2\n2024-09-08\nTagB\ntesttesttesttesttesttesttesttestte&lt;br&gt;sttestte...\nhtps://www.google.com\n\n\n3\n2024-09-08\nTagB\ntesttesttesttesttesttesttesttesttesttesttestte...\nhtps://www.google.com\n\n\n4\n2024-09-09\nTagB\ntesttesttesttesttesttesttesttesttesttesttestte...\nhtps://www.google.com\n\n\n5\n2024-09-09\nTagB\ntesttesttesttesttesttesttesttesttesttesttestte...\nhtps://www.google.com"
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "2. プラグインを作ることになったきっかけ",
+    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
   },
   {
-    "objectID": "memo/2024-09-09-quarto-dataframe-preview-test.html#tagb",
-    "href": "memo/2024-09-09-quarto-dataframe-preview-test.html#tagb",
-    "title": "Quarto DataFrame Preview Test",
-    "section": "3. TagB",
-    "text": "3. TagB\n\n# #| code-fold: true と設定するとセルを折りたたむことができる\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\n\n\n\n \nDate\nTitle\nURL\n\n\n\n\n0\n2024-09-07\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n1\n2024-09-08\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n2\n2024-09-08\ntesttesttesttesttesttesttesttesttesttesttesttestte\nURL\n\n\n3\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\nURL\n\n\n4\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\nURL"
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "3. Denops プラグインとして作ろうと思った理由",
+    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。\nそして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html",
-    "href": "blog/2024-03-25-setup-wsl2.html",
-    "title": "WSL2 のセットアップ",
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "4. Denops プラグイン開発体験について",
+    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。\n核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。\nまず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "5. 感想",
+    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。\n今後も必要なものは自分で作っていたいですね。"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nWindows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
+    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "1. WSL コマンドのインストール",
-    "text": "1. WSL コマンドのインストール\nWSL のインストール | Microsoft Learn に従います。\n\n管理者権限で PowerShell or コマンドプロンプトを開きます。\nwsl --install を実行します。 \n以下のように表示されるのでマシンを再起動します。"
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "2. ディストリビューションのインストール",
-    "text": "2. ディストリビューションのインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール可能なディストリビューションを表示します。\nwsl --list --oneline\nUbuntu 22.04 LTS をインストールする場合は以下のように入力します。\nwsl --install -d Ubuntu-22.04\n画面表示に従ってユーザー名とパスワードを入力します。\nUbuntu を終了します。\nexit\n(必要に応じて) 既定のディストリビューションを設定します。\nwsl --set-default Ubuntu-22.04"
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "3. ディストリビューションのアンインストール",
-    "text": "3. ディストリビューションのアンインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール済みのディストリビューションを表示します。\nwsl --list\n不要なディストリビューションをアンインストールします。\nwsl --unregister Ubuntu-22.04"
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#詳細設定",
-    "href": "blog/2024-03-25-setup-wsl2.html#詳細設定",
-    "title": "WSL2 のセットアップ",
-    "section": "4. 詳細設定",
-    "text": "4. 詳細設定\n設定ファイルや systemd に関しては以下のページを参考にするとよいです。\nWSL での詳細設定の構成 | Microsoft Learn"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html",
-    "href": "blog/2024-01-01-init.html",
-    "title": "Initial Post",
-    "section": "",
-    "text": "こんにちは。i9wa4 です。\n初投稿になります。"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html#i9wa4-とは",
-    "href": "blog/2024-01-01-init.html#i9wa4-とは",
-    "title": "Initial Post",
-    "section": "1. i9wa4 とは",
-    "text": "1. i9wa4 とは\n\n読み：いくわよ\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです。"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
-    "href": "blog/2024-01-01-init.html#このブログの運用方針",
-    "title": "Initial Post",
-    "section": "2. このブログの運用方針",
-    "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
-  },
-  {
-    "objectID": "blog/2024-05-05-deploy-quarto.html",
-    "href": "blog/2024-05-05-deploy-quarto.html",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
     "section": "",
     "text": "こんにちは。i9wa4 です。"
   },
   {
-    "objectID": "blog/2024-05-05-deploy-quarto.html#前提",
-    "href": "blog/2024-05-05-deploy-quarto.html#前提",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "1. 前提",
-    "text": "1. 前提\nスライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (https://quarto.org/) に決めました。\n.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。\n\n環境構築が pip で完了する\nVS Code で開くと Jupyter Notebook っぽくセルを実行できる"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "1. 経緯",
+    "text": "1. 経緯\n私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
   },
   {
-    "objectID": "blog/2024-05-05-deploy-quarto.html#やったこと",
-    "href": "blog/2024-05-05-deploy-quarto.html#やったこと",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "2. やったこと",
-    "text": "2. やったこと\n下記リポジトリを整備しました。\nhttps://github.com/i9wa4/slides\nREADME.md にも書いてますが\nQuartoでスライドを作ってGitHub Pagesで公開する #GitHubActions - Qiita\nを参考にしてます。"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "2. Gemini との開発過程",
+    "text": "2. Gemini との開発過程\nGemini とのやりとりを書き残しておきます。\n\n2.1. .git 探索関数作成\n\n2.1.1. 質問\nVim script で以下の関数を作成してほしいです。\n- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。\n\n\n2.1.2. 回答\nVim script で .git ディレクトリを探す関数\n\n以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。\n\nfunction! FindGitDir(dir)\n  \" 引数がない場合はカレントディレクトリを代入 \"\n  if (empty(a:dir))\n    let dir = expand('%:p')\n  endif\n\n  \" ループフラグを初期化 \"\n  let found = 0\n\n  \" 順に上の階層をたどる \"\n  while (!found && !empty(dir) && dir != '/')\n    \" .git ディレクトリが存在するか確認 \"\n    if (isdirectory(dir . '/.git'))\n      let found = 1\n      let gitdir = dir . '/.git'\n    endif\n\n    \" 上の階層へ移動 \"\n    let dir = expand(dirname(dir))\n  endwhile\n\n  \" 結果を返す \"\n  if (found)\n    return gitdir\n  else\n    return ''\n  endif\nendfunction\n\n\n\n2.2. ブランチ名取得関数作成\n\n2.2.1. 質問\nVim script で以下の関数を作成してほしいです。\n- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。\n\n\n2.2.2. 回答\n以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。\n\nfunction! GetCurrentBranch(gitdir)\n  \" 引数が空の場合、エラーを返す \"\n  if (empty(a:gitdir))\n    error('引数が空です')\n  endif\n\n  \" カレントブランチ名の取得 \"\n  let branch = system('git --git-dir=\"' . a:gitdir . '\" rev-parse --abbrev-ref HEAD')\n\n  \" .git ディレクトリを除いたブランチ名を返す \"\n  return substitute(branch, a:gitdir . '/', '', 'g')\nendfunction\n\n\n2.2.3. 質問\nsystem() を使わず、gitコマンドを使わずに実現させてほしいです。\n\n\n2.2.4. 回答\nVim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。\n\n\n1. :echo %b コマンドを使用する\n\nこの方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。\n\n\" 現在のブランチ名をエコーする \"\n:echo %b\n\n\n2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む\n\nこの方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。\n\n\" .git/HEAD ファイルのパスを取得 \"\nlet headfile = expand('%:p:h') . '/.git/HEAD'\n\n\" HEAD ファイルの内容を読み込む \"\nlet headcontent = readfile(headfile)\n\n\" ブランチ名を抽出する \"\nlet branch = match(headcontent, 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n\n\n3. git log の出力を解析する\n\nこの方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。\nVim Script\n\n\" git log の出力をバッファに読み込む \"\n:redir &gt; /dev/null git log -1\n\n\" ブランチ名を抽出する \"\nlet branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n回答1が嘘すぎてびっくり。今回は回答2がよさそう。\nこの時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。\nhttps://github.com/itchyny/vim-gitbranch\nここまで分かればあとは動作を確認しながら書けそうです。"
   },
   {
-    "objectID": "blog/2024-05-05-deploy-quarto.html#感想",
-    "href": "blog/2024-05-05-deploy-quarto.html#感想",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "3. 感想",
-    "text": "3. 感想\nGitHub Actions はまだよく分かってないままなのですが、一旦動くようになってよかったです。"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "3. 完成品",
+    "text": "3. 完成品\nGemini と考えたコードが跡形もなくなっている。。なぜ。。\nTODO: 繰り返し呼ばれることを念頭に処理を軽くしたい\nhttps://github.com/i9wa4/get-git-branch-name.vim"
   },
   {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "title": "Quarto による DataFrame の表示テスト",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。\nスライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。\nここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。\nQuarto – GitHub Pages"
+    "text": "こんにちは。i9wa4 です。\nブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。"
   },
   {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "想定する読者",
-    "text": "想定する読者\n\nPython の環境構築ができている方\nGit/GitHub 操作の説明がなくても問題ない方"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "1. ライブラリのインストール",
+    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/13.0 MB 42.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 6.2/13.0 MB 91.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ 11.8/13.0 MB 151.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 155.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 93.4 MB/s eta 0:00:00\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 84.5 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/16.3 MB 169.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 11.3/16.3 MB 167.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 174.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 174.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 89.0 MB/s eta 0:00:00\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.1 pandas-2.2.2 tzdata-2024.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.4 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
   },
   {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#事前準備",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#事前準備",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "事前準備",
-    "text": "事前準備\n\nQuarto のインストール\nまずは Quarto をインストールしておきましょう。\n$ pip install quarto-cli\nなぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。\nInstalling quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597\n\n\nGitHub リポジトリ作成\n任意の名前でリポジトリを作成しましょう。\n私は GitHub リポジトリ https://github.com/i9wa4/i9wa4.github.io を作成していて公開 URL は https://i9wa4.github.io になります。\nここではデモ用に https://github.com/i9wa4/quarto-page というリポジトリを作成してみます。こちらの公開 URL は https://i9wa4.github.io/quarto-page になります。\n特にこだわりがなければリポジトリ名は username.github.io でよいでしょう。"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#データの読み込み",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#データの読み込み",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "2. データの読み込み",
+    "text": "2. データの読み込み\n\n# #| include: false と設定するとセルを隠すことができる\nimport pandas as pd\n\ndf_all = pd.read_csv(\"../assets/20240907-quarto-df/quarto-df.csv\")\ndisplay(df_all)\n\n\ndef make_clickable(val):\n    return '&lt;a href=\"{}\"&gt;URL&lt;/a&gt;'.format(val,val)\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df.query(f'Tags == \"{tag}\"')\n    _df = _df.loc[:, [\"Date\", \"Title\", \"URL\"]].reset_index(drop=True)\n    _dfs = _df.style.format(formatter={'URL': make_clickable})\n    return _dfs\n\n\n\n\n\n\n\n\nDate\nTags\nTitle\nURL\n\n\n\n\n0\n2024-09-04\nTagA\ntesttest\nhttps://www.google.com\n\n\n1\n2024-09-07\nTagB\ntesttesttesttesttesttesttesttestte&lt;br&gt;sttestte...\nhtps://www.google.com\n\n\n2\n2024-09-08\nTagB\ntesttesttesttesttesttesttesttestte&lt;br&gt;sttestte...\nhtps://www.google.com\n\n\n3\n2024-09-08\nTagB\ntesttesttesttesttesttesttesttesttesttesttestte...\nhtps://www.google.com\n\n\n4\n2024-09-09\nTagB\ntesttesttesttesttesttesttesttesttesttesttestte...\nhtps://www.google.com\n\n\n5\n2024-09-09\nTagB\ntesttesttesttesttesttesttesttesttesttesttestte...\nhtps://www.google.com"
   },
   {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#基本構造を整える",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#基本構造を整える",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "基本構造を整える",
-    "text": "基本構造を整える\n作成したリポジトリをクローンして以下のファイルを作成します。\n\n_quarto.yml\n\n\n_quarto.yml\n\nproject:\n  type: website\n  output-dir: docs\n\n.nojelyll\n空ファイルなので下記コマンドで作成します。\n$ touch .nojekyll\n.gitignore\n\n\n.gitignore\n\n/.quarto/\n/docs/\n\nindex.qmd\n\n\nindex.qmd\n\n---\ntitle: トップページ index.qmd\n---\n\n本文\n\n\n作成できたら main ブランチに push しておきましょう。"
-  },
-  {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#初回デプロイを行う",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#初回デプロイを行う",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "初回デプロイを行う",
-    "text": "初回デプロイを行う\n初回はローカル環境からデプロイを実行します。\n指示に従って yes と入力すると gh-pages ブランチが作成されて初回デプロイが完了します。\n$ quarto publish gh-pages\n? Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages? (Y/n) › Yes"
-  },
-  {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#回目以降のデプロイを自動化する",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#回目以降のデプロイを自動化する",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "2回目以降のデプロイを自動化する",
-    "text": "2回目以降のデプロイを自動化する\n2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。\n\n\n.github/workflows/publish.yml\n\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
-  },
-  {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#ブログ記事とスライドのための構造を整える",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#ブログ記事とスライドのための構造を整える",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "ブログ記事とスライドのための構造を整える",
-    "text": "ブログ記事とスライドのための構造を整える\n以下の内容を push すると https://i9wa4.github.io/quarto-page が完成します。\n\nindex.qmd\n\n\nindex.qmd\n\n---\ntitle: トップページ index.qmd\nlisting:  # トップページにリスト表示させたくない場合は listing の設定は不要\n  contents:\n    - \"blog\"\n    - \"slides\"  # トップページにスライドを表示させる場合\n  exclude:\n    filename: \"index.qmd\"\n  sort:\n    - \"date desc\"\n---\n\n本文\n\n- [ブログ記事一覧](./blog)\n- [スライド一覧](./slides)\n\n## ブログとスライドの新着一覧\n\nブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。\n\n\n\nブログ\n\nblog/index.qmd\n\n\nblog/index.qmd\n\n---\ntitle: ブログ記事一覧\nlisting:\n  contents:\n    - \".\"\n  sort:\n    - \"date desc\"\n---\n\nblog/2024-08-25-test1.qmd\n\n\nblog/2024-08-25-test1.qmd\n\n---\ntitle: test1\ndate: 2024-08-25\n---\n\n1行目\n\nファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。\n\nblog/test2.qmd\n\n\nblog/test2.qmd\n\n---\ntitle: test2\ndate: 2024-08-26\n---\n\nここが1行目\n\nファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。\n\n\n\n\nスライド\n\nslides/index.qmd\n\n\nslides/index.qmd\n\n---\ntitle: スライド一覧\nlisting:\n  contents:\n    - \".\"\n  sort:\n    - \"date desc\"\n---\n\nslides/test1-slide.qmd\n\n\nslides/test1-slide.qmd\n\n---\ntitle: \"test1-slide タイトル\"\nauthor: i9wa4\ndate: 2024-08-25\nformat:\n  revealjs:\n    slide-level: 2\n    slide-number: true\n---\n\n本文\n\n## サブタイトル1\n\n本文\n\n## サブタイトル2\n\n本文\n\nslides/test2-slide.qmd\n\n\nslides/test2-slide.qmd\n\n---\ntitle: \"test2-slide タイトル\"\nauthor: i9wa4\ndate: 2024-08-25\nformat:\n  revealjs:\n    slide-level: 2\n    slide-number: true\n---\n\n本文\n\n## サブタイトル1\n\n本文\n\n## サブタイトル2\n\n本文"
-  },
-  {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#プレビューを確認しつつ編集する",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#プレビューを確認しつつ編集する",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "プレビューを確認しつつ編集する",
-    "text": "プレビューを確認しつつ編集する\nプレビューを Web ブラウザで確認しながら編集が可能です。\n$ quarto preview\n編集内容がリアルタイムに反映されるので執筆体験がとても良いです！\n[2024-08-26 追記] プロジェクト構成によっては Firefox 以外の Web ブラウザでうまくプレビューできない事象が発生している模様。\nQuarto preview only loading homepage in Firefox · Issue #3045 · quarto-dev/quarto-cli\n遭遇した場合は以下のコマンドで docs/ 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。\n$ quarto render"
-  },
-  {
-    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",
-    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",
-    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
-    "section": "おわりに",
-    "text": "おわりに\nもっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。\n\nQuarto 公式\n\nページ https://quarto.org\nリポジトリ https://github.com/quarto-dev/quarto-web\n\ni9wa4 の GitHub Pages\n\nページ https://i9wa4.github.io\nリポジトリ https://github.com/i9wa4/i9wa4.github.io"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "3. TagB",
+    "text": "3. TagB\n\n# #| code-fold: true と設定するとセルを折りたたむことができる\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\n\n\n\n \nDate\nTitle\nURL\n\n\n\n\n0\n2024-09-07\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n1\n2024-09-08\ntesttesttesttesttesttesttesttestte\nsttesttesttesttesttesttesttestt\nURL\n\n\n2\n2024-09-08\ntesttesttesttesttesttesttesttesttesttesttesttestte\nURL\n\n\n3\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\nURL\n\n\n4\n2024-09-09\ntesttesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\nURL"
   },
   {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nquarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-06-27\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ngadget\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nmac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nquarto\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nvim\n\n\ndev\n\n\n\n\n\n\n2024-05-03\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nwsl2\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nwsl2\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nvim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nvim\n\n\ndev\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\n\n\n\n\n2023-12-31\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nmemo\n\n\n\n\n\n\n2024-09-07\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nquarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-06-27\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ngadget\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nmac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nquarto\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nvim\n\n\ndev\n\n\n\n\n\n\n2024-05-03\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nwsl2\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nwsl2\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nvim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\nvim\n\n\ndev\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\n\n\n\n\n2023-12-31\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/2024-06-17-purchased-gadgets.html",
@@ -651,102 +602,151 @@
     "text": "こんにちは。i9wa4 です。\n下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "",
+    "text": "こんにちは。i9wa4 です。\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。\nスライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。\nここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。\nQuarto – GitHub Pages"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "想定する読者",
+    "text": "想定する読者\n\nPython の環境構築ができている方\nGit/GitHub 操作の説明がなくても問題ない方"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#事前準備",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#事前準備",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "事前準備",
+    "text": "事前準備\n\nQuarto のインストール\nまずは Quarto をインストールしておきましょう。\n$ pip install quarto-cli\nなぜか公式ドキュメントではこのインストール方法は説明されていなかったのですが、これが一番簡単です。同じ疑問をもった方が以下で質問していました。\nInstalling quarto-cli via pip · quarto-dev/quarto-cli · Discussion #8597\n\n\nGitHub リポジトリ作成\n任意の名前でリポジトリを作成しましょう。\n私は GitHub リポジトリ https://github.com/i9wa4/i9wa4.github.io を作成していて公開 URL は https://i9wa4.github.io になります。\nここではデモ用に https://github.com/i9wa4/quarto-page というリポジトリを作成してみます。こちらの公開 URL は https://i9wa4.github.io/quarto-page になります。\n特にこだわりがなければリポジトリ名は username.github.io でよいでしょう。"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#基本構造を整える",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#基本構造を整える",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "基本構造を整える",
+    "text": "基本構造を整える\n作成したリポジトリをクローンして以下のファイルを作成します。\n\n_quarto.yml\n\n\n_quarto.yml\n\nproject:\n  type: website\n  output-dir: docs\n\n.nojelyll\n空ファイルなので下記コマンドで作成します。\n$ touch .nojekyll\n.gitignore\n\n\n.gitignore\n\n/.quarto/\n/docs/\n\nindex.qmd\n\n\nindex.qmd\n\n---\ntitle: トップページ index.qmd\n---\n\n本文\n\n\n作成できたら main ブランチに push しておきましょう。"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#初回デプロイを行う",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#初回デプロイを行う",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "初回デプロイを行う",
+    "text": "初回デプロイを行う\n初回はローカル環境からデプロイを実行します。\n指示に従って yes と入力すると gh-pages ブランチが作成されて初回デプロイが完了します。\n$ quarto publish gh-pages\n? Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages? (Y/n) › Yes"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#回目以降のデプロイを自動化する",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#回目以降のデプロイを自動化する",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "2回目以降のデプロイを自動化する",
+    "text": "2回目以降のデプロイを自動化する\n2回目以降のデプロイは以下のファイルを作成しておくことで GitHub Actions に任せることができます。\n\n\n.github/workflows/publish.yml\n\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#ブログ記事とスライドのための構造を整える",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#ブログ記事とスライドのための構造を整える",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "ブログ記事とスライドのための構造を整える",
+    "text": "ブログ記事とスライドのための構造を整える\n以下の内容を push すると https://i9wa4.github.io/quarto-page が完成します。\n\nindex.qmd\n\n\nindex.qmd\n\n---\ntitle: トップページ index.qmd\nlisting:  # トップページにリスト表示させたくない場合は listing の設定は不要\n  contents:\n    - \"blog\"\n    - \"slides\"  # トップページにスライドを表示させる場合\n  exclude:\n    filename: \"index.qmd\"\n  sort:\n    - \"date desc\"\n---\n\n本文\n\n- [ブログ記事一覧](./blog)\n- [スライド一覧](./slides)\n\n## ブログとスライドの新着一覧\n\nブログやスライドなどディレクトリを分けている記事をまとめてリスト表示することができます。\n\n\n\nブログ\n\nblog/index.qmd\n\n\nblog/index.qmd\n\n---\ntitle: ブログ記事一覧\nlisting:\n  contents:\n    - \".\"\n  sort:\n    - \"date desc\"\n---\n\nblog/2024-08-25-test1.qmd\n\n\nblog/2024-08-25-test1.qmd\n\n---\ntitle: test1\ndate: 2024-08-25\n---\n\n1行目\n\nファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。\n\nblog/test2.qmd\n\n\nblog/test2.qmd\n\n---\ntitle: test2\ndate: 2024-08-26\n---\n\nここが1行目\n\nファイル名の先頭に日付をつけておくと管理しやすいですが必須ではありません。\n\n\n\n\nスライド\n\nslides/index.qmd\n\n\nslides/index.qmd\n\n---\ntitle: スライド一覧\nlisting:\n  contents:\n    - \".\"\n  sort:\n    - \"date desc\"\n---\n\nslides/test1-slide.qmd\n\n\nslides/test1-slide.qmd\n\n---\ntitle: \"test1-slide タイトル\"\nauthor: i9wa4\ndate: 2024-08-25\nformat:\n  revealjs:\n    slide-level: 2\n    slide-number: true\n---\n\n本文\n\n## サブタイトル1\n\n本文\n\n## サブタイトル2\n\n本文\n\nslides/test2-slide.qmd\n\n\nslides/test2-slide.qmd\n\n---\ntitle: \"test2-slide タイトル\"\nauthor: i9wa4\ndate: 2024-08-25\nformat:\n  revealjs:\n    slide-level: 2\n    slide-number: true\n---\n\n本文\n\n## サブタイトル1\n\n本文\n\n## サブタイトル2\n\n本文"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#プレビューを確認しつつ編集する",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#プレビューを確認しつつ編集する",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "プレビューを確認しつつ編集する",
+    "text": "プレビューを確認しつつ編集する\nプレビューを Web ブラウザで確認しながら編集が可能です。\n$ quarto preview\n編集内容がリアルタイムに反映されるので執筆体験がとても良いです！\n[2024-08-26 追記] プロジェクト構成によっては Firefox 以外の Web ブラウザでうまくプレビューできない事象が発生している模様。\nQuarto preview only loading homepage in Firefox · Issue #3045 · quarto-dev/quarto-cli\n遭遇した場合は以下のコマンドで docs/ 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。\n$ quarto render"
+  },
+  {
+    "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",
+    "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html#おわりに",
+    "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
+    "section": "おわりに",
+    "text": "おわりに\nもっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。\n\nQuarto 公式\n\nページ https://quarto.org\nリポジトリ https://github.com/quarto-dev/quarto-web\n\ni9wa4 の GitHub Pages\n\nページ https://i9wa4.github.io\nリポジトリ https://github.com/i9wa4/i9wa4.github.io"
+  },
+  {
+    "objectID": "blog/2024-05-05-deploy-quarto.html",
+    "href": "blog/2024-05-05-deploy-quarto.html",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
     "section": "",
     "text": "こんにちは。i9wa4 です。"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "1. 経緯",
-    "text": "1. 経緯\n私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
+    "objectID": "blog/2024-05-05-deploy-quarto.html#前提",
+    "href": "blog/2024-05-05-deploy-quarto.html#前提",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "1. 前提",
+    "text": "1. 前提\nスライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (https://quarto.org/) に決めました。\n.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。\n\n環境構築が pip で完了する\nVS Code で開くと Jupyter Notebook っぽくセルを実行できる"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "2. Gemini との開発過程",
-    "text": "2. Gemini との開発過程\nGemini とのやりとりを書き残しておきます。\n\n2.1. .git 探索関数作成\n\n2.1.1. 質問\nVim script で以下の関数を作成してほしいです。\n- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。\n\n\n2.1.2. 回答\nVim script で .git ディレクトリを探す関数\n\n以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。\n\nfunction! FindGitDir(dir)\n  \" 引数がない場合はカレントディレクトリを代入 \"\n  if (empty(a:dir))\n    let dir = expand('%:p')\n  endif\n\n  \" ループフラグを初期化 \"\n  let found = 0\n\n  \" 順に上の階層をたどる \"\n  while (!found && !empty(dir) && dir != '/')\n    \" .git ディレクトリが存在するか確認 \"\n    if (isdirectory(dir . '/.git'))\n      let found = 1\n      let gitdir = dir . '/.git'\n    endif\n\n    \" 上の階層へ移動 \"\n    let dir = expand(dirname(dir))\n  endwhile\n\n  \" 結果を返す \"\n  if (found)\n    return gitdir\n  else\n    return ''\n  endif\nendfunction\n\n\n\n2.2. ブランチ名取得関数作成\n\n2.2.1. 質問\nVim script で以下の関数を作成してほしいです。\n- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。\n\n\n2.2.2. 回答\n以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。\n\nfunction! GetCurrentBranch(gitdir)\n  \" 引数が空の場合、エラーを返す \"\n  if (empty(a:gitdir))\n    error('引数が空です')\n  endif\n\n  \" カレントブランチ名の取得 \"\n  let branch = system('git --git-dir=\"' . a:gitdir . '\" rev-parse --abbrev-ref HEAD')\n\n  \" .git ディレクトリを除いたブランチ名を返す \"\n  return substitute(branch, a:gitdir . '/', '', 'g')\nendfunction\n\n\n2.2.3. 質問\nsystem() を使わず、gitコマンドを使わずに実現させてほしいです。\n\n\n2.2.4. 回答\nVim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。\n\n\n1. :echo %b コマンドを使用する\n\nこの方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。\n\n\" 現在のブランチ名をエコーする \"\n:echo %b\n\n\n2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む\n\nこの方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。\n\n\" .git/HEAD ファイルのパスを取得 \"\nlet headfile = expand('%:p:h') . '/.git/HEAD'\n\n\" HEAD ファイルの内容を読み込む \"\nlet headcontent = readfile(headfile)\n\n\" ブランチ名を抽出する \"\nlet branch = match(headcontent, 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n\n\n3. git log の出力を解析する\n\nこの方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。\nVim Script\n\n\" git log の出力をバッファに読み込む \"\n:redir &gt; /dev/null git log -1\n\n\" ブランチ名を抽出する \"\nlet branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n回答1が嘘すぎてびっくり。今回は回答2がよさそう。\nこの時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。\nhttps://github.com/itchyny/vim-gitbranch\nここまで分かればあとは動作を確認しながら書けそうです。"
+    "objectID": "blog/2024-05-05-deploy-quarto.html#やったこと",
+    "href": "blog/2024-05-05-deploy-quarto.html#やったこと",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "2. やったこと",
+    "text": "2. やったこと\n下記リポジトリを整備しました。\nhttps://github.com/i9wa4/slides\nREADME.md にも書いてますが\nQuartoでスライドを作ってGitHub Pagesで公開する #GitHubActions - Qiita\nを参考にしてます。"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "3. 完成品",
-    "text": "3. 完成品\nGemini と考えたコードが跡形もなくなっている。。なぜ。。\nTODO: 繰り返し呼ばれることを念頭に処理を軽くしたい\nhttps://github.com/i9wa4/get-git-branch-name.vim"
+    "objectID": "blog/2024-05-05-deploy-quarto.html#感想",
+    "href": "blog/2024-05-05-deploy-quarto.html#感想",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "3. 感想",
+    "text": "3. 感想\nGitHub Actions はまだよく分かってないままなのですが、一旦動くようになってよかったです。"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
+    "objectID": "blog/2024-01-01-init.html",
+    "href": "blog/2024-01-01-init.html",
+    "title": "Initial Post",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
+    "text": "こんにちは。i9wa4 です。\n初投稿になります。"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
+    "objectID": "blog/2024-01-01-init.html#i9wa4-とは",
+    "href": "blog/2024-01-01-init.html#i9wa4-とは",
+    "title": "Initial Post",
+    "section": "1. i9wa4 とは",
+    "text": "1. i9wa4 とは\n\n読み：いくわよ\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです。"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
+    "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
+    "href": "blog/2024-01-01-init.html#このブログの運用方針",
+    "title": "Initial Post",
+    "section": "2. このブログの運用方針",
+    "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
-  },
-  {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "objectID": "blog/2024-03-25-setup-wsl2.html",
+    "href": "blog/2024-03-25-setup-wsl2.html",
+    "title": "WSL2 のセットアップ",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n少し前に作った Vim/Neovim プラグインの紹介記事となります。"
+    "text": "こんにちは。i9wa4 です。\nWindows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "1. プラグイン概要",
-    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "1. WSL コマンドのインストール",
+    "text": "1. WSL コマンドのインストール\nWSL のインストール | Microsoft Learn に従います。\n\n管理者権限で PowerShell or コマンドプロンプトを開きます。\nwsl --install を実行します。 \n以下のように表示されるのでマシンを再起動します。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "2. プラグインを作ることになったきっかけ",
-    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "2. ディストリビューションのインストール",
+    "text": "2. ディストリビューションのインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール可能なディストリビューションを表示します。\nwsl --list --oneline\nUbuntu 22.04 LTS をインストールする場合は以下のように入力します。\nwsl --install -d Ubuntu-22.04\n画面表示に従ってユーザー名とパスワードを入力します。\nUbuntu を終了します。\nexit\n(必要に応じて) 既定のディストリビューションを設定します。\nwsl --set-default Ubuntu-22.04"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "3. Denops プラグインとして作ろうと思った理由",
-    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。\nそして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "3. ディストリビューションのアンインストール",
+    "text": "3. ディストリビューションのアンインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール済みのディストリビューションを表示します。\nwsl --list\n不要なディストリビューションをアンインストールします。\nwsl --unregister Ubuntu-22.04"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "4. Denops プラグイン開発体験について",
-    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。\n核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。\nまず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
-  },
-  {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "5. 感想",
-    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。\n今後も必要なものは自分で作っていたいですね。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#詳細設定",
+    "href": "blog/2024-03-25-setup-wsl2.html#詳細設定",
+    "title": "WSL2 のセットアップ",
+    "section": "4. 詳細設定",
+    "text": "4. 詳細設定\n設定ファイルや systemd に関しては以下のページを参考にするとよいです。\nWSL での詳細設定の構成 | Microsoft Learn"
   },
   {
     "objectID": "memo/2024-07-20-aigis-note.html",
@@ -774,7 +774,7 @@
     "href": "memo/index.html",
     "title": "Memo",
     "section": "",
-    "text": "自分以外には全く価値がなさそうなメモ達\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nQuarto DataFrame Preview Test\n\n\n\n\n\n\nmemo\n\n\n\n\n\n\n2024-09-07\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nmemo\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nmemo\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\nNo matching items"
+    "text": "自分以外には全く価値がなさそうなメモ達\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nmemo\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nmemo\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/20231216-sapporo.vim.html#自己紹介",
