@@ -26,7 +26,7 @@
 
 <p>こんにちは。i9wa4 です。</p>
 <p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
-<div id="7be71a84" class="cell" data-execution_count="1">
+<div id="75a28bd4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -43,15 +43,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.0 MB 13.5 MB/s eta 0:00:01     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/13.0 MB 16.9 MB/s eta 0:00:01     ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/13.0 MB 20.7 MB/s eta 0:00:01     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/13.0 MB 24.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/13.0 MB 26.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━ 6.5/13.0 MB 31.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ 8.9/13.0 MB 36.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ 11.5/13.0 MB 49.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 60.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 47.6 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/13.0 MB 72.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ 7.2/13.0 MB 105.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 155.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 155.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 89.9 MB/s eta 0:00:00
 Collecting tzdata&gt;=2022.7
   Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 68.6 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 78.2 MB/s eta 0:00:00
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Collecting numpy&gt;=1.22.4
   Downloading numpy-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/16.3 MB 126.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ 8.9/16.3 MB 137.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ 14.2/16.3 MB 144.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 150.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 81.4 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/16.3 MB 148.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ 10.1/16.3 MB 148.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 15.9/16.3 MB 158.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 156.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 82.4 MB/s eta 0:00:00
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.1.1 pandas-2.2.2 tzdata-2024.1
@@ -59,13 +59,13 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 6.6 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 8.1 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
 </div>
 </div>
-<div id="ba02378c" class="cell" data-execution_count="2">
+<div id="57d1e621" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
@@ -77,7 +77,7 @@ background-color: null;
 font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"../assets/20240907-quarto-df/quarto-df.csv"</span>)</span>
-<span id="cb3-4">df_all</span>
+<span id="cb3-4">display(df_all)</span>
 <span id="cb3-5"></span>
 <span id="cb3-6"></span>
 <span id="cb3-7"><span class="kw" style="color: #003B4F;
@@ -141,8 +141,70 @@ font-style: inherit;">'URL'</span>: make_clickable})</span>
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> _dfs</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Tags</th>
+<th data-quarto-table-cell-role="th">Title</th>
+<th data-quarto-table-cell-role="th">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2024-09-04</td>
+<td>TagA</td>
+<td>testtest</td>
+<td>https://www.google.com</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2024-09-07</td>
+<td>TagB</td>
+<td>testtesttesttesttesttesttesttestte&lt;br&gt;sttestte...</td>
+<td>htps://www.google.com</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2024-09-08</td>
+<td>TagB</td>
+<td>testtesttesttesttesttesttesttestte&lt;br&gt;sttestte...</td>
+<td>htps://www.google.com</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2024-09-08</td>
+<td>TagB</td>
+<td>testtesttesttesttesttesttesttesttesttesttestte...</td>
+<td>htps://www.google.com</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2024-09-09</td>
+<td>TagB</td>
+<td>testtesttesttesttesttesttesttesttesttesttestte...</td>
+<td>htps://www.google.com</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2024-09-09</td>
+<td>TagB</td>
+<td>testtesttesttesttesttesttesttesttesttesttestte...</td>
+<td>htps://www.google.com</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div id="83c894bc" class="cell" data-execution_count="3">
+</div>
+</div>
+<div id="81fcdc16" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">extract_tag(<span class="st" style="color: #20794D;
@@ -153,7 +215,7 @@ font-style: inherit;">'TagB'</span>)</span></code></pre></div>
 <style type="text/css">
 </style>
 
-<table id="T_63d6e" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_2aa26" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -163,43 +225,43 @@ font-style: inherit;">'TagB'</span>)</span></code></pre></div>
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_63d6e_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Date</th>
-<th id="T_63d6e_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Title</th>
-<th id="T_63d6e_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">URL</th>
+<th id="T_2aa26_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Date</th>
+<th id="T_2aa26_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Title</th>
+<th id="T_2aa26_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">URL</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_63d6e_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
-<td id="T_63d6e_row0_col0" class="data row0 col0">2024-09-07</td>
-<td id="T_63d6e_row0_col1" class="data row0 col1">testtesttesttesttesttesttesttestte<br>
+<td id="T_2aa26_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_2aa26_row0_col0" class="data row0 col0">2024-09-07</td>
+<td id="T_2aa26_row0_col1" class="data row0 col1">testtesttesttesttesttesttesttestte<br>
 sttesttesttesttesttesttesttestt</td>
-<td id="T_63d6e_row0_col2" class="data row0 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_2aa26_row0_col2" class="data row0 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="even">
-<td id="T_63d6e_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
-<td id="T_63d6e_row1_col0" class="data row1 col0">2024-09-08</td>
-<td id="T_63d6e_row1_col1" class="data row1 col1">testtesttesttesttesttesttesttestte<br>
+<td id="T_2aa26_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_2aa26_row1_col0" class="data row1 col0">2024-09-08</td>
+<td id="T_2aa26_row1_col1" class="data row1 col1">testtesttesttesttesttesttesttestte<br>
 sttesttesttesttesttesttesttestt</td>
-<td id="T_63d6e_row1_col2" class="data row1 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_2aa26_row1_col2" class="data row1 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="odd">
-<td id="T_63d6e_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
-<td id="T_63d6e_row2_col0" class="data row2 col0">2024-09-08</td>
-<td id="T_63d6e_row2_col1" class="data row2 col1">testtesttesttesttesttesttesttesttesttesttesttestte</td>
-<td id="T_63d6e_row2_col2" class="data row2 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_2aa26_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_2aa26_row2_col0" class="data row2 col0">2024-09-08</td>
+<td id="T_2aa26_row2_col1" class="data row2 col1">testtesttesttesttesttesttesttesttesttesttesttestte</td>
+<td id="T_2aa26_row2_col2" class="data row2 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="even">
-<td id="T_63d6e_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
-<td id="T_63d6e_row3_col0" class="data row3 col0">2024-09-09</td>
-<td id="T_63d6e_row3_col1" class="data row3 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</td>
-<td id="T_63d6e_row3_col2" class="data row3 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_2aa26_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
+<td id="T_2aa26_row3_col0" class="data row3 col0">2024-09-09</td>
+<td id="T_2aa26_row3_col1" class="data row3 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</td>
+<td id="T_2aa26_row3_col2" class="data row3 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 <tr class="odd">
-<td id="T_63d6e_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
-<td id="T_63d6e_row4_col0" class="data row4 col0">2024-09-09</td>
-<td id="T_63d6e_row4_col1" class="data row4 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</td>
-<td id="T_63d6e_row4_col2" class="data row4 col2"><a href="htps://www.google.com">URL</a></td>
+<td id="T_2aa26_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
+<td id="T_2aa26_row4_col0" class="data row4 col0">2024-09-09</td>
+<td id="T_2aa26_row4_col1" class="data row4 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</td>
+<td id="T_2aa26_row4_col2" class="data row4 col2"><a href="htps://www.google.com">URL</a></td>
 </tr>
 </tbody>
 </table>
