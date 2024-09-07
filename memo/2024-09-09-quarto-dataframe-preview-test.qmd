@@ -1,0 +1,38 @@
+---
+title: "Quarto DataFrame Preview Test"
+date: 2024-09-07 21:41:45 +0900
+date-modified: last-modified
+categories:
+  - "memo"
+# draft: true
+jupyter: python3
+---
+
+こんにちは。i9wa4 です。
+
+ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。
+
+```{python}
+#| include: false
+import pandas as pd
+from IPython.display import HTML
+
+
+def make_clickable(val):
+    return '<a href="{}">URL</a>'.format(val,val)
+
+
+def df2dfs(df, tag):
+    _df = df.query(f'Tags == "{tag}"')
+    _df = _df.loc[:, ["Date", "Title", "URL"]].reset_index(drop=True)
+    _dfs = _df.style.format(formatter={'URL': make_clickable})
+    return _dfs
+
+
+df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
+```
+
+```{python}
+#| code-fold: true
+df2dfs(df_all, 'TagB')
+```
