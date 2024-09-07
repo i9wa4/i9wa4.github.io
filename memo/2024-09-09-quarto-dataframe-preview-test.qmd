@@ -14,7 +14,8 @@ jupyter: python3
 
 ```{python}
 #| include: false
-!python3 -m pip install pandas jinja2
+!python3 -m pip install pandas
+!python3 -m pip install --upgrade jinja2
 ```
 
 ```{python}
