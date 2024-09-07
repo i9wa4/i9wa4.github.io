@@ -28,7 +28,7 @@
 <p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="d51e898c" class="cell" data-execution_count="1">
+<div id="71eb82db" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
@@ -48,15 +48,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.0 MB 14.5 MB/s eta 0:00:01     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/13.0 MB 17.7 MB/s eta 0:00:01     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/13.0 MB 22.9 MB/s eta 0:00:01     ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/13.0 MB 27.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ 5.6/13.0 MB 32.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ 8.1/13.0 MB 39.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 11.7/13.0 MB 62.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 75.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 56.3 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.0 MB 13.3 MB/s eta 0:00:01     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/13.0 MB 18.9 MB/s eta 0:00:01     ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/13.0 MB 22.3 MB/s eta 0:00:01     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/13.0 MB 26.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 5.4/13.0 MB 31.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ 8.0/13.0 MB 38.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 11.1/13.0 MB 54.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 73.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 55.6 MB/s eta 0:00:00
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Collecting numpy&gt;=1.22.4
   Downloading numpy-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/16.3 MB 152.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ 10.7/16.3 MB 156.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 173.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 173.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 87.9 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/16.3 MB 140.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ 10.2/16.3 MB 150.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 174.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 174.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 85.2 MB/s eta 0:00:00
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Collecting tzdata&gt;=2022.7
   Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 77.2 MB/s eta 0:00:00
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 82.3 MB/s eta 0:00:00
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.1.1 pandas-2.2.2 tzdata-2024.1
@@ -64,7 +64,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 4.8 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 8.0 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -73,7 +73,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="データの読み込み" class="level2">
 <h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="b1d5d211" class="cell" data-execution_count="2">
+<div id="6a5efd5a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
@@ -94,19 +94,25 @@ font-style: inherit;">"../assets/20240907-quarto-df/quarto-df.csv"</span>)</span
 <span id="cb3-8"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">def</span> make_clickable(val):</span>
+font-style: inherit;">def</span> make_clickable(url, title):</span>
 <span id="cb3-9">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> <span class="st" style="color: #20794D;
+font-style: inherit;">return</span> <span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'&lt;a href="</span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">f'&lt;a href="</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">{}</span><span class="st" style="color: #20794D;
+font-style: inherit;">{</span>url<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">"&gt;URL&lt;/a&gt;'</span>.<span class="bu" style="color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">format</span>(val,val)</span>
+font-style: inherit;">"&gt;</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>title<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">&lt;/a&gt;'</span></span>
 <span id="cb3-10"></span>
 <span id="cb3-11"></span>
 <span id="cb3-12"><span class="kw" style="color: #003B4F;
@@ -125,33 +131,58 @@ font-style: inherit;">{</span>tag<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"'</span>)</span>
-<span id="cb3-14">    _df <span class="op" style="color: #5E5E5E;
+font-style: inherit;">"'</span>).copy()</span>
+<span id="cb3-14">    _df[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">=</span> _df.loc[:, [<span class="st" style="color: #20794D;
+font-style: inherit;">"Item"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">lambda</span> row: make_clickable(row[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"URL"</span>], row[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Title"</span>]), axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb3-15">    _df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Date"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Title"</span>, <span class="st" style="color: #20794D;
+font-style: inherit;">"Item"</span>]].sort_values([<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"URL"</span>]].reset_index(drop<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"Date"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item"</span>], ascending<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>]).reset_index(drop<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span>
-<span id="cb3-15">    _dfs <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df.style.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">format</span>(formatter<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'URL'</span>: make_clickable})</span>
 <span id="cb3-16">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> _dfs</span></code></pre></div>
+font-style: inherit;">return</span> _df.to_html(escape<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>, index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -178,36 +209,36 @@ font-style: inherit;">return</span> _dfs</span></code></pre></div>
 <td data-quarto-table-cell-role="th">1</td>
 <td>2024-09-07</td>
 <td>TagB</td>
-<td>testtesttesttesttesttesttesttestte&lt;br&gt;sttestte...</td>
-<td>htps://www.google.com</td>
+<td>testtesttesttesttesttesttesttestte0sttesttestt...</td>
+<td>https://www.google.com</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>2024-09-08</td>
 <td>TagB</td>
-<td>testtesttesttesttesttesttesttestte&lt;br&gt;sttestte...</td>
-<td>htps://www.google.com</td>
+<td>1testtesttesttesttesttesttesttestte1sttesttest...</td>
+<td>https://www.google.com</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>2024-09-08</td>
-<td>TagB</td>
-<td>testtesttesttesttesttesttesttesttesttesttestte...</td>
-<td>htps://www.google.com</td>
+<td>2024-09-09</td>
+<td>TagA</td>
+<td>2testtesttesttesttesttesttesttesttesttesttestt...</td>
+<td>https://www.google.com</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>2024-09-09</td>
-<td>TagB</td>
-<td>testtesttesttesttesttesttesttesttesttesttestte...</td>
-<td>htps://www.google.com</td>
+<td>2024-09-10</td>
+<td>TagA</td>
+<td>3testtesttesttesttesttesttesttesttesttesttestt...</td>
+<td>https://www.google.com</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
-<td>2024-09-09</td>
+<td>2024-09-11</td>
 <td>TagB</td>
-<td>testtesttesttesttesttesttesttesttesttesttestte...</td>
-<td>htps://www.google.com</td>
+<td>4testtesttesttesttesttesttesttesttesttesttestt...</td>
+<td>https://www.google.com</td>
 </tr>
 </tbody>
 </table>
@@ -218,7 +249,7 @@ font-style: inherit;">return</span> _dfs</span></code></pre></div>
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="a9db2483" class="cell" data-execution_count="3">
+<div id="57ab75b8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
@@ -226,58 +257,64 @@ font-style: inherit;"># #| code-fold: true と設定するとセルを折りた�
 background-color: null;
 font-style: inherit;">'TagB'</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<style type="text/css">
-</style>
+<table class="dataframe table table-sm table-striped small">
 
-<table id="T_dee12" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
-<tr class="header">
-<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_dee12_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Date</th>
-<th id="T_dee12_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Title</th>
-<th id="T_dee12_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">URL</th>
+
+<tr>
+
+<th>
+Date
+</th>
+
+<th>
+Item
+</th>
+
 </tr>
+
 </thead>
+
 <tbody>
-<tr class="odd">
-<td id="T_dee12_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
-<td id="T_dee12_row0_col0" class="data row0 col0">2024-09-07</td>
-<td id="T_dee12_row0_col1" class="data row0 col1">testtesttesttesttesttesttesttestte<br>
-sttesttesttesttesttesttesttestt</td>
-<td id="T_dee12_row0_col2" class="data row0 col2"><a href="htps://www.google.com">URL</a></td>
+
+<tr>
+
+<td>
+2024-09-11
+</td>
+
+<td>
+<a href="https://www.google.com">4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</a>
+</td>
+
 </tr>
-<tr class="even">
-<td id="T_dee12_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
-<td id="T_dee12_row1_col0" class="data row1 col0">2024-09-08</td>
-<td id="T_dee12_row1_col1" class="data row1 col1">testtesttesttesttesttesttesttestte<br>
-sttesttesttesttesttesttesttestt</td>
-<td id="T_dee12_row1_col2" class="data row1 col2"><a href="htps://www.google.com">URL</a></td>
+
+<tr>
+
+<td>
+2024-09-08
+</td>
+
+<td>
+<a href="https://www.google.com">1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt</a>
+</td>
+
 </tr>
-<tr class="odd">
-<td id="T_dee12_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
-<td id="T_dee12_row2_col0" class="data row2 col0">2024-09-08</td>
-<td id="T_dee12_row2_col1" class="data row2 col1">testtesttesttesttesttesttesttesttesttesttesttestte</td>
-<td id="T_dee12_row2_col2" class="data row2 col2"><a href="htps://www.google.com">URL</a></td>
+
+<tr>
+
+<td>
+2024-09-07
+</td>
+
+<td>
+<a href="https://www.google.com">testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt</a>
+</td>
+
 </tr>
-<tr class="even">
-<td id="T_dee12_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
-<td id="T_dee12_row3_col0" class="data row3 col0">2024-09-09</td>
-<td id="T_dee12_row3_col1" class="data row3 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</td>
-<td id="T_dee12_row3_col2" class="data row3 col2"><a href="htps://www.google.com">URL</a></td>
-</tr>
-<tr class="odd">
-<td id="T_dee12_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
-<td id="T_dee12_row4_col0" class="data row4 col0">2024-09-09</td>
-<td id="T_dee12_row4_col1" class="data row4 col1">testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</td>
-<td id="T_dee12_row4_col2" class="data row4 col2"><a href="htps://www.google.com">URL</a></td>
-</tr>
+
 </tbody>
+
 </table>
 </div>
 </div>
