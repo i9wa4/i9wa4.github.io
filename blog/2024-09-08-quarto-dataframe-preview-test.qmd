@@ -33,15 +33,15 @@ df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
 display(df_all)
 
 
-def make_clickable(val):
-    return '<a href="{}">URL</a>'.format(val,val)
+def make_clickable(url, title):
+    return f'<a href="{url}">{title}</a>'
 
 
 def extract_tag(tag, df=df_all):
-    _df = df.query(f'Tags == "{tag}"')
-    _df = _df.loc[:, ["Date", "Title", "URL"]].reset_index(drop=True)
-    _dfs = _df.style.format(formatter={'URL': make_clickable})
-    return _dfs
+    _df = df.query(f'Tags == "{tag}"').copy()
+    _df["Item"] = _df.apply(lambda row: make_clickable(row["URL"], row["Title"]), axis=1)
+    _df = _df[["Date", "Item"]].sort_values(["Date", "Item"], ascending=[False, False]).reset_index(drop=True)
+    return _df.to_html(escape=False, index=False)
 ```
 
 ## 3. TagB
