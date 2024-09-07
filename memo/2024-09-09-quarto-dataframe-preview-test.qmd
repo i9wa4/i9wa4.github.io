@@ -21,7 +21,8 @@ jupyter: python3
 ```{python}
 #| include: false
 import pandas as pd
-from IPython.display import HTML
+
+df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
 
 
 def make_clickable(val):
@@ -33,9 +34,6 @@ def extract_tag(tag, df=df_all):
     _df = _df.loc[:, ["Date", "Title", "URL"]].reset_index(drop=True)
     _dfs = _df.style.format(formatter={'URL': make_clickable})
     return _dfs
-
-
-df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
 ```
 
 ```{python}
