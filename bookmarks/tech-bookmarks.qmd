@@ -22,7 +22,7 @@ def make_clickable(url, title):
 
 
 def extract_tag(tag, df=df_all):
-    _df = df[df['Tags'].str.contains(f'{tag}')].copy()
+    _df = df[df['Tags'].str.contains(tag)].copy()
     _df = _df.fillna({'Date': '9999-12-31'})
     _df['Website'] = _df.apply(
             lambda row: make_clickable(row['URL'], row['Title']), axis=1
