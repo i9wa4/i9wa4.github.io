@@ -29,6 +29,8 @@ jobs:
 
       - name: (Optional) Set up Jupyter
         run: python3 -m pip install jupyter
+          && python3 -m pip install pandas
+          && python3 -m pip install --upgrade jinja2
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
