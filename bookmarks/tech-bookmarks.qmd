@@ -41,3 +41,16 @@ def extract_tag(tag, df=df_all):
 extract_tag('Cloud')
 ```
 
+## 2. Container
+
+```{python}
+#| code-fold: true
+extract_tag('Container')
+```
+
+## 3. GitHub
+
+```{python}
+#| code-fold: true
+extract_tag('GitHub')
+```
