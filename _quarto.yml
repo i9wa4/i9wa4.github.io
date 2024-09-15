@@ -60,3 +60,4 @@ format:
     page-layout: full
     toc: true
     toc-depth: 2
+    toc-title: "Table of Contents"

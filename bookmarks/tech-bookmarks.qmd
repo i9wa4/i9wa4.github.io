@@ -2,6 +2,7 @@
 title: "技術系ブックマーク"
 date: 2024-09-15 12:47:59 +0900
 date-modified: last-modified
+toc-location: body
 jupyter: python3
 ---
 
@@ -39,3 +40,4 @@ def extract_tag(tag, df=df_all):
 #| code-fold: true
 extract_tag('Cloud')
 ```
+
