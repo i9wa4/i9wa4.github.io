@@ -16,11 +16,15 @@ import pandas as pd
 df_all = pd.read_csv('../assets/bookmarks/tech-bookmarks.csv')
 
 
+def make_clickable(url, title):
+    return f'<a href="{url}">{title}</a>'
+
+
 def extract_tag(tag, df=df_all):
     _df = df[df['Tags'].str.contains(f'{tag}')].copy()
     _df = _df.fillna({'Date': '9999-12-31'})
     _df['Website'] = _df.apply(
-            lambda row: f'<a href="{row['URL']}">{row['Title']}</a>', axis=1
+            lambda row: make_clickable(row['URL'], row['Title']), axis=1
         )
     _df = _df[['Date', 'Website']].sort_values(
             ['Date', 'Website'], ascending=[False, True]
