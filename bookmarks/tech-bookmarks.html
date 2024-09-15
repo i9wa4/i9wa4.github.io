@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-08">
+<meta name="dcterms.date" content="2024-09-15">
 
-<title>Quarto による DataFrame の表示テスト – i9wa4’s page</title>
+<title>技術系ブックマーク – i9wa4’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <link href="..//assets/common/icon_hhkb2.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -88,16 +88,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<meta property="og:title" content="Quarto による DataFrame の表示テスト – i9wa4’s page">
+<meta property="og:title" content="技術系ブックマーク – i9wa4’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
-<meta name="twitter:title" content="Quarto による DataFrame の表示テスト – i9wa4’s page">
+<meta name="twitter:title" content="技術系ブックマーク – i9wa4’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -189,9 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#ライブラリのインストール" id="toc-ライブラリのインストール" class="nav-link active" data-scroll-target="#ライブラリのインストール">1. ライブラリのインストール</a></li>
-  <li><a href="#データの読み込み" id="toc-データの読み込み" class="nav-link" data-scroll-target="#データの読み込み">2. データの読み込み</a></li>
-  <li><a href="#tagb" id="toc-tagb" class="nav-link" data-scroll-target="#tagb">3. TagB</a></li>
+  <li><a href="#cloud" id="toc-cloud" class="nav-link active" data-scroll-target="#cloud">1. Cloud</a></li>
   </ul>
 </nav>
     </div>
@@ -200,13 +195,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto による DataFrame の表示テスト</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">blog</div>
-    <div class="quarto-category">tech</div>
-    <div class="quarto-category">quarto</div>
-  </div>
-  </div>
+<h1 class="title">技術系ブックマーク</h1>
+</div>
 
 
 
@@ -216,14 +206,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-08</p>
+      <p class="date">2024-09-15</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-09-08</p>
+      <p class="date-modified">2024-09-15</p>
     </div>
   </div>
     
@@ -235,116 +225,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>こんにちは。i9wa4 です。</p>
-<p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
-<section id="ライブラリのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="5188d5fb" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| include: false と設定するとセルを隠すことができる</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install pandas</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install <span class="op">--</span>upgrade jinja2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.2)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
-Requirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
-Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)</code></pre>
-</div>
-</div>
-</section>
-<section id="データの読み込み" class="level2">
-<h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="a39fe5cc" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| include: false と設定するとセルを隠すことができる</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_all <span class="op">=</span> pd.read_csv(<span class="st">"../assets/20240907-quarto-df/quarto-df.csv"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>display(df_all)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_clickable(url, title):</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'&lt;a href="</span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"&gt;</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">&lt;/a&gt;'</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_tag(tag, df<span class="op">=</span>df_all):</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> df.query(<span class="ss">f'Tags == "</span><span class="sc">{</span>tag<span class="sc">}</span><span class="ss">"'</span>).copy()</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    _df[<span class="st">"Item"</span>] <span class="op">=</span> _df.<span class="bu">apply</span>(<span class="kw">lambda</span> row: make_clickable(row[<span class="st">"URL"</span>], row[<span class="st">"Title"</span>]), axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df[[<span class="st">"Date"</span>, <span class="st">"Item"</span>]].sort_values([<span class="st">"Date"</span>, <span class="st">"Item"</span>], ascending<span class="op">=</span>[<span class="va">False</span>, <span class="va">False</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> _df.to_html(escape<span class="op">=</span><span class="va">False</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">Tags</th>
-<th data-quarto-table-cell-role="th">Title</th>
-<th data-quarto-table-cell-role="th">URL</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2024-09-04</td>
-<td>TagA</td>
-<td>testtest</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2024-09-07</td>
-<td>TagB</td>
-<td>testtesttesttesttesttesttesttestte0sttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2024-09-08</td>
-<td>TagB</td>
-<td>1testtesttesttesttesttesttesttestte1sttesttest...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2024-09-09</td>
-<td>TagA</td>
-<td>2testtesttesttesttesttesttesttesttesttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2024-09-10</td>
-<td>TagA</td>
-<td>3testtesttesttesttesttesttesttesttesttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>2024-09-11</td>
-<td>TagB</td>
-<td>4testtesttesttesttesttesttesttesttesttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="tagb" class="level2">
-<h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="7c63994a" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagB'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<section id="cloud" class="level2">
+<h2 class="anchored" data-anchor-id="cloud">1. Cloud</h2>
+<div id="d91b2918" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'Cloud'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <table class="dataframe table table-sm table-striped small">
 
 <thead>
@@ -352,11 +240,14 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packa
 <tr>
 
 <th>
+</th>
+
+<th>
 Date
 </th>
 
 <th>
-Item
+Website
 </th>
 
 </tr>
@@ -367,36 +258,112 @@ Item
 
 <tr>
 
+<th>
+1
+</th>
+
 <td>
-2024-09-11
+9999-12-31
 </td>
 
 <td>
-<a href="https://www.google.com">4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-08
-</td>
-
-<td>
-<a href="https://www.google.com">1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt</a>
+<a href="https://explore.alas.aws.amazon.com/">Amazon Linux Security Center - CVE List</a>
 </td>
 
 </tr>
 
 <tr>
 
+<th>
+2
+</th>
+
 <td>
-2024-09-07
+2024-04-06
 </td>
 
 <td>
-<a href="https://www.google.com">testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt</a>
+<a href="https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00209.html">総務省｜報道資料｜「クラウドの設定ミス対策ガイドブック」の公表</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+3
+</th>
+
+<td>
+2023-12-17
+</td>
+
+<td>
+<a href="https://qiita.com/polarbear08/items/2c4adee5349146555f37">AWSリソースの名称にリージョンを入れるときは空港コードを使う #AWS - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+4
+</th>
+
+<td>
+2023-12-15
+</td>
+
+<td>
+<a href="https://blog.serverworks.co.jp/aws-diagram-guidelines">AWS構成図作成のガイドラインまとめ - サーバーワークスエンジニアブログ</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+5
+</th>
+
+<td>
+2023-07-13
+</td>
+
+<td>
+<a href="https://qiita.com/c60evaporator/items/0121399880625cc1de51">【2022年版ベストプラクティス】AWS IAMまとめ - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+6
+</th>
+
+<td>
+2020-07-15
+</td>
+
+<td>
+<a href="https://scrapbox.io/pokutuna/Terraform_で_GCP_IAM_設定どれ使うのがいいのか">Terraform で GCP IAM 設定どれ使うのがいいのか - pokutuna</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+7
+</th>
+
+<td>
+2020-03-05
+</td>
+
+<td>
+<a href="https://dev.classmethod.jp/articles/airflow-gs-arch-learn/">Airflow のアーキテクチャをざっくり理解して、どうやって使うのか学んでみた | DevelopersIO</a>
 </td>
 
 </tr>

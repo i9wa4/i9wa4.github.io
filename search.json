@@ -172,7 +172,7 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.0 MB ? eta -:--:--     ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/13.0 MB 49.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ 8.8/13.0 MB 129.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.0/13.0 MB 207.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 107.1 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.1-py2.py3-none-any.whl (345 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/345.4 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.4/345.4 KB 76.1 MB/s eta 0:00:00\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ 6.9/16.3 MB 208.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ 14.1/16.3 MB 205.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 199.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 94.2 MB/s eta 0:00:00\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.1 pandas-2.2.2 tzdata-2024.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.2 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
+    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.2)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)\nRequirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#データの読み込み",
@@ -250,6 +250,20 @@
     "title": "技術系 Tips まとめ",
     "section": "6. Word",
     "text": "6. Word\n\n6.1. Normal.dotm 作成\n\n%APPDATA%\\Microsoft\\Templates\\Normal.dotm 削除\nデザインを作成し既定に設定する\n\nテーマ設定\n\n見出し: 游ゴシック Arial\n本文: 游ゴシック Medium Arial\n\nアウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル"
+  },
+  {
+    "objectID": "bookmarks/tech-bookmarks.html",
+    "href": "bookmarks/tech-bookmarks.html",
+    "title": "技術系ブックマーク",
+    "section": "",
+    "text": "こんにちは。i9wa4 です。"
+  },
+  {
+    "objectID": "bookmarks/tech-bookmarks.html#cloud",
+    "href": "bookmarks/tech-bookmarks.html#cloud",
+    "title": "技術系ブックマーク",
+    "section": "1. Cloud",
+    "text": "1. Cloud\n\n\nCode\nextract_tag('Cloud')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n9999-12-31\n\n\n\nAmazon Linux Security Center - CVE List\n\n\n\n\n\n\n\n2\n\n\n\n2024-04-06\n\n\n\n総務省｜報道資料｜「クラウドの設定ミス対策ガイドブック」の公表\n\n\n\n\n\n\n\n3\n\n\n\n2023-12-17\n\n\n\nAWSリソースの名称にリージョンを入れるときは空港コードを使う #AWS - Qiita\n\n\n\n\n\n\n\n4\n\n\n\n2023-12-15\n\n\n\nAWS構成図作成のガイドラインまとめ - サーバーワークスエンジニアブログ\n\n\n\n\n\n\n\n5\n\n\n\n2023-07-13\n\n\n\n【2022年版ベストプラクティス】AWS IAMまとめ - Qiita\n\n\n\n\n\n\n\n6\n\n\n\n2020-07-15\n\n\n\nTerraform で GCP IAM 設定どれ使うのがいいのか - pokutuna\n\n\n\n\n\n\n\n7\n\n\n\n2020-03-05\n\n\n\nAirflow のアーキテクチャをざっくり理解して、どうやって使うのか学んでみた | DevelopersIO"
   },
   {
     "objectID": "resume/index.html",
@@ -446,6 +460,13 @@
     "title": "職務経歴 新光商事LSIデザインセンター株式会社",
     "section": "5. 自動車トラクション制御開発用ファームウェアの更新機能開発",
     "text": "5. 自動車トラクション制御開発用ファームウェアの更新機能開発\n\n5.1. 期間\n\n2019/10 - 2020/03\n\n\n\n5.2. 担当業務\n\nトラクションモータ開発基板側の通信機能・自身のROM書き換え機能の設計開発\nPCアプリ含めたシステムのテスト仕様作成\nテスト実施\n\n\n\n5.3. 担当フェーズ\n\n要件分析\n基本設計\n詳細設計\n開発\nテスト\n\n\n\n5.4. 開発環境\n\nC\nアセンブラ\nGHS MULTI V2015.1.7\nRH850/C1M-A1\n\n\n\n5.5. 規模・役割\n\n6名\nメンバー"
+  },
+  {
+    "objectID": "bookmarks/index.html",
+    "href": "bookmarks/index.html",
+    "title": "Bookmarks",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n技術系ブックマーク\n\n\n\n\n\n\n\n\n2024-09-15\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/2024-01-02-jelyll-adjust.html",

@@ -47,6 +47,12 @@
     ]
   },
   {
+    "listing": "/bookmarks/index.html",
+    "items": [
+      "/bookmarks/tech-bookmarks.html"
+    ]
+  },
+  {
     "listing": "/memo/index.html",
     "items": [
       "/memo/2024-07-20-aigis-note.html",
