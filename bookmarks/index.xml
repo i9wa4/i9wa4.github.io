@@ -27,7 +27,7 @@
 <p>こんにちは。i9wa4 です。</p>
 <section id="cloud" class="level2">
 <h2 class="anchored" data-anchor-id="cloud">1. Cloud</h2>
-<div id="56583988" class="cell" data-execution_count="2">
+<div id="94439572" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">extract_tag(<span class="st" style="color: #20794D;
@@ -178,7 +178,7 @@ Website
 </section>
 <section id="container" class="level2">
 <h2 class="anchored" data-anchor-id="container">2. Container</h2>
-<div id="9cb9e379" class="cell" data-execution_count="3">
+<div id="72268f9f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">extract_tag(<span class="st" style="color: #20794D;
@@ -329,7 +329,7 @@ Website
 </section>
 <section id="github" class="level2">
 <h2 class="anchored" data-anchor-id="github">3. GitHub</h2>
-<div id="7c863aa8" class="cell" data-execution_count="4">
+<div id="ec412e35" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">extract_tag(<span class="st" style="color: #20794D;
