@@ -25,9 +25,10 @@
 
 
 <p>こんにちは。i9wa4 です。</p>
+<p>これまで蓄積してきたブックマークをここに整理します。随時更新。</p>
 <section id="cloud" class="level2">
 <h2 class="anchored" data-anchor-id="cloud">1. Cloud</h2>
-<div id="94439572" class="cell" data-execution_count="2">
+<div id="031ad0b0" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">extract_tag(<span class="st" style="color: #20794D;
@@ -176,9 +177,12 @@ Website
 </div>
 </div>
 </section>
+<section id="data-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="data-engineering">2. Data Engineering</h2>
+</section>
 <section id="container" class="level2">
-<h2 class="anchored" data-anchor-id="container">2. Container</h2>
-<div id="72268f9f" class="cell" data-execution_count="3">
+<h2 class="anchored" data-anchor-id="container">3. Container</h2>
+<div id="536df9ae" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">extract_tag(<span class="st" style="color: #20794D;
@@ -328,8 +332,8 @@ Website
 </div>
 </section>
 <section id="github" class="level2">
-<h2 class="anchored" data-anchor-id="github">3. GitHub</h2>
-<div id="ec412e35" class="cell" data-execution_count="4">
+<h2 class="anchored" data-anchor-id="github">4. GitHub</h2>
+<div id="4f3d3ff2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">extract_tag(<span class="st" style="color: #20794D;
@@ -487,6 +491,680 @@ Website
 </td>
 
 </tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="language" class="level2">
+<h2 class="anchored" data-anchor-id="language">5. Language</h2>
+<section id="python" class="level3">
+<h3 class="anchored" data-anchor-id="python">5.1. Python</h3>
+<div id="c08796ee" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Lang-Python'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<th>
+1
+</th>
+
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://pdm-project.org/latest/">Introduction - PDM</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+2
+</th>
+
+<td>
+2024-09-05
+</td>
+
+<td>
+<a href="https://qiita.com/hkzm/items/3366e09733acfc524b2b">uv へ移行 from pyenv &amp; poetry (docker前提） #Python - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+3
+</th>
+
+<td>
+2024-08-31
+</td>
+
+<td>
+<a href="https://qiita.com/gyu-don/items/566a8393ff639e47cdca">Polars の基礎概念を理解する #Python - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+4
+</th>
+
+<td>
+2024-07-15
+</td>
+
+<td>
+<a href="https://qiita.com/CinnamonSea2073/items/cec093f5a9298aadcdc1">「Pythonのドキュメントでも読むか～」「え、何その裏技」 #初心者 - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+5
+</th>
+
+<td>
+2024-07-12
+</td>
+
+<td>
+<a href="https://speakerdeck.com/yudai00/purodakutonokodowopandaskarapolarsheshu-kihuan-etahua">プロダクトのコードをPandasからPolarsへ書き換えた話 - Speaker Deck</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+6
+</th>
+
+<td>
+2024-05-26
+</td>
+
+<td>
+<a href="https://methane.hatenablog.jp/entry/2024/05/26/pyenvを初心者に薦めるのはもうやめよう">pyenvを初心者に薦めるのはもうやめよう - methaneのブログ</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+7
+</th>
+
+<td>
+2024-04-20
+</td>
+
+<td>
+<a href="https://qiita.com/inoshun/items/30e4e78cbf221bf11a86">PandasからPolarsへ移行した方がいいのか #Python - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+8
+</th>
+
+<td>
+2023-03-22
+</td>
+
+<td>
+<a href="https://zenn.dev/turing_motors/articles/e23973714c3ecf">あなたのPythonを100倍高速にする技術 / Codon入門 - Zenn</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+9
+</th>
+
+<td>
+2023-02-07
+</td>
+
+<td>
+<a href="https://gihyo.jp/article/2023/02/monthly-python-2302">Rust製高速データフレームライブラリ、Polarsを試す | gihyo.jp</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+10
+</th>
+
+<td>
+2023-01-04
+</td>
+
+<td>
+<a href="https://zenn.dev/peacock0803sz/articles/python-packaging-2023-01">そのPythonパッケージ管理、venv + pipでよくないですか? in 2023/1 - Zenn</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+11
+</th>
+
+<td>
+2021-12-15
+</td>
+
+<td>
+<a href="https://qiita.com/miyuki_samitani/items/a7758ba44bf00ef30f26"><strong>init</strong>.py とは - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+12
+</th>
+
+<td>
+2021-12-07
+</td>
+
+<td>
+<a href="https://naotaka1128.hatenadiary.jp/entry/2021/12/07/083000">遅くないpandasの書き方 - ML_BearのKaggleな日常</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+13
+</th>
+
+<td>
+2020-04-29
+</td>
+
+<td>
+<a href="https://misprochef.com/posts/python-m-option/">Pythonをコマンドで実行する時に入力する -m とは何か | Misprochef blog</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+14
+</th>
+
+<td>
+2020-01-22
+</td>
+
+<td>
+<a href="https://qiita.com/methane/items/ed1e5b74747f3ffe9324"><strong>init</strong>.py を省略してはいけない - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+15
+</th>
+
+<td>
+2019-05-26
+</td>
+
+<td>
+<a href="https://www.kimullaa.com/posts/201905251500/">Python for文とイテレータとジェネレータ - SIer だけど技術やりたいブログ</a>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="sql" class="level3">
+<h3 class="anchored" data-anchor-id="sql">5.2. SQL</h3>
+<div id="eb90d60b" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Lang-SQL'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<th>
+1
+</th>
+
+<td>
+2024-05-21
+</td>
+
+<td>
+<a href="https://zenn.dev/tenajima/articles/e8f82f6a0889d3">データ基盤のためのリーダブルSQL - Zenn</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+2
+</th>
+
+<td>
+2023-05-13
+</td>
+
+<td>
+<a href="https://zenn.dev/tenajima/articles/217046072b5dba">sqlfmtによって何を解決したいのか - Zenn</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+3
+</th>
+
+<td>
+2021-03-29
+</td>
+
+<td>
+<a href="https://updraft.hatenadiary.com/entry/2021/03/29/000000">今日は、SQL勉強して三年目だがUsingとOnの気づかなかった違いの日。 - 今日はなにの日。</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+4
+</th>
+
+<td>
+2020-12-04
+</td>
+
+<td>
+<a href="https://qiita.com/k_0120/items/0b8be85a236bcb091879">【SQL】可読性を上げるために意識していること - Qiita</a>
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+5
+</th>
+
+<td>
+2018-05-14
+</td>
+
+<td>
+<a href="https://nippondanji.blogspot.com/2018/05/mysqlzero-date.html">漢(オトコ)のコンピュータ道: MySQLのZero Dateへの対処法</a>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">6. Machine Learning</h2>
+<div id="46108457" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Machine-Learning'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="network" class="level2">
+<h2 class="anchored" data-anchor-id="network">7. Network</h2>
+<div id="0d6b3371" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Network'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="nix" class="level2">
+<h2 class="anchored" data-anchor-id="nix">8. Nix</h2>
+<div id="c2c452ba" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Nix'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="programming" class="level2">
+<h2 class="anchored" data-anchor-id="programming">9. Programming</h2>
+<div id="ef950f99" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Programming'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="service" class="level2">
+<h2 class="anchored" data-anchor-id="service">10. Service</h2>
+<div id="179ce86e" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Service'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="terraform" class="level2">
+<h2 class="anchored" data-anchor-id="terraform">11. Terraform</h2>
+<div id="93c273e2" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Terraform'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="others" class="level2">
+<h2 class="anchored" data-anchor-id="others">12. Others</h2>
+<div id="acfaef86" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Others'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
 
 </tbody>
 

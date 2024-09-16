@@ -128,23 +128,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://i9wa4.github.io/i9wa4"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href=".././blog"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href=".././slides"> 
-<span class="menu-text">Slides</span></a>
+<span class="menu-text">slides</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href=".././memo"> 
-<span class="menu-text">Memo</span></a>
+<span class="menu-text">bookmarks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href=".././bookmarks"> 
+<span class="menu-text">memo</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href=".././resume"> 
-<span class="menu-text">Resume</span></a>
+<span class="menu-text">resume</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/i9wa4"> <i class="bi bi-github" role="img">
@@ -185,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
@@ -238,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="6a3c4fd4" class="cell" data-execution_count="1">
+<div id="48c83775" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| include: false と設定するとセルを隠すことができる</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install pandas</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install <span class="op">--</span>upgrade jinja2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -246,9 +250,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.2)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
-Requirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)
 Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)
@@ -258,7 +262,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packa
 </section>
 <section id="データの読み込み" class="level2">
 <h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="a71e7690" class="cell" data-execution_count="2">
+<div id="81bd1a89" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| include: false と設定するとセルを隠すことができる</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -341,7 +345,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packa
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="9997cbcf" class="cell" data-execution_count="3">
+<div id="befa4237" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagB'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
