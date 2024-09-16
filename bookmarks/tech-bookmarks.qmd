@@ -25,8 +25,15 @@ def make_clickable(url, title):
 
 def extract_tag(tag, df=df_all):
     _df = df[df['Tags'].str.contains(tag)].copy()
+
+    # 欠損埋め
     _df = _df.fillna({'Date': '9999-12-31'})
     _df = _df.fillna('-')
+
+    # HACK: __init__.py を強調させないためのワークアラウンド
+    _df['Title'] = _df['Title'].replace(
+            '__init__.py', '__ init __.py', regex=True
+        )
     _df['Website'] = _df.apply(
             lambda row: make_clickable(row['URL'], row['Title']), axis=1
         )
