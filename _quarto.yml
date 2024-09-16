@@ -4,8 +4,8 @@ project:
 
 date-format: iso
 theme:
-  light: flatly
-  dark: darkly
+  light: default
+  dark: superhero
 
 website:
   title: "i9wa4's page"
@@ -24,15 +24,17 @@ website:
       - href: "."
         icon: house-fill
       - href: "https://i9wa4.github.io/i9wa4"
-        text: "About"
+        text: "about"
       - href: "./blog"
-        text: "Blog"
+        text: "blog"
       - href: "./slides"
-        text: "Slides"
+        text: "slides"
       - href: "./memo"
-        text: "Memo"
+        text: "bookmarks"
+      - href: "./bookmarks"
+        text: "memo"
       - href: "./resume"
-        text: "Resume"
+        text: "resume"
       - href: "https://github.com/i9wa4"
         icon: github
       - href: "https://x.com/i9wa4_"
@@ -44,20 +46,11 @@ website:
         text: "Built with Quarto"
       - href: "index.xml"
         icon: rss
-  # page-footer:
-  #   left: "Built with [Quarto](https://quarto.org/)"
-  #   center: "&copy;2024, i9wa4"
-  #   right:
-  #     - href: "https://github.com/i9wa4"
-  #       icon: github
-  #     - href: "https://x.com/i9wa4_"
-  #       icon: twitter-x
-  #     - href: "index.xml"
-  #       icon: rss
 
 format:
   html:
     page-layout: full
     toc: true
     toc-depth: 2
+    toc-expand: true
     toc-title: "Table of Contents"

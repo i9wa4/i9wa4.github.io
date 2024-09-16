@@ -1,5 +1,5 @@
 ---
-title: "Memo"
+title: "memo"
 listing:
   categories: numbered
   contents:

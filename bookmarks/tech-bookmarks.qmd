@@ -2,11 +2,13 @@
 title: "技術系ブックマーク"
 date: 2024-09-15 12:47:59 +0900
 date-modified: last-modified
-toc-location: body
+toc-depth: 3
 jupyter: python3
 ---
 
 こんにちは。i9wa4 です。
+
+これまで蓄積してきたブックマークをここに整理します。随時更新。
 
 ```{python}
 #| include: false
@@ -24,6 +26,7 @@ def make_clickable(url, title):
 def extract_tag(tag, df=df_all):
     _df = df[df['Tags'].str.contains(tag)].copy()
     _df = _df.fillna({'Date': '9999-12-31'})
+    _df = _df.fillna('-')
     _df['Website'] = _df.apply(
             lambda row: make_clickable(row['URL'], row['Title']), axis=1
         )
@@ -41,16 +44,83 @@ def extract_tag(tag, df=df_all):
 extract_tag('Cloud')
 ```
 
-## 2. Container
+## 2. Data Engineering
+
+## 3. Container
 
 ```{python}
 #| code-fold: true
 extract_tag('Container')
 ```
 
-## 3. GitHub
+## 4. GitHub
 
 ```{python}
 #| code-fold: true
 extract_tag('GitHub')
+```
+
+## 5. Language
+
+### 5.1. Python
+
+```{python}
+#| code-fold: true
+extract_tag('Lang-Python')
+```
+
+### 5.2. SQL
+
+```{python}
+#| code-fold: true
+extract_tag('Lang-SQL')
+```
+
+## 6. Machine Learning
+
+```{python}
+#| code-fold: true
+extract_tag('Machine-Learning')
+```
+
+## 7. Network
+
+```{python}
+#| code-fold: true
+extract_tag('Network')
+```
+
+## 8. Nix
+
+```{python}
+#| code-fold: true
+extract_tag('Nix')
+```
+
+## 9. Programming
+
+```{python}
+#| code-fold: true
+extract_tag('Programming')
+```
+
+## 10. Service
+
+```{python}
+#| code-fold: true
+extract_tag('Service')
+```
+
+## 11. Terraform
+
+```{python}
+#| code-fold: true
+extract_tag('Terraform')
+```
+
+## 12. Others
+
+```{python}
+#| code-fold: true
+extract_tag('Others')
 ```

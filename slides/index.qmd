@@ -1,5 +1,5 @@
 ---
-title: "Slides"
+title: "slides"
 listing:
   categories: numbered
   contents:
