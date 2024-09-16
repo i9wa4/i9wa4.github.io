@@ -25,27 +25,29 @@ website:
         icon: house-fill
       - href: "https://i9wa4.github.io/i9wa4"
         text: "about"
-      - href: "./blog"
+      - href: "blog"
         text: "blog"
-      - href: "./slides"
+      - href: "slides"
         text: "slides"
-      - href: "./memo"
-        text: "bookmarks"
-      - href: "./bookmarks"
-        text: "memo"
-      - href: "./resume"
+      - href: "resume"
         text: "resume"
+      - text: "for me"
+        menu:
+        - href: "bookmarks"
+          text: "bookmarks"
+        - href: "memo"
+          text: "memo"
+    right:
       - href: "https://github.com/i9wa4"
         icon: github
       - href: "https://x.com/i9wa4_"
         icon: twitter-x
       - href: "https://www.linkedin.com/in/daiki-mawatari/"
         icon: linkedin
-    right:
-      - href: "https://quarto.org/"
-        text: "Built with Quarto"
       - href: "index.xml"
         icon: rss
+      - href: "https://quarto.org/"
+        text: "Built with Quarto"
 
 format:
   html:
