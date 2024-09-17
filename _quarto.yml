@@ -4,8 +4,10 @@ project:
 
 date-format: iso
 theme:
-  light: default
+  # https://quarto.org/docs/output-formats/html-themes.html
+  light: yeti
   dark: superhero
+
 
 website:
   title: "i9wa4's page"
