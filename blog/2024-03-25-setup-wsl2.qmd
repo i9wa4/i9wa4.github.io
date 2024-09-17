@@ -28,7 +28,7 @@ Windows マシンを新調する度に WSL2 をインストールしているの
 1. インストール可能なディストリビューションを表示します。
 
     ```{.dosbat}
-    wsl --list --oneline
+    wsl --list --online
     ```
 
 1. Ubuntu 22.04 LTS をインストールする場合は以下のように入力します。
