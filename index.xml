@@ -28,7 +28,7 @@
 <p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="b81d045c" class="cell" data-execution_count="1">
+<div id="795e5ae9" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
@@ -47,10 +47,10 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Requirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)
@@ -60,7 +60,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packa
 </section>
 <section id="データの読み込み" class="level2">
 <h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="7267e49b" class="cell" data-execution_count="2">
+<div id="7807e527" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
@@ -236,7 +236,7 @@ font-style: inherit;">False</span>)</span></code></pre></div>
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="a09d5d99" class="cell" data-execution_count="3">
+<div id="c1678b69" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
