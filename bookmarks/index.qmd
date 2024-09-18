@@ -1,7 +1,6 @@
 ---
 title: "bookmarks"
 listing:
-  categories: numbered
   contents:
     - "."
   feed: true
