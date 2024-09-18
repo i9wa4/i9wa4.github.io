@@ -1,6 +1,7 @@
 ---
 title: "職務経歴 株式会社シイエヌエス北海道"
 date: last-modified
+repo-actions: false
 ---
 
 :会社概要・雇用形態 (2024年時点) {#tbl-company tbl-colwidths="[20,80]"}

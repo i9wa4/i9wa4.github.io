@@ -3,7 +3,6 @@ title: "技術系ブックマーク"
 date: 2024-09-15 12:47:59 +0900
 date-modified: last-modified
 toc-depth: 3
-toc-location: body
 jupyter: python3
 ---
 
