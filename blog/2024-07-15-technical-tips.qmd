@@ -54,9 +54,10 @@ CREATE SCHEMA sc_name;
 gcloud auth activate-service-account --key-file ***.json
 gcloud auth list
 gcloud set account ***
-bq --project_id=aaaaa ls dataset
-bq --project_id=aaaaa show dataset.table_name
-bq --project_id=aaaaa head dataset.table_name -n 5
+bq --project_id=aaaaa ls
+bq --project_id=aaaaa ls dataset_name
+bq --project_id=aaaaa show dataset_name.table_name
+bq --project_id=aaaaa head --max_rows 5 dataset_name.table_name
 ```
 
 ```{.sh}
