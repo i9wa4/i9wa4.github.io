@@ -1,6 +1,7 @@
 ---
 title: "職務経歴 新光商事LSIデザインセンター株式会社"
 date: last-modified
+repo-actions: false
 ---
 
 :会社概要・雇用形態 (2022年時点) {#tbl-company tbl-colwidths="[20,80]"}
