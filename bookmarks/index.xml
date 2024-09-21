@@ -28,7 +28,7 @@
 <p>これまで蓄積してきたブックマークをここに整理します。随時更新。</p>
 <section id="cloud" class="level2">
 <h2 class="anchored" data-anchor-id="cloud">1. Cloud</h2>
-<div id="7e474aad" class="cell" data-execution_count="2">
+<div id="5bc682ef" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">extract_tag(<span class="st" style="color: #20794D;
@@ -41,9 +41,6 @@ font-style: inherit;">'Cloud'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -61,10 +58,6 @@ Website
 
 <tr>
 
-<th>
-1
-</th>
-
 <td>
 9999-12-31
 </td>
@@ -76,10 +69,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-2
-</th>
 
 <td>
 2024-04-06
@@ -93,10 +82,6 @@ Website
 
 <tr>
 
-<th>
-3
-</th>
-
 <td>
 2023-12-17
 </td>
@@ -108,10 +93,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-4
-</th>
 
 <td>
 2023-12-15
@@ -125,10 +106,6 @@ Website
 
 <tr>
 
-<th>
-5
-</th>
-
 <td>
 2023-07-13
 </td>
@@ -141,10 +118,6 @@ Website
 
 <tr>
 
-<th>
-6
-</th>
-
 <td>
 2020-07-15
 </td>
@@ -156,10 +129,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-7
-</th>
 
 <td>
 2020-03-05
@@ -182,7 +151,7 @@ Website
 </section>
 <section id="container" class="level2">
 <h2 class="anchored" data-anchor-id="container">3. Container</h2>
-<div id="2e5a45c4" class="cell" data-execution_count="3">
+<div id="bb068bc2" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">extract_tag(<span class="st" style="color: #20794D;
@@ -195,9 +164,6 @@ font-style: inherit;">'Container'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -215,10 +181,6 @@ Website
 
 <tr>
 
-<th>
-1
-</th>
-
 <td>
 9999-12-31
 </td>
@@ -230,10 +192,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-2
-</th>
 
 <td>
 2024-08-02
@@ -247,10 +205,6 @@ Website
 
 <tr>
 
-<th>
-3
-</th>
-
 <td>
 2024-07-26
 </td>
@@ -262,10 +216,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-4
-</th>
 
 <td>
 2024-07-13
@@ -279,10 +229,6 @@ Website
 
 <tr>
 
-<th>
-5
-</th>
-
 <td>
 2023-03-27
 </td>
@@ -295,10 +241,6 @@ Website
 
 <tr>
 
-<th>
-6
-</th>
-
 <td>
 2022-09-02
 </td>
@@ -310,10 +252,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-7
-</th>
 
 <td>
 2022-03-21
@@ -333,7 +271,7 @@ Website
 </section>
 <section id="github" class="level2">
 <h2 class="anchored" data-anchor-id="github">4. GitHub</h2>
-<div id="c113bd4b" class="cell" data-execution_count="4">
+<div id="8a6dfb73" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">extract_tag(<span class="st" style="color: #20794D;
@@ -346,9 +284,6 @@ font-style: inherit;">'GitHub'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -366,26 +301,6 @@ Website
 
 <tr>
 
-<th>
-1
-</th>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">基本的な書き方とフォーマットの構文 - GitHub Docs</a>
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-2
-</th>
-
 <td>
 9999-12-31
 </td>
@@ -397,10 +312,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-3
-</th>
 
 <td>
 9999-12-31
@@ -414,9 +325,17 @@ Website
 
 <tr>
 
-<th>
-4
-</th>
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">基本的な書き方とフォーマットの構文 - GitHub Docs</a>
+</td>
+
+</tr>
+
+<tr>
 
 <td>
 2024-06-19
@@ -430,10 +349,6 @@ Website
 
 <tr>
 
-<th>
-5
-</th>
-
 <td>
 2024-04-03
 </td>
@@ -445,10 +360,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-6
-</th>
 
 <td>
 2023-12-08
@@ -462,10 +373,6 @@ Website
 
 <tr>
 
-<th>
-7
-</th>
-
 <td>
 2022-08-24
 </td>
@@ -477,10 +384,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-8
-</th>
 
 <td>
 2017-05-31
@@ -502,7 +405,7 @@ Website
 <h2 class="anchored" data-anchor-id="language">5. Language</h2>
 <section id="python" class="level3">
 <h3 class="anchored" data-anchor-id="python">5.1. Python</h3>
-<div id="ca8c87dd" class="cell" data-execution_count="5">
+<div id="26559ce7" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">extract_tag(<span class="st" style="color: #20794D;
@@ -515,9 +418,6 @@ font-style: inherit;">'Lang-Python'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -535,10 +435,6 @@ Website
 
 <tr>
 
-<th>
-1
-</th>
-
 <td>
 9999-12-31
 </td>
@@ -550,10 +446,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-2
-</th>
 
 <td>
 2024-09-05
@@ -567,10 +459,6 @@ Website
 
 <tr>
 
-<th>
-3
-</th>
-
 <td>
 2024-08-31
 </td>
@@ -582,10 +470,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-4
-</th>
 
 <td>
 2024-07-15
@@ -599,10 +483,6 @@ Website
 
 <tr>
 
-<th>
-5
-</th>
-
 <td>
 2024-07-12
 </td>
@@ -614,10 +494,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-6
-</th>
 
 <td>
 2024-05-26
@@ -631,10 +507,6 @@ Website
 
 <tr>
 
-<th>
-7
-</th>
-
 <td>
 2024-04-20
 </td>
@@ -646,10 +518,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-8
-</th>
 
 <td>
 2023-03-22
@@ -663,10 +531,6 @@ Website
 
 <tr>
 
-<th>
-9
-</th>
-
 <td>
 2023-02-07
 </td>
@@ -678,10 +542,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-10
-</th>
 
 <td>
 2023-01-04
@@ -695,10 +555,6 @@ Website
 
 <tr>
 
-<th>
-11
-</th>
-
 <td>
 2021-12-15
 </td>
@@ -710,10 +566,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-12
-</th>
 
 <td>
 2021-12-07
@@ -727,10 +579,6 @@ Website
 
 <tr>
 
-<th>
-13
-</th>
-
 <td>
 2020-04-29
 </td>
@@ -743,10 +591,6 @@ Website
 
 <tr>
 
-<th>
-14
-</th>
-
 <td>
 2020-01-22
 </td>
@@ -758,10 +602,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-15
-</th>
 
 <td>
 2019-05-26
@@ -781,7 +621,7 @@ Website
 </section>
 <section id="sql" class="level3">
 <h3 class="anchored" data-anchor-id="sql">5.2. SQL</h3>
-<div id="d2a286f4" class="cell" data-execution_count="6">
+<div id="378dbe64" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">extract_tag(<span class="st" style="color: #20794D;
@@ -794,9 +634,6 @@ font-style: inherit;">'Lang-SQL'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -814,10 +651,6 @@ Website
 
 <tr>
 
-<th>
-1
-</th>
-
 <td>
 2024-05-21
 </td>
@@ -829,10 +662,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-2
-</th>
 
 <td>
 2023-05-13
@@ -846,10 +675,6 @@ Website
 
 <tr>
 
-<th>
-3
-</th>
-
 <td>
 2021-03-29
 </td>
@@ -862,10 +687,6 @@ Website
 
 <tr>
 
-<th>
-4
-</th>
-
 <td>
 2020-12-04
 </td>
@@ -877,10 +698,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-5
-</th>
 
 <td>
 2018-05-14
@@ -901,7 +718,7 @@ Website
 </section>
 <section id="linux" class="level2">
 <h2 class="anchored" data-anchor-id="linux">6. Linux</h2>
-<div id="0fb991ac" class="cell" data-execution_count="7">
+<div id="32658897" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
@@ -914,9 +731,6 @@ font-style: inherit;">'Linux'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -934,74 +748,6 @@ Website
 
 <tr>
 
-<th>
-1
-</th>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://ja.m.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Filesystem Hierarchy Standard - Wikipedia</a>
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-2
-</th>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://mondai.ping-t.com/g">Ping-t</a>
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-3
-</th>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://sadservers.com/">SadServers - Troubleshooting Linux Servers</a>
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-4
-</th>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://ss64.com/bash/syntax-pronounce.html">Pronunciation guide for Unix - Linux - SS64.com</a>
-</td>
-
-</tr>
-
-<tr>
-
-<th>
-5
-</th>
-
 <td>
 9999-12-31
 </td>
@@ -1013,10 +759,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-6
-</th>
 
 <td>
 9999-12-31
@@ -1030,9 +772,17 @@ Website
 
 <tr>
 
-<th>
-7
-</th>
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://ja.m.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Filesystem Hierarchy Standard - Wikipedia</a>
+</td>
+
+</tr>
+
+<tr>
 
 <td>
 9999-12-31
@@ -1046,10 +796,6 @@ Website
 
 <tr>
 
-<th>
-8
-</th>
-
 <td>
 9999-12-31
 </td>
@@ -1062,9 +808,41 @@ Website
 
 <tr>
 
-<th>
-9
-</th>
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://mondai.ping-t.com/g">Ping-t</a>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://ss64.com/bash/syntax-pronounce.html">Pronunciation guide for Unix - Linux - SS64.com</a>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://sadservers.com/">SadServers - Troubleshooting Linux Servers</a>
+</td>
+
+</tr>
+
+<tr>
 
 <td>
 2024-04-28
@@ -1078,10 +856,6 @@ Website
 
 <tr>
 
-<th>
-10
-</th>
-
 <td>
 2023-05-14
 </td>
@@ -1093,10 +867,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-11
-</th>
 
 <td>
 2022-02-28
@@ -1110,10 +880,6 @@ Website
 
 <tr>
 
-<th>
-12
-</th>
-
 <td>
 2019-04-19
 </td>
@@ -1126,10 +892,6 @@ Website
 
 <tr>
 
-<th>
-13
-</th>
-
 <td>
 2018-11-25
 </td>
@@ -1141,10 +903,6 @@ Website
 </tr>
 
 <tr>
-
-<th>
-14
-</th>
 
 <td>
 2012-03-15
@@ -1164,7 +922,7 @@ Website
 </section>
 <section id="machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="machine-learning">7. Machine Learning</h2>
-<div id="68bef480" class="cell" data-execution_count="8">
+<div id="67fe9616" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1177,9 +935,6 @@ font-style: inherit;">'Machine-Learning'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -1203,7 +958,7 @@ Website
 </section>
 <section id="network" class="level2">
 <h2 class="anchored" data-anchor-id="network">8. Network</h2>
-<div id="c4f91198" class="cell" data-execution_count="9">
+<div id="7a46d93c" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1216,9 +971,6 @@ font-style: inherit;">'Network'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -1242,7 +994,7 @@ Website
 </section>
 <section id="nix" class="level2">
 <h2 class="anchored" data-anchor-id="nix">9. Nix</h2>
-<div id="fe29e1f3" class="cell" data-execution_count="10">
+<div id="5b9aea0b" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1255,9 +1007,6 @@ font-style: inherit;">'Nix'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -1281,7 +1030,7 @@ Website
 </section>
 <section id="programming" class="level2">
 <h2 class="anchored" data-anchor-id="programming">10. Programming</h2>
-<div id="8320adc8" class="cell" data-execution_count="11">
+<div id="b5413e73" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1294,9 +1043,6 @@ font-style: inherit;">'Programming'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -1320,7 +1066,7 @@ Website
 </section>
 <section id="service" class="level2">
 <h2 class="anchored" data-anchor-id="service">11. Service</h2>
-<div id="a313bf7e" class="cell" data-execution_count="12">
+<div id="e90d353c" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1333,9 +1079,6 @@ font-style: inherit;">'Service'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -1359,7 +1102,7 @@ Website
 </section>
 <section id="terraform" class="level2">
 <h2 class="anchored" data-anchor-id="terraform">12. Terraform</h2>
-<div id="13280533" class="cell" data-execution_count="13">
+<div id="f02655f8" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1372,9 +1115,6 @@ font-style: inherit;">'Terraform'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date
@@ -1398,7 +1138,7 @@ Website
 </section>
 <section id="others" class="level2">
 <h2 class="anchored" data-anchor-id="others">13. Others</h2>
-<div id="94b01824" class="cell" data-execution_count="14">
+<div id="64ed39dc" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1411,9 +1151,6 @@ font-style: inherit;">'Others'</span>)</span></code></pre></div>
 <thead>
 
 <tr>
-
-<th>
-</th>
 
 <th>
 Date

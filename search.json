@@ -11,7 +11,7 @@
     "href": "bookmarks/tech-bookmarks.html#cloud",
     "title": "技術系ブックマーク",
     "section": "1. Cloud",
-    "text": "1. Cloud\n\n\nCode\nextract_tag('Cloud')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n9999-12-31\n\n\n\nAmazon Linux Security Center - CVE List\n\n\n\n\n\n\n\n2\n\n\n\n2024-04-06\n\n\n\n総務省｜報道資料｜「クラウドの設定ミス対策ガイドブック」の公表\n\n\n\n\n\n\n\n3\n\n\n\n2023-12-17\n\n\n\nAWSリソースの名称にリージョンを入れるときは空港コードを使う #AWS - Qiita\n\n\n\n\n\n\n\n4\n\n\n\n2023-12-15\n\n\n\nAWS構成図作成のガイドラインまとめ - サーバーワークスエンジニアブログ\n\n\n\n\n\n\n\n5\n\n\n\n2023-07-13\n\n\n\n【2022年版ベストプラクティス】AWS IAMまとめ - Qiita\n\n\n\n\n\n\n\n6\n\n\n\n2020-07-15\n\n\n\nTerraform で GCP IAM 設定どれ使うのがいいのか - pokutuna\n\n\n\n\n\n\n\n7\n\n\n\n2020-03-05\n\n\n\nAirflow のアーキテクチャをざっくり理解して、どうやって使うのか学んでみた | DevelopersIO"
+    "text": "1. Cloud\n\n\nCode\nextract_tag('Cloud')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nAmazon Linux Security Center - CVE List\n\n\n\n\n\n\n\n2024-04-06\n\n\n\n総務省｜報道資料｜「クラウドの設定ミス対策ガイドブック」の公表\n\n\n\n\n\n\n\n2023-12-17\n\n\n\nAWSリソースの名称にリージョンを入れるときは空港コードを使う #AWS - Qiita\n\n\n\n\n\n\n\n2023-12-15\n\n\n\nAWS構成図作成のガイドラインまとめ - サーバーワークスエンジニアブログ\n\n\n\n\n\n\n\n2023-07-13\n\n\n\n【2022年版ベストプラクティス】AWS IAMまとめ - Qiita\n\n\n\n\n\n\n\n2020-07-15\n\n\n\nTerraform で GCP IAM 設定どれ使うのがいいのか - pokutuna\n\n\n\n\n\n\n\n2020-03-05\n\n\n\nAirflow のアーキテクチャをざっくり理解して、どうやって使うのか学んでみた | DevelopersIO"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#data-engineering",
@@ -25,77 +25,77 @@
     "href": "bookmarks/tech-bookmarks.html#container",
     "title": "技術系ブックマーク",
     "section": "3. Container",
-    "text": "3. Container\n\n\nCode\nextract_tag('Container')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n9999-12-31\n\n\n\nInstall Docker Engine on Ubuntu | Docker Documentation\n\n\n\n\n\n\n\n2\n\n\n\n2024-08-02\n\n\n\nDockerfileを解析、最適化やベストプラクティスをガイドしてくれる「Docker Buildチェック」機能が正式版に － Publickey\n\n\n\n\n\n\n\n3\n\n\n\n2024-07-26\n\n\n\n2024年版のDockerfileの考え方＆書き方 | フューチャー技術ブログ\n\n\n\n\n\n\n\n4\n\n\n\n2024-07-13\n\n\n\nLinux コンテナの歴史を追うとコンテナの仕組みがわかる / Dai Kichijoji pm - Speaker Deck\n\n\n\n\n\n\n\n5\n\n\n\n2023-03-27\n\n\n\n雰囲気でDocker Composeを触っている状態から脱するために調べたこと（2023） - Activ8 Tech Blog\n\n\n\n\n\n\n\n6\n\n\n\n2022-09-02\n\n\n\nDockerfile ベストプラクティス／2022夏 #Docker - Qiita\n\n\n\n\n\n\n\n7\n\n\n\n2022-03-21\n\n\n\n初心者が絵で理解する Docker - Zenn"
+    "text": "3. Container\n\n\nCode\nextract_tag('Container')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nInstall Docker Engine on Ubuntu | Docker Documentation\n\n\n\n\n\n\n\n2024-08-02\n\n\n\nDockerfileを解析、最適化やベストプラクティスをガイドしてくれる「Docker Buildチェック」機能が正式版に － Publickey\n\n\n\n\n\n\n\n2024-07-26\n\n\n\n2024年版のDockerfileの考え方＆書き方 | フューチャー技術ブログ\n\n\n\n\n\n\n\n2024-07-13\n\n\n\nLinux コンテナの歴史を追うとコンテナの仕組みがわかる / Dai Kichijoji pm - Speaker Deck\n\n\n\n\n\n\n\n2023-03-27\n\n\n\n雰囲気でDocker Composeを触っている状態から脱するために調べたこと（2023） - Activ8 Tech Blog\n\n\n\n\n\n\n\n2022-09-02\n\n\n\nDockerfile ベストプラクティス／2022夏 #Docker - Qiita\n\n\n\n\n\n\n\n2022-03-21\n\n\n\n初心者が絵で理解する Docker - Zenn"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#github",
     "href": "bookmarks/tech-bookmarks.html#github",
     "title": "技術系ブックマーク",
     "section": "4. GitHub",
-    "text": "4. GitHub\n\n\nCode\nextract_tag('GitHub')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n9999-12-31\n\n\n\n基本的な書き方とフォーマットの構文 - GitHub Docs\n\n\n\n\n\n\n\n2\n\n\n\n9999-12-31\n\n\n\nBootstrap Icons · Official open source SVG icon library for Bootstrap\n\n\n\n\n\n\n\n3\n\n\n\n9999-12-31\n\n\n\nSimple Icons\n\n\n\n\n\n\n\n4\n\n\n\n2024-06-19\n\n\n\nWSL2でのGitHubの認証をできる限り楽に行う | cloud.config Tech Blog\n\n\n\n\n\n\n\n5\n\n\n\n2024-04-03\n\n\n\nMac GitHub SSH接続設定 #初期設定 - Qiita\n\n\n\n\n\n\n\n6\n\n\n\n2023-12-08\n\n\n\n【2023年最新】WSLで最も簡単にGitHubにログインする\n\n\n\n\n\n\n\n7\n\n\n\n2022-08-24\n\n\n\n【解決】WSL2(Ubuntu)でsshキーの追加時にエラーが起きた時の対処法(Could not open a connection to your authentication agent.) | Inno-Tech-Life\n\n\n\n\n\n\n\n8\n\n\n\n2017-05-31\n\n\n\n///33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333-g=-[=. · Issue #3909 · redis/redis"
+    "text": "4. GitHub\n\n\nCode\nextract_tag('GitHub')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nBootstrap Icons · Official open source SVG icon library for Bootstrap\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nSimple Icons\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n基本的な書き方とフォーマットの構文 - GitHub Docs\n\n\n\n\n\n\n\n2024-06-19\n\n\n\nWSL2でのGitHubの認証をできる限り楽に行う | cloud.config Tech Blog\n\n\n\n\n\n\n\n2024-04-03\n\n\n\nMac GitHub SSH接続設定 #初期設定 - Qiita\n\n\n\n\n\n\n\n2023-12-08\n\n\n\n【2023年最新】WSLで最も簡単にGitHubにログインする\n\n\n\n\n\n\n\n2022-08-24\n\n\n\n【解決】WSL2(Ubuntu)でsshキーの追加時にエラーが起きた時の対処法(Could not open a connection to your authentication agent.) | Inno-Tech-Life\n\n\n\n\n\n\n\n2017-05-31\n\n\n\n///33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333-g=-[=. · Issue #3909 · redis/redis"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#language",
     "href": "bookmarks/tech-bookmarks.html#language",
     "title": "技術系ブックマーク",
     "section": "5. Language",
-    "text": "5. Language\n\n5.1. Python\n\n\nCode\nextract_tag('Lang-Python')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n9999-12-31\n\n\n\nIntroduction - PDM\n\n\n\n\n\n\n\n2\n\n\n\n2024-09-05\n\n\n\nuv へ移行 from pyenv & poetry (docker前提） #Python - Qiita\n\n\n\n\n\n\n\n3\n\n\n\n2024-08-31\n\n\n\nPolars の基礎概念を理解する #Python - Qiita\n\n\n\n\n\n\n\n4\n\n\n\n2024-07-15\n\n\n\n「Pythonのドキュメントでも読むか～」「え、何その裏技」 #初心者 - Qiita\n\n\n\n\n\n\n\n5\n\n\n\n2024-07-12\n\n\n\nプロダクトのコードをPandasからPolarsへ書き換えた話 - Speaker Deck\n\n\n\n\n\n\n\n6\n\n\n\n2024-05-26\n\n\n\npyenvを初心者に薦めるのはもうやめよう - methaneのブログ\n\n\n\n\n\n\n\n7\n\n\n\n2024-04-20\n\n\n\nPandasからPolarsへ移行した方がいいのか #Python - Qiita\n\n\n\n\n\n\n\n8\n\n\n\n2023-03-22\n\n\n\nあなたのPythonを100倍高速にする技術 / Codon入門 - Zenn\n\n\n\n\n\n\n\n9\n\n\n\n2023-02-07\n\n\n\nRust製高速データフレームライブラリ、Polarsを試す | gihyo.jp\n\n\n\n\n\n\n\n10\n\n\n\n2023-01-04\n\n\n\nそのPythonパッケージ管理、venv + pipでよくないですか? in 2023/1 - Zenn\n\n\n\n\n\n\n\n11\n\n\n\n2021-12-15\n\n\n\n__ init __.py とは - Qiita\n\n\n\n\n\n\n\n12\n\n\n\n2021-12-07\n\n\n\n遅くないpandasの書き方 - ML_BearのKaggleな日常\n\n\n\n\n\n\n\n13\n\n\n\n2020-04-29\n\n\n\nPythonをコマンドで実行する時に入力する -m とは何か | Misprochef blog\n\n\n\n\n\n\n\n14\n\n\n\n2020-01-22\n\n\n\n__ init __.py を省略してはいけない - Qiita\n\n\n\n\n\n\n\n15\n\n\n\n2019-05-26\n\n\n\nPython for文とイテレータとジェネレータ - SIer だけど技術やりたいブログ\n\n\n\n\n\n\n\n\n\n\n\n5.2. SQL\n\n\nCode\nextract_tag('Lang-SQL')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n2024-05-21\n\n\n\nデータ基盤のためのリーダブルSQL - Zenn\n\n\n\n\n\n\n\n2\n\n\n\n2023-05-13\n\n\n\nsqlfmtによって何を解決したいのか - Zenn\n\n\n\n\n\n\n\n3\n\n\n\n2021-03-29\n\n\n\n今日は、SQL勉強して三年目だがUsingとOnの気づかなかった違いの日。 - 今日はなにの日。\n\n\n\n\n\n\n\n4\n\n\n\n2020-12-04\n\n\n\n【SQL】可読性を上げるために意識していること - Qiita\n\n\n\n\n\n\n\n5\n\n\n\n2018-05-14\n\n\n\n漢(オトコ)のコンピュータ道: MySQLのZero Dateへの対処法"
+    "text": "5. Language\n\n5.1. Python\n\n\nCode\nextract_tag('Lang-Python')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nIntroduction - PDM\n\n\n\n\n\n\n\n2024-09-05\n\n\n\nuv へ移行 from pyenv & poetry (docker前提） #Python - Qiita\n\n\n\n\n\n\n\n2024-08-31\n\n\n\nPolars の基礎概念を理解する #Python - Qiita\n\n\n\n\n\n\n\n2024-07-15\n\n\n\n「Pythonのドキュメントでも読むか～」「え、何その裏技」 #初心者 - Qiita\n\n\n\n\n\n\n\n2024-07-12\n\n\n\nプロダクトのコードをPandasからPolarsへ書き換えた話 - Speaker Deck\n\n\n\n\n\n\n\n2024-05-26\n\n\n\npyenvを初心者に薦めるのはもうやめよう - methaneのブログ\n\n\n\n\n\n\n\n2024-04-20\n\n\n\nPandasからPolarsへ移行した方がいいのか #Python - Qiita\n\n\n\n\n\n\n\n2023-03-22\n\n\n\nあなたのPythonを100倍高速にする技術 / Codon入門 - Zenn\n\n\n\n\n\n\n\n2023-02-07\n\n\n\nRust製高速データフレームライブラリ、Polarsを試す | gihyo.jp\n\n\n\n\n\n\n\n2023-01-04\n\n\n\nそのPythonパッケージ管理、venv + pipでよくないですか? in 2023/1 - Zenn\n\n\n\n\n\n\n\n2021-12-15\n\n\n\n__ init __.py とは - Qiita\n\n\n\n\n\n\n\n2021-12-07\n\n\n\n遅くないpandasの書き方 - ML_BearのKaggleな日常\n\n\n\n\n\n\n\n2020-04-29\n\n\n\nPythonをコマンドで実行する時に入力する -m とは何か | Misprochef blog\n\n\n\n\n\n\n\n2020-01-22\n\n\n\n__ init __.py を省略してはいけない - Qiita\n\n\n\n\n\n\n\n2019-05-26\n\n\n\nPython for文とイテレータとジェネレータ - SIer だけど技術やりたいブログ\n\n\n\n\n\n\n\n\n\n\n\n5.2. SQL\n\n\nCode\nextract_tag('Lang-SQL')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-05-21\n\n\n\nデータ基盤のためのリーダブルSQL - Zenn\n\n\n\n\n\n\n\n2023-05-13\n\n\n\nsqlfmtによって何を解決したいのか - Zenn\n\n\n\n\n\n\n\n2021-03-29\n\n\n\n今日は、SQL勉強して三年目だがUsingとOnの気づかなかった違いの日。 - 今日はなにの日。\n\n\n\n\n\n\n\n2020-12-04\n\n\n\n【SQL】可読性を上げるために意識していること - Qiita\n\n\n\n\n\n\n\n2018-05-14\n\n\n\n漢(オトコ)のコンピュータ道: MySQLのZero Dateへの対処法"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#linux",
     "href": "bookmarks/tech-bookmarks.html#linux",
     "title": "技術系ブックマーク",
     "section": "6. Linux",
-    "text": "6. Linux\n\n\nCode\nextract_tag('Linux')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n\n9999-12-31\n\n\n\nFilesystem Hierarchy Standard - Wikipedia\n\n\n\n\n\n\n\n2\n\n\n\n9999-12-31\n\n\n\nPing-t\n\n\n\n\n\n\n\n3\n\n\n\n9999-12-31\n\n\n\nSadServers - Troubleshooting Linux Servers\n\n\n\n\n\n\n\n4\n\n\n\n9999-12-31\n\n\n\nPronunciation guide for Unix - Linux - SS64.com\n\n\n\n\n\n\n\n5\n\n\n\n9999-12-31\n\n\n\nCertified hardware | Ubuntu\n\n\n\n\n\n\n\n6\n\n\n\n9999-12-31\n\n\n\nCreate a bootable USB stick with Rufus on Windows | Ubuntu\n\n\n\n\n\n\n\n7\n\n\n\n9999-12-31\n\n\n\nInstall Ubuntu desktop | Ubuntu\n\n\n\n\n\n\n\n8\n\n\n\n9999-12-31\n\n\n\nPacman/比較表 - ArchWiki\n\n\n\n\n\n\n\n9\n\n\n\n2024-04-28\n\n\n\nUbuntu 24.04 getting error You must put some 'deb-src' URIs in your sources.list when issuing apt-get build-dep - Ask Ubuntu\n\n\n\n\n\n\n\n10\n\n\n\n2023-05-14\n\n\n\nロブ・パイク氏が語ったドットファイルの由来とは | ソフトアンテナ\n\n\n\n\n\n\n\n11\n\n\n\n2022-02-28\n\n\n\nraspberry pi のSDカードの寿命を意識した設定をする。microSDを長持ちさせる。 - それマグで！\n\n\n\n\n\n\n\n12\n\n\n\n2019-04-19\n\n\n\nBig Sky :: 1つの横着から隠しファイルが生まれた瞬間\n\n\n\n\n\n\n\n13\n\n\n\n2018-11-25\n\n\n\nLinuxインストールに使ったUSBメモリを元に戻す(Windows10) - y_megane.log\n\n\n\n\n\n\n\n14\n\n\n\n2012-03-15\n\n\n\nWhy was '~' chosen to represent the home directory? - Unix & Linux Stack Exchange"
+    "text": "6. Linux\n\n\nCode\nextract_tag('Linux')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nCertified hardware | Ubuntu\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nCreate a bootable USB stick with Rufus on Windows | Ubuntu\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nFilesystem Hierarchy Standard - Wikipedia\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nInstall Ubuntu desktop | Ubuntu\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nPacman/比較表 - ArchWiki\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nPing-t\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nPronunciation guide for Unix - Linux - SS64.com\n\n\n\n\n\n\n\n9999-12-31\n\n\n\nSadServers - Troubleshooting Linux Servers\n\n\n\n\n\n\n\n2024-04-28\n\n\n\nUbuntu 24.04 getting error You must put some 'deb-src' URIs in your sources.list when issuing apt-get build-dep - Ask Ubuntu\n\n\n\n\n\n\n\n2023-05-14\n\n\n\nロブ・パイク氏が語ったドットファイルの由来とは | ソフトアンテナ\n\n\n\n\n\n\n\n2022-02-28\n\n\n\nraspberry pi のSDカードの寿命を意識した設定をする。microSDを長持ちさせる。 - それマグで！\n\n\n\n\n\n\n\n2019-04-19\n\n\n\nBig Sky :: 1つの横着から隠しファイルが生まれた瞬間\n\n\n\n\n\n\n\n2018-11-25\n\n\n\nLinuxインストールに使ったUSBメモリを元に戻す(Windows10) - y_megane.log\n\n\n\n\n\n\n\n2012-03-15\n\n\n\nWhy was '~' chosen to represent the home directory? - Unix & Linux Stack Exchange"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#machine-learning",
     "href": "bookmarks/tech-bookmarks.html#machine-learning",
     "title": "技術系ブックマーク",
     "section": "7. Machine Learning",
-    "text": "7. Machine Learning\n\n\nCode\nextract_tag('Machine-Learning')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "7. Machine Learning\n\n\nCode\nextract_tag('Machine-Learning')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#network",
     "href": "bookmarks/tech-bookmarks.html#network",
     "title": "技術系ブックマーク",
     "section": "8. Network",
-    "text": "8. Network\n\n\nCode\nextract_tag('Network')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "8. Network\n\n\nCode\nextract_tag('Network')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#nix",
     "href": "bookmarks/tech-bookmarks.html#nix",
     "title": "技術系ブックマーク",
     "section": "9. Nix",
-    "text": "9. Nix\n\n\nCode\nextract_tag('Nix')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "9. Nix\n\n\nCode\nextract_tag('Nix')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#programming",
     "href": "bookmarks/tech-bookmarks.html#programming",
     "title": "技術系ブックマーク",
     "section": "10. Programming",
-    "text": "10. Programming\n\n\nCode\nextract_tag('Programming')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "10. Programming\n\n\nCode\nextract_tag('Programming')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#service",
     "href": "bookmarks/tech-bookmarks.html#service",
     "title": "技術系ブックマーク",
     "section": "11. Service",
-    "text": "11. Service\n\n\nCode\nextract_tag('Service')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "11. Service\n\n\nCode\nextract_tag('Service')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#terraform",
     "href": "bookmarks/tech-bookmarks.html#terraform",
     "title": "技術系ブックマーク",
     "section": "12. Terraform",
-    "text": "12. Terraform\n\n\nCode\nextract_tag('Terraform')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "12. Terraform\n\n\nCode\nextract_tag('Terraform')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "bookmarks/tech-bookmarks.html#others",
     "href": "bookmarks/tech-bookmarks.html#others",
     "title": "技術系ブックマーク",
     "section": "13. Others",
-    "text": "13. Others\n\n\nCode\nextract_tag('Others')\n\n\n\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
+    "text": "13. Others\n\n\nCode\nextract_tag('Others')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite"
   },
   {
     "objectID": "memo/2024-07-20-aigis-note.html",
@@ -634,7 +634,7 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.3)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)\nRequirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)"
+    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.3)\nRequirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)\nRequirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#データの読み込み",
