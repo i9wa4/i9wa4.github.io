@@ -83,49 +83,56 @@ extract_tag('Lang-Python')
 extract_tag('Lang-SQL')
 ```
 
-## 6. Machine Learning
+## 6. Linux
+
+```{python}
+#| code-fold: true
+extract_tag('Linux')
+```
+
+## 7. Machine Learning
 
 ```{python}
 #| code-fold: true
 extract_tag('Machine-Learning')
 ```
 
-## 7. Network
+## 8. Network
 
 ```{python}
 #| code-fold: true
 extract_tag('Network')
 ```
 
-## 8. Nix
+## 9. Nix
 
 ```{python}
 #| code-fold: true
 extract_tag('Nix')
 ```
 
-## 9. Programming
+## 10. Programming
 
 ```{python}
 #| code-fold: true
 extract_tag('Programming')
 ```
 
-## 10. Service
+## 11. Service
 
 ```{python}
 #| code-fold: true
 extract_tag('Service')
 ```
 
-## 11. Terraform
+## 12. Terraform
 
 ```{python}
 #| code-fold: true
 extract_tag('Terraform')
 ```
 
-## 12. Others
+## 13. Others
 
 ```{python}
 #| code-fold: true
