@@ -34,14 +34,17 @@ def extract_tag(tag, df=df_all):
     _df['Title'] = _df['Title'].replace(
             '__init__.py', '__ init __.py', regex=True
         )
+
+    # 日付とクリック可能なページ名の表示
+    _df = _df[['Date', 'Title', 'URL']].sort_values(
+            ['Date', 'Title'], ascending=[False, True]
+        )
+    _df.index = np.arange(1, len(_df) + 1)
     _df['Website'] = _df.apply(
             lambda row: make_clickable(row['URL'], row['Title']), axis=1
         )
-    _df = _df[['Date', 'Website']].sort_values(
-            ['Date', 'Website'], ascending=[False, True]
-        )
-    _df.index = np.arange(1, len(_df) + 1)
-    return _df[['Date', 'Website']].to_html(escape=False, index=True)
+    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)
+    return _df
 ```
 
 ## 1. Cloud
