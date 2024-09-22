@@ -52,8 +52,8 @@ repo-actions: false
 
 ### 5.1. 役割面
 
-- [直近] データエンジニアとしてリーダー経験・マネジメント経験を積む
-- [3-5年後] データ関連業務のリーダーや PjM としてリーダーシップを発揮する、あるいはデータマネージャーのような形でデータで売上貢献できるようになる
+- 【直近】データエンジニアとしてリーダー経験・マネジメント経験を積む
+- 【3-5年後】データ関連業務のリーダーや PjM としてリーダーシップを発揮する、あるいはデータマネージャーのような形でデータで売上貢献できるようになる
 
 ### 5.2. 技術面
 
@@ -70,19 +70,19 @@ repo-actions: false
 
 | 項目          | 種類                  | 使用期間                           | レベル                                                                                       |
 | :---          | :---                  | :---                               | :---                                                                                         |
-| OS            | Amazon Linux / Ubuntu | <!-- 2021/04 - xxxx/xx --> ★3年   | 要件に応じた環境構築や開発環境利用が可能                                                     |
-| 言語          | Python                | <!-- 2021/04 - xxxx/xx --> ★3年   | 一人称で作業可能                                                                             |
-| 言語          | SQL                   | <!-- 2022/04 - xxxx/xx --> ★2年   | 一人称で作業可能                                                                             |
-| 言語          | Shell Script          | <!-- 2021/04 - xxxx/xx --> ★3年   | 一人称で作業可能                                                                             |
-| DB            | MySQL / PostgreSQL    | <!-- 2022/04 - xxxx/xx --> ★2年   | 不具合調査等でのデータ閲覧可能                                                               |
-| Cloud         | AWS                   | <!-- 2022/04 - xxxx/xx --> ★2年   | EC2 / ECS / StepFunctions / SageMaker / Cloud9 / Airflow (MWAA) 等を含む環境構築や作業が可能 |
+| OS            | Amazon Linux / Ubuntu | <!-- 2021/04 - xxxx/xx --> ★4年   | 要件に応じた環境構築や開発環境利用が可能                                                     |
+| 言語          | Python                | <!-- 2021/04 - xxxx/xx --> ★4年   | 一人称で作業可能                                                                             |
+| 言語          | SQL                   | <!-- 2022/04 - xxxx/xx --> ★3年   | 一人称で作業可能                                                                             |
+| 言語          | Shell Script          | <!-- 2021/04 - xxxx/xx --> ★4年   | 一人称で作業可能                                                                             |
+| DB            | MySQL / PostgreSQL    | <!-- 2022/04 - xxxx/xx --> ★3年   | 不具合調査等でのデータ閲覧可能                                                               |
+| Cloud         | AWS                   | <!-- 2022/04 - xxxx/xx --> ★3年   | EC2 / ECS / StepFunctions / SageMaker / Cloud9 / Airflow (MWAA) 等を含む環境構築や作業が可能 |
 | Cloud         | Google Cloud          | <!-- 2024/04 - xxxx/xx --> ★0.5年 | Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能 |
 | Cloud (Data)  | Snowflake             | <!-- 2022/04 - 2024/03 --> ★2年   | データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能          |
 | Cloud (Data)  | BigQuery              | <!-- 2024/04 - xxxx/xx --> ★0.5年 | BigQuery 関連の権限管理やデータセット・テーブル作成を Terraform 管理に移行することが可能     |
 | Cloud (ML)    | DataRobot             | <!-- 2022/04 - 2024/03 --> ★2年   | オートパイロットや blueprint 固定でのモデルデプロイ・運用、各種評価指標の取得の実装が可能    |
-| IaC           | Docker                | <!-- 2022/04 - xxxx/xx --> ★2年   | Dockerfile や Docker Compose の記述・実行が可能                                              |
+| IaC           | Docker                | <!-- 2022/04 - xxxx/xx --> ★3年   | Dockerfile や Docker Compose の記述・実行が可能                                              |
 | IaC           | Terraform             | <!-- 2024/04 - xxxx/xx --> ★0.5年 | BigQuery 関連の IaC 化作業が可能                                                             |
-| その他        | GitHub / CodeCommit   | <!-- 2021/04 - xxxx/xx --> ★3年   | Git flow や GitHub flow に則った開発利用やレビューが可能                                     |
+| その他        | GitHub / CodeCommit   | <!-- 2021/04 - xxxx/xx --> ★4年   | Git flow や GitHub flow に則った開発利用やレビューが可能                                     |
 | その他        | GitHub Actions        | <!-- 2024/04 - xxxx/xx --> ★0.5年 | 既存ワークフロー改修 / GitHub Pages 関連のワークフロー作成が可能                             |
 | その他 (Data) | dbt Core              | <!-- 2023/10 - 2024/03 --> ★0.5年 | スクラッチから marts まで書きあげることが可能                                                |
 | その他 (Data) | Embulk                | <!-- 2024/04 - xxxx/xx --> ★0.5年 | 転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能                        |
