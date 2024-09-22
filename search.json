@@ -158,7 +158,7 @@
     "href": "resume/01-okuma.html",
     "title": "職務経歴 オークマ株式会社",
     "section": "",
-    "text": "Table 1: 会社概要・雇用形態 (2018年時点)\n\n\n\n\n\n\n\n\n\n事業内容\nCNC工作機械、CNC装置・サーボモータ・位置検出器・ソフトウェアの開発・製造、販売\n\n\n資本金\n180億円\n\n\n売上高\n1600億円\n\n\n従業員数\n3407名\n\n\n上場／非上場\n上場\n\n\n雇用形態\n正社員\n\n\n勤務地\n愛知県\n以下、新しい順にプロジェクトを記載しております。"
+    "text": "Table 1: 会社概要・雇用形態 (2018年時点)\n\n\n\n\n\n\n\n\n\n事業内容\nCNC工作機械、CNC装置・サーボモータ・位置検出器・ソフトウェアの開発・製造、販売\n\n\n資本金\n180億円\n\n\n売上高\n1600億円\n\n\n従業員数\n3407名\n\n\n上場／非上場\n上場\n\n\n勤務地\n愛知県\n\n\n雇用形態\n正社員\n\n\n所属\n[2016/04 - 2017/03] 人事部付[2017/04 - 2018/07] FAシステム本部 FA開発部 ITプラザ開発課\n以下、新しい順にプロジェクトを記載しております。"
   },
   {
     "objectID": "resume/01-okuma.html#windows7-向け対話形式-3d-cadcam-アプリケーション開発",
@@ -179,7 +179,7 @@
     "href": "resume/03-cnsh.html",
     "title": "職務経歴 株式会社シイエヌエス北海道",
     "section": "",
-    "text": "Table 1: 会社概要・雇用形態 (2024年時点)\n\n\n\n\n\n\n\n\n\n事業内容\nアプリケーション開発・インフラ構築事業、クラウド構築事業、データ分析・AI事業、DX支援事業\n\n\n資本金\n2500万円\n\n\n売上高\n7億5,351万円\n\n\n従業員数\n39名\n\n\n上場／非上場\n非上場\n\n\n雇用形態\n正社員\n\n\n勤務地\n北海道札幌市週に約4回リモートワーク実施\n以下、新しい順にプロジェクトを記載しております。"
+    "text": "Table 1: 会社概要・雇用形態 (2024年時点)\n\n\n\n\n\n\n\n\n\n事業内容\nアプリケーション開発・インフラ構築事業、クラウド構築事業、データ分析・AI事業、DX支援事業\n\n\n資本金\n2500万円\n\n\n売上高\n7億5,351万円\n\n\n従業員数\n39名\n\n\n上場／非上場\n非上場\n\n\n勤務地\n北海道札幌市週に約4回リモートワーク実施\n\n\n雇用形態\n正社員\n\n\n所属\n[2022/04 - 2024/03] デジタルビジネス推進部\n以下、新しい順にプロジェクトを記載しております。"
   },
   {
     "objectID": "resume/03-cnsh.html#プロジェクト以外の業務",
@@ -634,7 +634,7 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.3)\nRequirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)"
+    "text": "1. ライブラリのインストール\n\n# #| include: false と設定するとセルを隠すことができる\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.3)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.1)\nRequirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#データの読み込み",
@@ -788,7 +788,7 @@
     "href": "resume/index.html#職務経歴",
     "title": "職務経歴書",
     "section": "3. 職務経歴",
-    "text": "3. 職務経歴\n新しい順に記載しております。\n\n\n\n\n\n\n\n\n\n在籍期間\n所属\n概要\n詳細\n\n\n\n\n2024/04 - 現在\n株式会社hacomono基盤本部 データ基盤部\nデータエンジニアのメンバーとして以下に従事- 自社環境・顧客環境の DWH 構築・運用- 自社データ基盤の運用改善・機能追加\n詳細\n\n\n2022/04 - 2024/03\n株式会社シイエヌエス北海道デジタルビジネス推進部\nデータエンジニアのサブリーダーやリーダーとして以下に従事- データパイプライン構築- 機械学習ワークフロー構築\n詳細\n\n\n2018/08 - 2022/03\n新光商事LSIデザインセンター株式会社ソフト開発一部\n組込エンジニアのメンバーとして以下に従事- 車載マイコンの機能開発- インバータやモータの制御開発\n詳細\n\n\n2016/04 - 2018/07\nオークマ株式会社FAシステム本部 FA開発部\nアプリエンジニアのメンバーとして以下に従事- Windows 用 CAD/CAM アプリ開発の要件定義・テスト\n詳細\n\n\n\n\n3.1. 最も苦労したプロジェクト\n前職で2023年12月～2024年3月にリーダーとして参画していた以下です。AI プラットフォームのリプレイスのためにワークフロー全体の技術選定から設計まで行いました。顧客との方針調整を密に実施し PoC 段階から設計・実装へフェーズを進めることができました。\n情報通信企業向け 機械学習ワークフローと AI プラットフォーム移管 | 職務経歴 株式会社シイエヌエス北海道"
+    "text": "3. 職務経歴\n新しい順に記載しております。\n\n\n\n\n\n\n\n\n\n在籍期間\n所属\n概要\n詳細\n\n\n\n\n2024/04 - 現在\n株式会社hacomono\nデータエンジニアのメンバーとして以下に従事- 自社環境・顧客環境の DWH 構築・運用- 自社データ基盤の運用改善・機能追加\n詳細\n\n\n2022/04 - 2024/03\n株式会社シイエヌエス北海道\nデータエンジニアのサブリーダーやリーダーとして以下に従事- データパイプライン構築- 機械学習ワークフロー構築\n詳細\n\n\n2018/08 - 2022/03\n新光商事LSIデザインセンター株式会社\n組込エンジニアのメンバーとして以下に従事- 車載マイコンの機能開発- インバータやモータの制御開発\n詳細\n\n\n2016/04 - 2018/07\nオークマ株式会社\nアプリエンジニアのメンバーとして以下に従事- Windows 用 CAD/CAM アプリ開発の要件定義・テスト\n詳細\n\n\n\n\n3.1. 最も苦労したプロジェクト\n前職で2023年12月～2024年3月にリーダーとして参画していた以下です。AI プラットフォームのリプレイスのためにワークフロー全体の技術選定から設計まで行いました。顧客との方針調整を密に実施し PoC 段階から設計・実装へフェーズを進めることができました。\n情報通信企業向け 機械学習ワークフローと AI プラットフォーム移管 | 職務経歴 株式会社シイエヌエス北海道"
   },
   {
     "objectID": "resume/index.html#通常業務以外の活動",
@@ -823,7 +823,7 @@
     "href": "resume/04-hacomono.html",
     "title": "職務経歴 株式会社hacomono",
     "section": "",
-    "text": "Table 1: 会社概要・雇用形態 (2024年時点)\n\n\n\n\n\n\n\n\n\n事業内容\n月額型店舗のための会員管理・予約・キャッシュレス決済システム「hacomono」開発・販売\n\n\n資本金\n100百万円\n\n\n売上高\n非公開\n\n\n従業員数\n217名\n\n\n上場／非上場\n非上場\n\n\n雇用形態\n正社員\n\n\n勤務地\nフルリモート (居住地 北海道札幌市)年に数回東京原宿本社へ出社\n以下、新しい順にプロジェクトを記載しております。"
+    "text": "Table 1: 会社概要・雇用形態 (2024年時点)\n\n\n\n\n\n\n\n\n\n事業内容\n月額型店舗のための会員管理・予約・キャッシュレス決済システム「hacomono」開発・販売\n\n\n資本金\n100百万円\n\n\n売上高\n非公開\n\n\n従業員数\n217名\n\n\n上場／非上場\n非上場\n\n\n雇用形態\n正社員\n\n\n勤務地\nフルリモート (居住地 北海道札幌市)年に数回東京原宿本社へ出社\n\n\n所属\n[2024/04 - 2024/08] 基盤本部 データ基盤部[2024/09 - 現在] データ本部 データ基盤部 (組織改編)\n以下、新しい順にプロジェクトを記載しております。"
   },
   {
     "objectID": "resume/04-hacomono.html#プロジェクト以外の業務",
@@ -858,7 +858,7 @@
     "href": "resume/02-sld.html",
     "title": "職務経歴 新光商事LSIデザインセンター株式会社",
     "section": "",
-    "text": "Table 1: 会社概要・雇用形態 (2022年時点)\n\n\n\n\n\n\n\n\n\n事業内容\n組込ソフトウェア開発、ASIC/FPGA 開発\n\n\n資本金\n8000万円\n\n\n売上高\n16.7億円\n\n\n従業員数\n83名\n\n\n上場／非上場\n非上場\n\n\n雇用形態\n正社員\n\n\n勤務地\n北海道札幌市2020年3月以降は週に約3回リモートワーク実施\n以下、新しい順にプロジェクトを記載しております。"
+    "text": "Table 1: 会社概要・雇用形態 (2022年時点)\n\n\n\n\n\n\n\n\n\n事業内容\n組込ソフトウェア開発、ASIC/FPGA 開発\n\n\n資本金\n8000万円\n\n\n売上高\n16.7億円\n\n\n従業員数\n83名\n\n\n上場／非上場\n非上場\n\n\n勤務地\n北海道札幌市2020年3月以降は週に約3回リモートワーク実施\n\n\n雇用形態\n正社員\n\n\n所属\n[2018/08 - 2022/03] ソフト開発一部 開発二課\n以下、新しい順にプロジェクトを記載しております。"
   },
   {
     "objectID": "resume/02-sld.html#親会社向け車両通信プロトコル解説講義",
