@@ -1,0 +1,45 @@
+---
+title: "最近の Vim プラグイン開発のアイデア"
+date: 2024-09-22 23:04:59 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+  - "vim"
+---
+
+こんにちは。i9wa4 です。
+
+dotfiles から切り離したくなってきたらそれがプラグインの作り時。
+
+今温めているアイデアをメモしておきます。
+
+## 1. ローカル設定の読み込み
+
+おそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。
+
+[thinca/vim-localrc: Enable configuration file of each directory.](https://github.com/thinca/vim-localrc)
+
+## 2. Terminal 管理
+
+Vim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。
+
+dotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。
+
+他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？
+
+## 3. Jupytext と ipynb の同期
+
+Jupytext で ipynb と py を同期させるプラグイン。
+
+通常は Jupytext をコマンドで実行させると思いますが、非同期で同期させる (？) 挙動をさせたいですね。
+
+Jupytext に変換しておくと Git 管理しやすくなるものの、Jupytext がマイナー過ぎてチーム開発で自分が他人に推奨できない点がネックで最近あまり使わなくなりつつあります。
+
+みんな ipynb の管理どうしているんだろう。。
+
+## 4. Tabline 設定
+
+頑張って書き上げたため切り離してもよいかも。
+
+ちなみに最近 Statusline は使ってません！
