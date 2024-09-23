@@ -29,8 +29,8 @@ website:
         icon: house-fill
       - href: "https://i9wa4.github.io/i9wa4"
         text: "about"
-      - href: "slides"
-        text: "slides"
+      - href: "blog"
+        text: "blog"
       - href: "resume"
         text: "resume"
       - text: "for me"
@@ -39,6 +39,8 @@ website:
           text: "bookmarks"
         - href: "memo"
           text: "memo"
+        - href: "slides"
+          text: "slides"
     right:
       - href: "https://github.com/i9wa4"
         icon: github
