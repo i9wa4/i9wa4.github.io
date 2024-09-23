@@ -24,8 +24,6 @@ website:
   navbar:
     # https://icons.getbootstrap.com/
     left:
-      - href: "."
-        icon: house-fill
       - href: "https://i9wa4.github.io/i9wa4"
         text: "about"
       - href: "blog"
