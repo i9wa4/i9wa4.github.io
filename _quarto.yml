@@ -8,7 +8,6 @@ theme:
   light: yeti
   dark: superhero
 
-
 website:
   title: "i9wa4's page"
   site-url: "https://i9wa4.github.io/"
@@ -20,8 +19,8 @@ website:
     creator: "@i9wa4_"
     site: "@i9wa4_"
   open-graph: true
-  repo-url: "https://github.com/i9wa4/i9wa4.github.io"
-  repo-actions: [edit, source, issue]
+  # repo-url: "https://github.com/i9wa4/i9wa4.github.io"
+  # repo-actions: [edit, source, issue]
   navbar:
     # https://icons.getbootstrap.com/
     left:
@@ -48,7 +47,7 @@ website:
         icon: twitter-x
       - href: "https://www.linkedin.com/in/daiki-mawatari/"
         icon: linkedin
-      - href: "index.xml"
+      - href: "blog/index.xml"
         icon: rss
       - href: "https://quarto.org/"
         text: "Built with Quarto"
