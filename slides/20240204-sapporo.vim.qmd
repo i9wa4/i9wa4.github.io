@@ -9,14 +9,12 @@ categories:
 format:
   revealjs:
     incremental: false
-    # logo: /assets/common/icon_hhkb2.jpg
     logo: "https://github.com/i9wa4.png"
     slide-level: 2
     slide-number: true
     smaller: false
     theme: white
     footer: "https://connpass.com/event/307552/"
-# jupyter: python3
 ---
 
 ## 1. 自己紹介
