@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<link href="../https://github.com/i9wa4.png" rel="icon" type="image/png">
+<link href="..//assets/common/icon_hhkb2.jpg" rel="icon" type="image/jpeg">
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -95,11 +95,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="Quarto による DataFrame の表示テスト – i9wa4’s page">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://github.com/i9wa4.png">
+<meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta property="og:site_name" content="i9wa4's page">
 <meta name="twitter:title" content="Quarto による DataFrame の表示テスト – i9wa4’s page">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://github.com/i9wa4.png">
+<meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb2.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
 <meta name="twitter:card" content="summary">
@@ -244,17 +244,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="3dab89e9" class="cell" data-execution_count="1">
+<div id="6bb08d41" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| include: false と設定するとセルを隠すことができる</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install pandas</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install <span class="op">--</span>upgrade jinja2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.3)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.2)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.2)
 Requirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.1)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)
@@ -264,7 +264,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packa
 </section>
 <section id="データの読み込み" class="level2">
 <h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="4b4e5a4b" class="cell" data-execution_count="2">
+<div id="7fc74c7d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| include: false と設定するとセルを隠すことができる</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -347,7 +347,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packa
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="22c08735" class="cell" data-execution_count="3">
+<div id="d86a918c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagB'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
