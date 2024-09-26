@@ -1,4 +1,4 @@
-# i9wa4's page
+# uma-chan's page
 
 <https://i9wa4.github.io>
 
