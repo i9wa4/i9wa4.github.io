@@ -32,8 +32,6 @@ website:
         text: "resume"
       - text: "for me"
         menu:
-        - href: "bookmarks"
-          text: "bookmarks"
         - href: "memo"
           text: "memo"
         - href: "slides"
