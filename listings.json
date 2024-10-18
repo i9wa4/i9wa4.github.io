@@ -7,6 +7,10 @@
     ]
   },
   {
+    "listing": "/bookmarks/index.html",
+    "items": []
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/2024-09-22-vim-plugin-idea.html",
@@ -31,12 +35,6 @@
     "items": [
       "/memo/2024-07-20-aigis-note.html",
       "/memo/2024-07-20-minecraft-note.html"
-    ]
-  },
-  {
-    "listing": "/bookmarks/index.html",
-    "items": [
-      "/bookmarks/tech-bookmarks.html"
     ]
   }
 ]
