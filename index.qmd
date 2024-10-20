@@ -13,4 +13,4 @@ toc: false
 
 - [blog](blog)
 
-- [resume](resume)
+- [resume](https://i9wa4.github.io/resume)
