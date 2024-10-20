@@ -11,26 +11,26 @@ jupyter: python3
 
 こんにちは。i9wa4 です。
 
-ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。
+Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。
+
+以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。
 
 ## 1. ライブラリのインストール
 
 ```{python}
 #| include: true
-# #| include: false と設定するとセルを隠すことができる
 !python3 -m pip install pandas
 !python3 -m pip install --upgrade jinja2
 ```
 
-## 2. データの読み込み
+## 2. 関数定義
 
 ```{python}
 #| include: true
-# #| include: false と設定するとセルを隠すことができる
+import numpy as np
 import pandas as pd
 
-df_all = pd.read_csv("../assets/20240907-quarto-df/quarto-df.csv")
-display(df_all)
+df_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')
 
 
 def make_clickable(url, title):
@@ -38,16 +38,45 @@ def make_clickable(url, title):
 
 
 def extract_tag(tag, df=df_all):
-    _df = df.query(f'Tags == "{tag}"').copy()
-    _df["Item"] = _df.apply(lambda row: make_clickable(row["URL"], row["Title"]), axis=1)
-    _df = _df[["Date", "Item"]].sort_values(["Date", "Item"], ascending=[False, False]).reset_index(drop=True)
-    return _df.to_html(escape=False, index=False)
+    _df = df[df['Tags'].str.contains(tag)].copy()
+
+    # 欠損埋め
+    _df = _df.fillna({'Date': '9999-12-31'})
+    _df = _df.fillna('-')
+
+    # HACK: __init__.py を強調させないためのワークアラウンド
+    _df['Title'] = _df['Title'].replace(
+            '__init__.py', '__ init __.py', regex=True
+        )
+
+    # 日付とクリック可能なページ名の表示
+    _df = _df[['Date', 'Title', 'URL']].sort_values(
+            ['Date', 'Title'], ascending=[False, True]
+        )
+    _df.index = np.arange(1, len(_df) + 1)
+    _df['Website'] = _df.apply(
+            lambda row: make_clickable(row['URL'], row['Title']), axis=1
+        )
+    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)
+    return _df
 ```
 
-## 3. TagB
+## 3. CSV 内容確認
+
+```{python}
+!cat ../assets/20240907-quarto-df/quarto-df.csv
+```
+
+## 4. TagA
 
 ```{python}
 #| code-fold: false
-# #| code-fold: true と設定するとセルを折りたたむことができる
+extract_tag('TagA')
+```
+
+## 5. TagB
+
+```{python}
+#| code-fold: true
 extract_tag('TagB')
 ```
