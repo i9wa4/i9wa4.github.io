@@ -69,19 +69,17 @@
 
 
 <p>こんにちは。i9wa4 です。</p>
-<p>ブックマーク表示に Pandas の DataFrame が使えないかどうか確認のための実験メモです。</p>
+<p>Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。</p>
+<p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="71016938" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
-<span id="cb1-2"><span class="op" style="color: #5E5E5E;
+<div id="dac38dfa" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>m pip install pandas</span>
-<span id="cb1-3"><span class="op" style="color: #5E5E5E;
+<span id="cb1-2"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -90,24 +88,39 @@ background-color: null;
 font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: pandas in /home/runner/.local/lib/python3.10/site-packages (2.2.3)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2024.2)
-Requirement already satisfied: numpy&gt;=1.22.4 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.1.2)
+Collecting pandas
+  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/13.1 MB 42.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 8.3/13.1 MB 124.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 202.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 107.7 MB/s eta 0:00:00
+Collecting tzdata&gt;=2022.7
+  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 70.8 MB/s eta 0:00:00
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+Collecting numpy&gt;=1.22.4
+  Downloading numpy-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/16.3 MB 177.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 12.3/16.3 MB 182.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 194.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 194.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 92.2 MB/s eta 0:00:00
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
+Installing collected packages: tzdata, numpy, pandas
+Successfully installed numpy-2.1.2 pandas-2.2.3 tzdata-2024.2
 Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: jinja2 in /home/runner/.local/lib/python3.10/site-packages (3.1.4)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)</code></pre>
+Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
+Collecting jinja2
+  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 6.3 MB/s eta 0:00:00
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
+Installing collected packages: jinja2
+Successfully installed jinja2-3.1.4</code></pre>
 </div>
 </div>
 </section>
-<section id="データの読み込み" class="level2">
-<h2 class="anchored" data-anchor-id="データの読み込み">2. データの読み込み</h2>
-<div id="cb881430" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<section id="関数定義" class="level2">
+<h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
+<div id="63f06740" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;"># #| include: false と設定するとセルを隠すことができる</span></span>
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
 <span id="cb3-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
@@ -118,15 +131,14 @@ font-style: inherit;">as</span> pd</span>
 background-color: null;
 font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"../assets/20240907-quarto-df/quarto-df.csv"</span>)</span>
-<span id="cb3-5">display(df_all)</span>
+font-style: inherit;">'../assets/20240907-quarto-df/quarto-df.csv'</span>)</span>
+<span id="cb3-5"></span>
 <span id="cb3-6"></span>
-<span id="cb3-7"></span>
-<span id="cb3-8"><span class="kw" style="color: #003B4F;
+<span id="cb3-7"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> make_clickable(url, title):</span>
-<span id="cb3-9">    <span class="cf" style="color: #003B4F;
+<span id="cb3-8">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="ss" style="color: #20794D;
@@ -144,68 +156,125 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">&lt;/a&gt;'</span></span>
+<span id="cb3-9"></span>
 <span id="cb3-10"></span>
-<span id="cb3-11"></span>
-<span id="cb3-12"><span class="kw" style="color: #003B4F;
+<span id="cb3-11"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> extract_tag(tag, df<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>df_all):</span>
-<span id="cb3-13">    _df <span class="op" style="color: #5E5E5E;
+<span id="cb3-12">    _df <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> df.query(<span class="ss" style="color: #20794D;
+font-style: inherit;">=</span> df[df[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">f'Tags == "</span><span class="sc" style="color: #5E5E5E;
+font-style: inherit;">'Tags'</span>].<span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">{</span>tag<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">str</span>.contains(tag)].copy()</span>
+<span id="cb3-13"></span>
+<span id="cb3-14">    <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"'</span>).copy()</span>
-<span id="cb3-14">    _df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Item"</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">apply</span>(<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">lambda</span> row: make_clickable(row[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"URL"</span>], row[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Title"</span>]), axis<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span>
+font-style: inherit;"># 欠損埋め</span></span>
 <span id="cb3-15">    _df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df.fillna({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Date'</span>: <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'9999-12-31'</span>})</span>
+<span id="cb3-16">    _df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df.fillna(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'-'</span>)</span>
+<span id="cb3-17"></span>
+<span id="cb3-18">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># </span><span class="al" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">HACK</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">: __init__.py を強調させないためのワークアラウンド</span></span>
+<span id="cb3-19">    _df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Title'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Title'</span>].replace(</span>
+<span id="cb3-20">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'__init__.py'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'__ init __.py'</span>, regex<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb3-21">        )</span>
+<span id="cb3-22"></span>
+<span id="cb3-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 日付とクリック可能なページ名の表示</span></span>
+<span id="cb3-24">    _df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> _df[[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Date"</span>, <span class="st" style="color: #20794D;
+font-style: inherit;">'Date'</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Item"</span>]].sort_values([<span class="st" style="color: #20794D;
+font-style: inherit;">'Title'</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Date"</span>, <span class="st" style="color: #20794D;
+font-style: inherit;">'URL'</span>]].sort_values(</span>
+<span id="cb3-25">            [<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Item"</span>], ascending<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'Date'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Title'</span>], ascending<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>[<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">False</span>, <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">False</span>]).reset_index(drop<span class="op" style="color: #5E5E5E;
+font-style: inherit;">True</span>]</span>
+<span id="cb3-26">        )</span>
+<span id="cb3-27">    _df.index <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
+font-style: inherit;">=</span> np.arange(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">True</span>)</span>
-<span id="cb3-16">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">1</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(_df) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb3-28">    _df[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Website'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">apply</span>(</span>
+<span id="cb3-29">            <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">return</span> _df.to_html(escape<span class="op" style="color: #5E5E5E;
+font-style: inherit;">lambda</span> row: make_clickable(row[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'URL'</span>], row[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Title'</span>]), axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb3-30">        )</span>
+<span id="cb3-31">    _df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _df[[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Date'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Website'</span>]].to_html(escape<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
@@ -213,81 +282,51 @@ font-style: inherit;">False</span>, index<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">False</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">Tags</th>
-<th data-quarto-table-cell-role="th">Title</th>
-<th data-quarto-table-cell-role="th">URL</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2024-09-04</td>
-<td>TagA</td>
-<td>testtest</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2024-09-07</td>
-<td>TagB</td>
-<td>testtesttesttesttesttesttesttestte0sttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2024-09-08</td>
-<td>TagB</td>
-<td>1testtesttesttesttesttesttesttestte1sttesttest...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2024-09-09</td>
-<td>TagA</td>
-<td>2testtesttesttesttesttesttesttesttesttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2024-09-10</td>
-<td>TagA</td>
-<td>3testtesttesttesttesttesttesttesttesttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>2024-09-11</td>
-<td>TagB</td>
-<td>4testtesttesttesttesttesttesttesttesttesttestt...</td>
-<td>https://www.google.com</td>
-</tr>
-</tbody>
-</table>
-
+font-style: inherit;">False</span>)</span>
+<span id="cb3-32">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> _df</span></code></pre></div>
 </div>
+</section>
+<section id="csv-内容確認" class="level2">
+<h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
+<div id="2b40319a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>assets<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20240907</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>quarto<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>df<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>quarto<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>df.csv</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>"Tags","Date","Title","URL"
+"TagA","","2testtesttesttesttesttesttesttesttesttesttesttestte","https://www.google.com"
+"TagA","2024-09-04","testtest","https://www.google.com"
+"TagA","2024-09-10","3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu","https://www.google.com"
+"TagB","2024-09-07","testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt","https://www.google.com"
+"TagB","2024-09-08","1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt","https://www.google.com"
+"TagB","2024-09-11","4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt","https://www.google.com"</code></pre>
 </div>
 </div>
 </section>
-<section id="tagb" class="level2">
-<h2 class="anchored" data-anchor-id="tagb">3. TagB</h2>
-<div id="45935c3a" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<section id="taga" class="level2">
+<h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
+<div id="622dd351" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"># #| code-fold: true と設定するとセルを折りたたむことができる</span></span>
-<span id="cb4-2">extract_tag(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'TagB'</span>)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+font-style: inherit;">'TagA'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
 <thead>
@@ -299,7 +338,79 @@ Date
 </th>
 
 <th>
-Item
+Website
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+9999-12-31
+</td>
+
+<td>
+<a href="https://www.google.com">2testtesttesttesttesttesttesttesttesttesttesttestte</a>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2024-09-10
+</td>
+
+<td>
+<a href="https://www.google.com">3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</a>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2024-09-04
+</td>
+
+<td>
+<a href="https://www.google.com">testtest</a>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+</section>
+<section id="tagb" class="level2">
+<h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
+<div id="a3513d5e" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'TagB'</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<table class="dataframe table table-sm table-striped small">
+
+<thead>
+
+<tr>
+
+<th>
+Date
+</th>
+
+<th>
+Website
 </th>
 
 </tr>
