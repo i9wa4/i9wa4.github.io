@@ -15,7 +15,68 @@
 <link>https://i9wa4.github.io/blog/</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Fri, 25 Oct 2024 12:29:49 GMT</lastBuildDate>
+<lastBuildDate>Fri, 25 Oct 2024 14:17:19 GMT</lastBuildDate>
+<item>
+  <title>キャリアについてぼんやり考えていたことを時系列順にまとめる</title>
+  <link>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。uma-chan です。</p>
+<p>言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。</p>
+<section id="大学入学時" class="level2">
+<h2 class="anchored" data-anchor-id="大学入学時">1. 大学入学時</h2>
+<p>特に何も考えていなかったのですが、自分が生意気すぎる生徒だったことからそんな生徒を受け持ちたくなくて教師だけは絶対にならないぞとは思っていました。</p>
+</section>
+<section id="就職活動時" class="level2">
+<h2 class="anchored" data-anchor-id="就職活動時">2. 就職活動時</h2>
+<p>本当にぼんやりとIT系業務をやってみたいと思っていました (ただしスキルは大学の授業で少しだけC言語を書けるようになった程度)。</p>
+<p>当時業務系システムの求人が多かったのですがどうしても興味がもてず、実際にモノを動かせたり難しいことに挑戦したりとやりがいのありそうな仕事を選んでみました。</p>
+</section>
+<section id="回目の転職活動時" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時">3. 1回目の転職活動時</h2>
+<p>大学時代に住んでいた土地に戻りたくて転職することに。</p>
+<p>どうせならと経験を積めなかったプログラミングができてモノを動かすこともできる組み込みエンジニアを選びました。</p>
+</section>
+<section id="回目の転職活動時-1" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時-1">4. 2回目の転職活動時</h2>
+<p>コロナ禍でテレワークを経験し、今後のライフステージを踏まえた上でテレワークに向いている職種に切り替えようと思っていました。</p>
+<p>面白そうだったのでデータサイエンティスト求人に応募してみたところ、景気の良い時期だったためか未経験ながら内定を頂きました。</p>
+</section>
+<section id="回目の転職活動時-2" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時-2">5. 3回目の転職活動時</h2>
+<p>案件都合でアナリティクスエンジニア業務に取り組んでいました。</p>
+<p>この頃はデータ基盤についてブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータエンジニアを志すようになりました。</p>
+<p>また、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。</p>
+<p>体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。</p>
+</section>
+<section id="回目の転職活動時-3" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時-3">6. 4回目の転職活動時</h2>
+<p>これまでの経験から自分の仕事のモチベーションを上げる要因はどうやら以下の4点のようであると理解できました。</p>
+<ol type="1">
+<li>チームで仕事ができること</li>
+<li>自分の仕事が目の前の社員の役に立っていると胸を張って言えること</li>
+<li>自分の仕事が会社の売上につながっていると胸を張って言えること</li>
+<li>できればエンドユーザーの満足度を高める方向の仕事であること</li>
+</ol>
+<p>このような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。</p>
+<p>そんなことを考えているところに現職と同じデータエンジニアとしてではなくデータサイエンティストとしてお声がけいただいた会社で2024年11月から働くことにしました。</p>
+<p>決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。</p>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">7. おわりに</h2>
+<p>これ以上の詳しい話は飲みの場で！笑</p>
+
+
+</section>
+
+ ]]></description>
+  <category>diary</category>
+  <guid>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</guid>
+  <pubDate>Fri, 25 Oct 2024 14:17:19 GMT</pubDate>
+</item>
 <item>
   <title>:%s/i9wa4/uma-chan/g</title>
   <link>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</link>
@@ -97,7 +158,7 @@
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="25498092" class="cell" data-execution_count="1">
+<div id="3e8c9efc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -114,15 +175,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/13.1 MB 64.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ 8.8/13.1 MB 128.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 194.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 103.2 MB/s eta 0:00:00
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/13.1 MB 31.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/13.1 MB 75.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ 10.9/13.1 MB 138.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 162.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 95.4 MB/s eta 0:00:00
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
-Collecting numpy&gt;=1.22.4
-  Downloading numpy-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.7/16.3 MB 202.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ 13.4/16.3 MB 195.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 188.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 188.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 87.9 MB/s eta 0:00:00
 Collecting tzdata&gt;=2022.7
   Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 81.8 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 83.6 MB/s eta 0:00:00
+Collecting numpy&gt;=1.22.4
+  Downloading numpy-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/16.3 MB 159.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ 10.9/16.3 MB 159.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 161.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 161.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 83.6 MB/s eta 0:00:00
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.1.2 pandas-2.2.3 tzdata-2024.2
@@ -130,7 +191,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.4 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 8.7 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -139,7 +200,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="99b5357c" class="cell" data-execution_count="2">
+<div id="e7c7d54c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -315,7 +376,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="505094da" class="cell" data-execution_count="3">
+<div id="86ecfd3e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -346,7 +407,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="0ffe30e2" class="cell" data-execution_count="4">
+<div id="38774093" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -415,7 +476,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="f72877bc" class="cell" data-execution_count="5">
+<div id="3b56305c" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -2723,7 +2784,7 @@ font-style: inherit;">'''</span></span></code></pre></div>
 <li>読み：いくわよ</li>
 <li>仕事：データエンジニア・MLOpsエンジニア
 <ul>
-<li>業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです。</li>
+<li>業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです</li>
 </ul></li>
 </ul>
 </section>

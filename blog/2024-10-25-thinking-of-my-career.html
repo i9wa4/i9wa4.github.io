@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-08">
+<meta name="dcterms.date" content="2024-10-25">
 
-<title>Quarto による DataFrame の表示テスト – uma-chan’s page</title>
+<title>キャリアについてぼんやり考えていたことを時系列順にまとめる – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -90,13 +56,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="Quarto による DataFrame の表示テスト – uma-chan’s page">
+<meta property="og:title" content="キャリアについてぼんやり考えていたことを時系列順にまとめる – uma-chan’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:image:height" content="256">
 <meta property="og:image:width" content="256">
-<meta name="twitter:title" content="Quarto による DataFrame の表示テスト – uma-chan’s page">
+<meta name="twitter:title" content="キャリアについてぼんやり考えていたことを時系列順にまとめる – uma-chan’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -192,11 +158,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#ライブラリのインストール" id="toc-ライブラリのインストール" class="nav-link active" data-scroll-target="#ライブラリのインストール">1. ライブラリのインストール</a></li>
-  <li><a href="#関数定義" id="toc-関数定義" class="nav-link" data-scroll-target="#関数定義">2. 関数定義</a></li>
-  <li><a href="#csv-内容確認" id="toc-csv-内容確認" class="nav-link" data-scroll-target="#csv-内容確認">3. CSV 内容確認</a></li>
-  <li><a href="#taga" id="toc-taga" class="nav-link" data-scroll-target="#taga">4. TagA</a></li>
-  <li><a href="#tagb" id="toc-tagb" class="nav-link" data-scroll-target="#tagb">5. TagB</a></li>
+  <li><a href="#大学入学時" id="toc-大学入学時" class="nav-link active" data-scroll-target="#大学入学時">1. 大学入学時</a></li>
+  <li><a href="#就職活動時" id="toc-就職活動時" class="nav-link" data-scroll-target="#就職活動時">2. 就職活動時</a></li>
+  <li><a href="#回目の転職活動時" id="toc-回目の転職活動時" class="nav-link" data-scroll-target="#回目の転職活動時">3. 1回目の転職活動時</a></li>
+  <li><a href="#回目の転職活動時-1" id="toc-回目の転職活動時-1" class="nav-link" data-scroll-target="#回目の転職活動時-1">4. 2回目の転職活動時</a></li>
+  <li><a href="#回目の転職活動時-2" id="toc-回目の転職活動時-2" class="nav-link" data-scroll-target="#回目の転職活動時-2">5. 3回目の転職活動時</a></li>
+  <li><a href="#回目の転職活動時-3" id="toc-回目の転職活動時-3" class="nav-link" data-scroll-target="#回目の転職活動時-3">6. 4回目の転職活動時</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">7. おわりに</a></li>
   </ul>
 </nav>
     </div>
@@ -205,10 +173,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto による DataFrame の表示テスト</h1>
+<h1 class="title">キャリアについてぼんやり考えていたことを時系列順にまとめる</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-quarto</div>
+    <div class="quarto-category">diary</div>
   </div>
   </div>
 
@@ -220,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-08</p>
+      <p class="date">2024-10-25</p>
     </div>
   </div>
   
@@ -238,229 +205,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>こんにちは。i9wa4 です。</p>
-<p>Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。</p>
-<p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
-<section id="ライブラリのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="3e8c9efc" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install pandas</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install <span class="op">--</span>upgrade jinja2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Defaulting to user installation because normal site-packages is not writeable
-Collecting pandas
-  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/13.1 MB 31.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/13.1 MB 75.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ 10.9/13.1 MB 138.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 162.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 95.4 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
-Collecting tzdata&gt;=2022.7
-  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 83.6 MB/s eta 0:00:00
-Collecting numpy&gt;=1.22.4
-  Downloading numpy-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/16.3 MB 159.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ 10.9/16.3 MB 159.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 161.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 161.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 83.6 MB/s eta 0:00:00
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
-Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
-Installing collected packages: tzdata, numpy, pandas
-Successfully installed numpy-2.1.2 pandas-2.2.3 tzdata-2024.2
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
-Collecting jinja2
-  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 8.7 MB/s eta 0:00:00
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
-Installing collected packages: jinja2
-Successfully installed jinja2-3.1.4</code></pre>
-</div>
-</div>
+<p>こんにちは。uma-chan です。</p>
+<p>言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。</p>
+<section id="大学入学時" class="level2">
+<h2 class="anchored" data-anchor-id="大学入学時">1. 大学入学時</h2>
+<p>特に何も考えていなかったのですが、自分が生意気すぎる生徒だったことからそんな生徒を受け持ちたくなくて教師だけは絶対にならないぞとは思っていました。</p>
 </section>
-<section id="関数定義" class="level2">
-<h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="e7c7d54c" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_all <span class="op">=</span> pd.read_csv(<span class="st">'../assets/20240907-quarto-df/quarto-df.csv'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_clickable(url, title):</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'&lt;a href="</span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"&gt;</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">&lt;/a&gt;'</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_tag(tag, df<span class="op">=</span>df_all):</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> df[df[<span class="st">'Tags'</span>].<span class="bu">str</span>.contains(tag)].copy()</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 欠損埋め</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df.fillna({<span class="st">'Date'</span>: <span class="st">'9999-12-31'</span>})</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df.fillna(<span class="st">'-'</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">HACK</span><span class="co">: __init__.py を強調させないためのワークアラウンド</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    _df[<span class="st">'Title'</span>] <span class="op">=</span> _df[<span class="st">'Title'</span>].replace(</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">'__init__.py'</span>, <span class="st">'__ init __.py'</span>, regex<span class="op">=</span><span class="va">True</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 日付とクリック可能なページ名の表示</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df[[<span class="st">'Date'</span>, <span class="st">'Title'</span>, <span class="st">'URL'</span>]].sort_values(</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'Date'</span>, <span class="st">'Title'</span>], ascending<span class="op">=</span>[<span class="va">False</span>, <span class="va">True</span>]</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    _df.index <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(_df) <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    _df[<span class="st">'Website'</span>] <span class="op">=</span> _df.<span class="bu">apply</span>(</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="kw">lambda</span> row: make_clickable(row[<span class="st">'URL'</span>], row[<span class="st">'Title'</span>]), axis<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df[[<span class="st">'Date'</span>, <span class="st">'Website'</span>]].to_html(escape<span class="op">=</span><span class="va">False</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> _df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="就職活動時" class="level2">
+<h2 class="anchored" data-anchor-id="就職活動時">2. 就職活動時</h2>
+<p>本当にぼんやりとIT系業務をやってみたいと思っていました (ただしスキルは大学の授業で少しだけC言語を書けるようになった程度)。</p>
+<p>当時業務系システムの求人が多かったのですがどうしても興味がもてず、実際にモノを動かせたり難しいことに挑戦したりとやりがいのありそうな仕事を選んでみました。</p>
 </section>
-<section id="csv-内容確認" class="level2">
-<h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="86ecfd3e" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>cat ..<span class="op">/</span>assets<span class="op">/</span><span class="dv">20240907</span><span class="op">-</span>quarto<span class="op">-</span>df<span class="op">/</span>quarto<span class="op">-</span>df.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>"Tags","Date","Title","URL"
-"TagA","","2testtesttesttesttesttesttesttesttesttesttesttestte","https://www.google.com"
-"TagA","2024-09-04","testtest","https://www.google.com"
-"TagA","2024-09-10","3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu","https://www.google.com"
-"TagB","2024-09-07","testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt","https://www.google.com"
-"TagB","2024-09-08","1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt","https://www.google.com"
-"TagB","2024-09-11","4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt","https://www.google.com"</code></pre>
-</div>
-</div>
+<section id="回目の転職活動時" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時">3. 1回目の転職活動時</h2>
+<p>大学時代に住んでいた土地に戻りたくて転職することに。</p>
+<p>どうせならと経験を積めなかったプログラミングができてモノを動かすこともできる組み込みエンジニアを選びました。</p>
 </section>
-<section id="taga" class="level2">
-<h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="38774093" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagA'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://www.google.com">2testtesttesttesttesttesttesttesttesttesttesttestte</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-10
-</td>
-
-<td>
-<a href="https://www.google.com">3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-04
-</td>
-
-<td>
-<a href="https://www.google.com">testtest</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="回目の転職活動時-1" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時-1">4. 2回目の転職活動時</h2>
+<p>コロナ禍でテレワークを経験し、今後のライフステージを踏まえた上でテレワークに向いている職種に切り替えようと思っていました。</p>
+<p>面白そうだったのでデータサイエンティスト求人に応募してみたところ、景気の良い時期だったためか未経験ながら内定を頂きました。</p>
 </section>
-<section id="tagb" class="level2">
-<h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="3b56305c" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagB'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2024-09-11
-</td>
-
-<td>
-<a href="https://www.google.com">4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-08
-</td>
-
-<td>
-<a href="https://www.google.com">1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-07
-</td>
-
-<td>
-<a href="https://www.google.com">testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="回目の転職活動時-2" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時-2">5. 3回目の転職活動時</h2>
+<p>案件都合でアナリティクスエンジニア業務に取り組んでいました。</p>
+<p>この頃はデータ基盤についてブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータエンジニアを志すようになりました。</p>
+<p>また、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。</p>
+<p>体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。</p>
+</section>
+<section id="回目の転職活動時-3" class="level2">
+<h2 class="anchored" data-anchor-id="回目の転職活動時-3">6. 4回目の転職活動時</h2>
+<p>これまでの経験から自分の仕事のモチベーションを上げる要因はどうやら以下の4点のようであると理解できました。</p>
+<ol type="1">
+<li>チームで仕事ができること</li>
+<li>自分の仕事が目の前の社員の役に立っていると胸を張って言えること</li>
+<li>自分の仕事が会社の売上につながっていると胸を張って言えること</li>
+<li>できればエンドユーザーの満足度を高める方向の仕事であること</li>
+</ol>
+<p>このような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。</p>
+<p>そんなことを考えているところに現職と同じデータエンジニアとしてではなくデータサイエンティストとしてお声がけいただいた会社で2024年11月から働くことにしました。</p>
+<p>決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。</p>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">7. おわりに</h2>
+<p>これ以上の詳しい話は飲みの場で！笑</p>
 
 
 </section>
