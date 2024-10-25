@@ -4,7 +4,6 @@ date: 2024-06-17 12:42:17 +0900
 date-modified: last-modified
 categories:
   - "diary"
-  - "diary-gadget"
 ---
 
 こんにちは。i9wa4 です。
@@ -31,3 +30,5 @@ categories:
 | 2024-06-07 | Logicool   | [C270n HDウェブカメラ](https://www.logicool.co.jp/ja-jp/products/webcams/hd-webcam-c270n.960-001265.html)                                     |
 | 2024-07-07 | Panasonic  | [ラムダッシュ パームイン ES-PV3A](https://panasonic.jp/shaver/products/ES-PV3A.html)                                                          |
 | 2024-08-18 | OMRON      | [体重体組成計 HBF-702T カラダスキャン](https://www.healthcare.omron.co.jp/product/hbf/hbf-702t.html)                                          |
+| 2024-10-05 | Apple      | [iPhone 16 256GB](https://www.yodobashi.com/product/100000001008724159/)                                                                      |
+| 2024-10-05 | Apple      | [Apple Watch Series 10](https://www.yodobashi.com/product/100000001008724031/)                                                                |
