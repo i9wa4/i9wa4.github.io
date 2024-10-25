@@ -3,8 +3,8 @@ title: "GitHub Pages (Jekyll) blog のタグ追加対応"
 date: 2024-01-02 17:34:55 +0900
 date-modified: last-modified
 categories:
-  - "blog"
   - "tech"
+  - "tech-jekyll"
 ---
 
 [2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。

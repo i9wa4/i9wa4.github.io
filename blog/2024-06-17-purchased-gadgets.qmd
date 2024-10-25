@@ -3,8 +3,8 @@ title: "購入したガジェットの紹介"
 date: 2024-06-17 12:42:17 +0900
 date-modified: last-modified
 categories:
-  - "blog"
-  - "gadget"
+  - "diary"
+  - "diary-gadget"
 ---
 
 こんにちは。i9wa4 です。
