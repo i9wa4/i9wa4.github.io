@@ -196,9 +196,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#システム設定" id="toc-システム設定" class="nav-link" data-scroll-target="#システム設定">2. システム設定</a></li>
   <li><a href="#ターミナル" id="toc-ターミナル" class="nav-link" data-scroll-target="#ターミナル">3. ターミナル</a></li>
   <li><a href="#zsh" id="toc-zsh" class="nav-link" data-scroll-target="#zsh">4. Zsh</a></li>
-  <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws">6. AWS</a></li>
-  <li><a href="#その他" id="toc-その他" class="nav-link" data-scroll-target="#その他">7. その他</a></li>
-  <li><a href="#おまけ-ショートカット集" id="toc-おまけ-ショートカット集" class="nav-link" data-scroll-target="#おまけ-ショートカット集">8. (おまけ) ショートカット集</a></li>
+  <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws">5. AWS</a></li>
+  <li><a href="#その他" id="toc-その他" class="nav-link" data-scroll-target="#その他">6. その他</a></li>
+  <li><a href="#おまけ-ショートカット集" id="toc-おまけ-ショートカット集" class="nav-link" data-scroll-target="#おまけ-ショートカット集">7. (おまけ) ショートカット集</a></li>
   </ul>
 </nav>
     </div>
@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-11-05</p>
+      <p class="date-modified">2024-11-07</p>
     </div>
   </div>
     
@@ -259,6 +259,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Chrome, Slack, Zoom</li>
 </ul></li>
 </ul></li>
+</ul></li>
+<li>ディスプレイ
+<ul>
+<li>Night Shift</li>
 </ul></li>
 <li>デスクトップ
 <ul>
@@ -296,33 +300,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Alacritty を使う
 <ul>
-<li>Wezterm でもいいかもしれない</li>
+<li>WezTerm でもいいかもしれない</li>
 </ul></li>
 </ul>
 </section>
 <section id="zsh" class="level2">
 <h2 class="anchored" data-anchor-id="zsh">4. Zsh</h2>
 <ul>
-<li><p>Ctrl-R のコマンド履歴検索が実行できないとき</p>
+<li>Ctrl-R のコマンド履歴検索が実行できないとき
 <ul>
 <li><a href="https://wayohoo.com/article/6922">zshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI</a></li>
 </ul></li>
-<li><p>~/.zshenv</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># あれば書く</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>~/.zshrc</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># あれば書く</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
 <section id="aws" class="level2">
-<h2 class="anchored" data-anchor-id="aws">6. AWS</h2>
+<h2 class="anchored" data-anchor-id="aws">5. AWS</h2>
 <section id="okta-経由" class="level3">
-<h3 class="anchored" data-anchor-id="okta-経由">6.1. Okta 経由</h3>
+<h3 class="anchored" data-anchor-id="okta-経由">5.1. Okta 経由</h3>
 <ul>
 <li><a href="https://www.notion.so/AWS-IAM-Identity-Center-a4eda510decb43f6a51c1df902acf84a?pvs=21">AWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法</a></li>
 </ul>
 </section>
 <section id="aws-cli-経由" class="level3">
-<h3 class="anchored" data-anchor-id="aws-cli-経由">6.2. AWS CLI 経由</h3>
+<h3 class="anchored" data-anchor-id="aws-cli-経由">5.2. AWS CLI 経由</h3>
 <ul>
 <li><p><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface</a></p>
 <ul>
@@ -330,17 +330,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/sso-configure-profile-token.html">自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface</a></p></li>
 <li><p>ログイン (毎回やる必要なし)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> sso login <span class="at">--profile</span> xxx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> sso login <span class="at">--profile</span> xxx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>動作確認</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ec2 describe-instances <span class="at">--profile</span> xxx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ec2 describe-instances <span class="at">--profile</span> xxx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>default profile の設定手順</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~/.zshrc 等に以下を記載しておく</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">AWS_DEFAULT_PROFILE</span><span class="op">=</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># シェルの補完を使いながら以下のように入力する</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">AWS_DEFAULT_PROFILE</span><span class="op">=</span>xxx</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ec2 describe-instances</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~/.zshrc 等に以下を記載しておく</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">AWS_DEFAULT_PROFILE</span><span class="op">=</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># シェルの補完を使いながら以下のように入力する</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">AWS_DEFAULT_PROFILE</span><span class="op">=</span>xxx</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ec2 describe-instances</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><code>~/.aws/credentials</code> の設定</p>
 <ul>
 <li>Access Keys の説明を読む！</li>
@@ -349,25 +349,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="その他" class="level2">
-<h2 class="anchored" data-anchor-id="その他">7. その他</h2>
+<h2 class="anchored" data-anchor-id="その他">6. その他</h2>
 <ul>
 <li><a href="https://kizineko.com/delete-dsstore/">【Mac】.DS_Storeを一括削除&amp;作らないようにするコマンド - Kizineko</a></li>
 <li>Finder
 <ul>
-<li><p>よく使う項目 username 追加</p></li>
-<li><p>コマンド実行</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finderを終了させられるようにする (Command+Q で終了できるようになる)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">defaults</span> write com.apple.Finder QuitMenuItem <span class="at">-bool</span> YES</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 元に戻す場合</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">defaults</span> write com.apple.Finder QuitMenuItem <span class="at">-bool</span> NO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>よく使う項目 username 追加</li>
 </ul></li>
 <li>プログラミング用フォント MyricaM をダウンロード・インストールする</li>
 <li>Docker Desktop の Docker Daemon 設定</li>
 </ul>
 </section>
 <section id="おまけ-ショートカット集" class="level2">
-<h2 class="anchored" data-anchor-id="おまけ-ショートカット集">8. (おまけ) ショートカット集</h2>
+<h2 class="anchored" data-anchor-id="おまけ-ショートカット集">7. (おまけ) ショートカット集</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
