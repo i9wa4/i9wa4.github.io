@@ -1,6 +1,6 @@
 ---
 title: "nektos/act を使ってみた"
-date: 2024-11-12 23:36:48 +0900
+date: 2024-11-12 23:54:57 +0900
 date-modified: last-modified
 categories:
   - "tech"
@@ -25,7 +25,7 @@ GitHub Actions をローカルで実行できる便利な OSS <https://github.co
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 ```
 
-を実行したはいいもののインストール先が分からず、 `which act` で探しても見つからず。
+を実行したはいいもののインストール先が分からず `which act` で探しても見つからず。
 
 続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。
 
@@ -33,12 +33,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/ac
 gh extension install https://github.com/nektos/gh-act
 ```
 
-ただ、 GitHub CLI extension ってなに？そもそも今その仕様を知る必要を感じないためスルー。
+ただ、 GitHub CLI extension ってなに？そもそもその仕様を知る必要性を感じなかったためスルー。
 
 仕方がないのでソースコードからビルドすることに。
 
 ```{.sh}
-
 git clone https://github.com/nektos/act.git
 cd act/
 make build
