@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-11-12">
 
-<title>blog – uma-chan’s page</title>
+<title>nektos/act を使ってみた – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,14 +21,46 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <link href="..//assets/common/icon_hhkb3.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -55,72 +88,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-categories','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="uma-chan's page" href="index.xml" data-external="1"><meta property="og:title" content="blog – uma-chan’s page">
+<meta property="og:title" content="nektos/act を使ってみた – uma-chan’s page">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:image:height" content="256">
 <meta property="og:image:width" content="256">
-<meta name="twitter:title" content="blog – uma-chan’s page">
+<meta name="twitter:title" content="nektos/act を使ってみた – uma-chan’s page">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -211,22 +188,45 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(18)</span></div><div class="category" data-category="diary">diary <span class="quarto-category-count">(4)</span></div><div class="category" data-category="tech">tech <span class="quarto-category-count">(14)</span></div><div class="category" data-category="tech-dev">tech-dev <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tech-jekyll">tech-jekyll <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-linux">tech-linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-mac">tech-mac <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-quarto">tech-quarto <span class="quarto-category-count">(3)</span></div><div class="category" data-category="tech-tips">tech-tips <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-vim">tech-vim <span class="quarto-category-count">(4)</span></div><div class="category" data-category="tech-wsl2">tech-wsl2 <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#筆者の環境について" id="toc-筆者の環境について" class="nav-link active" data-scroll-target="#筆者の環境について">1. 筆者の環境について</a></li>
+  <li><a href="#バイナリどこ" id="toc-バイナリどこ" class="nav-link" data-scroll-target="#バイナリどこ">2. バイナリどこ？？</a></li>
+  <li><a href="#動作確認" id="toc-動作確認" class="nav-link" data-scroll-target="#動作確認">3. 動作確認</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">blog</h1>
-</div>
+<h1 class="title">nektos/act を使ってみた</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">tech</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-11-12</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024-11-12</p>
+    </div>
+  </div>
     
   </div>
   
@@ -235,473 +235,69 @@ window.Quarto = {
 </header>
 
 
+<p>こんにちは。uma-chan です。</p>
+<p>GitHub Actions をローカルで実行できる便利な OSS <a href="https://github.com/nektos/act" class="uri">https://github.com/nektos/act</a> を使ってみました。</p>
+<p>インストールが難しかったので苦戦した部分もメモを残しておきます。</p>
+<section id="筆者の環境について" class="level2">
+<h2 class="anchored" data-anchor-id="筆者の環境について">1. 筆者の環境について</h2>
+<ul>
+<li>OS: WSL2 Ubuntu 24.04</li>
+<li>Shell: zsh</li>
+</ul>
+</section>
+<section id="バイナリどこ" class="level2">
+<h2 class="anchored" data-anchor-id="バイナリどこ">2. バイナリどこ？？</h2>
+<p>インストール手順 <a href="https://nektosact.com/installation/index.html" class="uri">https://nektosact.com/installation/index.html</a> に従って</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">--proto</span> <span class="st">'=https'</span> <span class="at">--tlsv1.2</span> <span class="at">-sSf</span> https://raw.githubusercontent.com/nektos/act/master/install.sh <span class="kw">|</span> <span class="fu">sudo</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>を実行したはいいもののインストール先が分からず、 <code>which act</code> で探しても見つからず。</p>
+<p>続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension install https://github.com/nektos/gh-act</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ただ、 GitHub CLI extension ってなに？そもそも今その仕様を知る必要を感じないためスルー。</p>
+<p>仕方がないのでソースコードからビルドすることに。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/nektos/act.git</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> act/</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> build</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 因みに私の環境では以下コマンドでクローンしてます。</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ghq get -p nekotos/act</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ビルド後 <code>./dist/local/act</code> なるバイナリが生成されたためインストール完了。</p>
+<p>面倒なので PATH は通してませんがよい子は通しておきましょう。</p>
+</section>
+<section id="動作確認" class="level2">
+<h2 class="anchored" data-anchor-id="動作確認">3. 動作確認</h2>
+<p><code>https://github.com/i9wa4/gha-sandbox</code> のうち <code>.github/workflows/4.6.actionlint.yml</code> を実行してみます。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ~/src/github.com/nektos/act/dist/local/act workflow_dispatch <span class="at">-W</span> <span class="st">'.github/workflows/4.6.actionlint.yml'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">INFO</span><span class="op">[</span><span class="dv">0000</span><span class="op">]</span> <span class="ex">Using</span> docker host <span class="st">'unix:///var/run/docker.sock'</span>, and daemon socket <span class="st">'unix:///var/run/docker.sock'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] 🚀  Start image=catthehacker/ubuntu:act-latest</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=[<span class="st">"tail"</span> <span class="st">"-f"</span> <span class="st">"/dev/null"</span>] cmd=[] network=<span class="st">"host"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=[<span class="st">"tail"</span> <span class="st">"-f"</span> <span class="st">"/dev/null"</span>] cmd=[] network=<span class="st">"host"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker exec cmd=[node <span class="at">--no-warnings</span> <span class="at">-e</span> console.log<span class="er">(</span><span class="ex">process.execPath</span><span class="kw">)</span><span class="ex">]</span> user= workdir=</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] ⭐ Run Main actions/checkout@v4</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker cp src=/home/i9wa4/src/github.com/i9wa4/gha-sandbox/. dst=/home/i9wa4/src/github.com/i9wa4/gha-sandbox</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   ✅  Success <span class="at">-</span> Main actions/checkout@v4</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] ⭐ Run Main docker run <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> <span class="at">-w</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> rhysd/actionlint:latest</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker exec cmd=[bash <span class="at">--noprofile</span> <span class="at">--norc</span> <span class="at">-e</span> <span class="at">-o</span> pipefail /var/run/act/workflow/1.sh] user= workdir=</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Unable</span> to find image <span class="st">'rhysd/actionlint:latest'</span> locally</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">latest:</span> Pulling from rhysd/actionlint</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">43c4264eed91:</span> Pull complete</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">9ff7a0d1399a:</span> Pull complete</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">efbbf3bc777d:</span> Pull complete</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">290bb4d6a286:</span> Pull complete</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Digest:</span> sha256:82244e1db1c60d82c7792180a48dd0bcb838370bb589d53ff132503fc9485868</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Status:</span> Downloaded newer image for rhysd/actionlint:latest</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   ✅  Success <span class="at">-</span> Main docker run <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> <span class="at">-w</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> rhysd/actionlint:latest</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] Cleaning up container for job lint</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] 🏁  Job succeeded</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO</span>    ️ 📣 A newer version of <span class="st">'act'</span> is available <span class="at">-</span> consider ugrading to 0.2.69.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>うまく動いてくれました。</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="tech" data-listing-date-sort="1731422208000" data-listing-file-modified-sort="1731423133000" data-listing-date-modified-sort="1731423133000" data-listing-reading-time-sort="2" data-listing-word-count-sort="273">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-11-12-use-nektos-act.html" class="no-external">nektos/act を使ってみた</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-11-12-use-nektos-act.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-11-12-use-nektos-act.html" class="no-external">
-<div class="listing-date">
-2024-11-12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="diary" data-listing-date-sort="1729865839000" data-listing-file-modified-sort="1729865978000" data-listing-date-modified-sort="1729865978000" data-listing-reading-time-sort="1" data-listing-word-count-sort="22">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-10-25-thinking-of-my-career.html" class="no-external">キャリアについてぼんやり考えていたことを時系列順にまとめる</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-10-25-thinking-of-my-career.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-10-25-thinking-of-my-career.html" class="no-external">
-<div class="listing-date">
-2024-10-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="diary" data-listing-date-sort="1729859389000" data-listing-file-modified-sort="1729859643000" data-listing-date-modified-sort="1729859643000" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-10-25-s-i9wa4-umachan-g.html" class="no-external">:%s/i9wa4/uma-chan/g</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-10-25-s-i9wa4-umachan-g.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-10-25-s-i9wa4-umachan-g.html" class="no-external">
-<div class="listing-date">
-2024-10-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="tech,tech-vim" data-listing-date-sort="1727013899000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="55">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-09-22-vim-plugin-idea.html" class="no-external">最近の Vim プラグイン開発のアイデア</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-09-22-vim-plugin-idea.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-09-22-vim-plugin-idea.html" class="no-external">
-<div class="listing-date">
-2024-09-22
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="tech,tech-quarto" data-listing-date-sort="1725722674000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="2" data-listing-word-count-sort="201">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-09-08-quarto-dataframe-preview-test.html" class="no-external">Quarto による DataFrame の表示テスト</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-09-08-quarto-dataframe-preview-test.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-quarto'); return false;">
-tech-quarto
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-09-08-quarto-dataframe-preview-test.html" class="no-external">
-<div class="listing-date">
-2024-09-08
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="tech,tech-quarto" data-listing-date-sort="1724574332000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="5" data-listing-word-count-sort="848">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-08-25-publishing-github-pages-with-quarto.html" class="no-external">Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-08-25-publishing-github-pages-with-quarto.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-quarto'); return false;">
-tech-quarto
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-08-25-publishing-github-pages-with-quarto.html" class="no-external">
-<div class="listing-date">
-2024-08-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="tech,tech-tips" data-listing-date-sort="1721027711000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-07-15-technical-tips.html" class="no-external">技術系 Tips まとめ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-07-15-technical-tips.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-tips'); return false;">
-tech-tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-07-15-technical-tips.html" class="no-external">
-<div class="listing-date">
-2024-07-15
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="tech,tech-linux" data-listing-date-sort="1719507392000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-06-28-systemd-user.html" class="no-external">systemd がユーザー権限でも使える</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-06-28-systemd-user.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-linux'); return false;">
-tech-linux
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-06-28-systemd-user.html" class="no-external">
-<div class="listing-date">
-2024-06-28
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="diary" data-listing-date-sort="1718595737000" data-listing-file-modified-sort="1729868801000" data-listing-date-modified-sort="1729868801000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1369">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-06-17-purchased-gadgets.html" class="no-external">購入したガジェットの紹介</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-06-17-purchased-gadgets.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-06-17-purchased-gadgets.html" class="no-external">
-<div class="listing-date">
-2024-06-17
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="tech,tech-mac" data-listing-date-sort="1718594496000" data-listing-file-modified-sort="1730947070000" data-listing-date-modified-sort="1730947070000" data-listing-reading-time-sort="3" data-listing-word-count-sort="588">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-06-17-setup-mac.html" class="no-external">Mac 環境構築手順</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-06-17-setup-mac.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-mac'); return false;">
-tech-mac
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-06-17-setup-mac.html" class="no-external">
-<div class="listing-date">
-2024-06-17
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="tech,tech-quarto" data-listing-date-sort="1714846989000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-05-05-deploy-quarto.html" class="no-external">Quarto で作ったスライドを GitHub Pages にデプロイする</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-05-05-deploy-quarto.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-quarto'); return false;">
-tech-quarto
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-05-05-deploy-quarto.html" class="no-external">
-<div class="listing-date">
-2024-05-05
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="tech,tech-dev,tech-vim" data-listing-date-sort="1714763224000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-05-04-get-git-branch-name.vim.html" class="no-external">Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-05-04-get-git-branch-name.vim.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-dev'); return false;">
-tech-dev
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-05-04-get-git-branch-name.vim.html" class="no-external">
-<div class="listing-date">
-2024-05-04
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="tech,tech-wsl2" data-listing-date-sort="1711379976000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-03-26-setup-ds100knock.html" class="no-external">データサイエンス100本ノックの実行環境構築 (WSL2)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-03-26-setup-ds100knock.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-wsl2'); return false;">
-tech-wsl2
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-03-26-setup-ds100knock.html" class="no-external">
-<div class="listing-date">
-2024-03-26
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="tech,tech-wsl2" data-listing-date-sort="1711375248000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="138">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-03-25-setup-wsl2.html" class="no-external">WSL2 のセットアップ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-03-25-setup-wsl2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-wsl2'); return false;">
-tech-wsl2
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-03-25-setup-wsl2.html" class="no-external">
-<div class="listing-date">
-2024-03-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="tech,tech-vim" data-listing-date-sort="1706362659000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="2" data-listing-word-count-sort="228">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-27-setup-efm-langserver.html" class="no-external">efm-langserver を Vim/Neovim で利用する</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-27-setup-efm-langserver.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-27-setup-efm-langserver.html" class="no-external">
-<div class="listing-date">
-2024-01-27
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="tech,tech-dev,tech-vim" data-listing-date-sort="1704199666000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-02-vim-plugin-mnh.html" class="no-external">自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-02-vim-plugin-mnh.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-dev'); return false;">
-tech-dev
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-02-vim-plugin-mnh.html" class="no-external">
-<div class="listing-date">
-2024-01-02
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="tech,tech-jekyll" data-listing-date-sort="1704184495000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-02-jelyll-adjust.html" class="no-external">GitHub Pages (Jekyll) blog のタグ追加対応</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-02-jelyll-adjust.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-jekyll'); return false;">
-tech-jekyll
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-02-jelyll-adjust.html" class="no-external">
-<div class="listing-date">
-2024-01-02
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="17" data-categories="diary" data-listing-date-sort="1704047292000" data-listing-file-modified-sort="1729865978000" data-listing-date-modified-sort="1729865978000" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-01-init.html" class="no-external">Initial Post</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-01-init.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-01-init.html" class="no-external">
-<div class="listing-date">
-2024-01-01
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
