@@ -16,4 +16,7 @@ listing:
     - "date desc"
     - "title"
   type: default
+  exclude:
+    categories:
+      - "hidden"
 ---

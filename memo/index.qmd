@@ -16,6 +16,9 @@ listing:
     - "date desc"
     - "title"
   type: default
+  exclude:
+    categories:
+      - "hidden"
 ---
 
 自分以外には全く価値がなさそうなメモ達
