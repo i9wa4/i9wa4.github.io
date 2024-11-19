@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-11-12</p>
+      <p class="date-modified">2024-11-19</p>
     </div>
   </div>
     
@@ -231,6 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>インストール手順 <a href="https://nektosact.com/installation/index.html" class="uri">https://nektosact.com/installation/index.html</a> に従って</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">--proto</span> <span class="st">'=https'</span> <span class="at">--tlsv1.2</span> <span class="at">-sSf</span> https://raw.githubusercontent.com/nektos/act/master/install.sh <span class="kw">|</span> <span class="fu">sudo</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>を実行したはいいもののインストール先が分からず <code>which act</code> で探しても見つからず。</p>
+<p>(2024-11-19 追記: コマンド実行したディレクトリに bin/act が生成されていました。自分にとっては嬉しくない挙動。)</p>
 <p>続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension install https://github.com/nektos/gh-act</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>ただ、 GitHub CLI extension ってなに？そもそもその仕様を知る必要性を感じなかったためスルー。</p>
