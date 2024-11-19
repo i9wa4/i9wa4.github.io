@@ -27,6 +27,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/ac
 
 を実行したはいいもののインストール先が分からず `which act` で探しても見つからず。
 
+(2024-11-19 追記: コマンド実行したディレクトリに bin/act が生成されていました。自分にとっては嬉しくない挙動。)
+
 続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。
 
 ```{.sh}
