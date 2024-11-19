@@ -21,7 +21,7 @@ cf. <https://github.com/i9wa4/dotfiles>
 - プライバシーとセキュリティ
     - 画面収録とシステムオーディオ録音
         - 画面の収録とオーディオの録音を両方許可する
-            - Chrome, Slack, Zoom
+            - Arc, Slack, Zoom
 - ディスプレイ
     - Night Shift
 - デスクトップ
@@ -61,7 +61,7 @@ cf. <https://github.com/i9wa4/dotfiles>
 - [AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
     - これに従って AWS CLI をインストールする
 - [自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/sso-configure-profile-token.html)
-- ログイン (毎回やる必要なし)
+- ログイン
 
     ```sh
     aws sso login --profile xxx
@@ -76,10 +76,6 @@ cf. <https://github.com/i9wa4/dotfiles>
 - default profile の設定手順
 
     ```sh
-    # ~/.zshrc 等に以下を記載しておく
-    export AWS_DEFAULT_PROFILE=
-
-    # シェルの補完を使いながら以下のように入力する
     AWS_DEFAULT_PROFILE=xxx
     aws ec2 describe-instances
     aws s3 ls
@@ -88,20 +84,31 @@ cf. <https://github.com/i9wa4/dotfiles>
 - `~/.aws/credentials` の設定
     - Access Keys の説明を読む！
 
-## 6. その他
+## 6. Arc
 
-- [【Mac】.DS_Storeを一括削除&作らないようにするコマンド - Kizineko](https://kizineko.com/delete-dsstore/)
+### 6.1. 検索エンジン設定
+
+- Google 日本語検索
+    - `https://www.google.com/search?q=%s`
+- Google 英語検索
+    - `https://www.google.com/search?q=%s&gl=us&hl=en&gws_rd=cr&pws=0`
+- DuckDuckGo 日本語検索
+    - `https://duckduckgo.com/?q=%s&kl=jp-jp&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
+- DuckDuckGo 英語検索
+    - `https://duckduckgo.com/?q=%s&kl=us-en&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
+
+## 7. その他
+
 - Finder
-    - よく使う項目 username 追加
+    - よく使う項目にユーザーホームを追加する
 - プログラミング用フォント MyricaM をダウンロード・インストールする
 - Docker Desktop の Docker Daemon 設定
 
-## 7. (おまけ) ショートカット集
+## 8. (おまけ) ショートカット集
 
-| カテゴリ       | ショートカット           | 説明                           |
-| ---            | ---                      | ---                            |
-| ウインドウ操作 | Command + Tab            | アプリケーション切り替え       |
-| ウインドウ操作 | Command + @              | 同一アプリケーションの切り替え |
-| ウインドウ操作 | Command + Option + Arrow | Chrome タブ切り替え            |
-| その他         | Commad  + Q              | Finder 終了                    |
-| その他         | Command + Ctrl + Q       | ロック                         |
+| カテゴリ       | ショートカット     | 説明                           |
+| ---            | ---                | ---                            |
+| ウインドウ操作 | Command + Tab      | アプリケーション切り替え       |
+| ウインドウ操作 | Command + @        | 同一アプリケーションの切り替え |
+| その他         | Commad  + Q        | Finder 終了                    |
+| その他         | Command + Ctrl + Q | ロック                         |
