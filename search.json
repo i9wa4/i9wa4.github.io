@@ -116,7 +116,7 @@
     "href": "blog/index.html",
     "title": "blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\ntech\n\n\ntech-wsl2\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\ntech\n\n\ntech-wsl2\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\ntech\n\n\ntech-wsl2\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\ntech\n\n\ntech-wsl2\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/2024-03-26-setup-ds100knock.html",
@@ -196,81 +196,102 @@
     "text": "5. 感想\n\n必要最低限の機能は実装できたので割と満足です。\n見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n少し前に作った Vim/Neovim プラグインの紹介記事となります。"
+    "text": "こんにちは。uma-chan です。\nZenn に書いた以下の記事と全く同じ内容です。\nZennの記事をGitHubリポジトリで管理する\n気の向くままにこちらの個人ブログの方で先に公開します。 Markdown で管理しているので流用しやすくて便利！"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "1. プラグイン概要",
-    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#はじめに",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#はじめに",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "1. はじめに",
+    "text": "1. はじめに\n初投稿なので新鮮な気持ちで Zenn 公式の記事を見ながら GitHub リポジトリ経由で Zenn の記事を投稿するまでの手順をまとめます。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "2. プラグインを作ることになったきっかけ",
-    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#手順",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#手順",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "2. 手順",
+    "text": "2. 手順\n\n2.1. 前準備\n\nリポジトリ作成から連携までを済ませる。\n\nGitHubリポジトリでZennのコンテンツを管理する\n\nZenn CLI をインストールする。\n\nZenn CLIをインストールする\n\nリポジトリ内に作成されたファイルをコミットしておく。\n\n\n\n2.2. 記事の作成\n以下の記事に従うと記事を書くことができます。\nZenn CLIで記事・本を管理する方法"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "3. Denops プラグインとして作ろうと思った理由",
-    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。\nそして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#実際に作成していて気付いた点",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#実際に作成していて気付いた点",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "3. 実際に作成していて気付いた点",
+    "text": "3. 実際に作成していて気付いた点\n\n3.1. スラッグを最初に指定する\n$ npx zenn new:article\nで記事に対応する Markdown ファイルを作成するとスラッグ (記事IDのことで公開時のファイル名と思ってよい) としてランダムな文字列が割り当てられます。 リポジトリで記事を管理する上で無意味なファイル名が並ぶのは辛いので以下のどちらかの対応を取りましょう。\n\nスラッグを指定して記事作成コマンドを実行する\n$ npx zenn new:article --slug 2024-11-20-manage-zenn-with-github\n公開前に ファイル名を変更する\n\n\n\n3.2. YAML ヘッダの topics: の各要素はハイフンで書く\nYAML ヘッダの記載例として以下のように記載されています。\nZenn CLIで記事・本を管理する方法\n---\ntitle: \"\" # 記事のタイトル\nemoji: \"😸\" # アイキャッチとして使われる絵文字（1文字だけ）\ntype: \"tech\" # tech: 技術記事 / idea: アイデア記事\ntopics: [] # タグ。[\"markdown\", \"rust\", \"aws\"]のように指定する\npublished: true # 公開設定（falseにすると下書き）\n---\nここから本文を書く\n個人的には\n---\ntopics: [\"markdown\", \"rust\", \"aws\"]\n---\nよりも\n---\ntopics:\n  - \"markdown\"\n  - \"rust\"\n  - \"aws\"\n---\nの方が行ソートで重複を見つけやすいので好きです。\n\n\n3.3. 会社テックブログ向けの予約投稿\n会社の Publication から予約投稿するには以下でよさそうです。\n---\npublished: true\npublished_at: 2024-11-20 18:00\npublication_name: \"Publication Name\"\n---\n(参考) 【Zenn】PublicationでもGitHub連携したい！自由選択型アプローチのすゝめ\nただこれだといきなり投稿されて、かつ公開前のレビューのために個人のリポジトリのPRを見せる面倒臭さが発生します。 個人リポジトリの利用を前提として事前に内容を秘匿する場合はローカルで作成したプレビューを PDF 化していこうかなと考えています。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "4. Denops プラグイン開発体験について",
-    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。\n核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。\nまず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#おわりに",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#おわりに",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "4. おわりに",
+    "text": "4. おわりに\n取り急ぎこの記事が無事投稿できていれば OK です！ 自分は新規投稿する度に本記事を見直すことになりそうです。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "5. 感想",
-    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。\n今後も必要なものは自分で作っていたいですね。"
-  },
-  {
-    "objectID": "blog/2024-06-17-purchased-gadgets.html",
-    "href": "blog/2024-06-17-purchased-gadgets.html",
-    "title": "購入したガジェットの紹介",
+    "objectID": "blog/2024-01-01-init.html",
+    "href": "blog/2024-01-01-init.html",
+    "title": "Initial Post",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10"
+    "text": "こんにちは。i9wa4 です。\n初投稿になります。"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
+    "objectID": "blog/2024-01-01-init.html#i9wa4-とは",
+    "href": "blog/2024-01-01-init.html#i9wa4-とは",
+    "title": "Initial Post",
+    "section": "1. i9wa4 とは",
+    "text": "1. i9wa4 とは\n\n読み：いくわよ\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです"
+  },
+  {
+    "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
+    "href": "blog/2024-01-01-init.html#このブログの運用方針",
+    "title": "Initial Post",
+    "section": "2. このブログの運用方針",
+    "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
+  },
+  {
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "title": "Quarto による DataFrame の表示テスト",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
+    "text": "こんにちは。i9wa4 です。\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "1. ライブラリのインストール",
+    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/13.1 MB 55.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ 8.2/13.1 MB 120.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 190.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 190.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 102.6 MB/s eta 0:00:00\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 81.1 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.8/16.3 MB 203.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ 13.4/16.3 MB 195.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 190.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 190.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 92.5 MB/s eta 0:00:00\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 6.9 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "2. 関数定義",
+    "text": "2. 関数定義\n\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "3. CSV 内容確認",
+    "text": "3. CSV 内容確認\n\n!cat ../assets/20240907-quarto-df/quarto-df.csv\n\n\"Tags\",\"Date\",\"Title\",\"URL\"\n\"TagA\",\"\",\"2testtesttesttesttesttesttesttesttesttesttesttestte\",\"https://www.google.com\"\n\"TagA\",\"2024-09-04\",\"testtest\",\"https://www.google.com\"\n\"TagA\",\"2024-09-10\",\"3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\",\"https://www.google.com\"\n\"TagB\",\"2024-09-07\",\"testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-08\",\"1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-11\",\"4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\",\"https://www.google.com\""
+  },
+  {
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "4. TagA",
+    "text": "4. TagA\n\nextract_tag('TagA')\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n2testtesttesttesttesttesttesttesttesttesttesttestte\n\n\n\n\n\n\n\n2024-09-10\n\n\n\n3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\n\n\n\n\n\n\n\n2024-09-04\n\n\n\ntesttest"
+  },
+  {
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "5. TagB",
+    "text": "5. TagB\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-09-11\n\n\n\n4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\n\n\n\n\n\n\n\n2024-09-08\n\n\n\n1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\n\n\n\n\n\n\n\n2024-09-07\n\n\n\ntesttesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html",
@@ -336,67 +357,81 @@
     "text": "8. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
-    "title": "Quarto による DataFrame の表示テスト",
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
+    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/13.1 MB 76.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 9.2/13.1 MB 135.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 191.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 191.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 93.3 MB/s eta 0:00:00\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 74.0 MB/s eta 0:00:00\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/16.3 MB 163.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ 11.6/16.3 MB 186.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 191.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 191.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 91.0 MB/s eta 0:00:00\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 8.6 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "2. 関数定義",
-    "text": "2. 関数定義\n\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "3. CSV 内容確認",
-    "text": "3. CSV 内容確認\n\n!cat ../assets/20240907-quarto-df/quarto-df.csv\n\n\"Tags\",\"Date\",\"Title\",\"URL\"\n\"TagA\",\"\",\"2testtesttesttesttesttesttesttesttesttesttesttestte\",\"https://www.google.com\"\n\"TagA\",\"2024-09-04\",\"testtest\",\"https://www.google.com\"\n\"TagA\",\"2024-09-10\",\"3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\",\"https://www.google.com\"\n\"TagB\",\"2024-09-07\",\"testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-08\",\"1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-11\",\"4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\",\"https://www.google.com\""
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "4. TagA",
-    "text": "4. TagA\n\nextract_tag('TagA')\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n2testtesttesttesttesttesttesttesttesttesttesttestte\n\n\n\n\n\n\n\n2024-09-10\n\n\n\n3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\n\n\n\n\n\n\n\n2024-09-04\n\n\n\ntesttest"
-  },
-  {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "5. TagB",
-    "text": "5. TagB\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-09-11\n\n\n\n4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\n\n\n\n\n\n\n\n2024-09-08\n\n\n\n1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\n\n\n\n\n\n\n\n2024-09-07\n\n\n\ntesttesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html",
-    "href": "blog/2024-01-01-init.html",
-    "title": "Initial Post",
+    "objectID": "blog/2024-06-17-purchased-gadgets.html",
+    "href": "blog/2024-06-17-purchased-gadgets.html",
+    "title": "購入したガジェットの紹介",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n初投稿になります。"
+    "text": "こんにちは。i9wa4 です。\n詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10"
   },
   {
-    "objectID": "blog/2024-01-01-init.html#i9wa4-とは",
-    "href": "blog/2024-01-01-init.html#i9wa4-とは",
-    "title": "Initial Post",
-    "section": "1. i9wa4 とは",
-    "text": "1. i9wa4 とは\n\n読み：いくわよ\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです"
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "",
+    "text": "こんにちは。i9wa4 です。\n少し前に作った Vim/Neovim プラグインの紹介記事となります。"
   },
   {
-    "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
-    "href": "blog/2024-01-01-init.html#このブログの運用方針",
-    "title": "Initial Post",
-    "section": "2. このブログの運用方針",
-    "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "1. プラグイン概要",
+    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "2. プラグインを作ることになったきっかけ",
+    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "3. Denops プラグインとして作ろうと思った理由",
+    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。\nそして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "4. Denops プラグイン開発体験について",
+    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。\n核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。\nまず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "5. 感想",
+    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。\n今後も必要なものは自分で作っていたいですね。"
   },
   {
     "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",

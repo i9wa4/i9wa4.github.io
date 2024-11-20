@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-11-20">
 
-<title>blog – uma-chan’s page</title>
+<title>Zennの記事をGitHubリポジトリで管理する – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,14 +21,46 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <link href="..//assets/common/icon_hhkb3.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -55,72 +88,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-categories','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="uma-chan's page" href="index.xml" data-external="1"><meta property="og:title" content="blog – uma-chan’s page">
+<meta property="og:title" content="Zennの記事をGitHubリポジトリで管理する – uma-chan’s page">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:image:height" content="256">
 <meta property="og:image:width" content="256">
-<meta name="twitter:title" content="blog – uma-chan’s page">
+<meta name="twitter:title" content="Zennの記事をGitHubリポジトリで管理する – uma-chan’s page">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -192,22 +169,48 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(19)</span></div><div class="category" data-category="diary">diary <span class="quarto-category-count">(4)</span></div><div class="category" data-category="tech">tech <span class="quarto-category-count">(15)</span></div><div class="category" data-category="tech-dev">tech-dev <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tech-github">tech-github <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-jekyll">tech-jekyll <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-linux">tech-linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-mac">tech-mac <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-quarto">tech-quarto <span class="quarto-category-count">(3)</span></div><div class="category" data-category="tech-tips">tech-tips <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tech-vim">tech-vim <span class="quarto-category-count">(4)</span></div><div class="category" data-category="tech-wsl2">tech-wsl2 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="tech-zenn">tech-zenn <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
+  <li><a href="#手順" id="toc-手順" class="nav-link" data-scroll-target="#手順">2. 手順</a></li>
+  <li><a href="#実際に作成していて気付いた点" id="toc-実際に作成していて気付いた点" class="nav-link" data-scroll-target="#実際に作成していて気付いた点">3. 実際に作成していて気付いた点</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">4. おわりに</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">blog</h1>
-</div>
+<h1 class="title">Zennの記事をGitHubリポジトリで管理する</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">tech</div>
+    <div class="quarto-category">tech-github</div>
+    <div class="quarto-category">tech-zenn</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-11-20</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024-11-20</p>
+    </div>
+  </div>
     
   </div>
   
@@ -216,501 +219,93 @@ window.Quarto = {
 </header>
 
 
+<p>こんにちは。uma-chan です。</p>
+<p>Zenn に書いた以下の記事と全く同じ内容です。</p>
+<p><a href="https://zenn.dev/i9wa4/articles/2024-11-20-manage-zenn-with-github">Zennの記事をGitHubリポジトリで管理する</a></p>
+<p>気の向くままにこちらの個人ブログの方で先に公開します。 Markdown で管理しているので流用しやすくて便利！</p>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>初投稿なので新鮮な気持ちで Zenn 公式の記事を見ながら GitHub リポジトリ経由で Zenn の記事を投稿するまでの手順をまとめます。</p>
+</section>
+<section id="手順" class="level2">
+<h2 class="anchored" data-anchor-id="手順">2. 手順</h2>
+<section id="前準備" class="level3">
+<h3 class="anchored" data-anchor-id="前準備">2.1. 前準備</h3>
+<ol type="1">
+<li>リポジトリ作成から連携までを済ませる。
+<ul>
+<li><a href="https://zenn.dev/zenn/articles/connect-to-github">GitHubリポジトリでZennのコンテンツを管理する</a></li>
+</ul></li>
+<li>Zenn CLI をインストールする。
+<ul>
+<li><a href="https://zenn.dev/zenn/articles/install-zenn-cli">Zenn CLIをインストールする</a></li>
+</ul></li>
+<li>リポジトリ内に作成されたファイルをコミットしておく。</li>
+</ol>
+</section>
+<section id="記事の作成" class="level3">
+<h3 class="anchored" data-anchor-id="記事の作成">2.2. 記事の作成</h3>
+<p>以下の記事に従うと記事を書くことができます。</p>
+<p><a href="https://zenn.dev/zenn/articles/zenn-cli-guide">Zenn CLIで記事・本を管理する方法</a></p>
+</section>
+</section>
+<section id="実際に作成していて気付いた点" class="level2">
+<h2 class="anchored" data-anchor-id="実際に作成していて気付いた点">3. 実際に作成していて気付いた点</h2>
+<section id="スラッグを最初に指定する" class="level3">
+<h3 class="anchored" data-anchor-id="スラッグを最初に指定する">3.1. スラッグを最初に指定する</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> npx zenn new:article</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>で記事に対応する Markdown ファイルを作成するとスラッグ (記事IDのことで公開時のファイル名と思ってよい) としてランダムな文字列が割り当てられます。 リポジトリで記事を管理する上で無意味なファイル名が並ぶのは辛いので以下のどちらかの対応を取りましょう。</p>
+<ul>
+<li><p>スラッグを指定して記事作成コマンドを実行する</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> npx zenn new:article <span class="at">--slug</span> 2024-11-20-manage-zenn-with-github</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>公開前に</strong> ファイル名を変更する</p></li>
+</ul>
+</section>
+<section id="yaml-ヘッダの-topics-の各要素はハイフンで書く" class="level3">
+<h3 class="anchored" data-anchor-id="yaml-ヘッダの-topics-の各要素はハイフンで書く">3.2. YAML ヘッダの <code>topics:</code> の各要素はハイフンで書く</h3>
+<p>YAML ヘッダの記載例として以下のように記載されています。</p>
+<p><a href="https://zenn.dev/zenn/articles/zenn-cli-guide">Zenn CLIで記事・本を管理する方法</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "" # 記事のタイトル</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">emoji:</span><span class="co"> "😸" # アイキャッチとして使われる絵文字（1文字だけ）</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> "tech" # tech: 技術記事 / idea: アイデア記事</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">topics:</span><span class="co"> [] # タグ。["markdown", "rust", "aws"]のように指定する</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="an">published:</span><span class="co"> true # 公開設定（falseにすると下書き）</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ここから本文を書く</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>個人的には</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">topics:</span><span class="co"> ["markdown", "rust", "aws"]</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>よりも</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">topics:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - "markdown"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">  - "rust"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - "aws"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>の方が行ソートで重複を見つけやすいので好きです。</p>
+</section>
+<section id="会社テックブログ向けの予約投稿" class="level3">
+<h3 class="anchored" data-anchor-id="会社テックブログ向けの予約投稿">3.3. 会社テックブログ向けの予約投稿</h3>
+<p>会社の Publication から予約投稿するには以下でよさそうです。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">published:</span><span class="co"> true</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">published_at:</span><span class="co"> 2024-11-20 18:00</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">publication_name:</span><span class="co"> "Publication Name"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(参考) <a href="https://zenn.dev/open8/articles/zenn-publication-github">【Zenn】PublicationでもGitHub連携したい！自由選択型アプローチのすゝめ</a></p>
+<p>ただこれだといきなり投稿されて、かつ公開前のレビューのために個人のリポジトリのPRを見せる面倒臭さが発生します。 個人リポジトリの利用を前提として事前に内容を秘匿する場合はローカルで作成したプレビューを PDF 化していこうかなと考えています。</p>
+</section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
+<p>取り急ぎこの記事が無事投稿できていれば OK です！ 自分は新規投稿する度に本記事を見直すことになりそうです。</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="tech,tech-github,tech-zenn" data-listing-date-sort="1732092572000" data-listing-file-modified-sort="1732092701000" data-listing-date-modified-sort="1732092701000" data-listing-reading-time-sort="1" data-listing-word-count-sort="120">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-11-20-manage-zenn-with-github.html" class="no-external">Zennの記事をGitHubリポジトリで管理する</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-11-20-manage-zenn-with-github.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-github'); return false;">
-tech-github
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-zenn'); return false;">
-tech-zenn
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-11-20-manage-zenn-with-github.html" class="no-external">
-<div class="listing-date">
-2024-11-20
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="tech" data-listing-date-sort="1731423297000" data-listing-file-modified-sort="1731990179000" data-listing-date-modified-sort="1731990179000" data-listing-reading-time-sort="2" data-listing-word-count-sort="277">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-11-12-use-nektos-act.html" class="no-external">nektos/act を使ってみた</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-11-12-use-nektos-act.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-11-12-use-nektos-act.html" class="no-external">
-<div class="listing-date">
-2024-11-12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="diary" data-listing-date-sort="1729865839000" data-listing-file-modified-sort="1729865978000" data-listing-date-modified-sort="1729865978000" data-listing-reading-time-sort="1" data-listing-word-count-sort="22">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-10-25-thinking-of-my-career.html" class="no-external">キャリアについてぼんやり考えていたことを時系列順にまとめる</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-10-25-thinking-of-my-career.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-10-25-thinking-of-my-career.html" class="no-external">
-<div class="listing-date">
-2024-10-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="diary" data-listing-date-sort="1729859389000" data-listing-file-modified-sort="1729859643000" data-listing-date-modified-sort="1729859643000" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-10-25-s-i9wa4-umachan-g.html" class="no-external">:%s/i9wa4/uma-chan/g</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-10-25-s-i9wa4-umachan-g.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-10-25-s-i9wa4-umachan-g.html" class="no-external">
-<div class="listing-date">
-2024-10-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="tech,tech-vim" data-listing-date-sort="1727013899000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="55">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-09-22-vim-plugin-idea.html" class="no-external">最近の Vim プラグイン開発のアイデア</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-09-22-vim-plugin-idea.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-09-22-vim-plugin-idea.html" class="no-external">
-<div class="listing-date">
-2024-09-22
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="tech,tech-quarto" data-listing-date-sort="1725722674000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="2" data-listing-word-count-sort="201">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-09-08-quarto-dataframe-preview-test.html" class="no-external">Quarto による DataFrame の表示テスト</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-09-08-quarto-dataframe-preview-test.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-quarto'); return false;">
-tech-quarto
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-09-08-quarto-dataframe-preview-test.html" class="no-external">
-<div class="listing-date">
-2024-09-08
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="tech,tech-quarto" data-listing-date-sort="1724574332000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="5" data-listing-word-count-sort="848">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-08-25-publishing-github-pages-with-quarto.html" class="no-external">Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-08-25-publishing-github-pages-with-quarto.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-quarto'); return false;">
-tech-quarto
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-08-25-publishing-github-pages-with-quarto.html" class="no-external">
-<div class="listing-date">
-2024-08-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="tech,tech-tips" data-listing-date-sort="1721027711000" data-listing-file-modified-sort="1732004351000" data-listing-date-modified-sort="1732004351000" data-listing-reading-time-sort="1" data-listing-word-count-sort="151">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-07-15-technical-tips.html" class="no-external">技術系 Tips まとめ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-07-15-technical-tips.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-tips'); return false;">
-tech-tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-07-15-technical-tips.html" class="no-external">
-<div class="listing-date">
-2024-07-15
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="tech,tech-linux" data-listing-date-sort="1719507392000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-06-28-systemd-user.html" class="no-external">systemd がユーザー権限でも使える</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-06-28-systemd-user.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-linux'); return false;">
-tech-linux
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-06-28-systemd-user.html" class="no-external">
-<div class="listing-date">
-2024-06-28
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="diary" data-listing-date-sort="1718595737000" data-listing-file-modified-sort="1729868801000" data-listing-date-modified-sort="1729868801000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1369">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-06-17-purchased-gadgets.html" class="no-external">購入したガジェットの紹介</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-06-17-purchased-gadgets.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-06-17-purchased-gadgets.html" class="no-external">
-<div class="listing-date">
-2024-06-17
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="tech,tech-mac" data-listing-date-sort="1718594496000" data-listing-file-modified-sort="1732004351000" data-listing-date-modified-sort="1732004351000" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-06-17-setup-mac.html" class="no-external">Mac 環境構築手順</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-06-17-setup-mac.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-mac'); return false;">
-tech-mac
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-06-17-setup-mac.html" class="no-external">
-<div class="listing-date">
-2024-06-17
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="tech,tech-quarto" data-listing-date-sort="1714846989000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="30">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-05-05-deploy-quarto.html" class="no-external">Quarto で作ったスライドを GitHub Pages にデプロイする</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-05-05-deploy-quarto.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-quarto'); return false;">
-tech-quarto
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-05-05-deploy-quarto.html" class="no-external">
-<div class="listing-date">
-2024-05-05
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="tech,tech-dev,tech-vim" data-listing-date-sort="1714763224000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-05-04-get-git-branch-name.vim.html" class="no-external">Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-05-04-get-git-branch-name.vim.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-dev'); return false;">
-tech-dev
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-05-04-get-git-branch-name.vim.html" class="no-external">
-<div class="listing-date">
-2024-05-04
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="tech,tech-wsl2" data-listing-date-sort="1711379976000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-03-26-setup-ds100knock.html" class="no-external">データサイエンス100本ノックの実行環境構築 (WSL2)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-03-26-setup-ds100knock.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-wsl2'); return false;">
-tech-wsl2
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-03-26-setup-ds100knock.html" class="no-external">
-<div class="listing-date">
-2024-03-26
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="tech,tech-wsl2" data-listing-date-sort="1711375248000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="138">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-03-25-setup-wsl2.html" class="no-external">WSL2 のセットアップ</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-03-25-setup-wsl2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-wsl2'); return false;">
-tech-wsl2
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-03-25-setup-wsl2.html" class="no-external">
-<div class="listing-date">
-2024-03-25
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="tech,tech-vim" data-listing-date-sort="1706362659000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="2" data-listing-word-count-sort="228">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-27-setup-efm-langserver.html" class="no-external">efm-langserver を Vim/Neovim で利用する</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-27-setup-efm-langserver.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-27-setup-efm-langserver.html" class="no-external">
-<div class="listing-date">
-2024-01-27
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="tech,tech-dev,tech-vim" data-listing-date-sort="1704199666000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-02-vim-plugin-mnh.html" class="no-external">自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-02-vim-plugin-mnh.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-dev'); return false;">
-tech-dev
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-vim'); return false;">
-tech-vim
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-02-vim-plugin-mnh.html" class="no-external">
-<div class="listing-date">
-2024-01-02
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="17" data-categories="tech,tech-jekyll" data-listing-date-sort="1704184495000" data-listing-file-modified-sort="1729859395000" data-listing-date-modified-sort="1729859395000" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-02-jelyll-adjust.html" class="no-external">GitHub Pages (Jekyll) blog のタグ追加対応</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-02-jelyll-adjust.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('tech'); return false;">
-tech
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('tech-jekyll'); return false;">
-tech-jekyll
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-02-jelyll-adjust.html" class="no-external">
-<div class="listing-date">
-2024-01-02
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="18" data-categories="diary" data-listing-date-sort="1704047292000" data-listing-file-modified-sort="1729865978000" data-listing-date-modified-sort="1729865978000" data-listing-reading-time-sort="1" data-listing-word-count-sort="16">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/2024-01-01-init.html" class="no-external">Initial Post</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/2024-01-01-init.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('diary'); return false;">
-diary
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/2024-01-01-init.html" class="no-external">
-<div class="listing-date">
-2024-01-01
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
