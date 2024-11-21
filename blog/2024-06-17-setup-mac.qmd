@@ -100,7 +100,9 @@ cf. <https://github.com/i9wa4/dotfiles>
 ## 7. その他
 
 - Finder
-    - よく使う項目にユーザーホームを追加する
+    - 表示
+        - パスバーを表示
+    - よく使う項目にユーザーホームをドラッグ&ドロップで追加する
 - プログラミング用フォント MyricaM をダウンロード・インストールする
 - Docker Desktop の Docker Daemon 設定
 
