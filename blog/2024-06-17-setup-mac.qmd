@@ -129,6 +129,8 @@ cf. <https://github.com/i9wa4/dotfiles>
     - Settings
         - General
             - [x] Start Docker Desktop when you sign in to your computer
+- Rectangle
+    - ログイン時に起動 ON
 
 ## 7. (おまけ) ショートカット集
 
