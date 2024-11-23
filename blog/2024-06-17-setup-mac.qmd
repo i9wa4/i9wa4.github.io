@@ -17,46 +17,68 @@ cf. <https://github.com/i9wa4/dotfiles>
 
 ## 2. システム設定
 
-- マウスのスクロール方向変更
-- プライバシーとセキュリティ
-    - 画面収録とシステムオーディオ録音
-        - 画面の収録とオーディオの録音を両方許可する
-            - Arc, Slack, Zoom
+- バッテリー
+    - バッテリーの状態
+        - バッテリー充電の最適化
+- コントロールセンター
+    - Bluetooth
+        - メニューバーに表示
+    - バッテリー
+        - メニューバーに表示 ON
+        - 割合 (%) を表示 ON
+    - メニューバーのみ
+        - 時計
+            - 日付を表示 常に
+            - 曜日を表示 ON
+            - 秒を表示 ON
+        - メニューバーを自動的に表示/非表示 しない
 - ディスプレイ
     - Night Shift
-- デスクトップ
-    - 壁紙をクリックしてデスクトップを表示
-        - ステージマネージャー使用時のみ
-- Dock
-    - 配置
-    - 自動的に表示/非表示
-- コントロールセンター
-    - Bluetoothアイコンをメニューバーに表示する
-    - メニューバー
-        - メニューバーを自動的に非表示しない
-        - 時計
-            - 日付を常に表示
-            - 秒を表示
-- バッテリー
-    - バッテリーの状態 最適化
+        - カスタム 5:00-4:59
+- デスクトップと Dock
+    - Dock
+        - 画面上の位置 左
+    - デスクトップとステージマネージャー
+        - 壁紙をクリックしてデスクトップを表示
+            - ステージマネージャー使用時のみ
+    - ウィジェット
+        - デフォルトの Web ブラウザ
+            - Arc
+- 通知
+    - 通知センター OFF
+    - アプリケーションの通知 システム系以外は OFF
+- ロック画面
+    - 時間設定 30分
+- プライバシーとセキュリティ
+    - 画面収録とシステムオーディオ録音
+        - Slack
+        - Web ブラウザ
+        - Zoom
+- ユーザとグループ
+    - 管理者
+- キーボード
+    - キーボードショートカット
+        - 修飾キー
+            - 内蔵キーボード
+                - Caps Lock -> Control
+- マウス
+    - ナチュラルなスクロール OFF
+- トラックパッド
+    - スクロールとズーム
+        - ナチュラルなスクロール OFF
 
-## 3. ターミナル
-
-- Alacritty を使う
-    - WezTerm でもいいかもしれない
-
-## 4. Zsh
+## 3. Zsh
 
 - Ctrl-R のコマンド履歴検索が実行できないとき
     - [zshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI](https://wayohoo.com/article/6922)
 
-## 5. AWS
+## 4. AWS
 
-### 5.1. Okta 経由
+### 4.1. Okta 経由
 
 - [AWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法](https://www.notion.so/AWS-IAM-Identity-Center-a4eda510decb43f6a51c1df902acf84a?pvs=21)
 
-### 5.2. AWS CLI 経由
+### 4.2. AWS CLI 経由
 
 - [AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
     - これに従って AWS CLI をインストールする
@@ -84,9 +106,9 @@ cf. <https://github.com/i9wa4/dotfiles>
 - `~/.aws/credentials` の設定
     - Access Keys の説明を読む！
 
-## 6. Arc
+## 5. Arc
 
-### 6.1. 検索エンジン設定
+### 5.1. 検索エンジン設定
 
 - Google 日本語検索
     - `https://www.google.com/search?q=%s`
@@ -97,16 +119,18 @@ cf. <https://github.com/i9wa4/dotfiles>
 - DuckDuckGo 英語検索
     - `https://duckduckgo.com/?q=%s&kl=us-en&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
 
-## 7. その他
+## 6. その他
 
 - Finder
     - 表示
         - パスバーを表示
     - よく使う項目にユーザーホームをドラッグ&ドロップで追加する
-- プログラミング用フォント MyricaM をダウンロード・インストールする
-- Docker Desktop の Docker Daemon 設定
+- Docker Desktop
+    - Settings
+        - General
+            - [x] Start Docker Desktop when you sign in to your computer
 
-## 8. (おまけ) ショートカット集
+## 7. (おまけ) ショートカット集
 
 | カテゴリ       | ショートカット     | 説明                           |
 | ---            | ---                | ---                            |
