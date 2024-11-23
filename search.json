@@ -263,7 +263,7 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.1 MB 15.3 MB/s eta 0:00:01     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/13.1 MB 20.7 MB/s eta 0:00:01     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/13.1 MB 25.4 MB/s eta 0:00:01     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/13.1 MB 30.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 6.3/13.1 MB 36.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 9.3/13.1 MB 44.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 77.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 77.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 56.7 MB/s eta 0:00:00\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/16.3 MB 147.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ 10.1/16.3 MB 148.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 15.2/16.3 MB 151.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 154.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 82.1 MB/s eta 0:00:00\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 68.0 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 6.7 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
+    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.5/13.1 MB 14.5 MB/s eta 0:00:01     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/13.1 MB 19.8 MB/s eta 0:00:01     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/13.1 MB 23.4 MB/s eta 0:00:01     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.7/13.1 MB 27.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 5.6/13.1 MB 32.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ 7.7/13.1 MB 37.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ 10.6/13.1 MB 48.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 68.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 52.8 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 78.9 MB/s eta 0:00:00\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/16.3 MB 141.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 10.5/16.3 MB 153.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 184.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 184.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 91.1 MB/s eta 0:00:00\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.8 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
@@ -312,49 +312,42 @@
     "href": "blog/2024-06-17-setup-mac.html#システム設定",
     "title": "Mac 環境構築手順",
     "section": "2. システム設定",
-    "text": "2. システム設定\n\nマウスのスクロール方向変更\nプライバシーとセキュリティ\n\n画面収録とシステムオーディオ録音\n\n画面の収録とオーディオの録音を両方許可する\n\nArc, Slack, Zoom\n\n\n\nディスプレイ\n\nNight Shift\n\nデスクトップ\n\n壁紙をクリックしてデスクトップを表示\n\nステージマネージャー使用時のみ\n\n\nDock\n\n配置\n自動的に表示/非表示\n\nコントロールセンター\n\nBluetoothアイコンをメニューバーに表示する\nメニューバー\n\nメニューバーを自動的に非表示しない\n時計\n\n日付を常に表示\n秒を表示\n\n\n\nバッテリー\n\nバッテリーの状態 最適化"
-  },
-  {
-    "objectID": "blog/2024-06-17-setup-mac.html#ターミナル",
-    "href": "blog/2024-06-17-setup-mac.html#ターミナル",
-    "title": "Mac 環境構築手順",
-    "section": "3. ターミナル",
-    "text": "3. ターミナル\n\nAlacritty を使う\n\nWezTerm でもいいかもしれない"
+    "text": "2. システム設定\n\nバッテリー\n\nバッテリーの状態\n\nバッテリー充電の最適化\n\n\nコントロールセンター\n\nBluetooth\n\nメニューバーに表示\n\nバッテリー\n\nメニューバーに表示 ON\n割合 (%) を表示 ON\n\nメニューバーのみ\n\n時計\n\n日付を表示 常に\n曜日を表示 ON\n秒を表示 ON\n\nメニューバーを自動的に表示/非表示 しない\n\n\nディスプレイ\n\nNight Shift\n\nカスタム 5:00-4:59\n\n\nデスクトップと Dock\n\nDock\n\n画面上の位置 左\n\nデスクトップとステージマネージャー\n\n壁紙をクリックしてデスクトップを表示\n\nステージマネージャー使用時のみ\n\n\nウィジェット\n\nデフォルトの Web ブラウザ\n\nArc\n\n\n\n通知\n\n通知センター OFF\nアプリケーションの通知 システム系以外は OFF\n\nロック画面\n\n時間設定 30分\n\nプライバシーとセキュリティ\n\n画面収録とシステムオーディオ録音\n\nSlack\nWeb ブラウザ\nZoom\n\n\nユーザとグループ\n\n管理者\n\nキーボード\n\nキーボードショートカット\n\n修飾キー\n\n内蔵キーボード\n\nCaps Lock -&gt; Control\n\n\n\n\nマウス\n\nナチュラルなスクロール OFF\n\nトラックパッド\n\nスクロールとズーム\n\nナチュラルなスクロール OFF"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html#zsh",
     "href": "blog/2024-06-17-setup-mac.html#zsh",
     "title": "Mac 環境構築手順",
-    "section": "4. Zsh",
-    "text": "4. Zsh\n\nCtrl-R のコマンド履歴検索が実行できないとき\n\nzshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI"
+    "section": "3. Zsh",
+    "text": "3. Zsh\n\nCtrl-R のコマンド履歴検索が実行できないとき\n\nzshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html#aws",
     "href": "blog/2024-06-17-setup-mac.html#aws",
     "title": "Mac 環境構築手順",
-    "section": "5. AWS",
-    "text": "5. AWS\n\n5.1. Okta 経由\n\nAWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法\n\n\n\n5.2. AWS CLI 経由\n\nAWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface\n\nこれに従って AWS CLI をインストールする\n\n自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface\nログイン\naws sso login --profile xxx\n動作確認\naws ec2 describe-instances --profile xxx\ndefault profile の設定手順\nAWS_DEFAULT_PROFILE=xxx\naws ec2 describe-instances\naws s3 ls\n~/.aws/credentials の設定\n\nAccess Keys の説明を読む！"
+    "section": "4. AWS",
+    "text": "4. AWS\n\n4.1. Okta 経由\n\nAWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法\n\n\n\n4.2. AWS CLI 経由\n\nAWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface\n\nこれに従って AWS CLI をインストールする\n\n自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface\nログイン\naws sso login --profile xxx\n動作確認\naws ec2 describe-instances --profile xxx\ndefault profile の設定手順\nAWS_DEFAULT_PROFILE=xxx\naws ec2 describe-instances\naws s3 ls\n~/.aws/credentials の設定\n\nAccess Keys の説明を読む！"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html#arc",
     "href": "blog/2024-06-17-setup-mac.html#arc",
     "title": "Mac 環境構築手順",
-    "section": "6. Arc",
-    "text": "6. Arc\n\n6.1. 検索エンジン設定\n\nGoogle 日本語検索\n\nhttps://www.google.com/search?q=%s\n\nGoogle 英語検索\n\nhttps://www.google.com/search?q=%s&gl=us&hl=en&gws_rd=cr&pws=0\n\nDuckDuckGo 日本語検索\n\nhttps://duckduckgo.com/?q=%s&kl=jp-jp&kz=-1&kav=1&kaf=1&k1=-1&ia=web\n\nDuckDuckGo 英語検索\n\nhttps://duckduckgo.com/?q=%s&kl=us-en&kz=-1&kav=1&kaf=1&k1=-1&ia=web"
+    "section": "5. Arc",
+    "text": "5. Arc\n\n5.1. 検索エンジン設定\n\nGoogle 日本語検索\n\nhttps://www.google.com/search?q=%s\n\nGoogle 英語検索\n\nhttps://www.google.com/search?q=%s&gl=us&hl=en&gws_rd=cr&pws=0\n\nDuckDuckGo 日本語検索\n\nhttps://duckduckgo.com/?q=%s&kl=jp-jp&kz=-1&kav=1&kaf=1&k1=-1&ia=web\n\nDuckDuckGo 英語検索\n\nhttps://duckduckgo.com/?q=%s&kl=us-en&kz=-1&kav=1&kaf=1&k1=-1&ia=web"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html#その他",
     "href": "blog/2024-06-17-setup-mac.html#その他",
     "title": "Mac 環境構築手順",
-    "section": "7. その他",
-    "text": "7. その他\n\nFinder\n\n表示\n\nパスバーを表示\n\nよく使う項目にユーザーホームをドラッグ&ドロップで追加する\n\nプログラミング用フォント MyricaM をダウンロード・インストールする\nDocker Desktop の Docker Daemon 設定"
+    "section": "6. その他",
+    "text": "6. その他\n\nFinder\n\n表示\n\nパスバーを表示\n\nよく使う項目にユーザーホームをドラッグ&ドロップで追加する\n\nDocker Desktop\n\nSettings\n\nGeneral\n\nStart Docker Desktop when you sign in to your computer"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
     "href": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
     "title": "Mac 環境構築手順",
-    "section": "8. (おまけ) ショートカット集",
-    "text": "8. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
+    "section": "7. (おまけ) ショートカット集",
+    "text": "7. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
   },
   {
     "objectID": "blog/2024-06-28-systemd-user.html",

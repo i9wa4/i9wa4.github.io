@@ -175,12 +175,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#dotfiles-導入" id="toc-dotfiles-導入" class="nav-link active" data-scroll-target="#dotfiles-導入">1. dotfiles 導入</a></li>
   <li><a href="#システム設定" id="toc-システム設定" class="nav-link" data-scroll-target="#システム設定">2. システム設定</a></li>
-  <li><a href="#ターミナル" id="toc-ターミナル" class="nav-link" data-scroll-target="#ターミナル">3. ターミナル</a></li>
-  <li><a href="#zsh" id="toc-zsh" class="nav-link" data-scroll-target="#zsh">4. Zsh</a></li>
-  <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws">5. AWS</a></li>
-  <li><a href="#arc" id="toc-arc" class="nav-link" data-scroll-target="#arc">6. Arc</a></li>
-  <li><a href="#その他" id="toc-その他" class="nav-link" data-scroll-target="#その他">7. その他</a></li>
-  <li><a href="#おまけ-ショートカット集" id="toc-おまけ-ショートカット集" class="nav-link" data-scroll-target="#おまけ-ショートカット集">8. (おまけ) ショートカット集</a></li>
+  <li><a href="#zsh" id="toc-zsh" class="nav-link" data-scroll-target="#zsh">3. Zsh</a></li>
+  <li><a href="#aws" id="toc-aws" class="nav-link" data-scroll-target="#aws">4. AWS</a></li>
+  <li><a href="#arc" id="toc-arc" class="nav-link" data-scroll-target="#arc">5. Arc</a></li>
+  <li><a href="#その他" id="toc-その他" class="nav-link" data-scroll-target="#その他">6. その他</a></li>
+  <li><a href="#おまけ-ショートカット集" id="toc-おまけ-ショートカット集" class="nav-link" data-scroll-target="#おまけ-ショートカット集">7. (おまけ) ショートカット集</a></li>
   </ul>
 </nav>
     </div>
@@ -211,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-11-21</p>
+      <p class="date-modified">2024-11-23</p>
     </div>
   </div>
     
@@ -231,63 +230,113 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="システム設定" class="level2">
 <h2 class="anchored" data-anchor-id="システム設定">2. システム設定</h2>
 <ul>
-<li>マウスのスクロール方向変更</li>
-<li>プライバシーとセキュリティ
+<li>バッテリー
 <ul>
-<li>画面収録とシステムオーディオ録音
+<li>バッテリーの状態
 <ul>
-<li>画面の収録とオーディオの録音を両方許可する
-<ul>
-<li>Arc, Slack, Zoom</li>
+<li>バッテリー充電の最適化</li>
 </ul></li>
+</ul></li>
+<li>コントロールセンター
+<ul>
+<li>Bluetooth
+<ul>
+<li>メニューバーに表示</li>
+</ul></li>
+<li>バッテリー
+<ul>
+<li>メニューバーに表示 ON</li>
+<li>割合 (%) を表示 ON</li>
+</ul></li>
+<li>メニューバーのみ
+<ul>
+<li>時計
+<ul>
+<li>日付を表示 常に</li>
+<li>曜日を表示 ON</li>
+<li>秒を表示 ON</li>
+</ul></li>
+<li>メニューバーを自動的に表示/非表示 しない</li>
 </ul></li>
 </ul></li>
 <li>ディスプレイ
 <ul>
-<li>Night Shift</li>
+<li>Night Shift
+<ul>
+<li>カスタム 5:00-4:59</li>
 </ul></li>
-<li>デスクトップ
+</ul></li>
+<li>デスクトップと Dock
+<ul>
+<li>Dock
+<ul>
+<li>画面上の位置 左</li>
+</ul></li>
+<li>デスクトップとステージマネージャー
 <ul>
 <li>壁紙をクリックしてデスクトップを表示
 <ul>
 <li>ステージマネージャー使用時のみ</li>
 </ul></li>
 </ul></li>
-<li>Dock
+<li>ウィジェット
 <ul>
-<li>配置</li>
-<li>自動的に表示/非表示</li>
-</ul></li>
-<li>コントロールセンター
+<li>デフォルトの Web ブラウザ
 <ul>
-<li>Bluetoothアイコンをメニューバーに表示する</li>
-<li>メニューバー
-<ul>
-<li>メニューバーを自動的に非表示しない</li>
-<li>時計
-<ul>
-<li>日付を常に表示</li>
-<li>秒を表示</li>
+<li>Arc</li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li>バッテリー
+<li>通知
 <ul>
-<li>バッテリーの状態 最適化</li>
+<li>通知センター OFF</li>
+<li>アプリケーションの通知 システム系以外は OFF</li>
 </ul></li>
-</ul>
-</section>
-<section id="ターミナル" class="level2">
-<h2 class="anchored" data-anchor-id="ターミナル">3. ターミナル</h2>
+<li>ロック画面
 <ul>
-<li>Alacritty を使う
+<li>時間設定 30分</li>
+</ul></li>
+<li>プライバシーとセキュリティ
 <ul>
-<li>WezTerm でもいいかもしれない</li>
+<li>画面収録とシステムオーディオ録音
+<ul>
+<li>Slack</li>
+<li>Web ブラウザ</li>
+<li>Zoom</li>
+</ul></li>
+</ul></li>
+<li>ユーザとグループ
+<ul>
+<li>管理者</li>
+</ul></li>
+<li>キーボード
+<ul>
+<li>キーボードショートカット
+<ul>
+<li>修飾キー
+<ul>
+<li>内蔵キーボード
+<ul>
+<li>Caps Lock -&gt; Control</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>マウス
+<ul>
+<li>ナチュラルなスクロール OFF</li>
+</ul></li>
+<li>トラックパッド
+<ul>
+<li>スクロールとズーム
+<ul>
+<li>ナチュラルなスクロール OFF</li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
 <section id="zsh" class="level2">
-<h2 class="anchored" data-anchor-id="zsh">4. Zsh</h2>
+<h2 class="anchored" data-anchor-id="zsh">3. Zsh</h2>
 <ul>
 <li>Ctrl-R のコマンド履歴検索が実行できないとき
 <ul>
@@ -296,15 +345,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="aws" class="level2">
-<h2 class="anchored" data-anchor-id="aws">5. AWS</h2>
+<h2 class="anchored" data-anchor-id="aws">4. AWS</h2>
 <section id="okta-経由" class="level3">
-<h3 class="anchored" data-anchor-id="okta-経由">5.1. Okta 経由</h3>
+<h3 class="anchored" data-anchor-id="okta-経由">4.1. Okta 経由</h3>
 <ul>
 <li><a href="https://www.notion.so/AWS-IAM-Identity-Center-a4eda510decb43f6a51c1df902acf84a?pvs=21">AWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法</a></li>
 </ul>
 </section>
 <section id="aws-cli-経由" class="level3">
-<h3 class="anchored" data-anchor-id="aws-cli-経由">5.2. AWS CLI 経由</h3>
+<h3 class="anchored" data-anchor-id="aws-cli-経由">4.2. AWS CLI 経由</h3>
 <ul>
 <li><p><a href="https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html">AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface</a></p>
 <ul>
@@ -327,9 +376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="arc" class="level2">
-<h2 class="anchored" data-anchor-id="arc">6. Arc</h2>
+<h2 class="anchored" data-anchor-id="arc">5. Arc</h2>
 <section id="検索エンジン設定" class="level3">
-<h3 class="anchored" data-anchor-id="検索エンジン設定">6.1. 検索エンジン設定</h3>
+<h3 class="anchored" data-anchor-id="検索エンジン設定">5.1. 検索エンジン設定</h3>
 <ul>
 <li>Google 日本語検索
 <ul>
@@ -351,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="その他" class="level2">
-<h2 class="anchored" data-anchor-id="その他">7. その他</h2>
+<h2 class="anchored" data-anchor-id="その他">6. その他</h2>
 <ul>
 <li>Finder
 <ul>
@@ -361,12 +410,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li>よく使う項目にユーザーホームをドラッグ&amp;ドロップで追加する</li>
 </ul></li>
-<li>プログラミング用フォント MyricaM をダウンロード・インストールする</li>
-<li>Docker Desktop の Docker Daemon 設定</li>
+<li>Docker Desktop
+<ul>
+<li>Settings
+<ul>
+<li>General
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Start Docker Desktop when you sign in to your computer</label></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
 <section id="おまけ-ショートカット集" class="level2">
-<h2 class="anchored" data-anchor-id="おまけ-ショートカット集">8. (おまけ) ショートカット集</h2>
+<h2 class="anchored" data-anchor-id="おまけ-ショートカット集">7. (おまけ) ショートカット集</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
