@@ -67,59 +67,7 @@ cf. <https://github.com/i9wa4/dotfiles>
     - スクロールとズーム
         - ナチュラルなスクロール OFF
 
-## 3. Zsh
-
-- Ctrl-R のコマンド履歴検索が実行できないとき
-    - [zshで「control + R」をやってもコマンド履歴検索が実行できない場合の対処方法。 – 和洋風KAI](https://wayohoo.com/article/6922)
-
-## 4. AWS
-
-### 4.1. Okta 経由
-
-- [AWS アカウントにIAM Identity Center ユーザーポータル経由でサインインする方法](https://www.notion.so/AWS-IAM-Identity-Center-a4eda510decb43f6a51c1df902acf84a?pvs=21)
-
-### 4.2. AWS CLI 経由
-
-- [AWS CLIの最新バージョンのインストールまたは更新 - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
-    - これに従って AWS CLI をインストールする
-- [自動認証更新で IAM Identity Center AWS CLI トークンプロバイダーの認証情報を使用するようにを設定します - AWS Command Line Interface](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/sso-configure-profile-token.html)
-- ログイン
-
-    ```sh
-    aws sso login --profile xxx
-    ```
-
-- 動作確認
-
-    ```sh
-    aws ec2 describe-instances --profile xxx
-    ```
-
-- default profile の設定手順
-
-    ```sh
-    AWS_DEFAULT_PROFILE=xxx
-    aws ec2 describe-instances
-    aws s3 ls
-    ```
-
-- `~/.aws/credentials` の設定
-    - Access Keys の説明を読む！
-
-## 5. Arc
-
-### 5.1. 検索エンジン設定
-
-- Google 日本語検索
-    - `https://www.google.com/search?q=%s`
-- Google 英語検索
-    - `https://www.google.com/search?q=%s&gl=us&hl=en&gws_rd=cr&pws=0`
-- DuckDuckGo 日本語検索
-    - `https://duckduckgo.com/?q=%s&kl=jp-jp&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
-- DuckDuckGo 英語検索
-    - `https://duckduckgo.com/?q=%s&kl=us-en&kz=-1&kav=1&kaf=1&k1=-1&ia=web`
-
-## 6. その他
+## 3. その他
 
 - Finder
     - 表示
@@ -128,11 +76,11 @@ cf. <https://github.com/i9wa4/dotfiles>
 - Docker Desktop
     - Settings
         - General
-            - [x] Start Docker Desktop when you sign in to your computer
+            - [ ] Start Docker Desktop when you sign in to your computer
 - Rectangle
     - ログイン時に起動 ON
 
-## 7. (おまけ) ショートカット集
+## 4. (おまけ) ショートカット集
 
 | カテゴリ       | ショートカット     | 説明                           |
 | ---            | ---                | ---                            |
