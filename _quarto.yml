@@ -28,6 +28,8 @@ website:
         text: "about"
       - href: "blog"
         text: "blog"
+      - href: "https://i9wa4.github.io/resume"
+        text: "resume"
     right:
       - href: "https://github.com/i9wa4"
         icon: github
