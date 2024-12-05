@@ -258,7 +258,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># どちらでも OK</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">snowsql</span> <span class="at">--connection</span> connection_name1</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">snowsql</span> <span class="at">-c</span> connection_name1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>接続後は SQL 文を直接実行できます。</p></li>
+<li><p>接続後は SQL 文を直接実行できます。</p>
+<ul>
+<li>必要に応じて <code>USE ROLE xxxxxx;</code> で権限を切り替えることができます。</li>
+</ul></li>
 <li><p>各種コマンドは <code>!help</code> で参照できます。</p></li>
 </ol>
 
