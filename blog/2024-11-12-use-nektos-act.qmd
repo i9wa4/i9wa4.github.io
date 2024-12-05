@@ -85,3 +85,9 @@ INFO    ️ 📣 A newer version of 'act' is available - consider ugrading to 0.
 ```
 
 うまく動いてくれました。
+
+## 4. [2024-12-05 追記] Mac でエラーが出た場合
+
+以下の記事が参考になりました。
+
+[WSL2でDocker buildをすると止まる問題("docker-credential-desktop.exe": executable file not found in $PATH, out: ``) #Docker - Qiita](https://qiita.com/rasuk/items/a36b29b8c79d02fc551a)
