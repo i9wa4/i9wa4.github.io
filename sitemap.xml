@@ -25,39 +25,27 @@
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/index.html</loc>
-    <lastmod>2024-11-14T00:57:15.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</loc>
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</loc>
-    <lastmod>2024-10-25T12:29:55.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</loc>
+    <lastmod>2024-11-25T12:09:25.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</loc>
-    <lastmod>2024-11-20T08:51:41.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-01-init.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</loc>
     <lastmod>2024-10-25T14:19:38.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</loc>
-    <lastmod>2024-10-25T12:29:55.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</loc>
+    <lastmod>2024-10-25T12:34:03.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
-    <lastmod>2024-12-03T13:52:04.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
   </url>
   <url>
@@ -65,28 +53,44 @@
     <lastmod>2024-10-25T15:06:41.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</loc>
-    <lastmod>2024-10-25T12:34:03.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
+    <lastmod>2024-12-03T13:52:04.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</loc>
+    <lastmod>2024-10-25T12:29:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-01-01-init.html</loc>
     <lastmod>2024-10-25T14:19:38.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</loc>
-    <lastmod>2024-11-25T12:09:25.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</loc>
+    <lastmod>2024-11-20T08:51:41.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</loc>
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</loc>
     <lastmod>2024-10-25T12:29:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
+    <lastmod>2024-10-25T12:29:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <lastmod>2024-11-14T00:57:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</loc>
+    <lastmod>2024-12-05T01:02:33.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
