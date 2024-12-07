@@ -1,0 +1,43 @@
+---
+title: "Quarto の YAML ヘッダにコードを埋め込みたい"
+date: 2024-12-07 15:30:24 +0900
+date-modified: last-modified
+categories:
+  - "tech"
+  - "tech-quarto"
+---
+
+こんにちは。uma-chan です。
+
+R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。
+
+[Inline R code in YAML · quarto-dev/quarto-cli · Discussion #606](https://github.com/quarto-dev/quarto-cli/discussions/606)
+
+変数対応しているみたいですが、手元では動かなかったなあ。
+
+<https://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008>
+
+> > The use of meta shortcode in the YAML
+>
+> Meta shortcode in YAML should work. Inline R code should not. So you could fill subtitle using shortcode (`meta` or `env`, or `var` for project with variables yml file). It should work with title to I believe.
+>
+> Did you try meta shortcode or other already ?
+>
+> ```
+> ---
+> title: "{{< meta my_title >}}"
+> format: html
+> ---
+>
+> Content
+> ```
+>
+> then
+>
+> ```powershell
+> quarto preview test.qmd --metadata my_title="filled"
+> ```
+>
+> This is working for me
+
+このページの左下に出している Copyright の年表記を動的にしてくて調べてましたが、まだ方法が見つかっていません。
