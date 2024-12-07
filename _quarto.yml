@@ -13,14 +13,14 @@ website:
   site-url: "https://i9wa4.github.io/"
   favicon: "/assets/common/icon_hhkb3.png"
   image: "/assets/common/icon_hhkb3.png"
-  search: false
+  search: true
   twitter-card:
     card-style: summary
     creator: "@i9wa4_"
     site: "@i9wa4_"
   open-graph: true
-  # repo-url: "https://github.com/i9wa4/i9wa4.github.io"
-  # repo-actions: [edit, source, issue]
+  repo-url: "https://github.com/i9wa4/i9wa4.github.io"
+  repo-actions: [edit, source, issue]
   navbar:
     # https://icons.getbootstrap.com/
     left:
@@ -39,6 +39,15 @@ website:
         icon: linkedin
       - href: "blog/index.xml"
         icon: rss
+      - href: "https://quarto.org/"
+        text: "Built with Quarto"
+  page-footer:
+    left:
+      - text: "Copyright 2024, uma-chan"
+    center:
+      - text: "Top"
+        href: "."
+    right:
       - href: "https://quarto.org/"
         text: "Built with Quarto"
 
