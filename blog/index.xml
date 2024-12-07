@@ -15,7 +15,50 @@
 <link>https://i9wa4.github.io/blog/</link>
 </image>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Thu, 05 Dec 2024 00:48:09 GMT</lastBuildDate>
+<lastBuildDate>Sat, 07 Dec 2024 06:30:24 GMT</lastBuildDate>
+<item>
+  <title>事故らない OneDrive 設定変更手順</title>
+  <link>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。uma-chan です。</p>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。</p>
+<p><a href="https://x.com/i9wa4_/status/1864940454409834645" class="uri">https://x.com/i9wa4_/status/1864940454409834645</a></p>
+<p>意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。</p>
+<p>業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。</p>
+</section>
+<section id="想定するユースケース" class="level2">
+<h2 class="anchored" data-anchor-id="想定するユースケース">2. 想定するユースケース</h2>
+<p>同期対象を「デスクトップ」や「ドキュメント」そのものではなく、明示的に作成したフォルダだけとしたい場合です。</p>
+</section>
+<section id="事故らない-onedrive-セットアップ手順" class="level2">
+<h2 class="anchored" data-anchor-id="事故らない-onedrive-セットアップ手順">3. 事故らない OneDrive セットアップ手順</h2>
+<ol type="1">
+<li>全フォルダを OneDrive の同期対象から外す</li>
+<li>同期対象から外した「デスクトップ」や「ドキュメント」はこの時点では OneDrive フォルダ配下に置かれているので右クリックして「プロパティ→場所→標準に戻す」で元の場所 (<code>%USERPROFILE%</code> 直下) に戻す</li>
+<li>明示的にバックアップ対象としたいフォルダを OneDrive の同期対象に設定する</li>
+<li>ブラウザで OneDrive にアクセスして不要なデータを削除する</li>
+<li>OneDrive の同期を再開する</li>
+</ol>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
+<p>OneDrive の操作手順を詳細に書けず心苦しいのですが、きっと何とかなるはず。信じてます。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>tech</category>
+  <category>tech-windows</category>
+  <guid>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</guid>
+  <pubDate>Sat, 07 Dec 2024 06:30:24 GMT</pubDate>
+</item>
 <item>
   <title>SnowSQL セットアップ (Mac)</title>
   <link>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</link>
@@ -733,7 +776,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="59da4687" class="cell" data-execution_count="1">
+<div id="7d996070" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -750,15 +793,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/13.1 MB 59.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ 7.0/13.1 MB 102.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 163.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 163.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 94.3 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/13.1 MB 75.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 8.5/13.1 MB 123.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 181.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 100.5 MB/s eta 0:00:00
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Collecting tzdata&gt;=2022.7
   Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 81.7 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 61.8 MB/s eta 0:00:00
 Collecting numpy&gt;=1.22.4
   Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ 5.9/16.3 MB 178.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 12.3/16.3 MB 181.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 189.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 189.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 91.4 MB/s eta 0:00:00
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/16.3 MB 166.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ 10.8/16.3 MB 159.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 172.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 172.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 86.8 MB/s eta 0:00:00
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2
@@ -766,7 +809,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 8.5 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 6.9 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -775,7 +818,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="1e7cfa90" class="cell" data-execution_count="2">
+<div id="8dc84fce" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -951,7 +994,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="fc679685" class="cell" data-execution_count="3">
+<div id="b950a72a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -982,7 +1025,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="053415b2" class="cell" data-execution_count="4">
+<div id="83764863" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -1051,7 +1094,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="26a6793a" class="cell" data-execution_count="5">
+<div id="5dd0ccd4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -3278,42 +3321,6 @@ font-style: inherit;">'''</span></span></code></pre></div>
   <category>tech-jekyll</category>
   <guid>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</guid>
   <pubDate>Tue, 02 Jan 2024 08:34:55 GMT</pubDate>
-</item>
-<item>
-  <title>Initial Post</title>
-  <link>https://i9wa4.github.io/blog/2024-01-01-init.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<!-- # h1 -->
-<p>こんにちは。i9wa4 です。</p>
-<p>初投稿になります。</p>
-<section id="i9wa4-とは" class="level2">
-<h2 class="anchored" data-anchor-id="i9wa4-とは">1. i9wa4 とは</h2>
-<ul>
-<li>読み：いくわよ</li>
-<li>仕事：データエンジニア・MLOpsエンジニア
-<ul>
-<li>業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです</li>
-</ul></li>
-</ul>
-</section>
-<section id="このブログの運用方針" class="level2">
-<h2 class="anchored" data-anchor-id="このブログの運用方針">2. このブログの運用方針</h2>
-<ul>
-<li>他サービスに流用するかもしれないけど記事の元データはここで一元管理したい</li>
-<li>これまで色々書いてきた記事もここに集約していきたい</li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>diary</category>
-  <guid>https://i9wa4.github.io/blog/2024-01-01-init.html</guid>
-  <pubDate>Sun, 31 Dec 2023 18:28:12 GMT</pubDate>
 </item>
 </channel>
 </rss>
