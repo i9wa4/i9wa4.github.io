@@ -13,31 +13,10 @@ R Markdown では実現できてるんですが Quarto ではまだダメなん�
 
 [Inline R code in YAML · quarto-dev/quarto-cli · Discussion #606](https://github.com/quarto-dev/quarto-cli/discussions/606)
 
-変数対応しているみたいですが、手元では動かなかったなあ。
+変数対応していてそちらは上手く動いてくれました！
 
 <https://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008>
 
-> > The use of meta shortcode in the YAML
->
-> Meta shortcode in YAML should work. Inline R code should not. So you could fill subtitle using shortcode (`meta` or `env`, or `var` for project with variables yml file). It should work with title to I believe.
->
-> Did you try meta shortcode or other already ?
->
-> ```
-> ---
-> title: "{{< meta my_title >}}"
-> format: html
-> ---
->
-> Content
-> ```
->
-> then
->
-> ```powershell
-> quarto preview test.qmd --metadata my_title="filled"
-> ```
->
-> This is working for me
+ということは GitHub Actions 内で生成できる値を Quarto で作ったページに埋め込むことができますね。
 
-このページの左下に出している Copyright の年表記を動的にしてくて調べてましたが、まだ方法が見つかっていません。
+Quarto 向けの Publish Workflow も対応させたいので PR 作りたいです。
