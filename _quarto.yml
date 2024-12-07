@@ -44,9 +44,6 @@ website:
   page-footer:
     left:
       - text: "Copyright 2024, uma-chan"
-    center:
-      - text: "Top"
-        href: "."
     right:
       - href: "https://quarto.org/"
         text: "Built with Quarto"
