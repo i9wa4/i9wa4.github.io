@@ -39,8 +39,8 @@ website:
         icon: linkedin
       - href: "blog/index.xml"
         icon: rss
-      - href: "https://quarto.org/"
-        text: "Built with Quarto"
+      # - href: "https://quarto.org/"
+      #   text: "Built with Quarto"
   page-footer:
     left:
       - text: "Copyright 2024, uma-chan"
