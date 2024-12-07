@@ -19,8 +19,8 @@ website:
     creator: "@i9wa4_"
     site: "@i9wa4_"
   open-graph: true
-  repo-url: "https://github.com/i9wa4/i9wa4.github.io"
-  repo-actions: [edit, source, issue]
+  # repo-url: "https://github.com/i9wa4/i9wa4.github.io"
+  # repo-actions: [edit, source, issue]
   navbar:
     # https://icons.getbootstrap.com/
     left:
