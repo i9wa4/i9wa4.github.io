@@ -5,6 +5,7 @@ date-modified: last-modified
 categories:
   - "tech"
   - "tech-wsl2"
+  - "tech-windows"
 ---
 
 こんにちは。i9wa4 です。
