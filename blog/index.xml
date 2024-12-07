@@ -17,6 +17,55 @@
 <generator>quarto-1.6.39</generator>
 <lastBuildDate>Sat, 07 Dec 2024 06:30:24 GMT</lastBuildDate>
 <item>
+  <title>Quarto の YAML ヘッダにコードを埋め込みたい</title>
+  <link>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>こんにちは。uma-chan です。</p>
+<p>R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。</p>
+<p><a href="https://github.com/quarto-dev/quarto-cli/discussions/606">Inline R code in YAML · quarto-dev/quarto-cli · Discussion #606</a></p>
+<p>変数対応しているみたいですが、手元では動かなかったなあ。</p>
+<p><a href="https://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008" class="uri">https://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008</a></p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>The use of meta shortcode in the YAML</p>
+</blockquote>
+<p>Meta shortcode in YAML should work. Inline R code should not. So you could fill subtitle using shortcode (<code>meta</code> or <code>env</code>, or <code>var</code> for project with variables yml file). It should work with title to I believe.</p>
+<p>Did you try meta shortcode or other already ?</p>
+<pre><code>---
+title: "?meta:my_title"
+format: html
+---
+
+Content</code></pre>
+<p>then</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1">quarto preview test<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qmd</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>metadata my_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"filled"</span></span></code></pre></div>
+<p>This is working for me</p>
+</blockquote>
+<p>このページの左下に出している Copyright の年表記を動的にしてくて調べてましたが、まだ方法が見つかっていません。</p>
+
+
+
+ ]]></description>
+  <category>tech</category>
+  <category>tech-quarto</category>
+  <guid>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</guid>
+  <pubDate>Sat, 07 Dec 2024 06:30:24 GMT</pubDate>
+</item>
+<item>
   <title>事故らない OneDrive 設定変更手順</title>
   <link>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</link>
   <description><![CDATA[ 
@@ -776,7 +825,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="2741c46a" class="cell" data-execution_count="1">
+<div id="a188dddb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -793,15 +842,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.8/13.1 MB 24.2 MB/s eta 0:00:01     ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/13.1 MB 53.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 8.4/13.1 MB 81.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 144.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 144.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 88.9 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/13.1 MB 57.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ 7.1/13.1 MB 105.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 172.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 172.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 95.6 MB/s eta 0:00:00
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
-Collecting tzdata&gt;=2022.7
-  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 85.3 MB/s eta 0:00:00
 Collecting numpy&gt;=1.22.4
   Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/16.3 MB 165.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ 11.1/16.3 MB 163.2 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 164.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 164.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 85.7 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/16.3 MB 157.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 10.6/16.3 MB 156.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 173.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 173.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 87.4 MB/s eta 0:00:00
+Collecting tzdata&gt;=2022.7
+  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 67.5 MB/s eta 0:00:00
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2
@@ -809,7 +858,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ 92.2/133.3 KB 2.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 3.1 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.6 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -818,7 +867,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="71bac569" class="cell" data-execution_count="2">
+<div id="a6d6e899" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -994,7 +1043,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="474dda2e" class="cell" data-execution_count="3">
+<div id="7b69130d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -1025,7 +1074,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="86b635c4" class="cell" data-execution_count="4">
+<div id="346766fd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -1094,7 +1143,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="e6209339" class="cell" data-execution_count="5">
+<div id="7d3c940a" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -3241,88 +3290,6 @@ font-style: inherit;">'''</span></span></code></pre></div>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</guid>
   <pubDate>Tue, 02 Jan 2024 12:47:46 GMT</pubDate>
-</item>
-<item>
-  <title>GitHub Pages (Jekyll) blog のタグ追加対応</title>
-  <link>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>[2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。</p>
-<p>こんにちは。i9wa4 です。</p>
-<p>ブログを作ったので少しだけ機能と見た目を手入れしてみました。</p>
-<section id="調整前" class="level2">
-<h2 class="anchored" data-anchor-id="調整前">1. 調整前</h2>
-<ul>
-<li>現在 Jekyll (GitHub Pages) の Minima (<a href="https://github.com/jekyll/minima">jekyll/minima: Minima is a one-size-fits-all Jekyll theme for writers.</a>) が適用されている状態
-<ul>
-<li>HTML ファイルが必要になったらここから持ってくる！</li>
-</ul></li>
-</ul>
-</section>
-<section id="やりたいこと" class="level2">
-<h2 class="anchored" data-anchor-id="やりたいこと">2. やりたいこと</h2>
-<ul>
-<li>タグ対応
-<ul>
-<li>タグ毎の一覧ページの追加</li>
-<li>トップページに各タグの一覧ページへのリンク追加</li>
-<li>各記事にて付与したタグの一覧ページリンクの追加</li>
-</ul></li>
-<li>リポジトリルートの Markdown ファイルへのリンクがヘッダに追加されてしまうためヘッダの記述の簡素化</li>
-</ul>
-</section>
-<section id="タグ対応" class="level2">
-<h2 class="anchored" data-anchor-id="タグ対応">3. タグ対応</h2>
-<ul>
-<li>syudead さんの記事とリポジトリを参考に実装しました。私は HTML ではなく Markdown 中心の構成としたかったのであくまで参考という感じです。
-<ul>
-<li><a href="https://rainyflow.net/2016/03/13/jekyll-tags.html">Jekyllのブログでタグ機能を実装する</a>
-<ul>
-<li>各記事へのタグ付け方法</li>
-<li>一覧ページの html 記述</li>
-</ul></li>
-<li><a href="https://github.com/syudead/syudead.github.io">syudead/syudead.github.io</a>
-<ul>
-<li>ページ一覧の作成方法
-<ul>
-<li><code>./_inclides/tag.html</code> を <code>./blog.html</code> などの一覧ページ内にて include する</li>
-</ul></li>
-<li>各記述でのタグ一覧ページリンク表示
-<ul>
-<li><code>./_layouts/post.html</code> 参照</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>トップページに各タグの一覧ページへのリンクを追加する対応については <code>./index.md</code> に地道にリンクを追加する方法を取ることとしました。</li>
-</ul>
-</section>
-<section id="ヘッダ簡素化" class="level2">
-<h2 class="anchored" data-anchor-id="ヘッダ簡素化">4. ヘッダ簡素化</h2>
-<ul>
-<li>Minima の HTML ファイル (<a href="https://github.com/jekyll/minima/blob/master/_includes/header.html">minima/_includes/header.html at master · jekyll/minima</a>) をリポジトリに追加して対象箇所を削除すれば OK。
-<ul>
-<li>(2024/01/28 追記) スマホ版のハンバーガーメニューが寂しかったのでヘッダ簡素化は取りやめました。</li>
-</ul></li>
-</ul>
-</section>
-<section id="感想" class="level2">
-<h2 class="anchored" data-anchor-id="感想">5. 感想</h2>
-<ul>
-<li>必要最低限の機能は実装できたので割と満足です。</li>
-<li>見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。</li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>tech</category>
-  <category>tech-jekyll</category>
-  <guid>https://i9wa4.github.io/blog/2024-01-02-jelyll-adjust.html</guid>
-  <pubDate>Tue, 02 Jan 2024 08:34:55 GMT</pubDate>
 </item>
 </channel>
 </rss>
