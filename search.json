@@ -32,7 +32,7 @@
     "href": "memo/2024-07-20-aigis-note.html",
     "title": "自分用千年戦争アイギスメモ",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
+    "text": "こんにちは。uma-chanです。\n偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
   },
   {
     "objectID": "memo/2024-07-20-aigis-note.html#週次周回",
@@ -60,7 +60,7 @@
     "href": "blog/2024-03-25-setup-wsl2.html",
     "title": "WSL2 のセットアップ",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nWindows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
+    "text": "こんにちは。uma-chanです。\nWindows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
   },
   {
     "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
@@ -95,7 +95,7 @@
     "href": "blog/2024-07-15-technical-tips.html",
     "title": "技術系 Tips まとめ",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nたまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n分量が増えてきた分野は別記事に切り出すかもしれません。"
+    "text": "こんにちは。uma-chanです。\nたまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n分量が増えてきた分野は別記事に切り出すかもしれません。"
   },
   {
     "objectID": "blog/2024-07-15-technical-tips.html#git",
@@ -172,14 +172,14 @@
     "href": "blog/2024-03-26-setup-ds100knock.html",
     "title": "データサイエンス100本ノックの実行環境構築 (WSL2)",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
+    "text": "こんにちは。uma-chanです。\n下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
   },
   {
     "objectID": "blog/2024-05-05-deploy-quarto.html",
     "href": "blog/2024-05-05-deploy-quarto.html",
     "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
     "section": "",
-    "text": "こんにちは。i9wa4 です。"
+    "text": "こんにちは。uma-chanです。"
   },
   {
     "objectID": "blog/2024-05-05-deploy-quarto.html#前提",
@@ -207,7 +207,7 @@
     "href": "blog/2024-01-02-jelyll-adjust.html",
     "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
     "section": "",
-    "text": "[2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。\nこんにちは。i9wa4 です。\nブログを作ったので少しだけ機能と見た目を手入れしてみました。"
+    "text": "[2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。\nこんにちは。uma-chanです。\nブログを作ったので少しだけ機能と見た目を手入れしてみました。"
   },
   {
     "objectID": "blog/2024-01-02-jelyll-adjust.html#調整前",
@@ -326,14 +326,14 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
+    "text": "こんにちは。uma-chanです。\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.2/13.1 MB 6.9 MB/s eta 0:00:02     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.6/13.1 MB 9.2 MB/s eta 0:00:02     ━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/13.1 MB 10.5 MB/s eta 0:00:02     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/13.1 MB 11.9 MB/s eta 0:00:01     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/13.1 MB 13.4 MB/s eta 0:00:01     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/13.1 MB 14.9 MB/s eta 0:00:01     ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/13.1 MB 16.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ 5.3/13.1 MB 19.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ 6.8/13.1 MB 21.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 8.5/13.1 MB 24.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ 10.5/13.1 MB 30.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 46.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 46.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 38.5 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.3 MB ? eta -:--:--     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/16.3 MB 96.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.9/16.3 MB 101.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 11.5/16.3 MB 113.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 142.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.3/16.3 MB 142.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 79.9 MB/s eta 0:00:00\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 74.2 MB/s eta 0:00:00\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.1.3 pandas-2.2.3 tzdata-2024.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 4.6 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
+    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.3/13.1 MB 8.5 MB/s eta 0:00:02     ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/13.1 MB 42.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 8.6/13.1 MB 83.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 166.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 95.9 MB/s eta 0:00:00\nCollecting numpy&gt;=1.22.4\n  Downloading numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.4 MB ? eta -:--:--     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/16.4 MB 183.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 12.3/16.4 MB 180.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 180.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 180.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 89.1 MB/s eta 0:00:00\nCollecting tzdata&gt;=2022.7\n  Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 71.0 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)\nRequirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.0 pandas-2.2.3 tzdata-2024.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)\nCollecting jinja2\n  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 4.7 MB/s eta 0:00:00\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.4"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
@@ -368,7 +368,7 @@
     "href": "blog/2024-06-17-setup-mac.html",
     "title": "Mac 環境構築手順",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n私の Mac 環境構築手順をまとめておきます。"
+    "text": "こんにちは。uma-chanです。\n私の Mac 環境構築手順をまとめておきます。"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
@@ -403,7 +403,7 @@
     "href": "blog/2024-06-28-systemd-user.html",
     "title": "systemd がユーザー権限でも使える",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
+    "text": "こんにちは。uma-chanです。\nsystemd がユーザー権限でも設定できると知ったので記事にします。"
   },
   {
     "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
@@ -431,21 +431,21 @@
     "href": "blog/2024-06-17-purchased-gadgets.html",
     "title": "購入したガジェットの紹介",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10"
+    "text": "こんにちは。uma-chanです。\n詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10"
   },
   {
     "objectID": "blog/2024-01-01-init.html",
     "href": "blog/2024-01-01-init.html",
     "title": "Initial Post",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n初投稿になります。"
+    "text": "こんにちは。uma-chanです。\n初投稿になります。"
   },
   {
-    "objectID": "blog/2024-01-01-init.html#i9wa4-とは",
-    "href": "blog/2024-01-01-init.html#i9wa4-とは",
+    "objectID": "blog/2024-01-01-init.html#uma-chan-とは",
+    "href": "blog/2024-01-01-init.html#uma-chan-とは",
     "title": "Initial Post",
-    "section": "1. i9wa4 とは",
-    "text": "1. i9wa4 とは\n\n読み：いくわよ\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです"
+    "section": "1. uma-chan とは",
+    "text": "1. uma-chan とは\n\n読み：うまちゃん\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです"
   },
   {
     "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
@@ -459,7 +459,7 @@
     "href": "blog/2024-01-02-vim-plugin-mnh.html",
     "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n少し前に作った Vim/Neovim プラグインの紹介記事となります。"
+    "text": "こんにちは。uma-chanです。\n少し前に作った Vim/Neovim プラグインの紹介記事となります。"
   },
   {
     "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
@@ -501,7 +501,7 @@
     "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
     "title": ":%s/i9wa4/uma-chan/g",
     "section": "",
-    "text": "こんにちは。uma-chan です。\n元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nというわけでよろしくお願いします！"
+    "text": "こんにちは。uma-chan です。\n元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
   },
   {
     "objectID": "blog/2024-10-25-thinking-of-my-career.html",
@@ -564,7 +564,7 @@
     "href": "blog/2024-09-22-vim-plugin-idea.html",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\ndotfiles から切り離したくなってきたらそれがプラグインの作り時。\n今温めているアイデアをメモしておきます。"
+    "text": "こんにちは。uma-chanです。\ndotfiles から切り離したくなってきたらそれがプラグインの作り時。\n今温めているアイデアをメモしておきます。"
   },
   {
     "objectID": "blog/2024-09-22-vim-plugin-idea.html#ローカル設定の読み込み",
@@ -620,7 +620,7 @@
     "href": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
     "title": "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。\nスライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。\nここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。\nQuarto – GitHub Pages"
+    "text": "こんにちは。uma-chanです。\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。\nスライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。\nここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。\nQuarto – GitHub Pages"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html#想定する読者",
@@ -683,7 +683,7 @@
     "href": "blog/2024-01-27-setup-efm-langserver.html",
     "title": "efm-langserver を Vim/Neovim で利用する",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\n最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。"
+    "text": "こんにちは。uma-chanです。\n最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。"
   },
   {
     "objectID": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-とは",
@@ -732,7 +732,7 @@
     "href": "blog/2024-05-04-get-git-branch-name.vim.html",
     "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
     "section": "",
-    "text": "こんにちは。i9wa4 です。"
+    "text": "こんにちは。uma-chanです。"
   },
   {
     "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
@@ -795,7 +795,7 @@
     "href": "memo/2024-07-20-minecraft-note.html",
     "title": "自分用 Minecraft メモ",
     "section": "",
-    "text": "こんにちは。i9wa4 です。\nMinecraft の自分用メモを公開しておきます。"
+    "text": "こんにちは。uma-chanです。\nMinecraft の自分用メモを公開しておきます。"
   },
   {
     "objectID": "memo/2024-07-20-minecraft-note.html#todo",
