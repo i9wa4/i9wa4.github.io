@@ -7,7 +7,7 @@ categories:
   - "tech-quarto"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。
 

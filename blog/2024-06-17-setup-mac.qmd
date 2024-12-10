@@ -7,7 +7,7 @@ categories:
   - "tech-mac"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 私の Mac 環境構築手順をまとめておきます。
 

@@ -7,7 +7,7 @@ categories:
   - "tech-linux"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 systemd がユーザー権限でも設定できると知ったので記事にします。
 

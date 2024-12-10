@@ -8,7 +8,7 @@ categories:
 jupyter: python3
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。
 

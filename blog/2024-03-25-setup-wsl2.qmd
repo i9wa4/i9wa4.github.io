@@ -8,7 +8,7 @@ categories:
   - "tech-windows"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。
 

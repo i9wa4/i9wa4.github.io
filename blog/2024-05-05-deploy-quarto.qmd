@@ -7,7 +7,7 @@ categories:
   - "tech-quarto"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 ## 1. 前提
 

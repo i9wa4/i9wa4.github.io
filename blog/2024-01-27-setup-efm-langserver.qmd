@@ -7,7 +7,7 @@ categories:
   - "tech-vim"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。
 

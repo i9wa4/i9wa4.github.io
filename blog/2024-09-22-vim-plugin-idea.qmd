@@ -7,7 +7,7 @@ categories:
   - "tech-vim"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 dotfiles から切り離したくなってきたらそれがプラグインの作り時。
 

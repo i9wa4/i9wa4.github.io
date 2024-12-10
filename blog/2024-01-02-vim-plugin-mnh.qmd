@@ -8,7 +8,7 @@ categories:
   - "tech-vim"
 ---
 
-こんにちは。i9wa4 です。
+こんにちは。uma-chanです。
 
 少し前に作った Vim/Neovim プラグインの紹介記事となります。
 
