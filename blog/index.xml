@@ -801,7 +801,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="6376e76e" class="cell" data-execution_count="1">
+<div id="5ec67c90" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -818,13 +818,13 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.3/13.1 MB 8.5 MB/s eta 0:00:02     ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/13.1 MB 42.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 8.6/13.1 MB 83.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 166.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 95.9 MB/s eta 0:00:00
-Collecting numpy&gt;=1.22.4
-  Downloading numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.4 MB ? eta -:--:--     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/16.4 MB 183.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 12.3/16.4 MB 180.5 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 180.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 180.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 89.1 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/13.1 MB 43.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ 7.0/13.1 MB 102.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 176.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 176.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 93.4 MB/s eta 0:00:00
 Collecting tzdata&gt;=2022.7
   Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 71.0 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 67.3 MB/s eta 0:00:00
+Collecting numpy&gt;=1.22.4
+  Downloading numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.4 MB ? eta -:--:--     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/16.4 MB 157.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 10.6/16.4 MB 155.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 169.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 169.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 83.8 MB/s eta 0:00:00
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
@@ -834,7 +834,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 4.7 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 4.8 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -843,7 +843,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="2c09f58b" class="cell" data-execution_count="2">
+<div id="25e816d8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -1019,7 +1019,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="ffe31d3a" class="cell" data-execution_count="3">
+<div id="fee3cfbc" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -1050,7 +1050,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="93e813a2" class="cell" data-execution_count="4">
+<div id="d59a0e92" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -1119,7 +1119,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="4a3ba336" class="cell" data-execution_count="5">
+<div id="68ddf368" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -2255,84 +2255,94 @@ Table&nbsp;1: 購入ガジェット一覧
 <td style="text-align: left;"><a href="https://www.yodobashi.com/product/100000001004464218/">Pebble M350</a></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">2020-09-12</td>
+<td style="text-align: left;">象印</td>
+<td style="text-align: left;"><a href="https://www.amazon.co.jp/dp/B07G9RKNJP">スチーム式加湿器 EE-RN35-WA</a></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">2020-07-19</td>
 <td style="text-align: left;">PFU</td>
 <td style="text-align: left;"><a href="https://www.pfu.ricoh.com/direct/hhkb/detail_pd-kb800bs.html">HHKB Professional HYBRID Type-S 英語配列／墨</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2022-03-12</td>
 <td style="text-align: left;">Logicool</td>
 <td style="text-align: left;"><a href="https://www.logicool.co.jp/ja-jp/products/mice/m575-ergo-wireless-trackball.910-005876.html">ERGO M575</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2022-12-05</td>
 <td style="text-align: left;">Kensington</td>
 <td style="text-align: left;"><a href="https://www.kensington.com/ja-jp/p/製品/コントロール/トラックボール/スリムブレードトラックボール/">スリムブレードトラックボール</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2023-03-05</td>
 <td style="text-align: left;">Google</td>
 <td style="text-align: left;"><a href="https://www.amazon.co.jp/dp/B0CJ39LD8D">Pixel 6a</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2023-03-12</td>
 <td style="text-align: left;">SONY</td>
 <td style="text-align: left;"><a href="https://www.sony.jp/headphone/products/WF-1000XM4/">WF-1000XM4</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2023-08-05</td>
 <td style="text-align: left;">Beelink</td>
 <td style="text-align: left;"><a href="https://www.amazon.co.jp/dp/B0CB4FFVYY">Beelink SEi10 Mini PC</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2024-02-28</td>
 <td style="text-align: left;">Anker</td>
 <td style="text-align: left;"><a href="https://www.ankerjapan.com/products/a8365">Anker PowerExpand 6-in-1 USB-C PD イーサネット ハブ</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2024-03-02</td>
 <td style="text-align: left;">Lenovo</td>
 <td style="text-align: left;"><a href="https://www.lenovo.com/jp/ja/p/laptops/thinkpad/thinkpad-t-series/thinkpad-t14s-gen-4-(14-inch-amd)/len101t0080">ThinkPad T14s Gen 4 (AMD)</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2024-04-05</td>
 <td style="text-align: left;">Shokz</td>
 <td style="text-align: left;"><a href="https://jp.shokz.com/products/openrun-pro">OpenRun Pro Mini</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2024-05-06</td>
 <td style="text-align: left;">Fitbit</td>
 <td style="text-align: left;"><a href="https://www.fitbit.com/global/jp/products/trackers/charge6">Fitbit Charge 6</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2024-06-03</td>
 <td style="text-align: left;">Dell</td>
 <td style="text-align: left;"><a href="https://www.dell.com/ja-jp/shop/dell-27-usb-c-モニター-s2722dc/apd/210-bcde/モニター-モニターアクセサリー">Dell 27 USB-C モニター - S2722DC</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2024-06-07</td>
 <td style="text-align: left;">Logicool</td>
 <td style="text-align: left;"><a href="https://www.logicool.co.jp/ja-jp/products/webcams/hd-webcam-c270n.960-001265.html">C270n HDウェブカメラ</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2024-07-07</td>
 <td style="text-align: left;">Panasonic</td>
 <td style="text-align: left;"><a href="https://panasonic.jp/shaver/products/ES-PV3A.html">ラムダッシュ パームイン ES-PV3A</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2024-08-18</td>
 <td style="text-align: left;">OMRON</td>
 <td style="text-align: left;"><a href="https://www.healthcare.omron.co.jp/product/hbf/hbf-702t.html">体重体組成計 HBF-702T カラダスキャン</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">2024-10-05</td>
 <td style="text-align: left;">Apple</td>
 <td style="text-align: left;"><a href="https://www.yodobashi.com/product/100000001008724159/">iPhone 16 256GB</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">2024-10-05</td>
 <td style="text-align: left;">Apple</td>
 <td style="text-align: left;"><a href="https://www.yodobashi.com/product/100000001008724031/">Apple Watch Series 10</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-12-15</td>
+<td style="text-align: left;">象印</td>
+<td style="text-align: left;"><a href="https://www.yodobashi.com/product/100000001008633000/">スチーム式加湿器 EE-RT50-WA</a></td>
 </tr>
 </tbody>
 </table>
