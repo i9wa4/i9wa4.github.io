@@ -16,6 +16,7 @@ categories:
 | 購入日     | メーカー   | 製品名                                                                                                                                        |
 | :---       | :---       | :---                                                                                                                                          |
 | 2019-07-01 | Logicool   | [Pebble M350](https://www.yodobashi.com/product/100000001004464218/)                                                                          |
+| 2020-09-12 | 象印       | [スチーム式加湿器 EE-RN35-WA](https://www.amazon.co.jp/dp/B07G9RKNJP)                                                                         |
 | 2020-07-19 | PFU        | [HHKB Professional HYBRID Type-S 英語配列／墨](https://www.pfu.ricoh.com/direct/hhkb/detail_pd-kb800bs.html)                                  |
 | 2022-03-12 | Logicool   | [ERGO M575](https://www.logicool.co.jp/ja-jp/products/mice/m575-ergo-wireless-trackball.910-005876.html)                                      |
 | 2022-12-05 | Kensington | [スリムブレードトラックボール](https://www.kensington.com/ja-jp/p/製品/コントロール/トラックボール/スリムブレードトラックボール/)             |
@@ -32,3 +33,4 @@ categories:
 | 2024-08-18 | OMRON      | [体重体組成計 HBF-702T カラダスキャン](https://www.healthcare.omron.co.jp/product/hbf/hbf-702t.html)                                          |
 | 2024-10-05 | Apple      | [iPhone 16 256GB](https://www.yodobashi.com/product/100000001008724159/)                                                                      |
 | 2024-10-05 | Apple      | [Apple Watch Series 10](https://www.yodobashi.com/product/100000001008724031/)                                                                |
+| 2024-12-15 | 象印       | [スチーム式加湿器 EE-RT50-WA](https://www.yodobashi.com/product/100000001008633000/)                                                          |
