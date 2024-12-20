@@ -18,13 +18,13 @@
 <lastBuildDate>Sat, 07 Dec 2024 06:30:24 GMT</lastBuildDate>
 <item>
   <title>Quarto の YAML ヘッダにコードを埋め込みたい</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <p>R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。</p>
 <p><a href="https://github.com/quarto-dev/quarto-cli/discussions/606">Inline R code in YAML · quarto-dev/quarto-cli · Discussion #606</a></p>
 <p>変数対応していてそちらは上手く動いてくれました！</p>
@@ -43,13 +43,13 @@
 </item>
 <item>
   <title>事故らない OneDrive 設定変更手順</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
 <p>OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。</p>
@@ -87,13 +87,13 @@
 </item>
 <item>
   <title>SnowSQL セットアップ (Mac)</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <p>PC を新調するとセットアップがつきものですね。</p>
 <p>ではいきます。</p>
 <section id="snowsql-インストール" class="level2">
@@ -193,13 +193,13 @@ font-style: inherit;">-c</span> connection_name1</span></code></pre></div></li>
 </item>
 <item>
   <title>Zennの記事をGitHubリポジトリで管理する</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <p>Zenn に書いた以下の記事と全く同じ内容です。</p>
 <p><a href="https://zenn.dev/i9wa4/articles/2024-11-20-manage-zenn-with-github">Zennの記事をGitHubリポジトリで管理する</a></p>
 <p>気の向くままにこちらの個人ブログの方で先に公開します。 Markdown で管理しているので流用しやすくて便利！</p>
@@ -361,13 +361,13 @@ font-style: inherit;">---</span></span></code></pre></div>
 </item>
 <item>
   <title>nektos/act を使ってみた</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-11-12-use-nektos-act.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <p>GitHub Actions をローカルで実行できる便利な OSS <a href="https://github.com/nektos/act" class="uri">https://github.com/nektos/act</a> を使ってみました。</p>
 <p>インストールが難しかったので苦戦した部分もメモを残しておきます。</p>
 <section id="筆者の環境について" class="level2">
@@ -657,13 +657,13 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 </item>
 <item>
   <title>キャリアについてぼんやり考えていたことを時系列順にまとめる</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <p>言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。</p>
 <section id="大学入学時" class="level2">
 <h2 class="anchored" data-anchor-id="大学入学時">1. 大学入学時</h2>
@@ -686,8 +686,8 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 </section>
 <section id="回目の転職活動時-2" class="level2">
 <h2 class="anchored" data-anchor-id="回目の転職活動時-2">5. 3回目の転職活動時</h2>
-<p>案件都合でアナリティクスエンジニア業務に取り組んでいました。</p>
-<p>この頃はデータ基盤についてブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータエンジニアを志すようになりました。</p>
+<p>案件都合でデータエンジニア・アナリティクスエンジニア業務に取り組んでいました。</p>
+<p>この頃はデータ基盤について割とブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータ基盤業務を志すようになりました。</p>
 <p>また、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。</p>
 <p>体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。</p>
 </section>
@@ -701,7 +701,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 <li>できればエンドユーザーの満足度を高める方向の仕事であること</li>
 </ol>
 <p>このような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。</p>
-<p>そんなことを考えているところに現職と同じデータエンジニアとしてではなくデータサイエンティストとしてお声がけいただいた会社で2024年11月から働くことにしました。</p>
+<p>そんなことを考えているところにお声がけいただいた会社で2024年11月から働くことにしました。</p>
 <p>決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。</p>
 </section>
 <section id="おわりに" class="level2">
@@ -719,13 +719,13 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 </item>
 <item>
   <title>:%s/i9wa4/uma-chan/g</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chan です。</p>
 <p>元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。</p>
 <p>それに伴いブログの記事も修正しています。</p>
 <p>というわけでよろしくお願いします！</p>
@@ -740,13 +740,13 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 </item>
 <item>
   <title>最近の Vim プラグイン開発のアイデア</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>dotfiles から切り離したくなってきたらそれがプラグインの作り時。</p>
 <p>今温めているアイデアをメモしておきます。</p>
 <section id="ローカル設定の読み込み" class="level2">
@@ -798,18 +798,18 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 </item>
 <item>
   <title>Quarto による DataFrame の表示テスト</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。</p>
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="33e744da" class="cell" data-execution_count="1">
+<div id="4460740b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -826,15 +826,15 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/13.1 MB 62.8 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ 7.4/13.1 MB 108.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 172.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 172.6 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 97.6 MB/s eta 0:00:00
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/13.1 MB ? eta -:--:--     ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/13.1 MB 57.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 8.6/13.1 MB 126.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 13.1/13.1 MB 197.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 105.6 MB/s eta 0:00:00
 Collecting numpy&gt;=1.22.4
   Downloading numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.4 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.4 MB ? eta -:--:--     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/16.4 MB 157.1 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 10.5/16.4 MB 155.0 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 175.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 175.7 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 88.0 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.4 MB ? eta -:--:--     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.9/16.4 MB 208.4 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ 13.5/16.4 MB 196.3 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 187.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.4/16.4 MB 187.9 MB/s eta 0:00:01     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 88.7 MB/s eta 0:00:00
 Collecting tzdata&gt;=2022.7
   Downloading tzdata-2024.2-py2.py3-none-any.whl (346 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 87.4 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.6 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 KB 62.4 MB/s eta 0:00:00
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/.local/lib/python3.10/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2022.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/lib/python3/dist-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.2.0 pandas-2.2.3 tzdata-2024.2
@@ -842,7 +842,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.0.3)
 Collecting jinja2
   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 6.7 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/133.3 KB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 KB 7.2 MB/s eta 0:00:00
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.0.1)
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.4</code></pre>
@@ -851,7 +851,7 @@ Successfully installed jinja2-3.1.4</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="5c84a8c9" class="cell" data-execution_count="2">
+<div id="24fb9134" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -1027,7 +1027,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="3ff4d135" class="cell" data-execution_count="3">
+<div id="b860be91" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -1058,7 +1058,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="2be76d49" class="cell" data-execution_count="4">
+<div id="a52e85e3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -1127,7 +1127,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="bd037ca2" class="cell" data-execution_count="5">
+<div id="0a2f64ac" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -1209,13 +1209,13 @@ Website
 </item>
 <item>
   <title>Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。</p>
 <p>スライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。</p>
 <p>ここでは以下のドキュメントの手順をなぞりつつ、ブログ記事とスライドを管理するためのプロジェクト構成を導入します。</p>
@@ -1903,13 +1903,13 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </item>
 <item>
   <title>自分用千年戦争アイギスメモ</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。</p>
 <section id="週次周回" class="level2">
 <h2 class="anchored" data-anchor-id="週次周回">1. 週次周回</h2>
@@ -1981,13 +1981,13 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </item>
 <item>
   <title>自分用 Minecraft メモ</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>Minecraft の自分用メモを公開しておきます。</p>
 <section id="todo" class="level2">
 <h2 class="anchored" data-anchor-id="todo">1. TODO</h2>
@@ -2164,13 +2164,13 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </item>
 <item>
   <title>技術系 Tips まとめ</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。</p>
 <p>分量が増えてきた分野は別記事に切り出すかもしれません。</p>
 <section id="git" class="level2">
@@ -2325,9 +2325,9 @@ background-color: null;
 font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
 </section>
 <section id="excel" class="level2">
-<h2 class="anchored" data-anchor-id="excel">5. Excel</h2>
+<h2 class="anchored" data-anchor-id="excel">4. Excel</h2>
 <section id="excel-vba" class="level3">
-<h3 class="anchored" data-anchor-id="excel-vba">5.1. Excel VBA</h3>
+<h3 class="anchored" data-anchor-id="excel-vba">4.1. Excel VBA</h3>
 <ul>
 <li>アドイン追加先
 <ul>
@@ -2336,7 +2336,7 @@ font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
 </ul>
 </section>
 <section id="excel-関数" class="level3">
-<h3 class="anchored" data-anchor-id="excel-関数">5.2. Excel 関数</h3>
+<h3 class="anchored" data-anchor-id="excel-関数">4.2. Excel 関数</h3>
 <ul>
 <li>シート名を記載したセルB2を利用したハイパーリンク作成
 <ul>
@@ -2346,9 +2346,9 @@ font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
 </section>
 </section>
 <section id="word" class="level2">
-<h2 class="anchored" data-anchor-id="word">6. Word</h2>
+<h2 class="anchored" data-anchor-id="word">5. Word</h2>
 <section id="normal.dotm-作成" class="level3">
-<h3 class="anchored" data-anchor-id="normal.dotm-作成">6.1. Normal.dotm 作成</h3>
+<h3 class="anchored" data-anchor-id="normal.dotm-作成">5.1. Normal.dotm 作成</h3>
 <ol type="1">
 <li><code>%APPDATA%\Microsoft\Templates\Normal.dotm</code> 削除</li>
 <li>デザインを作成し既定に設定する
@@ -2375,13 +2375,13 @@ font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
 </item>
 <item>
   <title>systemd がユーザー権限でも使える</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>systemd がユーザー権限でも設定できると知ったので記事にします。</p>
 <section id="基本的な情報まとめ" class="level2">
 <h2 class="anchored" data-anchor-id="基本的な情報まとめ">1. 基本的な情報まとめ</h2>
@@ -2499,13 +2499,13 @@ font-style: inherit;">sudo</span> loginctl enable-linger i9wa4</span></code></pr
 </item>
 <item>
   <title>購入したガジェットの紹介</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。</p>
 <div id="tbl-gadgets" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -2633,13 +2633,13 @@ Table&nbsp;1: 購入ガジェット一覧
 </item>
 <item>
   <title>Mac 環境構築手順</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>私の Mac 環境構築手順をまとめておきます。</p>
 <section id="dotfiles-導入" class="level2">
 <h2 class="anchored" data-anchor-id="dotfiles-導入">1. dotfiles 導入</h2>
@@ -2826,13 +2826,13 @@ Table&nbsp;1: 購入ガジェット一覧
 </item>
 <item>
   <title>Quarto で作ったスライドを GitHub Pages にデプロイする</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <section id="前提" class="level2">
 <h2 class="anchored" data-anchor-id="前提">1. 前提</h2>
 <p>スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>) に決めました。</p>
@@ -2866,13 +2866,13 @@ Table&nbsp;1: 購入ガジェット一覧
 </item>
 <item>
   <title>Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <section id="経緯" class="level2">
 <h2 class="anchored" data-anchor-id="経緯">1. 経緯</h2>
 <p>私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。</p>
@@ -3023,13 +3023,13 @@ echo "現在のブランチ: " . branch</code></pre>
 </item>
 <item>
   <title>データサイエンス100本ノックの実行環境構築 (WSL2)</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>下記リポジトリを見てください。以上。</p>
 <p><a href="https://github.com/i9wa4/wsl2-100knocks-preprocess" class="uri">https://github.com/i9wa4/wsl2-100knocks-preprocess</a></p>
 
@@ -3045,13 +3045,13 @@ echo "現在のブランチ: " . branch</code></pre>
 </item>
 <item>
   <title>WSL2 のセットアップ</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>こんにちは。uma-chanです。</p>
 <p>Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。</p>
 <section id="wsl-コマンドのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="wsl-コマンドのインストール">1. WSL コマンドのインストール</h2>
