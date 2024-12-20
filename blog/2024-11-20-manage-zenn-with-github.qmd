@@ -1,5 +1,6 @@
 ---
 title: "Zennの記事をGitHubリポジトリで管理する"
+author: uma-chan
 date: 2024-11-20 17:49:32 +0900
 date-modified: last-modified
 categories:
@@ -8,8 +9,6 @@ categories:
   - "tech-github"
   - "tech-zenn"
 ---
-
-こんにちは。uma-chan です。
 
 Zenn に書いた以下の記事と全く同じ内容です。
 

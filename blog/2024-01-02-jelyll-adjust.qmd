@@ -1,5 +1,6 @@
 ---
 title: "GitHub Pages (Jekyll) blog のタグ追加対応"
+author: uma-chan
 date: 2024-01-02 17:34:55 +0900
 date-modified: last-modified
 categories:
@@ -9,8 +10,6 @@ categories:
 ---
 
 [2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。
-
-こんにちは。uma-chanです。
 
 ブログを作ったので少しだけ機能と見た目を手入れしてみました。
 

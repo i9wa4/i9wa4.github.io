@@ -1,5 +1,6 @@
 ---
 title: "SnowSQL セットアップ (Mac)"
+author: uma-chan
 date: 2024-12-05 09:48:09 +0900
 date-modified: last-modified
 categories:
@@ -7,8 +8,6 @@ categories:
   - "tech"
   - "tech-snowflake"
 ---
-
-こんにちは。uma-chan です。
 
 PC を新調するとセットアップがつきものですね。
 

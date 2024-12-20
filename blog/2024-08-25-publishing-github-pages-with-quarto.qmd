@@ -1,5 +1,6 @@
 ---
 title: "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する"
+author: uma-chan
 date: 2024-08-25 17:25:32 +0900
 date-modified: last-modified
 categories:
@@ -7,8 +8,6 @@ categories:
   - "tech"
   - "tech-quarto"
 ---
-
-こんにちは。uma-chanです。
 
 GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。
 

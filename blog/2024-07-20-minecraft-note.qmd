@@ -1,13 +1,12 @@
 ---
 title: "自分用 Minecraft メモ"
+author: uma-chan
 date: 2024-07-20 22:39:28 +0900
 date-modified: last-modified
 categories:
   - "blog"
   - "game"
 ---
-
-こんにちは。uma-chanです。
 
 Minecraft の自分用メモを公開しておきます。
 

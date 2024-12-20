@@ -1,5 +1,6 @@
 ---
 title: "WSL2 のセットアップ"
+author: uma-chan
 date: 2024-03-25 23:00:48 +0900
 date-modified: last-modified
 categories:
@@ -8,8 +9,6 @@ categories:
   - "tech-wsl2"
   - "tech-windows"
 ---
-
-こんにちは。uma-chanです。
 
 Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。
 

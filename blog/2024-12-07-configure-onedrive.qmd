@@ -1,5 +1,6 @@
 ---
 title: "事故らない OneDrive 設定変更手順"
+author: uma-chan
 date: 2024-12-07 15:30:24 +0900
 date-modified: last-modified
 categories:
@@ -7,8 +8,6 @@ categories:
   - "tech"
   - "tech-windows"
 ---
-
-こんにちは。uma-chan です。
 
 ## 1. はじめに
 

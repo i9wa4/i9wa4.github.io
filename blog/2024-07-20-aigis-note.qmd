@@ -1,13 +1,12 @@
 ---
 title: "自分用千年戦争アイギスメモ"
+author: uma-chan
 date: 2024-07-20 22:46:56 +0900
 date-modified: last-modified
 categories:
   - "blog"
   - "game"
 ---
-
-こんにちは。uma-chanです。
 
 偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。
 

@@ -1,5 +1,6 @@
 ---
 title: "技術系 Tips まとめ"
+author: uma-chan
 date: 2024-07-15 16:15:11 +0900
 date-modified: last-modified
 categories:
@@ -7,8 +8,6 @@ categories:
   - "tech"
   - "tech-tips"
 ---
-
-こんにちは。uma-chanです。
 
 たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。
 
@@ -66,21 +65,21 @@ bq --project_id=aaaaa head --max_rows 5 dataset_name.table_name
 gcloud auth login
 ```
 
-## 5. Excel
+## 4. Excel
 
-### 5.1. Excel VBA
+### 4.1. Excel VBA
 
 - アドイン追加先
     - `%USERPROFILE%\AppData\Roaming\Microsoft\AddIns`
 
-### 5.2. Excel 関数
+### 4.2. Excel 関数
 
 - シート名を記載したセルB2を利用したハイパーリンク作成
     - `=HYPERLINK("#'"&B2&"'!$A$1",B2)`
 
-## 6. Word
+## 5. Word
 
-### 6.1. Normal.dotm 作成
+### 5.1. Normal.dotm 作成
 
 1. `%APPDATA%\Microsoft\Templates\Normal.dotm` 削除
 1. デザインを作成し既定に設定する

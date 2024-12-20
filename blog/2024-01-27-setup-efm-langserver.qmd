@@ -1,5 +1,6 @@
 ---
 title: "efm-langserver を Vim/Neovim で利用する"
+author: uma-chan
 date: 2024-01-27 22:37:39 +0900
 date-modified: last-modified
 categories:
@@ -7,8 +8,6 @@ categories:
   - "tech"
   - "tech-vim"
 ---
-
-こんにちは。uma-chanです。
 
 最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。
 

@@ -1,15 +1,12 @@
 ---
 title: "Initial Post"
+author: uma-chan
 date: 2024-01-01 03:28:12 +0900
 date-modified: last-modified
 categories:
   - "blog"
   - "diary"
 ---
-
-<!-- # h1 -->
-
-こんにちは。uma-chanです。
 
 初投稿になります。
 

@@ -1,13 +1,12 @@
 ---
 title: "購入したガジェットの紹介"
+author: uma-chan
 date: 2024-06-17 12:42:17 +0900
 date-modified: last-modified
 categories:
   - "blog"
   - "diary"
 ---
-
-こんにちは。uma-chanです。
 
 詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。
 

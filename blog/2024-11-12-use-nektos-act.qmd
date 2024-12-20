@@ -1,13 +1,12 @@
 ---
 title: "nektos/act を使ってみた"
+author: uma-chan
 date: 2024-11-12 23:54:57 +0900
 date-modified: last-modified
 categories:
   - "blog"
   - "tech"
 ---
-
-こんにちは。uma-chan です。
 
 GitHub Actions をローカルで実行できる便利な OSS <https://github.com/nektos/act> を使ってみました。
 

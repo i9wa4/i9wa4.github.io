@@ -1,5 +1,6 @@
 ---
 title: "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた"
+author: uma-chan
 date: 2024-05-04 04:07:04 +0900
 date-modified: last-modified
 categories:
@@ -8,8 +9,6 @@ categories:
   - "tech-dev"
   - "tech-vim"
 ---
-
-こんにちは。uma-chanです。
 
 ## 1. 経緯
 
