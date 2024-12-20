@@ -35,7 +35,7 @@ website:
         icon: twitter-x
       - href: "https://www.linkedin.com/in/daikm/"
         icon: linkedin
-      - href: "blog/index.xml"
+      - href: "index.xml"
         icon: rss
   page-footer:
     left:

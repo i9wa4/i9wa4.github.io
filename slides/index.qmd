@@ -1,5 +1,6 @@
 ---
 title: "slides"
+toc: false
 listing:
   categories: numbered
   contents:
