@@ -6,13 +6,13 @@
       version="2.0">
 <channel>
 <title>uma-chan&#39;s page</title>
-<link>https://i9wa4.github.io/blog/</link>
-<atom:link href="https://i9wa4.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://i9wa4.github.io/</link>
+<atom:link href="https://i9wa4.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
 <url>https://i9wa4.github.io/assets/common/icon_hhkb3.png</url>
 <title>uma-chan&#39;s page</title>
-<link>https://i9wa4.github.io/blog/</link>
+<link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.6.39</generator>
 <lastBuildDate>Sat, 07 Dec 2024 06:30:24 GMT</lastBuildDate>
