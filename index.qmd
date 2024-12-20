@@ -1,5 +1,27 @@
 ---
 toc: false
+listing:
+  categories: numbered
+  contents:
+    - "/blog"
+    - "/slides"
+  feed: true
+  fields:
+    - "date"
+    - "categories"
+    - "title"
+  page-size: 20
+  sort-ui:
+    - "date"
+  sort:
+    - "date desc"
+    - "title"
+  type: default
+  exclude:
+    categories:
+      - "hidden"
+    filename:
+      - "index.qmd"
 ---
 
 # uma-chan's page

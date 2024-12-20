@@ -4,6 +4,7 @@ author: i9wa4
 date: 2024-02-04
 date-modified: last-modified
 categories:
+  - "slides"
   - "vim-jp"
 format:
   revealjs:

@@ -3,6 +3,7 @@ title: ":%s/i9wa4/uma-chan/g"
 date: 2024-10-25 21:29:49 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "diary"
 ---
 

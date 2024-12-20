@@ -3,6 +3,7 @@ title: "事故らない OneDrive 設定変更手順"
 date: 2024-12-07 15:30:24 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "tech-windows"
 ---

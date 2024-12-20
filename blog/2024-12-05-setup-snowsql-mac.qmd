@@ -3,6 +3,7 @@ title: "SnowSQL セットアップ (Mac)"
 date: 2024-12-05 09:48:09 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "tech-snowflake"
 ---

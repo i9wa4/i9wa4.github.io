@@ -3,6 +3,7 @@ title: "Zennの記事をGitHubリポジトリで管理する"
 date: 2024-11-20 17:49:32 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "tech-github"
   - "tech-zenn"

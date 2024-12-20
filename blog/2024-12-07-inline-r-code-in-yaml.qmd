@@ -3,6 +3,7 @@ title: "Quarto の YAML ヘッダにコードを埋め込みたい"
 date: 2024-12-07 15:30:24 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "tech-quarto"
 ---

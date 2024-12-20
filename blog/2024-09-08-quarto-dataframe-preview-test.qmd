@@ -3,6 +3,7 @@ title: "Quarto による DataFrame の表示テスト"
 date: 2024-09-08 00:24:34 +0900
 date-modified: last-modified
 categories:
+  - "blog"
   - "tech"
   - "tech-quarto"
 jupyter: python3
