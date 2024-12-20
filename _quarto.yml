@@ -18,16 +18,14 @@ website:
     card-style: summary
     creator: "@i9wa4_"
     site: "@i9wa4_"
-  open-graph: true
-  # repo-url: "https://github.com/i9wa4/i9wa4.github.io"
-  # repo-actions: [edit, source, issue]
+  open-graph:
+    locale: "ja_JP"
+    site-name: "uma-chan's page"
   navbar:
     # https://icons.getbootstrap.com/
     left:
       - href: "https://i9wa4.github.io/i9wa4"
         text: "about"
-      - href: "blog"
-        text: "blog"
       - href: "https://i9wa4.github.io/resume"
         text: "resume"
     right:
@@ -39,8 +37,6 @@ website:
         icon: linkedin
       - href: "blog/index.xml"
         icon: rss
-      # - href: "https://quarto.org/"
-      #   text: "Built with Quarto"
   page-footer:
     left:
       - text: "Copyright 2024, uma-chan"
