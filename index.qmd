@@ -6,6 +6,11 @@ listing:
   contents:
     - "/blog"
     - "/slides"
+  exclude:
+    categories:
+      - "hidden"
+    filename:
+      - "index.qmd"
   feed: true
   fields:
     - "date"
@@ -18,11 +23,6 @@ listing:
     - "date desc"
     - "title"
   type: default
-  exclude:
-    categories:
-      - "hidden"
-    filename:
-      - "index.qmd"
 ---
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717.svg?logo=github&logoColor=white)](https://github.com/i9wa4)

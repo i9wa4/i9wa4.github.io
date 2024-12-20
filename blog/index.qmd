@@ -5,6 +5,9 @@ listing:
   categories: numbered
   contents:
     - "."
+  exclude:
+    categories:
+      - "hidden"
   feed: true
   fields:
     - "date"
@@ -17,7 +20,4 @@ listing:
     - "date desc"
     - "title"
   type: default
-  exclude:
-    categories:
-      - "hidden"
 ---
