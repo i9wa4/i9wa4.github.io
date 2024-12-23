@@ -2,22 +2,29 @@
 title: "slides"
 toc: false
 listing:
-  categories: numbered
-  contents:
-    - "."
-  exclude:
-    categories:
-      - "hidden"
-  feed: true
-  fields:
-    - "date"
-    - "categories"
-    - "title"
-  page-size: 20
-  sort-ui:
-    - "date"
-  sort:
-    - "date desc"
-    - "title"
-  type: default
+  - id: "list-all"
+    categories: numbered
+    contents:
+      - "."
+    exclude:
+      categories:
+        - "hidden"
+      filename:
+        - "index.qmd"
+    feed: true
+    fields:
+      - "date"
+      - "categories"
+      - "title"
+    filter-ui: true
+    page-size: 20
+    sort-ui:
+      - "date"
+    sort:
+      - "date desc"
+      - "title"
+    type: default
 ---
+
+::: {#list-all}
+:::
