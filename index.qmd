@@ -17,10 +17,10 @@ listing:
       - "date"
       - "categories"
       - "title"
-    filter-ui: true
+    # filter-ui: true
     page-size: 20
-    sort-ui:
-      - "date"
+    # sort-ui:
+    #   - "date"
     sort:
       - "date desc"
       - "title"
@@ -33,6 +33,8 @@ listing:
 [![Zenn](https://img.shields.io/badge/Zenn-3EA8FF.svg?logo=zenn&logoColor=white)](https://zenn.dev/i9wa4)
 
 [about](https://i9wa4.github.io/i9wa4) || [resume](https://i9wa4.github.io/resume)
+
+---
 
 ::: {#list-all}
 :::
