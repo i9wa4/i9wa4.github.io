@@ -11,11 +11,11 @@ categories:
 
 私の Mac 環境構築手順をまとめておきます。
 
-## 1. dotfiles 導入
+## dotfiles 導入
 
 cf. <https://github.com/i9wa4/dotfiles>
 
-## 2. システム設定
+## システム設定
 
 - バッテリー
     - バッテリーの状態
@@ -58,6 +58,7 @@ cf. <https://github.com/i9wa4/dotfiles>
 - ユーザとグループ
     - 管理者
 - キーボード
+    - キーボードの輝度 最小
     - キーボードショートカット
         - 修飾キー
             - 内蔵キーボード
@@ -68,7 +69,7 @@ cf. <https://github.com/i9wa4/dotfiles>
     - スクロールとズーム
         - ナチュラルなスクロール OFF
 
-## 3. その他
+## その他
 
 - Finder
     - 表示
@@ -81,7 +82,7 @@ cf. <https://github.com/i9wa4/dotfiles>
 - Rectangle
     - ログイン時に起動 ON
 
-## 4. (おまけ) ショートカット集
+## (おまけ) ショートカット集
 
 | カテゴリ       | ショートカット     | 説明                           |
 | ---            | ---                | ---                            |
