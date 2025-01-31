@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-01-31-get-instagram-api-access-token.html",
       "/blog/2024-12-07-inline-r-code-in-yaml.html",
       "/blog/2024-12-07-configure-onedrive.html",
       "/blog/2024-12-05-setup-snowsql-mac.html",
@@ -31,6 +32,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-01-31-get-instagram-api-access-token.html",
       "/blog/2024-12-07-inline-r-code-in-yaml.html",
       "/blog/2024-12-07-configure-onedrive.html",
       "/blog/2024-12-05-setup-snowsql-mac.html",

@@ -137,7 +137,7 @@
     "href": "blog/index.html",
     "title": "blog",
     "section": "",
-    "text": "Quarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
+    "text": "Instagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/2024-07-15-technical-tips.html",
@@ -235,7 +235,7 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 5.7 MB/s eta 0:00:00\nCollecting numpy&gt;=1.26.0 (from pandas)\n  Downloading numpy-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 18.4 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)\nCollecting tzdata&gt;=2022.7 (from pandas)\n  Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)\nDownloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/12.7 MB 115.8 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ 9.3/12.7 MB 136.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 171.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 117.3 MB/s eta 0:00:00\nDownloading numpy-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/16.1 MB 184.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 12.6/16.1 MB 185.9 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 200.1 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 121.2 MB/s eta 0:00:00\nDownloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 83.3 MB/s eta 0:00:00\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.2 pandas-2.2.3 tzdata-2025.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)\nCollecting jinja2\n  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)\nDownloading jinja2-3.1.5-py3-none-any.whl (134 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 9.4 MB/s eta 0:00:00\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.5"
+    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 5.8 MB/s eta 0:00:00\nCollecting numpy&gt;=1.26.0 (from pandas)\n  Downloading numpy-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 21.0 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)\nCollecting tzdata&gt;=2022.7 (from pandas)\n  Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)\nDownloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/12.7 MB 118.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 11.9/12.7 MB 222.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 142.7 MB/s eta 0:00:00\nDownloading numpy-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/16.1 MB 186.1 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━ 12.8/16.1 MB 193.6 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 205.8 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 123.8 MB/s eta 0:00:00\nDownloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 87.9 MB/s eta 0:00:00\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.2 pandas-2.2.3 tzdata-2025.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)\nCollecting jinja2\n  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)\nDownloading jinja2-3.1.5-py3-none-any.whl (134 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 7.0 MB/s eta 0:00:00\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.5"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
@@ -273,74 +273,123 @@
     "text": "R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。\nInline R code in YAML · quarto-dev/quarto-cli · Discussion #606\n変数対応していてそちらは上手く動いてくれました！\nhttps://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008\nということは GitHub Actions 内で生成できる値を Quarto で作ったページに埋め込むことができますね。\nQuarto 向けの Publish Workflow も対応させたいので PR 作りたいです。"
   },
   {
-    "objectID": "blog/2024-01-02-jelyll-adjust.html",
-    "href": "blog/2024-01-02-jelyll-adjust.html",
-    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html",
+    "title": "Instagram API のアクセストークンを取得する",
     "section": "",
-    "text": "[2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。\nブログを作ったので少しだけ機能と見た目を手入れしてみました。"
+    "text": "こういった作業ってテックブログ見るしかないですよね。 やっていきます。"
   },
   {
-    "objectID": "blog/2024-01-02-jelyll-adjust.html#調整前",
-    "href": "blog/2024-01-02-jelyll-adjust.html#調整前",
-    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
-    "section": "1. 調整前",
-    "text": "1. 調整前\n\n現在 Jekyll (GitHub Pages) の Minima (jekyll/minima: Minima is a one-size-fits-all Jekyll theme for writers.) が適用されている状態\n\nHTML ファイルが必要になったらここから持ってくる！"
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "1. 参考ページ",
+    "text": "1. 参考ページ\n\nInstagram API のアクセストークン取得手順\n超簡単！Instagram graph APIのアクセストークンを取得する - to inc マーケティングを企業のスタンダードに"
   },
   {
-    "objectID": "blog/2024-01-02-jelyll-adjust.html#やりたいこと",
-    "href": "blog/2024-01-02-jelyll-adjust.html#やりたいこと",
-    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
-    "section": "2. やりたいこと",
-    "text": "2. やりたいこと\n\nタグ対応\n\nタグ毎の一覧ページの追加\nトップページに各タグの一覧ページへのリンク追加\n各記事にて付与したタグの一覧ページリンクの追加\n\nリポジトリルートの Markdown ファイルへのリンクがヘッダに追加されてしまうためヘッダの記述の簡素化"
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "2. 手順",
+    "text": "2. 手順\n\nFacebook アカウント作成\n\n会社メールアドレスで個人アカウントに該当するアカウントを作成してます\n\nmeta for Developers アカウント作成\n新規アプリ作成\n\nユースケース：その他\nアプリタイプ：ビジネス\n\n作成したアプリの設定\n\nアプリID・app secret を控える\n\nmeta for Developers の「ツール」→「グラフ API エクスプローラ」を起動する\nページ作成\n\n「ページアクセストークンの取得」を選択\n「現在のページにのみオプトイン」を選択\nページを作成する\n(ここでページ名がユニークである必要があるようで、エラーを起こしてページ作成制限を受けてしまいました😢また挑戦します)"
   },
   {
-    "objectID": "blog/2024-01-02-jelyll-adjust.html#タグ対応",
-    "href": "blog/2024-01-02-jelyll-adjust.html#タグ対応",
-    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
-    "section": "3. タグ対応",
-    "text": "3. タグ対応\n\nsyudead さんの記事とリポジトリを参考に実装しました。私は HTML ではなく Markdown 中心の構成としたかったのであくまで参考という感じです。\n\nJekyllのブログでタグ機能を実装する\n\n各記事へのタグ付け方法\n一覧ページの html 記述\n\nsyudead/syudead.github.io\n\nページ一覧の作成方法\n\n./_inclides/tag.html を ./blog.html などの一覧ページ内にて include する\n\n各記述でのタグ一覧ページリンク表示\n\n./_layouts/post.html 参照\n\n\n\nトップページに各タグの一覧ページへのリンクを追加する対応については ./index.md に地道にリンクを追加する方法を取ることとしました。"
-  },
-  {
-    "objectID": "blog/2024-01-02-jelyll-adjust.html#ヘッダ簡素化",
-    "href": "blog/2024-01-02-jelyll-adjust.html#ヘッダ簡素化",
-    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
-    "section": "4. ヘッダ簡素化",
-    "text": "4. ヘッダ簡素化\n\nMinima の HTML ファイル (minima/_includes/header.html at master · jekyll/minima) をリポジトリに追加して対象箇所を削除すれば OK。\n\n(2024/01/28 追記) スマホ版のハンバーガーメニューが寂しかったのでヘッダ簡素化は取りやめました。"
-  },
-  {
-    "objectID": "blog/2024-01-02-jelyll-adjust.html#感想",
-    "href": "blog/2024-01-02-jelyll-adjust.html#感想",
-    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
-    "section": "5. 感想",
-    "text": "5. 感想\n\n必要最低限の機能は実装できたので割と満足です。\n見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。"
-  },
-  {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html",
-    "title": "SnowSQL セットアップ (Mac)",
+    "objectID": "blog/2024-07-20-minecraft-note.html",
+    "href": "blog/2024-07-20-minecraft-note.html",
+    "title": "自分用 Minecraft メモ",
     "section": "",
-    "text": "PC を新調するとセットアップがつきものですね。\nではいきます。"
+    "text": "Minecraft の自分用メモを公開しておきます。"
   },
   {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "1. SnowSQL インストール",
-    "text": "1. SnowSQL インストール\nSnowSQL のインストール | Snowflake Documentation\n\nHomebrew でインストールします。\nbrew install --cask snowflake-snowsql\nエイリアス設定を ~/.zshrc に記載して再読み込み or シェルの再起動を行います。\nalias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql"
+    "objectID": "blog/2024-07-20-minecraft-note.html#todo",
+    "href": "blog/2024-07-20-minecraft-note.html#todo",
+    "title": "自分用 Minecraft メモ",
+    "section": "1. TODO",
+    "text": "1. TODO\n\n地下トラップタワー (経験値自動取得)\n倉庫チェスト再設計\n羊毛仕分け\n山削り\n苔式骨粉製造機\n襲撃者トラップ@前哨基地 1880 632\n弓作り直し\nエンダーチェスト\nエンダードラゴン\nポーション醸造所\nウーパールーパー"
   },
   {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "2. ~/.snowsql/config 作成",
-    "text": "2. ~/.snowsql/config 作成\nSnowSQL を介した接続 | Snowflake Documentation\n\nsnowsql コマンドを実行します。\n$ snowsql\nUsage: snowsql [OPTIONS]\n~/.snowsql/config が作成されているので編集していきます。\n[connections.connection_name1]\naccountname = myorganization-myaccount\nusername = jsmith\npassword = xxxxx\nrolename = myrole\nwarehousename = mywh"
+    "objectID": "blog/2024-07-20-minecraft-note.html#座標メモ",
+    "href": "blog/2024-07-20-minecraft-note.html#座標メモ",
+    "title": "自分用 Minecraft メモ",
+    "section": "2. 座標メモ",
+    "text": "2. 座標メモ\n\n\n\nX\nY\nZ\nDescription\n\n\n\n\n-32\n15\n26\nゾンビスポナー\n\n\n112\n59\n8\nゾンビスポナー\n\n\n338\n-28\n-148\nゾンビスポナー"
   },
   {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "3. コマンド実行",
-    "text": "3. コマンド実行\nSnowSQLの使用 | Snowflake Documentation\n\n以下のコマンドで接続します。\n# どちらでも OK\nsnowsql --connection connection_name1\nsnowsql -c connection_name1\n接続後は SQL 文を直接実行できます。\n\n必要に応じて USE ROLE xxxxxx; で権限を切り替えることができます。\n\n各種コマンドは !help で参照できます。"
+    "objectID": "blog/2024-07-20-minecraft-note.html#エンチャント",
+    "href": "blog/2024-07-20-minecraft-note.html#エンチャント",
+    "title": "自分用 Minecraft メモ",
+    "section": "3. エンチャント",
+    "text": "3. エンチャント\n\n3.1. 防具\n\n共通\n\n修繕I\n耐久力III\nダメージ軽減IV\n\nヘルメット\n\n水中採掘\n水中呼吸III\n\nチェストプレート\nレギンス\n\nスニーク速度上昇\n\nブーツ\n\n水中歩行III\n落下耐性IV\n\n\n\n\n3.2. 武器\n\n共通\n\n修繕I\n耐久力III\n\n剣\n\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\n\n弓\n\nフレイム\n射撃ダメージ増加V\nパンチII\n無限\n\nクロスボウ\n\n高速充填III\n貫通IV\n\nトライデント\n\n水性特攻V\n忠誠III\n召雷\n\n\n\n\n3.3. 道具\n\n共通\n\n修繕I\n耐久力III\n効率強化V\n幸運III or シルクタッチ"
+  },
+  {
+    "objectID": "blog/2024-07-20-minecraft-note.html#村人職業設計",
+    "href": "blog/2024-07-20-minecraft-note.html#村人職業設計",
+    "title": "自分用 Minecraft メモ",
+    "section": "4. 村人職業設計",
+    "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html",
+    "href": "blog/2024-07-20-aigis-note.html",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "",
+    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
+    "href": "blog/2024-07-20-aigis-note.html#週次周回",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "1. 週次周回",
+    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "2. 月次の交換先",
+    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
+  },
+  {
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "",
+    "text": "Zenn に書いた以下の記事と全く同じ内容です。\nZennの記事をGitHubリポジトリで管理する\n気の向くままにこちらの個人ブログの方で先に公開します。 Markdown で管理しているので流用しやすくて便利！"
+  },
+  {
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#はじめに",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#はじめに",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "1. はじめに",
+    "text": "1. はじめに\n初投稿なので新鮮な気持ちで Zenn 公式の記事を見ながら GitHub リポジトリ経由で Zenn の記事を投稿するまでの手順をまとめます。"
+  },
+  {
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#手順",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#手順",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "2. 手順",
+    "text": "2. 手順\n\n2.1. 前準備\n\nリポジトリ作成から連携までを済ませる。\n\nGitHubリポジトリでZennのコンテンツを管理する\n\nZenn CLI をインストールする。\n\nZenn CLIをインストールする\n\nリポジトリ内に作成されたファイルをコミットしておく。\n\n\n\n2.2. 記事の作成\n以下の記事に従うと記事を書くことができます。\nZenn CLIで記事・本を管理する方法"
+  },
+  {
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#実際に作成していて気付いた点",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#実際に作成していて気付いた点",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "3. 実際に作成していて気付いた点",
+    "text": "3. 実際に作成していて気付いた点\n\n3.1. スラッグを最初に指定する\n$ npx zenn new:article\nで記事に対応する Markdown ファイルを作成するとスラッグ (記事IDのことで公開時のファイル名と思ってよい) としてランダムな文字列が割り当てられます。 リポジトリで記事を管理する上で無意味なファイル名が並ぶのは辛いので以下のどちらかの対応を取りましょう。\n\nスラッグを指定して記事作成コマンドを実行する\n$ npx zenn new:article --slug 2024-11-20-manage-zenn-with-github\n公開前に ファイル名を変更する\n\n\n\n3.2. YAML ヘッダの topics: の各要素はハイフンで書く\nYAML ヘッダの記載例として以下のように記載されています。\nZenn CLIで記事・本を管理する方法\n---\ntitle: \"\" # 記事のタイトル\nemoji: \"😸\" # アイキャッチとして使われる絵文字（1文字だけ）\ntype: \"tech\" # tech: 技術記事 / idea: アイデア記事\ntopics: [] # タグ。[\"markdown\", \"rust\", \"aws\"]のように指定する\npublished: true # 公開設定（falseにすると下書き）\n---\nここから本文を書く\n個人的には\n---\ntopics: [\"markdown\", \"rust\", \"aws\"]\n---\nよりも\n---\ntopics:\n  - \"markdown\"\n  - \"rust\"\n  - \"aws\"\n---\nの方が行ソートで重複を見つけやすいので好きです。\n\n\n3.3. 会社テックブログ向けの予約投稿\n会社の Publication から予約投稿するには以下でよさそうです。\n---\npublished: true\npublished_at: 2024-11-20 18:00\npublication_name: \"Publication Name\"\n---\n(参考) 【Zenn】PublicationでもGitHub連携したい！自由選択型アプローチのすゝめ\nただこれだといきなり投稿されて、かつ公開前のレビューのために個人のリポジトリのPRを見せる面倒臭さが発生します。 個人リポジトリの利用を前提として事前に内容を秘匿する場合はローカルで作成したプレビューを PDF 化していこうかなと考えています。"
+  },
+  {
+    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#おわりに",
+    "href": "blog/2024-11-20-manage-zenn-with-github.html#おわりに",
+    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "section": "4. おわりに",
+    "text": "4. おわりに\n取り急ぎこの記事が無事投稿できていれば OK です！ 自分は新規投稿する度に本記事を見直すことになりそうです。"
+  },
+  {
+    "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
+    "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
+    "title": ":%s/i9wa4/uma-chan/g",
+    "section": "",
+    "text": "元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
@@ -406,102 +455,74 @@
     "text": "8. おわりに\nもっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。\n\nQuarto 公式\n\nページ https://quarto.org\nリポジトリ https://github.com/quarto-dev/quarto-web\n\ni9wa4 の GitHub Pages\n\nページ https://i9wa4.github.io\nリポジトリ https://github.com/i9wa4/i9wa4.github.io"
   },
   {
-    "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
-    "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
-    "title": ":%s/i9wa4/uma-chan/g",
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html",
+    "title": "SnowSQL セットアップ (Mac)",
     "section": "",
-    "text": "元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
+    "text": "PC を新調するとセットアップがつきものですね。\nではいきます。"
   },
   {
-    "objectID": "blog/2024-11-20-manage-zenn-with-github.html",
-    "href": "blog/2024-11-20-manage-zenn-with-github.html",
-    "title": "Zennの記事をGitHubリポジトリで管理する",
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "1. SnowSQL インストール",
+    "text": "1. SnowSQL インストール\nSnowSQL のインストール | Snowflake Documentation\n\nHomebrew でインストールします。\nbrew install --cask snowflake-snowsql\nエイリアス設定を ~/.zshrc に記載して再読み込み or シェルの再起動を行います。\nalias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "2. ~/.snowsql/config 作成",
+    "text": "2. ~/.snowsql/config 作成\nSnowSQL を介した接続 | Snowflake Documentation\n\nsnowsql コマンドを実行します。\n$ snowsql\nUsage: snowsql [OPTIONS]\n~/.snowsql/config が作成されているので編集していきます。\n[connections.connection_name1]\naccountname = myorganization-myaccount\nusername = jsmith\npassword = xxxxx\nrolename = myrole\nwarehousename = mywh"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "3. コマンド実行",
+    "text": "3. コマンド実行\nSnowSQLの使用 | Snowflake Documentation\n\n以下のコマンドで接続します。\n# どちらでも OK\nsnowsql --connection connection_name1\nsnowsql -c connection_name1\n接続後は SQL 文を直接実行できます。\n\n必要に応じて USE ROLE xxxxxx; で権限を切り替えることができます。\n\n各種コマンドは !help で参照できます。"
+  },
+  {
+    "objectID": "blog/2024-01-02-jelyll-adjust.html",
+    "href": "blog/2024-01-02-jelyll-adjust.html",
+    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
     "section": "",
-    "text": "Zenn に書いた以下の記事と全く同じ内容です。\nZennの記事をGitHubリポジトリで管理する\n気の向くままにこちらの個人ブログの方で先に公開します。 Markdown で管理しているので流用しやすくて便利！"
+    "text": "[2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。\nブログを作ったので少しだけ機能と見た目を手入れしてみました。"
   },
   {
-    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#はじめに",
-    "href": "blog/2024-11-20-manage-zenn-with-github.html#はじめに",
-    "title": "Zennの記事をGitHubリポジトリで管理する",
-    "section": "1. はじめに",
-    "text": "1. はじめに\n初投稿なので新鮮な気持ちで Zenn 公式の記事を見ながら GitHub リポジトリ経由で Zenn の記事を投稿するまでの手順をまとめます。"
+    "objectID": "blog/2024-01-02-jelyll-adjust.html#調整前",
+    "href": "blog/2024-01-02-jelyll-adjust.html#調整前",
+    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
+    "section": "1. 調整前",
+    "text": "1. 調整前\n\n現在 Jekyll (GitHub Pages) の Minima (jekyll/minima: Minima is a one-size-fits-all Jekyll theme for writers.) が適用されている状態\n\nHTML ファイルが必要になったらここから持ってくる！"
   },
   {
-    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#手順",
-    "href": "blog/2024-11-20-manage-zenn-with-github.html#手順",
-    "title": "Zennの記事をGitHubリポジトリで管理する",
-    "section": "2. 手順",
-    "text": "2. 手順\n\n2.1. 前準備\n\nリポジトリ作成から連携までを済ませる。\n\nGitHubリポジトリでZennのコンテンツを管理する\n\nZenn CLI をインストールする。\n\nZenn CLIをインストールする\n\nリポジトリ内に作成されたファイルをコミットしておく。\n\n\n\n2.2. 記事の作成\n以下の記事に従うと記事を書くことができます。\nZenn CLIで記事・本を管理する方法"
+    "objectID": "blog/2024-01-02-jelyll-adjust.html#やりたいこと",
+    "href": "blog/2024-01-02-jelyll-adjust.html#やりたいこと",
+    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
+    "section": "2. やりたいこと",
+    "text": "2. やりたいこと\n\nタグ対応\n\nタグ毎の一覧ページの追加\nトップページに各タグの一覧ページへのリンク追加\n各記事にて付与したタグの一覧ページリンクの追加\n\nリポジトリルートの Markdown ファイルへのリンクがヘッダに追加されてしまうためヘッダの記述の簡素化"
   },
   {
-    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#実際に作成していて気付いた点",
-    "href": "blog/2024-11-20-manage-zenn-with-github.html#実際に作成していて気付いた点",
-    "title": "Zennの記事をGitHubリポジトリで管理する",
-    "section": "3. 実際に作成していて気付いた点",
-    "text": "3. 実際に作成していて気付いた点\n\n3.1. スラッグを最初に指定する\n$ npx zenn new:article\nで記事に対応する Markdown ファイルを作成するとスラッグ (記事IDのことで公開時のファイル名と思ってよい) としてランダムな文字列が割り当てられます。 リポジトリで記事を管理する上で無意味なファイル名が並ぶのは辛いので以下のどちらかの対応を取りましょう。\n\nスラッグを指定して記事作成コマンドを実行する\n$ npx zenn new:article --slug 2024-11-20-manage-zenn-with-github\n公開前に ファイル名を変更する\n\n\n\n3.2. YAML ヘッダの topics: の各要素はハイフンで書く\nYAML ヘッダの記載例として以下のように記載されています。\nZenn CLIで記事・本を管理する方法\n---\ntitle: \"\" # 記事のタイトル\nemoji: \"😸\" # アイキャッチとして使われる絵文字（1文字だけ）\ntype: \"tech\" # tech: 技術記事 / idea: アイデア記事\ntopics: [] # タグ。[\"markdown\", \"rust\", \"aws\"]のように指定する\npublished: true # 公開設定（falseにすると下書き）\n---\nここから本文を書く\n個人的には\n---\ntopics: [\"markdown\", \"rust\", \"aws\"]\n---\nよりも\n---\ntopics:\n  - \"markdown\"\n  - \"rust\"\n  - \"aws\"\n---\nの方が行ソートで重複を見つけやすいので好きです。\n\n\n3.3. 会社テックブログ向けの予約投稿\n会社の Publication から予約投稿するには以下でよさそうです。\n---\npublished: true\npublished_at: 2024-11-20 18:00\npublication_name: \"Publication Name\"\n---\n(参考) 【Zenn】PublicationでもGitHub連携したい！自由選択型アプローチのすゝめ\nただこれだといきなり投稿されて、かつ公開前のレビューのために個人のリポジトリのPRを見せる面倒臭さが発生します。 個人リポジトリの利用を前提として事前に内容を秘匿する場合はローカルで作成したプレビューを PDF 化していこうかなと考えています。"
+    "objectID": "blog/2024-01-02-jelyll-adjust.html#タグ対応",
+    "href": "blog/2024-01-02-jelyll-adjust.html#タグ対応",
+    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
+    "section": "3. タグ対応",
+    "text": "3. タグ対応\n\nsyudead さんの記事とリポジトリを参考に実装しました。私は HTML ではなく Markdown 中心の構成としたかったのであくまで参考という感じです。\n\nJekyllのブログでタグ機能を実装する\n\n各記事へのタグ付け方法\n一覧ページの html 記述\n\nsyudead/syudead.github.io\n\nページ一覧の作成方法\n\n./_inclides/tag.html を ./blog.html などの一覧ページ内にて include する\n\n各記述でのタグ一覧ページリンク表示\n\n./_layouts/post.html 参照\n\n\n\nトップページに各タグの一覧ページへのリンクを追加する対応については ./index.md に地道にリンクを追加する方法を取ることとしました。"
   },
   {
-    "objectID": "blog/2024-11-20-manage-zenn-with-github.html#おわりに",
-    "href": "blog/2024-11-20-manage-zenn-with-github.html#おわりに",
-    "title": "Zennの記事をGitHubリポジトリで管理する",
-    "section": "4. おわりに",
-    "text": "4. おわりに\n取り急ぎこの記事が無事投稿できていれば OK です！ 自分は新規投稿する度に本記事を見直すことになりそうです。"
+    "objectID": "blog/2024-01-02-jelyll-adjust.html#ヘッダ簡素化",
+    "href": "blog/2024-01-02-jelyll-adjust.html#ヘッダ簡素化",
+    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
+    "section": "4. ヘッダ簡素化",
+    "text": "4. ヘッダ簡素化\n\nMinima の HTML ファイル (minima/_includes/header.html at master · jekyll/minima) をリポジトリに追加して対象箇所を削除すれば OK。\n\n(2024/01/28 追記) スマホ版のハンバーガーメニューが寂しかったのでヘッダ簡素化は取りやめました。"
   },
   {
-    "objectID": "blog/2024-07-20-aigis-note.html",
-    "href": "blog/2024-07-20-aigis-note.html",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "",
-    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
-    "href": "blog/2024-07-20-aigis-note.html#週次周回",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "1. 週次周回",
-    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "2. 月次の交換先",
-    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html",
-    "href": "blog/2024-07-20-minecraft-note.html",
-    "title": "自分用 Minecraft メモ",
-    "section": "",
-    "text": "Minecraft の自分用メモを公開しておきます。"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#todo",
-    "href": "blog/2024-07-20-minecraft-note.html#todo",
-    "title": "自分用 Minecraft メモ",
-    "section": "1. TODO",
-    "text": "1. TODO\n\n地下トラップタワー (経験値自動取得)\n倉庫チェスト再設計\n羊毛仕分け\n山削り\n苔式骨粉製造機\n襲撃者トラップ@前哨基地 1880 632\n弓作り直し\nエンダーチェスト\nエンダードラゴン\nポーション醸造所\nウーパールーパー"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#座標メモ",
-    "href": "blog/2024-07-20-minecraft-note.html#座標メモ",
-    "title": "自分用 Minecraft メモ",
-    "section": "2. 座標メモ",
-    "text": "2. 座標メモ\n\n\n\nX\nY\nZ\nDescription\n\n\n\n\n-32\n15\n26\nゾンビスポナー\n\n\n112\n59\n8\nゾンビスポナー\n\n\n338\n-28\n-148\nゾンビスポナー"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#エンチャント",
-    "href": "blog/2024-07-20-minecraft-note.html#エンチャント",
-    "title": "自分用 Minecraft メモ",
-    "section": "3. エンチャント",
-    "text": "3. エンチャント\n\n3.1. 防具\n\n共通\n\n修繕I\n耐久力III\nダメージ軽減IV\n\nヘルメット\n\n水中採掘\n水中呼吸III\n\nチェストプレート\nレギンス\n\nスニーク速度上昇\n\nブーツ\n\n水中歩行III\n落下耐性IV\n\n\n\n\n3.2. 武器\n\n共通\n\n修繕I\n耐久力III\n\n剣\n\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\n\n弓\n\nフレイム\n射撃ダメージ増加V\nパンチII\n無限\n\nクロスボウ\n\n高速充填III\n貫通IV\n\nトライデント\n\n水性特攻V\n忠誠III\n召雷\n\n\n\n\n3.3. 道具\n\n共通\n\n修繕I\n耐久力III\n効率強化V\n幸運III or シルクタッチ"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#村人職業設計",
-    "href": "blog/2024-07-20-minecraft-note.html#村人職業設計",
-    "title": "自分用 Minecraft メモ",
-    "section": "4. 村人職業設計",
-    "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
+    "objectID": "blog/2024-01-02-jelyll-adjust.html#感想",
+    "href": "blog/2024-01-02-jelyll-adjust.html#感想",
+    "title": "GitHub Pages (Jekyll) blog のタグ追加対応",
+    "section": "5. 感想",
+    "text": "5. 感想\n\n必要最低限の機能は実装できたので割と満足です。\n見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。"
   },
   {
     "objectID": "blog/2024-09-22-vim-plugin-idea.html",
@@ -837,7 +858,7 @@
     "href": "index.html",
     "title": "uma-chan’s page",
     "section": "",
-    "text": "about || resume\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+    "text": "about || resume\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/index.html",
