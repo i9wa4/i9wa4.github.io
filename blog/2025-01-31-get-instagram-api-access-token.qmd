@@ -1,0 +1,34 @@
+---
+title: "Instagram API のアクセストークンを取得する"
+author: uma-chan
+date: 2025-01-31 21:06:02 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+---
+
+こういった作業ってテックブログ見るしかないですよね。
+やっていきます。
+
+## 1. 参考ページ
+
+- [Instagram API のアクセストークン取得手順](https://zenn.dev/kimuracoki/articles/9f086639604d57)
+- [超簡単！Instagram graph APIのアクセストークンを取得する - to inc マーケティングを企業のスタンダードに](https://to-inc.co.jp/socialbook/?p=2189)
+
+## 2. 手順
+
+1. Facebook アカウント作成
+    - 会社メールアドレスで個人アカウントに該当するアカウントを作成してます
+1. meta for Developers アカウント作成
+1. 新規アプリ作成
+    - ユースケース：その他
+    - アプリタイプ：ビジネス
+1. 作成したアプリの設定
+    - アプリID・app secret を控える
+1. meta for Developers の「ツール」→「グラフ API エクスプローラ」を起動する
+1. ページ作成
+    1. 「ページアクセストークンの取得」を選択
+    1. 「現在のページにのみオプトイン」を選択
+    1. ページを作成する
+    1. (ここでページ名がユニークである必要があるようで、エラーを起こしてページ作成制限を受けてしまいました😢また挑戦します)
