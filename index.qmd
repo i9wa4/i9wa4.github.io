@@ -17,10 +17,9 @@ listing:
       - "date"
       - "categories"
       - "title"
-    # filter-ui: true
     page-size: 20
-    # sort-ui:
-    #   - "date"
+    sort-ui:
+      - "date"
     sort:
       - "date desc"
       - "title"
