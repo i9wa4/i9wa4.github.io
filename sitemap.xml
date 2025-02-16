@@ -1,75 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://i9wa4.github.io/slides/2024-02-04-sapporo.vim.html</loc>
-    <lastmod>2024-12-23T06:31:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/slides/2023-12-16-sapporo.vim.html</loc>
-    <lastmod>2024-12-23T06:31:42.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <loc>https://i9wa4.github.io/slides/index.html</loc>
     <lastmod>2025-02-06T06:10:08.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-11-12-use-nektos-act.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html</loc>
-    <lastmod>2025-01-31T12:06:08.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</loc>
-    <lastmod>2025-02-08T13:54:17.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
@@ -77,11 +21,71 @@
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-11-12-use-nektos-act.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</loc>
+    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <lastmod>2025-02-06T06:10:08.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html</loc>
+    <lastmod>2025-01-31T12:06:08.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</loc>
+    <lastmod>2025-02-08T13:54:17.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/index.html</loc>
+    <lastmod>2025-02-06T06:10:08.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
@@ -93,31 +97,27 @@
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-03-25-setup-wsl2.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://i9wa4.github.io/blog/2024-01-27-setup-efm-langserver.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
-    <lastmod>2025-01-30T09:18:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/index.html</loc>
-    <lastmod>2025-02-06T06:10:08.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
+    <lastmod>2025-02-16T06:33:38.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/slides/index.html</loc>
-    <lastmod>2025-02-06T06:10:08.000Z</lastmod>
+    <loc>https://i9wa4.github.io/slides/2024-02-04-sapporo.vim.html</loc>
+    <lastmod>2024-12-23T06:31:42.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/slides/2023-12-16-sapporo.vim.html</loc>
+    <lastmod>2024-12-23T06:31:42.000Z</lastmod>
   </url>
 </urlset>
