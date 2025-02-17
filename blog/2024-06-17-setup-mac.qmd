@@ -63,6 +63,8 @@ cf. <https://github.com/i9wa4/dotfiles>
         - 修飾キー
             - 内蔵キーボード
                 - Caps Lock -> Control
+    - 音声入力
+        - 自動句読点 OFF
 - マウス
     - ナチュラルなスクロール OFF
 - トラックパッド
