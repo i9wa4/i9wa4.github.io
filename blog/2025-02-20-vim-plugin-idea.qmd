@@ -17,7 +17,7 @@ categories:
 
 [thinca/vim-localrc: Enable configuration file of each directory.](https://github.com/thinca/vim-localrc)
 
-相変わらず活用してます。設定ファイル作成コマンドと最下層のローカル設定ファイルにジャンプするキーバインドが結構お気に入り。
+相変わらず自作のローカル設定読み込みは活用してます。設定ファイル作成コマンドと最下層のローカル設定ファイルにジャンプするキーバインドが結構お気に入り。
 
 ## 2. Terminal 管理
 
