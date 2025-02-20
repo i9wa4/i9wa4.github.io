@@ -51,7 +51,7 @@ Linter を参考にすればいけそうだけど、コードの行追加削除�
 
 ## 6. dbt プラグイン (Deno)
 
-これは作りました！以下です。
+これは作りました！一応以下が紹介記事です。
 
 [Vim/Neovimのdbt開発環境の現状とVimを救う話](https://zenn.dev/genda_jp/articles/2024-12-02-vim-neovim-environment-for-dbt)
 
