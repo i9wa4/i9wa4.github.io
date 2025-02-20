@@ -57,7 +57,7 @@
 </section>
 <section id="dbt-プラグイン-deno" class="level2">
 <h2 class="anchored" data-anchor-id="dbt-プラグイン-deno">6. dbt プラグイン (Deno)</h2>
-<p>これは作りました！以下です。</p>
+<p>これは作りました！一応以下が紹介記事です。</p>
 <p><a href="https://zenn.dev/genda_jp/articles/2024-12-02-vim-neovim-environment-for-dbt">Vim/Neovimのdbt開発環境の現状とVimを救う話</a></p>
 <p>バグ取りをする必要あり。</p>
 </section>
@@ -922,7 +922,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="86822d68" class="cell" data-execution_count="1">
+<div id="9c3e68c1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -939,20 +939,20 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 6.5 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 7.1 MB/s eta 0:00:00
 Collecting numpy&gt;=1.26.0 (from pandas)
   Downloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 23.9 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 15.0 MB/s eta 0:00:00
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)
 Collecting tzdata&gt;=2022.7 (from pandas)
   Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
 Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━ 8.1/12.7 MB 242.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 241.4 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 146.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/12.7 MB 148.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 226.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 141.8 MB/s eta 0:00:00
 Downloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.8/16.1 MB 205.0 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ 15.3/16.1 MB 242.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 237.0 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 132.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ 5.8/16.1 MB 174.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 12.6/16.1 MB 185.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 213.9 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 122.0 MB/s eta 0:00:00
 Downloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 85.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 65.4 MB/s eta 0:00:00
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.2.3 pandas-2.2.3 tzdata-2025.1
 Defaulting to user installation because normal site-packages is not writeable
@@ -961,7 +961,7 @@ Collecting jinja2
   Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)
 Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 8.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 10.2 MB/s eta 0:00:00
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.5</code></pre>
 </div>
@@ -969,7 +969,7 @@ Successfully installed jinja2-3.1.5</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="d45cb393" class="cell" data-execution_count="2">
+<div id="74f538f2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -1145,7 +1145,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="c3ed4179" class="cell" data-execution_count="3">
+<div id="8afa9ece" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -1176,7 +1176,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="88e62871" class="cell" data-execution_count="4">
+<div id="e5a7282d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -1245,7 +1245,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="3ccdecbf" class="cell" data-execution_count="5">
+<div id="6c84a6dc" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
