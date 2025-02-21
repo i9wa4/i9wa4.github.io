@@ -15,7 +15,68 @@
 <link>https://i9wa4.github.io/blog/</link>
 </image>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Thu, 20 Feb 2025 03:22:55 GMT</lastBuildDate>
+<lastBuildDate>Fri, 21 Feb 2025 02:03:49 GMT</lastBuildDate>
+<item>
+  <title>見やすい SQL を書くための Tips</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。</p>
+<p>見やすさを重視しているので、パフォーマンスについては度外視してます。</p>
+<section id="フォーマッタで整形する" class="level2">
+<h2 class="anchored" data-anchor-id="フォーマッタで整形する">1. フォーマッタで整形する</h2>
+<p>フォーマッタを使って統一感のある SQL を書きましょう。</p>
+<p>sqlfmt が個人的におすすめです。</p>
+</section>
+<section id="with-句を使う" class="level2">
+<h2 class="anchored" data-anchor-id="with-句を使う">2. with 句を使う</h2>
+<p>ネストすると負荷が高まるので使ったほうがいいと思ってます。 良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。</p>
+<pre class="{sql}"><code>with
+    a as (select id, name from table_a),
+    b as (select id, common_id from table_b),
+    out as (
+        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`
+        from a
+        left outer join b on a.id = b.id
+        order by a.id
+    )
+select *
+from out</code></pre>
+</section>
+<section id="つのサブクエリに1つの目的を持たせる" class="level2">
+<h2 class="anchored" data-anchor-id="つのサブクエリに1つの目的を持たせる">3. 1つのサブクエリに1つの目的を持たせる</h2>
+<p>もちろん with 句で名前をつけたサブクエリの話をしてます。</p>
+<p>ごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。</p>
+<p>例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。</p>
+</section>
+<section id="省略表現を減らす" class="level2">
+<h2 class="anchored" data-anchor-id="省略表現を減らす">4. 省略表現を減らす</h2>
+<p>これはもはや好みの問題かもしれません。</p>
+<p>例えば</p>
+<pre class="{sql}"><code>select * from A</code></pre>
+<p>と書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。 私は SQL で初登場するカラム名は明記するようにしてます。</p>
+<pre class="{sql}"><code>order by 1, 2
+order by all</code></pre>
+<p>なども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。</p>
+<pre class="{sql}"><code>left outer join table_b using (id)</code></pre>
+<p>もそうですね。いつも同じ書き方ができるとは限らないので</p>
+<pre class="{sql}"><code>left outer join table_b on table_a.id = table_b.id</code></pre>
+<p>と書いて書き味をいつも同じにしておきたいです。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-sql</category>
+  <guid>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</guid>
+  <pubDate>Fri, 21 Feb 2025 02:03:49 GMT</pubDate>
+</item>
 <item>
   <title>最近の Vim プラグイン開発のアイデア</title>
   <dc:creator>uma-chan </dc:creator>
@@ -922,7 +983,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 <p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
 <section id="ライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="9c3e68c1" class="cell" data-execution_count="1">
+<div id="21f91622" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
@@ -939,20 +1000,20 @@ font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting pandas
   Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 7.1 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 7.0 MB/s eta 0:00:00
 Collecting numpy&gt;=1.26.0 (from pandas)
   Downloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 15.0 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 19.4 MB/s eta 0:00:00
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)
 Collecting tzdata&gt;=2022.7 (from pandas)
   Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
 Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/12.7 MB 148.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 226.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 141.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 6.1/12.7 MB 184.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 10.9/12.7 MB 162.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 161.4 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 112.9 MB/s eta 0:00:00
 Downloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ 5.8/16.1 MB 174.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 12.6/16.1 MB 185.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 213.9 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 122.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/16.1 MB 112.9 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 10.3/16.1 MB 151.8 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 218.8 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 117.1 MB/s eta 0:00:00
 Downloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 65.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 22.7 MB/s eta 0:00:00
 Installing collected packages: tzdata, numpy, pandas
 Successfully installed numpy-2.2.3 pandas-2.2.3 tzdata-2025.1
 Defaulting to user installation because normal site-packages is not writeable
@@ -961,7 +1022,7 @@ Collecting jinja2
   Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)
 Downloading jinja2-3.1.5-py3-none-any.whl (134 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 10.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 10.3 MB/s eta 0:00:00
 Installing collected packages: jinja2
 Successfully installed jinja2-3.1.5</code></pre>
 </div>
@@ -969,7 +1030,7 @@ Successfully installed jinja2-3.1.5</code></pre>
 </section>
 <section id="関数定義" class="level2">
 <h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="74f538f2" class="cell" data-execution_count="2">
+<div id="a5b69b9c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
@@ -1145,7 +1206,7 @@ font-style: inherit;">return</span> _df</span></code></pre></div>
 </section>
 <section id="csv-内容確認" class="level2">
 <h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="8afa9ece" class="cell" data-execution_count="3">
+<div id="fe3c6ba1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
@@ -1176,7 +1237,7 @@ font-style: inherit;">-</span>df.csv</span></code></pre></div>
 </section>
 <section id="taga" class="level2">
 <h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="e5a7282d" class="cell" data-execution_count="4">
+<div id="955b7aa0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">extract_tag(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'TagA'</span>)</span></code></pre></div>
@@ -1245,7 +1306,7 @@ Website
 </section>
 <section id="tagb" class="level2">
 <h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="6c84a6dc" class="cell" data-execution_count="5">
+<div id="71e8a4c3" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">extract_tag(<span class="st" style="color: #20794D;
@@ -2989,163 +3050,6 @@ Table&nbsp;1: 購入ガジェット一覧
   <category>tech-quarto</category>
   <guid>https://i9wa4.github.io/blog/2024-05-05-deploy-quarto.html</guid>
   <pubDate>Sat, 04 May 2024 18:23:09 GMT</pubDate>
-</item>
-<item>
-  <title>Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="経緯" class="level2">
-<h2 class="anchored" data-anchor-id="経緯">1. 経緯</h2>
-<p>私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。</p>
-<p>.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。</p>
-<p><a href="https://github.com/itchyny/vim-gitbranch" class="uri">https://github.com/itchyny/vim-gitbranch</a></p>
-<p>Gemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。</p>
-</section>
-<section id="gemini-との開発過程" class="level2">
-<h2 class="anchored" data-anchor-id="gemini-との開発過程">2. Gemini との開発過程</h2>
-<p>Gemini とのやりとりを書き残しておきます。</p>
-<section id="git-探索関数作成" class="level3">
-<h3 class="anchored" data-anchor-id="git-探索関数作成">2.1. .git 探索関数作成</h3>
-<section id="質問" class="level4">
-<h4 class="anchored" data-anchor-id="質問">2.1.1. 質問</h4>
-<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
-- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。</code></pre>
-</section>
-<section id="回答" class="level4">
-<h4 class="anchored" data-anchor-id="回答">2.1.2. 回答</h4>
-<pre class="plaintext"><code>Vim script で .git ディレクトリを探す関数
-
-以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。
-
-function! FindGitDir(dir)
-  " 引数がない場合はカレントディレクトリを代入 "
-  if (empty(a:dir))
-    let dir = expand('%:p')
-  endif
-
-  " ループフラグを初期化 "
-  let found = 0
-
-  " 順に上の階層をたどる "
-  while (!found &amp;&amp; !empty(dir) &amp;&amp; dir != '/')
-    " .git ディレクトリが存在するか確認 "
-    if (isdirectory(dir . '/.git'))
-      let found = 1
-      let gitdir = dir . '/.git'
-    endif
-
-    " 上の階層へ移動 "
-    let dir = expand(dirname(dir))
-  endwhile
-
-  " 結果を返す "
-  if (found)
-    return gitdir
-  else
-    return ''
-  endif
-endfunction</code></pre>
-</section>
-</section>
-<section id="ブランチ名取得関数作成" class="level3">
-<h3 class="anchored" data-anchor-id="ブランチ名取得関数作成">2.2. ブランチ名取得関数作成</h3>
-<section id="質問-1" class="level4">
-<h4 class="anchored" data-anchor-id="質問-1">2.2.1. 質問</h4>
-<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
-- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。</code></pre>
-</section>
-<section id="回答-1" class="level4">
-<h4 class="anchored" data-anchor-id="回答-1">2.2.2. 回答</h4>
-<pre class="plaintext"><code>以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。
-
-function! GetCurrentBranch(gitdir)
-  " 引数が空の場合、エラーを返す "
-  if (empty(a:gitdir))
-    error('引数が空です')
-  endif
-
-  " カレントブランチ名の取得 "
-  let branch = system('git --git-dir="' . a:gitdir . '" rev-parse --abbrev-ref HEAD')
-
-  " .git ディレクトリを除いたブランチ名を返す "
-  return substitute(branch, a:gitdir . '/', '', 'g')
-endfunction</code></pre>
-</section>
-<section id="質問-2" class="level4">
-<h4 class="anchored" data-anchor-id="質問-2">2.2.3. 質問</h4>
-<pre class="plaintext"><code>system() を使わず、gitコマンドを使わずに実現させてほしいです。</code></pre>
-</section>
-<section id="回答-2" class="level4">
-<h4 class="anchored" data-anchor-id="回答-2">2.2.4. 回答</h4>
-<pre class="plaintext"><code>Vim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。
-
-
-1. :echo %b コマンドを使用する
-
-この方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。
-
-" 現在のブランチ名をエコーする "
-:echo %b
-
-
-2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む
-
-この方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。
-
-" .git/HEAD ファイルのパスを取得 "
-let headfile = expand('%:p:h') . '/.git/HEAD'
-
-" HEAD ファイルの内容を読み込む "
-let headcontent = readfile(headfile)
-
-" ブランチ名を抽出する "
-let branch = match(headcontent, 'ref: refs/heads/(.+)')
-
-" 結果を確認 "
-echo "現在のブランチ: " . branch
-
-
-3. git log の出力を解析する
-
-この方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。
-Vim Script
-
-" git log の出力をバッファに読み込む "
-:redir &gt; /dev/null git log -1
-
-" ブランチ名を抽出する "
-let branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')
-
-" 結果を確認 "
-echo "現在のブランチ: " . branch</code></pre>
-<p>回答1が嘘すぎてびっくり。今回は回答2がよさそう。</p>
-<p>この時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。</p>
-<p><a href="https://github.com/itchyny/vim-gitbranch" class="uri">https://github.com/itchyny/vim-gitbranch</a></p>
-<p>ここまで分かればあとは動作を確認しながら書けそうです。</p>
-</section>
-</section>
-</section>
-<section id="完成品" class="level2">
-<h2 class="anchored" data-anchor-id="完成品">3. 完成品</h2>
-<p>Gemini と考えたコードが跡形もなくなっている。。なぜ。。</p>
-<p>TODO: 繰り返し呼ばれることを念頭に処理を軽くしたい</p>
-<p><a href="https://github.com/i9wa4/get-git-branch-name.vim" class="uri">https://github.com/i9wa4/get-git-branch-name.vim</a></p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-dev</category>
-  <category>tech-vim</category>
-  <guid>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</guid>
-  <pubDate>Fri, 03 May 2024 19:07:04 GMT</pubDate>
 </item>
 </channel>
 </rss>
