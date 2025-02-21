@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -170,6 +204,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
+    <div class="quarto-category">tech-tips</div>
     <div class="quarto-category">tech-sql</div>
   </div>
   </div>
@@ -206,7 +241,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。 因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。</p>
+<p>dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。</p>
+<p>因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。</p>
+<p>勢いで書いたので思い出したらどんどん追記します</p>
 <section id="フォーマッタで整形する" class="level2">
 <h2 class="anchored" data-anchor-id="フォーマッタで整形する">1. フォーマッタで整形する</h2>
 <p>フォーマッタを使って統一感のある SQL を書きましょう。</p>
@@ -214,18 +251,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="with-句を使う" class="level2">
 <h2 class="anchored" data-anchor-id="with-句を使う">2. with 句を使う</h2>
-<p>ネストすると負荷が高まるので使ったほうがいいと思ってます。 良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。</p>
-<pre class="{sql}"><code>with
-    a as (select id, name from table_a),
-    b as (select id, common_id from table_b),
-    out as (
-        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`
-        from a
-        left outer join b on a.id = b.id
-        order by a.id
-    )
-select *
-from out</code></pre>
+<p>ネストすると負荷が高まるので使ったほうがいいと思ってます。</p>
+<p>良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">with</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    a <span class="kw">as</span> (<span class="kw">select</span> <span class="kw">id</span>, name <span class="kw">from</span> table_a),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    b <span class="kw">as</span> (<span class="kw">select</span> <span class="kw">id</span>, common_id <span class="kw">from</span> table_b),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">out</span> <span class="kw">as</span> (</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">select</span> a.<span class="kw">id</span> <span class="kw">as</span> `顧客ID`, a.name <span class="kw">as</span> `顧客名`, b.common_id <span class="kw">as</span> `共通ID`</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">from</span> a</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">left</span> <span class="kw">outer</span> <span class="kw">join</span> b <span class="kw">on</span> a.<span class="kw">id</span> <span class="op">=</span> b.<span class="kw">id</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">order</span> <span class="kw">by</span> a.<span class="kw">id</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> <span class="kw">out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="つのサブクエリに1つの目的を持たせる" class="level2">
 <h2 class="anchored" data-anchor-id="つのサブクエリに1つの目的を持たせる">3. 1つのサブクエリに1つの目的を持たせる</h2>
@@ -237,14 +275,15 @@ from out</code></pre>
 <h2 class="anchored" data-anchor-id="省略表現を減らす">4. 省略表現を減らす</h2>
 <p>これはもはや好みの問題かもしれません。</p>
 <p>例えば</p>
-<pre class="{sql}"><code>select * from A</code></pre>
-<p>と書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。 私は SQL で初登場するカラム名は明記するようにしてます。</p>
-<pre class="{sql}"><code>order by 1, 2
-order by all</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span> table_a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。</p>
+<p>私は初登場するカラム名は明記するようにしてます。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> <span class="dv">1</span>, <span class="dv">2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> <span class="kw">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>なども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。</p>
-<pre class="{sql}"><code>left outer join table_b using (id)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">left</span> <span class="kw">outer</span> <span class="kw">join</span> table_b <span class="kw">using</span> (<span class="kw">id</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>もそうですね。いつも同じ書き方ができるとは限らないので</p>
-<pre class="{sql}"><code>left outer join table_b on table_a.id = table_b.id</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">left</span> <span class="kw">outer</span> <span class="kw">join</span> table_b <span class="kw">on</span> table_a.<span class="kw">id</span> <span class="op">=</span> table_b.<span class="kw">id</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>と書いて書き味をいつも同じにしておきたいです。</p>
 
 
