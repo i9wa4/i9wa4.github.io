@@ -1,0 +1,79 @@
+---
+title: "見やすい SQL を書くための Tips"
+author: uma-chan
+date: 2025-02-21 11:03:49 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+  - "tech-sql"
+---
+
+dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。
+
+見やすさを重視しているので、パフォーマンスについては度外視してます。
+
+## 1. フォーマッタで整形する
+
+フォーマッタを使って統一感のある SQL を書きましょう。
+
+sqlfmt が個人的におすすめです。
+
+## 2. with 句を使う
+
+ネストすると負荷が高まるので使ったほうがいいと思ってます。
+良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。
+
+```{sql}
+with
+    a as (select id, name from table_a),
+    b as (select id, common_id from table_b),
+    out as (
+        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`
+        from a
+        left outer join b on a.id = b.id
+        order by a.id
+    )
+select *
+from out
+```
+
+## 3. 1つのサブクエリに1つの目的を持たせる
+
+もちろん with 句で名前をつけたサブクエリの話をしてます。
+
+ごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。
+
+例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。
+
+## 4. 省略表現を減らす
+
+これはもはや好みの問題かもしれません。
+
+例えば
+
+```{sql}
+select * from A
+```
+
+と書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。
+私は SQL で初登場するカラム名は明記するようにしてます。
+
+```{sql}
+order by 1, 2
+order by all
+```
+
+なども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。
+
+```{sql}
+left outer join table_b using (id)
+```
+
+もそうですね。いつも同じ書き方ができるとは限らないので
+
+```{sql}
+left outer join table_b on table_a.id = table_b.id
+```
+
+と書いて書き味をいつも同じにしておきたいです。
