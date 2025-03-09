@@ -33,4 +33,5 @@ categories:
 | 2024-08-18 | OMRON      | [体重体組成計 HBF-702T カラダスキャン](https://www.healthcare.omron.co.jp/product/hbf/hbf-702t.html)                                          |
 | 2024-10-05 | Apple      | [iPhone 16 256GB](https://www.yodobashi.com/product/100000001008724159/)                                                                      |
 | 2024-10-05 | Apple      | [Apple Watch Series 10](https://www.yodobashi.com/product/100000001008724031/)                                                                |
+| 2024-12-13 | final      | [ZE500 for ASMR -Patra Black-](https://final-inc.com/products/ze500-patra)                                                                    |
 | 2024-12-15 | 象印       | [スチーム式加湿器 EE-RT50-WA](https://www.yodobashi.com/product/100000001008633000/)                                                          |
