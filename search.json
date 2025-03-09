@@ -1,45 +1,255 @@
 [
   {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "slides",
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html",
+    "href": "blog/2024-01-27-setup-efm-langserver.html",
+    "title": "efm-langserver を Vim/Neovim で利用する",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+    "text": "最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。"
   },
   {
-    "objectID": "blog/2024-03-26-setup-ds100knock.html",
-    "href": "blog/2024-03-26-setup-ds100knock.html",
-    "title": "データサイエンス100本ノックの実行環境構築 (WSL2)",
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-とは",
+    "href": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-とは",
+    "title": "efm-langserver を Vim/Neovim で利用する",
+    "section": "1. efm-langserver とは",
+    "text": "1. efm-langserver とは\nmattn さんの記事を見るのが最良ですね。\nBig Sky :: Lint ツールを Language Server に対応させるコマンド efm-langserver 作った。\n\nどんな言語であろうとも Lint ツールが grep と同様の形式で結果を出力してくれさえすれば Language Server にしてしまうコマンド\n\nLinter をインストールした後 Vim/Neovim で Info や Error を画面内に表示させたいときに efm-langserver が活用できると思えばよいです。"
+  },
+  {
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-のインストール",
+    "href": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-のインストール",
+    "title": "efm-langserver を Vim/Neovim で利用する",
+    "section": "2. efm-langserver のインストール",
+    "text": "2. efm-langserver のインストール\nUbuntu 22.04 (WSL2) でのインストール手順を記載しておきます。\nGo 言語を Go Wiki: Ubuntu - The Go Programming Language に従ってインストールします。\nsudo add-apt-repository -y ppa:longsleep/golang-backports\nsudo apt update\nsudo apt install -y golang-go\nefm-langserver を GitHub - mattn/efm-langserver: General purpose Language Server に従ってインストールします。\ngo install github.com/mattn/efm-langserver@latest\n~/.profile などに以下を追記して PATH を通しておきます。\nexport PATH=\"${HOME}\"/go/bin:\"${PATH}\""
+  },
+  {
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html#config.yaml-の作成",
+    "href": "blog/2024-01-27-setup-efm-langserver.html#config.yaml-の作成",
+    "title": "efm-langserver を Vim/Neovim で利用する",
+    "section": "3. config.yaml の作成",
+    "text": "3. config.yaml の作成\nefm-langserver 用設定ファイル $XDG_CONFIG_HOME/efm-langserver/config.yaml に必要な設定を記述していきます。\nREADME を参考に shellcheck を使うための設定のみ抽出したものが以下です。\nversion: 2\nroot-markers:\n  - .git/\nlint-debounce: 1s\n\ntools:\n  sh-shellcheck: &sh-shellcheck\n    lint-command: 'shellcheck -f gcc -x'\n    lint-source: 'shellcheck'\n    lint-formats:\n      - '%f:%l:%c: %trror: %m'\n      - '%f:%l:%c: %tarning: %m'\n      - '%f:%l:%c: %tote: %m'\n\nlanguages:\n  sh:\n    - &lt;&lt;: *sh-shellcheck"
+  },
+  {
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html#vim-の設定",
+    "href": "blog/2024-01-27-setup-efm-langserver.html#vim-の設定",
+    "title": "efm-langserver を Vim/Neovim で利用する",
+    "section": "4. Vim の設定",
+    "text": "4. Vim の設定\nプラグインマネージャー dein.vim や dpp.vim などで採用されている TOML ファイルでのプラグイン設定箇所を抽出しました。遅延起動設定はお好みで。\n[[plugins]]\nrepo = 'prabirshrestha/vim-lsp'\non_event = ['VimEnter']\n\n[[plugins]]\nrepo = 'mattn/vim-lsp-settings'\non_source = ['vim-lsp']\nhook_source = '''\nlet g:lsp_auto_enable = 1\nlet g:lsp_log_file = ''\nlet g:lsp_settings = {\n  \\   'efm-langserver': {\n  \\     'disabled': v:false,\n  \\     'allowlist': ['sh'],\n  \\   }\n  \\ }\n'''"
+  },
+  {
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html#neovim-の設定",
+    "href": "blog/2024-01-27-setup-efm-langserver.html#neovim-の設定",
+    "title": "efm-langserver を Vim/Neovim で利用する",
+    "section": "5. Neovim の設定",
+    "text": "5. Neovim の設定\nVim 同様に TOML ファイルの記述を抽出しました。こちらも遅延起動設定はお好みで。\n[[plugins]]\nrepo = 'neovim/nvim-lspconfig'\non_event = ['VimEnter']\nlua_source = '''\nlocal lspconfig = require('lspconfig')\nlspconfig.efm.setup{}\n'''"
+  },
+  {
+    "objectID": "blog/2024-01-27-setup-efm-langserver.html#感想",
+    "href": "blog/2024-01-27-setup-efm-langserver.html#感想",
+    "title": "efm-langserver を Vim/Neovim で利用する",
+    "section": "6. 感想",
+    "text": "6. 感想\nLinter をインストールできていれば出力形式を見て自力で Language Server として組み込める……素晴らしいですね！\nLinter は手動でインストールして設定ファイルを管理しておくのが結局一番分かりやすいなと実感しているのですが、その状態で簡単に Vim/Neovim に反映できる efm-langserver はかなり有り難いです。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
     "section": "",
-    "text": "下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
+    "text": "少し前に作った Vim/Neovim プラグインの紹介記事となります。"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "1. プラグイン概要",
+    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "2. プラグインを作ることになったきっかけ",
+    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "3. Denops プラグインとして作ろうと思った理由",
+    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。\nそして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "4. Denops プラグイン開発体験について",
+    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。\n核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。\nまず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "5. 感想",
+    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。\n今後も必要なものは自分で作っていたいですね。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html",
+    "href": "blog/2024-10-25-thinking-of-my-career.html",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
     "section": "",
-    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
+    "text": "言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "1. 大学入学時",
+    "text": "1. 大学入学時\n特に何も考えていなかったのですが、自分が生意気すぎる生徒だったことからそんな生徒を受け持ちたくなくて教師だけは絶対にならないぞとは思っていました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "2. 就職活動時",
+    "text": "2. 就職活動時\n本当にぼんやりとIT系業務をやってみたいと思っていました (ただしスキルは大学の授業で少しだけC言語を書けるようになった程度)。\n当時業務系システムの求人が多かったのですがどうしても興味がもてず、実際にモノを動かせたり難しいことに挑戦したりとやりがいのありそうな仕事を選んでみました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "3. 1回目の転職活動時",
+    "text": "3. 1回目の転職活動時\n大学時代に住んでいた土地に戻りたくて転職することに。\nどうせならと経験を積めなかったプログラミングができてモノを動かすこともできる組み込みエンジニアを選びました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "4. 2回目の転職活動時",
+    "text": "4. 2回目の転職活動時\nコロナ禍でテレワークを経験し、今後のライフステージを踏まえた上でテレワークに向いている職種に切り替えようと思っていました。\n面白そうだったのでデータサイエンティスト求人に応募してみたところ、景気の良い時期だったためか未経験ながら内定を頂きました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "5. 3回目の転職活動時",
+    "text": "5. 3回目の転職活動時\n案件都合でデータエンジニア・アナリティクスエンジニア業務に取り組んでいました。\nこの頃はデータ基盤について割とブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータ基盤業務を志すようになりました。\nまた、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。\n体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "6. 4回目の転職活動時",
+    "text": "6. 4回目の転職活動時\nこれまでの経験から自分の仕事のモチベーションを上げる要因はどうやら以下の4点のようであると理解できました。\n\nチームで仕事ができること\n自分の仕事が目の前の社員の役に立っていると胸を張って言えること\n自分の仕事が会社の売上につながっていると胸を張って言えること\nできればエンドユーザーの満足度を高める方向の仕事であること\n\nこのような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。\nそんなことを考えているところにお声がけいただいた会社で2024年11月から働くことにしました。\n決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "7. おわりに",
+    "text": "7. おわりに\nこれ以上の詳しい話は飲みの場で！笑"
+  },
+  {
+    "objectID": "blog/2024-07-20-minecraft-note.html",
+    "href": "blog/2024-07-20-minecraft-note.html",
+    "title": "自分用 Minecraft メモ",
     "section": "",
-    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
+    "text": "Minecraft の自分用メモを公開しておきます。"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "2. Gemini との開発過程",
-    "text": "2. Gemini との開発過程\nGemini とのやりとりを書き残しておきます。\n\n2.1. .git 探索関数作成\n\n2.1.1. 質問\nVim script で以下の関数を作成してほしいです。\n- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。\n\n\n2.1.2. 回答\nVim script で .git ディレクトリを探す関数\n\n以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。\n\nfunction! FindGitDir(dir)\n  \" 引数がない場合はカレントディレクトリを代入 \"\n  if (empty(a:dir))\n    let dir = expand('%:p')\n  endif\n\n  \" ループフラグを初期化 \"\n  let found = 0\n\n  \" 順に上の階層をたどる \"\n  while (!found && !empty(dir) && dir != '/')\n    \" .git ディレクトリが存在するか確認 \"\n    if (isdirectory(dir . '/.git'))\n      let found = 1\n      let gitdir = dir . '/.git'\n    endif\n\n    \" 上の階層へ移動 \"\n    let dir = expand(dirname(dir))\n  endwhile\n\n  \" 結果を返す \"\n  if (found)\n    return gitdir\n  else\n    return ''\n  endif\nendfunction\n\n\n\n2.2. ブランチ名取得関数作成\n\n2.2.1. 質問\nVim script で以下の関数を作成してほしいです。\n- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。\n\n\n2.2.2. 回答\n以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。\n\nfunction! GetCurrentBranch(gitdir)\n  \" 引数が空の場合、エラーを返す \"\n  if (empty(a:gitdir))\n    error('引数が空です')\n  endif\n\n  \" カレントブランチ名の取得 \"\n  let branch = system('git --git-dir=\"' . a:gitdir . '\" rev-parse --abbrev-ref HEAD')\n\n  \" .git ディレクトリを除いたブランチ名を返す \"\n  return substitute(branch, a:gitdir . '/', '', 'g')\nendfunction\n\n\n2.2.3. 質問\nsystem() を使わず、gitコマンドを使わずに実現させてほしいです。\n\n\n2.2.4. 回答\nVim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。\n\n\n1. :echo %b コマンドを使用する\n\nこの方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。\n\n\" 現在のブランチ名をエコーする \"\n:echo %b\n\n\n2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む\n\nこの方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。\n\n\" .git/HEAD ファイルのパスを取得 \"\nlet headfile = expand('%:p:h') . '/.git/HEAD'\n\n\" HEAD ファイルの内容を読み込む \"\nlet headcontent = readfile(headfile)\n\n\" ブランチ名を抽出する \"\nlet branch = match(headcontent, 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n\n\n3. git log の出力を解析する\n\nこの方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。\nVim Script\n\n\" git log の出力をバッファに読み込む \"\n:redir &gt; /dev/null git log -1\n\n\" ブランチ名を抽出する \"\nlet branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n回答1が嘘すぎてびっくり。今回は回答2がよさそう。\nこの時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。\nhttps://github.com/itchyny/vim-gitbranch\nここまで分かればあとは動作を確認しながら書けそうです。"
+    "objectID": "blog/2024-07-20-minecraft-note.html#todo",
+    "href": "blog/2024-07-20-minecraft-note.html#todo",
+    "title": "自分用 Minecraft メモ",
+    "section": "1. TODO",
+    "text": "1. TODO\n\n地下トラップタワー (経験値自動取得)\n倉庫チェスト再設計\n武器防具予備作成\nエンチャント本予備作成\n羊毛仕分け\n山削り\n苔式骨粉製造機\n襲撃者トラップ@前哨基地 1880 632\n弓作り直し\nエンダーチェスト\nエンダードラゴン\nポーション醸造所\nウーパールーパー"
   },
   {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "3. 完成品",
-    "text": "3. 完成品\nGemini と考えたコードが跡形もなくなっている。。なぜ。。\nTODO: 繰り返し呼ばれることを念頭に処理を軽くしたい\nhttps://github.com/i9wa4/get-git-branch-name.vim"
+    "objectID": "blog/2024-07-20-minecraft-note.html#座標メモ",
+    "href": "blog/2024-07-20-minecraft-note.html#座標メモ",
+    "title": "自分用 Minecraft メモ",
+    "section": "2. 座標メモ",
+    "text": "2. 座標メモ\n\n\n\nX\nY\nZ\nDescription\n\n\n\n\n-32\n15\n26\nゾンビスポナー\n\n\n112\n59\n8\nゾンビスポナー\n\n\n338\n-28\n-148\nゾンビスポナー"
+  },
+  {
+    "objectID": "blog/2024-07-20-minecraft-note.html#エンチャント",
+    "href": "blog/2024-07-20-minecraft-note.html#エンチャント",
+    "title": "自分用 Minecraft メモ",
+    "section": "3. エンチャント",
+    "text": "3. エンチャント\n\n3.1. 防具\n\n共通\n\n修繕I\n耐久力III\nダメージ軽減IV\n\nヘルメット\n\n水中採掘\n水中呼吸III\n\nチェストプレート\nレギンス\n\nスニーク速度上昇\n\nブーツ\n\n水中歩行III\n落下耐性IV\n\n\n\n\n3.2. 武器\n\n共通\n\n修繕I\n耐久力III\n\n剣\n\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\n\n弓\n\nフレイム\n射撃ダメージ増加V\nパンチII\n無限\n\nクロスボウ\n\n高速充填III\n貫通IV\n\nトライデント\n\n水性特攻V\n忠誠III\n召雷\n\n\n\n\n3.3. 道具\n\n共通\n\n修繕I\n耐久力III\n効率強化V\n幸運III or シルクタッチ"
+  },
+  {
+    "objectID": "blog/2024-07-20-minecraft-note.html#村人職業設計",
+    "href": "blog/2024-07-20-minecraft-note.html#村人職業設計",
+    "title": "自分用 Minecraft メモ",
+    "section": "4. 村人職業設計",
+    "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
+  },
+  {
+    "objectID": "blog/2024-11-12-use-nektos-act.html",
+    "href": "blog/2024-11-12-use-nektos-act.html",
+    "title": "nektos/act を使ってみた",
+    "section": "",
+    "text": "GitHub Actions をローカルで実行できる便利な OSS https://github.com/nektos/act を使ってみました。\nインストールが難しかったので苦戦した部分もメモを残しておきます。"
+  },
+  {
+    "objectID": "blog/2024-11-12-use-nektos-act.html#筆者の環境について",
+    "href": "blog/2024-11-12-use-nektos-act.html#筆者の環境について",
+    "title": "nektos/act を使ってみた",
+    "section": "1. 筆者の環境について",
+    "text": "1. 筆者の環境について\n\nOS: WSL2 Ubuntu 24.04\nShell: zsh"
+  },
+  {
+    "objectID": "blog/2024-11-12-use-nektos-act.html#バイナリどこ",
+    "href": "blog/2024-11-12-use-nektos-act.html#バイナリどこ",
+    "title": "nektos/act を使ってみた",
+    "section": "2. バイナリどこ？？",
+    "text": "2. バイナリどこ？？\nインストール手順 https://nektosact.com/installation/index.html に従って\ncurl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash\nを実行したはいいもののインストール先が分からず which act で探しても見つからず。\n(2024-11-19 追記: コマンド実行したディレクトリに bin/act が生成されていました。自分にとっては嬉しくない挙動。)\n続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。\ngh extension install https://github.com/nektos/gh-act\nただ、 GitHub CLI extension ってなに？そもそもその仕様を知る必要性を感じなかったためスルー。\n仕方がないのでソースコードからビルドすることに。\ngit clone https://github.com/nektos/act.git\ncd act/\nmake build\n\n# 因みに私の環境では以下コマンドでクローンしてます。\n# ghq get -p nekotos/act\nビルド後 ./dist/local/act なるバイナリが生成されたためインストール完了。\n面倒なので PATH は通してませんがよい子は通しておきましょう。"
+  },
+  {
+    "objectID": "blog/2024-11-12-use-nektos-act.html#動作確認",
+    "href": "blog/2024-11-12-use-nektos-act.html#動作確認",
+    "title": "nektos/act を使ってみた",
+    "section": "3. 動作確認",
+    "text": "3. 動作確認\nhttps://github.com/i9wa4/gha-sandbox のうち .github/workflows/4.6.actionlint.yml を実行してみます。\n$ ~/src/github.com/nektos/act/dist/local/act workflow_dispatch -W '.github/workflows/4.6.actionlint.yml'\nINFO[0000] Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'\n[4.6. Linting GitHub Actions/lint] 🚀  Start image=catthehacker/ubuntu:act-latest\n[4.6. Linting GitHub Actions/lint]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true\n[4.6. Linting GitHub Actions/lint]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=[\"tail\" \"-f\" \"/dev/null\"] cmd=[] network=\"host\"\n[4.6. Linting GitHub Actions/lint]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=[\"tail\" \"-f\" \"/dev/null\"] cmd=[] network=\"host\"\n[4.6. Linting GitHub Actions/lint]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=\n[4.6. Linting GitHub Actions/lint] ⭐ Run Main actions/checkout@v4\n[4.6. Linting GitHub Actions/lint]   🐳  docker cp src=/home/i9wa4/src/github.com/i9wa4/gha-sandbox/. dst=/home/i9wa4/src/github.com/i9wa4/gha-sandbox\n[4.6. Linting GitHub Actions/lint]   ✅  Success - Main actions/checkout@v4\n[4.6. Linting GitHub Actions/lint] ⭐ Run Main docker run --rm -v \"$(pwd):$(pwd)\" -w \"$(pwd)\" rhysd/actionlint:latest\n[4.6. Linting GitHub Actions/lint]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1.sh] user= workdir=\n| Unable to find image 'rhysd/actionlint:latest' locally\n| latest: Pulling from rhysd/actionlint\n43c4264eed91: Pull complete\n9ff7a0d1399a: Pull complete\nefbbf3bc777d: Pull complete\n290bb4d6a286: Pull complete\nDigest: sha256:82244e1db1c60d82c7792180a48dd0bcb838370bb589d53ff132503fc9485868\n| Status: Downloaded newer image for rhysd/actionlint:latest\n[4.6. Linting GitHub Actions/lint]   ✅  Success - Main docker run --rm -v \"$(pwd):$(pwd)\" -w \"$(pwd)\" rhysd/actionlint:latest\n[4.6. Linting GitHub Actions/lint] Cleaning up container for job lint\n[4.6. Linting GitHub Actions/lint] 🏁  Job succeeded\n\nINFO    ️ 📣 A newer version of 'act' is available - consider ugrading to 0.2.69.\nうまく動いてくれました。"
+  },
+  {
+    "objectID": "blog/2024-11-12-use-nektos-act.html#追記-mac-でエラーが出た場合",
+    "href": "blog/2024-11-12-use-nektos-act.html#追記-mac-でエラーが出た場合",
+    "title": "nektos/act を使ってみた",
+    "section": "4. [2024-12-05 追記] Mac でエラーが出た場合",
+    "text": "4. [2024-12-05 追記] Mac でエラーが出た場合\n以下の記事が参考になりました。\nWSL2でDocker buildをすると止まる問題(“docker-credential-desktop.exe”: executable file not found in $PATH, out: ``) #Docker - Qiita"
+  },
+  {
+    "objectID": "blog/2024-12-07-configure-onedrive.html",
+    "href": "blog/2024-12-07-configure-onedrive.html",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "",
+    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
+  },
+  {
+    "objectID": "blog/2024-12-07-configure-onedrive.html#はじめに",
+    "href": "blog/2024-12-07-configure-onedrive.html#はじめに",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "",
+    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
+  },
+  {
+    "objectID": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
+    "href": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "2. 想定するユースケース",
+    "text": "2. 想定するユースケース\n同期対象を「デスクトップ」や「ドキュメント」そのものではなく、明示的に作成したフォルダだけとしたい場合です。"
+  },
+  {
+    "objectID": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
+    "href": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "3. 事故らない OneDrive セットアップ手順",
+    "text": "3. 事故らない OneDrive セットアップ手順\n\n全フォルダを OneDrive の同期対象から外す\n同期対象から外した「デスクトップ」や「ドキュメント」はこの時点では OneDrive フォルダ配下に置かれているので右クリックして「プロパティ→場所→標準に戻す」で元の場所 (%USERPROFILE% 直下) に戻す\n明示的にバックアップ対象としたいフォルダを OneDrive の同期対象に設定する\nブラウザで OneDrive にアクセスして不要なデータを削除する\nOneDrive の同期を再開する"
+  },
+  {
+    "objectID": "blog/2024-12-07-configure-onedrive.html#おわりに",
+    "href": "blog/2024-12-07-configure-onedrive.html#おわりに",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "4. おわりに",
+    "text": "4. おわりに\nOneDrive の操作手順を詳細に書けず心苦しいのですが、きっと何とかなるはず。信じてます。"
   },
   {
     "objectID": "blog/2024-05-05-deploy-quarto.html",
@@ -112,319 +322,11 @@
     "text": "5. 感想\n\n必要最低限の機能は実装できたので割と満足です。\n見た目をちゃんと調整しようとすると HTML や CSS の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。"
   },
   {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html",
-    "href": "blog/2024-01-27-setup-efm-langserver.html",
-    "title": "efm-langserver を Vim/Neovim で利用する",
+    "objectID": "blog/2024-06-17-purchased-gadgets.html",
+    "href": "blog/2024-06-17-purchased-gadgets.html",
+    "title": "購入したガジェットの紹介",
     "section": "",
-    "text": "最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。"
-  },
-  {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-とは",
-    "href": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-とは",
-    "title": "efm-langserver を Vim/Neovim で利用する",
-    "section": "1. efm-langserver とは",
-    "text": "1. efm-langserver とは\nmattn さんの記事を見るのが最良ですね。\nBig Sky :: Lint ツールを Language Server に対応させるコマンド efm-langserver 作った。\n\nどんな言語であろうとも Lint ツールが grep と同様の形式で結果を出力してくれさえすれば Language Server にしてしまうコマンド\n\nLinter をインストールした後 Vim/Neovim で Info や Error を画面内に表示させたいときに efm-langserver が活用できると思えばよいです。"
-  },
-  {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-のインストール",
-    "href": "blog/2024-01-27-setup-efm-langserver.html#efm-langserver-のインストール",
-    "title": "efm-langserver を Vim/Neovim で利用する",
-    "section": "2. efm-langserver のインストール",
-    "text": "2. efm-langserver のインストール\nUbuntu 22.04 (WSL2) でのインストール手順を記載しておきます。\nGo 言語を Go Wiki: Ubuntu - The Go Programming Language に従ってインストールします。\nsudo add-apt-repository -y ppa:longsleep/golang-backports\nsudo apt update\nsudo apt install -y golang-go\nefm-langserver を GitHub - mattn/efm-langserver: General purpose Language Server に従ってインストールします。\ngo install github.com/mattn/efm-langserver@latest\n~/.profile などに以下を追記して PATH を通しておきます。\nexport PATH=\"${HOME}\"/go/bin:\"${PATH}\""
-  },
-  {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html#config.yaml-の作成",
-    "href": "blog/2024-01-27-setup-efm-langserver.html#config.yaml-の作成",
-    "title": "efm-langserver を Vim/Neovim で利用する",
-    "section": "3. config.yaml の作成",
-    "text": "3. config.yaml の作成\nefm-langserver 用設定ファイル $XDG_CONFIG_HOME/efm-langserver/config.yaml に必要な設定を記述していきます。\nREADME を参考に shellcheck を使うための設定のみ抽出したものが以下です。\nversion: 2\nroot-markers:\n  - .git/\nlint-debounce: 1s\n\ntools:\n  sh-shellcheck: &sh-shellcheck\n    lint-command: 'shellcheck -f gcc -x'\n    lint-source: 'shellcheck'\n    lint-formats:\n      - '%f:%l:%c: %trror: %m'\n      - '%f:%l:%c: %tarning: %m'\n      - '%f:%l:%c: %tote: %m'\n\nlanguages:\n  sh:\n    - &lt;&lt;: *sh-shellcheck"
-  },
-  {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html#vim-の設定",
-    "href": "blog/2024-01-27-setup-efm-langserver.html#vim-の設定",
-    "title": "efm-langserver を Vim/Neovim で利用する",
-    "section": "4. Vim の設定",
-    "text": "4. Vim の設定\nプラグインマネージャー dein.vim や dpp.vim などで採用されている TOML ファイルでのプラグイン設定箇所を抽出しました。遅延起動設定はお好みで。\n[[plugins]]\nrepo = 'prabirshrestha/vim-lsp'\non_event = ['VimEnter']\n\n[[plugins]]\nrepo = 'mattn/vim-lsp-settings'\non_source = ['vim-lsp']\nhook_source = '''\nlet g:lsp_auto_enable = 1\nlet g:lsp_log_file = ''\nlet g:lsp_settings = {\n  \\   'efm-langserver': {\n  \\     'disabled': v:false,\n  \\     'allowlist': ['sh'],\n  \\   }\n  \\ }\n'''"
-  },
-  {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html#neovim-の設定",
-    "href": "blog/2024-01-27-setup-efm-langserver.html#neovim-の設定",
-    "title": "efm-langserver を Vim/Neovim で利用する",
-    "section": "5. Neovim の設定",
-    "text": "5. Neovim の設定\nVim 同様に TOML ファイルの記述を抽出しました。こちらも遅延起動設定はお好みで。\n[[plugins]]\nrepo = 'neovim/nvim-lspconfig'\non_event = ['VimEnter']\nlua_source = '''\nlocal lspconfig = require('lspconfig')\nlspconfig.efm.setup{}\n'''"
-  },
-  {
-    "objectID": "blog/2024-01-27-setup-efm-langserver.html#感想",
-    "href": "blog/2024-01-27-setup-efm-langserver.html#感想",
-    "title": "efm-langserver を Vim/Neovim で利用する",
-    "section": "6. 感想",
-    "text": "6. 感想\nLinter をインストールできていれば出力形式を見て自力で Language Server として組み込める……素晴らしいですね！\nLinter は手動でインストールして設定ファイルを管理しておくのが結局一番分かりやすいなと実感しているのですが、その状態で簡単に Vim/Neovim に反映できる efm-langserver はかなり有り難いです。"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html",
-    "href": "blog/2024-12-07-configure-onedrive.html",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "",
-    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#はじめに",
-    "href": "blog/2024-12-07-configure-onedrive.html#はじめに",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "",
-    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
-    "href": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "2. 想定するユースケース",
-    "text": "2. 想定するユースケース\n同期対象を「デスクトップ」や「ドキュメント」そのものではなく、明示的に作成したフォルダだけとしたい場合です。"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
-    "href": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "3. 事故らない OneDrive セットアップ手順",
-    "text": "3. 事故らない OneDrive セットアップ手順\n\n全フォルダを OneDrive の同期対象から外す\n同期対象から外した「デスクトップ」や「ドキュメント」はこの時点では OneDrive フォルダ配下に置かれているので右クリックして「プロパティ→場所→標準に戻す」で元の場所 (%USERPROFILE% 直下) に戻す\n明示的にバックアップ対象としたいフォルダを OneDrive の同期対象に設定する\nブラウザで OneDrive にアクセスして不要なデータを削除する\nOneDrive の同期を再開する"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#おわりに",
-    "href": "blog/2024-12-07-configure-onedrive.html#おわりに",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "4. おわりに",
-    "text": "4. おわりに\nOneDrive の操作手順を詳細に書けず心苦しいのですが、きっと何とかなるはず。信じてます。"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html",
-    "href": "blog/2024-01-01-init.html",
-    "title": "Initial Post",
-    "section": "",
-    "text": "初投稿になります。"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html#uma-chan-とは",
-    "href": "blog/2024-01-01-init.html#uma-chan-とは",
-    "title": "Initial Post",
-    "section": "1. uma-chan とは",
-    "text": "1. uma-chan とは\n\n読み：うまちゃん\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです"
-  },
-  {
-    "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
-    "href": "blog/2024-01-01-init.html#このブログの運用方針",
-    "title": "Initial Post",
-    "section": "2. このブログの運用方針",
-    "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html",
-    "href": "blog/2025-02-21-plain-sql.html",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "",
-    "text": "dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。\n勢いで書いたので思い出したらどんどん追記します"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
-    "href": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "1. フォーマッタで整形する",
-    "text": "1. フォーマッタで整形する\nフォーマッタを使って統一感のある SQL を書きましょう。\nsqlfmt が個人的におすすめです。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#with-句を使う",
-    "href": "blog/2025-02-21-plain-sql.html#with-句を使う",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "2. with 句を使う",
-    "text": "2. with 句を使う\nネストすると認知負荷が高まるので使ったほうがいいと思ってます。\n良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。\nwith\n    a as (select id, name from table_a),\n    b as (select id, common_id from table_b),\n    out as (\n        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`\n        from a\n        left outer join b on a.id = b.id\n        order by a.id\n    )\nselect *\nfrom out"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
-    "href": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "3. 1つのサブクエリに1つの目的を持たせる",
-    "text": "3. 1つのサブクエリに1つの目的を持たせる\nもちろん with 句で名前をつけたサブクエリの話をしてます。\nごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。\n例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
-    "href": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "4. 省略表現を減らす",
-    "text": "4. 省略表現を減らす\nこれはもはや好みの問題かもしれません。\n例えば\nselect * from table_a\nと書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。\n私は初登場するカラム名は明記するようにしてます。\norder by 1, 2\norder by all\nなども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。\nleft outer join table_b using (id)\nもそうですね。いつも同じ書き方ができるとは限らないので\nleft outer join table_b on table_a.id = table_b.id\nと書いて書き味をいつも同じにしておきたいです。\nこれ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。"
-  },
-  {
-    "objectID": "blog/2024-03-25-setup-wsl2.html",
-    "href": "blog/2024-03-25-setup-wsl2.html",
-    "title": "WSL2 のセットアップ",
-    "section": "",
-    "text": "Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
-  },
-  {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "1. WSL コマンドのインストール",
-    "text": "1. WSL コマンドのインストール\nWSL のインストール | Microsoft Learn に従います。\n\n管理者権限で PowerShell or コマンドプロンプトを開きます。\nwsl --install を実行します。 \n以下のように表示されるのでマシンを再起動します。"
-  },
-  {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "2. ディストリビューションのインストール",
-    "text": "2. ディストリビューションのインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール可能なディストリビューションを表示します。\nwsl --list --online\nUbuntu 22.04 LTS をインストールする場合は以下のように入力します。\nwsl --install -d Ubuntu-22.04\n画面表示に従ってユーザー名とパスワードを入力します。\nUbuntu を終了します。\nexit\n(必要に応じて) 既定のディストリビューションを設定します。\nwsl --set-default Ubuntu-22.04"
-  },
-  {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "3. ディストリビューションのアンインストール",
-    "text": "3. ディストリビューションのアンインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール済みのディストリビューションを表示します。\nwsl --list\n不要なディストリビューションをアンインストールします。\nwsl --unregister Ubuntu-22.04"
-  },
-  {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#詳細設定",
-    "href": "blog/2024-03-25-setup-wsl2.html#詳細設定",
-    "title": "WSL2 のセットアップ",
-    "section": "4. 詳細設定",
-    "text": "4. 詳細設定\n設定ファイルや systemd に関しては以下のページを参考にするとよいです。\nWSL での詳細設定の構成 | Microsoft Learn"
-  },
-  {
-    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html",
-    "href": "blog/2025-01-31-get-instagram-api-access-token.html",
-    "title": "Instagram API のアクセストークンを取得する",
-    "section": "",
-    "text": "こういった作業ってテックブログ見るしかないですよね。 やっていきます。"
-  },
-  {
-    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
-    "href": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
-    "title": "Instagram API のアクセストークンを取得する",
-    "section": "1. 参考ページ",
-    "text": "1. 参考ページ\n\nInstagram API のアクセストークン取得手順\n超簡単！Instagram graph APIのアクセストークンを取得する - to inc マーケティングを企業のスタンダードに"
-  },
-  {
-    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
-    "href": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
-    "title": "Instagram API のアクセストークンを取得する",
-    "section": "2. 手順",
-    "text": "2. 手順\n\nFacebook アカウント作成\n\n会社メールアドレスで個人アカウントに該当するアカウントを作成してます\n\nmeta for Developers アカウント作成\n新規アプリ作成\n\nユースケース：その他\nアプリタイプ：ビジネス\n\n作成したアプリの設定\n\nアプリID・app secret を控える\n\nmeta for Developers の「ツール」→「グラフ API エクスプローラ」を起動する\nページ作成\n\n「ページアクセストークンの取得」を選択\n「現在のページにのみオプトイン」を選択\nページを作成する\n(ここでページ名がユニークである必要があるようで、エラーを起こしてページ作成制限を受けてしまいました😢また挑戦します)"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html",
-    "href": "blog/2024-10-25-thinking-of-my-career.html",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "",
-    "text": "言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "1. 大学入学時",
-    "text": "1. 大学入学時\n特に何も考えていなかったのですが、自分が生意気すぎる生徒だったことからそんな生徒を受け持ちたくなくて教師だけは絶対にならないぞとは思っていました。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "2. 就職活動時",
-    "text": "2. 就職活動時\n本当にぼんやりとIT系業務をやってみたいと思っていました (ただしスキルは大学の授業で少しだけC言語を書けるようになった程度)。\n当時業務系システムの求人が多かったのですがどうしても興味がもてず、実際にモノを動かせたり難しいことに挑戦したりとやりがいのありそうな仕事を選んでみました。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "3. 1回目の転職活動時",
-    "text": "3. 1回目の転職活動時\n大学時代に住んでいた土地に戻りたくて転職することに。\nどうせならと経験を積めなかったプログラミングができてモノを動かすこともできる組み込みエンジニアを選びました。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "4. 2回目の転職活動時",
-    "text": "4. 2回目の転職活動時\nコロナ禍でテレワークを経験し、今後のライフステージを踏まえた上でテレワークに向いている職種に切り替えようと思っていました。\n面白そうだったのでデータサイエンティスト求人に応募してみたところ、景気の良い時期だったためか未経験ながら内定を頂きました。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "5. 3回目の転職活動時",
-    "text": "5. 3回目の転職活動時\n案件都合でデータエンジニア・アナリティクスエンジニア業務に取り組んでいました。\nこの頃はデータ基盤について割とブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータ基盤業務を志すようになりました。\nまた、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。\n体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "6. 4回目の転職活動時",
-    "text": "6. 4回目の転職活動時\nこれまでの経験から自分の仕事のモチベーションを上げる要因はどうやら以下の4点のようであると理解できました。\n\nチームで仕事ができること\n自分の仕事が目の前の社員の役に立っていると胸を張って言えること\n自分の仕事が会社の売上につながっていると胸を張って言えること\nできればエンドユーザーの満足度を高める方向の仕事であること\n\nこのような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。\nそんなことを考えているところにお声がけいただいた会社で2024年11月から働くことにしました。\n決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "7. おわりに",
-    "text": "7. おわりに\nこれ以上の詳しい話は飲みの場で！笑"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "",
-    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html",
-    "href": "blog/2024-07-20-minecraft-note.html",
-    "title": "自分用 Minecraft メモ",
-    "section": "",
-    "text": "Minecraft の自分用メモを公開しておきます。"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#todo",
-    "href": "blog/2024-07-20-minecraft-note.html#todo",
-    "title": "自分用 Minecraft メモ",
-    "section": "1. TODO",
-    "text": "1. TODO\n\n地下トラップタワー (経験値自動取得)\n倉庫チェスト再設計\n武器防具予備作成\nエンチャント本予備作成\n羊毛仕分け\n山削り\n苔式骨粉製造機\n襲撃者トラップ@前哨基地 1880 632\n弓作り直し\nエンダーチェスト\nエンダードラゴン\nポーション醸造所\nウーパールーパー"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#座標メモ",
-    "href": "blog/2024-07-20-minecraft-note.html#座標メモ",
-    "title": "自分用 Minecraft メモ",
-    "section": "2. 座標メモ",
-    "text": "2. 座標メモ\n\n\n\nX\nY\nZ\nDescription\n\n\n\n\n-32\n15\n26\nゾンビスポナー\n\n\n112\n59\n8\nゾンビスポナー\n\n\n338\n-28\n-148\nゾンビスポナー"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#エンチャント",
-    "href": "blog/2024-07-20-minecraft-note.html#エンチャント",
-    "title": "自分用 Minecraft メモ",
-    "section": "3. エンチャント",
-    "text": "3. エンチャント\n\n3.1. 防具\n\n共通\n\n修繕I\n耐久力III\nダメージ軽減IV\n\nヘルメット\n\n水中採掘\n水中呼吸III\n\nチェストプレート\nレギンス\n\nスニーク速度上昇\n\nブーツ\n\n水中歩行III\n落下耐性IV\n\n\n\n\n3.2. 武器\n\n共通\n\n修繕I\n耐久力III\n\n剣\n\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\n\n弓\n\nフレイム\n射撃ダメージ増加V\nパンチII\n無限\n\nクロスボウ\n\n高速充填III\n貫通IV\n\nトライデント\n\n水性特攻V\n忠誠III\n召雷\n\n\n\n\n3.3. 道具\n\n共通\n\n修繕I\n耐久力III\n効率強化V\n幸運III or シルクタッチ"
-  },
-  {
-    "objectID": "blog/2024-07-20-minecraft-note.html#村人職業設計",
-    "href": "blog/2024-07-20-minecraft-note.html#村人職業設計",
-    "title": "自分用 Minecraft メモ",
-    "section": "4. 村人職業設計",
-    "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
+    "text": "詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-09-12\n象印\nスチーム式加湿器 EE-RN35-WA\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10\n\n\n2024-12-13\nfinal\nZE500 for ASMR -Patra Black-\n\n\n2024-12-15\n象印\nスチーム式加湿器 EE-RT50-WA"
   },
   {
     "objectID": "blog/2024-11-20-manage-zenn-with-github.html",
@@ -460,27 +362,6 @@
     "title": "Zennの記事をGitHubリポジトリで管理する",
     "section": "4. おわりに",
     "text": "4. おわりに\n取り急ぎこの記事が無事投稿できていれば OK です！ 自分は新規投稿する度に本記事を見直すことになりそうです。"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "uma-chan’s page",
-    "section": "",
-    "text": "about || resume\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/2024-12-07-inline-r-code-in-yaml.html",
-    "href": "blog/2024-12-07-inline-r-code-in-yaml.html",
-    "title": "Quarto の YAML ヘッダにコードを埋め込みたい",
-    "section": "",
-    "text": "R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。\nInline R code in YAML · quarto-dev/quarto-cli · Discussion #606\n変数対応していてそちらは上手く動いてくれました！\nhttps://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008\nということは GitHub Actions 内で生成できる値を Quarto で作ったページに埋め込むことができますね。\nQuarto 向けの Publish Workflow も対応させたいので PR 作りたいです。"
-  },
-  {
-    "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
-    "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
-    "title": ":%s/i9wa4/uma-chan/g",
-    "section": "",
-    "text": "元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
   },
   {
     "objectID": "blog/2024-07-15-technical-tips.html",
@@ -525,81 +406,158 @@
     "text": "5. Word\n\n5.1. Normal.dotm 作成\n\n%APPDATA%\\Microsoft\\Templates\\Normal.dotm 削除\nデザインを作成し既定に設定する\n\nテーマ設定\n\n見出し: 游ゴシック Arial\n本文: 游ゴシック Medium Arial\n\nアウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル"
   },
   {
-    "objectID": "blog/2024-06-17-purchased-gadgets.html",
-    "href": "blog/2024-06-17-purchased-gadgets.html",
-    "title": "購入したガジェットの紹介",
+    "objectID": "blog/2025-02-21-plain-sql.html",
+    "href": "blog/2025-02-21-plain-sql.html",
+    "title": "見やすい SQL を書くための Tips",
     "section": "",
-    "text": "詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-09-12\n象印\nスチーム式加湿器 EE-RN35-WA\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10\n\n\n2024-12-15\n象印\nスチーム式加湿器 EE-RT50-WA"
+    "text": "dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。\n勢いで書いたので思い出したらどんどん追記します"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
-    "title": "Quarto による DataFrame の表示テスト",
+    "objectID": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
+    "href": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "1. フォーマッタで整形する",
+    "text": "1. フォーマッタで整形する\nフォーマッタを使って統一感のある SQL を書きましょう。\nsqlfmt が個人的におすすめです。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#with-句を使う",
+    "href": "blog/2025-02-21-plain-sql.html#with-句を使う",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "2. with 句を使う",
+    "text": "2. with 句を使う\nネストすると認知負荷が高まるので使ったほうがいいと思ってます。\n良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。\nwith\n    a as (select id, name from table_a),\n    b as (select id, common_id from table_b),\n    out as (\n        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`\n        from a\n        left outer join b on a.id = b.id\n        order by a.id\n    )\nselect *\nfrom out"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
+    "href": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "3. 1つのサブクエリに1つの目的を持たせる",
+    "text": "3. 1つのサブクエリに1つの目的を持たせる\nもちろん with 句で名前をつけたサブクエリの話をしてます。\nごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。\n例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
+    "href": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "4. 省略表現を減らす",
+    "text": "4. 省略表現を減らす\nこれはもはや好みの問題かもしれません。\n例えば\nselect * from table_a\nと書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。\n私は初登場するカラム名は明記するようにしてます。\norder by 1, 2\norder by all\nなども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。\nleft outer join table_b using (id)\nもそうですね。いつも同じ書き方ができるとは限らないので\nleft outer join table_b on table_a.id = table_b.id\nと書いて書き味をいつも同じにしておきたいです。\nこれ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。"
+  },
+  {
+    "objectID": "blog/2024-03-26-setup-ds100knock.html",
+    "href": "blog/2024-03-26-setup-ds100knock.html",
+    "title": "データサイエンス100本ノックの実行環境構築 (WSL2)",
     "section": "",
-    "text": "Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
+    "text": "下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 6.0 MB/s eta 0:00:00\nCollecting numpy&gt;=1.26.0 (from pandas)\n  Downloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 20.3 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)\nCollecting tzdata&gt;=2022.7 (from pandas)\n  Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)\nDownloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.8/12.7 MB 24.3 MB/s eta 0:00:01   ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/12.7 MB 27.4 MB/s eta 0:00:01   ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/12.7 MB 31.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/12.7 MB 36.6 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━ 7.5/12.7 MB 43.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 10.9/12.7 MB 57.5 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 70.1 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 58.7 MB/s eta 0:00:00\nDownloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/16.1 MB 165.8 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ 12.4/16.1 MB 185.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 214.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 126.2 MB/s eta 0:00:00\nDownloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 82.7 MB/s eta 0:00:00\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.3 pandas-2.2.3 tzdata-2025.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)\nCollecting jinja2\n  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)\nDownloading jinja2-3.1.5-py3-none-any.whl (134 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.6 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.6/134.6 kB 7.6 MB/s eta 0:00:00\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.5"
-  },
-  {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "2. 関数定義",
-    "text": "2. 関数定義\n\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
-  },
-  {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "3. CSV 内容確認",
-    "text": "3. CSV 内容確認\n\n!cat ../assets/20240907-quarto-df/quarto-df.csv\n\n\"Tags\",\"Date\",\"Title\",\"URL\"\n\"TagA\",\"\",\"2testtesttesttesttesttesttesttesttesttesttesttestte\",\"https://www.google.com\"\n\"TagA\",\"2024-09-04\",\"testtest\",\"https://www.google.com\"\n\"TagA\",\"2024-09-10\",\"3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\",\"https://www.google.com\"\n\"TagB\",\"2024-09-07\",\"testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-08\",\"1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-11\",\"4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\",\"https://www.google.com\""
-  },
-  {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "4. TagA",
-    "text": "4. TagA\n\nextract_tag('TagA')\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n2testtesttesttesttesttesttesttesttesttesttesttestte\n\n\n\n\n\n\n\n2024-09-10\n\n\n\n3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\n\n\n\n\n\n\n\n2024-09-04\n\n\n\ntesttest"
-  },
-  {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "5. TagB",
-    "text": "5. TagB\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-09-11\n\n\n\n4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\n\n\n\n\n\n\n\n2024-09-08\n\n\n\n1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\n\n\n\n\n\n\n\n2024-09-07\n\n\n\ntesttesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt"
-  },
-  {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html",
-    "title": "SnowSQL セットアップ (Mac)",
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
     "section": "",
-    "text": "PC を新調するとセットアップがつきものですね。\nではいきます。"
+    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
   },
   {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "1. SnowSQL インストール",
-    "text": "1. SnowSQL インストール\nSnowSQL のインストール | Snowflake Documentation\n\nHomebrew でインストールします。\nbrew install --cask snowflake-snowsql\nエイリアス設定を ~/.zshrc に記載して再読み込み or シェルの再起動を行います。\nalias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql"
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
   },
   {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "2. ~/.snowsql/config 作成",
-    "text": "2. ~/.snowsql/config 作成\nSnowSQL を介した接続 | Snowflake Documentation\n\nsnowsql コマンドを実行します。\n$ snowsql\nUsage: snowsql [OPTIONS]\n~/.snowsql/config が作成されているので編集していきます。\n[connections.connection_name1]\naccountname = myorganization-myaccount\nusername = jsmith\npassword = xxxxx\nrolename = myrole\nwarehousename = mywh"
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
   },
   {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "3. コマンド実行",
-    "text": "3. コマンド実行\nSnowSQLの使用 | Snowflake Documentation\n\n以下のコマンドで接続します。\n# どちらでも OK\nsnowsql --connection connection_name1\nsnowsql -c connection_name1\n接続後は SQL 文を直接実行できます。\n\n必要に応じて USE ROLE xxxxxx; で権限を切り替えることができます。\n\n各種コマンドは !help で参照できます。"
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
+  },
+  {
+    "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
+    "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "1. 自己紹介",
+    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
+  },
+  {
+    "objectID": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
+    "href": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "2. 本日のタスク",
+    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
+  },
+  {
+    "objectID": "slides/2023-12-16-sapporo.vim.html#本日の成果",
+    "href": "slides/2023-12-16-sapporo.vim.html#本日の成果",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "3. 本日の成果",
+    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "uma-chan’s page",
+    "section": "",
+    "text": "about || resume\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "slides",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
+    "href": "slides/2024-02-04-sapporo.vim.html#自己紹介",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "1. 自己紹介",
+    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
+  },
+  {
+    "objectID": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
+    "href": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "2. 本日のタスク",
+    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
+  },
+  {
+    "objectID": "slides/2024-02-04-sapporo.vim.html#結果",
+    "href": "slides/2024-02-04-sapporo.vim.html#結果",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "3. 結果",
+    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html",
+    "href": "blog/2024-07-20-aigis-note.html",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "",
+    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
+    "href": "blog/2024-07-20-aigis-note.html#週次周回",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "1. 週次周回",
+    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "2. 月次の交換先",
+    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
@@ -665,123 +623,137 @@
     "text": "8. おわりに\nもっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。\n\nQuarto 公式\n\nページ https://quarto.org\nリポジトリ https://github.com/quarto-dev/quarto-web\n\ni9wa4 の GitHub Pages\n\nページ https://i9wa4.github.io\nリポジトリ https://github.com/i9wa4/i9wa4.github.io"
   },
   {
-    "objectID": "blog/2024-07-20-aigis-note.html",
-    "href": "blog/2024-07-20-aigis-note.html",
-    "title": "自分用千年戦争アイギスメモ",
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "title": "Quarto による DataFrame の表示テスト",
     "section": "",
-    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
+    "text": "Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
   },
   {
-    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
-    "href": "blog/2024-07-20-aigis-note.html#週次周回",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "1. 週次周回",
-    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "1. ライブラリのインストール",
+    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 6.1 MB/s eta 0:00:00\nCollecting numpy&gt;=1.26.0 (from pandas)\n  Downloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 15.7 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)\nCollecting tzdata&gt;=2022.7 (from pandas)\n  Downloading tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)\nDownloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/12.7 MB 137.5 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ 12.0/12.7 MB 210.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 132.3 MB/s eta 0:00:00\nDownloading numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ 6.5/16.1 MB 195.8 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ 14.1/16.1 MB 213.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 220.6 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 127.8 MB/s eta 0:00:00\nDownloading tzdata-2025.1-py2.py3-none-any.whl (346 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/346.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.8/346.8 kB 82.0 MB/s eta 0:00:00\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.3 pandas-2.2.3 tzdata-2025.1\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)\nCollecting jinja2\n  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)\nDownloading jinja2-3.1.6-py3-none-any.whl (134 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.9 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 7.7 MB/s eta 0:00:00\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.6"
   },
   {
-    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "2. 月次の交換先",
-    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "2. 関数定義",
+    "text": "2. 関数定義\n\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "blog",
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "3. CSV 内容確認",
+    "text": "3. CSV 内容確認\n\n!cat ../assets/20240907-quarto-df/quarto-df.csv\n\n\"Tags\",\"Date\",\"Title\",\"URL\"\n\"TagA\",\"\",\"2testtesttesttesttesttesttesttesttesttesttesttestte\",\"https://www.google.com\"\n\"TagA\",\"2024-09-04\",\"testtest\",\"https://www.google.com\"\n\"TagA\",\"2024-09-10\",\"3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\",\"https://www.google.com\"\n\"TagB\",\"2024-09-07\",\"testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-08\",\"1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-11\",\"4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\",\"https://www.google.com\""
+  },
+  {
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "4. TagA",
+    "text": "4. TagA\n\nextract_tag('TagA')\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n2testtesttesttesttesttesttesttesttesttesttesttestte\n\n\n\n\n\n\n\n2024-09-10\n\n\n\n3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\n\n\n\n\n\n\n\n2024-09-04\n\n\n\ntesttest"
+  },
+  {
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "5. TagB",
+    "text": "5. TagB\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-09-11\n\n\n\n4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\n\n\n\n\n\n\n\n2024-09-08\n\n\n\n1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\n\n\n\n\n\n\n\n2024-09-07\n\n\n\ntesttesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt"
+  },
+  {
+    "objectID": "blog/2024-01-01-init.html",
+    "href": "blog/2024-01-01-init.html",
+    "title": "Initial Post",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
+    "text": "初投稿になります。"
   },
   {
-    "objectID": "blog/2024-11-12-use-nektos-act.html",
-    "href": "blog/2024-11-12-use-nektos-act.html",
-    "title": "nektos/act を使ってみた",
+    "objectID": "blog/2024-01-01-init.html#uma-chan-とは",
+    "href": "blog/2024-01-01-init.html#uma-chan-とは",
+    "title": "Initial Post",
+    "section": "1. uma-chan とは",
+    "text": "1. uma-chan とは\n\n読み：うまちゃん\n仕事：データエンジニア・MLOpsエンジニア\n\n業務知識は個人公開が難しいものが多いのでブログでは関係ない話ばかりになりそうです"
+  },
+  {
+    "objectID": "blog/2024-01-01-init.html#このブログの運用方針",
+    "href": "blog/2024-01-01-init.html#このブログの運用方針",
+    "title": "Initial Post",
+    "section": "2. このブログの運用方針",
+    "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
+  },
+  {
+    "objectID": "blog/2024-06-17-setup-mac.html",
+    "href": "blog/2024-06-17-setup-mac.html",
+    "title": "Mac 環境構築手順",
     "section": "",
-    "text": "GitHub Actions をローカルで実行できる便利な OSS https://github.com/nektos/act を使ってみました。\nインストールが難しかったので苦戦した部分もメモを残しておきます。"
+    "text": "私の Mac 環境構築手順をまとめておきます。"
   },
   {
-    "objectID": "blog/2024-11-12-use-nektos-act.html#筆者の環境について",
-    "href": "blog/2024-11-12-use-nektos-act.html#筆者の環境について",
-    "title": "nektos/act を使ってみた",
-    "section": "1. 筆者の環境について",
-    "text": "1. 筆者の環境について\n\nOS: WSL2 Ubuntu 24.04\nShell: zsh"
+    "objectID": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
+    "href": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
+    "title": "Mac 環境構築手順",
+    "section": "1. dotfiles 導入",
+    "text": "1. dotfiles 導入\ncf. https://github.com/i9wa4/dotfiles"
   },
   {
-    "objectID": "blog/2024-11-12-use-nektos-act.html#バイナリどこ",
-    "href": "blog/2024-11-12-use-nektos-act.html#バイナリどこ",
-    "title": "nektos/act を使ってみた",
-    "section": "2. バイナリどこ？？",
-    "text": "2. バイナリどこ？？\nインストール手順 https://nektosact.com/installation/index.html に従って\ncurl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash\nを実行したはいいもののインストール先が分からず which act で探しても見つからず。\n(2024-11-19 追記: コマンド実行したディレクトリに bin/act が生成されていました。自分にとっては嬉しくない挙動。)\n続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。\ngh extension install https://github.com/nektos/gh-act\nただ、 GitHub CLI extension ってなに？そもそもその仕様を知る必要性を感じなかったためスルー。\n仕方がないのでソースコードからビルドすることに。\ngit clone https://github.com/nektos/act.git\ncd act/\nmake build\n\n# 因みに私の環境では以下コマンドでクローンしてます。\n# ghq get -p nekotos/act\nビルド後 ./dist/local/act なるバイナリが生成されたためインストール完了。\n面倒なので PATH は通してませんがよい子は通しておきましょう。"
+    "objectID": "blog/2024-06-17-setup-mac.html#システム設定",
+    "href": "blog/2024-06-17-setup-mac.html#システム設定",
+    "title": "Mac 環境構築手順",
+    "section": "2. システム設定",
+    "text": "2. システム設定\n\nバッテリー\n\nバッテリーの状態\n\nバッテリー充電の最適化\n\n\nコントロールセンター\n\nBluetooth\n\nメニューバーに表示\n\nバッテリー\n\nメニューバーに表示 ON\n割合 (%) を表示 ON\n\nメニューバーのみ\n\n時計\n\n日付を表示 常に\n曜日を表示 ON\n秒を表示 ON\n\nメニューバーを自動的に表示/非表示 しない\n\n\nディスプレイ\n\nTrue Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)\nNight Shift\n\nカスタム 5:00-4:59\n\n\nデスクトップと Dock\n\nDock\n\n画面上の位置 左\n\nデスクトップとステージマネージャー\n\n壁紙をクリックしてデスクトップを表示\n\nステージマネージャー使用時のみ\n\n\nウィジェット\n\nデフォルトの Web ブラウザ\n\nArc\n\n\n\n通知\n\n通知センター OFF\nアプリケーションの通知 システム系以外は OFF\n\nロック画面\n\n時間設定 30分\n\nプライバシーとセキュリティ\n\n画面収録とシステムオーディオ録音\n\nSlack\nWeb ブラウザ\nZoom\n\n\nユーザとグループ\n\n管理者\n\nキーボード\n\nキーボードの輝度 最小\nキーボードショートカット\n\n修飾キー\n\n内蔵キーボード\n\nCaps Lock -&gt; Control\n\n\n\n音声入力\n\n自動句読点 OFF\n\n\nマウス\n\nナチュラルなスクロール OFF\n\nトラックパッド\n\nスクロールとズーム\n\nナチュラルなスクロール OFF"
   },
   {
-    "objectID": "blog/2024-11-12-use-nektos-act.html#動作確認",
-    "href": "blog/2024-11-12-use-nektos-act.html#動作確認",
-    "title": "nektos/act を使ってみた",
-    "section": "3. 動作確認",
-    "text": "3. 動作確認\nhttps://github.com/i9wa4/gha-sandbox のうち .github/workflows/4.6.actionlint.yml を実行してみます。\n$ ~/src/github.com/nektos/act/dist/local/act workflow_dispatch -W '.github/workflows/4.6.actionlint.yml'\nINFO[0000] Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'\n[4.6. Linting GitHub Actions/lint] 🚀  Start image=catthehacker/ubuntu:act-latest\n[4.6. Linting GitHub Actions/lint]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true\n[4.6. Linting GitHub Actions/lint]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=[\"tail\" \"-f\" \"/dev/null\"] cmd=[] network=\"host\"\n[4.6. Linting GitHub Actions/lint]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=[\"tail\" \"-f\" \"/dev/null\"] cmd=[] network=\"host\"\n[4.6. Linting GitHub Actions/lint]   🐳  docker exec cmd=[node --no-warnings -e console.log(process.execPath)] user= workdir=\n[4.6. Linting GitHub Actions/lint] ⭐ Run Main actions/checkout@v4\n[4.6. Linting GitHub Actions/lint]   🐳  docker cp src=/home/i9wa4/src/github.com/i9wa4/gha-sandbox/. dst=/home/i9wa4/src/github.com/i9wa4/gha-sandbox\n[4.6. Linting GitHub Actions/lint]   ✅  Success - Main actions/checkout@v4\n[4.6. Linting GitHub Actions/lint] ⭐ Run Main docker run --rm -v \"$(pwd):$(pwd)\" -w \"$(pwd)\" rhysd/actionlint:latest\n[4.6. Linting GitHub Actions/lint]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1.sh] user= workdir=\n| Unable to find image 'rhysd/actionlint:latest' locally\n| latest: Pulling from rhysd/actionlint\n43c4264eed91: Pull complete\n9ff7a0d1399a: Pull complete\nefbbf3bc777d: Pull complete\n290bb4d6a286: Pull complete\nDigest: sha256:82244e1db1c60d82c7792180a48dd0bcb838370bb589d53ff132503fc9485868\n| Status: Downloaded newer image for rhysd/actionlint:latest\n[4.6. Linting GitHub Actions/lint]   ✅  Success - Main docker run --rm -v \"$(pwd):$(pwd)\" -w \"$(pwd)\" rhysd/actionlint:latest\n[4.6. Linting GitHub Actions/lint] Cleaning up container for job lint\n[4.6. Linting GitHub Actions/lint] 🏁  Job succeeded\n\nINFO    ️ 📣 A newer version of 'act' is available - consider ugrading to 0.2.69.\nうまく動いてくれました。"
+    "objectID": "blog/2024-06-17-setup-mac.html#その他",
+    "href": "blog/2024-06-17-setup-mac.html#その他",
+    "title": "Mac 環境構築手順",
+    "section": "3. その他",
+    "text": "3. その他\n\nFinder\n\n表示\n\nパスバーを表示\n\nよく使う項目にユーザーホームをドラッグ&ドロップで追加する\n\nDocker Desktop\n\nSettings\n\nGeneral\n\nStart Docker Desktop when you sign in to your computer\n\n\n\nRectangle\n\nログイン時に起動 ON"
   },
   {
-    "objectID": "blog/2024-11-12-use-nektos-act.html#追記-mac-でエラーが出た場合",
-    "href": "blog/2024-11-12-use-nektos-act.html#追記-mac-でエラーが出た場合",
-    "title": "nektos/act を使ってみた",
-    "section": "4. [2024-12-05 追記] Mac でエラーが出た場合",
-    "text": "4. [2024-12-05 追記] Mac でエラーが出た場合\n以下の記事が参考になりました。\nWSL2でDocker buildをすると止まる問題(“docker-credential-desktop.exe”: executable file not found in $PATH, out: ``) #Docker - Qiita"
+    "objectID": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
+    "href": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
+    "title": "Mac 環境構築手順",
+    "section": "4. (おまけ) ショートカット集",
+    "text": "4. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html",
-    "href": "blog/2025-02-20-vim-plugin-idea.html",
-    "title": "最近の Vim プラグイン開発のアイデア",
+    "objectID": "blog/2024-03-25-setup-wsl2.html",
+    "href": "blog/2024-03-25-setup-wsl2.html",
+    "title": "WSL2 のセットアップ",
     "section": "",
-    "text": "少し前の Vim プラグイン開発のアイデア記事 で7個のアイデアを書いてました。"
+    "text": "Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "1. ローカル設定の読み込み",
-    "text": "1. ローカル設定の読み込み\nおそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。\nthinca/vim-localrc: Enable configuration file of each directory.\n相変わらず自作のローカル設定読み込みは活用してます。設定ファイル作成コマンドと最下層のローカル設定ファイルにジャンプするキーバインドが結構お気に入り。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "1. WSL コマンドのインストール",
+    "text": "1. WSL コマンドのインストール\nWSL のインストール | Microsoft Learn に従います。\n\n管理者権限で PowerShell or コマンドプロンプトを開きます。\nwsl --install を実行します。 \n以下のように表示されるのでマシンを再起動します。"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "2. Terminal 管理",
-    "text": "2. Terminal 管理\nVim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。\ndotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。\n他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？\nやっぱり tmux をゴリゴリ使ってるので用途が結構限定的ですね。CWDに対してちょっとしたコマンドを実行したいときなんかは重宝してます。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "2. ディストリビューションのインストール",
+    "text": "2. ディストリビューションのインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール可能なディストリビューションを表示します。\nwsl --list --online\nUbuntu 22.04 LTS をインストールする場合は以下のように入力します。\nwsl --install -d Ubuntu-22.04\n画面表示に従ってユーザー名とパスワードを入力します。\nUbuntu を終了します。\nexit\n(必要に応じて) 既定のディストリビューションを設定します。\nwsl --set-default Ubuntu-22.04"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "3. Jupytext と ipynb の同期",
-    "text": "3. Jupytext と ipynb の同期\nJupytext で ipynb と py を同期させるプラグイン。\n最近 Databricks を使うようになったのですが、 Databricks では .ipynb を .py として保存する機能がもともと備わっていたので尚のこと必要でなくなってしまいました。次回はこの項目を削除しようかな。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "3. ディストリビューションのアンインストール",
+    "text": "3. ディストリビューションのアンインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール済みのディストリビューションを表示します。\nwsl --list\n不要なディストリビューションをアンインストールします。\nwsl --unregister Ubuntu-22.04"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "4. Tabline 設定",
-    "text": "4. Tabline 設定\n頑張って書き上げたため切り離してもよいかも。\nTabline 用と Statusline 用の2関数だけだし既存プラグインとの差別化には至らないのでこの項目も削除かな。"
-  },
-  {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "5. virtualtext を活用したメモプラグイン",
-    "text": "5. virtualtext を活用したメモプラグイン\nコードリーディング中にメモを残すためのプラグイン。\nメモ一覧をリポジトリ内に保持しておきたい。\nLinter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。"
-  },
-  {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "6. dbt プラグイン (Deno)",
-    "text": "6. dbt プラグイン (Deno)\nこれは作りました！一応以下が紹介記事です。\nVim/Neovimのdbt開発環境の現状とVimを救う話\nバグ取りをする必要あり。"
-  },
-  {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
-    "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "7. Zenn <–> Quarto の本文変換",
-    "text": "7. Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？\n個人執筆記事については Quarto で書いて Zenn に連携という流れにしたいので、利用機会があまりなさそう。。"
+    "objectID": "blog/2024-03-25-setup-wsl2.html#詳細設定",
+    "href": "blog/2024-03-25-setup-wsl2.html#詳細設定",
+    "title": "WSL2 のセットアップ",
+    "section": "4. 詳細設定",
+    "text": "4. 詳細設定\n設定ファイルや systemd に関しては以下のページを参考にするとよいです。\nWSL での詳細設定の構成 | Microsoft Learn"
   },
   {
     "objectID": "blog/2024-09-22-vim-plugin-idea.html",
@@ -840,122 +812,150 @@
     "text": "7. [2024-11-25 追記] Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html",
+    "href": "blog/2025-02-20-vim-plugin-idea.html",
+    "title": "最近の Vim プラグイン開発のアイデア",
     "section": "",
-    "text": "少し前に作った Vim/Neovim プラグインの紹介記事となります。"
+    "text": "少し前の Vim プラグイン開発のアイデア記事 で7個のアイデアを書いてました。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "1. プラグイン概要",
-    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "1. ローカル設定の読み込み",
+    "text": "1. ローカル設定の読み込み\nおそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。\nthinca/vim-localrc: Enable configuration file of each directory.\n相変わらず自作のローカル設定読み込みは活用してます。設定ファイル作成コマンドと最下層のローカル設定ファイルにジャンプするキーバインドが結構お気に入り。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "2. プラグインを作ることになったきっかけ",
-    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "2. Terminal 管理",
+    "text": "2. Terminal 管理\nVim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。\ndotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。\n他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？\nやっぱり tmux をゴリゴリ使ってるので用途が結構限定的ですね。CWDに対してちょっとしたコマンドを実行したいときなんかは重宝してます。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "3. Denops プラグインとして作ろうと思った理由",
-    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。\nそして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "3. Jupytext と ipynb の同期",
+    "text": "3. Jupytext と ipynb の同期\nJupytext で ipynb と py を同期させるプラグイン。\n最近 Databricks を使うようになったのですが、 Databricks では .ipynb を .py として保存する機能がもともと備わっていたので尚のこと必要でなくなってしまいました。次回はこの項目を削除しようかな。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "4. Denops プラグイン開発体験について",
-    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。\n核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。\nまず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "4. Tabline 設定",
+    "text": "4. Tabline 設定\n頑張って書き上げたため切り離してもよいかも。\nTabline 用と Statusline 用の2関数だけだし既存プラグインとの差別化には至らないのでこの項目も削除かな。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "5. 感想",
-    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。\n今後も必要なものは自分で作っていたいですね。"
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "5. virtualtext を活用したメモプラグイン",
+    "text": "5. virtualtext を活用したメモプラグイン\nコードリーディング中にメモを残すためのプラグイン。\nメモ一覧をリポジトリ内に保持しておきたい。\nLinter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html",
-    "href": "blog/2024-06-17-setup-mac.html",
-    "title": "Mac 環境構築手順",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "6. dbt プラグイン (Deno)",
+    "text": "6. dbt プラグイン (Deno)\nこれは作りました！一応以下が紹介記事です。\nVim/Neovimのdbt開発環境の現状とVimを救う話\nバグ取りをする必要あり。"
+  },
+  {
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
+    "title": "最近の Vim プラグイン開発のアイデア",
+    "section": "7. Zenn <–> Quarto の本文変換",
+    "text": "7. Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？\n個人執筆記事については Quarto で書いて Zenn に連携という流れにしたいので、利用機会があまりなさそう。。"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html",
+    "title": "SnowSQL セットアップ (Mac)",
     "section": "",
-    "text": "私の Mac 環境構築手順をまとめておきます。"
+    "text": "PC を新調するとセットアップがつきものですね。\nではいきます。"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
-    "href": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
-    "title": "Mac 環境構築手順",
-    "section": "1. dotfiles 導入",
-    "text": "1. dotfiles 導入\ncf. https://github.com/i9wa4/dotfiles"
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "1. SnowSQL インストール",
+    "text": "1. SnowSQL インストール\nSnowSQL のインストール | Snowflake Documentation\n\nHomebrew でインストールします。\nbrew install --cask snowflake-snowsql\nエイリアス設定を ~/.zshrc に記載して再読み込み or シェルの再起動を行います。\nalias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html#システム設定",
-    "href": "blog/2024-06-17-setup-mac.html#システム設定",
-    "title": "Mac 環境構築手順",
-    "section": "2. システム設定",
-    "text": "2. システム設定\n\nバッテリー\n\nバッテリーの状態\n\nバッテリー充電の最適化\n\n\nコントロールセンター\n\nBluetooth\n\nメニューバーに表示\n\nバッテリー\n\nメニューバーに表示 ON\n割合 (%) を表示 ON\n\nメニューバーのみ\n\n時計\n\n日付を表示 常に\n曜日を表示 ON\n秒を表示 ON\n\nメニューバーを自動的に表示/非表示 しない\n\n\nディスプレイ\n\nTrue Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)\nNight Shift\n\nカスタム 5:00-4:59\n\n\nデスクトップと Dock\n\nDock\n\n画面上の位置 左\n\nデスクトップとステージマネージャー\n\n壁紙をクリックしてデスクトップを表示\n\nステージマネージャー使用時のみ\n\n\nウィジェット\n\nデフォルトの Web ブラウザ\n\nArc\n\n\n\n通知\n\n通知センター OFF\nアプリケーションの通知 システム系以外は OFF\n\nロック画面\n\n時間設定 30分\n\nプライバシーとセキュリティ\n\n画面収録とシステムオーディオ録音\n\nSlack\nWeb ブラウザ\nZoom\n\n\nユーザとグループ\n\n管理者\n\nキーボード\n\nキーボードの輝度 最小\nキーボードショートカット\n\n修飾キー\n\n内蔵キーボード\n\nCaps Lock -&gt; Control\n\n\n\n音声入力\n\n自動句読点 OFF\n\n\nマウス\n\nナチュラルなスクロール OFF\n\nトラックパッド\n\nスクロールとズーム\n\nナチュラルなスクロール OFF"
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "2. ~/.snowsql/config 作成",
+    "text": "2. ~/.snowsql/config 作成\nSnowSQL を介した接続 | Snowflake Documentation\n\nsnowsql コマンドを実行します。\n$ snowsql\nUsage: snowsql [OPTIONS]\n~/.snowsql/config が作成されているので編集していきます。\n[connections.connection_name1]\naccountname = myorganization-myaccount\nusername = jsmith\npassword = xxxxx\nrolename = myrole\nwarehousename = mywh"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html#その他",
-    "href": "blog/2024-06-17-setup-mac.html#その他",
-    "title": "Mac 環境構築手順",
-    "section": "3. その他",
-    "text": "3. その他\n\nFinder\n\n表示\n\nパスバーを表示\n\nよく使う項目にユーザーホームをドラッグ&ドロップで追加する\n\nDocker Desktop\n\nSettings\n\nGeneral\n\nStart Docker Desktop when you sign in to your computer\n\n\n\nRectangle\n\nログイン時に起動 ON"
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "3. コマンド実行",
+    "text": "3. コマンド実行\nSnowSQLの使用 | Snowflake Documentation\n\n以下のコマンドで接続します。\n# どちらでも OK\nsnowsql --connection connection_name1\nsnowsql -c connection_name1\n接続後は SQL 文を直接実行できます。\n\n必要に応じて USE ROLE xxxxxx; で権限を切り替えることができます。\n\n各種コマンドは !help で参照できます。"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
-    "href": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
-    "title": "Mac 環境構築手順",
-    "section": "4. (おまけ) ショートカット集",
-    "text": "4. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "",
+    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
   },
   {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
-    "href": "slides/2024-02-04-sapporo.vim.html#自己紹介",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "",
+    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
   },
   {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
-    "href": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "2. Gemini との開発過程",
+    "text": "2. Gemini との開発過程\nGemini とのやりとりを書き残しておきます。\n\n2.1. .git 探索関数作成\n\n2.1.1. 質問\nVim script で以下の関数を作成してほしいです。\n- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。\n\n\n2.1.2. 回答\nVim script で .git ディレクトリを探す関数\n\n以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。\n\nfunction! FindGitDir(dir)\n  \" 引数がない場合はカレントディレクトリを代入 \"\n  if (empty(a:dir))\n    let dir = expand('%:p')\n  endif\n\n  \" ループフラグを初期化 \"\n  let found = 0\n\n  \" 順に上の階層をたどる \"\n  while (!found && !empty(dir) && dir != '/')\n    \" .git ディレクトリが存在するか確認 \"\n    if (isdirectory(dir . '/.git'))\n      let found = 1\n      let gitdir = dir . '/.git'\n    endif\n\n    \" 上の階層へ移動 \"\n    let dir = expand(dirname(dir))\n  endwhile\n\n  \" 結果を返す \"\n  if (found)\n    return gitdir\n  else\n    return ''\n  endif\nendfunction\n\n\n\n2.2. ブランチ名取得関数作成\n\n2.2.1. 質問\nVim script で以下の関数を作成してほしいです。\n- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。\n\n\n2.2.2. 回答\n以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。\n\nfunction! GetCurrentBranch(gitdir)\n  \" 引数が空の場合、エラーを返す \"\n  if (empty(a:gitdir))\n    error('引数が空です')\n  endif\n\n  \" カレントブランチ名の取得 \"\n  let branch = system('git --git-dir=\"' . a:gitdir . '\" rev-parse --abbrev-ref HEAD')\n\n  \" .git ディレクトリを除いたブランチ名を返す \"\n  return substitute(branch, a:gitdir . '/', '', 'g')\nendfunction\n\n\n2.2.3. 質問\nsystem() を使わず、gitコマンドを使わずに実現させてほしいです。\n\n\n2.2.4. 回答\nVim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。\n\n\n1. :echo %b コマンドを使用する\n\nこの方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。\n\n\" 現在のブランチ名をエコーする \"\n:echo %b\n\n\n2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む\n\nこの方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。\n\n\" .git/HEAD ファイルのパスを取得 \"\nlet headfile = expand('%:p:h') . '/.git/HEAD'\n\n\" HEAD ファイルの内容を読み込む \"\nlet headcontent = readfile(headfile)\n\n\" ブランチ名を抽出する \"\nlet branch = match(headcontent, 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n\n\n3. git log の出力を解析する\n\nこの方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。\nVim Script\n\n\" git log の出力をバッファに読み込む \"\n:redir &gt; /dev/null git log -1\n\n\" ブランチ名を抽出する \"\nlet branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n回答1が嘘すぎてびっくり。今回は回答2がよさそう。\nこの時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。\nhttps://github.com/itchyny/vim-gitbranch\nここまで分かればあとは動作を確認しながら書けそうです。"
   },
   {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#結果",
-    "href": "slides/2024-02-04-sapporo.vim.html#結果",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "3. 結果",
-    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に"
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "3. 完成品",
+    "text": "3. 完成品\nGemini と考えたコードが跡形もなくなっている。。なぜ。。\nTODO: 繰り返し呼ばれることを念頭に処理を軽くしたい\nhttps://github.com/i9wa4/get-git-branch-name.vim"
   },
   {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
-    "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "",
+    "text": "こういった作業ってテックブログ見るしかないですよね。 やっていきます。"
   },
   {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
-    "href": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "1. 参考ページ",
+    "text": "1. 参考ページ\n\nInstagram API のアクセストークン取得手順\n超簡単！Instagram graph APIのアクセストークンを取得する - to inc マーケティングを企業のスタンダードに"
   },
   {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#本日の成果",
-    "href": "slides/2023-12-16-sapporo.vim.html#本日の成果",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "3. 本日の成果",
-    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "2. 手順",
+    "text": "2. 手順\n\nFacebook アカウント作成\n\n会社メールアドレスで個人アカウントに該当するアカウントを作成してます\n\nmeta for Developers アカウント作成\n新規アプリ作成\n\nユースケース：その他\nアプリタイプ：ビジネス\n\n作成したアプリの設定\n\nアプリID・app secret を控える\n\nmeta for Developers の「ツール」→「グラフ API エクスプローラ」を起動する\nページ作成\n\n「ページアクセストークンの取得」を選択\n「現在のページにのみオプトイン」を選択\nページを作成する\n(ここでページ名がユニークである必要があるようで、エラーを起こしてページ作成制限を受けてしまいました😢また挑戦します)"
+  },
+  {
+    "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
+    "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
+    "title": ":%s/i9wa4/uma-chan/g",
+    "section": "",
+    "text": "元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
+  },
+  {
+    "objectID": "blog/2024-12-07-inline-r-code-in-yaml.html",
+    "href": "blog/2024-12-07-inline-r-code-in-yaml.html",
+    "title": "Quarto の YAML ヘッダにコードを埋め込みたい",
+    "section": "",
+    "text": "R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。\nInline R code in YAML · quarto-dev/quarto-cli · Discussion #606\n変数対応していてそちらは上手く動いてくれました！\nhttps://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008\nということは GitHub Actions 内で生成できる値を Quarto で作ったページに埋め込むことができますね。\nQuarto 向けの Publish Workflow も対応させたいので PR 作りたいです。"
   }
 ]

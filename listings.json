@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/slides/index.html",
-    "items": [
-      "/slides/2024-02-04-sapporo.vim.html",
-      "/slides/2023-12-16-sapporo.vim.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/blog/2025-02-21-plain-sql.html",
@@ -37,6 +30,13 @@
       "/blog/2024-01-02-vim-plugin-mnh.html",
       "/blog/2024-01-02-jelyll-adjust.html",
       "/blog/2024-01-01-init.html",
+      "/slides/2023-12-16-sapporo.vim.html"
+    ]
+  },
+  {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/2024-02-04-sapporo.vim.html",
       "/slides/2023-12-16-sapporo.vim.html"
     ]
   },
