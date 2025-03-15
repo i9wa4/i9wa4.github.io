@@ -20,8 +20,7 @@ jobs:
 
       - name: Fix timestamps
         run: |
-          echo ${{ github.workspace }}
-          bash .github/scripts/fix-timestamps.sh
+          bash ${{ github.workspace }}.github/scripts/fix-timestamps.sh
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
