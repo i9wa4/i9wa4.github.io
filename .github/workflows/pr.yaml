@@ -1,0 +1,38 @@
+name: Workflow for Pull Request
+on:
+  workflow_dispatch:  # いつでも手動実行可能にしておく
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - '.github/workflows/*.yml'
+      - '.github/workflows/*.yaml'
+permissions: {}  # 各ジョブで必要な権限を明示的に与えるためにすべて無効にする
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}  # 同一PRでの多重起動を抑制する
+  cancel-in-progress: true  # 既存の実行をキャンセルして新しい実行を開始させる
+
+jobs:
+  # GitHub Actions ワークフローファイルの静的解析
+  lint-github-actions:
+    name: Lint GitHub Actions
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run actionlint
+        run: |
+          docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest -oneline -color
