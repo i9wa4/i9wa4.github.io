@@ -19,8 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Fix timestamps
-        run: "${GITHUB_ACTION_PATH}"/../scripts/fix-timestamps.sh
-        shell: bash
+        run: bash "${GITHUB_ACTION_PATH}"/../scripts/fix-timestamps.sh
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
