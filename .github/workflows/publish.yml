@@ -20,9 +20,7 @@ jobs:
 
       - name: Fix timestamps
         run: |
-          echo "${GITHUB_ACTION_PATH}"
-          echo "$(pwd)"
-          bash .github/scripts/fix-timestamps.sh
+          bash "${GITHUB_ACTION_PATH}"/.github/scripts/fix-timestamps.sh
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
