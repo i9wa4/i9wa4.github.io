@@ -1,0 +1,34 @@
+---
+title: "VirtualBoxでMacにWindowsをインストールする"
+author: uma-chan
+date: 2025-03-30 22:41:37 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+  - "mac"
+  - "windows"
+  - "virtualbox"
+draft: true
+---
+
+## 1. はじめに
+
+MacBook Air M4 を買いました！
+
+大抵のことはこれで賄えるのですが Minecraft 統合版を遊ぶためにまだ Windows マシンが必要です。
+
+VirtualBox を使って Mac で Minecraft 統合版が動けばいいなと思いつつ初めて VirtualBox をインストールしてみます。
+
+## 2. 導入手順
+
+### 2.1. VirtualBox のインストール
+
+1. VirtualBox Platform Packages の macOS / Apple Silicon hosts をダウンロードします。
+    - <https://www.virtualbox.org/wiki/Downloads>
+1. ダウンロードした dmg ファイルをダブルクリックしてダイアログに従ってインストールします。
+
+### 2.2. Windows 11 のインストール
+
+1. Windows 11 ISO ファイルをダウンロードします。
+    - <https://www.microsoft.com/ja-jp/software-download/windows11>
