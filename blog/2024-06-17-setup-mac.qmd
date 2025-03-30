@@ -44,7 +44,7 @@ cf. <https://github.com/i9wa4/dotfiles>
             - ステージマネージャー使用時のみ
     - ウィジェット
         - デフォルトの Web ブラウザ
-            - Arc
+            - Google Chrome
 - 通知
     - 通知センター OFF
     - アプリケーションの通知 システム系以外は OFF
@@ -63,8 +63,19 @@ cf. <https://github.com/i9wa4/dotfiles>
         - 修飾キー
             - 内蔵キーボード
                 - Caps Lock -> Control
-    - 音声入力
-        - 自動句読点 OFF
+    - 入力ソース
+        - すべての入力ソース
+            - 英字入力中にスペルを自動変換 OFF
+            - 文頭を自動的に大文字にする OFF
+            - インライン予測テキストを表示 OFF
+            - スペースバーを2回押してピリオドを入力 OFF
+            - スマート引用符とスマートダッシュを使用 OFF
+            - 二重引用符 "abc"
+            - 一重引用符 'abc'
+        - 日本語 - ローマ字入力
+            - ライフ変換 OFF
+            - タイプミスを修正
+    - 音声入力 OFF
 - マウス
     - ナチュラルなスクロール OFF
 - トラックパッド
@@ -83,6 +94,7 @@ cf. <https://github.com/i9wa4/dotfiles>
             - [ ] Start Docker Desktop when you sign in to your computer
 - Rectangle
     - ログイン時に起動 ON
+    - アップデートを自動的に確認 ON
 
 ## 4. (おまけ) ショートカット集
 
