@@ -1,0 +1,198 @@
+---
+title: "Aider を使ってみる"
+author: uma-chan
+date: 2025-04-01 01:37:05 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+---
+
+## 1. はじめに
+
+最近チームの生産性向上のためにAIツールの更なる活用を検討をしています。そうすると選択肢に出てくるのは Cursor だったり VS Code 拡張活用だったりするですよね。
+
+Vimmer である私はチームの開発環境整備では VS Code を基準に考えるくらいの社会性は残してますが、ギリギリまで Vim と付き合い続けたいと思っていて最近もどかしさを感じてました。
+
+そんな中以下の光明が差したのです！
+
+[Vimmer にお勧めしたい AI エージェント「Aider」](https://zenn.dev/acro5piano/articles/1d900a93c608e1)
+
+さっそく使ってみましょう。
+
+## 2. Aider インストール
+
+<https://aider.chat/docs/install.html>
+
+```{bash}
+python -m pip install aider-install
+aider-install
+```
+
+## 3. Gemini との接続
+
+LLM 専用にアカウントを作るのがあまり好きではないので Google アカウントで使える Gemini に期待してます。
+
+手順としては以下です。
+
+<https://aider.chat/docs/llms/gemini.html>
+
+まず Gemini API キーを取得していきましょう。
+
+### 3.1. Gemini API キーの取得
+
+1. <https://ai.google.dev/gemini-api/docs> の "Get a Gemini API key" をクリックする
+1. プライバシーポリシーに同意する
+1. <https://aistudio.google.com/apikey> から API キーを取得する
+1. <https://console.cloud.google.com/billing/projects> で当該プロジェクトの請求先アカウントを確認する
+    - NOTE: 取り急ぎ私は課金したくないので請求が無効であることを確認しました
+
+### 3.2. Gemini の設定
+
+公式手順に沿って以下の準備をしておきます。
+
+```{bash}
+python -m pip install -U aider-chat
+pip install -U google-generativeai
+```
+
+## 4. Aider の利用例
+
+Aider の利用例として私の自作プラグインの簡単なバグ修正をやってみます。
+
+issue は以下です。
+
+[ignore compiled model · Issue #1 · i9wa4/vim-dbt-jump2def](https://github.com/i9wa4/vim-dbt-jump2def/issues/1)
+
+### 4.1. GEMINI_API_KEY の読み込み
+
+```{bash}
+# export GEMINI_API_KEY=xxxx を ~/.env に書いてます
+$ . ~/.env
+```
+
+### 4.2. Gemini の利用可能なモデルの確認
+
+```{bash}
+$ aider --list-models gemini/
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+Models which match "gemini/":
+- gemini/gemini-1.5-flash
+- gemini/gemini-1.5-flash-001
+- gemini/gemini-1.5-flash-002
+- gemini/gemini-1.5-flash-8b
+- gemini/gemini-1.5-flash-8b-exp-0827
+- gemini/gemini-1.5-flash-8b-exp-0924
+- gemini/gemini-1.5-flash-exp-0827
+- gemini/gemini-1.5-flash-latest
+- gemini/gemini-1.5-pro
+- gemini/gemini-1.5-pro-001
+- gemini/gemini-1.5-pro-002
+- gemini/gemini-1.5-pro-exp-0801
+- gemini/gemini-1.5-pro-exp-0827
+- gemini/gemini-1.5-pro-latest
+- gemini/gemini-2.0-flash
+- gemini/gemini-2.0-flash-001
+- gemini/gemini-2.0-flash-exp
+- gemini/gemini-2.0-flash-lite
+- gemini/gemini-2.0-flash-lite-preview-02-05
+- gemini/gemini-2.0-flash-thinking-exp
+- gemini/gemini-2.0-flash-thinking-exp-01-21
+- gemini/gemini-2.0-pro-exp-02-05
+- gemini/gemini-2.5-pro-exp-03-25
+- gemini/gemini-exp-1114
+- gemini/gemini-exp-1206
+- gemini/gemini-gemma-2-27b-it
+- gemini/gemini-gemma-2-9b-it
+- gemini/gemini-pro
+- gemini/gemini-pro-vision
+- gemini/gemma-3-27b-it
+- gemini/learnlm-1.5-pro-experimental
+```
+
+### 4.3. gemini-2.0-flash-001 を利用する
+
+```{bash}
+$ aider --model gemini/gemini-2.0-flash-001
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+Aider v0.80.0
+Model: gemini/gemini-2.0-flash-001 with whole edit format
+Git repo: .git with 9 files
+Repo-map: using 4096 tokens, auto refresh
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+```
+
+### 4.4. バグ修正のプロンプト
+
+ここで修正コミットをしてくれました。すごいですね。
+
+```{bash}
+> in denops/dbt-jump2def/main.ts, I want to fix not to jump to the model in "target" directory.
+
+
+denops/dbt-jump2def/main.ts
+Add file to the chat? (Y)es/(N)o/(D)on't ask again [Yes]: yes
+Ok, I understand. You want to modify the denops/dbt-jump2def/main.ts file so that it doesn't jump to
+models located in the "target" directory. I will achieve this by excluding the "target" directory from the
+search path when using fn.findfile.
+
+Here's the updated denops/dbt-jump2def/main.ts file:
+
+denops/dbt-jump2def/main.ts
+
+
+@@ -1,4 +1,5 @@
+ export const main: Entrypoint = (denops: Denops) => {
+'jumpToModelDefinition', [<q-args>])`,
+       }
+
+       // get the relative path of the target model
++      // exclude the "target" directory
+       const targetModelRalativePath = await fn.findfile(
+         denops,
+         `${targetModelName}.sql`,
+-        dbtProjectRootPath + "**",
++        dbtProjectRootPath + "**,!target/**",
+       );
+
+       // if the target model not found, show error message
+       if (!targetModelRalativePath) {
+         await helper.echoerr(
+@@ -64,5 +65,6 @@
+         );
+         return;
+       }
+
+       // get the absolute path of the target model
++  68 /  84 lines [████████████████████████░░░░░░]  81%
+
+
+Tokens: 1.5k sent, 782 received. Cost: $0.00046 message, $0.00046 session.
+Applied edit to denops/dbt-jump2def/main.ts
+Commit 3ba9cfb fix: Exclude "target" directory from model search path.
+You can use /undo to undo and discard each aider commit.
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+```
+
+### 4.5. 終わり
+
+```{bash}
+denops/dbt-jump2def/main.ts
+> /exit
+```
+
+### 4.6. 実は……
+
+上記コミットは Gemini 2.0 Pro が適当な修正してくれてたので動きませんでした。
+
+結局 Gemini 2.5 Pro に聞きながら正しい対応を入れました。
+
+まだ私が LLM に慣れてないんだなぁと感じました。
+
+## 5. 感想
+
+Aider すごいです。Aider に慣れていけば LLM をすげ替えるだけで流行りに乗り続けられるので安心して乗っかれますね。
+
+プロンプトの精度も磨いていく必要性を感じました。
+
+とにかく使い慣れていかねば！
