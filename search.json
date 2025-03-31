@@ -364,200 +364,46 @@
     "text": "4. おわりに\n取り急ぎこの記事が無事投稿できていれば OK です！ 自分は新規投稿する度に本記事を見直すことになりそうです。"
   },
   {
-    "objectID": "blog/2024-07-15-technical-tips.html",
-    "href": "blog/2024-07-15-technical-tips.html",
-    "title": "技術系 Tips まとめ",
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
+    "title": "Quarto による DataFrame の表示テスト",
     "section": "",
-    "text": "たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n分量が増えてきた分野は別記事に切り出すかもしれません。"
+    "text": "Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
   },
   {
-    "objectID": "blog/2024-07-15-technical-tips.html#git",
-    "href": "blog/2024-07-15-technical-tips.html#git",
-    "title": "技術系 Tips まとめ",
-    "section": "1. Git",
-    "text": "1. Git\n# よく使うコマンド\ngit add -n .\ngit log --graph\ngit diff --name-only HEAD HEAD~2\ngit diff ID1 ID2 filename\ngit difftool ID1 ID2\ngit show ID\n\ngit reflog\ngit rebase\n\n# リモートリポジトリ作成\ngit init --bare --shared\ngit remote add origin url\ngit clone url"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "1. ライブラリのインストール",
+    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 3.8 MB/s eta 0:00:00\nCollecting numpy&gt;=1.26.0 (from pandas)\n  Downloading numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 15.2 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)\nCollecting tzdata&gt;=2022.7 (from pandas)\n  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)\nDownloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.9/12.7 MB 30.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ 6.5/12.7 MB 96.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 242.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 146.0 MB/s eta 0:00:00\nDownloading numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.7/16.1 MB 202.4 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 13.7/16.1 MB 186.9 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 202.6 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 121.1 MB/s eta 0:00:00\nDownloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/347.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 79.1 MB/s eta 0:00:00\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.4 pandas-2.2.3 tzdata-2025.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)\nCollecting jinja2\n  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)\nDownloading jinja2-3.1.6-py3-none-any.whl (134 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.9 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ 133.1/134.9 kB 4.0 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 3.6 MB/s eta 0:00:00\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.6"
   },
   {
-    "objectID": "blog/2024-07-15-technical-tips.html#postgresql",
-    "href": "blog/2024-07-15-technical-tips.html#postgresql",
-    "title": "技術系 Tips まとめ",
-    "section": "2. PostgreSQL",
-    "text": "2. PostgreSQL\n# 起動～データベースへのアクセス\npg_ctl restart\npsql -U postgres -d db_name\n\npg_ctl restart\npsql -U postgres\nCREATE DATABASE db_name;\n\\c db_name\nCREATE SCHEMA sc_name;"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "2. 関数定義",
+    "text": "2. 関数定義\n\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
   },
   {
-    "objectID": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
-    "href": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
-    "title": "技術系 Tips まとめ",
-    "section": "3. Google Cloud CLI (gcloud CLI)",
-    "text": "3. Google Cloud CLI (gcloud CLI)\n# keyfile 登録からテーブル確認まで\ngcloud auth activate-service-account --key-file ***.json\ngcloud auth list\ngcloud set account ***\nbq --project_id=aaaaa ls\nbq --project_id=aaaaa ls dataset_name\nbq --project_id=aaaaa show dataset_name.table_name\nbq --project_id=aaaaa head --max_rows 5 dataset_name.table_name\n# ログイン\ngcloud auth login"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "3. CSV 内容確認",
+    "text": "3. CSV 内容確認\n\n!cat ../assets/20240907-quarto-df/quarto-df.csv\n\n\"Tags\",\"Date\",\"Title\",\"URL\"\n\"TagA\",\"\",\"2testtesttesttesttesttesttesttesttesttesttesttestte\",\"https://www.google.com\"\n\"TagA\",\"2024-09-04\",\"testtest\",\"https://www.google.com\"\n\"TagA\",\"2024-09-10\",\"3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\",\"https://www.google.com\"\n\"TagB\",\"2024-09-07\",\"testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-08\",\"1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-11\",\"4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\",\"https://www.google.com\""
   },
   {
-    "objectID": "blog/2024-07-15-technical-tips.html#excel",
-    "href": "blog/2024-07-15-technical-tips.html#excel",
-    "title": "技術系 Tips まとめ",
-    "section": "4. Excel",
-    "text": "4. Excel\n\n4.1. Excel VBA\n\nアドイン追加先\n\n%USERPROFILE%\\AppData\\Roaming\\Microsoft\\AddIns\n\n\n\n\n4.2. Excel 関数\n\nシート名を記載したセルB2を利用したハイパーリンク作成\n\n=HYPERLINK(\"#'\"&B2&\"'!$A$1\",B2)"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "4. TagA",
+    "text": "4. TagA\n\nextract_tag('TagA')\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n2testtesttesttesttesttesttesttesttesttesttesttestte\n\n\n\n\n\n\n\n2024-09-10\n\n\n\n3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\n\n\n\n\n\n\n\n2024-09-04\n\n\n\ntesttest"
   },
   {
-    "objectID": "blog/2024-07-15-technical-tips.html#word",
-    "href": "blog/2024-07-15-technical-tips.html#word",
-    "title": "技術系 Tips まとめ",
-    "section": "5. Word",
-    "text": "5. Word\n\n5.1. Normal.dotm 作成\n\n%APPDATA%\\Microsoft\\Templates\\Normal.dotm 削除\nデザインを作成し既定に設定する\n\nテーマ設定\n\n見出し: 游ゴシック Arial\n本文: 游ゴシック Medium Arial\n\nアウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html",
-    "href": "blog/2025-02-21-plain-sql.html",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "",
-    "text": "dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。\n勢いで書いたので思い出したらどんどん追記します"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
-    "href": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "1. フォーマッタで整形する",
-    "text": "1. フォーマッタで整形する\nフォーマッタを使って統一感のある SQL を書きましょう。\nsqlfmt が個人的におすすめです。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#with-句を使う",
-    "href": "blog/2025-02-21-plain-sql.html#with-句を使う",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "2. with 句を使う",
-    "text": "2. with 句を使う\nネストすると認知負荷が高まるので使ったほうがいいと思ってます。\n良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。\nwith\n    a as (select id, name from table_a),\n    b as (select id, common_id from table_b),\n    out as (\n        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`\n        from a\n        left outer join b on a.id = b.id\n        order by a.id\n    )\nselect *\nfrom out"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
-    "href": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "3. 1つのサブクエリに1つの目的を持たせる",
-    "text": "3. 1つのサブクエリに1つの目的を持たせる\nもちろん with 句で名前をつけたサブクエリの話をしてます。\nごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。\n例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
-    "href": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "4. 省略表現を減らす",
-    "text": "4. 省略表現を減らす\nこれはもはや好みの問題かもしれません。\n例えば\nselect * from table_a\nと書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。\n私は初登場するカラム名は明記するようにしてます。\norder by 1, 2\norder by all\nなども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。\nleft outer join table_b using (id)\nもそうですね。いつも同じ書き方ができるとは限らないので\nleft outer join table_b on table_a.id = table_b.id\nと書いて書き味をいつも同じにしておきたいです。\nこれ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。"
-  },
-  {
-    "objectID": "blog/2024-03-26-setup-ds100knock.html",
-    "href": "blog/2024-03-26-setup-ds100knock.html",
-    "title": "データサイエンス100本ノックの実行環境構築 (WSL2)",
-    "section": "",
-    "text": "下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "",
-    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
-  },
-  {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
-    "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
-  },
-  {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
-    "href": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
-  },
-  {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#本日の成果",
-    "href": "slides/2023-12-16-sapporo.vim.html#本日の成果",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "3. 本日の成果",
-    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "uma-chan’s page",
-    "section": "",
-    "text": "about || resume\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "slides",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
-    "href": "slides/2024-02-04-sapporo.vim.html#自己紹介",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
-  },
-  {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
-    "href": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
-  },
-  {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#結果",
-    "href": "slides/2024-02-04-sapporo.vim.html#結果",
-    "title": "Sapporo.vim 自己紹介",
-    "section": "3. 結果",
-    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html",
-    "href": "blog/2024-07-20-aigis-note.html",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "",
-    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
-    "href": "blog/2024-07-20-aigis-note.html#週次周回",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "1. 週次周回",
-    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "2. 月次の交換先",
-    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "blog",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
+    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
+    "title": "Quarto による DataFrame の表示テスト",
+    "section": "5. TagB",
+    "text": "5. TagB\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-09-11\n\n\n\n4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\n\n\n\n\n\n\n\n2024-09-08\n\n\n\n1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\n\n\n\n\n\n\n\n2024-09-07\n\n\n\ntesttesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt"
   },
   {
     "objectID": "blog/2024-08-25-publishing-github-pages-with-quarto.html",
@@ -623,46 +469,242 @@
     "text": "8. おわりに\nもっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。\n\nQuarto 公式\n\nページ https://quarto.org\nリポジトリ https://github.com/quarto-dev/quarto-web\n\ni9wa4 の GitHub Pages\n\nページ https://i9wa4.github.io\nリポジトリ https://github.com/i9wa4/i9wa4.github.io"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html",
-    "title": "Quarto による DataFrame の表示テスト",
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "blog",
     "section": "",
-    "text": "Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nAider を使ってみる\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-04-01\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#ライブラリのインストール",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "1. ライブラリのインストール",
-    "text": "1. ライブラリのインストール\n\n!python3 -m pip install pandas\n!python3 -m pip install --upgrade jinja2\n\nDefaulting to user installation because normal site-packages is not writeable\nCollecting pandas\n  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 6.4 MB/s eta 0:00:00\nCollecting numpy&gt;=1.26.0 (from pandas)\n  Downloading numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 19.2 MB/s eta 0:00:00\nRequirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)\nRequirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)\nCollecting tzdata&gt;=2022.7 (from pandas)\n  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)\nDownloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━ 7.5/12.7 MB 225.0 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 231.5 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 144.6 MB/s eta 0:00:00\nDownloading numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 7.8/16.1 MB 234.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 243.6 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 133.5 MB/s eta 0:00:00\nDownloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/347.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 83.2 MB/s eta 0:00:00\nInstalling collected packages: tzdata, numpy, pandas\nSuccessfully installed numpy-2.2.4 pandas-2.2.3 tzdata-2025.2\nDefaulting to user installation because normal site-packages is not writeable\nRequirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)\nCollecting jinja2\n  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)\nRequirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)\nDownloading jinja2-3.1.6-py3-none-any.whl (134 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.9 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 8.9 MB/s eta 0:00:00\nInstalling collected packages: jinja2\nSuccessfully installed jinja2-3.1.6"
+    "objectID": "blog/2024-07-20-aigis-note.html",
+    "href": "blog/2024-07-20-aigis-note.html",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "",
+    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "2. 関数定義",
-    "text": "2. 関数定義\n\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
+    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
+    "href": "blog/2024-07-20-aigis-note.html#週次周回",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "1. 週次周回",
+    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "3. CSV 内容確認",
-    "text": "3. CSV 内容確認\n\n!cat ../assets/20240907-quarto-df/quarto-df.csv\n\n\"Tags\",\"Date\",\"Title\",\"URL\"\n\"TagA\",\"\",\"2testtesttesttesttesttesttesttesttesttesttesttestte\",\"https://www.google.com\"\n\"TagA\",\"2024-09-04\",\"testtest\",\"https://www.google.com\"\n\"TagA\",\"2024-09-10\",\"3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\",\"https://www.google.com\"\n\"TagB\",\"2024-09-07\",\"testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-08\",\"1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\",\"https://www.google.com\"\n\"TagB\",\"2024-09-11\",\"4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\",\"https://www.google.com\""
+    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "2. 月次の交換先",
+    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "4. TagA",
-    "text": "4. TagA\n\nextract_tag('TagA')\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n9999-12-31\n\n\n\n2testtesttesttesttesttesttesttesttesttesttesttestte\n\n\n\n\n\n\n\n2024-09-10\n\n\n\n3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu\n\n\n\n\n\n\n\n2024-09-04\n\n\n\ntesttest"
+    "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
+    "href": "slides/2024-02-04-sapporo.vim.html#自己紹介",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "1. 自己紹介",
+    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
   },
   {
-    "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
-    "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#tagb",
-    "title": "Quarto による DataFrame の表示テスト",
-    "section": "5. TagB",
-    "text": "5. TagB\n\n\nCode\nextract_tag('TagB')\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-09-11\n\n\n\n4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt\n\n\n\n\n\n\n\n2024-09-08\n\n\n\n1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt\n\n\n\n\n\n\n\n2024-09-07\n\n\n\ntesttesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt"
+    "objectID": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
+    "href": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "2. 本日のタスク",
+    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
+  },
+  {
+    "objectID": "slides/2024-02-04-sapporo.vim.html#結果",
+    "href": "slides/2024-02-04-sapporo.vim.html#結果",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "3. 結果",
+    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に"
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "slides",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "uma-chan’s page",
+    "section": "",
+    "text": "about || resume\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\nAider を使ってみる\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-04-01\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2025-02-20\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2025-01-31\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n2024-12-07\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n2024-12-05\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n2024-11-20\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\n\n\n\n\n2024-11-12\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-09-22\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-09-08\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\n\n\n\nblog\n\n\ngame\n\n\n\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n2024-07-15\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n2024-06-17\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n2024-05-05\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-05-04\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-26\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2024-02-04\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\nInitial Post\n\n\n\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
+    "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "1. 自己紹介",
+    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
+  },
+  {
+    "objectID": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
+    "href": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "2. 本日のタスク",
+    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
+  },
+  {
+    "objectID": "slides/2023-12-16-sapporo.vim.html#本日の成果",
+    "href": "slides/2023-12-16-sapporo.vim.html#本日の成果",
+    "title": "Sapporo.vim 自己紹介",
+    "section": "3. 本日の成果",
+    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "",
+    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
+  },
+  {
+    "objectID": "blog/2024-03-26-setup-ds100knock.html",
+    "href": "blog/2024-03-26-setup-ds100knock.html",
+    "title": "データサイエンス100本ノックの実行環境構築 (WSL2)",
+    "section": "",
+    "text": "下記リポジトリを見てください。以上。\nhttps://github.com/i9wa4/wsl2-100knocks-preprocess"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html",
+    "href": "blog/2025-02-21-plain-sql.html",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "",
+    "text": "dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。\n勢いで書いたので思い出したらどんどん追記します"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
+    "href": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "1. フォーマッタで整形する",
+    "text": "1. フォーマッタで整形する\nフォーマッタを使って統一感のある SQL を書きましょう。\nsqlfmt が個人的におすすめです。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#with-句を使う",
+    "href": "blog/2025-02-21-plain-sql.html#with-句を使う",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "2. with 句を使う",
+    "text": "2. with 句を使う\nネストすると認知負荷が高まるので使ったほうがいいと思ってます。\n良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。\nwith\n    a as (select id, name from table_a),\n    b as (select id, common_id from table_b),\n    out as (\n        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`\n        from a\n        left outer join b on a.id = b.id\n        order by a.id\n    )\nselect *\nfrom out"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
+    "href": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "3. 1つのサブクエリに1つの目的を持たせる",
+    "text": "3. 1つのサブクエリに1つの目的を持たせる\nもちろん with 句で名前をつけたサブクエリの話をしてます。\nごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。\n例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
+    "href": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "4. 省略表現を減らす",
+    "text": "4. 省略表現を減らす\nこれはもはや好みの問題かもしれません。\n例えば\nselect * from table_a\nと書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。\n私は初登場するカラム名は明記するようにしてます。\norder by 1, 2\norder by all\nなども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。\nleft outer join table_b using (id)\nもそうですね。いつも同じ書き方ができるとは限らないので\nleft outer join table_b on table_a.id = table_b.id\nと書いて書き味をいつも同じにしておきたいです。\nこれ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html",
+    "href": "blog/2024-07-15-technical-tips.html",
+    "title": "技術系 Tips まとめ",
+    "section": "",
+    "text": "たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n分量が増えてきた分野は別記事に切り出すかもしれません。"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#git",
+    "href": "blog/2024-07-15-technical-tips.html#git",
+    "title": "技術系 Tips まとめ",
+    "section": "1. Git",
+    "text": "1. Git\n# よく使うコマンド\ngit add -n .\ngit log --graph\ngit diff --name-only HEAD HEAD~2\ngit diff ID1 ID2 filename\ngit difftool ID1 ID2\ngit show ID\n\ngit reflog\ngit rebase\n\n# リモートリポジトリ作成\ngit init --bare --shared\ngit remote add origin url\ngit clone url"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#postgresql",
+    "href": "blog/2024-07-15-technical-tips.html#postgresql",
+    "title": "技術系 Tips まとめ",
+    "section": "2. PostgreSQL",
+    "text": "2. PostgreSQL\n# 起動～データベースへのアクセス\npg_ctl restart\npsql -U postgres -d db_name\n\npg_ctl restart\npsql -U postgres\nCREATE DATABASE db_name;\n\\c db_name\nCREATE SCHEMA sc_name;"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
+    "href": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
+    "title": "技術系 Tips まとめ",
+    "section": "3. Google Cloud CLI (gcloud CLI)",
+    "text": "3. Google Cloud CLI (gcloud CLI)\n# keyfile 登録からテーブル確認まで\ngcloud auth activate-service-account --key-file ***.json\ngcloud auth list\ngcloud set account ***\nbq --project_id=aaaaa ls\nbq --project_id=aaaaa ls dataset_name\nbq --project_id=aaaaa show dataset_name.table_name\nbq --project_id=aaaaa head --max_rows 5 dataset_name.table_name\n# ログイン\ngcloud auth login"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#excel",
+    "href": "blog/2024-07-15-technical-tips.html#excel",
+    "title": "技術系 Tips まとめ",
+    "section": "4. Excel",
+    "text": "4. Excel\n\n4.1. Excel VBA\n\nアドイン追加先\n\n%USERPROFILE%\\AppData\\Roaming\\Microsoft\\AddIns\n\n\n\n\n4.2. Excel 関数\n\nシート名を記載したセルB2を利用したハイパーリンク作成\n\n=HYPERLINK(\"#'\"&B2&\"'!$A$1\",B2)"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#word",
+    "href": "blog/2024-07-15-technical-tips.html#word",
+    "title": "技術系 Tips まとめ",
+    "section": "5. Word",
+    "text": "5. Word\n\n5.1. Normal.dotm 作成\n\n%APPDATA%\\Microsoft\\Templates\\Normal.dotm 削除\nデザインを作成し既定に設定する\n\nテーマ設定\n\n見出し: 游ゴシック Arial\n本文: 游ゴシック Medium Arial\n\nアウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル"
+  },
+  {
+    "objectID": "blog/2025-04-01-try-aider.html",
+    "href": "blog/2025-04-01-try-aider.html",
+    "title": "Aider を使ってみる",
+    "section": "",
+    "text": "最近チームの生産性向上のためにAIツールの更なる活用を検討をしています。そうすると選択肢に出てくるのは Cursor だったり VS Code 拡張活用だったりするですよね。\nVimmer である私はチームの開発環境整備では VS Code を基準に考えるくらいの社会性は残してますが、ギリギリまで Vim と付き合い続けたいと思っていて最近もどかしさを感じてました。\nそんな中以下の光明が差したのです！\nVimmer にお勧めしたい AI エージェント「Aider」\nさっそく使ってみましょう。"
+  },
+  {
+    "objectID": "blog/2025-04-01-try-aider.html#はじめに",
+    "href": "blog/2025-04-01-try-aider.html#はじめに",
+    "title": "Aider を使ってみる",
+    "section": "",
+    "text": "最近チームの生産性向上のためにAIツールの更なる活用を検討をしています。そうすると選択肢に出てくるのは Cursor だったり VS Code 拡張活用だったりするですよね。\nVimmer である私はチームの開発環境整備では VS Code を基準に考えるくらいの社会性は残してますが、ギリギリまで Vim と付き合い続けたいと思っていて最近もどかしさを感じてました。\nそんな中以下の光明が差したのです！\nVimmer にお勧めしたい AI エージェント「Aider」\nさっそく使ってみましょう。"
+  },
+  {
+    "objectID": "blog/2025-04-01-try-aider.html#aider-インストール",
+    "href": "blog/2025-04-01-try-aider.html#aider-インストール",
+    "title": "Aider を使ってみる",
+    "section": "2. Aider インストール",
+    "text": "2. Aider インストール\nhttps://aider.chat/docs/install.html\npython -m pip install aider-install\naider-install"
+  },
+  {
+    "objectID": "blog/2025-04-01-try-aider.html#gemini-との接続",
+    "href": "blog/2025-04-01-try-aider.html#gemini-との接続",
+    "title": "Aider を使ってみる",
+    "section": "3. Gemini との接続",
+    "text": "3. Gemini との接続\nLLM 専用にアカウントを作るのがあまり好きではないので Google アカウントで使える Gemini に期待してます。\n手順としては以下です。\nhttps://aider.chat/docs/llms/gemini.html\nまず Gemini API キーを取得していきましょう。\n\n3.1. Gemini API キーの取得\n\nhttps://ai.google.dev/gemini-api/docs の “Get a Gemini API key” をクリックする\nプライバシーポリシーに同意する\nhttps://aistudio.google.com/apikey から API キーを取得する\nhttps://console.cloud.google.com/billing/projects で当該プロジェクトの請求先アカウントを確認する\n\nNOTE: 取り急ぎ私は課金したくないので請求が無効であることを確認しました\n\n\n\n\n3.2. Gemini の設定\n公式手順に沿って以下の準備をしておきます。\npython -m pip install -U aider-chat\npip install -U google-generativeai"
+  },
+  {
+    "objectID": "blog/2025-04-01-try-aider.html#aider-の利用例",
+    "href": "blog/2025-04-01-try-aider.html#aider-の利用例",
+    "title": "Aider を使ってみる",
+    "section": "4. Aider の利用例",
+    "text": "4. Aider の利用例\nAider の利用例として私の自作プラグインの簡単なバグ修正をやってみます。\nissue は以下です。\nignore compiled model · Issue #1 · i9wa4/vim-dbt-jump2def\n\n4.1. GEMINI_API_KEY の読み込み\n# export GEMINI_API_KEY=xxxx を ~/.env に書いてます\n$ . ~/.env\n\n\n4.2. Gemini の利用可能なモデルの確認\n$ aider --list-models gemini/\n──────────────────────────────────────────────────────────────────────────────────────────────────────────\nModels which match \"gemini/\":\n- gemini/gemini-1.5-flash\n- gemini/gemini-1.5-flash-001\n- gemini/gemini-1.5-flash-002\n- gemini/gemini-1.5-flash-8b\n- gemini/gemini-1.5-flash-8b-exp-0827\n- gemini/gemini-1.5-flash-8b-exp-0924\n- gemini/gemini-1.5-flash-exp-0827\n- gemini/gemini-1.5-flash-latest\n- gemini/gemini-1.5-pro\n- gemini/gemini-1.5-pro-001\n- gemini/gemini-1.5-pro-002\n- gemini/gemini-1.5-pro-exp-0801\n- gemini/gemini-1.5-pro-exp-0827\n- gemini/gemini-1.5-pro-latest\n- gemini/gemini-2.0-flash\n- gemini/gemini-2.0-flash-001\n- gemini/gemini-2.0-flash-exp\n- gemini/gemini-2.0-flash-lite\n- gemini/gemini-2.0-flash-lite-preview-02-05\n- gemini/gemini-2.0-flash-thinking-exp\n- gemini/gemini-2.0-flash-thinking-exp-01-21\n- gemini/gemini-2.0-pro-exp-02-05\n- gemini/gemini-2.5-pro-exp-03-25\n- gemini/gemini-exp-1114\n- gemini/gemini-exp-1206\n- gemini/gemini-gemma-2-27b-it\n- gemini/gemini-gemma-2-9b-it\n- gemini/gemini-pro\n- gemini/gemini-pro-vision\n- gemini/gemma-3-27b-it\n- gemini/learnlm-1.5-pro-experimental\n\n\n4.3. gemini-2.0-flash-001 を利用する\n$ aider --model gemini/gemini-2.0-flash-001\n──────────────────────────────────────────────────────────────────────────────────────────────────────────\nAider v0.80.0\nModel: gemini/gemini-2.0-flash-001 with whole edit format\nGit repo: .git with 9 files\nRepo-map: using 4096 tokens, auto refresh\n──────────────────────────────────────────────────────────────────────────────────────────────────────────\n\n\n4.4. バグ修正のプロンプト\nここで修正コミットをしてくれました。すごいですね。\n&gt; in denops/dbt-jump2def/main.ts, I want to fix not to jump to the model in \"target\" directory.\n\n\ndenops/dbt-jump2def/main.ts\nAdd file to the chat? (Y)es/(N)o/(D)on't ask again [Yes]: yes\nOk, I understand. You want to modify the denops/dbt-jump2def/main.ts file so that it doesn't jump to\nmodels located in the \"target\" directory. I will achieve this by excluding the \"target\" directory from the\nsearch path when using fn.findfile.\n\nHere's the updated denops/dbt-jump2def/main.ts file:\n\ndenops/dbt-jump2def/main.ts\n\n\n@@ -1,4 +1,5 @@\n export const main: Entrypoint = (denops: Denops) =&gt; {\n'jumpToModelDefinition', [&lt;q-args&gt;])`,\n       }\n\n       // get the relative path of the target model\n+      // exclude the \"target\" directory\n       const targetModelRalativePath = await fn.findfile(\n         denops,\n         `${targetModelName}.sql`,\n-        dbtProjectRootPath + \"**\",\n+        dbtProjectRootPath + \"**,!target/**\",\n       );\n\n       // if the target model not found, show error message\n       if (!targetModelRalativePath) {\n         await helper.echoerr(\n@@ -64,5 +65,6 @@\n         );\n         return;\n       }\n\n       // get the absolute path of the target model\n+  68 /  84 lines [████████████████████████░░░░░░]  81%\n\n\nTokens: 1.5k sent, 782 received. Cost: $0.00046 message, $0.00046 session.\nApplied edit to denops/dbt-jump2def/main.ts\nCommit 3ba9cfb fix: Exclude \"target\" directory from model search path.\nYou can use /undo to undo and discard each aider commit.\n──────────────────────────────────────────────────────────────────────────────────────────────────────────\n\n\n4.5. 終わり\ndenops/dbt-jump2def/main.ts\n&gt; /exit\n\n\n4.6. 実は……\n上記コミットは Gemini 2.0 Pro が適当な修正してくれてたので動きませんでした。\n結局 Gemini 2.5 Pro に聞きながら正しい対応を入れました。\nまだ私が LLM に慣れてないんだなぁと感じました。"
+  },
+  {
+    "objectID": "blog/2025-04-01-try-aider.html#感想",
+    "href": "blog/2025-04-01-try-aider.html#感想",
+    "title": "Aider を使ってみる",
+    "section": "5. 感想",
+    "text": "5. 感想\nAider すごいです。Aider に慣れていけば LLM をすげ替えるだけで流行りに乗り続けられるので安心して乗っかれますね。\nプロンプトの精度も磨いていく必要性を感じました。\nとにかく使い慣れていかねば！"
   },
   {
     "objectID": "blog/2024-01-01-init.html",

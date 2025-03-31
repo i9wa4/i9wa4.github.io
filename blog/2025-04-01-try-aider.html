@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2024-09-08">
+<meta name="dcterms.date" content="2025-04-01">
 
-<title>Quarto による DataFrame の表示テスト – uma-chan’s page</title>
+<title>Aider を使ってみる – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="Quarto による DataFrame の表示テスト – uma-chan’s page">
+<meta property="og:title" content="Aider を使ってみる – uma-chan’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:height" content="256">
 <meta property="og:image:width" content="256">
-<meta name="twitter:title" content="Quarto による DataFrame の表示テスト – uma-chan’s page">
+<meta name="twitter:title" content="Aider を使ってみる – uma-chan’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -188,11 +154,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#ライブラリのインストール" id="toc-ライブラリのインストール" class="nav-link active" data-scroll-target="#ライブラリのインストール">1. ライブラリのインストール</a></li>
-  <li><a href="#関数定義" id="toc-関数定義" class="nav-link" data-scroll-target="#関数定義">2. 関数定義</a></li>
-  <li><a href="#csv-内容確認" id="toc-csv-内容確認" class="nav-link" data-scroll-target="#csv-内容確認">3. CSV 内容確認</a></li>
-  <li><a href="#taga" id="toc-taga" class="nav-link" data-scroll-target="#taga">4. TagA</a></li>
-  <li><a href="#tagb" id="toc-tagb" class="nav-link" data-scroll-target="#tagb">5. TagB</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
+  <li><a href="#aider-インストール" id="toc-aider-インストール" class="nav-link" data-scroll-target="#aider-インストール">2. Aider インストール</a></li>
+  <li><a href="#gemini-との接続" id="toc-gemini-との接続" class="nav-link" data-scroll-target="#gemini-との接続">3. Gemini との接続</a></li>
+  <li><a href="#aider-の利用例" id="toc-aider-の利用例" class="nav-link" data-scroll-target="#aider-の利用例">4. Aider の利用例</a></li>
+  <li><a href="#感想" id="toc-感想" class="nav-link" data-scroll-target="#感想">5. 感想</a></li>
   </ul>
 </nav>
     </div>
@@ -201,11 +167,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto による DataFrame の表示テスト</h1>
+<h1 class="title">Aider を使ってみる</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-quarto</div>
   </div>
   </div>
 
@@ -223,14 +188,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-09-08</p>
+      <p class="date">2025-04-01</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-12-20</p>
+      <p class="date-modified">2025-04-01</p>
     </div>
   </div>
     
@@ -241,233 +206,168 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。</p>
-<p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
-<section id="ライブラリのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div id="65a0e3f7" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install pandas</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python3 <span class="op">-</span>m pip install <span class="op">--</span>upgrade jinja2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Defaulting to user installation because normal site-packages is not writeable
-Collecting pandas
-  Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/89.9 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 3.8 MB/s eta 0:00:00
-Collecting numpy&gt;=1.26.0 (from pandas)
-  Downloading numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/62.0 kB ? eta -:--:--     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 15.2 MB/s eta 0:00:00
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /usr/lib/python3/dist-packages (from pandas) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/lib/python3/dist-packages (from pandas) (2024.1)
-Collecting tzdata&gt;=2022.7 (from pandas)
-  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
-Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/12.7 MB ? eta -:--:--   ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.9/12.7 MB 30.7 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ 6.5/12.7 MB 96.3 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 12.7/12.7 MB 242.2 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 146.0 MB/s eta 0:00:00
-Downloading numpy-2.2.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/16.1 MB ? eta -:--:--   ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 6.7/16.1 MB 202.4 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 13.7/16.1 MB 186.9 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 16.1/16.1 MB 202.6 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.1/16.1 MB 121.1 MB/s eta 0:00:00
-Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/347.8 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 79.1 MB/s eta 0:00:00
-Installing collected packages: tzdata, numpy, pandas
-Successfully installed numpy-2.2.4 pandas-2.2.3 tzdata-2025.2
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: jinja2 in /usr/lib/python3/dist-packages (3.1.2)
-Collecting jinja2
-  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/lib/python3/dist-packages (from jinja2) (2.1.5)
-Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/134.9 kB ? eta -:--:--   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ 133.1/134.9 kB 4.0 MB/s eta 0:00:01   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 3.6 MB/s eta 0:00:00
-Installing collected packages: jinja2
-Successfully installed jinja2-3.1.6</code></pre>
-</div>
-</div>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>最近チームの生産性向上のためにAIツールの更なる活用を検討をしています。そうすると選択肢に出てくるのは Cursor だったり VS Code 拡張活用だったりするですよね。</p>
+<p>Vimmer である私はチームの開発環境整備では VS Code を基準に考えるくらいの社会性は残してますが、ギリギリまで Vim と付き合い続けたいと思っていて最近もどかしさを感じてました。</p>
+<p>そんな中以下の光明が差したのです！</p>
+<p><a href="https://zenn.dev/acro5piano/articles/1d900a93c608e1">Vimmer にお勧めしたい AI エージェント「Aider」</a></p>
+<p>さっそく使ってみましょう。</p>
 </section>
-<section id="関数定義" class="level2">
-<h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div id="dc5488d9" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_all <span class="op">=</span> pd.read_csv(<span class="st">'../assets/20240907-quarto-df/quarto-df.csv'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_clickable(url, title):</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'&lt;a href="</span><span class="sc">{</span>url<span class="sc">}</span><span class="ss">"&gt;</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">&lt;/a&gt;'</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_tag(tag, df<span class="op">=</span>df_all):</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> df[df[<span class="st">'Tags'</span>].<span class="bu">str</span>.contains(tag)].copy()</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 欠損埋め</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df.fillna({<span class="st">'Date'</span>: <span class="st">'9999-12-31'</span>})</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df.fillna(<span class="st">'-'</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">HACK</span><span class="co">: __init__.py を強調させないためのワークアラウンド</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    _df[<span class="st">'Title'</span>] <span class="op">=</span> _df[<span class="st">'Title'</span>].replace(</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">'__init__.py'</span>, <span class="st">'__ init __.py'</span>, regex<span class="op">=</span><span class="va">True</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 日付とクリック可能なページ名の表示</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df[[<span class="st">'Date'</span>, <span class="st">'Title'</span>, <span class="st">'URL'</span>]].sort_values(</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'Date'</span>, <span class="st">'Title'</span>], ascending<span class="op">=</span>[<span class="va">False</span>, <span class="va">True</span>]</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    _df.index <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(_df) <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    _df[<span class="st">'Website'</span>] <span class="op">=</span> _df.<span class="bu">apply</span>(</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="kw">lambda</span> row: make_clickable(row[<span class="st">'URL'</span>], row[<span class="st">'Title'</span>]), axis<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    _df <span class="op">=</span> _df[[<span class="st">'Date'</span>, <span class="st">'Website'</span>]].to_html(escape<span class="op">=</span><span class="va">False</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> _df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="aider-インストール" class="level2">
+<h2 class="anchored" data-anchor-id="aider-インストール">2. Aider インストール</h2>
+<p><a href="https://aider.chat/docs/install.html" class="uri">https://aider.chat/docs/install.html</a></p>
+<pre class="{bash}"><code>python -m pip install aider-install
+aider-install</code></pre>
 </section>
-<section id="csv-内容確認" class="level2">
-<h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div id="2e3514c3" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>cat ..<span class="op">/</span>assets<span class="op">/</span><span class="dv">20240907</span><span class="op">-</span>quarto<span class="op">-</span>df<span class="op">/</span>quarto<span class="op">-</span>df.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>"Tags","Date","Title","URL"
-"TagA","","2testtesttesttesttesttesttesttesttesttesttesttestte","https://www.google.com"
-"TagA","2024-09-04","testtest","https://www.google.com"
-"TagA","2024-09-10","3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu","https://www.google.com"
-"TagB","2024-09-07","testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt","https://www.google.com"
-"TagB","2024-09-08","1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt","https://www.google.com"
-"TagB","2024-09-11","4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt","https://www.google.com"</code></pre>
-</div>
-</div>
+<section id="gemini-との接続" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-との接続">3. Gemini との接続</h2>
+<p>LLM 専用にアカウントを作るのがあまり好きではないので Google アカウントで使える Gemini に期待してます。</p>
+<p>手順としては以下です。</p>
+<p><a href="https://aider.chat/docs/llms/gemini.html" class="uri">https://aider.chat/docs/llms/gemini.html</a></p>
+<p>まず Gemini API キーを取得していきましょう。</p>
+<section id="gemini-api-キーの取得" class="level3">
+<h3 class="anchored" data-anchor-id="gemini-api-キーの取得">3.1. Gemini API キーの取得</h3>
+<ol type="1">
+<li><a href="https://ai.google.dev/gemini-api/docs" class="uri">https://ai.google.dev/gemini-api/docs</a> の “Get a Gemini API key” をクリックする</li>
+<li>プライバシーポリシーに同意する</li>
+<li><a href="https://aistudio.google.com/apikey" class="uri">https://aistudio.google.com/apikey</a> から API キーを取得する</li>
+<li><a href="https://console.cloud.google.com/billing/projects" class="uri">https://console.cloud.google.com/billing/projects</a> で当該プロジェクトの請求先アカウントを確認する
+<ul>
+<li>NOTE: 取り急ぎ私は課金したくないので請求が無効であることを確認しました</li>
+</ul></li>
+</ol>
 </section>
-<section id="taga" class="level2">
-<h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div id="65cb2c00" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagA'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-9999-12-31
-</td>
-
-<td>
-<a href="https://www.google.com">2testtesttesttesttesttesttesttesttesttesttesttestte</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-10
-</td>
-
-<td>
-<a href="https://www.google.com">3testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuu</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-04
-</td>
-
-<td>
-<a href="https://www.google.com">testtest</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="gemini-の設定" class="level3">
+<h3 class="anchored" data-anchor-id="gemini-の設定">3.2. Gemini の設定</h3>
+<p>公式手順に沿って以下の準備をしておきます。</p>
+<pre class="{bash}"><code>python -m pip install -U aider-chat
+pip install -U google-generativeai</code></pre>
 </section>
-<section id="tagb" class="level2">
-<h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div id="00f25a36" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>extract_tag(<span class="st">'TagB'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<table class="dataframe table table-sm table-striped small">
+</section>
+<section id="aider-の利用例" class="level2">
+<h2 class="anchored" data-anchor-id="aider-の利用例">4. Aider の利用例</h2>
+<p>Aider の利用例として私の自作プラグインの簡単なバグ修正をやってみます。</p>
+<p>issue は以下です。</p>
+<p><a href="https://github.com/i9wa4/vim-dbt-jump2def/issues/1">ignore compiled model · Issue #1 · i9wa4/vim-dbt-jump2def</a></p>
+<section id="gemini_api_key-の読み込み" class="level3">
+<h3 class="anchored" data-anchor-id="gemini_api_key-の読み込み">4.1. GEMINI_API_KEY の読み込み</h3>
+<pre class="{bash}"><code># export GEMINI_API_KEY=xxxx を ~/.env に書いてます
+$ . ~/.env</code></pre>
+</section>
+<section id="gemini-の利用可能なモデルの確認" class="level3">
+<h3 class="anchored" data-anchor-id="gemini-の利用可能なモデルの確認">4.2. Gemini の利用可能なモデルの確認</h3>
+<pre class="{bash}"><code>$ aider --list-models gemini/
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+Models which match "gemini/":
+- gemini/gemini-1.5-flash
+- gemini/gemini-1.5-flash-001
+- gemini/gemini-1.5-flash-002
+- gemini/gemini-1.5-flash-8b
+- gemini/gemini-1.5-flash-8b-exp-0827
+- gemini/gemini-1.5-flash-8b-exp-0924
+- gemini/gemini-1.5-flash-exp-0827
+- gemini/gemini-1.5-flash-latest
+- gemini/gemini-1.5-pro
+- gemini/gemini-1.5-pro-001
+- gemini/gemini-1.5-pro-002
+- gemini/gemini-1.5-pro-exp-0801
+- gemini/gemini-1.5-pro-exp-0827
+- gemini/gemini-1.5-pro-latest
+- gemini/gemini-2.0-flash
+- gemini/gemini-2.0-flash-001
+- gemini/gemini-2.0-flash-exp
+- gemini/gemini-2.0-flash-lite
+- gemini/gemini-2.0-flash-lite-preview-02-05
+- gemini/gemini-2.0-flash-thinking-exp
+- gemini/gemini-2.0-flash-thinking-exp-01-21
+- gemini/gemini-2.0-pro-exp-02-05
+- gemini/gemini-2.5-pro-exp-03-25
+- gemini/gemini-exp-1114
+- gemini/gemini-exp-1206
+- gemini/gemini-gemma-2-27b-it
+- gemini/gemini-gemma-2-9b-it
+- gemini/gemini-pro
+- gemini/gemini-pro-vision
+- gemini/gemma-3-27b-it
+- gemini/learnlm-1.5-pro-experimental</code></pre>
+</section>
+<section id="gemini-2.0-flash-001-を利用する" class="level3">
+<h3 class="anchored" data-anchor-id="gemini-2.0-flash-001-を利用する">4.3. gemini-2.0-flash-001 を利用する</h3>
+<pre class="{bash}"><code>$ aider --model gemini/gemini-2.0-flash-001
+──────────────────────────────────────────────────────────────────────────────────────────────────────────
+Aider v0.80.0
+Model: gemini/gemini-2.0-flash-001 with whole edit format
+Git repo: .git with 9 files
+Repo-map: using 4096 tokens, auto refresh
+──────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+</section>
+<section id="バグ修正のプロンプト" class="level3">
+<h3 class="anchored" data-anchor-id="バグ修正のプロンプト">4.4. バグ修正のプロンプト</h3>
+<p>ここで修正コミットをしてくれました。すごいですね。</p>
+<pre class="{bash}"><code>&gt; in denops/dbt-jump2def/main.ts, I want to fix not to jump to the model in "target" directory.
 
-<thead>
 
-<tr>
+denops/dbt-jump2def/main.ts
+Add file to the chat? (Y)es/(N)o/(D)on't ask again [Yes]: yes
+Ok, I understand. You want to modify the denops/dbt-jump2def/main.ts file so that it doesn't jump to
+models located in the "target" directory. I will achieve this by excluding the "target" directory from the
+search path when using fn.findfile.
 
-<th>
-Date
-</th>
+Here's the updated denops/dbt-jump2def/main.ts file:
 
-<th>
-Website
-</th>
+denops/dbt-jump2def/main.ts
 
-</tr>
 
-</thead>
+@@ -1,4 +1,5 @@
+ export const main: Entrypoint = (denops: Denops) =&gt; {
+'jumpToModelDefinition', [&lt;q-args&gt;])`,
+       }
 
-<tbody>
+       // get the relative path of the target model
++      // exclude the "target" directory
+       const targetModelRalativePath = await fn.findfile(
+         denops,
+         `${targetModelName}.sql`,
+-        dbtProjectRootPath + "**",
++        dbtProjectRootPath + "**,!target/**",
+       );
 
-<tr>
+       // if the target model not found, show error message
+       if (!targetModelRalativePath) {
+         await helper.echoerr(
+@@ -64,5 +65,6 @@
+         );
+         return;
+       }
 
-<td>
-2024-09-11
-</td>
+       // get the absolute path of the target model
++  68 /  84 lines [████████████████████████░░░░░░]  81%
 
-<td>
-<a href="https://www.google.com">4testtesttesttesttesttesttesttesttesttesttesttestteuuuuuuuuuuuuuuuuutttttttttttt</a>
-</td>
 
-</tr>
-
-<tr>
-
-<td>
-2024-09-08
-</td>
-
-<td>
-<a href="https://www.google.com">1testtesttesttesttesttesttesttestte1sttesttesttesttesttesttesttestt</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-07
-</td>
-
-<td>
-<a href="https://www.google.com">testtesttesttesttesttesttesttestte0sttesttesttesttesttesttesttestt</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+Tokens: 1.5k sent, 782 received. Cost: $0.00046 message, $0.00046 session.
+Applied edit to denops/dbt-jump2def/main.ts
+Commit 3ba9cfb fix: Exclude "target" directory from model search path.
+You can use /undo to undo and discard each aider commit.
+──────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+</section>
+<section id="終わり" class="level3">
+<h3 class="anchored" data-anchor-id="終わり">4.5. 終わり</h3>
+<pre class="{bash}"><code>denops/dbt-jump2def/main.ts
+&gt; /exit</code></pre>
+</section>
+<section id="実は" class="level3">
+<h3 class="anchored" data-anchor-id="実は">4.6. 実は……</h3>
+<p>上記コミットは Gemini 2.0 Pro が適当な修正してくれてたので動きませんでした。</p>
+<p>結局 Gemini 2.5 Pro に聞きながら正しい対応を入れました。</p>
+<p>まだ私が LLM に慣れてないんだなぁと感じました。</p>
+</section>
+</section>
+<section id="感想" class="level2">
+<h2 class="anchored" data-anchor-id="感想">5. 感想</h2>
+<p>Aider すごいです。Aider に慣れていけば LLM をすげ替えるだけで流行りに乗り続けられるので安心して乗っかれますね。</p>
+<p>プロンプトの精度も磨いていく必要性を感じました。</p>
+<p>とにかく使い慣れていかねば！</p>
 
 
 </section>
