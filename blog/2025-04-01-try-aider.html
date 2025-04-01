@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -171,6 +205,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
+    <div class="quarto-category">tech-ai-tools</div>
   </div>
   </div>
 
@@ -217,8 +252,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="aider-インストール" class="level2">
 <h2 class="anchored" data-anchor-id="aider-インストール">2. Aider インストール</h2>
 <p><a href="https://aider.chat/docs/install.html" class="uri">https://aider.chat/docs/install.html</a></p>
-<pre class="{bash}"><code>python -m pip install aider-install
-aider-install</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install aider-install</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">aider-install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="gemini-との接続" class="level2">
 <h2 class="anchored" data-anchor-id="gemini-との接続">3. Gemini との接続</h2>
@@ -241,8 +276,8 @@ aider-install</code></pre>
 <section id="gemini-の設定" class="level3">
 <h3 class="anchored" data-anchor-id="gemini-の設定">3.2. Gemini の設定</h3>
 <p>公式手順に沿って以下の準備をしておきます。</p>
-<pre class="{bash}"><code>python -m pip install -U aider-chat
-pip install -U google-generativeai</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> aider-chat</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-U</span> google-generativeai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="aider-の利用例" class="level2">
@@ -252,109 +287,109 @@ pip install -U google-generativeai</code></pre>
 <p><a href="https://github.com/i9wa4/vim-dbt-jump2def/issues/1">ignore compiled model · Issue #1 · i9wa4/vim-dbt-jump2def</a></p>
 <section id="gemini_api_key-の読み込み" class="level3">
 <h3 class="anchored" data-anchor-id="gemini_api_key-の読み込み">4.1. GEMINI_API_KEY の読み込み</h3>
-<pre class="{bash}"><code># export GEMINI_API_KEY=xxxx を ~/.env に書いてます
-$ . ~/.env</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export GEMINI_API_KEY=xxxx を ~/.env に書いてます</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> . ~/.env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="gemini-の利用可能なモデルの確認" class="level3">
 <h3 class="anchored" data-anchor-id="gemini-の利用可能なモデルの確認">4.2. Gemini の利用可能なモデルの確認</h3>
-<pre class="{bash}"><code>$ aider --list-models gemini/
-──────────────────────────────────────────────────────────────────────────────────────────────────────────
-Models which match "gemini/":
-- gemini/gemini-1.5-flash
-- gemini/gemini-1.5-flash-001
-- gemini/gemini-1.5-flash-002
-- gemini/gemini-1.5-flash-8b
-- gemini/gemini-1.5-flash-8b-exp-0827
-- gemini/gemini-1.5-flash-8b-exp-0924
-- gemini/gemini-1.5-flash-exp-0827
-- gemini/gemini-1.5-flash-latest
-- gemini/gemini-1.5-pro
-- gemini/gemini-1.5-pro-001
-- gemini/gemini-1.5-pro-002
-- gemini/gemini-1.5-pro-exp-0801
-- gemini/gemini-1.5-pro-exp-0827
-- gemini/gemini-1.5-pro-latest
-- gemini/gemini-2.0-flash
-- gemini/gemini-2.0-flash-001
-- gemini/gemini-2.0-flash-exp
-- gemini/gemini-2.0-flash-lite
-- gemini/gemini-2.0-flash-lite-preview-02-05
-- gemini/gemini-2.0-flash-thinking-exp
-- gemini/gemini-2.0-flash-thinking-exp-01-21
-- gemini/gemini-2.0-pro-exp-02-05
-- gemini/gemini-2.5-pro-exp-03-25
-- gemini/gemini-exp-1114
-- gemini/gemini-exp-1206
-- gemini/gemini-gemma-2-27b-it
-- gemini/gemini-gemma-2-9b-it
-- gemini/gemini-pro
-- gemini/gemini-pro-vision
-- gemini/gemma-3-27b-it
-- gemini/learnlm-1.5-pro-experimental</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aider <span class="at">--list-models</span> gemini/</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Models</span> which match <span class="st">"gemini/"</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-001</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-002</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-8b</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-8b-exp-0827</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-8b-exp-0924</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-exp-0827</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-flash-latest</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-pro</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-pro-001</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-pro-002</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-pro-exp-0801</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-pro-exp-0827</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-1.5-pro-latest</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash-001</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash-exp</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash-lite</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash-lite-preview-02-05</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash-thinking-exp</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-flash-thinking-exp-01-21</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.0-pro-exp-02-05</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-2.5-pro-exp-03-25</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-exp-1114</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-exp-1206</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-gemma-2-27b-it</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-gemma-2-9b-it</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-pro</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemini-pro-vision</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/gemma-3-27b-it</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> gemini/learnlm-1.5-pro-experimental</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="gemini-2.0-flash-001-を利用する" class="level3">
 <h3 class="anchored" data-anchor-id="gemini-2.0-flash-001-を利用する">4.3. gemini-2.0-flash-001 を利用する</h3>
-<pre class="{bash}"><code>$ aider --model gemini/gemini-2.0-flash-001
-──────────────────────────────────────────────────────────────────────────────────────────────────────────
-Aider v0.80.0
-Model: gemini/gemini-2.0-flash-001 with whole edit format
-Git repo: .git with 9 files
-Repo-map: using 4096 tokens, auto refresh
-──────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aider <span class="at">--model</span> gemini/gemini-2.0-flash-001</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Aider</span> v0.80.0</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Model:</span> gemini/gemini-2.0-flash-001 with whole edit format</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Git</span> repo: .git with 9 files</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Repo-map:</span> using 4096 tokens, auto refresh</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="バグ修正のプロンプト" class="level3">
 <h3 class="anchored" data-anchor-id="バグ修正のプロンプト">4.4. バグ修正のプロンプト</h3>
 <p>ここで修正コミットをしてくれました。すごいですね。</p>
-<pre class="{bash}"><code>&gt; in denops/dbt-jump2def/main.ts, I want to fix not to jump to the model in "target" directory.
-
-
-denops/dbt-jump2def/main.ts
-Add file to the chat? (Y)es/(N)o/(D)on't ask again [Yes]: yes
-Ok, I understand. You want to modify the denops/dbt-jump2def/main.ts file so that it doesn't jump to
-models located in the "target" directory. I will achieve this by excluding the "target" directory from the
-search path when using fn.findfile.
-
-Here's the updated denops/dbt-jump2def/main.ts file:
-
-denops/dbt-jump2def/main.ts
-
-
-@@ -1,4 +1,5 @@
- export const main: Entrypoint = (denops: Denops) =&gt; {
-'jumpToModelDefinition', [&lt;q-args&gt;])`,
-       }
-
-       // get the relative path of the target model
-+      // exclude the "target" directory
-       const targetModelRalativePath = await fn.findfile(
-         denops,
-         `${targetModelName}.sql`,
--        dbtProjectRootPath + "**",
-+        dbtProjectRootPath + "**,!target/**",
-       );
-
-       // if the target model not found, show error message
-       if (!targetModelRalativePath) {
-         await helper.echoerr(
-@@ -64,5 +65,6 @@
-         );
-         return;
-       }
-
-       // get the absolute path of the target model
-+  68 /  84 lines [████████████████████████░░░░░░]  81%
-
-
-Tokens: 1.5k sent, 782 received. Cost: $0.00046 message, $0.00046 session.
-Applied edit to denops/dbt-jump2def/main.ts
-Commit 3ba9cfb fix: Exclude "target" directory from model search path.
-You can use /undo to undo and discard each aider commit.
-──────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> in <span class="ex">denops/dbt-jump2def/main.ts,</span> I want to fix not to jump to the model in <span class="st">"target"</span> directory.</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">denops/dbt-jump2def/main.ts</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Add</span> file to the chat<span class="pp">?</span> <span class="er">(</span><span class="ex">Y</span><span class="kw">)</span><span class="ex">es/</span><span class="er">(</span><span class="ex">N</span><span class="kw">)</span><span class="ex">o/</span><span class="er">(</span><span class="ex">D</span><span class="kw">)</span><span class="ex">on</span><span class="st">'t ask again [Yes]: yes</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">Ok, I understand. You want to modify the denops/dbt-jump2def/main.ts file so that it doesn'</span><span class="ex">t</span> jump to</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">models</span> located in the <span class="st">"target"</span> directory. I will achieve this by excluding the <span class="st">"target"</span> directory from the</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">search</span> path when using fn.findfile.</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Here</span><span class="st">'s the updated denops/dbt-jump2def/main.ts file:</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="st">denops/dbt-jump2def/main.ts</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="st">@@ -1,4 +1,5 @@</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="st"> export const main: Entrypoint = (denops: Denops) =&gt; {</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="st">'</span><span class="ex">jumpToModelDefinition</span><span class="st">', [&lt;q-args&gt;])`,</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="st">       }</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="st">       // get the relative path of the target model</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="st">+      // exclude the "target" directory</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="st">       const targetModelRalativePath = await fn.findfile(</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="st">         denops,</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="st">         `${targetModelName}.sql`,</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="st">-        dbtProjectRootPath + "**",</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="st">+        dbtProjectRootPath + "**,!target/**",</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="st">       );</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="st">       // if the target model not found, show error message</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="st">       if (!targetModelRalativePath) {</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="st">         await helper.echoerr(</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="st">@@ -64,5 +65,6 @@</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="st">         );</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="st">         return;</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="st">       }</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="st">       // get the absolute path of the target model</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="st">+  68 /  84 lines [████████████████████████░░░░░░]  81%</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="st">Tokens: 1.5k sent, 782 received. Cost: $0.00046 message, $0.00046 session.</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="st">Applied edit to denops/dbt-jump2def/main.ts</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="st">Commit 3ba9cfb fix: Exclude "target" directory from model search path.</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="st">You can use /undo to undo and discard each aider commit.</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="st">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="終わり" class="level3">
 <h3 class="anchored" data-anchor-id="終わり">4.5. 終わり</h3>
-<pre class="{bash}"><code>denops/dbt-jump2def/main.ts
-&gt; /exit</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">denops/dbt-jump2def/main.ts</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> /exit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="実は" class="level3">
 <h3 class="anchored" data-anchor-id="実は">4.6. 実は……</h3>

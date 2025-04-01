@@ -232,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-12-20</p>
+      <p class="date-modified">2025-04-01</p>
     </div>
   </div>
     
@@ -258,14 +258,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>PowerShell or コマンドプロンプトを開きます。</p></li>
 <li><p>インストール可能なディストリビューションを表示します。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-list</span> -<span class="at">-online</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-list</span> -<span class="at">-online</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Ubuntu 22.04 LTS をインストールする場合は以下のように入力します。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-install</span> <span class="at">-d</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-install</span> <span class="at">-d</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>画面表示に従ってユーザー名とパスワードを入力します。</p></li>
 <li><p>Ubuntu を終了します。</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>(必要に応じて) 既定のディストリビューションを設定します。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-set-default</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-set-default</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
 <section id="ディストリビューションのアンインストール" class="level2">
@@ -273,9 +273,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>PowerShell or コマンドプロンプトを開きます。</p></li>
 <li><p>インストール済みのディストリビューションを表示します。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>不要なディストリビューションをアンインストールします。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode dosbat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-unregister</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wsl -<span class="at">-unregister</span> Ubuntu<span class="at">-22</span>.04</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
 <section id="詳細設定" class="level2">

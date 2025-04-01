@@ -195,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2024-12-20</p>
+      <p class="date-modified">2025-04-01</p>
     </div>
   </div>
     
@@ -220,12 +220,12 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="git-探索関数作成">2.1. .git 探索関数作成</h3>
 <section id="質問" class="level4">
 <h4 class="anchored" data-anchor-id="質問">2.1.1. 質問</h4>
-<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
+<pre><code>Vim script で以下の関数を作成してほしいです。
 - あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。</code></pre>
 </section>
 <section id="回答" class="level4">
 <h4 class="anchored" data-anchor-id="回答">2.1.2. 回答</h4>
-<pre class="plaintext"><code>Vim script で .git ディレクトリを探す関数
+<pre><code>Vim script で .git ディレクトリを探す関数
 
 以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。
 
@@ -263,12 +263,12 @@ endfunction</code></pre>
 <h3 class="anchored" data-anchor-id="ブランチ名取得関数作成">2.2. ブランチ名取得関数作成</h3>
 <section id="質問-1" class="level4">
 <h4 class="anchored" data-anchor-id="質問-1">2.2.1. 質問</h4>
-<pre class="plaintext"><code>Vim script で以下の関数を作成してほしいです。
+<pre><code>Vim script で以下の関数を作成してほしいです。
 - .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。</code></pre>
 </section>
 <section id="回答-1" class="level4">
 <h4 class="anchored" data-anchor-id="回答-1">2.2.2. 回答</h4>
-<pre class="plaintext"><code>以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。
+<pre><code>以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。
 
 function! GetCurrentBranch(gitdir)
   " 引数が空の場合、エラーを返す "
@@ -285,11 +285,11 @@ endfunction</code></pre>
 </section>
 <section id="質問-2" class="level4">
 <h4 class="anchored" data-anchor-id="質問-2">2.2.3. 質問</h4>
-<pre class="plaintext"><code>system() を使わず、gitコマンドを使わずに実現させてほしいです。</code></pre>
+<pre><code>system() を使わず、gitコマンドを使わずに実現させてほしいです。</code></pre>
 </section>
 <section id="回答-2" class="level4">
 <h4 class="anchored" data-anchor-id="回答-2">2.2.4. 回答</h4>
-<pre class="plaintext"><code>Vim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。
+<pre><code>Vim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。
 
 
 1. :echo %b コマンドを使用する
