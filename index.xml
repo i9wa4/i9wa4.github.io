@@ -15,7 +15,72 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Mon, 31 Mar 2025 16:37:05 GMT</lastBuildDate>
+<lastBuildDate>Tue, 01 Apr 2025 16:02:31 GMT</lastBuildDate>
+<item>
+  <title>2024年度を振り返る</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>本当は年末に振り返ろうかと思っていましたが転職したてだったのでこのタイミングになりました。</p>
+<p>2024年度に初めて経験したことを振り返ってみます。</p>
+<section id="初めて東京の会社に勤めた" class="level2">
+<h2 class="anchored" data-anchor-id="初めて東京の会社に勤めた">1. 初めて東京の会社に勤めた</h2>
+<p>2018年からずっと東京の顧客相手に仕事をしてきたものの拠点自体は東京ではありませんでした。</p>
+<p>東京に住んでいないというハンデがある中でどのようにキャリア構築していくかというゲームだと思って頑張ってます。折角なのでいつかこの手の話で登壇したいです。</p>
+<p>リモートワークとはいえやはり東京の会社に正社員として勤めていると刺激を多く得られますね。</p>
+<p>東京のエンジニアのキャリア構築の考え方や仕事ぶりを目の前で見るという経験を今得られて本当によかったと思ってます。</p>
+<p>自分の職業人生もプライベートもよりよいものにできる指針が見つかった1年でした。</p>
+</section>
+<section id="初めてインフラ領域に触れた" class="level2">
+<h2 class="anchored" data-anchor-id="初めてインフラ領域に触れた">2. 初めてインフラ領域に触れた</h2>
+<p>2024年3月以前の自分は AWS に触っていたとはいえ SageMaker や MWAA (Amazon Managed Workflows for Apache Airflow) など構築済みのリソースを利用するばかりで全般に解像度が低めでした。</p>
+<p>CloudWatch を使う必要のない仕事をしていたというと分かりやすいかしれません。</p>
+<p>それが今では AWS の主要サービス全般をデータエンジニア業務遂行上全く困らなくなるレベルで使えるようになりました。</p>
+<p>Terraform を介して AWS/Google Cloud (BigQuery)/Snowflake の使われている基盤の構築や修正、GitHub Actions を使った CI/CD 整備、機械学習におけるインフラリソース調整までできるようになり飛躍的に基盤周りの仕事がこなせるようになりました。</p>
+<p>特に Terraform に関しては2024年3月まで勤めていた会社ではベテランのつよつよインフラエンジニアが社内で唯一ちょっと齧ったことがあるという程度で正直雲の上の存在でした。</p>
+<p>まさか自分がここまでできるようになるとはという思いです。</p>
+<p>とは言えこれからデータ業務の長を目指していく上で Terraform や基盤のことくらい分からないとダメだよねと思って転職していて自分で引き寄せた結果ではあります。</p>
+<p>エンジニアとしての仕事の密度が非常に高く、これまでの社会人生活で最も成長した1年間でした。</p>
+</section>
+<section id="初めてデータ基盤開発からダッシュボード運用までの一気通貫な仕事をした" class="level2">
+<h2 class="anchored" data-anchor-id="初めてデータ基盤開発からダッシュボード運用までの一気通貫な仕事をした">3. 初めてデータ基盤開発からダッシュボード運用までの一気通貫な仕事をした</h2>
+<p>現職での話です。</p>
+<p>直接目の前の誰かの役に立つ仕事、良いですね。</p>
+<p>売上を追求するというより社員のためになることに喜びを感じます。</p>
+</section>
+<section id="初めて-macbook-を会社支給された-私用端末として購入した" class="level2">
+<h2 class="anchored" data-anchor-id="初めて-macbook-を会社支給された-私用端末として購入した">4. 初めて MacBook を会社支給された &amp; 私用端末として購入した</h2>
+<p>上に書いたものに比べるとスケールが小さい話ですが自分にとっては大きなターニングポイントであると感じます。</p>
+<p>Windows か macOS かなんてただ OS が違うだけではないかと思ってしまいそうですが、これが会社のカテゴリを象徴してるんですよね。</p>
+<p>自分はこれからも個人に自由や裁量のある環境で仕事を続けていこうと思っていて、MacBook はその象徴であると感じています。</p>
+<p>これから先の自分のキャリアは MacBook と共にあるということです。</p>
+<p>これは Apple というブランドが好きになったということなのだろうと思います。</p>
+<p>実は iPhone と Apple Watch を買ったのも2024年でした。</p>
+</section>
+<section id="初めて会社ブログを執筆した" class="level2">
+<h2 class="anchored" data-anchor-id="初めて会社ブログを執筆した">5. 初めて会社ブログを執筆した</h2>
+<p>SIer 歴が長く会社ブログを書く機会がありませんでした。</p>
+<p>現状は Zenn に好きなだけ記事を投稿させてもらえるのでもっと色々と書いていきたいです。</p>
+<p>とりとめのないことを書くという立ち位置のこのブログは2024年1月から始めてますが意外と飽きずに続いてますね。えらい。</p>
+</section>
+<section id="まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="まとめ">6. まとめ</h2>
+<p>間違いなく人生のターニングポイントになった1年でした。</p>
+<p>泥臭くキャリアを構築してきた地方民とキャリアの話をしてみたいですねぇ。こういう話をしながら飲む酒が一番良いんだ。。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>diary</category>
+  <guid>https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html</guid>
+  <pubDate>Tue, 01 Apr 2025 16:02:31 GMT</pubDate>
+</item>
 <item>
   <title>Aider を使ってみる</title>
   <dc:creator>uma-chan </dc:creator>
@@ -3223,224 +3288,6 @@ Table&nbsp;1: 購入ガジェット一覧
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2024-06-17-purchased-gadgets.html</guid>
   <pubDate>Mon, 17 Jun 2024 03:42:17 GMT</pubDate>
-</item>
-<item>
-  <title>Mac 環境構築手順</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>私の Mac 環境構築手順をまとめておきます。</p>
-<section id="dotfiles-導入" class="level2">
-<h2 class="anchored" data-anchor-id="dotfiles-導入">1. dotfiles 導入</h2>
-<p>cf.&nbsp;<a href="https://github.com/i9wa4/dotfiles" class="uri">https://github.com/i9wa4/dotfiles</a></p>
-</section>
-<section id="システム設定" class="level2">
-<h2 class="anchored" data-anchor-id="システム設定">2. システム設定</h2>
-<ul>
-<li>バッテリー
-<ul>
-<li>バッテリーの状態
-<ul>
-<li>バッテリー充電の最適化</li>
-</ul></li>
-</ul></li>
-<li>コントロールセンター
-<ul>
-<li>Bluetooth
-<ul>
-<li>メニューバーに表示</li>
-</ul></li>
-<li>バッテリー
-<ul>
-<li>メニューバーに表示 ON</li>
-<li>割合 (%) を表示 ON</li>
-</ul></li>
-<li>メニューバーのみ
-<ul>
-<li>時計
-<ul>
-<li>日付を表示 常に</li>
-<li>曜日を表示 ON</li>
-<li>秒を表示 ON</li>
-</ul></li>
-<li>メニューバーを自動的に表示/非表示 しない</li>
-</ul></li>
-</ul></li>
-<li>ディスプレイ
-<ul>
-<li>True Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)</li>
-<li>Night Shift
-<ul>
-<li>カスタム 5:00-4:59</li>
-<li>色温度 中央と右端の間</li>
-</ul></li>
-</ul></li>
-<li>デスクトップと Dock
-<ul>
-<li>Dock
-<ul>
-<li>画面上の位置 任意</li>
-<li>Dock を自動的に表示/非表示 任意</li>
-<li>アプリの提案と最近使用したアプリを Dock に表示 OFF</li>
-</ul></li>
-<li>デスクトップとステージマネージャー
-<ul>
-<li>壁紙をクリックしてデスクトップを表示
-<ul>
-<li>ステージマネージャー使用時のみ</li>
-</ul></li>
-</ul></li>
-<li>ウィジェット
-<ul>
-<li>デフォルトの Web ブラウザ
-<ul>
-<li>Google Chrome</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>通知
-<ul>
-<li>通知センター OFF</li>
-<li>アプリケーションの通知 システム系以外は OFF</li>
-</ul></li>
-<li>ロック画面
-<ul>
-<li>時間設定 30分</li>
-</ul></li>
-<li>プライバシーとセキュリティ
-<ul>
-<li>画面収録とシステムオーディオ録音
-<ul>
-<li>Slack</li>
-<li>Web ブラウザ</li>
-<li>Zoom</li>
-</ul></li>
-</ul></li>
-<li>ユーザとグループ
-<ul>
-<li>管理者</li>
-</ul></li>
-<li>キーボード
-<ul>
-<li>キーボードの輝度 最小</li>
-<li>キーボードショートカット
-<ul>
-<li>修飾キー
-<ul>
-<li>内蔵キーボード
-<ul>
-<li>Caps Lock -&gt; Control</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>入力ソース
-<ul>
-<li>すべての入力ソース
-<ul>
-<li>英字入力中にスペルを自動変換 OFF</li>
-<li>文頭を自動的に大文字にする OFF</li>
-<li>インライン予測テキストを表示 OFF</li>
-<li>スペースバーを2回押してピリオドを入力 OFF</li>
-<li>スマート引用符とスマートダッシュを使用 OFF</li>
-<li>二重引用符 “abc”</li>
-<li>一重引用符 ‘abc’</li>
-</ul></li>
-<li>日本語 - ローマ字入力
-<ul>
-<li>ライフ変換 OFF</li>
-<li>タイプミスを修正</li>
-</ul></li>
-</ul></li>
-<li>音声入力 OFF</li>
-</ul></li>
-<li>マウス
-<ul>
-<li>ナチュラルなスクロール OFF</li>
-</ul></li>
-<li>トラックパッド
-<ul>
-<li>スクロールとズーム
-<ul>
-<li>ナチュラルなスクロール OFF</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="その他" class="level2">
-<h2 class="anchored" data-anchor-id="その他">3. その他</h2>
-<ul>
-<li>Finder
-<ul>
-<li>表示
-<ul>
-<li>パスバーを表示</li>
-</ul></li>
-<li>よく使う項目にユーザーホームをドラッグ&amp;ドロップで追加する</li>
-</ul></li>
-<li>Docker Desktop
-<ul>
-<li>Settings
-<ul>
-<li>General
-<ul class="task-list">
-<li><label><input type="checkbox">Start Docker Desktop when you sign in to your computer</label></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>Rectangle
-<ul>
-<li>ログイン時に起動 ON</li>
-<li>アップデートを自動的に確認 ON</li>
-</ul></li>
-</ul>
-</section>
-<section id="おまけ-ショートカット集" class="level2">
-<h2 class="anchored" data-anchor-id="おまけ-ショートカット集">4. (おまけ) ショートカット集</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>カテゴリ</th>
-<th>ショートカット</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>ウインドウ操作</td>
-<td>Command + Tab</td>
-<td>アプリケーション切り替え</td>
-</tr>
-<tr class="even">
-<td>ウインドウ操作</td>
-<td>Command + @</td>
-<td>同一アプリケーションの切り替え</td>
-</tr>
-<tr class="odd">
-<td>その他</td>
-<td>Commad + Q</td>
-<td>Finder 終了</td>
-</tr>
-<tr class="even">
-<td>その他</td>
-<td>Command + Ctrl + Q</td>
-<td>ロック</td>
-</tr>
-</tbody>
-</table>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-mac</category>
-  <guid>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</guid>
-  <pubDate>Mon, 17 Jun 2024 03:21:36 GMT</pubDate>
 </item>
 </channel>
 </rss>
