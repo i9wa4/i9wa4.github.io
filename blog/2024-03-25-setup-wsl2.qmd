@@ -27,13 +27,13 @@ Windows マシンを新調する度に WSL2 をインストールしているの
 1. PowerShell or コマンドプロンプトを開きます。
 1. インストール可能なディストリビューションを表示します。
 
-    ```{.dosbat}
+    ```{.bat}
     wsl --list --online
     ```
 
 1. Ubuntu 22.04 LTS をインストールする場合は以下のように入力します。
 
-    ```{.dosbat}
+    ```{.bat}
     wsl --install -d Ubuntu-22.04
     ```
 
@@ -46,7 +46,7 @@ Windows マシンを新調する度に WSL2 をインストールしているの
 
 1. (必要に応じて) 既定のディストリビューションを設定します。
 
-    ```{.dosbat}
+    ```{.bat}
     wsl --set-default Ubuntu-22.04
     ```
 
@@ -55,13 +55,13 @@ Windows マシンを新調する度に WSL2 をインストールしているの
 1. PowerShell or コマンドプロンプトを開きます。
 1. インストール済みのディストリビューションを表示します。
 
-    ```{.dosbat}
+    ```{.bat}
     wsl --list
     ```
 
 1. 不要なディストリビューションをアンインストールします。
 
-    ```{.dosbat}
+    ```{.bat}
     wsl --unregister Ubuntu-22.04
     ```
 

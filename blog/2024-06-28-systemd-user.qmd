@@ -27,7 +27,7 @@ systemd がユーザー権限でも設定できると知ったので記事にし
 
 [i9wa4/minecraft-bedrock-server-setup/bin/init.sh](https://github.com/i9wa4/minecraft-bedrock-server-setup/blob/21631d662eb510f972dc0142faecdf27d804398f/bin/init.sh)
 
-```sh
+```{.sh}
 # ~/.config/systemd/user/ に設定ファイルを配置する
 ln -fs "${DIR_REPO}"/etc/mbs-backup.service \
   "${HOME}"/.config/systemd/user/mbs-backup.service

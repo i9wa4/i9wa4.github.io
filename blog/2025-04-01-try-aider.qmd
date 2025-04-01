@@ -6,6 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
+  - "tech-ai-tools"
 ---
 
 ## 1. はじめに
@@ -24,7 +25,7 @@ Vimmer である私はチームの開発環境整備では VS Code を基準に�
 
 <https://aider.chat/docs/install.html>
 
-```{bash}
+```{.sh}
 python -m pip install aider-install
 aider-install
 ```
@@ -51,7 +52,7 @@ LLM 専用にアカウントを作るのがあまり好きではないので Goo
 
 公式手順に沿って以下の準備をしておきます。
 
-```{bash}
+```{.sh}
 python -m pip install -U aider-chat
 pip install -U google-generativeai
 ```
@@ -66,14 +67,14 @@ issue は以下です。
 
 ### 4.1. GEMINI_API_KEY の読み込み
 
-```{bash}
+```{.sh}
 # export GEMINI_API_KEY=xxxx を ~/.env に書いてます
 $ . ~/.env
 ```
 
 ### 4.2. Gemini の利用可能なモデルの確認
 
-```{bash}
+```{.sh}
 $ aider --list-models gemini/
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 Models which match "gemini/":
@@ -112,7 +113,7 @@ Models which match "gemini/":
 
 ### 4.3. gemini-2.0-flash-001 を利用する
 
-```{bash}
+```{.sh}
 $ aider --model gemini/gemini-2.0-flash-001
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 Aider v0.80.0
@@ -126,7 +127,7 @@ Repo-map: using 4096 tokens, auto refresh
 
 ここで修正コミットをしてくれました。すごいですね。
 
-```{bash}
+```{.sh}
 > in denops/dbt-jump2def/main.ts, I want to fix not to jump to the model in "target" directory.
 
 
@@ -176,7 +177,7 @@ You can use /undo to undo and discard each aider commit.
 
 ### 4.5. 終わり
 
-```{bash}
+```{.sh}
 denops/dbt-jump2def/main.ts
 > /exit
 ```

@@ -6,6 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
+  - "tech-github-actions"
 ---
 
 GitHub Actions をローカルで実行できる便利な OSS <https://github.com/nektos/act> を使ってみました。
