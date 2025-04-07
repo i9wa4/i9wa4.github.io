@@ -5,6 +5,7 @@ listing:
     categories: numbered
     contents:
       - "/blog"
+      - "/notes"
       - "/slides"
     exclude:
       filename:
