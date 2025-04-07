@@ -1,0 +1,100 @@
+---
+title: "個人的ブックマーク"
+author: uma-chan
+date: 2025-04-07 23:10:38 +0900
+date-modified: last-modified
+categories:
+  - "notes"
+---
+
+```{python}
+#| include: false
+#| echo: false
+# ライブラリのインストール
+!python3 -m pip install pandas
+!python3 -m pip install --upgrade jinja2
+```
+
+```{python}
+#| include: false
+#| echo: false
+# 関数定義
+import numpy as np
+import pandas as pd
+
+df_all = pd.read_csv('../assets/notes/bookmarks.csv')
+
+
+def make_clickable(url, title):
+    return f'<a href="{url}">{title}</a>'
+
+
+def extract_tag(tag, df=df_all):
+    _df = df[df['Tags'].str.contains(tag)].copy()
+
+    # 欠損埋め
+    _df = _df.fillna({'Date': '9999-12-31'})
+    _df = _df.fillna('-')
+
+    # 日付とクリック可能なページ名の表示
+    _df = _df[['Date', 'Title', 'URL']].sort_values(
+            ['Date', 'Title'], ascending=[False, True]
+        )
+    _df.index = np.arange(1, len(_df) + 1)
+    _df['Website'] = _df.apply(
+            lambda row: make_clickable(row['URL'], row['Title']), axis=1
+        )
+    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)
+    return _df
+```
+
+個人的な重要記事などをまとめておきます。
+
+## 1. キャリア
+
+```{python}
+#| echo: false
+extract_tag('career')
+```
+
+## 7. テキストエディタ
+
+```{python}
+#| echo: false
+extract_tag('text-editor')
+```
+
+## 4. GitHub / Git
+
+```{python}
+#| echo: false
+extract_tag('github')
+```
+
+## 6. Quarto
+
+```{python}
+#| echo: false
+extract_tag('quarto')
+```
+
+## 2. データ分析
+
+```{python}
+#| echo: false
+extract_tag('data-analysis')
+```
+
+## 3. データエンジニアリング
+
+```{python}
+#| echo: false
+extract_tag('data-engineering')
+```
+
+## 5. 機械学習
+
+```{python}
+#| echo: false
+extract_tag('machine-learning')
+```
