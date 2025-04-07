@@ -1,28 +1,17 @@
 ---
 title: "blog"
-toc: false
 listing:
   - id: "list-all"
     categories: numbered
     contents:
       - "."
     exclude:
-      categories:
-        - "hidden"
       filename:
         - "index.qmd"
-    feed: true
-    fields:
-      - "date"
-      - "categories"
-      - "title"
-    page-size: 20
-    sort-ui:
-      - "date"
     sort:
       - "date desc"
       - "title"
-    type: default
+    type: grid
 ---
 
 ::: {#list-all}

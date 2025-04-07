@@ -1,6 +1,5 @@
 ---
 title: "uma-chan's page"
-toc: false
 listing:
   - id: "list-all"
     categories: numbered
@@ -8,22 +7,14 @@ listing:
       - "/blog"
       - "/slides"
     exclude:
-      categories:
-        - "hidden"
       filename:
         - "index.qmd"
     feed: true
-    fields:
-      - "date"
-      - "categories"
-      - "title"
-    page-size: 20
-    sort-ui:
-      - "date"
+    image-placeholder: "/assets/common/icon_hhkb3.png"
     sort:
       - "date desc"
       - "title"
-    type: default
+    type: grid
 ---
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717.svg?logo=github&logoColor=white)](https://github.com/i9wa4)
