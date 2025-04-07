@@ -32,8 +32,17 @@
     ]
   },
   {
+    "listing": "/notes/index.html",
+    "items": [
+      "/notes/2025-04-07-bookmarks.html",
+      "/notes/2024-07-20-aigis-note.html",
+      "/notes/2024-07-20-minecraft-note.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/notes/2025-04-07-bookmarks.html",
       "/blog/2025-04-02-looking-back-on-2024.html",
       "/blog/2025-04-01-try-aider.html",
       "/blog/2025-02-21-plain-sql.html",
@@ -65,13 +74,6 @@
       "/blog/2024-01-02-jelyll-adjust.html",
       "/blog/2024-01-01-init.html",
       "/slides/2023-12-16-sapporo.vim.html"
-    ]
-  },
-  {
-    "listing": "/notes/index.html",
-    "items": [
-      "/notes/2024-07-20-aigis-note.html",
-      "/notes/2024-07-20-minecraft-note.html"
     ]
   },
   {

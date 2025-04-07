@@ -588,6 +588,97 @@
     "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
   },
   {
+    "objectID": "notes/2025-04-07-bookmarks.html",
+    "href": "notes/2025-04-07-bookmarks.html",
+    "title": "個人的ブックマーク",
+    "section": "",
+    "text": "個人的な重要記事などをまとめておきます。"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#キャリア",
+    "href": "notes/2025-04-07-bookmarks.html#キャリア",
+    "title": "個人的ブックマーク",
+    "section": "1. キャリア",
+    "text": "1. キャリア\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-03-31\n\n\n\nジュニアエンジニアからシニアエンジニアになるまでに自分がやっていたことまとめ - yasuhisa's blog\n\n\n\n\n\n\n\n2025-01-03\n\n\n\n休養も仕事と同じ本気度で取り組むと決めた - 自戒、点検、内省\n\n\n\n\n\n\n\n2024-12-27\n\n\n\nソフトウェアエンジニアの転職活動で準備したこと、そして使ったもの。｜中川 伸一 / shinyorke\n\n\n\n\n\n\n\n2024-12-20\n\n\n\n濃い職務経歴書(Curriculum Vitae/Resume)とは何か｜mtsuka\n\n\n\n\n\n\n\n2024-10-30\n\n\n\n「転職した方が年収上げやすい」は過去の話！それでも“年収アップ転職”をしたいエンジニアがやるべき三つの対策 - エンジニアtype | 転職type\n\n\n\n\n\n\n\n2024-10-26\n\n\n\n技術書の電子書籍を PDF/EPUB で配信しているサイトまとめ #PDF - Qiita\n\n\n\n\n\n\n\n2024-10-23\n\n\n\n中堅の停滞期、ゆるやかな死。｜FromAtom\n\n\n\n\n\n\n\n2024-10-18\n\n\n\n40代後半で開発エンジニアからクラウドインフラエンジニアにキャリアチェンジし、生き残れる自信がようやく持てた話 - Speaker Deck\n\n\n\n\n\n\n\n2024-06-24\n\n\n\n課題を管理して実行して達成するための手順 - そーだいなるらくがき帳 | 最終更新日\n\n\n\n\n\n\n\n2024-03-05\n\n\n\n行動をするときに「自分には向いてないかも」と悩む時間は必要ない - そーだいなるらくがき帳\n\n\n\n\n\n\n\n2023-12-09\n\n\n\n自らを強いエンジニアにするための3つの習慣 / I need to be myself, I can't be no one else - Speaker Deck\n\n\n\n\n\n\n\n2021-11-25\n\n\n\nデータサイエンティストのインターン面談をして採用側が感じているズレの正体とは？ #Python - Qiita\n\n\n\n\n\n\n\n2021-02-08\n\n\n\n今日のリモート雑談テーマを決める魔法のスプレッドシートを運用している話 - エムスリーテックブログ\n\n\n\n\n\n\n\n2015-05-07\n\n\n\nきっと何者にもなれない焦りを抱えながら、がむしゃらに前に進む - Konifar's WIP"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#テキストエディタ",
+    "href": "notes/2025-04-07-bookmarks.html#テキストエディタ",
+    "title": "個人的ブックマーク",
+    "section": "7. テキストエディタ",
+    "text": "7. テキストエディタ\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2023-06-04\n\n\n\nddu.vimにちゃんと入門した話 | Zenn\n\n\n\n\n\n\n\n2022-05-05\n\n\n\nVim で折り返し行を簡単に移動できるサブモード・テクニック | Zenn"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#github-git",
+    "href": "notes/2025-04-07-bookmarks.html#github-git",
+    "title": "個人的ブックマーク",
+    "section": "4. GitHub / Git",
+    "text": "4. GitHub / Git\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-11-07\n\n\n\ngit rebaseの苦労を減らすための覚え書き | Atusy's blog\n\n\n\n\n\n\n\n2024-10-24\n\n\n\nなんとなくから脱却する GitHub Actionsグッドプラクティス11選 | gihyo.jp | gihyo.jp | 技術評論社\n\n\n\n\n\n\n\n2024-10-21\n\n\n\nGithub Actions で実現する Terraform plan, apply 自動化\n\n\n\n\n\n\n\n2022-12-07\n\n\n\nGitHub Actions上でgit commitするときにgit userをどうするか #GitHubActions - Qiita\n\n\n\n\n\n\n\n2022-02-26\n\n\n\n2022-02-26開催 - merge / rebase 勉強会 - Speaker Deck"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#quarto",
+    "href": "notes/2025-04-07-bookmarks.html#quarto",
+    "title": "個人的ブックマーク",
+    "section": "6. Quarto",
+    "text": "6. Quarto\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-06\n\n\n\n私たちのR"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#データ分析",
+    "href": "notes/2025-04-07-bookmarks.html#データ分析",
+    "title": "個人的ブックマーク",
+    "section": "2. データ分析",
+    "text": "2. データ分析\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-08\n\n\n\nデータ分析で用いるSQLクエリの設計方法 - 風音屋TechBlog"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#データエンジニアリング",
+    "href": "notes/2025-04-07-bookmarks.html#データエンジニアリング",
+    "title": "個人的ブックマーク",
+    "section": "3. データエンジニアリング",
+    "text": "3. データエンジニアリング\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-03-30\n\n\n\nディメンショナル・モデリング 勉強法 | Zenn\n\n\n\n\n\n\n\n2024-12-11\n\n\n\ndbt モデルを安全に更新！データ差分検出ツールの「table diff」の実装 | Zenn\n\n\n\n\n\n\n\n2024-12-09\n\n\n\nデータ精度100%を目指す！dbt test徹底活用ガイド - ENGINEERING BLOG ドコモ開発者ブログ\n\n\n\n\n\n\n\n2024-01-23\n\n\n\nディメンショナルモデリングに入門しよう！Snowflakeとdbt Cloudで「Building a Kimball dimensional model with dbt」をやってみた | DevelopersIO"
+  },
+  {
+    "objectID": "notes/2025-04-07-bookmarks.html#機械学習",
+    "href": "notes/2025-04-07-bookmarks.html#機械学習",
+    "title": "個人的ブックマーク",
+    "section": "5. 機械学習",
+    "text": "5. 機械学習\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-02\n\n\n\nMLOpsパイプラインをSnowflakeのみで実現してみた - ENGINEERING BLOG ドコモ開発者ブログ\n\n\n\n\n\n\n\n2024-12-02\n\n\n\n機械学習基盤のアーキテクチャ特集 〜8社の設計意図と今後の展望〜 - Findy Tools\n\n\n\n\n\n\n\n2024-10-09\n\n\n\nAWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog\n\n\n\n\n\n\n\n2024-09-11\n\n\n\nRAGもファインチューニングも使わない 素朴なAIチャットボットを職場に導入した結果 - Speaker Deck\n\n\n\n\n\n\n\n2023-06-12\n\n\n\n協調フィルタリングとベクトル検索エンジンを利用した商品推薦精度改善の試み | メルカリエンジニアリング\n\n\n\n\n\n\n\n2018-11-01\n\n\n\n『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ\n\n\n\n\n\n\n\n2016-02-22\n\n\n\n失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT\n\n\n\n\n\n\n\n2015-12-21\n\n\n\nプロトタイプで終わらせない死の谷を超える機械学習プロジェクトの進め方 #MLCT4 | PPT"
+  },
+  {
+    "objectID": "notes/index.html",
+    "href": "notes/index.html",
+    "title": "notes",
+    "section": "",
+    "text": "個人的ブックマーク\n\n\n\nnotes\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "uma-chan’s page",
+    "section": "",
+    "text": "about || resume\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nnotes\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\n\ntech\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\n\ntech\n\n\ntech-others\n\n\n\n\n\n\n\numa-chan\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\n\ntech\n\n\ntech-github-actions\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-01\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2023-12-16\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/2024-07-20-aigis-note.html",
+    "href": "notes/2024-07-20-aigis-note.html",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "",
+    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
+  },
+  {
+    "objectID": "notes/2024-07-20-aigis-note.html#週次周回",
+    "href": "notes/2024-07-20-aigis-note.html#週次周回",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "1. 週次周回",
+    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
+  },
+  {
+    "objectID": "notes/2024-07-20-aigis-note.html#月次の交換先",
+    "href": "notes/2024-07-20-aigis-note.html#月次の交換先",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "2. 月次の交換先",
+    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
+  },
+  {
     "objectID": "notes/2024-07-20-minecraft-note.html",
     "href": "notes/2024-07-20-minecraft-note.html",
     "title": "自分用 Minecraft メモ",
@@ -621,41 +712,6 @@
     "title": "自分用 Minecraft メモ",
     "section": "4. 村人職業設計",
     "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
-  },
-  {
-    "objectID": "notes/2024-07-20-aigis-note.html",
-    "href": "notes/2024-07-20-aigis-note.html",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "",
-    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
-  },
-  {
-    "objectID": "notes/2024-07-20-aigis-note.html#週次周回",
-    "href": "notes/2024-07-20-aigis-note.html#週次周回",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "1. 週次周回",
-    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
-  },
-  {
-    "objectID": "notes/2024-07-20-aigis-note.html#月次の交換先",
-    "href": "notes/2024-07-20-aigis-note.html#月次の交換先",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "2. 月次の交換先",
-    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "uma-chan’s page",
-    "section": "",
-    "text": "about || resume\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\n\ntech\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\n\ntech\n\n\ntech-others\n\n\n\n\n\n\n\numa-chan\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\n\ntech\n\n\ntech-github-actions\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-01\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2023-12-16\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "notes/index.html",
-    "href": "notes/index.html",
-    "title": "notes",
-    "section": "",
-    "text": "自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/index.html",
