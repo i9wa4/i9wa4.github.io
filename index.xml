@@ -15,7 +15,38 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.6.43</generator>
-<lastBuildDate>Mon, 07 Apr 2025 14:10:38 GMT</lastBuildDate>
+<lastBuildDate>Thu, 10 Apr 2025 12:08:10 GMT</lastBuildDate>
+<item>
+  <title>Gemini に課金した</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。</p>
+<p>Cursor でもいいかと思いましたが Vim やコマンドラインでも使える汎用性を考えて Gemini の API への課金としました。</p>
+<section id="手順" class="level2">
+<h2 class="anchored" data-anchor-id="手順">1. 手順</h2>
+<ol type="1">
+<li>Google AI Studio の API Plan Billing から Gemini AI 向けの Google Cloud プロジェクトの支払い情報に飛ぶ
+<ul>
+<li><a href="https://aistudio.google.com/plan_information" class="uri">https://aistudio.google.com/plan_information</a></li>
+</ul></li>
+<li>Gemini AI プロジェクトに対して請求先アカウントをリンクさせる</li>
+<li>請求課金アカウントで予算とアラートを設定して課金額に敏感にしておく</li>
+</ol>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech-ai-tools</category>
+  <guid>https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini.html</guid>
+  <pubDate>Thu, 10 Apr 2025 12:08:10 GMT</pubDate>
+</item>
 <item>
   <title>個人的ブックマーク</title>
   <dc:creator>uma-chan </dc:creator>
@@ -28,7 +59,7 @@
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="b534aa82" class="cell" data-execution_count="3">
+<div id="20e77e12" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -226,7 +257,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="17520cdb" class="cell" data-execution_count="4">
+<div id="09ce73fe" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -280,7 +311,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="1ea5ebf3" class="cell" data-execution_count="5">
+<div id="f320ffd9" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -370,7 +401,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="8274d7df" class="cell" data-execution_count="6">
+<div id="619ed75f" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -412,7 +443,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="cbfaf102" class="cell" data-execution_count="7">
+<div id="229d2d1a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -454,7 +485,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="92cfe40a" class="cell" data-execution_count="8">
+<div id="817ec4cc" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -532,7 +563,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="2fd77d09" class="cell" data-execution_count="9">
+<div id="32f9f243" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -3673,130 +3704,6 @@ font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
   <category>tech-tips</category>
   <guid>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</guid>
   <pubDate>Mon, 15 Jul 2024 07:15:11 GMT</pubDate>
-</item>
-<item>
-  <title>systemd がユーザー権限でも使える</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>systemd がユーザー権限でも設定できると知ったので記事にします。</p>
-<section id="基本的な情報まとめ" class="level2">
-<h2 class="anchored" data-anchor-id="基本的な情報まとめ">1. 基本的な情報まとめ</h2>
-<ul>
-<li>設定ファイル格納先
-<ul>
-<li><code>~/.config/systemd/user/</code></li>
-</ul></li>
-<li>コマンド
-<ul>
-<li><code>systemd --user</code></li>
-<li>user オプションを付けて通常の systemd と同様に使用する</li>
-</ul></li>
-</ul>
-</section>
-<section id="timer-設定手順" class="level2">
-<h2 class="anchored" data-anchor-id="timer-設定手順">2. timer 設定手順</h2>
-<p>私の用途では timer 設定ができれば OK です。</p>
-<p>下記リポジトリの設定を使って説明していきます。</p>
-<p><a href="https://github.com/i9wa4/minecraft-bedrock-server-setup/blob/21631d662eb510f972dc0142faecdf27d804398f/bin/init.sh">i9wa4/minecraft-bedrock-server-setup/bin/init.sh</a></p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># ~/.config/systemd/user/ に設定ファイルを配置する</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ln</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-fs</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${DIR_REPO}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span>/etc/mbs-backup.service <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb1-3">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span>/.config/systemd/user/mbs-backup.service</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ln</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-fs</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${DIR_REPO}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span>/etc/mbs-backup.timer <span class="dt" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">\</span></span>
-<span id="cb1-5">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span>/.config/systemd/user/mbs-backup.timer</span>
-<span id="cb1-6"></span>
-<span id="cb1-7"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 設定ファイルを読み込む</span></span>
-<span id="cb1-8"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--user</span> daemon-reload</span>
-<span id="cb1-9"></span>
-<span id="cb1-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># timer をログイン時に実行する</span></span>
-<span id="cb1-11"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--user</span> enable mbs-backup.timer</span>
-<span id="cb1-12"></span>
-<span id="cb1-13"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># timer を実行する</span></span>
-<span id="cb1-14"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--user</span> start mbs-backup.timer</span>
-<span id="cb1-15"></span>
-<span id="cb1-16"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># サーバーの起動時にサービスを立ち上げる</span></span>
-<span id="cb1-17"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sudo</span> loginctl enable-linger i9wa4</span></code></pre></div>
-</section>
-<section id="参考リンク" class="level2">
-<h2 class="anchored" data-anchor-id="参考リンク">3. 参考リンク</h2>
-<ul>
-<li><a href="https://wiki.archlinux.jp/index.php/Systemd/ユーザー">systemd/ユーザー - ArchWiki</a></li>
-<li><a href="https://qiita.com/k0kubun/items/3c94473506e0e370a227">サーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita</a></li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-linux</category>
-  <guid>https://i9wa4.github.io/blog/2024-06-28-systemd-user.html</guid>
-  <pubDate>Thu, 27 Jun 2024 16:56:32 GMT</pubDate>
 </item>
 </channel>
 </rss>

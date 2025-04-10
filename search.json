@@ -536,56 +536,119 @@
     "href": "blog/index.html",
     "title": "blog",
     "section": "",
-    "text": "2024年度を振り返る\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\n\ntech\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\n\ntech\n\n\ntech-others\n\n\n\n\n\n\n\numa-chan\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\n\ntech\n\n\ntech-github-actions\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-01\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Gemini に課金した\n\n\n\nblog\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\n\ntech\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\n\ntech\n\n\ntech-others\n\n\n\n\n\n\n\numa-chan\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\n\ntech\n\n\ntech-github-actions\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-01\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
+    "objectID": "blog/2025-04-10-paid-for-gemini.html",
+    "href": "blog/2025-04-10-paid-for-gemini.html",
+    "title": "Gemini に課金した",
     "section": "",
-    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
+    "text": "個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。\nCursor でもいいかと思いましたが Vim やコマンドラインでも使える汎用性を考えて Gemini の API への課金としました。"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
+    "objectID": "blog/2025-04-10-paid-for-gemini.html#手順",
+    "href": "blog/2025-04-10-paid-for-gemini.html#手順",
+    "title": "Gemini に課金した",
+    "section": "1. 手順",
+    "text": "1. 手順\n\nGoogle AI Studio の API Plan Billing から Gemini AI 向けの Google Cloud プロジェクトの支払い情報に飛ぶ\n\nhttps://aistudio.google.com/plan_information\n\nGemini AI プロジェクトに対して請求先アカウントをリンクさせる\n請求課金アカウントで予算とアラートを設定して課金額に敏感にしておく"
   },
   {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
-  },
-  {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
-    "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
+    "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
+    "href": "slides/2024-02-04-sapporo.vim.html#自己紹介",
     "title": "Sapporo.vim 自己紹介",
     "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
+    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
   },
   {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
-    "href": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
+    "objectID": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
+    "href": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
     "title": "Sapporo.vim 自己紹介",
     "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
+    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
   },
   {
-    "objectID": "slides/2023-12-16-sapporo.vim.html#本日の成果",
-    "href": "slides/2023-12-16-sapporo.vim.html#本日の成果",
+    "objectID": "slides/2024-02-04-sapporo.vim.html#結果",
+    "href": "slides/2024-02-04-sapporo.vim.html#結果",
     "title": "Sapporo.vim 自己紹介",
-    "section": "3. 本日の成果",
-    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
+    "section": "3. 結果",
+    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に"
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "slides",
+    "section": "",
+    "text": "Sapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2023-12-16\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/2024-07-20-minecraft-note.html",
+    "href": "notes/2024-07-20-minecraft-note.html",
+    "title": "自分用 Minecraft メモ",
+    "section": "",
+    "text": "Minecraft の自分用メモを公開しておきます。"
+  },
+  {
+    "objectID": "notes/2024-07-20-minecraft-note.html#todo",
+    "href": "notes/2024-07-20-minecraft-note.html#todo",
+    "title": "自分用 Minecraft メモ",
+    "section": "1. TODO",
+    "text": "1. TODO\n\n地下トラップタワー (経験値自動取得)\n倉庫チェスト再設計\n武器防具予備作成\nエンチャント本予備作成\n羊毛仕分け\n山削り\n苔式骨粉製造機\n襲撃者トラップ@前哨基地 1880 632\n弓作り直し\nエンダーチェスト\nエンダードラゴン\nポーション醸造所\nウーパールーパー"
+  },
+  {
+    "objectID": "notes/2024-07-20-minecraft-note.html#座標メモ",
+    "href": "notes/2024-07-20-minecraft-note.html#座標メモ",
+    "title": "自分用 Minecraft メモ",
+    "section": "2. 座標メモ",
+    "text": "2. 座標メモ\n\n\n\nX\nY\nZ\nDescription\n\n\n\n\n-32\n15\n26\nゾンビスポナー\n\n\n112\n59\n8\nゾンビスポナー\n\n\n338\n-28\n-148\nゾンビスポナー"
+  },
+  {
+    "objectID": "notes/2024-07-20-minecraft-note.html#エンチャント",
+    "href": "notes/2024-07-20-minecraft-note.html#エンチャント",
+    "title": "自分用 Minecraft メモ",
+    "section": "3. エンチャント",
+    "text": "3. エンチャント\n\n3.1. 防具\n\n共通\n\n修繕I\n耐久力III\nダメージ軽減IV\n\nヘルメット\n\n水中採掘\n水中呼吸III\n\nチェストプレート\nレギンス\n\nスニーク速度上昇\n\nブーツ\n\n水中歩行III\n落下耐性IV\n\n\n\n\n3.2. 武器\n\n共通\n\n修繕I\n耐久力III\n\n剣\n\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\n\n弓\n\nフレイム\n射撃ダメージ増加V\nパンチII\n無限\n\nクロスボウ\n\n高速充填III\n貫通IV\n\nトライデント\n\n水性特攻V\n忠誠III\n召雷\n\n\n\n\n3.3. 道具\n\n共通\n\n修繕I\n耐久力III\n効率強化V\n幸運III or シルクタッチ"
+  },
+  {
+    "objectID": "notes/2024-07-20-minecraft-note.html#村人職業設計",
+    "href": "notes/2024-07-20-minecraft-note.html#村人職業設計",
+    "title": "自分用 Minecraft メモ",
+    "section": "4. 村人職業設計",
+    "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
+  },
+  {
+    "objectID": "notes/2024-07-20-aigis-note.html",
+    "href": "notes/2024-07-20-aigis-note.html",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "",
+    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
+  },
+  {
+    "objectID": "notes/2024-07-20-aigis-note.html#週次周回",
+    "href": "notes/2024-07-20-aigis-note.html#週次周回",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "1. 週次周回",
+    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
+  },
+  {
+    "objectID": "notes/2024-07-20-aigis-note.html#月次の交換先",
+    "href": "notes/2024-07-20-aigis-note.html#月次の交換先",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "2. 月次の交換先",
+    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "uma-chan’s page",
+    "section": "",
+    "text": "about || resume\n\n\n\n\n\n\n\n\n\nGemini に課金した\n\n\n\nblog\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nnotes\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\n\ntech\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\n\ntech\n\n\ntech-others\n\n\n\n\n\n\n\numa-chan\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\n\ntech\n\n\ntech-github-actions\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-01\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2023-12-16\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/index.html",
+    "href": "notes/index.html",
+    "title": "notes",
+    "section": "",
+    "text": "個人的ブックマーク\n\n\n\nnotes\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "notes/2025-04-07-bookmarks.html",
@@ -644,102 +707,53 @@
     "text": "5. 機械学習\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-02\n\n\n\nMLOpsパイプラインをSnowflakeのみで実現してみた - ENGINEERING BLOG ドコモ開発者ブログ\n\n\n\n\n\n\n\n2024-12-02\n\n\n\n機械学習基盤のアーキテクチャ特集 〜8社の設計意図と今後の展望〜 - Findy Tools\n\n\n\n\n\n\n\n2024-10-09\n\n\n\nAWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog\n\n\n\n\n\n\n\n2024-09-11\n\n\n\nRAGもファインチューニングも使わない 素朴なAIチャットボットを職場に導入した結果 - Speaker Deck\n\n\n\n\n\n\n\n2023-06-12\n\n\n\n協調フィルタリングとベクトル検索エンジンを利用した商品推薦精度改善の試み | メルカリエンジニアリング\n\n\n\n\n\n\n\n2018-11-01\n\n\n\n『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ\n\n\n\n\n\n\n\n2016-02-22\n\n\n\n失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT\n\n\n\n\n\n\n\n2015-12-21\n\n\n\nプロトタイプで終わらせない死の谷を超える機械学習プロジェクトの進め方 #MLCT4 | PPT"
   },
   {
-    "objectID": "notes/index.html",
-    "href": "notes/index.html",
-    "title": "notes",
-    "section": "",
-    "text": "個人的ブックマーク\n\n\n\nnotes\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "uma-chan’s page",
-    "section": "",
-    "text": "about || resume\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nnotes\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\n\ntech\n\n\ntech-ai-tools\n\n\n\n\n\n\n\numa-chan\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\ntech-sql\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\n\ntech\n\n\ntech-others\n\n\n\n\n\n\n\numa-chan\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\n\ntech\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\n\ntech\n\n\ntech-snowflake\n\n\n\n\n\n\n\numa-chan\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\n\ntech\n\n\ntech-github\n\n\ntech-zenn\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\n\ntech\n\n\ntech-github-actions\n\n\n\n\n\n\n\numa-chan\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nnotes\n\n\ngame\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\n\ntech\n\n\ntech-tips\n\n\n\n\n\n\n\numa-chan\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\n\ntech\n\n\ntech-linux\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\n\ntech\n\n\ntech-mac\n\n\n\n\n\n\n\numa-chan\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\n\ntech\n\n\ntech-quarto\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\n\ntech\n\n\ntech-wsl2\n\n\ntech-windows\n\n\n\n\n\n\n\numa-chan\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\n\ntech\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\n\ntech\n\n\ntech-dev\n\n\ntech-vim\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\n\ntech\n\n\ntech-jekyll\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\n\ndiary\n\n\n\n\n\n\n\numa-chan\n\n\n2024-01-01\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2023-12-16\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "notes/2024-07-20-aigis-note.html",
-    "href": "notes/2024-07-20-aigis-note.html",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "",
-    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
-  },
-  {
-    "objectID": "notes/2024-07-20-aigis-note.html#週次周回",
-    "href": "notes/2024-07-20-aigis-note.html#週次周回",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "1. 週次周回",
-    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
-  },
-  {
-    "objectID": "notes/2024-07-20-aigis-note.html#月次の交換先",
-    "href": "notes/2024-07-20-aigis-note.html#月次の交換先",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "2. 月次の交換先",
-    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
-  },
-  {
-    "objectID": "notes/2024-07-20-minecraft-note.html",
-    "href": "notes/2024-07-20-minecraft-note.html",
-    "title": "自分用 Minecraft メモ",
-    "section": "",
-    "text": "Minecraft の自分用メモを公開しておきます。"
-  },
-  {
-    "objectID": "notes/2024-07-20-minecraft-note.html#todo",
-    "href": "notes/2024-07-20-minecraft-note.html#todo",
-    "title": "自分用 Minecraft メモ",
-    "section": "1. TODO",
-    "text": "1. TODO\n\n地下トラップタワー (経験値自動取得)\n倉庫チェスト再設計\n武器防具予備作成\nエンチャント本予備作成\n羊毛仕分け\n山削り\n苔式骨粉製造機\n襲撃者トラップ@前哨基地 1880 632\n弓作り直し\nエンダーチェスト\nエンダードラゴン\nポーション醸造所\nウーパールーパー"
-  },
-  {
-    "objectID": "notes/2024-07-20-minecraft-note.html#座標メモ",
-    "href": "notes/2024-07-20-minecraft-note.html#座標メモ",
-    "title": "自分用 Minecraft メモ",
-    "section": "2. 座標メモ",
-    "text": "2. 座標メモ\n\n\n\nX\nY\nZ\nDescription\n\n\n\n\n-32\n15\n26\nゾンビスポナー\n\n\n112\n59\n8\nゾンビスポナー\n\n\n338\n-28\n-148\nゾンビスポナー"
-  },
-  {
-    "objectID": "notes/2024-07-20-minecraft-note.html#エンチャント",
-    "href": "notes/2024-07-20-minecraft-note.html#エンチャント",
-    "title": "自分用 Minecraft メモ",
-    "section": "3. エンチャント",
-    "text": "3. エンチャント\n\n3.1. 防具\n\n共通\n\n修繕I\n耐久力III\nダメージ軽減IV\n\nヘルメット\n\n水中採掘\n水中呼吸III\n\nチェストプレート\nレギンス\n\nスニーク速度上昇\n\nブーツ\n\n水中歩行III\n落下耐性IV\n\n\n\n\n3.2. 武器\n\n共通\n\n修繕I\n耐久力III\n\n剣\n\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\n\n弓\n\nフレイム\n射撃ダメージ増加V\nパンチII\n無限\n\nクロスボウ\n\n高速充填III\n貫通IV\n\nトライデント\n\n水性特攻V\n忠誠III\n召雷\n\n\n\n\n3.3. 道具\n\n共通\n\n修繕I\n耐久力III\n効率強化V\n幸運III or シルクタッチ"
-  },
-  {
-    "objectID": "notes/2024-07-20-minecraft-note.html#村人職業設計",
-    "href": "notes/2024-07-20-minecraft-note.html#村人職業設計",
-    "title": "自分用 Minecraft メモ",
-    "section": "4. 村人職業設計",
-    "text": "4. 村人職業設計\n\n司書 書見台 (20)\n\nTier1 (10)\n\n修繕I (2)\n耐久力III (2)\n効率強化V (2)\n幸運III (1)\nシルクタッチ (1)\nダメージ軽減IV (2)\n\nTier2 (10)\n\n水中採掘\n水中呼吸III\n水中歩行III\n落下耐性IV\n火属性II\nドロップ増加III\nノックバックII\nダメージ増加V\nフレイム\n射撃ダメージ増加V\n\n\n武器鍛冶 石臼 (1)\n防具鍛冶 溶鉱炉 (2)\n道具鍛冶 鍛冶台 (1+6)\n石工 石切台 ()\n\nクォーツブロック\nテラコッタ\nレンガ"
-  },
-  {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "slides",
-    "section": "",
-    "text": "Sapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\n\nvim-jp\n\n\n\n\n\n\n\ni9wa4\n\n\n2023-12-16\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
-    "href": "slides/2024-02-04-sapporo.vim.html#自己紹介",
+    "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
+    "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
     "title": "Sapporo.vim 自己紹介",
     "section": "1. 自己紹介",
-    "text": "1. 自己紹介\n\n【HN】 i9wa4 (いくわよ)\n【札幌在住歴】 9年\n【仕事】 直近1.5年は AWS 機械学習基盤の業務\n【最近の Vim 活】\n\nプラグインマネージャー dein.vim から dpp.vim へ移行\nvim-lsp 導入\nefm-langserver 導入"
+    "text": "1. 自己紹介\n\n[HN] i9wa4 (いくわよ)\n[札幌在住歴] 9年\n[仕事] 直近1.5年は AWS データ分析基盤業務 (MLOps)\n[最近の Vim 活]\n\nLinter 利用構成変更 “mason.nvim + null-ls.nvim” -&gt; “makeprg”\nMarkdown Formatter (Denops プラグイン) 作成"
   },
   {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
-    "href": "slides/2024-02-04-sapporo.vim.html#本日のタスク",
+    "objectID": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
+    "href": "slides/2023-12-16-sapporo.vim.html#本日のタスク",
     "title": "Sapporo.vim 自己紹介",
     "section": "2. 本日のタスク",
-    "text": "2. 本日のタスク\n\nDocker / Kubernetes の入門書を読む"
+    "text": "2. 本日のタスク\n\ndein.vim -&gt; dpp.vim 移行\nVim の LSP 環境整備\nefm-langserver 導入\nvital.vim の中身チェック\nddu.vim 導入\nfish 導入"
   },
   {
-    "objectID": "slides/2024-02-04-sapporo.vim.html#結果",
-    "href": "slides/2024-02-04-sapporo.vim.html#結果",
+    "objectID": "slides/2023-12-16-sapporo.vim.html#本日の成果",
+    "href": "slides/2023-12-16-sapporo.vim.html#本日の成果",
     "title": "Sapporo.vim 自己紹介",
-    "section": "3. 結果",
-    "text": "3. 結果\n\n何となく compose.yml と Dockerfile を触ってた状態だったので頭の中を整理できたかも\nちょっと古い本だったので Compose Spec について追加で調べた\n\ndocker-compose (旧) と docker compose (新) があり検索すると前者の情報の方が多い……\n\nKubernetes (Minikube) の章は読めてないのでは帰宅後に"
+    "section": "3. 本日の成果",
+    "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "",
+    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
   },
   {
     "objectID": "blog/2024-03-26-setup-ds100knock.html",
