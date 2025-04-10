@@ -15,7 +15,194 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.6.43</generator>
-<lastBuildDate>Thu, 10 Apr 2025 12:08:10 GMT</lastBuildDate>
+<lastBuildDate>Thu, 10 Apr 2025 15:51:06 GMT</lastBuildDate>
+<item>
+  <title>MCP に入門した</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="直近-mcp-でやりたいこと" class="level2">
+<h2 class="anchored" data-anchor-id="直近-mcp-でやりたいこと">1. 直近 MCP でやりたいこと</h2>
+<p>非エンジニアに Databricks でデータ分析をしてもらう</p>
+</section>
+<section id="参考リンク" class="level2">
+<h2 class="anchored" data-anchor-id="参考リンク">2. 参考リンク</h2>
+<p>以下の順に触っていけばよいはず</p>
+<ol type="1">
+<li><a href="https://zenn.dev/mkj/articles/0ed4d02ef3439c">MCP入門</a></li>
+<li><a href="https://qiita.com/megmogmog1965/items/79ec6a47d9c223e8cffc">MCP (Model Context Protocol) の仕組みを知りたい！ #Python - Qiita</a></li>
+<li><a href="https://zenn.dev/ryoppippi/articles/1eb7fbe9042a88">SiteMCP: 任意のサイトを丸ごとMCPサーバー化</a>
+<ul>
+<li>Databricks 公式ドキュメントを投げつける用途で使いたい</li>
+</ul></li>
+<li><a href="https://qiita.com/taka_yayoi/items/eea79a88bd638847beb8">CursorにおけるDatabricks MCPサーバーの活用 #cursor - Qiita</a></li>
+<li><a href="https://qiita.com/taka_yayoi/items/dae7053118c7f60e980d">CursorでDatabricks Connect(とMCPサーバー)を使ってみる #cursor - Qiita</a></li>
+</ol>
+</section>
+<section id="mcp-入門" class="level2">
+<h2 class="anchored" data-anchor-id="mcp-入門">3. MCP 入門</h2>
+<p>全体を読みサンプルコードを実行してみる</p>
+<section id="mcpクライアントを実行する" class="level3">
+<h3 class="anchored" data-anchor-id="mcpクライアントを実行する">3.1. MCPクライアントを実行する</h3>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">myenv3.12</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[2025-04-10</span> 22:50:25] <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-zsh</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">[</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">~/ghq/github.com/i9wa4/mcp</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">hands</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">on</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">]</span> <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">main</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">9e297f01</span></span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> python mini_client.py</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Processing</span> request of type CallToolRequest</span>
+<span id="cb1-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Tool</span> result: [TextContent<span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">type</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'text'</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">text</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Hello, MCP!'</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">annotations</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>None<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">]</span></span></code></pre></div>
+</section>
+</section>
+<section id="mcp-model-context-protocol-の仕組みを知りたい" class="level2">
+<h2 class="anchored" data-anchor-id="mcp-model-context-protocol-の仕組みを知りたい">4. MCP (Model Context Protocol) の仕組みを知りたい！</h2>
+<p>ちょこっと理解が深まった</p>
+</section>
+<section id="sitemcp" class="level2">
+<h2 class="anchored" data-anchor-id="sitemcp">5. SiteMCP</h2>
+<section id="インストール" class="level3">
+<h3 class="anchored" data-anchor-id="インストール">5.1. インストール</h3>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">npx</span> sitemcp</span></code></pre></div>
+</section>
+</section>
+<section id="cursor-を-mcp-クライアントとして使う" class="level2">
+<h2 class="anchored" data-anchor-id="cursor-を-mcp-クライアントとして使う">6. Cursor を MCP クライアントとして使う</h2>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-2">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"mcpServers"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-3">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"sitemcp"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-4">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"command"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"npx"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-5">      <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"args"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb3-6">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-y"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-7">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sitemcp@latest"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb3-8">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://i9wa4.github.io/"</span></span>
+<span id="cb3-9">      <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb3-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+<p>MCPサーバ設定をこのように記載して Cursor の Agent でサイトのインデックス取得を命令していくことで内容に関する質問ができるようになりました。</p>
+<p><img src="https://i9wa4.github.io/assets/20250411-mcp-hands-on/cursor-sitemcp.png" class="img-fluid"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech-ai-tools</category>
+  <guid>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</guid>
+  <pubDate>Thu, 10 Apr 2025 15:51:06 GMT</pubDate>
+</item>
 <item>
   <title>Gemini に課金した</title>
   <dc:creator>uma-chan </dc:creator>
@@ -59,7 +246,7 @@
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="20e77e12" class="cell" data-execution_count="3">
+<div id="79d1a7b2" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -257,7 +444,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="09ce73fe" class="cell" data-execution_count="4">
+<div id="a76b276b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -311,7 +498,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="f320ffd9" class="cell" data-execution_count="5">
+<div id="077dcbd2" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -401,7 +588,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="619ed75f" class="cell" data-execution_count="6">
+<div id="eae4c876" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -443,7 +630,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="229d2d1a" class="cell" data-execution_count="7">
+<div id="7f6a698b" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -485,7 +672,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="817ec4cc" class="cell" data-execution_count="8">
+<div id="22790cfb" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -563,7 +750,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="32f9f243" class="cell" data-execution_count="9">
+<div id="63969268" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -3493,217 +3680,6 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
   <category>game</category>
   <guid>https://i9wa4.github.io/notes/2024-07-20-minecraft-note.html</guid>
   <pubDate>Sat, 20 Jul 2024 13:39:28 GMT</pubDate>
-</item>
-<item>
-  <title>技術系 Tips まとめ</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。</p>
-<p>分量が増えてきた分野は別記事に切り出すかもしれません。</p>
-<section id="git" class="level2">
-<h2 class="anchored" data-anchor-id="git">1. Git</h2>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># よく使うコマンド</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> add <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-n</span> .</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> log <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--graph</span></span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> diff <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--name-only</span> HEAD HEAD~2</span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> diff ID1 ID2 filename</span>
-<span id="cb1-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> difftool ID1 ID2</span>
-<span id="cb1-7"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> show ID</span>
-<span id="cb1-8"></span>
-<span id="cb1-9"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> reflog</span>
-<span id="cb1-10"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> rebase</span>
-<span id="cb1-11"></span>
-<span id="cb1-12"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># リモートリポジトリ作成</span></span>
-<span id="cb1-13"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> init <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--bare</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--shared</span></span>
-<span id="cb1-14"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> remote add origin url</span>
-<span id="cb1-15"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> clone url</span></code></pre></div>
-</section>
-<section id="postgresql" class="level2">
-<h2 class="anchored" data-anchor-id="postgresql">2. PostgreSQL</h2>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 起動～データベースへのアクセス</span></span>
-<span id="cb2-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pg_ctl</span> restart</span>
-<span id="cb2-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">psql</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-U</span> postgres <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-d</span> db_name</span>
-<span id="cb2-4"></span>
-<span id="cb2-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pg_ctl</span> restart</span>
-<span id="cb2-6"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">psql</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-U</span> postgres</span>
-<span id="cb2-7"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">CREATE</span> DATABASE db_name<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;</span></span>
-<span id="cb2-8"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">\c</span> db_name</span>
-<span id="cb2-9"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">CREATE</span> SCHEMA sc_name<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;</span></span></code></pre></div>
-</section>
-<section id="google-cloud-cli-gcloud-cli" class="level2">
-<h2 class="anchored" data-anchor-id="google-cloud-cli-gcloud-cli">3. Google Cloud CLI (gcloud CLI)</h2>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># keyfile 登録からテーブル確認まで</span></span>
-<span id="cb3-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> auth activate-service-account <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--key-file</span> <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">***</span>.json</span>
-<span id="cb3-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> auth list</span>
-<span id="cb3-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> set account <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">***</span></span>
-<span id="cb3-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bq</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>aaaaa ls</span>
-<span id="cb3-6"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bq</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>aaaaa ls dataset_name</span>
-<span id="cb3-7"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bq</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>aaaaa show dataset_name.table_name</span>
-<span id="cb3-8"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bq</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--project_id</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>aaaaa head <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--max_rows</span> 5 dataset_name.table_name</span></code></pre></div>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># ログイン</span></span>
-<span id="cb4-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">gcloud</span> auth login</span></code></pre></div>
-</section>
-<section id="excel" class="level2">
-<h2 class="anchored" data-anchor-id="excel">4. Excel</h2>
-<section id="excel-vba" class="level3">
-<h3 class="anchored" data-anchor-id="excel-vba">4.1. Excel VBA</h3>
-<ul>
-<li>アドイン追加先
-<ul>
-<li><code>%USERPROFILE%\AppData\Roaming\Microsoft\AddIns</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="excel-関数" class="level3">
-<h3 class="anchored" data-anchor-id="excel-関数">4.2. Excel 関数</h3>
-<ul>
-<li>シート名を記載したセルB2を利用したハイパーリンク作成
-<ul>
-<li><code>=HYPERLINK("#'"&amp;B2&amp;"'!$A$1",B2)</code></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="word" class="level2">
-<h2 class="anchored" data-anchor-id="word">5. Word</h2>
-<section id="normal.dotm-作成" class="level3">
-<h3 class="anchored" data-anchor-id="normal.dotm-作成">5.1. Normal.dotm 作成</h3>
-<ol type="1">
-<li><code>%APPDATA%\Microsoft\Templates\Normal.dotm</code> 削除</li>
-<li>デザインを作成し既定に設定する
-<ul>
-<li>テーマ設定
-<ul>
-<li>見出し: 游ゴシック Arial</li>
-<li>本文: 游ゴシック Medium Arial</li>
-</ul></li>
-<li>アウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル</li>
-</ul></li>
-</ol>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-tips</category>
-  <guid>https://i9wa4.github.io/blog/2024-07-15-technical-tips.html</guid>
-  <pubDate>Mon, 15 Jul 2024 07:15:11 GMT</pubDate>
 </item>
 </channel>
 </rss>

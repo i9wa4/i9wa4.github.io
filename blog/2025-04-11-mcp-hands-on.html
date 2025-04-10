@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-04-07">
+<meta name="dcterms.date" content="2025-04-11">
 
-<title>個人的ブックマーク – uma-chan’s page</title>
+<title>MCP に入門した – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,21 +107,21 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="個人的ブックマーク – uma-chan’s page">
+<meta property="og:title" content="MCP に入門した – uma-chan’s page">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
+<meta property="og:image" content="https://i9wa4.github.io/assets/20250411-mcp-hands-on/cursor-sitemcp.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image:height" content="256">
-<meta property="og:image:width" content="256">
-<meta name="twitter:title" content="個人的ブックマーク – uma-chan’s page">
+<meta property="og:image:height" content="863">
+<meta property="og:image:width" content="1242">
+<meta name="twitter:title" content="MCP に入門した – uma-chan’s page">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://i9wa4.github.io//assets/common/icon_hhkb3.png">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/20250411-mcp-hands-on/cursor-sitemcp.png">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="256">
-<meta name="twitter:image-width" content="256">
+<meta name="twitter:image-height" content="863">
+<meta name="twitter:image-width" content="1242">
 </head>
 
 <body class="nav-fixed">
@@ -154,13 +188,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#キャリア" id="toc-キャリア" class="nav-link active" data-scroll-target="#キャリア">1. キャリア</a></li>
-  <li><a href="#テキストエディタ" id="toc-テキストエディタ" class="nav-link" data-scroll-target="#テキストエディタ">7. テキストエディタ</a></li>
-  <li><a href="#github-git" id="toc-github-git" class="nav-link" data-scroll-target="#github-git">4. GitHub / Git</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">6. Quarto</a></li>
-  <li><a href="#データ分析" id="toc-データ分析" class="nav-link" data-scroll-target="#データ分析">2. データ分析</a></li>
-  <li><a href="#データエンジニアリング" id="toc-データエンジニアリング" class="nav-link" data-scroll-target="#データエンジニアリング">3. データエンジニアリング</a></li>
-  <li><a href="#機械学習" id="toc-機械学習" class="nav-link" data-scroll-target="#機械学習">5. 機械学習</a></li>
+  <li><a href="#直近-mcp-でやりたいこと" id="toc-直近-mcp-でやりたいこと" class="nav-link active" data-scroll-target="#直近-mcp-でやりたいこと">1. 直近 MCP でやりたいこと</a></li>
+  <li><a href="#参考リンク" id="toc-参考リンク" class="nav-link" data-scroll-target="#参考リンク">2. 参考リンク</a></li>
+  <li><a href="#mcp-入門" id="toc-mcp-入門" class="nav-link" data-scroll-target="#mcp-入門">3. MCP 入門</a></li>
+  <li><a href="#mcp-model-context-protocol-の仕組みを知りたい" id="toc-mcp-model-context-protocol-の仕組みを知りたい" class="nav-link" data-scroll-target="#mcp-model-context-protocol-の仕組みを知りたい">4. MCP (Model Context Protocol) の仕組みを知りたい！</a></li>
+  <li><a href="#sitemcp" id="toc-sitemcp" class="nav-link" data-scroll-target="#sitemcp">5. SiteMCP</a></li>
+  <li><a href="#cursor-を-mcp-クライアントとして使う" id="toc-cursor-を-mcp-クライアントとして使う" class="nav-link" data-scroll-target="#cursor-を-mcp-クライアントとして使う">6. Cursor を MCP クライアントとして使う</a></li>
   </ul>
 </nav>
     </div>
@@ -169,9 +202,10 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">個人的ブックマーク</h1>
+<h1 class="title">MCP に入門した</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">notes</div>
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-ai-tools</div>
   </div>
   </div>
 
@@ -189,14 +223,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-04-07</p>
+      <p class="date">2025-04-11</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025-04-08</p>
+      <p class="date-modified">2025-04-11</p>
     </div>
   </div>
     
@@ -207,636 +241,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>個人的な重要記事などをまとめておきます。</p>
-<section id="キャリア" class="level2">
-<h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="79d1a7b2" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2025-03-31
-</td>
-
-<td>
-<a href="https://www.yasuhisay.info/entry/2025/03/31/230212">ジュニアエンジニアからシニアエンジニアになるまでに自分がやっていたことまとめ - yasuhisa's blog</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2025-01-03
-</td>
-
-<td>
-<a href="https://retrospective.hatenadiary.com/entry/20250103/1735903707">休養も仕事と同じ本気度で取り組むと決めた - 自戒、点検、内省</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-12-27
-</td>
-
-<td>
-<a href="https://note.com/shinyorke/n/n52a6156e0eb1?sub_rt=share_pw">ソフトウェアエンジニアの転職活動で準備したこと、そして使ったもの。｜中川 伸一 / shinyorke</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-12-20
-</td>
-
-<td>
-<a href="https://note.com/mtsuka/n/n6b44bb12dd36?sub_rt=share_pb">濃い職務経歴書(Curriculum Vitae/Resume)とは何か｜mtsuka</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-30
-</td>
-
-<td>
-<a href="https://type.jp/et/feature/27057/">「転職した方が年収上げやすい」は過去の話！それでも“年収アップ転職”をしたいエンジニアがやるべき三つの対策 - エンジニアtype | 転職type</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-26
-</td>
-
-<td>
-<a href="https://qiita.com/tommy_aka_jps/items/9b3a8fb1939033003119">技術書の電子書籍を PDF/EPUB で配信しているサイトまとめ #PDF - Qiita</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-23
-</td>
-
-<td>
-<a href="https://sizu.me/fromatom/posts/w10ht59w9572">中堅の停滞期、ゆるやかな死。｜FromAtom</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-18
-</td>
-
-<td>
-<a href="https://speakerdeck.com/iwamot/kinoko-33efec14-974b-4c59-8a81-1c855bc34d54">40代後半で開発エンジニアからクラウドインフラエンジニアにキャリアチェンジし、生き残れる自信がようやく持てた話 - Speaker Deck</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-06-24
-</td>
-
-<td>
-<a href="https://soudai.hatenablog.com/entry/2020/12/31/165940">課題を管理して実行して達成するための手順 - そーだいなるらくがき帳 | 最終更新日</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-03-05
-</td>
-
-<td>
-<a href="https://soudai.hatenablog.com/entry/2024/03/05/120426">行動をするときに「自分には向いてないかも」と悩む時間は必要ない - そーだいなるらくがき帳</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2023-12-09
-</td>
-
-<td>
-<a href="https://speakerdeck.com/shinyorke/i-need-to-be-myself-i-cant-be-no-one-else">自らを強いエンジニアにするための3つの習慣 / I need to be myself, I can't be no one else - Speaker Deck</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2021-11-25
-</td>
-
-<td>
-<a href="https://qiita.com/He110w0r1d/items/054f988e9a9b01c46572">データサイエンティストのインターン面談をして採用側が感じているズレの正体とは？ #Python - Qiita</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2021-02-08
-</td>
-
-<td>
-<a href="https://www.m3tech.blog/entry/zatsudan-mahou-no-spreadsheet">今日のリモート雑談テーマを決める魔法のスプレッドシートを運用している話 - エムスリーテックブログ</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2015-05-07
-</td>
-
-<td>
-<a href="https://konifar.hatenablog.com/entry/2015/05/07/101333">きっと何者にもなれない焦りを抱えながら、がむしゃらに前に進む - Konifar's WIP</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="直近-mcp-でやりたいこと" class="level2">
+<h2 class="anchored" data-anchor-id="直近-mcp-でやりたいこと">1. 直近 MCP でやりたいこと</h2>
+<p>非エンジニアに Databricks でデータ分析をしてもらう</p>
 </section>
-<section id="テキストエディタ" class="level2">
-<h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="a76b276b" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2023-06-04
-</td>
-
-<td>
-<a href="https://zenn.dev/uga_rosa/articles/f55be75a573c0b">ddu.vimにちゃんと入門した話 | Zenn</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2022-05-05
-</td>
-
-<td>
-<a href="https://zenn.dev/mattn/articles/83c2d4c7645faa">Vim で折り返し行を簡単に移動できるサブモード・テクニック | Zenn</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="参考リンク" class="level2">
+<h2 class="anchored" data-anchor-id="参考リンク">2. 参考リンク</h2>
+<p>以下の順に触っていけばよいはず</p>
+<ol type="1">
+<li><a href="https://zenn.dev/mkj/articles/0ed4d02ef3439c">MCP入門</a></li>
+<li><a href="https://qiita.com/megmogmog1965/items/79ec6a47d9c223e8cffc">MCP (Model Context Protocol) の仕組みを知りたい！ #Python - Qiita</a></li>
+<li><a href="https://zenn.dev/ryoppippi/articles/1eb7fbe9042a88">SiteMCP: 任意のサイトを丸ごとMCPサーバー化</a>
+<ul>
+<li>Databricks 公式ドキュメントを投げつける用途で使いたい</li>
+</ul></li>
+<li><a href="https://qiita.com/taka_yayoi/items/eea79a88bd638847beb8">CursorにおけるDatabricks MCPサーバーの活用 #cursor - Qiita</a></li>
+<li><a href="https://qiita.com/taka_yayoi/items/dae7053118c7f60e980d">CursorでDatabricks Connect(とMCPサーバー)を使ってみる #cursor - Qiita</a></li>
+</ol>
 </section>
-<section id="github-git" class="level2">
-<h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="077dcbd2" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2024-11-07
-</td>
-
-<td>
-<a href="https://blog.atusy.net/2024/11/07/git-rebase/">git rebaseの苦労を減らすための覚え書き | Atusy's blog</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-24
-</td>
-
-<td>
-<a href="https://gihyo.jp/article/2024/10/good-practices-for-github-actions">なんとなくから脱却する GitHub Actionsグッドプラクティス11選 | gihyo.jp | gihyo.jp | 技術評論社</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-21
-</td>
-
-<td>
-<a href="https://findy-tools.io/products/github-actions/366/285">Github Actions で実現する Terraform plan, apply 自動化</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2022-12-07
-</td>
-
-<td>
-<a href="https://qiita.com/thaim/items/3d1a4d09ec4a7d8844ce">GitHub Actions上でgit commitするときにgit userをどうするか #GitHubActions - Qiita</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2022-02-26
-</td>
-
-<td>
-<a href="https://speakerdeck.com/na0x2c6/rebase-mian-qiang-hui">2022-02-26開催 - merge / rebase 勉強会 - Speaker Deck</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="mcp-入門" class="level2">
+<h2 class="anchored" data-anchor-id="mcp-入門">3. MCP 入門</h2>
+<p>全体を読みサンプルコードを実行してみる</p>
+<section id="mcpクライアントを実行する" class="level3">
+<h3 class="anchored" data-anchor-id="mcpクライアントを実行する">3.1. MCPクライアントを実行する</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">myenv3.12</span><span class="kw">)</span> <span class="ex">[2025-04-10</span> 22:50:25] <span class="at">-zsh</span> <span class="pp">[</span><span class="ss">~/ghq/github.com/i9wa4/mcp</span><span class="pp">-</span><span class="ss">hands</span><span class="pp">-</span><span class="ss">on</span><span class="pp">]</span> <span class="er">(</span><span class="ex">main</span><span class="kw">)</span> <span class="ex">9e297f01</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python mini_client.py</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Processing</span> request of type CallToolRequest</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Tool</span> result: [TextContent<span class="er">(</span><span class="va">type</span><span class="op">=</span><span class="st">'text'</span>, <span class="va">text</span><span class="op">=</span><span class="st">'Hello, MCP!'</span>, <span class="va">annotations</span><span class="op">=</span>None<span class="kw">)</span><span class="ex">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="eae4c876" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2024-12-06
-</td>
-
-<td>
-<a href="https://www.jaysong.net/RBook/">私たちのR</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
 </section>
-<section id="データ分析" class="level2">
-<h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="7f6a698b" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2024-12-08
-</td>
-
-<td>
-<a href="https://techblog.kazaneya.com/20241208-design-of-analytical-sql-queries/">データ分析で用いるSQLクエリの設計方法 - 風音屋TechBlog</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="mcp-model-context-protocol-の仕組みを知りたい" class="level2">
+<h2 class="anchored" data-anchor-id="mcp-model-context-protocol-の仕組みを知りたい">4. MCP (Model Context Protocol) の仕組みを知りたい！</h2>
+<p>ちょこっと理解が深まった</p>
 </section>
-<section id="データエンジニアリング" class="level2">
-<h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="22790cfb" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2025-03-30
-</td>
-
-<td>
-<a href="https://zenn.dev/pei0804/articles/dimensional-modeling-study">ディメンショナル・モデリング 勉強法 | Zenn</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-12-11
-</td>
-
-<td>
-<a href="https://zenn.dev/medicu/articles/350fc0bef073d6">dbt モデルを安全に更新！データ差分検出ツールの「table diff」の実装 | Zenn</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-12-09
-</td>
-
-<td>
-<a href="https://nttdocomo-developers.jp/entry/2024/12/09/090000_1">データ精度100%を目指す！dbt test徹底活用ガイド - ENGINEERING BLOG ドコモ開発者ブログ</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-01-23
-</td>
-
-<td>
-<a href="https://dev.classmethod.jp/articles/building-a-kimball-dimensional-model-with-snowflake-and-dbt/">ディメンショナルモデリングに入門しよう！Snowflakeとdbt Cloudで「Building a Kimball dimensional model with dbt」をやってみた | DevelopersIO</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+<section id="sitemcp" class="level2">
+<h2 class="anchored" data-anchor-id="sitemcp">5. SiteMCP</h2>
+<section id="インストール" class="level3">
+<h3 class="anchored" data-anchor-id="インストール">5.1. インストール</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> sitemcp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="機械学習" class="level2">
-<h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="63969268" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="9">
-<table class="dataframe table table-sm table-striped small">
-
-<thead>
-
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Website
-</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>
-2024-12-02
-</td>
-
-<td>
-<a href="https://nttdocomo-developers.jp/entry/2024/12/02/090000_1">MLOpsパイプラインをSnowflakeのみで実現してみた - ENGINEERING BLOG ドコモ開発者ブログ</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-12-02
-</td>
-
-<td>
-<a href="https://findy-tools.io/articles/ml/17">機械学習基盤のアーキテクチャ特集 〜8社の設計意図と今後の展望〜 - Findy Tools</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-10-09
-</td>
-
-<td>
-<a href="https://studist.tech/aws-opensearch-service-vector-search-entrance-b88d0050480d">AWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2024-09-11
-</td>
-
-<td>
-<a href="https://speakerdeck.com/iwamot/success-of-simple-ai-chatbot-in-workspace">RAGもファインチューニングも使わない 素朴なAIチャットボットを職場に導入した結果 - Speaker Deck</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2023-06-12
-</td>
-
-<td>
-<a href="https://engineering.mercari.com/blog/entry/20230612-cf-similar-item/">協調フィルタリングとベクトル検索エンジンを利用した商品推薦精度改善の試み | メルカリエンジニアリング</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2018-11-01
-</td>
-
-<td>
-<a href="https://tjo.hatenablog.com/entry/2018/11/01/080000">『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2016-02-22
-</td>
-
-<td>
-<a href="https://www.slideshare.net/slideshow/2016-devsumi/58541785">失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-2015-12-21
-</td>
-
-<td>
-<a href="https://www.slideshare.net/slideshow/mlct4/56324728">プロトタイプで終わらせない死の谷を超える機械学習プロジェクトの進め方 #MLCT4 | PPT</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-</div>
-</div>
+</section>
+<section id="cursor-を-mcp-クライアントとして使う" class="level2">
+<h2 class="anchored" data-anchor-id="cursor-を-mcp-クライアントとして使う">6. Cursor を MCP クライアントとして使う</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mcpServers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"sitemcp"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"npx"</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"-y"</span><span class="ot">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sitemcp@latest"</span><span class="ot">,</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://i9wa4.github.io/"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>MCPサーバ設定をこのように記載して Cursor の Agent でサイトのインデックス取得を命令していくことで内容に関する質問ができるようになりました。</p>
+<p><img src="../assets/20250411-mcp-hands-on/cursor-sitemcp.png" class="img-fluid"></p>
 
 
 </section>
