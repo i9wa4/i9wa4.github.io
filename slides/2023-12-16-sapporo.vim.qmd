@@ -9,7 +9,7 @@ categories:
 format:
   revealjs:
     incremental: false
-    logo: "https://github.com/i9wa4.png"
+    logo: "/assets/common/icon_hhkb3.png"
     slide-level: 2
     slide-number: true
     smaller: false
