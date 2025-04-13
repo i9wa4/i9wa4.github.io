@@ -18,9 +18,9 @@ Windows マシンを新調する度に WSL2 をインストールしているの
 
 1. 管理者権限で PowerShell or コマンドプロンプトを開きます。
 1. `wsl --install` を実行します。
-    ![20240325-setup-wsl2-01](/assets/20240325-posts-setup-wsl2/setup-wsl2-01.png)
+    ![2024-03-25-setup-wsl2-01](/assets/2024-03-25-posts-setup-wsl2/setup-wsl2-01.png)
 1. 以下のように表示されるのでマシンを再起動します。
-    ![20240325-setup-wsl2-02](/assets/20240325-posts-setup-wsl2/setup-wsl2-02.png)
+    ![2024-03-25-setup-wsl2-02](/assets/2024-03-25-posts-setup-wsl2/setup-wsl2-02.png)
 
 ## 2. ディストリビューションのインストール
 

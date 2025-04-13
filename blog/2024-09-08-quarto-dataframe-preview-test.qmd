@@ -29,7 +29,7 @@ Pandas の DataFrame をウェブサイト一覧表作成に転用するため�
 import numpy as np
 import pandas as pd
 
-df_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')
+df_all = pd.read_csv('../assets/2024-09-08-quarto-df/quarto-df.csv')
 
 
 def make_clickable(url, title):
@@ -63,7 +63,7 @@ def extract_tag(tag, df=df_all):
 ## 3. CSV 内容確認
 
 ```{.py}
-!cat ../assets/20240907-quarto-df/quarto-df.csv
+!cat ../assets/2024-09-08-quarto-df/quarto-df.csv
 ```
 
 ## 4. TagA
