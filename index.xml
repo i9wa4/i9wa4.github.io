@@ -192,7 +192,7 @@ font-style: inherit;">}</span></span>
 background-color: null;
 font-style: inherit;">}</span></span></code></pre></div>
 <p>MCPサーバ設定をこのように記載して Cursor の Agent でサイトのインデックス取得を命令していくことで内容に関する質問ができるようになりました。</p>
-<p><img src="https://i9wa4.github.io/assets/20250411-mcp-hands-on/cursor-sitemcp.png" class="img-fluid"></p>
+<p><img src="https://i9wa4.github.io/assets/2025-04-11-mcp-hands-on/cursor-sitemcp.png" class="img-fluid"></p>
 
 
 </section>
@@ -246,7 +246,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="062cbd8d" class="cell" data-execution_count="3">
+<div id="ea4f4fd8" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -444,7 +444,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="e44ef954" class="cell" data-execution_count="4">
+<div id="f02b6ca9" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -498,7 +498,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="3596cd70" class="cell" data-execution_count="5">
+<div id="3e7f901d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -588,7 +588,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="7d1bdca4" class="cell" data-execution_count="6">
+<div id="9af60357" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -630,7 +630,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="d1c928f6" class="cell" data-execution_count="7">
+<div id="fbb5251a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -672,7 +672,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="dd980b16" class="cell" data-execution_count="8">
+<div id="9bf4355d" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -750,7 +750,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="eb664506" class="cell" data-execution_count="9">
+<div id="0a751fd5" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -2519,7 +2519,7 @@ font-style: inherit;">as</span> pd</span>
 background-color: null;
 font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'../assets/20240907-quarto-df/quarto-df.csv'</span>)</span>
+font-style: inherit;">'../assets/2024-09-08-quarto-df/quarto-df.csv'</span>)</span>
 <span id="cb2-6"></span>
 <span id="cb2-7"></span>
 <span id="cb2-8"><span class="kw" style="color: #003B4F;
@@ -2686,7 +2686,19 @@ font-style: inherit;">/</span>assets<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">20240907</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">2024</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>quarto<span class="op" style="color: #5E5E5E;
 background-color: null;

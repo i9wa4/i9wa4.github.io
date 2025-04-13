@@ -830,14 +830,14 @@
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#関数定義",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "2. 関数定義",
-    "text": "2. 関数定義\n#| include: true\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/20240907-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
+    "text": "2. 関数定義\n#| include: true\nimport numpy as np\nimport pandas as pd\n\ndf_all = pd.read_csv('../assets/2024-09-08-quarto-df/quarto-df.csv')\n\n\ndef make_clickable(url, title):\n    return f'&lt;a href=\"{url}\"&gt;{title}&lt;/a&gt;'\n\n\ndef extract_tag(tag, df=df_all):\n    _df = df[df['Tags'].str.contains(tag)].copy()\n\n    # 欠損埋め\n    _df = _df.fillna({'Date': '9999-12-31'})\n    _df = _df.fillna('-')\n\n    # HACK: __init__.py を強調させないためのワークアラウンド\n    _df['Title'] = _df['Title'].replace(\n            '__init__.py', '__ init __.py', regex=True\n        )\n\n    # 日付とクリック可能なページ名の表示\n    _df = _df[['Date', 'Title', 'URL']].sort_values(\n            ['Date', 'Title'], ascending=[False, True]\n        )\n    _df.index = np.arange(1, len(_df) + 1)\n    _df['Website'] = _df.apply(\n            lambda row: make_clickable(row['URL'], row['Title']), axis=1\n        )\n    _df = _df[['Date', 'Website']].to_html(escape=False, index=False)\n    return _df"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
     "href": "blog/2024-09-08-quarto-dataframe-preview-test.html#csv-内容確認",
     "title": "Quarto による DataFrame の表示テスト",
     "section": "3. CSV 内容確認",
-    "text": "3. CSV 内容確認\n!cat ../assets/20240907-quarto-df/quarto-df.csv"
+    "text": "3. CSV 内容確認\n!cat ../assets/2024-09-08-quarto-df/quarto-df.csv"
   },
   {
     "objectID": "blog/2024-09-08-quarto-dataframe-preview-test.html#taga",
