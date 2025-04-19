@@ -2,10 +2,9 @@
 title: "職務経歴書"
 date: last-modified
 
-website:
-  search: false
-  navbar: false
-  page-footer: false
+search: false
+navbar: false
+page-footer: false
 ---
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
