@@ -3,20 +3,9 @@ title: "職務経歴書"
 date: last-modified
 
 website:
-  title: "職務経歴書"
-  site-url: "https://i9wa4.github.io/resume/"
   search: false
   navbar: false
   page-footer: false
-
-# format:
-#   html:
-#     page-layout: full
-#     toc: true
-#     toc-depth: 2
-#     toc-expand: true
-#     toc-title: "Table of Contents"
-#     linestretch: 1.4
 ---
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
