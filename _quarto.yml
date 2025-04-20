@@ -10,6 +10,7 @@ theme:
 
 website:
   title: "uma-chan's page"
+  site-url: "https://i9wa4.github.io"
   favicon: "/assets/common/icon_hhkb3.png"
   image: "/assets/common/icon_hhkb3.png"
   search: true
@@ -42,6 +43,7 @@ website:
     right:
       - href: "https://quarto.org/"
         text: "Built with Quarto"
+    background: light
 
 format:
   html:
