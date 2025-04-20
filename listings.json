@@ -1,15 +1,15 @@
 [
   {
-    "listing": "/notes/index.html",
+    "listing": "/slides/index.html",
     "items": [
-      "/notes/2025-04-07-bookmarks.html",
-      "/notes/2024-07-20-aigis-note.html",
-      "/notes/2024-07-20-minecraft-note.html"
+      "/slides/2024-02-04-sapporo.vim.html",
+      "/slides/2023-12-16-sapporo.vim.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-04-20-lefthook.html",
       "/blog/2025-04-11-mcp-hands-on.html",
       "/blog/2025-04-10-paid-for-gemini.html",
       "/notes/2025-04-07-bookmarks.html",
@@ -47,15 +47,17 @@
     ]
   },
   {
-    "listing": "/slides/index.html",
+    "listing": "/notes/index.html",
     "items": [
-      "/slides/2024-02-04-sapporo.vim.html",
-      "/slides/2023-12-16-sapporo.vim.html"
+      "/notes/2025-04-07-bookmarks.html",
+      "/notes/2024-07-20-aigis-note.html",
+      "/notes/2024-07-20-minecraft-note.html"
     ]
   },
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-04-20-lefthook.html",
       "/blog/2025-04-11-mcp-hands-on.html",
       "/blog/2025-04-10-paid-for-gemini.html",
       "/blog/2025-04-02-looking-back-on-2024.html",

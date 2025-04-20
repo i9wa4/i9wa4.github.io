@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-04-10">
+<meta name="dcterms.date" content="2025-04-20">
 
-<title>Gemini に課金した – uma-chan’s page</title>
+<title>lefthook 設定の供養 – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,14 +107,14 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Gemini に課金した – uma-chan’s page">
+<meta property="og:title" content="lefthook 設定の供養 – uma-chan’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:height" content="256">
 <meta property="og:image:width" content="256">
-<meta name="twitter:title" content="Gemini に課金した – uma-chan’s page">
+<meta name="twitter:title" content="lefthook 設定の供養 – uma-chan’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3.png">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -154,7 +188,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#手順" id="toc-手順" class="nav-link active" data-scroll-target="#手順">1. 手順</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
+  <li><a href="#lefthook-とは" id="toc-lefthook-とは" class="nav-link" data-scroll-target="#lefthook-とは">2. lefthook とは</a></li>
+  <li><a href="#lefthook.yml" id="toc-lefthook.yml" class="nav-link" data-scroll-target="#lefthook.yml">3. lefthook.yml</a></li>
   </ul>
 </nav>
     </div>
@@ -163,11 +199,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gemini に課金した</h1>
+<h1 class="title">lefthook 設定の供養</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-ai-tools</div>
+    <div class="quarto-category">tech-others</div>
   </div>
   </div>
 
@@ -185,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-04-10</p>
+      <p class="date">2025-04-20</p>
     </div>
   </div>
   
@@ -203,20 +239,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。</p>
-<p>Cursor でもいいかと思いましたが Vim やコマンドラインでも使える汎用性を考えて Gemini の API への課金としました。</p>
-<section id="手順" class="level2">
-<h2 class="anchored" data-anchor-id="手順">1. 手順</h2>
-<ol type="1">
-<li>Google AI Studio の API Plan Billing から Gemini AI 向けの Google Cloud プロジェクトの支払い情報に飛ぶ
-<ul>
-<li><a href="https://aistudio.google.com/plan_information" class="uri">https://aistudio.google.com/plan_information</a></li>
-</ul></li>
-<li>Gemini AI プロジェクトに対して請求先アカウントをリンクさせる</li>
-<li>請求課金アカウントで予算とアラートを設定して課金額に敏感にしておく</li>
-</ol>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>GitHub Profile 用のリポジトリで lefthook を活用していたですが、不要になり削除しようと思うのでここに知見を残します。</p>
+</section>
+<section id="lefthook-とは" class="level2">
+<h2 class="anchored" data-anchor-id="lefthook-とは">2. lefthook とは</h2>
+<p><a href="https://github.com/evilmartians/lefthook">evilmartians/lefthook: Fast and powerful Git hooks manager for any type of projects.</a></p>
+<p>lefthook は Git hooks の設定管理のツールです。</p>
+<p>使用方法は上記リポジトリの README を参照するとよいです。</p>
+</section>
+<section id="lefthook.yml" class="level2">
+<h2 class="anchored" data-anchor-id="lefthook.yml">3. lefthook.yml</h2>
+<p>設定ファイルは以下のように記述していました。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>lefthook.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="lefthook.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EXAMPLE USAGE:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Refer for explanation to following link:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-push:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   commands:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     packages-audit:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#       tags: frontend security</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#       run: yarn audit</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#     gems-audit:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#       tags: backend security</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#       run: bundle audit</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-commit:</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   parallel: true</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   commands:</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#     eslint:</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#       glob: "*.{js,ts,jsx,tsx}"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#       run: yarn eslint {staged_files}</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#     rubocop:</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#       tags: backend style</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#       glob: "*.rb"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#       exclude: '(^|/)(application|routes)\.rb$'</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#       run: bundle exec rubocop --force-exclusion {all_files}</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#     govet:</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#       tags: backend style</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#       files: git ls-files -m</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#       glob: "*.go"</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#       run: go vet {files}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#   scripts:</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#     "hello.js":</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#       runner: node</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#     "any.go":</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#       runner: go run</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">post-commit</span><span class="kw">:</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">piped</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">commands</span><span class="kw">:</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">01-quarto-render</span><span class="kw">:</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">glob</span><span class="kw">:</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"index.qmd"</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">stage_fixed</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        set -e</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        . "${PY_VENV_MYENV}"/bin/activate</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        quarto render</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        cp ./_site/README.md .</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        git add ./README.md</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        git commit -m "[lefthook] rendered index.qmd in README.md" || exit 0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="処理概要説明" class="level3">
+<h3 class="anchored" data-anchor-id="処理概要説明">3.1. 処理概要説明</h3>
+<p>Quarto のレンダリングを実施させて、レンダリング結果から README.md を抜き出してコミットさせてます。</p>
+</section>
+<section id="公式ドキュメントに書かれていないコツ" class="level3">
+<h3 class="anchored" data-anchor-id="公式ドキュメントに書かれていないコツ">3.2. 公式ドキュメントに書かれていないコツ</h3>
+<p>処理実行順序の設定については以下のように決まっているようです。結構大事なことがソースコードのコメントに書かれてますね。</p>
+<p>priority を設定したくないケースもあると思いますので、その際の挙動ということで知っておいても損はないかと思います。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>internal/lefthook/runner/runner.go</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="internal/lefthook/runner/runner.go"><pre class="sourceCode go code-with-copy"><code class="sourceCode go"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// sortByPriority sorts the tags by preceding numbers if they occur and special priority if it is set.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// If the names starts with letter the command name will be sorted alphabetically.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// If there's a `priority` field defined for a command or script it will be used instead of alphanumeric sorting.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">//  []string{"1_command", "10command", "3 command", "command5"} // -&gt; 1_command, 3 command, 10command, command5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="https://github.com/evilmartians/lefthook/blob/38390de0efee2627ccaaa562a823945218be3604/internal/lefthook/runner/runner.go#L637-L641" class="uri">https://github.com/evilmartians/lefthook/blob/38390de0efee2627ccaaa562a823945218be3604/internal/lefthook/runner/runner.go#L637-L641</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
