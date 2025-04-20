@@ -1,0 +1,99 @@
+---
+title: "lefthook 設定の供養"
+author: uma-chan
+date: 2025-04-20 19:47:21 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+  - "tech-others"
+---
+
+## 1. はじめに
+
+GitHub Profile 用のリポジトリで lefthook を活用していたですが、不要になり削除しようと思うのでここに知見を残します。
+
+## 2. lefthook とは
+
+[evilmartians/lefthook: Fast and powerful Git hooks manager for any type of projects.](https://github.com/evilmartians/lefthook)
+
+lefthook は Git hooks の設定管理のツールです。
+
+使用方法は上記リポジトリの README を参照するとよいです。
+
+## 3. lefthook.yml
+
+設定ファイルは以下のように記述していました。
+
+```{.yml filename="lefthook.yml"}
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+#
+# pre-push:
+#   commands:
+#     packages-audit:
+#       tags: frontend security
+#       run: yarn audit
+#     gems-audit:
+#       tags: backend security
+#       run: bundle audit
+#
+# pre-commit:
+#   parallel: true
+#   commands:
+#     eslint:
+#       glob: "*.{js,ts,jsx,tsx}"
+#       run: yarn eslint {staged_files}
+#     rubocop:
+#       tags: backend style
+#       glob: "*.rb"
+#       exclude: '(^|/)(application|routes)\.rb$'
+#       run: bundle exec rubocop --force-exclusion {all_files}
+#     govet:
+#       tags: backend style
+#       files: git ls-files -m
+#       glob: "*.go"
+#       run: go vet {files}
+#   scripts:
+#     "hello.js":
+#       runner: node
+#     "any.go":
+#       runner: go run
+post-commit:
+  piped: true
+  commands:
+    01-quarto-render:
+      priority: 1
+      glob:
+        - "index.qmd"
+      stage_fixed: false
+      run: |
+        set -e
+        . "${PY_VENV_MYENV}"/bin/activate
+        quarto render
+        cp ./_site/README.md .
+        git add ./README.md
+        git commit -m "[lefthook] rendered index.qmd in README.md" || exit 0
+```
+
+### 3.1. 処理概要説明
+
+Quarto のレンダリングを実施させて、レンダリング結果から README.md を抜き出してコミットさせてます。
+
+### 3.2. 公式ドキュメントに書かれていないコツ
+
+処理実行順序の設定については以下のように決まっているようです。結構大事なことがソースコードのコメントに書かれてますね。
+
+priority を設定したくないケースもあると思いますので、その際の挙動ということで知っておいても損はないかと思います。
+
+```{.go filename="internal/lefthook/runner/runner.go"}
+// sortByPriority sorts the tags by preceding numbers if they occur and special priority if it is set.
+// If the names starts with letter the command name will be sorted alphabetically.
+// If there's a `priority` field defined for a command or script it will be used instead of alphanumeric sorting.
+//
+//	[]string{"1_command", "10command", "3 command", "command5"} // -> 1_command, 3 command, 10command, command5
+```
+
+<https://github.com/evilmartians/lefthook/blob/38390de0efee2627ccaaa562a823945218be3604/internal/lefthook/runner/runner.go#L637-L641>
