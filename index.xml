@@ -278,7 +278,6 @@ font-style: inherit;">//  []string{"1_command", "10command", "3 command", "comma
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-others</category>
   <guid>https://i9wa4.github.io/blog/2025-04-20-lefthook.html</guid>
   <pubDate>Sun, 20 Apr 2025 10:47:21 GMT</pubDate>
 </item>
@@ -467,7 +466,7 @@ font-style: inherit;">}</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</guid>
   <pubDate>Thu, 10 Apr 2025 15:51:06 GMT</pubDate>
 </item>
@@ -500,14 +499,14 @@ font-style: inherit;">}</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini.html</guid>
   <pubDate>Thu, 10 Apr 2025 12:08:10 GMT</pubDate>
 </item>
 <item>
   <title>個人的ブックマーク</title>
   <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/notes/2025-04-07-bookmarks.html</link>
+  <link>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</link>
   <description><![CDATA[ 
 
 
@@ -517,7 +516,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="9103fc3f" class="cell" data-execution_count="3">
+<div id="b2e66bb7" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -715,7 +714,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="06e89616" class="cell" data-execution_count="4">
+<div id="49b5e66c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -769,7 +768,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="977af403" class="cell" data-execution_count="5">
+<div id="1cfc0eaa" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -859,7 +858,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="48657eb3" class="cell" data-execution_count="6">
+<div id="b45f24fe" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -901,7 +900,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="439c3364" class="cell" data-execution_count="7">
+<div id="7c625ac7" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -943,7 +942,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="cbec398a" class="cell" data-execution_count="8">
+<div id="8d96008a" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1021,7 +1020,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="50cab733" class="cell" data-execution_count="9">
+<div id="b65ff9bd" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1149,8 +1148,8 @@ Website
 </section>
 
  ]]></description>
-  <category>notes</category>
-  <guid>https://i9wa4.github.io/notes/2025-04-07-bookmarks.html</guid>
+  <category>blog</category>
+  <guid>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</guid>
   <pubDate>Mon, 07 Apr 2025 14:10:38 GMT</pubDate>
 </item>
 <item>
@@ -1625,7 +1624,7 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</guid>
   <pubDate>Mon, 31 Mar 2025 16:37:05 GMT</pubDate>
 </item>
@@ -1844,8 +1843,6 @@ font-style: inherit;">id</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-tips</category>
-  <category>tech-sql</category>
   <guid>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</guid>
   <pubDate>Fri, 21 Feb 2025 02:03:49 GMT</pubDate>
 </item>
@@ -1961,7 +1958,6 @@ font-style: inherit;">id</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-others</category>
   <guid>https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html</guid>
   <pubDate>Fri, 31 Jan 2025 12:06:02 GMT</pubDate>
 </item>
@@ -2032,7 +2028,6 @@ font-style: inherit;">id</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-windows</category>
   <guid>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</guid>
   <pubDate>Sat, 07 Dec 2024 06:30:24 GMT</pubDate>
 </item>
@@ -2139,7 +2134,6 @@ font-style: inherit;">-c</span> connection_name1</span></code></pre></div></li>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-snowflake</category>
   <guid>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</guid>
   <pubDate>Thu, 05 Dec 2024 00:48:09 GMT</pubDate>
 </item>
@@ -2307,8 +2301,6 @@ font-style: inherit;">---</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-github</category>
-  <category>tech-zenn</category>
   <guid>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</guid>
   <pubDate>Wed, 20 Nov 2024 08:49:32 GMT</pubDate>
 </item>
@@ -2606,7 +2598,6 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-github-actions</category>
   <guid>https://i9wa4.github.io/blog/2024-11-12-use-nektos-act.html</guid>
   <pubDate>Tue, 12 Nov 2024 14:54:57 GMT</pubDate>
 </item>
@@ -3719,7 +3710,7 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 <item>
   <title>自分用千年戦争アイギスメモ</title>
   <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/notes/2024-07-20-aigis-note.html</link>
+  <link>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</link>
   <description><![CDATA[ 
 
 
@@ -3790,9 +3781,9 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
 </section>
 
  ]]></description>
-  <category>notes</category>
+  <category>blog</category>
   <category>game</category>
-  <guid>https://i9wa4.github.io/notes/2024-07-20-aigis-note.html</guid>
+  <guid>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</guid>
   <pubDate>Sat, 20 Jul 2024 13:46:56 GMT</pubDate>
 </item>
 </channel>
