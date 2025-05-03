@@ -10,17 +10,19 @@ theme:
 
 website:
   title: "uma-chan's page"
-  site-url: "https://i9wa4.github.io"
-  favicon: "/assets/common/icon_hhkb3.png"
-  image: "/assets/common/icon_hhkb3.png"
+  bread-crumbs: true
+  favicon: "assets/common/icon_hhkb3.png"
+  image: "assets/common/icon_hhkb3.png"
+  page-navigation: true
   search: true
+  site-url: "https://i9wa4.github.io"
+  open-graph:
+    locale: "ja_JP"
+    site-name: "uma-chan's page"
   twitter-card:
     card-style: summary
     creator: "@i9wa4_"
     site: "@i9wa4_"
-  open-graph:
-    locale: "ja_JP"
-    site-name: "uma-chan's page"
   navbar:
     # https://icons.getbootstrap.com/
     left:
@@ -35,8 +37,28 @@ website:
         icon: twitter-x
       - href: "https://www.linkedin.com/in/daikm/"
         icon: linkedin
-      - href: "/index.xml"
+      - href: "index.xml"
         icon: rss
+  sidebar:
+    style: floating
+    search: true
+    contents:
+      - "---"
+      - href: "blog/index.qmd"
+        text: "blog"
+      - "---"
+      - href: "notes/index.qmd"
+        text: "notes"
+      - "---"
+      - href: "slides/index.qmd"
+        text: "slides"
+      - "---"
+      - href: "https://i9wa4.github.io/i9wa4"
+        text: "about"
+      - "---"
+      - href: "https://i9wa4.github.io/resume"
+        text: "resume"
+      - "---"
   page-footer:
     left:
       - text: "Copyright 2024, uma-chan"
@@ -47,8 +69,15 @@ website:
 
 format:
   html:
+    code-copy: true
+    code-overflow: wrap
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+    linestretch: 1.4
     page-layout: full
-    toc: true
     toc-depth: 2
     toc-expand: true
     toc-title: "Table of Contents"
+    toc: true
