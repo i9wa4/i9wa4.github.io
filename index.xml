@@ -13,14 +13,17 @@
 <url>https://i9wa4.github.io/assets/common/icon_hhkb3.png</url>
 <title>uma-chan&#39;s page</title>
 <link>https://i9wa4.github.io/</link>
+<height>144</height>
+<width>144</width>
 </image>
-<generator>quarto-1.6.43</generator>
+<generator>quarto-1.7.29</generator>
 <lastBuildDate>Sun, 20 Apr 2025 10:47:21 GMT</lastBuildDate>
 <item>
   <title>lefthook 設定の供養</title>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2025-04-20-lefthook.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -288,6 +291,7 @@ font-style: inherit;">//  []string{"1_command", "10command", "3 command", "comma
 
 
 
+
 <section id="直近-mcp-でやりたいこと" class="level2">
 <h2 class="anchored" data-anchor-id="直近-mcp-でやりたいこと">1. 直近 MCP でやりたいこと</h2>
 <p>非エンジニアに Databricks でデータ分析をしてもらう</p>
@@ -476,6 +480,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 
 
 
+
 <p>個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。</p>
 <p>Cursor でもいいかと思いましたが Vim やコマンドラインでも使える汎用性を考えて Gemini の API への課金としました。</p>
 <section id="手順" class="level2">
@@ -508,10 +513,11 @@ font-style: inherit;">}</span></span></code></pre></div>
 
 
 
+
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="3c6eb3bb" class="cell" data-execution_count="3">
+<div id="9103fc3f" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -709,7 +715,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="831cbfb0" class="cell" data-execution_count="4">
+<div id="06e89616" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -763,7 +769,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="85005704" class="cell" data-execution_count="5">
+<div id="977af403" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -853,7 +859,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="02fc76e9" class="cell" data-execution_count="6">
+<div id="48657eb3" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -895,7 +901,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="a14dda81" class="cell" data-execution_count="7">
+<div id="439c3364" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -937,7 +943,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="73f02560" class="cell" data-execution_count="8">
+<div id="cbec398a" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1015,7 +1021,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="cee50734" class="cell" data-execution_count="9">
+<div id="50cab733" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1156,6 +1162,7 @@ Website
 
 
 
+
 <p>本当は年末に振り返ろうかと思っていましたが転職したてだったのでこのタイミングになりました。</p>
 <p>2024年度に初めて経験したことを振り返ってみます。</p>
 <section id="初めて東京の会社に勤めた" class="level2">
@@ -1217,6 +1224,7 @@ Website
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -1630,6 +1638,7 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
 
 
 
+
 <p>dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。</p>
 <p>因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。</p>
 <p>勢いで書いたので思い出したらどんどん追記します</p>
@@ -1849,6 +1858,7 @@ font-style: inherit;">id</span></span></code></pre></div>
 
 
 
+
 <p><a href="../blog/2024-09-22-vim-plugin-idea.html">少し前の Vim プラグイン開発のアイデア記事</a> で7個のアイデアを書いてました。</p>
 <section id="ローカル設定の読み込み" class="level2">
 <h2 class="anchored" data-anchor-id="ローカル設定の読み込み">1. ローカル設定の読み込み</h2>
@@ -1909,6 +1919,7 @@ font-style: inherit;">id</span></span></code></pre></div>
 
 
 
+
 <p>こういった作業ってテックブログ見るしかないですよね。 やっていきます。</p>
 <section id="参考ページ" class="level2">
 <h2 class="anchored" data-anchor-id="参考ページ">1. 参考ページ</h2>
@@ -1963,6 +1974,7 @@ font-style: inherit;">id</span></span></code></pre></div>
 
 
 
+
 <p>R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。</p>
 <p><a href="https://github.com/quarto-dev/quarto-cli/discussions/606">Inline R code in YAML · quarto-dev/quarto-cli · Discussion #606</a></p>
 <p>変数対応していてそちらは上手く動いてくれました！</p>
@@ -1984,6 +1996,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2028,6 +2041,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2134,6 +2148,7 @@ font-style: inherit;">-c</span> connection_name1</span></code></pre></div></li>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2302,6 +2317,7 @@ font-style: inherit;">---</span></span></code></pre></div>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-11-12-use-nektos-act.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2603,6 +2619,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 
 
 
+
 <p>言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。</p>
 <section id="大学入学時" class="level2">
 <h2 class="anchored" data-anchor-id="大学入学時">1. 大学入学時</h2>
@@ -2665,6 +2682,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
 
 
 
+
 <p>元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。</p>
 <p>それに伴いブログの記事も修正しています。</p>
 <p>というわけでよろしくお願いします！</p>
@@ -2682,6 +2700,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2740,6 +2759,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3006,6 +3026,7 @@ font-style: inherit;">'TagB'</span>)</span></code></pre></div>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2024-08-25-publishing-github-pages-with-quarto.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3700,6 +3721,7 @@ font-style: inherit;">$</span> quarto render</span></code></pre></div>
   <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/notes/2024-07-20-aigis-note.html</link>
   <description><![CDATA[ 
+
 
 
 
