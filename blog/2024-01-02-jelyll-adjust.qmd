@@ -6,7 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-jekyll"
 ---
 
 [2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。

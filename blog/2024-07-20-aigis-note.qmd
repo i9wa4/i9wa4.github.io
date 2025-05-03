@@ -4,7 +4,7 @@ author: uma-chan
 date: 2024-07-20 22:46:56 +0900
 date-modified: last-modified
 categories:
-  - "notes"
+  - "blog"
   - "game"
 ---
 

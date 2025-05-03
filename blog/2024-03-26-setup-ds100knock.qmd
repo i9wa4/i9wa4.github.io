@@ -6,8 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-wsl2"
-  - "tech-windows"
 ---
 
 下記リポジトリを見てください。以上。

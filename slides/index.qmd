@@ -1,5 +1,5 @@
 ---
-title: "slides"
+title: "Slides"
 listing:
   - id: "list-all"
     categories: numbered

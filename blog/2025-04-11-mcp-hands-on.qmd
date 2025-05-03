@@ -6,7 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-ai-tools"
+  - "tech-ai"
 ---
 
 ## 1. 直近 MCP でやりたいこと

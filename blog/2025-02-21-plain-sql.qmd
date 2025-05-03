@@ -6,8 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-tips"
-  - "tech-sql"
 ---
 
 dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。

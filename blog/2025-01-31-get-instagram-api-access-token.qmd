@@ -6,7 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-others"
 ---
 
 こういった作業ってテックブログ見るしかないですよね。

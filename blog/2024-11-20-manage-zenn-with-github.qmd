@@ -6,8 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-github"
-  - "tech-zenn"
 ---
 
 Zenn に書いた以下の記事と全く同じ内容です。

@@ -6,7 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-linux"
 ---
 
 systemd がユーザー権限でも設定できると知ったので記事にします。

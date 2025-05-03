@@ -6,8 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-wsl2"
-  - "tech-windows"
 ---
 
 Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。

@@ -6,7 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-ai-tools"
+  - "tech-ai"
 ---
 
 個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。

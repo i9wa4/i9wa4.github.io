@@ -6,7 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-snowflake"
 ---
 
 PC を新調するとセットアップがつきものですね。

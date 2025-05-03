@@ -6,7 +6,6 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-tips"
 ---
 
 たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。
