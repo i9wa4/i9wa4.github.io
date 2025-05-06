@@ -31,7 +31,7 @@ https://github.com/editorconfig/editorconfig-vim
 
 に記載されています。
 
-```{filename=".editorconfig"}
+```{.ini filename=".editorconfig"}
 # EditorConfig is awesome: https://EditorConfig.org
 # top-most EditorConfig file
 root = true
