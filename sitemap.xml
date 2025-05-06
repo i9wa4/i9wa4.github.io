@@ -21,36 +21,40 @@
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</loc>
+    <loc>https://i9wa4.github.io/blog/2025-05-06-python-venv.html</loc>
+    <lastmod>2025-05-06T14:06:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</loc>
+    <lastmod>2025-05-03T07:10:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</loc>
-    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2025-02-20-vim-plugin-idea.html</loc>
-    <lastmod>2025-02-20T03:26:35.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</loc>
+    <loc>https://i9wa4.github.io/blog/2025-04-20-lefthook.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2025-05-06-editorconfig-vim.html</loc>
+    <lastmod>2025-05-06T14:06:32.000Z</lastmod>
   </url>
   <url>
     <loc>https://i9wa4.github.io/blog/2024-01-02-vim-plugin-mnh.html</loc>
@@ -105,31 +109,35 @@
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2025-04-20-lefthook.html</loc>
+    <loc>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-20-aigis-note.html</loc>
-    <lastmod>2025-05-03T07:10:18.000Z</lastmod>
+    <loc>https://i9wa4.github.io/blog/2025-02-20-vim-plugin-idea.html</loc>
+    <lastmod>2025-02-20T03:26:35.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-07-20-minecraft-note.html</loc>
-    <lastmod>2025-05-03T07:10:18.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-05-04-get-git-branch-name.vim.html</loc>
-    <lastmod>2025-05-03T07:10:18.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</loc>
     <lastmod>2024-12-20T07:30:50.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</loc>
+    <loc>https://i9wa4.github.io/blog/2024-03-26-setup-ds100knock.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
-    <loc>https://i9wa4.github.io/blog/2024-06-17-setup-mac.html</loc>
+    <loc>https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html</loc>
+    <lastmod>2025-05-03T07:10:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/index.html</loc>
+    <lastmod>2025-05-03T07:10:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</loc>
+    <lastmod>2024-12-20T07:30:50.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</loc>
     <lastmod>2025-05-03T07:10:18.000Z</lastmod>
   </url>
   <url>
