@@ -149,30 +149,30 @@
   {
     "objectID": "blog/2025-05-06-python-venv.html",
     "href": "blog/2025-05-06-python-venv.html",
-    "title": "今更ながら Vim に EditorConfig を導入しました",
+    "title": "Python venv インストール・更新スクリプトの供養",
     "section": "",
-    "text": "dotfiles で .editorconfig を置いたままにしていたのですが利用できていなかったので今回利用していくこととしました。"
+    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
   },
   {
     "objectID": "blog/2025-05-06-python-venv.html#はじめに",
     "href": "blog/2025-05-06-python-venv.html#はじめに",
-    "title": "今更ながら Vim に EditorConfig を導入しました",
+    "title": "Python venv インストール・更新スクリプトの供養",
     "section": "",
-    "text": "dotfiles で .editorconfig を置いたままにしていたのですが利用できていなかったので今回利用していくこととしました。"
+    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
   },
   {
-    "objectID": "blog/2025-05-06-python-venv.html#導入手順",
-    "href": "blog/2025-05-06-python-venv.html#導入手順",
-    "title": "今更ながら Vim に EditorConfig を導入しました",
-    "section": "2. 導入手順",
-    "text": "2. 導入手順\n私は dpp.vim を利用しているので以下の設定を追加しました。\n\n\nlazy.toml\n\n[[plugins]]\nrepo = 'editorconfig/editorconfig-vim'\non_event = ['VimEnter']\n\nまた ~/.editorconfig を以下のように作成しました。\n設定可能な項目は\nhttps://github.com/editorconfig/editorconfig-vim\nに記載されています。\n\n\n.editorconfig\n\n# EditorConfig is awesome: https://EditorConfig.org\n# top-most EditorConfig file\nroot = true\n\n# https://github.com/editorconfig/editorconfig-vim\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = space\ninsert_final_newline = true\nmax_line_length = 80\ntrim_trailing_whitespace = true\n\n# 2 space indentation\n[{*.{css,mmd,sh,tf,tftpl,tfvars,toml,ts,vim,yaml,zshenv,zshrc},vimrc}]\nindent_size = 2\n\n# Tab indentation (no size specified)\n[{*.go,Makefile}]\nindent_style = tab\n\n# Windows\n[{*.{bat,cmd}]\nend_of_line = crlf\n\n最後に vimrc で FileType イベントで設定していた上記と重複している設定を削除しました。"
+    "objectID": "blog/2025-05-06-python-venv.html#スクリプト-makefile",
+    "href": "blog/2025-05-06-python-venv.html#スクリプト-makefile",
+    "title": "Python venv インストール・更新スクリプトの供養",
+    "section": "2. スクリプト (Makefile)",
+    "text": "2. スクリプト (Makefile)\n実際はこのように Makefile に書いていましたが、流石に見辛いのでシェルスクリプト版も載せます。\npython-venv:  ## install/update Python venv (e.g. make python-venv VENV_PATH=\"${PY_VENV_MYENV}\" REQUIREMENTS_PATH=\"${HOME}\"/ghq/github.com/i9wa4/dotfiles/etc/requirements-venv-myenv.txt)\n    # https://dev.classmethod.jp/articles/change-venv-python-version/\n    . $(MF_DOTFILES_DIR)/dot.zshenv \\\n    && if [ -d \"$(VENV_PATH)\" ]; then \\\n      python -m venv \"$(VENV_PATH)\" --clear; \\\n    else \\\n      python -m venv \"$(VENV_PATH)\"; \\\n    fi \\\n    && . \"$(VENV_PATH)\"/bin/activate \\\n    && python -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\" \\\n    && python -m pip install --upgrade pip setuptools wheel \\\n    && [ -r \"$(REQUIREMENTS_PATH)\" ] && python -m pip install --requirement \"$(REQUIREMENTS_PATH)\" \\\n    && python -m pip check \\\n    && python --version \\\n    && deactivate"
   },
   {
-    "objectID": "blog/2025-05-06-python-venv.html#感想",
-    "href": "blog/2025-05-06-python-venv.html#感想",
-    "title": "今更ながら Vim に EditorConfig を導入しました",
-    "section": "3. 感想",
-    "text": "3. 感想\nこの設定は VS Code 等の他のエディタでも使えるので育成のしがいがありますね。\nmax_line_length の効き方がまだよく分かっていないのでこれから勉強していきたいと思います。"
+    "objectID": "blog/2025-05-06-python-venv.html#スクリプト-シェルスクリプト",
+    "href": "blog/2025-05-06-python-venv.html#スクリプト-シェルスクリプト",
+    "title": "Python venv インストール・更新スクリプトの供養",
+    "section": "3. スクリプト (シェルスクリプト)",
+    "text": "3. スクリプト (シェルスクリプト)\n#!/usr/bin/env bash\n\nVENV_PATH=\"${HOME}\"/.venv\nREQUIREMENTS_PATH=\"${HOME}\"/requirements.txt\n\nif [ -d \"${VENV_PATH}\" ]; then\n  python -m venv \"${VENV_PATH}\" --clear;\nelse\n  python -m venv \"${VENV_PATH}\";\nfi\n\n. \"${VENV_PATH}\"/bin/activate\npython -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\"\npython -m pip install --upgrade pip setuptools wheel\n[ -r \"${REQUIREMENTS_PATH}\" ] && python -m pip install --requirement \"${REQUIREMENTS_PATH}\"\npython -m pip check\npython --version\ndeactivate"
   },
   {
     "objectID": "blog/2024-06-17-setup-mac.html",
@@ -359,30 +359,30 @@
   {
     "objectID": "blog/2025-05-06-editorconfig-vim.html",
     "href": "blog/2025-05-06-editorconfig-vim.html",
-    "title": "Python venv インストール・更新スクリプトの供養",
+    "title": "今更ながら Vim に EditorConfig を導入しました",
     "section": "",
-    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
+    "text": "dotfiles で .editorconfig を置いたままにしていたのですが利用できていなかったので今回利用していくこととしました。"
   },
   {
     "objectID": "blog/2025-05-06-editorconfig-vim.html#はじめに",
     "href": "blog/2025-05-06-editorconfig-vim.html#はじめに",
-    "title": "Python venv インストール・更新スクリプトの供養",
+    "title": "今更ながら Vim に EditorConfig を導入しました",
     "section": "",
-    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
+    "text": "dotfiles で .editorconfig を置いたままにしていたのですが利用できていなかったので今回利用していくこととしました。"
   },
   {
-    "objectID": "blog/2025-05-06-editorconfig-vim.html#スクリプト-makefile",
-    "href": "blog/2025-05-06-editorconfig-vim.html#スクリプト-makefile",
-    "title": "Python venv インストール・更新スクリプトの供養",
-    "section": "2. スクリプト (Makefile)",
-    "text": "2. スクリプト (Makefile)\n実際はこのように Makefile に書いていましたが、流石に見辛いのでシェルスクリプト版も載せます。\npython-venv:  ## install/update Python venv (e.g. make python-venv VENV_PATH=\"${PY_VENV_MYENV}\" REQUIREMENTS_PATH=\"${HOME}\"/ghq/github.com/i9wa4/dotfiles/etc/requirements-venv-myenv.txt)\n    # https://dev.classmethod.jp/articles/change-venv-python-version/\n    . $(MF_DOTFILES_DIR)/dot.zshenv \\\n    && if [ -d \"$(VENV_PATH)\" ]; then \\\n      python -m venv \"$(VENV_PATH)\" --clear; \\\n    else \\\n      python -m venv \"$(VENV_PATH)\"; \\\n    fi \\\n    && . \"$(VENV_PATH)\"/bin/activate \\\n    && python -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\" \\\n    && python -m pip install --upgrade pip setuptools wheel \\\n    && [ -r \"$(REQUIREMENTS_PATH)\" ] && python -m pip install --requirement \"$(REQUIREMENTS_PATH)\" \\\n    && python -m pip check \\\n    && python --version \\\n    && deactivate"
+    "objectID": "blog/2025-05-06-editorconfig-vim.html#導入手順",
+    "href": "blog/2025-05-06-editorconfig-vim.html#導入手順",
+    "title": "今更ながら Vim に EditorConfig を導入しました",
+    "section": "2. 導入手順",
+    "text": "2. 導入手順\n私は dpp.vim を利用しているので以下の設定を追加しました。\n\n\nlazy.toml\n\n[[plugins]]\nrepo = 'editorconfig/editorconfig-vim'\non_event = ['VimEnter']\n\nまた ~/.editorconfig を以下のように作成しました。\n設定可能な項目は\nhttps://github.com/editorconfig/editorconfig-vim\nに記載されています。\n\n\n.editorconfig\n\n# EditorConfig is awesome: https://EditorConfig.org\n# top-most EditorConfig file\nroot = true\n\n# https://github.com/editorconfig/editorconfig-vim\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = space\ninsert_final_newline = true\nmax_line_length = 80\ntrim_trailing_whitespace = true\n\n# 2 space indentation\n[{*.{css,mmd,sh,tf,tftpl,tfvars,toml,ts,vim,yaml,zshenv,zshrc},vimrc}]\nindent_size = 2\n\n# Tab indentation (no size specified)\n[{*.go,Makefile}]\nindent_style = tab\n\n# Windows\n[{*.{bat,cmd}]\nend_of_line = crlf\n\n最後に vimrc で FileType イベントで設定していた上記と重複している設定を削除しました。"
   },
   {
-    "objectID": "blog/2025-05-06-editorconfig-vim.html#スクリプト-シェルスクリプト",
-    "href": "blog/2025-05-06-editorconfig-vim.html#スクリプト-シェルスクリプト",
-    "title": "Python venv インストール・更新スクリプトの供養",
-    "section": "3. スクリプト (シェルスクリプト)",
-    "text": "3. スクリプト (シェルスクリプト)\n#!/usr/bin/env bash\n\nVENV_PATH=\"${HOME}\"/.venv\nREQUIREMENTS_PATH=\"${HOME}\"/requirements.txt\n\nif [ -d \"${VENV_PATH}\" ]; then\n  python -m venv \"${VENV_PATH}\" --clear;\nelse\n  python -m venv \"${VENV_PATH}\";\nfi\n\n. \"${VENV_PATH}\"/bin/activate\npython -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\"\npython -m pip install --upgrade pip setuptools wheel\n[ -r \"${REQUIREMENTS_PATH}\" ] && python -m pip install --requirement \"${REQUIREMENTS_PATH}\"\npython -m pip check\npython --version\ndeactivate"
+    "objectID": "blog/2025-05-06-editorconfig-vim.html#感想",
+    "href": "blog/2025-05-06-editorconfig-vim.html#感想",
+    "title": "今更ながら Vim に EditorConfig を導入しました",
+    "section": "3. 感想",
+    "text": "3. 感想\nこの設定は VS Code 等の他のエディタでも使えるので育成のしがいがありますね。\nmax_line_length の効き方がまだよく分かっていないのでこれから勉強していきたいと思います。"
   },
   {
     "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
