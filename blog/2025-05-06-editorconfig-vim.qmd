@@ -15,19 +15,23 @@ dotfiles で .editorconfig を置いたままにしていたのですが利用�
 
 ## 2. 導入手順
 
-私は [dpp.vim](https://github.com/Shougo/dpp.vim) を利用しているので以下の設定を追加しました。
+EditorConfig プラグインが Vim 本体にビルトインされているのでインストールは不要です。
 
-```{.toml filename="lazy.toml"}
-[[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-on_event = ['VimEnter']
+```{.plaintext}
+:h editorconfig-install
+```
+
+で説明されていますが vimrc に以下を追加すればよいです。
+
+```{.plaintext}
+packadd! editorconfig
 ```
 
 また `~/.editorconfig` を以下のように作成しました。
 
 設定可能な項目は
 
-https://github.com/editorconfig/editorconfig-vim
+[editorconfig/editorconfig-vim: EditorConfig plugin for Vim](https://github.com/editorconfig/editorconfig-vim)
 
 に記載されています。
 
@@ -63,6 +67,8 @@ end_of_line = crlf
 
 ## 3. 感想
 
-この設定は VS Code 等の他のエディタでも使えるので育成のしがいがありますね。
+この設定は VS Code 等の他のエディタでも使えるので育成のしがいがあります。
 
-`max_line_length` の効き方がまだよく分かっていないのでこれから勉強していきたいと思います。
+EditorConfig プラグインの help ファイルを見ると色々設定ができるっぽいのですが、あまり凝ったことはしなくていいかなと思っています。
+
+設定項目を見回してみたのですが `max_line_length` の効き方があまり理解できていないので追々学んでいきます。
