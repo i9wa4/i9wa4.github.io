@@ -375,14 +375,14 @@
     "href": "blog/2025-05-06-editorconfig-vim.html#導入手順",
     "title": "今更ながら Vim に EditorConfig を導入しました",
     "section": "2. 導入手順",
-    "text": "2. 導入手順\n私は dpp.vim を利用しているので以下の設定を追加しました。\n\n\nlazy.toml\n\n[[plugins]]\nrepo = 'editorconfig/editorconfig-vim'\non_event = ['VimEnter']\n\nまた ~/.editorconfig を以下のように作成しました。\n設定可能な項目は\nhttps://github.com/editorconfig/editorconfig-vim\nに記載されています。\n\n\n.editorconfig\n\n# EditorConfig is awesome: https://EditorConfig.org\n# top-most EditorConfig file\nroot = true\n\n# https://github.com/editorconfig/editorconfig-vim\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = space\ninsert_final_newline = true\nmax_line_length = 80\ntrim_trailing_whitespace = true\n\n# 2 space indentation\n[{*.{css,mmd,sh,tf,tftpl,tfvars,toml,ts,vim,yaml,zshenv,zshrc},vimrc}]\nindent_size = 2\n\n# Tab indentation (no size specified)\n[{*.go,Makefile}]\nindent_style = tab\n\n# Windows\n[{*.{bat,cmd}]\nend_of_line = crlf\n\n最後に vimrc で FileType イベントで設定していた上記と重複している設定を削除しました。"
+    "text": "2. 導入手順\nEditorConfig プラグインが Vim 本体にビルトインされているのでインストールは不要です。\n:h editorconfig-install\nで説明されていますが vimrc に以下を追加すればよいです。\npackadd! editorconfig\nまた ~/.editorconfig を以下のように作成しました。\n設定可能な項目は\neditorconfig/editorconfig-vim: EditorConfig plugin for Vim\nに記載されています。\n\n\n.editorconfig\n\n# EditorConfig is awesome: https://EditorConfig.org\n# top-most EditorConfig file\nroot = true\n\n# https://github.com/editorconfig/editorconfig-vim\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = space\ninsert_final_newline = true\nmax_line_length = 80\ntrim_trailing_whitespace = true\n\n# 2 space indentation\n[{*.{css,mmd,sh,tf,tftpl,tfvars,toml,ts,vim,yaml,zshenv,zshrc},vimrc}]\nindent_size = 2\n\n# Tab indentation (no size specified)\n[{*.go,Makefile}]\nindent_style = tab\n\n# Windows\n[{*.{bat,cmd}]\nend_of_line = crlf\n\n最後に vimrc で FileType イベントで設定していた上記と重複している設定を削除しました。"
   },
   {
     "objectID": "blog/2025-05-06-editorconfig-vim.html#感想",
     "href": "blog/2025-05-06-editorconfig-vim.html#感想",
     "title": "今更ながら Vim に EditorConfig を導入しました",
     "section": "3. 感想",
-    "text": "3. 感想\nこの設定は VS Code 等の他のエディタでも使えるので育成のしがいがありますね。\nmax_line_length の効き方がまだよく分かっていないのでこれから勉強していきたいと思います。"
+    "text": "3. 感想\nこの設定は VS Code 等の他のエディタでも使えるので育成のしがいがあります。\nEditorConfig プラグインの help ファイルを見ると色々設定ができるっぽいのですが、あまり凝ったことはしなくていいかなと思っています。\n設定項目を見回してみたのですが max_line_length の効き方があまり理解できていないので追々学んでいきます。"
   },
   {
     "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
