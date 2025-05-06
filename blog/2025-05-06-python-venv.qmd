@@ -1,68 +1,58 @@
 ---
-title: "今更ながら Vim に EditorConfig を導入しました"
+title: "Python venv インストール・更新スクリプトの供養"
 author: uma-chan
-date: 2025-05-06 23:06:23 +0900
+date: 2025-05-06 22:57:36 +0900
 date-modified: last-modified
 categories:
   - "blog"
   - "tech"
-  - "tech-vim"
 ---
 
 ## 1. はじめに
 
-dotfiles で .editorconfig を置いたままにしていたのですが利用できていなかったので今回利用していくこととしました。
+uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。
 
-## 2. 導入手順
+## 2. スクリプト (Makefile)
 
-私は [dpp.vim](https://github.com/Shougo/dpp.vim) を利用しているので以下の設定を追加しました。
+実際はこのように Makefile に書いていましたが、流石に見辛いのでシェルスクリプト版も載せます。
 
-```{.toml filename="lazy.toml"}
-[[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-on_event = ['VimEnter']
+```{.Makefile}
+python-venv:  ## install/update Python venv (e.g. make python-venv VENV_PATH="${PY_VENV_MYENV}" REQUIREMENTS_PATH="${HOME}"/ghq/github.com/i9wa4/dotfiles/etc/requirements-venv-myenv.txt)
+	# https://dev.classmethod.jp/articles/change-venv-python-version/
+	. $(MF_DOTFILES_DIR)/dot.zshenv \
+	&& if [ -d "$(VENV_PATH)" ]; then \
+	  python -m venv "$(VENV_PATH)" --clear; \
+	else \
+	  python -m venv "$(VENV_PATH)"; \
+	fi \
+	&& . "$(VENV_PATH)"/bin/activate \
+	&& python -m pip config --site set global.trusted-host "pypi.org pypi.python.org files.pythonhosted.org" \
+	&& python -m pip install --upgrade pip setuptools wheel \
+	&& [ -r "$(REQUIREMENTS_PATH)" ] && python -m pip install --requirement "$(REQUIREMENTS_PATH)" \
+	&& python -m pip check \
+	&& python --version \
+	&& deactivate
 ```
 
-また `~/.editorconfig` を以下のように作成しました。
+## 3. スクリプト (シェルスクリプト)
 
-設定可能な項目は
+```{.sh}
+#!/usr/bin/env bash
 
-https://github.com/editorconfig/editorconfig-vim
+VENV_PATH="${HOME}"/.venv
+REQUIREMENTS_PATH="${HOME}"/requirements.txt
 
-に記載されています。
+if [ -d "${VENV_PATH}" ]; then
+  python -m venv "${VENV_PATH}" --clear;
+else
+  python -m venv "${VENV_PATH}";
+fi
 
-```{filename=".editorconfig"}
-# EditorConfig is awesome: https://EditorConfig.org
-# top-most EditorConfig file
-root = true
-
-# https://github.com/editorconfig/editorconfig-vim
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 4
-indent_style = space
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
-
-# 2 space indentation
-[{*.{css,mmd,sh,tf,tftpl,tfvars,toml,ts,vim,yaml,zshenv,zshrc},vimrc}]
-indent_size = 2
-
-# Tab indentation (no size specified)
-[{*.go,Makefile}]
-indent_style = tab
-
-# Windows
-[{*.{bat,cmd}]
-end_of_line = crlf
+. "${VENV_PATH}"/bin/activate
+python -m pip config --site set global.trusted-host "pypi.org pypi.python.org files.pythonhosted.org"
+python -m pip install --upgrade pip setuptools wheel
+[ -r "${REQUIREMENTS_PATH}" ] && python -m pip install --requirement "${REQUIREMENTS_PATH}"
+python -m pip check
+python --version
+deactivate
 ```
-
-最後に vimrc で FileType イベントで設定していた上記と重複している設定を削除しました。
-
-## 3. 感想
-
-この設定は VS Code 等の他のエディタでも使えるので育成のしがいがありますね。
-
-`max_line_length` の効き方がまだよく分かっていないのでこれから勉強していきたいと思います。
