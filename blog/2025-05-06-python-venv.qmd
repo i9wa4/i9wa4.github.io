@@ -1,0 +1,68 @@
+---
+title: "今更ながら Vim に EditorConfig を導入しました"
+author: uma-chan
+date: 2025-05-06 23:06:23 +0900
+date-modified: last-modified
+categories:
+  - "blog"
+  - "tech"
+  - "tech-vim"
+---
+
+## 1. はじめに
+
+dotfiles で .editorconfig を置いたままにしていたのですが利用できていなかったので今回利用していくこととしました。
+
+## 2. 導入手順
+
+私は [dpp.vim](https://github.com/Shougo/dpp.vim) を利用しているので以下の設定を追加しました。
+
+```{.toml filename="lazy.toml"}
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+on_event = ['VimEnter']
+```
+
+また `~/.editorconfig` を以下のように作成しました。
+
+設定可能な項目は
+
+https://github.com/editorconfig/editorconfig-vim
+
+に記載されています。
+
+```{filename=".editorconfig"}
+# EditorConfig is awesome: https://EditorConfig.org
+# top-most EditorConfig file
+root = true
+
+# https://github.com/editorconfig/editorconfig-vim
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length = 80
+trim_trailing_whitespace = true
+
+# 2 space indentation
+[{*.{css,mmd,sh,tf,tftpl,tfvars,toml,ts,vim,yaml,zshenv,zshrc},vimrc}]
+indent_size = 2
+
+# Tab indentation (no size specified)
+[{*.go,Makefile}]
+indent_style = tab
+
+# Windows
+[{*.{bat,cmd}]
+end_of_line = crlf
+```
+
+最後に vimrc で FileType イベントで設定していた上記と重複している設定を削除しました。
+
+## 3. 感想
+
+この設定は VS Code 等の他のエディタでも使えるので育成のしがいがありますね。
+
+`max_line_length` の効き方がまだよく分かっていないのでこれから勉強していきたいと思います。
