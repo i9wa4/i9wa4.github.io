@@ -17,7 +17,63 @@
 <width>144</width>
 </image>
 <generator>quarto-1.7.30</generator>
-<lastBuildDate>Tue, 06 May 2025 14:06:23 GMT</lastBuildDate>
+<lastBuildDate>Sat, 10 May 2025 05:51:17 GMT</lastBuildDate>
+<item>
+  <title>Bash/Zsh でコマンドをエディタで編集する</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>Bash/Zsh で入力中のコマンドの編集にエディタが使えるという便利機能の話です。名前がパッと出てこないのでメモ代わりに記事にしておきます。</p>
+</section>
+<section id="bash" class="level2">
+<h2 class="anchored" data-anchor-id="bash">2. Bash</h2>
+<p><code>C-x C-e</code> で <code>$VISUAL</code> で指定したエディタが開きます。</p>
+<p><a href="https://qiita.com/oirik/items/1253a12d7f4b88c4ffe0">bash で入力中のコマンドをエディタで編集して実行するショートカットキー #Bash - Qiita</a></p>
+</section>
+<section id="zsh" class="level2">
+<h2 class="anchored" data-anchor-id="zsh">3. Zsh</h2>
+<p>Bash と同等の機能を実現させるには以下のように設定します。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.zshrc</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="~/.zshrc" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">autoload</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-Uz</span> edit-command-line</span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">zle</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-N</span> edit-command-line</span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">bindkey</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'^x^e'</span> edit-command-line</span></code></pre></div>
+</div>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
+<p><strong>edit-and-execute-command</strong> あるいは <strong>edit-command-line</strong> と呼ばれる機能であると覚えましょう！</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <guid>https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html</guid>
+  <pubDate>Sat, 10 May 2025 05:51:17 GMT</pubDate>
+</item>
 <item>
   <title>今更ながら Vim に EditorConfig を導入しました</title>
   <dc:creator>uma-chan </dc:creator>
@@ -971,7 +1027,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="724edcd7" class="cell" data-execution_count="3">
+<div id="7a47f9fc" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1169,7 +1225,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="270b4e22" class="cell" data-execution_count="4">
+<div id="789c5155" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1223,7 +1279,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="e5acdda9" class="cell" data-execution_count="5">
+<div id="bd7f4b69" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1313,7 +1369,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="a0502abf" class="cell" data-execution_count="6">
+<div id="f0054531" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1355,7 +1411,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="d771d34f" class="cell" data-execution_count="7">
+<div id="fc042e1f" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1397,7 +1453,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="a1e82c5c" class="cell" data-execution_count="8">
+<div id="109c3fbc" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1475,7 +1531,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="7664b511" class="cell" data-execution_count="9">
+<div id="f27d4dee" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -3199,273 +3255,6 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</guid>
   <pubDate>Sun, 22 Sep 2024 14:04:59 GMT</pubDate>
-</item>
-<item>
-  <title>Quarto による DataFrame の表示テスト</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。</p>
-<p>以下のように使用すれば CSV ファイルでタグを付与した形でウェブサイト一覧を管理できます。</p>
-<section id="ライブラリのインストール" class="level2">
-<h2 class="anchored" data-anchor-id="ライブラリのインストール">1. ライブラリのインストール</h2>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| include: true</span></span>
-<span id="cb1-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m pip install pandas</span>
-<span id="cb1-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!</span>python3 <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m pip install <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">--</span>upgrade jinja2</span></code></pre></div>
-</section>
-<section id="関数定義" class="level2">
-<h2 class="anchored" data-anchor-id="関数定義">2. 関数定義</h2>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| include: true</span></span>
-<span id="cb2-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb2-3"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> pd</span>
-<span id="cb2-4"></span>
-<span id="cb2-5">df_all <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> pd.read_csv(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'../assets/2024-09-08-quarto-df/quarto-df.csv'</span>)</span>
-<span id="cb2-6"></span>
-<span id="cb2-7"></span>
-<span id="cb2-8"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">def</span> make_clickable(url, title):</span>
-<span id="cb2-9">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f'&lt;a href="</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>url<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"&gt;</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>title<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">&lt;/a&gt;'</span></span>
-<span id="cb2-10"></span>
-<span id="cb2-11"></span>
-<span id="cb2-12"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">def</span> extract_tag(tag, df<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>df_all):</span>
-<span id="cb2-13">    _df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> df[df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Tags'</span>].<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">str</span>.contains(tag)].copy()</span>
-<span id="cb2-14"></span>
-<span id="cb2-15">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 欠損埋め</span></span>
-<span id="cb2-16">    _df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df.fillna({<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Date'</span>: <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'9999-12-31'</span>})</span>
-<span id="cb2-17">    _df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df.fillna(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'-'</span>)</span>
-<span id="cb2-18"></span>
-<span id="cb2-19">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># </span><span class="al" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">HACK</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">: __init__.py を強調させないためのワークアラウンド</span></span>
-<span id="cb2-20">    _df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Title'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Title'</span>].replace(</span>
-<span id="cb2-21">            <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'__init__.py'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'__ init __.py'</span>, regex<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span></span>
-<span id="cb2-22">        )</span>
-<span id="cb2-23"></span>
-<span id="cb2-24">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 日付とクリック可能なページ名の表示</span></span>
-<span id="cb2-25">    _df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df[[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Date'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Title'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'URL'</span>]].sort_values(</span>
-<span id="cb2-26">            [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Date'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Title'</span>], ascending<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>[<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>]</span>
-<span id="cb2-27">        )</span>
-<span id="cb2-28">    _df.index <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.arange(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">len</span>(_df) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span>
-<span id="cb2-29">    _df[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Website'</span>] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">apply</span>(</span>
-<span id="cb2-30">            <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">lambda</span> row: make_clickable(row[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'URL'</span>], row[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Title'</span>]), axis<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="cb2-31">        )</span>
-<span id="cb2-32">    _df <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> _df[[<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Date'</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'Website'</span>]].to_html(escape<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>, index<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">False</span>)</span>
-<span id="cb2-33">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> _df</span></code></pre></div>
-</section>
-<section id="csv-内容確認" class="level2">
-<h2 class="anchored" data-anchor-id="csv-内容確認">3. CSV 内容確認</h2>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!</span>cat ..<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span>assets<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2024</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>quarto<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>df<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span>quarto<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>df.csv</span></code></pre></div>
-</section>
-<section id="taga" class="level2">
-<h2 class="anchored" data-anchor-id="taga">4. TagA</h2>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| code-fold: false</span></span>
-<span id="cb4-2">extract_tag(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'TagA'</span>)</span></code></pre></div>
-</section>
-<section id="tagb" class="level2">
-<h2 class="anchored" data-anchor-id="tagb">5. TagB</h2>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#| code-fold: true</span></span>
-<span id="cb5-2">extract_tag(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'TagB'</span>)</span></code></pre></div>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-quarto</category>
-  <guid>https://i9wa4.github.io/blog/2024-09-08-quarto-dataframe-preview-test.html</guid>
-  <pubDate>Sat, 07 Sep 2024 15:24:34 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -1,14 +1,8 @@
 [
   {
-    "listing": "/slides/index.html",
-    "items": [
-      "/slides/2024-02-04-sapporo.vim.html",
-      "/slides/2023-12-16-sapporo.vim.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
       "/blog/2025-05-06-editorconfig-vim.html",
       "/blog/2025-05-06-python-venv.html",
       "/blog/2025-04-20-lefthook.html",
@@ -49,8 +43,16 @@
     ]
   },
   {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/2024-02-04-sapporo.vim.html",
+      "/slides/2023-12-16-sapporo.vim.html"
+    ]
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
       "/blog/2025-05-06-editorconfig-vim.html",
       "/blog/2025-05-06-python-venv.html",
       "/blog/2025-04-20-lefthook.html",
