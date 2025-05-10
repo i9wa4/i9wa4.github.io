@@ -17,5 +17,9 @@ listing:
     type: grid
 ---
 
+Welcome to uma-chan's page!
+
+---
+
 ::: {#list-all}
 :::
