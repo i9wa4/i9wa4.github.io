@@ -25,11 +25,6 @@ website:
     site: "@i9wa4_"
   navbar:
     # https://icons.getbootstrap.com/
-    left:
-      - href: "https://i9wa4.github.io/i9wa4"
-        text: "About"
-      - href: "https://i9wa4.github.io/resume"
-        text: "Resume"
     right:
       - href: "https://github.com/i9wa4"
         icon: github
@@ -41,26 +36,29 @@ website:
         icon: rss
   sidebar:
     style: floating
-    search: true
     contents:
-      - href: "blog/index.qmd"
-        text: "Blog"
-      - href: "slides/index.qmd"
-        text: "Slides"
-      - "---"
-      - href: "https://i9wa4.github.io/i9wa4"
-        text: "About"
-      - href: "https://i9wa4.github.io/resume"
-        text: "Resume"
-      - "---"
-      - href: "https://github.com/i9wa4"
-        text: "GitHub"
-      - href: "https://x.com/i9wa4_"
-        text: "X (Twitter)"
-      - href: "https://www.linkedin.com/in/daikm/"
-        text: "LinkedIn"
-      - href: "https://zenn.dev/i9wa4"
-        text: "Zenn"
+      - section: "Content"
+        contents:
+          - href: "blog/index.qmd"
+            text: "Blog"
+          - href: "slides/index.qmd"
+            text: "Slides"
+      - section: "My Other Websites"
+        contents:
+          - href: "https://i9wa4.github.io/i9wa4"
+            text: "About"
+          - href: "https://i9wa4.github.io/resume"
+            text: "Resume"
+      - section: "External Links"
+        contents:
+          - href: "https://github.com/i9wa4"
+            text: "GitHub"
+          - href: "https://x.com/i9wa4_"
+            text: "X (Twitter)"
+          - href: "https://www.linkedin.com/in/daikm/"
+            text: "LinkedIn"
+          - href: "https://zenn.dev/i9wa4"
+            text: "Zenn"
   page-footer:
     left:
       - text: "Copyright 2024, uma-chan"
