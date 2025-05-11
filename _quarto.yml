@@ -43,8 +43,6 @@ website:
             text: "Blog"
           - href: "slides/index.qmd"
             text: "Slides"
-          - href: "index.xml"
-            icox: rss
       - text: "---"
       - section: "My Other Websites"
         contents:
@@ -69,6 +67,8 @@ website:
     right:
       - href: "https://quarto.org/"
         text: "Built with Quarto"
+      - href: "index.xml"
+        text: "RSS"
     background: light
 
 format:
