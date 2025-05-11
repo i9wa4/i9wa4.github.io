@@ -23,17 +23,17 @@ website:
     card-style: summary
     creator: "@i9wa4_"
     site: "@i9wa4_"
-  navbar:
+  navbar: true
     # https://icons.getbootstrap.com/
-    right:
-      # - href: "https://github.com/i9wa4"
-      #   icon: github
-      # - href: "https://x.com/i9wa4_"
-      #   icon: twitter-x
-      # - href: "https://www.linkedin.com/in/daikm/"
-      #   icon: linkedin
-      - href: "index.xml"
-        icon: rss
+    # right:
+    #   - href: "https://github.com/i9wa4"
+    #     icon: github
+    #   - href: "https://x.com/i9wa4_"
+    #     icon: twitter-x
+    #   - href: "https://www.linkedin.com/in/daikm/"
+    #     icon: linkedin
+    #   - href: "index.xml"
+    #     icon: rss
   sidebar:
     style: floating
     contents:
@@ -43,6 +43,8 @@ website:
             text: "Blog"
           - href: "slides/index.qmd"
             text: "Slides"
+          - href: "index.xml"
+            icox: rss
       - text: "---"
       - section: "My Other Websites"
         contents:
