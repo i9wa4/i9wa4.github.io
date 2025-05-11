@@ -17,7 +17,93 @@
 <width>144</width>
 </image>
 <generator>quarto-1.7.30</generator>
-<lastBuildDate>Sat, 10 May 2025 05:51:17 GMT</lastBuildDate>
+<lastBuildDate>Sun, 11 May 2025 15:13:12 GMT</lastBuildDate>
+<item>
+  <title>AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>AWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。</p>
+</section>
+<section id="背景" class="level2">
+<h2 class="anchored" data-anchor-id="背景">2. 背景</h2>
+<p>以下のような記事を参考にしながら MCP クライアントと MCP サーバーを全て Lambda (&amp; ECR) で管理させようと考えています。</p>
+<ul>
+<li><a href="https://zenn.dev/georgia1/articles/214056407379b2">SlackからLambda上にあるMCPクライアントとMCPサーバー動かす</a></li>
+<li><a href="https://qiita.com/kyamamoto9120/items/f1cda89ffc7cb5254f17">コンテナイメージを使用してAWS Lambda関数を作成する #Python - Qiita</a></li>
+<li><a href="https://dev.classmethod.jp/articles/securing-mcp-tools-with-aws-lambda-integration/">AWS Cost Analysis MCP ServerのツールをLambda関数に移植してAWS Lambda MCP Server経由で実行する | DevelopersIO</a></li>
+<li><a href="https://dev.classmethod.jp/articles/measure-container-image-lambda-coldstart/">爆速？！コンテナイメージからデプロイしたLambdaのコールドスタートについて検証してみた #reinvent | DevelopersIO</a></li>
+</ul>
+<p>まずは表題の通り動く Lambda を作成し CI/CD を整備することで以降に備えます。</p>
+</section>
+<section id="構成" class="level2">
+<h2 class="anchored" data-anchor-id="構成">3. 構成</h2>
+<p>とりあえず動くようになったので、ほぼ無説明で構成だけ載せます。</p>
+<p><a href="https://github.com/i9wa4/terraform-mono-repo/tree/fe67b11fe6e7696325103fd997980f5cf8e94f1d" class="uri">https://github.com/i9wa4/terraform-mono-repo/tree/fe67b11fe6e7696325103fd997980f5cf8e94f1d</a></p>
+<p>関係する部分は以下になっています。</p>
+<pre class="{sh}"><code>$ tree -a -I ".git/|hands-on-import|hands-on-sfn|.terraform" -A
+.
+├── .github
+│   └── workflows
+│       └── hands-on-lambda-ecr-deploy.yml
+└── services
+    └── hands-on-lambda-ecr
+        ├── app
+        │   ├── app.py
+        │   ├── Dockerfile
+        │   └── requirements.txt
+        ├── README.md
+        └── terraform
+            ├── .terraform.lock.hcl
+            ├── main.tf
+            ├── outputs.tf
+            ├── variables.tf
+            └── versions.tf</code></pre>
+<p>モノレポの練習で作ってみたリポジトリなのですが、整備はこれからという感じです。</p>
+</section>
+<section id="大変だった点" class="level2">
+<h2 class="anchored" data-anchor-id="大変だった点">4. 大変だった点</h2>
+<ul>
+<li>ECR Image URI の取得周り
+<ul>
+<li>ECR タグを Immutable にしたせい</li>
+</ul></li>
+<li>GitHub Actions 内の OIDC 認証
+<ul>
+<li>初めてやると慣れてなくて手間取った</li>
+</ul></li>
+</ul>
+</section>
+<section id="課題" class="level2">
+<h2 class="anchored" data-anchor-id="課題">5. 課題</h2>
+<ul>
+<li>デプロイだけ手動でできるが CI は追加できていない</li>
+<li>main.tf でかすぎ</li>
+<li>dev/prod 環境分離考慮してない</li>
+<li>ローカルから Makefile でデプロイできるようにしてない</li>
+</ul>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">6. おわりに</h2>
+<p>今までで一番大変な Hello World でした。</p>
+<p>整備は一旦後回しにして MCP 周りの実装をやっていきたいです。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <guid>https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html</guid>
+  <pubDate>Sun, 11 May 2025 15:13:12 GMT</pubDate>
+</item>
 <item>
   <title>Bash/Zsh でコマンドをエディタで編集する</title>
   <dc:creator>uma-chan </dc:creator>
@@ -1027,7 +1113,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="52326591" class="cell" data-execution_count="3">
+<div id="f1a0d9d6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1225,7 +1311,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="a44277d9" class="cell" data-execution_count="4">
+<div id="d0196cc1" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1279,7 +1365,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="153fbf42" class="cell" data-execution_count="5">
+<div id="1f3cdbde" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1369,7 +1455,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="3bd62fc0" class="cell" data-execution_count="6">
+<div id="78f5fb40" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1411,7 +1497,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="92c81c6a" class="cell" data-execution_count="7">
+<div id="401e5e31" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1453,7 +1539,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="0af00a0e" class="cell" data-execution_count="8">
+<div id="815dbe8b" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1531,7 +1617,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="4361f5f6" class="cell" data-execution_count="9">
+<div id="efc2a778" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -3196,65 +3282,6 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</guid>
   <pubDate>Fri, 25 Oct 2024 12:29:49 GMT</pubDate>
-</item>
-<item>
-  <title>最近の Vim プラグイン開発のアイデア</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>dotfiles から切り離したくなってきたらそれがプラグインの作り時。</p>
-<p>今温めているアイデアをメモしておきます。</p>
-<section id="ローカル設定の読み込み" class="level2">
-<h2 class="anchored" data-anchor-id="ローカル設定の読み込み">1. ローカル設定の読み込み</h2>
-<p>おそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。</p>
-<p><a href="https://github.com/thinca/vim-localrc">thinca/vim-localrc: Enable configuration file of each directory.</a></p>
-</section>
-<section id="terminal-管理" class="level2">
-<h2 class="anchored" data-anchor-id="terminal-管理">2. Terminal 管理</h2>
-<p>Vim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。</p>
-<p>dotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。</p>
-<p>他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？</p>
-</section>
-<section id="jupytext-と-ipynb-の同期" class="level2">
-<h2 class="anchored" data-anchor-id="jupytext-と-ipynb-の同期">3. Jupytext と ipynb の同期</h2>
-<p>Jupytext で ipynb と py を同期させるプラグイン。</p>
-<p>通常は Jupytext をコマンドで実行させると思いますが、非同期で同期させる (？) 挙動をさせたいですね。</p>
-<p>Jupytext に変換しておくと Git 管理しやすくなるものの、Jupytext がマイナー過ぎてチーム開発で自分が他人に推奨できない点がネックで最近あまり使わなくなりつつあります。</p>
-<p>みんな ipynb の管理どうしているんだろう。。</p>
-</section>
-<section id="tabline-設定" class="level2">
-<h2 class="anchored" data-anchor-id="tabline-設定">4. Tabline 設定</h2>
-<p>頑張って書き上げたため切り離してもよいかも。</p>
-<p>ちなみに最近 Statusline は使ってません！</p>
-</section>
-<section id="追記-virtualtext-を活用したメモプラグイン" class="level2">
-<h2 class="anchored" data-anchor-id="追記-virtualtext-を活用したメモプラグイン">5. [2024-10-25 追記] virtualtext を活用したメモプラグイン</h2>
-<p>コードリーディング中にメモを残すためのプラグイン。</p>
-<p>メモ一覧をリポジトリ内に保持しておきたい。</p>
-<p>Linter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。</p>
-</section>
-<section id="追記-dbt-プラグイン-deno" class="level2">
-<h2 class="anchored" data-anchor-id="追記-dbt-プラグイン-deno">6. [2024-11-25 追記] dbt プラグイン (Deno)</h2>
-<p>Vim/Neovim 両対応で最低限の機能をもったものがほしい。</p>
-</section>
-<section id="追記-zenn-quarto-の本文変換" class="level2">
-<h2 class="anchored" data-anchor-id="追記-zenn-quarto-の本文変換">7. [2024-11-25 追記] Zenn &lt;–&gt; Quarto の本文変換</h2>
-<p>コードブロックの書き方を変換するだけで足りる？</p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-vim</category>
-  <guid>https://i9wa4.github.io/blog/2024-09-22-vim-plugin-idea.html</guid>
-  <pubDate>Sun, 22 Sep 2024 14:04:59 GMT</pubDate>
 </item>
 </channel>
 </rss>
