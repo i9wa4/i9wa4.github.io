@@ -26,12 +26,12 @@ website:
   navbar:
     # https://icons.getbootstrap.com/
     right:
-      - href: "https://github.com/i9wa4"
-        icon: github
-      - href: "https://x.com/i9wa4_"
-        icon: twitter-x
-      - href: "https://www.linkedin.com/in/daikm/"
-        icon: linkedin
+      # - href: "https://github.com/i9wa4"
+      #   icon: github
+      # - href: "https://x.com/i9wa4_"
+      #   icon: twitter-x
+      # - href: "https://www.linkedin.com/in/daikm/"
+      #   icon: linkedin
       - href: "index.xml"
         icon: rss
   sidebar:
