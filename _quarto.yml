@@ -43,12 +43,14 @@ website:
             text: "Blog"
           - href: "slides/index.qmd"
             text: "Slides"
+      - text: "---"
       - section: "My Other Websites"
         contents:
           - href: "https://i9wa4.github.io/i9wa4"
             text: "About"
           - href: "https://i9wa4.github.io/resume"
             text: "Resume"
+      - text: "---"
       - section: "External Links"
         contents:
           - href: "https://github.com/i9wa4"
