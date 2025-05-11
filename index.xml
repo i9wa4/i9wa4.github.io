@@ -48,24 +48,68 @@
 <p>とりあえず動くようになったので、ほぼ無説明で構成だけ載せます。</p>
 <p><a href="https://github.com/i9wa4/terraform-mono-repo/tree/fe67b11fe6e7696325103fd997980f5cf8e94f1d" class="uri">https://github.com/i9wa4/terraform-mono-repo/tree/fe67b11fe6e7696325103fd997980f5cf8e94f1d</a></p>
 <p>関係する部分は以下になっています。</p>
-<pre class="{sh}"><code>$ tree -a -I ".git/|hands-on-import|hands-on-sfn|.terraform" -A
-.
-├── .github
-│   └── workflows
-│       └── hands-on-lambda-ecr-deploy.yml
-└── services
-    └── hands-on-lambda-ecr
-        ├── app
-        │   ├── app.py
-        │   ├── Dockerfile
-        │   └── requirements.txt
-        ├── README.md
-        └── terraform
-            ├── .terraform.lock.hcl
-            ├── main.tf
-            ├── outputs.tf
-            ├── variables.tf
-            └── versions.tf</code></pre>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> tree <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-a</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-I</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".git/|hands-on-import|hands-on-sfn|.terraform"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-A</span></span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">.</span></span>
+<span id="cb1-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> .github</span>
+<span id="cb1-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>   └── workflows</span>
+<span id="cb1-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>       └── hands-on-lambda-ecr-deploy.yml</span>
+<span id="cb1-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> services</span>
+<span id="cb1-7">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> hands-on-lambda-ecr</span>
+<span id="cb1-8">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> app</span>
+<span id="cb1-9">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>   ├── app.py</span>
+<span id="cb1-10">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>   ├── Dockerfile</span>
+<span id="cb1-11">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">│</span>   └── requirements.txt</span>
+<span id="cb1-12">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> README.md</span>
+<span id="cb1-13">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> terraform</span>
+<span id="cb1-14">            <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> .terraform.lock.hcl</span>
+<span id="cb1-15">            <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> main.tf</span>
+<span id="cb1-16">            <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> outputs.tf</span>
+<span id="cb1-17">            <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> variables.tf</span>
+<span id="cb1-18">            <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> versions.tf</span></code></pre></div>
 <p>モノレポの練習で作ってみたリポジトリなのですが、整備はこれからという感じです。</p>
 </section>
 <section id="大変だった点" class="level2">
@@ -1113,7 +1157,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="f1a0d9d6" class="cell" data-execution_count="3">
+<div id="d3617f52" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1311,7 +1355,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="d0196cc1" class="cell" data-execution_count="4">
+<div id="9200d18c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1365,7 +1409,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="1f3cdbde" class="cell" data-execution_count="5">
+<div id="93509b18" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1455,7 +1499,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="78f5fb40" class="cell" data-execution_count="6">
+<div id="0c491969" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1497,7 +1541,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="401e5e31" class="cell" data-execution_count="7">
+<div id="23103616" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1539,7 +1583,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="815dbe8b" class="cell" data-execution_count="8">
+<div id="423c42a8" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1617,7 +1661,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="efc2a778" class="cell" data-execution_count="9">
+<div id="9de8daf6" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
