@@ -65,10 +65,10 @@ website:
     left:
       - text: "Copyright 2024, uma-chan"
     right:
+      - href: "index.xml"
+        icon: rss
       - href: "https://quarto.org/"
         text: "Built with Quarto"
-      - href: "index.xml"
-        text: "RSS"
     background: light
 
 format:
