@@ -1,6 +1,6 @@
 ---
 title: "職務経歴書"
-date: last-modified
+date-modified: last-modified
 repo-actions: false
 listing:
   - id: "list-details-full-time"

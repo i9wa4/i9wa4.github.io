@@ -1,6 +1,6 @@
 ---
 title: "PIVOT株式会社"
-date: last-modified
+date-modified: last-modified
 repo-actions: false
 categories:
   - "業務委託"
