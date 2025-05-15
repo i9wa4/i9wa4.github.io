@@ -5,7 +5,7 @@ repo-actions: false
 listing:
   - id: "list-details-full-time"
     contents:
-      - "details"
+      - "."
     exclude:
       filename:
         - "index.qmd"
@@ -23,7 +23,7 @@ listing:
     type: table
   - id: "list-details-part-time"
     contents:
-      - "details"
+      - "."
     exclude:
       filename:
         - "index.qmd"
