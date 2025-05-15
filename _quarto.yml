@@ -5,8 +5,10 @@ project:
 date-format: iso
 theme:
   # https://quarto.org/docs/output-formats/html-themes.html
-  light: yeti
-  dark: superhero
+  # light: yeti
+  # dark: superhero
+  light: flatly
+  dark: darkly
 
 website:
   title: "uma-chan's page"
@@ -81,6 +83,7 @@ format:
       margin-width: 300px
     linestretch: 1.4
     page-layout: full
+    respect-user-color-scheme: true
     toc-depth: 2
     toc-expand: true
     toc-title: "Table of Contents"
