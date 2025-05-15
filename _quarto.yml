@@ -25,6 +25,12 @@ website:
     site: "@i9wa4_"
   sidebar:
     style: floating
+    background: light
+    tools:
+      - icon: twitter-x
+        href: "https://x.com/i9wa4_"
+      - icon: github
+        href: "https://github.com/i9wa4"
     contents:
       - section: "Content"
         contents:
