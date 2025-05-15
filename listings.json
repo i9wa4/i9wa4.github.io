@@ -86,32 +86,14 @@
     ]
   },
   {
-    "listing": "/resume/details/index.html",
-    "items": [
-      "/resume/details/07-pivot.html",
-      "/resume/details/05-genda.html",
-      "/resume/details/04-hacomono.html",
-      "/resume/details/03-cnsh.html",
-      "/resume/details/02-sld.html",
-      "/resume/details/01-okuma.html"
-    ]
+    "listing": "/resume/index.html",
+    "items": []
   },
   {
     "listing": "/slides/index.html",
     "items": [
       "/slides/2024-02-04-sapporo.vim.html",
       "/slides/2023-12-16-sapporo.vim.html"
-    ]
-  },
-  {
-    "listing": "/resume/index.html",
-    "items": [
-      "/resume/details/05-genda.html",
-      "/resume/details/04-hacomono.html",
-      "/resume/details/03-cnsh.html",
-      "/resume/details/02-sld.html",
-      "/resume/details/01-okuma.html",
-      "/resume/details/07-pivot.html"
     ]
   }
 ]
