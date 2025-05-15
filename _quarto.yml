@@ -13,7 +13,7 @@ website:
   bread-crumbs: true
   favicon: "assets/common/icon_hhkb3.png"
   image: "assets/common/icon_hhkb3.png"
-  page-navigation: true
+  # page-navigation: true
   search: true
   site-url: "https://i9wa4.github.io"
   open-graph:
@@ -23,7 +23,7 @@ website:
     card-style: summary
     creator: "@i9wa4_"
     site: "@i9wa4_"
-  navbar: true
+  # navbar: true
     # https://icons.getbootstrap.com/
     # right:
     #   - href: "https://github.com/i9wa4"
@@ -43,6 +43,15 @@ website:
             text: "Blog"
           - href: "slides/index.qmd"
             text: "Slides"
+          - href: "resume/index.qmd"
+            section: "Resume"
+            contents:
+              - "resume/details/07-pivot.qmd"
+              - "resume/details/05-genda.qmd"
+              - "resume/details/04-hacomono.qmd"
+              - "resume/details/03-cnsh.qmd"
+              - "resume/details/02-sld.qmd"
+              - "resume/details/01-okuma.qmd"
       - text: "---"
       - section: "My Other Websites"
         contents:

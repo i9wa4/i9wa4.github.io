@@ -1,0 +1,226 @@
+---
+title: "職務経歴書"
+date: last-modified
+listing:
+  - id: "list-details-full-time"
+    contents:
+      - "details"
+    exclude:
+      filename:
+        - "index.qmd"
+    fields:
+      - "Period"
+      - "title"
+      - "description"
+    filter-ui: false
+    include:
+      categories:
+        - "正社員"
+    sort:
+      - "filename desc"
+    sort-ui: false
+    type: table
+  - id: "list-details-part-time"
+    contents:
+      - "details"
+    exclude:
+      filename:
+        - "index.qmd"
+    fields:
+      - "Period"
+      - "title"
+      - "description"
+    filter-ui: false
+    include:
+      categories:
+        - "業務委託"
+    sort:
+      - "filename desc"
+    sort-ui: false
+    type: table
+---
+
+<!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
+
+- 現住所：北海道札幌市
+- 職務経歴書公開先：<https://i9wa4.github.io/resume>
+- GitHub：<https://github.com/i9wa4>
+- Ask DeepWiki about me：<https://deepwiki.com/i9wa4/resume>
+
+## 職務要約
+
+北海道大学理学部数学科を卒業後、Windowsアプリエンジニアや組込エンジニアを6年間経験し、2022年以降はデータエンジニアとMLOpsエンジニアとして勤務しております。
+
+**◆データエンジニアとしての経験：**<br>
+データ基盤の管理者・データ基盤の構築運用・データ基盤のIaC化・dbtによるデータマート構築運用・ダッシュボード作成運用のようにデータエンジニアリング全般に一気通貫で携わってきました。
+
+**◆MLOpsエンジニアとしての経験：**<br>
+二値分類による顧客の行動予測モデルの作成～ワークフロー構築運用保守・機械学習基盤のCI整備・機械学習基盤上でのプログラム実行エラー対応などに取り組んできました。
+
+**◆チームの中での役割：**<br>
+シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。hacomonoでは一人データエンジニアとしてデータ基盤管理者・データ基盤や利活用に関するタスクの社内調整・データ基盤部の目標管理といったリーダー相当の業務を担当しておりました。現職GENDAではあるグループ企業のデータ利活用の窓口兼主担当として関係者との仕様調整やデータエンジニアリング全般を任されております。また業務進捗管理やレビューなどデータエンジニアチームのリーダー業務を2025年4月から徐々に受け持っております。
+
+**◆採用活動への関与：**<br>
+チームを成長させることに対する興味関心が強く、採用活動に積極的に参加しております。新卒採用選考・面接官・カジュアル面談者の募集と面談実施・リファラル採用・転職媒体での候補者選定・ジョブディスクリプションの修正・求人の宣伝を行ってきました。
+
+## 自己PR
+
+**◆性格面：**<br>
+周囲の社員に貢献できるような地道な業務にモチベーション高く取り組むことができます。具体的には CI/CD 整備・ドキュメント整備・勉強会開催・情報共有・採用活動などです。現在主に担当しているデータ利活用に向けた業務は、中長期的に周囲の社員に貢献できるものと信じて取り組めるため自分にマッチした業務であると感じています。
+
+## 職務経歴
+
+::: {.callout-note appearance=simple}
+
+詳細は社名リンク先をご確認ください。
+
+:::
+
+### 正社員
+
+::: {#list-details-full-time}
+:::
+
+### 業務委託
+
+::: {#list-details-part-time}
+:::
+
+### 最も苦労したプロジェクト
+
+現職の株式会社GENDAにて取り組んでいる以下です。
+データ基盤の改修・データマート構築・ダッシュボード作成・全体の運用・データ分析支援といったデータに関すること全てを私が対応しており、プロジェクト進行上人員不足の面での課題に向き合い解消に向かっている最中です。
+
+[[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA](/details/05-genda.qmd#データ-カラオケ事業会社のデータ利活用推進)
+
+### 職務経歴 図解
+
+```{mermaid}
+%%{
+    init: {
+        'logLevel': 'debug',
+        'theme': 'base',
+        'gitGraph': {
+            'rotateCommitLabel': true,
+            'showBranches': false
+        },
+        'themeVariables': {
+            'commitLabelFontSize': '14px',
+            'tagLabelFontSize': '12px'
+        }
+    }
+}%%
+gitGraph LR:
+    checkout main
+    commit id: "北海道大学 理学部数学科 卒業" tag: "16.03"
+
+    checkout main
+    branch b01 order: 1
+    commit id: "オークマ株式会社 入社" tag: "16.04" type: HIGHLIGHT
+    commit id: "Windows アプリエンジニア"
+    checkout main
+    merge b01 id: "18.07"
+
+    checkout main
+    branch b02 order: 2
+    commit id: "新光商事LSIデザインセンター株式会社 入社" tag: "18.08" type: HIGHLIGHT
+    commit id: "組込エンジニア"
+    checkout main
+    merge b02 id: "22.03"
+
+    checkout main
+    branch b03 order: 3
+    commit id: "株式会社シイエヌエス北海道 入社" tag: "22.04" type: HIGHLIGHT
+    commit id: "データエンジニア / MLOps エンジニア-1"
+    checkout main
+    merge b03 id: "24.03"
+
+    checkout main
+    branch b04 order: 4
+    commit id: "株式会社hacomono 入社" tag: "24.04" type: HIGHLIGHT
+    commit id: "データエンジニア"
+    checkout main
+    merge b04 id: "24.10"
+
+    checkout main
+    branch b05 order: 5
+    commit id: "株式会社GENDA 入社" tag: "24.11" type: HIGHLIGHT
+    commit id: "データエンジニア / MLOps エンジニア-2"
+
+    checkout main
+    commit id: "25.05"
+    branch b07 order: 7
+    commit id: "PIVOT株式会社 業務委託として参画" tag: "25.06" type: HIGHLIGHT
+    commit id: "データエンジニア / MLOps エンジニア-3"
+
+    %% --- Current Activity ---
+
+    %% checkout main
+    %% commit id: "個人活動"
+
+    checkout b05
+    commit id: "就業中" type: HIGHLIGHT
+
+    checkout b07
+    commit id: "参画中" type: HIGHLIGHT
+```
+
+## 今後取り組みたいこと
+
+**◆役割面：**<br>
+直近：リーダー経験・マネジメント経験を積む<br>
+3-5年後：データ組織でリーダーシップを発揮し横断的にコミュニケーションを取りながらビジネス上の課題解決を目指す
+
+**◆技術面：**<br>
+データ基盤管理者として各種サービスの知見を深める<br>
+データ活用に繋がる分野 (BIツール・データカタログ・データマート作成など) へ積極関与する<br>
+特徴量作成・データマート改善のようにデータの観点から機械学習に貢献する<br>
+AIを活用して開発環境改善やデータ分析の簡易化 (民主化) に貢献する
+
+## スキルレベル
+
+★：業務経験あり
+
+: {tbl-colwidths="[15,20,10,55]"}
+
+| 項目      | 種類                  | 使用期間                                        | レベル                                                                                                                                     |
+| :---      | :---                  | :---                                            | :---                                                                                                                                       |
+| IaC       | Docker                | <!-- 2022/04-xxxx/xx --> ★3年                  | Dockerfile や Docker Compose の記述・実行が可能                                                                                            |
+| IaC       | GitHub / CodeCommit   | <!-- 2021/04-xxxx/xx --> ★4年                  | Git flow や GitHub flow に則った開発利用やレビューが可能                                                                                   |
+| IaC       | GitHub Actions        | <!-- 2024/04-xxxx/xx --> ★1年                  | 既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能                                            |
+| IaC       | Terraform             | <!-- 2024/04-xxxx/xx --> ★1年                  | AWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能                                                       |
+| Data      | BigQuery              | <!-- 2024/04-2024/10 --> ★0.5年                | 管理者業務や IaC 化作業が可能                                                                                                              |
+| Data      | Embulk                | <!-- 2024/04-2024/10 --> ★0.5年                | 転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能                                                                      |
+| Data      | TROCCO                | <!-- 2024/04-2024/10 --> ★0.5年                | ジョブ作成・運用が可能                                                                                                                     |
+| Data      | dbt Cloud             | <!-- 2024/11-xxxx/xx --> ★0.5年                | ジョブ作成・運用が可能                                                                                                                     |
+| Data      | dbt Core              | <!-- 2023/10-2024/03, 2024/11-xxxx/xx --> ★1年 | プロジェクト新規作成から運用まで可能                                                                                                       |
+| Data / ML | Databricks            | <!-- 2024/11-xxxx/xx --> ★0.5年                | 管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能                                           |
+| Data / ML | Snowflake             | <!-- 2022/04-2024/03, 2024/11-xxxx/xx --> ★2年 | データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能                                                        |
+| ML        | DataRobot             | <!-- 2022/04-2024/03 --> ★2年                  | オートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能                                    |
+| OS        | Amazon Linux / Ubuntu | <!-- 2021/04-xxxx/xx --> ★4年                  | 要件に応じた環境構築や開発環境利用が可能                                                                                                   |
+| OS        | Windows / macOS       | <!-- 2016/04-xxxx/xx --> ★9年                  | 開発利用が可能                                                                                                                             |
+| 言語      | C                     | <!-- 2018/08-2022/03 --> ★3年                  | 一人称で作業可能                                                                                                                           |
+| 言語      | Python                | <!-- 2021/04-xxxx/xx --> ★4年                  | 一人称で作業可能                                                                                                                           |
+| 言語      | SQL                   | <!-- 2022/04-xxxx/xx --> ★3年                  | 一人称で作業可能                                                                                                                           |
+| 言語      | Shell Script          | <!-- 2021/04-xxxx/xx --> ★4年                  | 一人称で作業可能                                                                                                                           |
+| Cloud     | AWS                   | <!-- 2022/04-xxxx/xx --> ★3年                  | EC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能                                         |
+| Cloud     | Google Cloud          | <!-- 2024/04-2024/10 --> ★0.5年                | BigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能 |
+| DB        | MySQL                 | <!-- 2022/04, 2024/04-xxxx/xx --> ★1年         | パフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能                                                                     |
+| DB        | PostgreSQL            | <!-- 2022/04-2022/09 --> ★0.5年                | ローカル環境でのデータベース作成・データ閲覧が可能                                                                                         |
+
+## 資格
+
+- [2023/04] 統計検定2級
+- [2015/03] TOEIC スコア 805
+<!-- - [2012/11] 普通自動車第一種運転免許 -->
+
+## 通常業務以外の活動
+
+### 記事執筆・掲載
+
+| 日付           | 概要                        | リンク                                                                                                                                  |
+| :---           | :---                        | :---                                                                                                                                    |
+| 2024/12 - 現在 | GENDA テックブログ執筆      | [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)                                                                                 |
+| 2024/10/08     | Findy Tools 様 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28) |
+| 2024/08/21     | Findy Tools 様 レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                     |
+| 2024/07/02     | hacomono テックブログ執筆   | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)       |
