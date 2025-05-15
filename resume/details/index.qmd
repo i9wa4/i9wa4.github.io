@@ -1,5 +1,6 @@
 ---
 title: "職務経歴 詳細"
+repo-actions: false
 listing:
   - id: "list-all"
     categories: numbered

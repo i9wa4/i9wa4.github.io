@@ -1,6 +1,7 @@
 ---
 title: "オークマ株式会社"
 date: last-modified
+repo-actions: false
 categories:
   - "正社員"
 description: |

@@ -1,6 +1,7 @@
 ---
 title: "株式会社シイエヌエス北海道"
 date: last-modified
+repo-actions: false
 categories:
   - "正社員"
 description: |

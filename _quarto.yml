@@ -16,6 +16,8 @@ website:
   page-navigation: true
   search: true
   site-url: "https://i9wa4.github.io"
+  repo-url: "https://github.com/i9wa4/i9wa4.github.io"
+  repo-actions: [edit, source, issue]
   open-graph:
     locale: "ja_JP"
     site-name: "uma-chan's page"
@@ -58,11 +60,13 @@ website:
           - href: "https://github.com/i9wa4"
             text: "GitHub"
           - href: "https://x.com/i9wa4_"
-            text: "X (Twitter)"
+            text: "X (formerly Twitter)"
           - href: "https://www.linkedin.com/in/daikm/"
             text: "LinkedIn"
           - href: "https://zenn.dev/i9wa4"
             text: "Zenn"
+          - href: "https://deepwiki.com/i9wa4/i9wa4.github.io"
+            text: "DeepWiki (ask about me)"
   page-footer:
     left:
       - text: "Copyright 2024, uma-chan"
