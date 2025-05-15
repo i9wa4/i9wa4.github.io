@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9cbb81fc572188532f66d0d1834f49f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-48b78e8192c4e7ac596aeb01aa3a6a6c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9cbb81fc572188532f66d0d1834f49f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dd3f0f39562b3995568bd34a0afda8be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a9a789f74e3082338eb31446e3201b94.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dd3f0f39562b3995568bd34a0afda8be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -232,7 +232,8 @@ ul.task-list li input[type="checkbox"] {
       }
     };
     const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
@@ -245,6 +246,14 @@ ul.task-list li input[type="checkbox"] {
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
     };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
     // Switch to dark mode if need be
     if (hasAlternateSentinel()) {
       toggleColorMode(true);
@@ -435,7 +444,7 @@ ul.task-list li input[type="checkbox"] {
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="73331205" class="cell" data-execution_count="3">
+<div id="2dc7fce6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -633,7 +642,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="6bc4cddd" class="cell" data-execution_count="4">
+<div id="833971bc" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -687,7 +696,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="309ed07d" class="cell" data-execution_count="5">
+<div id="2f0ba82c" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -777,7 +786,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="0b04321a" class="cell" data-execution_count="6">
+<div id="68c41b98" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -819,7 +828,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="2c17952d" class="cell" data-execution_count="7">
+<div id="16c8acee" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -861,7 +870,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="c1bb2d65" class="cell" data-execution_count="8">
+<div id="d6cb61cc" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -939,7 +948,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="d58e8ab6" class="cell" data-execution_count="9">
+<div id="c5681673" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
