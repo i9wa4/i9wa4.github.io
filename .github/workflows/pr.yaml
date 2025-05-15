@@ -1,4 +1,6 @@
 name: Workflow for Pull Request
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
+
 on:
   workflow_dispatch:  # いつでも手動実行可能にしておく
   pull_request:
