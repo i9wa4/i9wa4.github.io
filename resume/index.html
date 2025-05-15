@@ -86,9 +86,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-Period','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-Period','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -114,9 +114,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-Period','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-Period','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -602,15 +602,91 @@ window.Quarto = {
 <section id="正社員" class="level3">
 <h3 class="anchored" data-anchor-id="正社員">3.1. 正社員</h3>
 <div id="listing-list-details-full-time" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table caption-top" data-quarto-postprocess="true">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Period</th>
-<th data-quarto-table-cell-role="th">Title</th>
-<th data-quarto-table-cell-role="th">Description</th>
+<tr>
+
+<th>
+Period
+</th>
+
+<th>
+Title
+</th>
+
+<th>
+Description
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
+
+<tr data-index="0" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-file-modified-sort="1747300202000" data-listing-reading-time-sort="8" data-listing-word-count-sort="1461" data-listing-title-sort="株式会社GENDA" data-listing-filename-sort="05-genda.qmd">
+<td>
+<span class="listing-Period">2024/11 - 現在</span>
+</td>
+<td>
+<a href="../resume/05-genda.html" class="title listing-title">株式会社GENDA</a>
+</td>
+<td>
+<span class="listing-description">データエンジニア・MLOps エンジニアとして以下に従事<br> - データパイプライン全体の変更対応<br> - データマート整備<br> - ダッシュボード作成・運用<br> - AWS から Databricks への機械学習開発基盤移行対応<br> - CI 導入など機械学習基盤の整備 </span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-file-modified-sort="1747300202000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1728" data-listing-title-sort="株式会社hacomono" data-listing-filename-sort="04-hacomono.qmd">
+<td>
+<span class="listing-Period">2024/04 - 2024/10</span>
+</td>
+<td>
+<a href="../resume/04-hacomono.html" class="title listing-title">株式会社hacomono</a>
+</td>
+<td>
+<span class="listing-description">データエンジニアとして以下に従事<br> - 自社環境・顧客環境の DWH 構築・運用<br> - 自社データ基盤の運用改善・機能追加 </span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-file-modified-sort="1747300202000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1765" data-listing-title-sort="株式会社シイエヌエス北海道" data-listing-filename-sort="03-cnsh.qmd">
+<td>
+<span class="listing-Period">2022/04 - 2024/03</span>
+</td>
+<td>
+<a href="../resume/03-cnsh.html" class="title listing-title">株式会社シイエヌエス北海道</a>
+</td>
+<td>
+<span class="listing-description">データエンジニア・MLOps エンジニアとして以下に従事<br> - データパイプライン構築<br> - データマート整備<br> - 機械学習ワークフロー構築 </span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-file-modified-sort="1747300202000" data-listing-reading-time-sort="4" data-listing-word-count-sort="687" data-listing-title-sort="新光商事LSIデザインセンター株式会社" data-listing-filename-sort="02-sld.qmd">
+<td>
+<span class="listing-Period">2018/08 - 2022/03</span>
+</td>
+<td>
+<a href="../resume/02-sld.html" class="title listing-title">新光商事LSIデザインセンター株式会社</a>
+</td>
+<td>
+<span class="listing-description">組込エンジニアとして以下に従事<br> - 車載マイコンの機能開発<br> - インバータやモータの制御開発 </span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-file-modified-sort="1747300202000" data-listing-reading-time-sort="5" data-listing-word-count-sort="860" data-listing-title-sort="オークマ株式会社" data-listing-filename-sort="01-okuma.qmd">
+<td>
+<span class="listing-Period">2016/04 - 2018/07</span>
+</td>
+<td>
+<a href="../resume/01-okuma.html" class="title listing-title">オークマ株式会社</a>
+</td>
+<td>
+<span class="listing-description">Windows アプリエンジニアとして以下に従事<br> - Windows 用 CAD/CAM アプリ開発の要件定義・テスト </span>
+</td>
+
+</tr>
+
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
@@ -619,15 +695,39 @@ window.Quarto = {
 <section id="業務委託" class="level3">
 <h3 class="anchored" data-anchor-id="業務委託">3.2. 業務委託</h3>
 <div id="listing-list-details-part-time" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table caption-top" data-quarto-postprocess="true">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Period</th>
-<th data-quarto-table-cell-role="th">Title</th>
-<th data-quarto-table-cell-role="th">Description</th>
+<tr>
+
+<th>
+Period
+</th>
+
+<th>
+Title
+</th>
+
+<th>
+Description
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
+
+<tr data-index="0" data-categories="JUU2JUE1JUFEJUU1JThCJTk5JUU1JUE3JTk0JUU4JUE4JTk3" data-listing-file-modified-sort="1747300202000" data-listing-reading-time-sort="2" data-listing-word-count-sort="295" data-listing-title-sort="PIVOT株式会社" data-listing-filename-sort="07-pivot.qmd">
+<td>
+<span class="listing-Period">2025/06 - 現在</span>
+</td>
+<td>
+<a href="../resume/07-pivot.html" class="title listing-title">PIVOT株式会社</a>
+</td>
+<td>
+<span class="listing-description">データエンジニア・MLOps エンジニア </span>
+</td>
+
+</tr>
+
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
