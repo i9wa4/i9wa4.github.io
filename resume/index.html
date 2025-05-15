@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2024-11-12">
+<meta name="dcterms.date" content="2025-05-15">
 
-<title>nektos/act を使ってみた – uma-chan’s page</title>
+<title>職務経歴書 – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -68,6 +32,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -109,16 +75,105 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-list-details-full-time .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<meta property="og:title" content="nektos/act を使ってみた – uma-chan’s page">
+    const options = {
+      valueNames: ['listing-Period','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-list-details-full-time'] = new List('listing-list-details-full-time', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-list-details-part-time .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-Period','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-list-details-part-time'] = new List('listing-list-details-part-time', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="職務経歴書 – uma-chan’s page">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3.png">
+<meta property="og:image" content="https://i9wa4.github.io/resume/assets/common/icon_hhkb3.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="nektos/act を使ってみた – uma-chan’s page">
+<meta name="twitter:title" content="職務経歴書 – uma-chan’s page">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3.png">
+<meta name="twitter:image" content="https://i9wa4.github.io/resume/assets/common/icon_hhkb3.png">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
 <meta name="twitter:card" content="summary">
@@ -304,9 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      uma-chan's page
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../blog/index.html">Content</a></li><li class="breadcrumb-item"><a href="../resume/index.html">Resume</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -357,13 +410,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../resume/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../resume/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Resume</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../resume/details/07-pivot.html" class="sidebar-item-text sidebar-link">
@@ -474,10 +527,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#筆者の環境について" id="toc-筆者の環境について" class="nav-link active" data-scroll-target="#筆者の環境について">1. 筆者の環境について</a></li>
-  <li><a href="#バイナリどこ" id="toc-バイナリどこ" class="nav-link" data-scroll-target="#バイナリどこ">2. バイナリどこ？？</a></li>
-  <li><a href="#動作確認" id="toc-動作確認" class="nav-link" data-scroll-target="#動作確認">3. 動作確認</a></li>
-  <li><a href="#追記-mac-でエラーが出た場合" id="toc-追記-mac-でエラーが出た場合" class="nav-link" data-scroll-target="#追記-mac-でエラーが出た場合">4. [2024-12-05 追記] Mac でエラーが出た場合</a></li>
+  <li><a href="#職務要約" id="toc-職務要約" class="nav-link active" data-scroll-target="#職務要約">職務要約</a></li>
+  <li><a href="#自己pr" id="toc-自己pr" class="nav-link" data-scroll-target="#自己pr">自己PR</a></li>
+  <li><a href="#職務経歴" id="toc-職務経歴" class="nav-link" data-scroll-target="#職務経歴">職務経歴</a></li>
+  <li><a href="#今後取り組みたいこと" id="toc-今後取り組みたいこと" class="nav-link" data-scroll-target="#今後取り組みたいこと">今後取り組みたいこと</a></li>
+  <li><a href="#スキルレベル" id="toc-スキルレベル" class="nav-link" data-scroll-target="#スキルレベル">スキルレベル</a></li>
+  <li><a href="#資格" id="toc-資格" class="nav-link" data-scroll-target="#資格">資格</a></li>
+  <li><a href="#通常業務以外の活動" id="toc-通常業務以外の活動" class="nav-link" data-scroll-target="#通常業務以外の活動">通常業務以外の活動</a></li>
   </ul>
 </nav>
     </div>
@@ -485,39 +541,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../blog/index.html">Content</a></li><li class="breadcrumb-item"><a href="../resume/index.html">Resume</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">nektos/act を使ってみた</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">blog</div>
-    <div class="quarto-category">tech</div>
-  </div>
-  </div>
+<h1 class="title">職務経歴書</h1>
+</div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>uma-chan </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-11-12</p>
+      <p class="date">2025-05-15</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025-05-03</p>
-    </div>
-  </div>
     
   </div>
   
@@ -526,70 +566,463 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>GitHub Actions をローカルで実行できる便利な OSS <a href="https://github.com/nektos/act" class="uri">https://github.com/nektos/act</a> を使ってみました。</p>
-<p>インストールが難しかったので苦戦した部分もメモを残しておきます。</p>
-<section id="筆者の環境について" class="level2">
-<h2 class="anchored" data-anchor-id="筆者の環境について">1. 筆者の環境について</h2>
+<!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
 <ul>
-<li>OS: WSL2 Ubuntu 24.04</li>
-<li>Shell: zsh</li>
+<li>現住所：北海道札幌市</li>
+<li>職務経歴書公開先：<a href="https://i9wa4.github.io/resume" class="uri">https://i9wa4.github.io/resume</a></li>
+<li>GitHub：<a href="https://github.com/i9wa4" class="uri">https://github.com/i9wa4</a></li>
+<li>Ask DeepWiki about me：<a href="https://deepwiki.com/i9wa4/resume" class="uri">https://deepwiki.com/i9wa4/resume</a></li>
+</ul>
+<section id="職務要約" class="level2">
+<h2 class="anchored" data-anchor-id="職務要約">職務要約</h2>
+<p>北海道大学理学部数学科を卒業後、Windowsアプリエンジニアや組込エンジニアを6年間経験し、2022年以降はデータエンジニアとMLOpsエンジニアとして勤務しております。</p>
+<p><strong>◆データエンジニアとしての経験：</strong><br> データ基盤の管理者・データ基盤の構築運用・データ基盤のIaC化・dbtによるデータマート構築運用・ダッシュボード作成運用のようにデータエンジニアリング全般に一気通貫で携わってきました。</p>
+<p><strong>◆MLOpsエンジニアとしての経験：</strong><br> 二値分類による顧客の行動予測モデルの作成～ワークフロー構築運用保守・機械学習基盤のCI整備・機械学習基盤上でのプログラム実行エラー対応などに取り組んできました。</p>
+<p><strong>◆チームの中での役割：</strong><br> シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。hacomonoでは一人データエンジニアとしてデータ基盤管理者・データ基盤や利活用に関するタスクの社内調整・データ基盤部の目標管理といったリーダー相当の業務を担当しておりました。現職GENDAではあるグループ企業のデータ利活用の窓口兼主担当として関係者との仕様調整やデータエンジニアリング全般を任されております。また業務進捗管理やレビューなどデータエンジニアチームのリーダー業務を2025年4月から徐々に受け持っております。</p>
+<p><strong>◆採用活動への関与：</strong><br> チームを成長させることに対する興味関心が強く、採用活動に積極的に参加しております。新卒採用選考・面接官・カジュアル面談者の募集と面談実施・リファラル採用・転職媒体での候補者選定・ジョブディスクリプションの修正・求人の宣伝を行ってきました。</p>
+</section>
+<section id="自己pr" class="level2">
+<h2 class="anchored" data-anchor-id="自己pr">自己PR</h2>
+<p><strong>◆性格面：</strong><br> 周囲の社員に貢献できるような地道な業務にモチベーション高く取り組むことができます。具体的には CI/CD 整備・ドキュメント整備・勉強会開催・情報共有・採用活動などです。現在主に担当しているデータ利活用に向けた業務は、中長期的に周囲の社員に貢献できるものと信じて取り組めるため自分にマッチした業務であると感じています。</p>
+</section>
+<section id="職務経歴" class="level2">
+<h2 class="anchored" data-anchor-id="職務経歴">職務経歴</h2>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>詳細は社名リンク先をご確認ください。</p>
+</div>
+</div>
+</div>
+<section id="正社員" class="level3">
+<h3 class="anchored" data-anchor-id="正社員">正社員</h3>
+<div id="listing-list-details-full-time" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Period
+</th>
+
+<th>
+Title
+</th>
+
+<th>
+Description
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-date-sort="1747296894000" data-listing-file-modified-sort="1747296894000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1461" data-listing-title-sort="株式会社GENDA" data-listing-filename-sort="05-genda.qmd">
+<td>
+<span class="listing-Period">2024/11 - 現在</span>
+</td>
+<td>
+<a href="../resume/details/05-genda.html" class="title listing-title">株式会社GENDA</a>
+</td>
+<td>
+<span class="listing-description">データエンジニア・MLOps エンジニアとして以下に従事<br> - データパイプライン全体の変更対応<br> - データマート整備<br> - ダッシュボード作成・運用<br> - AWS から Databricks への機械学習開発基盤移行対応<br> - CI 導入など機械学習基盤の整備 </span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-date-sort="1747296894000" data-listing-file-modified-sort="1747296894000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1728" data-listing-title-sort="株式会社hacomono" data-listing-filename-sort="04-hacomono.qmd">
+<td>
+<span class="listing-Period">2024/04 - 2024/10</span>
+</td>
+<td>
+<a href="../resume/details/04-hacomono.html" class="title listing-title">株式会社hacomono</a>
+</td>
+<td>
+<span class="listing-description">データエンジニアとして以下に従事<br> - 自社環境・顧客環境の DWH 構築・運用<br> - 自社データ基盤の運用改善・機能追加 </span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-date-sort="1747296894000" data-listing-file-modified-sort="1747296894000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1765" data-listing-title-sort="株式会社シイエヌエス北海道" data-listing-filename-sort="03-cnsh.qmd">
+<td>
+<span class="listing-Period">2022/04 - 2024/03</span>
+</td>
+<td>
+<a href="../resume/details/03-cnsh.html" class="title listing-title">株式会社シイエヌエス北海道</a>
+</td>
+<td>
+<span class="listing-description">データエンジニア・MLOps エンジニアとして以下に従事<br> - データパイプライン構築<br> - データマート整備<br> - 機械学習ワークフロー構築 </span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-date-sort="1747296894000" data-listing-file-modified-sort="1747296894000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="687" data-listing-title-sort="新光商事LSIデザインセンター株式会社" data-listing-filename-sort="02-sld.qmd">
+<td>
+<span class="listing-Period">2018/08 - 2022/03</span>
+</td>
+<td>
+<a href="../resume/details/02-sld.html" class="title listing-title">新光商事LSIデザインセンター株式会社</a>
+</td>
+<td>
+<span class="listing-description">組込エンジニアとして以下に従事<br> - 車載マイコンの機能開発<br> - インバータやモータの制御開発 </span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="JUU2JUFEJUEzJUU3JUE0JUJFJUU1JTkzJUEx" data-listing-date-sort="1747296894000" data-listing-file-modified-sort="1747296894000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="860" data-listing-title-sort="オークマ株式会社" data-listing-filename-sort="01-okuma.qmd">
+<td>
+<span class="listing-Period">2016/04 - 2018/07</span>
+</td>
+<td>
+<a href="../resume/details/01-okuma.html" class="title listing-title">オークマ株式会社</a>
+</td>
+<td>
+<span class="listing-description">Windows アプリエンジニアとして以下に従事<br> - Windows 用 CAD/CAM アプリ開発の要件定義・テスト </span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="業務委託" class="level3">
+<h3 class="anchored" data-anchor-id="業務委託">業務委託</h3>
+<div id="listing-list-details-part-time" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Period
+</th>
+
+<th>
+Title
+</th>
+
+<th>
+Description
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="JUU2JUE1JUFEJUU1JThCJTk5JUU1JUE3JTk0JUU4JUE4JTk3" data-listing-date-sort="1747296894000" data-listing-file-modified-sort="1747296894000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="295" data-listing-title-sort="PIVOT株式会社" data-listing-filename-sort="07-pivot.qmd">
+<td>
+<span class="listing-Period">2025/06 - 現在</span>
+</td>
+<td>
+<a href="../resume/details/07-pivot.html" class="title listing-title">PIVOT株式会社</a>
+</td>
+<td>
+<span class="listing-description">データエンジニア・MLOps エンジニア </span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="最も苦労したプロジェクト" class="level3">
+<h3 class="anchored" data-anchor-id="最も苦労したプロジェクト">最も苦労したプロジェクト</h3>
+<p>現職の株式会社GENDAにて取り組んでいる以下です。 データ基盤の改修・データマート構築・ダッシュボード作成・全体の運用・データ分析支援といったデータに関すること全てを私が対応しており、プロジェクト進行上人員不足の面での課題に向き合い解消に向かっている最中です。</p>
+<p><a href="../details/05-genda.qmd#データ-カラオケ事業会社のデータ利活用推進">[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA</a></p>
+</section>
+<section id="職務経歴-図解" class="level3">
+<h3 class="anchored" data-anchor-id="職務経歴-図解">職務経歴 図解</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{
+    init: {
+        'logLevel': 'debug',
+        'theme': 'base',
+        'gitGraph': {
+            'rotateCommitLabel': true,
+            'showBranches': false
+        },
+        'themeVariables': {
+            'commitLabelFontSize': '14px',
+            'tagLabelFontSize': '12px'
+        }
+    }
+}%%
+gitGraph LR:
+    checkout main
+    commit id: "北海道大学 理学部数学科 卒業" tag: "16.03"
+
+    checkout main
+    branch b01 order: 1
+    commit id: "オークマ株式会社 入社" tag: "16.04" type: HIGHLIGHT
+    commit id: "Windows アプリエンジニア"
+    checkout main
+    merge b01 id: "18.07"
+
+    checkout main
+    branch b02 order: 2
+    commit id: "新光商事LSIデザインセンター株式会社 入社" tag: "18.08" type: HIGHLIGHT
+    commit id: "組込エンジニア"
+    checkout main
+    merge b02 id: "22.03"
+
+    checkout main
+    branch b03 order: 3
+    commit id: "株式会社シイエヌエス北海道 入社" tag: "22.04" type: HIGHLIGHT
+    commit id: "データエンジニア / MLOps エンジニア-1"
+    checkout main
+    merge b03 id: "24.03"
+
+    checkout main
+    branch b04 order: 4
+    commit id: "株式会社hacomono 入社" tag: "24.04" type: HIGHLIGHT
+    commit id: "データエンジニア"
+    checkout main
+    merge b04 id: "24.10"
+
+    checkout main
+    branch b05 order: 5
+    commit id: "株式会社GENDA 入社" tag: "24.11" type: HIGHLIGHT
+    commit id: "データエンジニア / MLOps エンジニア-2"
+
+    checkout main
+    commit id: "25.05"
+    branch b07 order: 7
+    commit id: "PIVOT株式会社 業務委託として参画" tag: "25.06" type: HIGHLIGHT
+    commit id: "データエンジニア / MLOps エンジニア-3"
+
+    %% --- Current Activity ---
+
+    %% checkout main
+    %% commit id: "個人活動"
+
+    checkout b05
+    commit id: "就業中" type: HIGHLIGHT
+
+    checkout b07
+    commit id: "参画中" type: HIGHLIGHT
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="今後取り組みたいこと" class="level2">
+<h2 class="anchored" data-anchor-id="今後取り組みたいこと">今後取り組みたいこと</h2>
+<p><strong>◆役割面：</strong><br> 直近：リーダー経験・マネジメント経験を積む<br> 3-5年後：データ組織でリーダーシップを発揮し横断的にコミュニケーションを取りながらビジネス上の課題解決を目指す</p>
+<p><strong>◆技術面：</strong><br> データ基盤管理者として各種サービスの知見を深める<br> データ活用に繋がる分野 (BIツール・データカタログ・データマート作成など) へ積極関与する<br> 特徴量作成・データマート改善のようにデータの観点から機械学習に貢献する<br> AIを活用して開発環境改善やデータ分析の簡易化 (民主化) に貢献する</p>
+</section>
+<section id="スキルレベル" class="level2">
+<h2 class="anchored" data-anchor-id="スキルレベル">スキルレベル</h2>
+<p>★：業務経験あり</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">種類</th>
+<th style="text-align: left;">使用期間</th>
+<th style="text-align: left;">レベル</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">IaC</td>
+<td style="text-align: left;">Docker</td>
+<td style="text-align: left;"><!-- 2022/04-xxxx/xx --> ★3年</td>
+<td style="text-align: left;">Dockerfile や Docker Compose の記述・実行が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IaC</td>
+<td style="text-align: left;">GitHub / CodeCommit</td>
+<td style="text-align: left;"><!-- 2021/04-xxxx/xx --> ★4年</td>
+<td style="text-align: left;">Git flow や GitHub flow に則った開発利用やレビューが可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IaC</td>
+<td style="text-align: left;">GitHub Actions</td>
+<td style="text-align: left;"><!-- 2024/04-xxxx/xx --> ★1年</td>
+<td style="text-align: left;">既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IaC</td>
+<td style="text-align: left;">Terraform</td>
+<td style="text-align: left;"><!-- 2024/04-xxxx/xx --> ★1年</td>
+<td style="text-align: left;">AWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Data</td>
+<td style="text-align: left;">BigQuery</td>
+<td style="text-align: left;"><!-- 2024/04-2024/10 --> ★0.5年</td>
+<td style="text-align: left;">管理者業務や IaC 化作業が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Data</td>
+<td style="text-align: left;">Embulk</td>
+<td style="text-align: left;"><!-- 2024/04-2024/10 --> ★0.5年</td>
+<td style="text-align: left;">転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Data</td>
+<td style="text-align: left;">TROCCO</td>
+<td style="text-align: left;"><!-- 2024/04-2024/10 --> ★0.5年</td>
+<td style="text-align: left;">ジョブ作成・運用が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Data</td>
+<td style="text-align: left;">dbt Cloud</td>
+<td style="text-align: left;"><!-- 2024/11-xxxx/xx --> ★0.5年</td>
+<td style="text-align: left;">ジョブ作成・運用が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Data</td>
+<td style="text-align: left;">dbt Core</td>
+<td style="text-align: left;"><!-- 2023/10-2024/03, 2024/11-xxxx/xx --> ★1年</td>
+<td style="text-align: left;">プロジェクト新規作成から運用まで可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Data / ML</td>
+<td style="text-align: left;">Databricks</td>
+<td style="text-align: left;"><!-- 2024/11-xxxx/xx --> ★0.5年</td>
+<td style="text-align: left;">管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Data / ML</td>
+<td style="text-align: left;">Snowflake</td>
+<td style="text-align: left;"><!-- 2022/04-2024/03, 2024/11-xxxx/xx --> ★2年</td>
+<td style="text-align: left;">データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ML</td>
+<td style="text-align: left;">DataRobot</td>
+<td style="text-align: left;"><!-- 2022/04-2024/03 --> ★2年</td>
+<td style="text-align: left;">オートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OS</td>
+<td style="text-align: left;">Amazon Linux / Ubuntu</td>
+<td style="text-align: left;"><!-- 2021/04-xxxx/xx --> ★4年</td>
+<td style="text-align: left;">要件に応じた環境構築や開発環境利用が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OS</td>
+<td style="text-align: left;">Windows / macOS</td>
+<td style="text-align: left;"><!-- 2016/04-xxxx/xx --> ★9年</td>
+<td style="text-align: left;">開発利用が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">言語</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;"><!-- 2018/08-2022/03 --> ★3年</td>
+<td style="text-align: left;">一人称で作業可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">言語</td>
+<td style="text-align: left;">Python</td>
+<td style="text-align: left;"><!-- 2021/04-xxxx/xx --> ★4年</td>
+<td style="text-align: left;">一人称で作業可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">言語</td>
+<td style="text-align: left;">SQL</td>
+<td style="text-align: left;"><!-- 2022/04-xxxx/xx --> ★3年</td>
+<td style="text-align: left;">一人称で作業可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">言語</td>
+<td style="text-align: left;">Shell Script</td>
+<td style="text-align: left;"><!-- 2021/04-xxxx/xx --> ★4年</td>
+<td style="text-align: left;">一人称で作業可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cloud</td>
+<td style="text-align: left;">AWS</td>
+<td style="text-align: left;"><!-- 2022/04-xxxx/xx --> ★3年</td>
+<td style="text-align: left;">EC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cloud</td>
+<td style="text-align: left;">Google Cloud</td>
+<td style="text-align: left;"><!-- 2024/04-2024/10 --> ★0.5年</td>
+<td style="text-align: left;">BigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DB</td>
+<td style="text-align: left;">MySQL</td>
+<td style="text-align: left;"><!-- 2022/04, 2024/04-xxxx/xx --> ★1年</td>
+<td style="text-align: left;">パフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DB</td>
+<td style="text-align: left;">PostgreSQL</td>
+<td style="text-align: left;"><!-- 2022/04-2022/09 --> ★0.5年</td>
+<td style="text-align: left;">ローカル環境でのデータベース作成・データ閲覧が可能</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="資格" class="level2">
+<h2 class="anchored" data-anchor-id="資格">資格</h2>
+<ul>
+<li>[2023/04] 統計検定2級</li>
+<li>[2015/03] TOEIC スコア 805 <!-- - [2012/11] 普通自動車第一種運転免許 --></li>
 </ul>
 </section>
-<section id="バイナリどこ" class="level2">
-<h2 class="anchored" data-anchor-id="バイナリどこ">2. バイナリどこ？？</h2>
-<p>インストール手順 <a href="https://nektosact.com/installation/index.html" class="uri">https://nektosact.com/installation/index.html</a> に従って</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">--proto</span> <span class="st">'=https'</span> <span class="at">--tlsv1.2</span> <span class="at">-sSf</span> https://raw.githubusercontent.com/nektos/act/master/install.sh <span class="kw">|</span> <span class="fu">sudo</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>を実行したはいいもののインストール先が分からず <code>which act</code> で探しても見つからず。</p>
-<p>(2024-11-19 追記: コマンド実行したディレクトリに bin/act が生成されていました。自分にとっては嬉しくない挙動。)</p>
-<p>続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> extension install https://github.com/nektos/gh-act</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>ただ、 GitHub CLI extension ってなに？そもそもその仕様を知る必要性を感じなかったためスルー。</p>
-<p>仕方がないのでソースコードからビルドすることに。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/nektos/act.git</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> act/</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> build</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 因みに私の環境では以下コマンドでクローンしてます。</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ghq get -p nekotos/act</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>ビルド後 <code>./dist/local/act</code> なるバイナリが生成されたためインストール完了。</p>
-<p>面倒なので PATH は通してませんがよい子は通しておきましょう。</p>
-</section>
-<section id="動作確認" class="level2">
-<h2 class="anchored" data-anchor-id="動作確認">3. 動作確認</h2>
-<p><code>https://github.com/i9wa4/gha-sandbox</code> のうち <code>.github/workflows/4.6.actionlint.yml</code> を実行してみます。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ~/src/github.com/nektos/act/dist/local/act workflow_dispatch <span class="at">-W</span> <span class="st">'.github/workflows/4.6.actionlint.yml'</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">INFO</span><span class="op">[</span><span class="dv">0000</span><span class="op">]</span> <span class="ex">Using</span> docker host <span class="st">'unix:///var/run/docker.sock'</span>, and daemon socket <span class="st">'unix:///var/run/docker.sock'</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] 🚀  Start image=catthehacker/ubuntu:act-latest</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker pull image=catthehacker/ubuntu:act-latest platform= username= forcePull=true</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker create image=catthehacker/ubuntu:act-latest platform= entrypoint=[<span class="st">"tail"</span> <span class="st">"-f"</span> <span class="st">"/dev/null"</span>] cmd=[] network=<span class="st">"host"</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker run image=catthehacker/ubuntu:act-latest platform= entrypoint=[<span class="st">"tail"</span> <span class="st">"-f"</span> <span class="st">"/dev/null"</span>] cmd=[] network=<span class="st">"host"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker exec cmd=[node <span class="at">--no-warnings</span> <span class="at">-e</span> console.log<span class="er">(</span><span class="ex">process.execPath</span><span class="kw">)</span><span class="ex">]</span> user= workdir=</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] ⭐ Run Main actions/checkout@v4</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker cp src=/home/i9wa4/src/github.com/i9wa4/gha-sandbox/. dst=/home/i9wa4/src/github.com/i9wa4/gha-sandbox</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   ✅  Success <span class="at">-</span> Main actions/checkout@v4</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] ⭐ Run Main docker run <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> <span class="at">-w</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> rhysd/actionlint:latest</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   🐳  docker exec cmd=[bash <span class="at">--noprofile</span> <span class="at">--norc</span> <span class="at">-e</span> <span class="at">-o</span> pipefail /var/run/act/workflow/1.sh] user= workdir=</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Unable</span> to find image <span class="st">'rhysd/actionlint:latest'</span> locally</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">latest:</span> Pulling from rhysd/actionlint</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">43c4264eed91:</span> Pull complete</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">9ff7a0d1399a:</span> Pull complete</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">efbbf3bc777d:</span> Pull complete</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">290bb4d6a286:</span> Pull complete</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Digest:</span> sha256:82244e1db1c60d82c7792180a48dd0bcb838370bb589d53ff132503fc9485868</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">Status:</span> Downloaded newer image for rhysd/actionlint:latest</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint]   ✅  Success <span class="at">-</span> Main docker run <span class="at">--rm</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> <span class="at">-w</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span> rhysd/actionlint:latest</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] Cleaning up container for job lint</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ex">[4.6.</span> Linting GitHub Actions/lint] 🏁  Job succeeded</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO</span>    ️ 📣 A newer version of <span class="st">'act'</span> is available <span class="at">-</span> consider ugrading to 0.2.69.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>うまく動いてくれました。</p>
-</section>
-<section id="追記-mac-でエラーが出た場合" class="level2">
-<h2 class="anchored" data-anchor-id="追記-mac-でエラーが出た場合">4. [2024-12-05 追記] Mac でエラーが出た場合</h2>
-<p>以下の記事が参考になりました。</p>
-<p><a href="https://qiita.com/rasuk/items/a36b29b8c79d02fc551a">WSL2でDocker buildをすると止まる問題(“docker-credential-desktop.exe”: executable file not found in $PATH, out: ``) #Docker - Qiita</a></p>
+<section id="通常業務以外の活動" class="level2">
+<h2 class="anchored" data-anchor-id="通常業務以外の活動">通常業務以外の活動</h2>
+<section id="記事執筆掲載" class="level3">
+<h3 class="anchored" data-anchor-id="記事執筆掲載">記事執筆・掲載</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">日付</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">リンク</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2024/12 - 現在</td>
+<td style="text-align: left;">GENDA テックブログ執筆</td>
+<td style="text-align: left;"><a href="https://zenn.dev/i9wa4">uma-chanさんの記事一覧 - Zenn</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024/10/08</td>
+<td style="text-align: left;">Findy Tools 様 特集記事掲載</td>
+<td style="text-align: left;"><a href="https://findy-tools.io/articles/data-review/28">39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024/08/21</td>
+<td style="text-align: left;">Findy Tools 様 レビュー執筆</td>
+<td style="text-align: left;"><a href="https://findy-tools.io/products/bigquery/49/231">株式会社hacomonoのBigQuery導入事例 - Findy Tools</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024/07/02</td>
+<td style="text-align: left;">hacomono テックブログ執筆</td>
+<td style="text-align: left;"><a href="https://techblog.hacomono.jp/entry/2024/07/02/1100">hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG</a></td>
+</tr>
+</tbody>
+</table>
 
 
+
+</section>
 </section>
 
 </main> <!-- /main -->
