@@ -43,12 +43,12 @@ website:
           - href: "resume/index.qmd"
             section: "Resume"
             contents:
-              - "resume/details/07-pivot.qmd"
-              - "resume/details/05-genda.qmd"
-              - "resume/details/04-hacomono.qmd"
-              - "resume/details/03-cnsh.qmd"
-              - "resume/details/02-sld.qmd"
-              - "resume/details/01-okuma.qmd"
+              - "resume/07-pivot.qmd"
+              - "resume/05-genda.qmd"
+              - "resume/04-hacomono.qmd"
+              - "resume/03-cnsh.qmd"
+              - "resume/02-sld.qmd"
+              - "resume/01-okuma.qmd"
       - text: "---"
       - section: "My Other Websites"
         contents:
