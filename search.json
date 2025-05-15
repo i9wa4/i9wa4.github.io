@@ -878,8 +878,8 @@
     "objectID": "resume/index.html#職務要約",
     "href": "resume/index.html#職務要約",
     "title": "職務経歴書",
-    "section": "職務要約",
-    "text": "職務要約\n北海道大学理学部数学科を卒業後、Windowsアプリエンジニアや組込エンジニアを6年間経験し、2022年以降はデータエンジニアとMLOpsエンジニアとして勤務しております。\n◆データエンジニアとしての経験： データ基盤の管理者・データ基盤の構築運用・データ基盤のIaC化・dbtによるデータマート構築運用・ダッシュボード作成運用のようにデータエンジニアリング全般に一気通貫で携わってきました。\n◆MLOpsエンジニアとしての経験： 二値分類による顧客の行動予測モデルの作成～ワークフロー構築運用保守・機械学習基盤のCI整備・機械学習基盤上でのプログラム実行エラー対応などに取り組んできました。\n◆チームの中での役割： シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。hacomonoでは一人データエンジニアとしてデータ基盤管理者・データ基盤や利活用に関するタスクの社内調整・データ基盤部の目標管理といったリーダー相当の業務を担当しておりました。現職GENDAではあるグループ企業のデータ利活用の窓口兼主担当として関係者との仕様調整やデータエンジニアリング全般を任されております。また業務進捗管理やレビューなどデータエンジニアチームのリーダー業務を2025年4月から徐々に受け持っております。\n◆採用活動への関与： チームを成長させることに対する興味関心が強く、採用活動に積極的に参加しております。新卒採用選考・面接官・カジュアル面談者の募集と面談実施・リファラル採用・転職媒体での候補者選定・ジョブディスクリプションの修正・求人の宣伝を行ってきました。",
+    "section": "1. 職務要約",
+    "text": "1. 職務要約\n北海道大学理学部数学科を卒業後、Windowsアプリエンジニアや組込エンジニアを6年間経験し、2022年以降はデータエンジニアとMLOpsエンジニアとして勤務しております。\n◆データエンジニアとしての経験： データ基盤の管理者・データ基盤の構築運用・データ基盤のIaC化・dbtによるデータマート構築運用・ダッシュボード作成運用のようにデータエンジニアリング全般に一気通貫で携わってきました。\n◆MLOpsエンジニアとしての経験： 二値分類による顧客の行動予測モデルの作成～ワークフロー構築運用保守・機械学習基盤のCI整備・機械学習基盤上でのプログラム実行エラー対応などに取り組んできました。\n◆チームの中での役割： シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。hacomonoでは一人データエンジニアとしてデータ基盤管理者・データ基盤や利活用に関するタスクの社内調整・データ基盤部の目標管理といったリーダー相当の業務を担当しておりました。現職GENDAではあるグループ企業のデータ利活用の窓口兼主担当として関係者との仕様調整やデータエンジニアリング全般を任されております。また業務進捗管理やレビューなどデータエンジニアチームのリーダー業務を2025年4月から徐々に受け持っております。\n◆採用活動への関与： チームを成長させることに対する興味関心が強く、採用活動に積極的に参加しております。新卒採用選考・面接官・カジュアル面談者の募集と面談実施・リファラル採用・転職媒体での候補者選定・ジョブディスクリプションの修正・求人の宣伝を行ってきました。",
     "crumbs": [
       "Content",
       "Resume"
@@ -889,8 +889,8 @@
     "objectID": "resume/index.html#自己pr",
     "href": "resume/index.html#自己pr",
     "title": "職務経歴書",
-    "section": "自己PR",
-    "text": "自己PR\n◆性格面： 周囲の社員に貢献できるような地道な業務にモチベーション高く取り組むことができます。具体的には CI/CD 整備・ドキュメント整備・勉強会開催・情報共有・採用活動などです。現在主に担当しているデータ利活用に向けた業務は、中長期的に周囲の社員に貢献できるものと信じて取り組めるため自分にマッチした業務であると感じています。",
+    "section": "2. 自己PR",
+    "text": "2. 自己PR\n◆性格面： 周囲の社員に貢献できるような地道な業務にモチベーション高く取り組むことができます。具体的には CI/CD 整備・ドキュメント整備・勉強会開催・情報共有・採用活動などです。現在主に担当しているデータ利活用に向けた業務は、中長期的に周囲の社員に貢献できるものと信じて取り組めるため自分にマッチした業務であると感じています。",
     "crumbs": [
       "Content",
       "Resume"
@@ -900,8 +900,8 @@
     "objectID": "resume/index.html#職務経歴",
     "href": "resume/index.html#職務経歴",
     "title": "職務経歴書",
-    "section": "職務経歴",
-    "text": "職務経歴\n\n\n\n\n\n\n詳細は社名リンク先をご確認ください。\n\n\n\n\n正社員\n\n\n\n\n\n\nPeriod\n\n\n\nTitle\n\n\n\nDescription\n\n\n\n\n\n\n\n\n2024/11 - 現在\n\n\n株式会社GENDA\n\n\nデータエンジニア・MLOps エンジニアとして以下に従事 - データパイプライン全体の変更対応 - データマート整備 - ダッシュボード作成・運用 - AWS から Databricks への機械学習開発基盤移行対応 - CI 導入など機械学習基盤の整備 \n\n\n\n\n\n\n2024/04 - 2024/10\n\n\n株式会社hacomono\n\n\nデータエンジニアとして以下に従事 - 自社環境・顧客環境の DWH 構築・運用 - 自社データ基盤の運用改善・機能追加 \n\n\n\n\n\n\n2022/04 - 2024/03\n\n\n株式会社シイエヌエス北海道\n\n\nデータエンジニア・MLOps エンジニアとして以下に従事 - データパイプライン構築 - データマート整備 - 機械学習ワークフロー構築 \n\n\n\n\n\n\n2018/08 - 2022/03\n\n\n新光商事LSIデザインセンター株式会社\n\n\n組込エンジニアとして以下に従事 - 車載マイコンの機能開発 - インバータやモータの制御開発 \n\n\n\n\n\n\n2016/04 - 2018/07\n\n\nオークマ株式会社\n\n\nWindows アプリエンジニアとして以下に従事 - Windows 用 CAD/CAM アプリ開発の要件定義・テスト \n\n\n\n\n\n\nNo matching items\n\n\n\n業務委託\n\n\n\n\n\n\nPeriod\n\n\n\nTitle\n\n\n\nDescription\n\n\n\n\n\n\n\n\n2025/06 - 現在\n\n\nPIVOT株式会社\n\n\nデータエンジニア・MLOps エンジニア \n\n\n\n\n\n\nNo matching items\n\n\n\n最も苦労したプロジェクト\n現職の株式会社GENDAにて取り組んでいる以下です。 データ基盤の改修・データマート構築・ダッシュボード作成・全体の運用・データ分析支援といったデータに関すること全てを私が対応しており、プロジェクト進行上人員不足の面での課題に向き合い解消に向かっている最中です。\n[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA\n\n\n職務経歴 図解\n\n\n\n\n\n%%{\n    init: {\n        'logLevel': 'debug',\n        'theme': 'base',\n        'gitGraph': {\n            'rotateCommitLabel': true,\n            'showBranches': false\n        },\n        'themeVariables': {\n            'commitLabelFontSize': '14px',\n            'tagLabelFontSize': '12px'\n        }\n    }\n}%%\ngitGraph LR:\n    checkout main\n    commit id: \"北海道大学 理学部数学科 卒業\" tag: \"16.03\"\n\n    checkout main\n    branch b01 order: 1\n    commit id: \"オークマ株式会社 入社\" tag: \"16.04\" type: HIGHLIGHT\n    commit id: \"Windows アプリエンジニア\"\n    checkout main\n    merge b01 id: \"18.07\"\n\n    checkout main\n    branch b02 order: 2\n    commit id: \"新光商事LSIデザインセンター株式会社 入社\" tag: \"18.08\" type: HIGHLIGHT\n    commit id: \"組込エンジニア\"\n    checkout main\n    merge b02 id: \"22.03\"\n\n    checkout main\n    branch b03 order: 3\n    commit id: \"株式会社シイエヌエス北海道 入社\" tag: \"22.04\" type: HIGHLIGHT\n    commit id: \"データエンジニア / MLOps エンジニア-1\"\n    checkout main\n    merge b03 id: \"24.03\"\n\n    checkout main\n    branch b04 order: 4\n    commit id: \"株式会社hacomono 入社\" tag: \"24.04\" type: HIGHLIGHT\n    commit id: \"データエンジニア\"\n    checkout main\n    merge b04 id: \"24.10\"\n\n    checkout main\n    branch b05 order: 5\n    commit id: \"株式会社GENDA 入社\" tag: \"24.11\" type: HIGHLIGHT\n    commit id: \"データエンジニア / MLOps エンジニア-2\"\n\n    checkout main\n    commit id: \"25.05\"\n    branch b07 order: 7\n    commit id: \"PIVOT株式会社 業務委託として参画\" tag: \"25.06\" type: HIGHLIGHT\n    commit id: \"データエンジニア / MLOps エンジニア-3\"\n\n    %% --- Current Activity ---\n\n    %% checkout main\n    %% commit id: \"個人活動\"\n\n    checkout b05\n    commit id: \"就業中\" type: HIGHLIGHT\n\n    checkout b07\n    commit id: \"参画中\" type: HIGHLIGHT",
+    "section": "3. 職務経歴",
+    "text": "3. 職務経歴\n\n\n\n\n\n\n詳細は社名リンク先をご確認ください。\n\n\n\n\n3.1. 正社員\n\n\n\n\n\n\nPeriod\n\n\n\nTitle\n\n\n\nDescription\n\n\n\n\n\n\n\n\n2024/11 - 現在\n\n\n株式会社GENDA\n\n\nデータエンジニア・MLOps エンジニアとして以下に従事 - データパイプライン全体の変更対応 - データマート整備 - ダッシュボード作成・運用 - AWS から Databricks への機械学習開発基盤移行対応 - CI 導入など機械学習基盤の整備 \n\n\n\n\n\n\n2024/04 - 2024/10\n\n\n株式会社hacomono\n\n\nデータエンジニアとして以下に従事 - 自社環境・顧客環境の DWH 構築・運用 - 自社データ基盤の運用改善・機能追加 \n\n\n\n\n\n\n2022/04 - 2024/03\n\n\n株式会社シイエヌエス北海道\n\n\nデータエンジニア・MLOps エンジニアとして以下に従事 - データパイプライン構築 - データマート整備 - 機械学習ワークフロー構築 \n\n\n\n\n\n\n2018/08 - 2022/03\n\n\n新光商事LSIデザインセンター株式会社\n\n\n組込エンジニアとして以下に従事 - 車載マイコンの機能開発 - インバータやモータの制御開発 \n\n\n\n\n\n\n2016/04 - 2018/07\n\n\nオークマ株式会社\n\n\nWindows アプリエンジニアとして以下に従事 - Windows 用 CAD/CAM アプリ開発の要件定義・テスト \n\n\n\n\n\n\nNo matching items\n\n\n\n3.2. 業務委託\n\n\n\n\n\n\nPeriod\n\n\n\nTitle\n\n\n\nDescription\n\n\n\n\n\n\n\n\n2025/06 - 現在\n\n\nPIVOT株式会社\n\n\nデータエンジニア・MLOps エンジニア \n\n\n\n\n\n\nNo matching items\n\n\n\n3.3. 最も苦労したプロジェクト\n現職の株式会社GENDAにて取り組んでいる以下です。 データ基盤の改修・データマート構築・ダッシュボード作成・全体の運用・データ分析支援といったデータに関すること全てを私が対応しており、プロジェクト進行上人員不足の面での課題に向き合い解消に向かっている最中です。\n[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA\n\n\n3.4. 職務経歴 図解\n\n\n\n\n\n%%{\n    init: {\n        'logLevel': 'debug',\n        'theme': 'base',\n        'gitGraph': {\n            'rotateCommitLabel': true,\n            'showBranches': false\n        },\n        'themeVariables': {\n            'commitLabelFontSize': '14px',\n            'tagLabelFontSize': '12px'\n        }\n    }\n}%%\ngitGraph LR:\n    checkout main\n    commit id: \"北海道大学 理学部数学科 卒業\" tag: \"16.03\"\n\n    checkout main\n    branch b01 order: 1\n    commit id: \"オークマ株式会社 入社\" tag: \"16.04\" type: HIGHLIGHT\n    commit id: \"Windows アプリエンジニア\"\n    checkout main\n    merge b01 id: \"18.07\"\n\n    checkout main\n    branch b02 order: 2\n    commit id: \"新光商事LSIデザインセンター株式会社 入社\" tag: \"18.08\" type: HIGHLIGHT\n    commit id: \"組込エンジニア\"\n    checkout main\n    merge b02 id: \"22.03\"\n\n    checkout main\n    branch b03 order: 3\n    commit id: \"株式会社シイエヌエス北海道 入社\" tag: \"22.04\" type: HIGHLIGHT\n    commit id: \"データエンジニア / MLOps エンジニア-1\"\n    checkout main\n    merge b03 id: \"24.03\"\n\n    checkout main\n    branch b04 order: 4\n    commit id: \"株式会社hacomono 入社\" tag: \"24.04\" type: HIGHLIGHT\n    commit id: \"データエンジニア\"\n    checkout main\n    merge b04 id: \"24.10\"\n\n    checkout main\n    branch b05 order: 5\n    commit id: \"株式会社GENDA 入社\" tag: \"24.11\" type: HIGHLIGHT\n    commit id: \"データエンジニア / MLOps エンジニア-2\"\n\n    checkout main\n    commit id: \"25.05\"\n    branch b07 order: 7\n    commit id: \"PIVOT株式会社 業務委託として参画\" tag: \"25.06\" type: HIGHLIGHT\n    commit id: \"データエンジニア / MLOps エンジニア-3\"\n\n    %% --- Current Activity ---\n\n    %% checkout main\n    %% commit id: \"個人活動\"\n\n    checkout b05\n    commit id: \"就業中\" type: HIGHLIGHT\n\n    checkout b07\n    commit id: \"参画中\" type: HIGHLIGHT",
     "crumbs": [
       "Content",
       "Resume"
@@ -911,8 +911,8 @@
     "objectID": "resume/index.html#今後取り組みたいこと",
     "href": "resume/index.html#今後取り組みたいこと",
     "title": "職務経歴書",
-    "section": "今後取り組みたいこと",
-    "text": "今後取り組みたいこと\n◆役割面： 直近：リーダー経験・マネジメント経験を積む 3-5年後：データ組織でリーダーシップを発揮し横断的にコミュニケーションを取りながらビジネス上の課題解決を目指す\n◆技術面： データ基盤管理者として各種サービスの知見を深める データ活用に繋がる分野 (BIツール・データカタログ・データマート作成など) へ積極関与する 特徴量作成・データマート改善のようにデータの観点から機械学習に貢献する AIを活用して開発環境改善やデータ分析の簡易化 (民主化) に貢献する",
+    "section": "4. 今後取り組みたいこと",
+    "text": "4. 今後取り組みたいこと\n◆役割面： 直近：リーダー経験・マネジメント経験を積む 3-5年後：データ組織でリーダーシップを発揮し横断的にコミュニケーションを取りながらビジネス上の課題解決を目指す\n◆技術面： データ基盤管理者として各種サービスの知見を深める データ活用に繋がる分野 (BIツール・データカタログ・データマート作成など) へ積極関与する 特徴量作成・データマート改善のようにデータの観点から機械学習に貢献する AIを活用して開発環境改善やデータ分析の簡易化 (民主化) に貢献する",
     "crumbs": [
       "Content",
       "Resume"
@@ -922,8 +922,8 @@
     "objectID": "resume/index.html#スキルレベル",
     "href": "resume/index.html#スキルレベル",
     "title": "職務経歴書",
-    "section": "スキルレベル",
-    "text": "スキルレベル\n★：業務経験あり\n\n\n\n\n\n\n\n\n\n項目\n種類\n使用期間\nレベル\n\n\n\n\nIaC\nDocker\n ★3年\nDockerfile や Docker Compose の記述・実行が可能\n\n\nIaC\nGitHub / CodeCommit\n ★4年\nGit flow や GitHub flow に則った開発利用やレビューが可能\n\n\nIaC\nGitHub Actions\n ★1年\n既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能\n\n\nIaC\nTerraform\n ★1年\nAWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能\n\n\nData\nBigQuery\n ★0.5年\n管理者業務や IaC 化作業が可能\n\n\nData\nEmbulk\n ★0.5年\n転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能\n\n\nData\nTROCCO\n ★0.5年\nジョブ作成・運用が可能\n\n\nData\ndbt Cloud\n ★0.5年\nジョブ作成・運用が可能\n\n\nData\ndbt Core\n ★1年\nプロジェクト新規作成から運用まで可能\n\n\nData / ML\nDatabricks\n ★0.5年\n管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能\n\n\nData / ML\nSnowflake\n ★2年\nデータマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能\n\n\nML\nDataRobot\n ★2年\nオートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能\n\n\nOS\nAmazon Linux / Ubuntu\n ★4年\n要件に応じた環境構築や開発環境利用が可能\n\n\nOS\nWindows / macOS\n ★9年\n開発利用が可能\n\n\n言語\nC\n ★3年\n一人称で作業可能\n\n\n言語\nPython\n ★4年\n一人称で作業可能\n\n\n言語\nSQL\n ★3年\n一人称で作業可能\n\n\n言語\nShell Script\n ★4年\n一人称で作業可能\n\n\nCloud\nAWS\n ★3年\nEC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能\n\n\nCloud\nGoogle Cloud\n ★0.5年\nBigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能\n\n\nDB\nMySQL\n ★1年\nパフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能\n\n\nDB\nPostgreSQL\n ★0.5年\nローカル環境でのデータベース作成・データ閲覧が可能",
+    "section": "5. スキルレベル",
+    "text": "5. スキルレベル\n★：業務経験あり\n\n\n\n\n\n\n\n\n\n項目\n種類\n使用期間\nレベル\n\n\n\n\nIaC\nDocker\n ★3年\nDockerfile や Docker Compose の記述・実行が可能\n\n\nIaC\nGitHub / CodeCommit\n ★4年\nGit flow や GitHub flow に則った開発利用やレビューが可能\n\n\nIaC\nGitHub Actions\n ★1年\n既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能\n\n\nIaC\nTerraform\n ★1年\nAWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能\n\n\nData\nBigQuery\n ★0.5年\n管理者業務や IaC 化作業が可能\n\n\nData\nEmbulk\n ★0.5年\n転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能\n\n\nData\nTROCCO\n ★0.5年\nジョブ作成・運用が可能\n\n\nData\ndbt Cloud\n ★0.5年\nジョブ作成・運用が可能\n\n\nData\ndbt Core\n ★1年\nプロジェクト新規作成から運用まで可能\n\n\nData / ML\nDatabricks\n ★0.5年\n管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能\n\n\nData / ML\nSnowflake\n ★2年\nデータマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能\n\n\nML\nDataRobot\n ★2年\nオートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能\n\n\nOS\nAmazon Linux / Ubuntu\n ★4年\n要件に応じた環境構築や開発環境利用が可能\n\n\nOS\nWindows / macOS\n ★9年\n開発利用が可能\n\n\n言語\nC\n ★3年\n一人称で作業可能\n\n\n言語\nPython\n ★4年\n一人称で作業可能\n\n\n言語\nSQL\n ★3年\n一人称で作業可能\n\n\n言語\nShell Script\n ★4年\n一人称で作業可能\n\n\nCloud\nAWS\n ★3年\nEC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能\n\n\nCloud\nGoogle Cloud\n ★0.5年\nBigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能\n\n\nDB\nMySQL\n ★1年\nパフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能\n\n\nDB\nPostgreSQL\n ★0.5年\nローカル環境でのデータベース作成・データ閲覧が可能",
     "crumbs": [
       "Content",
       "Resume"
@@ -933,8 +933,8 @@
     "objectID": "resume/index.html#資格",
     "href": "resume/index.html#資格",
     "title": "職務経歴書",
-    "section": "資格",
-    "text": "資格\n\n[2023/04] 統計検定2級\n[2015/03] TOEIC スコア 805",
+    "section": "6. 資格",
+    "text": "6. 資格\n\n[2023/04] 統計検定2級\n[2015/03] TOEIC スコア 805",
     "crumbs": [
       "Content",
       "Resume"
@@ -944,8 +944,8 @@
     "objectID": "resume/index.html#通常業務以外の活動",
     "href": "resume/index.html#通常業務以外の活動",
     "title": "職務経歴書",
-    "section": "通常業務以外の活動",
-    "text": "通常業務以外の活動\n\n記事執筆・掲載\n\n\n\n日付\n概要\nリンク\n\n\n\n\n2024/12 - 現在\nGENDA テックブログ執筆\numa-chanさんの記事一覧 - Zenn\n\n\n2024/10/08\nFindy Tools 様 特集記事掲載\n39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools\n\n\n2024/08/21\nFindy Tools 様 レビュー執筆\n株式会社hacomonoのBigQuery導入事例 - Findy Tools\n\n\n2024/07/02\nhacomono テックブログ執筆\nhacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG",
+    "section": "7. 通常業務以外の活動",
+    "text": "7. 通常業務以外の活動\n\n7.1. 記事執筆・掲載\n\n\n\n日付\n概要\nリンク\n\n\n\n\n2024/12 - 現在\nGENDA テックブログ執筆\numa-chanさんの記事一覧 - Zenn\n\n\n2024/10/08\nFindy Tools 様 特集記事掲載\n39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools\n\n\n2024/08/21\nFindy Tools 様 レビュー執筆\n株式会社hacomonoのBigQuery導入事例 - Findy Tools\n\n\n2024/07/02\nhacomono テックブログ執筆\nhacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG",
     "crumbs": [
       "Content",
       "Resume"
