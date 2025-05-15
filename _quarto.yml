@@ -5,9 +5,7 @@ project:
 date-format: iso
 theme:
   # https://quarto.org/docs/output-formats/html-themes.html
-  # light: yeti
-  # dark: superhero
-  light: flatly
+  light: yeti
   dark: darkly
 
 website:
