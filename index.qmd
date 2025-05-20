@@ -10,6 +10,12 @@ listing:
       filename:
         - "index.qmd"
     feed: true
+    fields:
+      - "title"
+      - "date"
+      - "image"
+      - "categories"
+      - "description"
     image-placeholder: "assets/common/icon_hhkb3.png"
     sort:
       - "date desc"

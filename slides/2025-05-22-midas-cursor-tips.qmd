@@ -6,6 +6,7 @@ author:
     roles: データエンジニア
 date: 2025-05-22
 date-modified: last-modified
+draft: true
 description: |
   [登壇資料] "データエンジニア的 Cursor 利用のコツ" in "2025-05-22 ミダスキャピタル 生成AI勉強会"
 categories:
@@ -68,12 +69,14 @@ format:
 :::: {.columns}
 
 ::: {.column width="30%"}
-**SQL を書くことが多い！**
+Cursor の用途を説明するために簡単に業務を紹介します
+
+まとめると **SQL を書くことが多い** です
 
 **業務1**
 
 - DWH のデータ整備
-- dbt (data build tool) で依存関係のあるテーブルをSQLファイルとして管理する
+- dbt (data build tool) により集計テーブルを SQL ファイルとして管理する
 
 **業務2**
 
@@ -88,7 +91,7 @@ format:
 ::: {.column width="70%"}
 ```{mermaid}
 C4Context
-  title dbt プロジェクトの全体像
+  title データ整備の全体像
   Boundary(databricks_boundary, "Databricks") {
     Boundary(dbt_boundary, "dbt Project") {
       System(stg, "stg.sql", "生データを整形する SQL モデル")
@@ -138,26 +141,30 @@ Sad News😢
 
 ::::
 
-### 2.2. 左下歯車アイコンから行う設定 (1)
+### 2.2. settings.json に反映される設定 (1)
 
-アクティビティバーを VS Code 風にする
+F1 > Preferences: Open Settings
+
+VS Code に存在する左端のバーを表示させる
 
 > The vertical orientation is no longer maintained.
 
 使いやすくなりますが自己責任で
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-activitybar.png)
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-activitybar.png)
 
-### 2.3. 左下歯車アイコンから行う設定 (2)
+### 2.3. settings.json に反映される設定 (2)
 
 :::: {.columns}
 
 ::: {.column width="55%"}
+F1 > Preferences: Open Settings
+
 チャットメッセージのサイズを大きくする
 
 チャット欄が Cursor の本体なのでデカくしましょう
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-chat-msg-size.png)
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-chat-msg-size.png)
 :::
 
 ::: {.column width="45%"}
@@ -165,7 +172,7 @@ Sad News😢
 
 ポストの内容通り右上歯車からも設定できる
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-chat-msg-size-x.png)
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-chat-msg-size-x.png)
 
 <https://x.com/tetsuro_b/status/1922679755863970196>
 :::

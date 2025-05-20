@@ -8,6 +8,12 @@ listing:
     exclude:
       filename:
         - "index.qmd"
+    fields:
+      - "title"
+      - "date"
+      - "image"
+      - "categories"
+      - "description"
     image-placeholder: "/assets/common/icon_hhkb3.png"
     sort:
       - "date desc"
