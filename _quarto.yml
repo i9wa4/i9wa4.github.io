@@ -65,6 +65,8 @@ website:
             text: "LinkedIn"
           - href: "https://zenn.dev/i9wa4"
             text: "Zenn"
+          - href: "https://speakerdeck.com/i9wa4"
+            text: "Speaker Deck"
           - href: "https://deepwiki.com/i9wa4/i9wa4.github.io"
             text: "DeepWiki (ask about me)"
   page-footer:
