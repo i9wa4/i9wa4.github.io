@@ -9,17 +9,16 @@ categories:
 format:
   revealjs:
     code-copy: true
-    footer: "my footer"
+    footer: "2025-05-22 ミダス 生成AI勉強会"
     incremental: false
-    logo: "/assets/common/icon_hhkb3.png"
     scrollable: true
     self-contained: true
     slide-level: 3
     slide-number: true
-    smaller: true
+    smaller: false
     theme:
       - default
-      - genda.scss
+      - themes/genda.scss
     width: 1920
     height: 1080
     title-slide-attributes:
