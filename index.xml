@@ -17,17 +17,7 @@
 <width>144</width>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Wed, 21 May 2025 15:00:00 GMT</lastBuildDate>
-<item>
-  <title></title>
-  <dc:creator>馬渡 大樹</dc:creator>
-  <link>https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html</link>
-  <description><![CDATA[ undefined ]]></description>
-  <category>slides</category>
-  <category>genda</category>
-  <guid>https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html</guid>
-  <pubDate>Wed, 21 May 2025 15:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Sun, 11 May 2025 15:13:12 GMT</lastBuildDate>
 <item>
   <title>AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</title>
   <dc:creator>uma-chan </dc:creator>
@@ -1167,7 +1157,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="d3de28e1" class="cell" data-execution_count="3">
+<div id="557c8b08" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1365,7 +1355,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="4bdd8299" class="cell" data-execution_count="4">
+<div id="64a3fddf" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1419,7 +1409,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="37e02e39" class="cell" data-execution_count="5">
+<div id="91c7bf1d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1509,7 +1499,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="edac5630" class="cell" data-execution_count="6">
+<div id="5ef1e6ba" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1551,7 +1541,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="4b1d034d" class="cell" data-execution_count="7">
+<div id="31466521" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1593,7 +1583,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="7161b26a" class="cell" data-execution_count="8">
+<div id="b6cd91ec" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1671,7 +1661,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="ab0637ae" class="cell" data-execution_count="9">
+<div id="1c1b71fe" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -3314,6 +3304,28 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</guid>
   <pubDate>Fri, 25 Oct 2024 14:17:19 GMT</pubDate>
+</item>
+<item>
+  <title>:%s/i9wa4/uma-chan/g</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。</p>
+<p>それに伴いブログの記事も修正しています。</p>
+<p>というわけでよろしくお願いします！</p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>diary</category>
+  <guid>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</guid>
+  <pubDate>Fri, 25 Oct 2024 12:29:49 GMT</pubDate>
 </item>
 </channel>
 </rss>
