@@ -13,6 +13,7 @@
   {
     "listing": "/slides/index.html",
     "items": [
+      "/slides/2025-05-22-midas-cursor-tips.html",
       "/slides/2024-02-04-sapporo.vim.html",
       "/slides/2023-12-16-sapporo.vim.html"
     ]
@@ -62,6 +63,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/slides/2025-05-22-midas-cursor-tips.html",
       "/blog/2025-05-12-hands-on-lambda-ecr.html",
       "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
       "/blog/2025-05-06-editorconfig-vim.html",
