@@ -1,9 +1,9 @@
 ---
-title: "Cursor Tips"
+title: "データエンジニア的 Cursor 利用のコツ"
 author:
-  - name: Mawatari Daiki
+  - name: 馬渡 大樹
     affiliation: 株式会社GENDA
-    roles: Data Engineer
+    roles: データエンジニア
 date: 2025-05-22
 date-modified: last-modified
 description: |
@@ -15,7 +15,7 @@ format:
   revealjs:
     code-copy: true
     embed-resources: true
-    footer: ""
+    footer: "2025-05-22 ミダスキャピタル 生成AI勉強会"
     incremental: false
     scrollable: true
     self-contained: true
@@ -29,7 +29,7 @@ format:
     height: 1080
     title-slide-attributes:
       data-background-color: "#001722"  # Dark Navy
-      data-background-image: "/assets/genda/title-background.jpg"
+      data-background-image: "/assets/2025-05-22-midas-cursor-tips/title-background.jpg"
       data-background-size: "cover"
 ---
 
@@ -37,14 +37,107 @@ format:
 
 ### 1.1. 自己紹介
 
-### 1.2. 資料作成について
+:::: {.columns}
 
-### 1.3. 業務紹介
+::: {.column width="50%"}
 
-## 2. Cursor Tips
+|        |                                           |
+| ---    | ---                                       |
+| 名前   | 馬渡 大樹 (Mawatari Daiki)                |
+| 所属   | 株式会社GENDA - IT戦略部                  |
+| 職種   | データエンジニア / 機械学習基盤エンジニア |
+| 住所   | 北海道札幌市                              |
+| GitHub | [@i9wa4](https://github.com/i9wa4)        |
 
-### 2.1. 基本設定
+- 好き
+    - ゲームセンター
+    - Vim
+    - HHKB
+- 好きではない
+    - Zero Configuration
+:::
 
-### 2.2. 対話しやすくする設定
+::: {.column width="50%"}
+![](/assets/2025-05-22-midas-cursor-tips/IMG20240922183711-trimmed.jpg){fig-align="left" width="50%"}
+:::
 
-<!-- デモをふんだんに交えつつ、とにかく細かく大量にTipsを共有 -->
+::::
+
+### 1.2. 私の主なデータ系業務紹介
+
+:::: {.columns}
+
+::: {.column width="30%"}
+**SQL を書くことが多い** です！
+
+**業務1**
+
+- DWH のデータ整備
+- dbt (data build tool) で依存関係のあるテーブルをSQLファイルとして管理する
+
+**業務2**
+
+- データ可視化のためのダッシュボード作成
+- データ分析サポート
+:::
+
+::: {.column width="70%"}
+```{mermaid}
+C4Context
+  title dbt プロジェクトの全体像
+  Boundary(databricks_boundary, "Databricks") {
+    Boundary(dbt_boundary, "dbt Project") {
+      System(stg, "stg.sql", "生データを整形する SQL モデル")
+      System(int, "int.sql", "中間集計を行う SQL モデル")
+      System(marts, "marts.sql", "最終データマートを作る SQL モデル")
+    }
+    SystemDb_Ext(raw, "データレイク", "ローデータ")
+    System(dashboard, "ダッシュボード")
+  }
+
+  Rel(raw, stg, "SELECT ... FROM raw data")
+  Rel(stg, int, "SELECT ... FROM stg.sql")
+  Rel(int, marts, "SELECT ... FROM int.sql")
+  Rel(marts, dashboard, "可視化・分析")
+```
+:::
+
+::::
+
+## 2. Cursor 設定 Tips
+
+### 2.1. Cursor の設定の話をする前に
+
+Cursor は VS Code の Fork です
+
+テキストエディタとしては VS Code の方が安定感があります
+
+Cursor は AI エージェント実行アプリとして割り切って付き合えばよさそうです
+
+AI エージェント実行アプリとして使いやすくなる設定を紹介していきます
+
+![](/assets/2025-05-22-midas-cursor-tips/extensions-blocked.png)
+
+[Microsoft が Cursor を含む VSCode フォークで C/C++ 拡張機能をブロック - BigGo ニュース](https://biggo.jp/news/202504050723_Microsoft_Blocks_CPP_Extension_VSCode_Forks)
+
+### 2.2. 左下歯車アイコンから行う設定 (1)
+
+アクティビティバーを VS Code 風にする
+
+VS Code からの乗り換えで戸惑った方も多いはず
+
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-activitybar.png)
+
+### 2.3. 左下歯車アイコンから行う設定 (2)
+
+チャットメッセージのサイズを大きくする
+
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-chat-msg-size.png)
+
+### 2.4. 右上歯車アイコンから行う設定
+
+### 2.5. MCP 設定
+
+### 2.6. ルール設定
+
+### 2.7. その他設定
