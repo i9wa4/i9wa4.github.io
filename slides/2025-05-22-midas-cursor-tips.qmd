@@ -1,0 +1,43 @@
+---
+title: "Cursor Tips"
+# author: uma-chan
+date: 2025-05-22
+date-modified: last-modified
+categories:
+  - "slides"
+  - "genda"
+format:
+  revealjs:
+    code-copy: true
+    footer: "my footer"
+    incremental: false
+    logo: "/assets/common/icon_hhkb3.png"
+    scrollable: true
+    self-contained: true
+    slide-level: 3
+    slide-number: true
+    smaller: true
+    theme:
+      - default
+      - genda.scss
+    width: 1920
+    height: 1080
+    title-slide-attributes:
+      data-background-color: "#001722"  # Dark Navy
+      data-background-image: "/assets/genda/title-background.jpg"
+      data-background-size: "cover"
+---
+
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+### 1.2. 資料作成について
+
+### 1.3. 業務紹介
+
+## 2. Cursor Tips
+
+### 2.1. 基本設定
+
+### 2.2. 対話しやすくする設定

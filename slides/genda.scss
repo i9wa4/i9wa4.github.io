@@ -1,0 +1,90 @@
+/*-- scss:defaults --*/
+
+// 1. 基本設定・全体スタイル
+
+// フォント読み込み (Google Fontsを使用する場合)
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+// 基本フォント設定
+$font-family-sans-serif: "Noto Sans JP", sans-serif;
+$font-weight-base: 400; // Regular
+
+// 2. カラーパレット定義
+$dark-navy: #001722;
+$light-gray: #f3f4f4;
+$gold: #c0a171;
+$gray-tone-1: #979a9b;
+$gray-tone-2: #829196;
+$accent-red: #df3348;
+$accent-purple: #9d788c;
+$accent-green: #a3ab91;
+$light-tone-1: #e1d2bb;
+$light-tone-2: #d1d6d9;
+$light-tone-3: #e0d1d9;
+$light-tone-4: #d4d6cb;
+
+// デフォルトの背景色と文字色
+$body-bg: $light-gray;
+$body-color: $dark-navy;
+
+// カラーパレットを Quarto/Reveal.js 変数に適用
+$link-color: $gold;
+$link-color-hover: lighten($link-color, 15%);
+$selection-bg: $gold;
+$selection-color: $dark-navy;
+$text-muted: $gray-tone-1;
+$border-color: $gray-tone-1;
+$primary: $gold;
+
+// 3. タイポグラフィ
+
+// 基本の行間 (本文)
+$presentation-line-height: 1.5;
+
+// 見出し (h1, h2)
+$presentation-heading-font-weight: 700; // Bold
+$presentation-heading-color: $dark-navy;
+$presentation-heading-line-height: 1.15;
+// $presentation-h1-font-size: 28pt;
+// $presentation-h2-font-size: 28pt;
+$presentation-h1-font-size: 42pt;
+$presentation-h2-font-size: 42pt;
+
+// 概要 / サブ見出し (h3-h6)
+// h3, h4 はデフォルトで presentation-heading-* を継承するので、サイズのみ指定
+// $presentation-h3-font-size: 18pt;
+// $presentation-h4-font-size: 18pt;
+$presentation-h3-font-size: 27pt;
+$presentation-h4-font-size: 27pt;
+// h5, h6 は必要であれば別途スタイルを追加
+
+// 本文 (p)
+// $presentation-font-size-root: 16pt;
+$presentation-font-size-root: 24pt;
+
+// 5. その他要素・レイアウト
+
+// コードブロック
+$code-block-bg: $light-tone-2;
+$code-block-border-color: $gray-tone-1;
+$code-block-color: $dark-navy;
+$code-color: $accent-purple;
+// $code-font-size: 1em !default;
+// $code-block-font-size: $code-font-size * 0.55 !default;
+// $code-inline-font-size: $code-font-size * 0.875 !default;
+
+// テーブル
+$table-border-color: $gray-tone-1;
+
+
+/*-- scss:rules --*/
+
+// 3. タイポグラフィ (続き)
+.title-slide {
+  background-color: $gold !important;
+  color: $light-gray !important;
+
+  h2 {
+    color: $light-gray !important;
+  }
+}

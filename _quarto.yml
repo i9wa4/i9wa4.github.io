@@ -3,10 +3,6 @@ project:
   output-dir: "_site"
 
 date-format: iso
-theme:
-  # https://quarto.org/docs/output-formats/html-themes.html
-  light: yeti
-  dark: darkly
 
 website:
   title: "uma-chan's page"
@@ -81,6 +77,10 @@ website:
 
 format:
   html:
+    # https://quarto.org/docs/output-formats/html-themes.html
+    theme:
+      light: yeti
+      dark: darkly
     code-copy: true
     code-overflow: wrap
     grid:
