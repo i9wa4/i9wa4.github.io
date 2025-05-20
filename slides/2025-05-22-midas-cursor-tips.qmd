@@ -1,15 +1,21 @@
 ---
 title: "Cursor Tips"
-# author: uma-chan
+author:
+  - name: Mawatari Daiki
+    affiliation: 株式会社GENDA
+    roles: Data Engineer
 date: 2025-05-22
 date-modified: last-modified
+description: |
+  2025-05-22 Cursor の Tips 共有 in "ミダスキャピタル 生成AI勉強会"
 categories:
   - "slides"
   - "genda"
 format:
   revealjs:
     code-copy: true
-    footer: "2025-05-22 ミダス 生成AI勉強会"
+    embed-resources: true
+    footer: ""
     incremental: false
     scrollable: true
     self-contained: true
@@ -40,3 +46,5 @@ format:
 ### 2.1. 基本設定
 
 ### 2.2. 対話しやすくする設定
+
+<!-- デモをふんだんに交えつつ、とにかく細かく大量にTipsを共有 -->
