@@ -7,7 +7,7 @@ author:
 date: 2025-05-22
 date-modified: last-modified
 description: |
-  2025-05-22 Cursor の Tips 共有 in "ミダスキャピタル 生成AI勉強会"
+  [登壇資料] "データエンジニア的 Cursor 利用のコツ" in "2025-05-22 ミダスキャピタル 生成AI勉強会"
 categories:
   - "slides"
   - "genda"
@@ -52,7 +52,7 @@ format:
 - 好き
     - ゲームセンター
     - Vim
-    - HHKB
+    - Happy Hacking Keyboard
 - 好きではない
     - Zero Configuration
 :::
@@ -68,7 +68,7 @@ format:
 :::: {.columns}
 
 ::: {.column width="30%"}
-**SQL を書くことが多い** です！
+**SQL を書くことが多い！**
 
 **業務1**
 
@@ -79,6 +79,10 @@ format:
 
 - データ可視化のためのダッシュボード作成
 - データ分析サポート
+
+**業務3**
+
+- データ基盤の改修
 :::
 
 ::: {.column width="70%"}
@@ -106,38 +110,205 @@ C4Context
 
 ## 2. Cursor 設定 Tips
 
-### 2.1. Cursor の設定の話をする前に
+### 2.1. Cursor 設定との向き合い方
 
-Cursor は VS Code の Fork です
+:::: {.columns}
 
-テキストエディタとしては VS Code の方が安定感があります
+::: {.column width="50%"}
+**Cursor のテキストエディタとしての設定をしっかりやるべきか？**
 
-Cursor は AI エージェント実行アプリとして割り切って付き合えばよさそうです
+私は **No** だと思う
 
-AI エージェント実行アプリとして使いやすくなる設定を紹介していきます
+プロジェクト設定を AI エージェントに守ってもらいづらいため色々な環境で作成された Pull Request を許容できる体制 (= CI) でカバーすべき
 
+---
+
+**Cursor の用途の割り切り**
+
+AI エージェント実行アプリとして使いやすくなるグローバル設定を紹介していきます
+:::
+
+::: {.column width="50%"}
 ![](/assets/2025-05-22-midas-cursor-tips/extensions-blocked.png)
 
+Sad News😢
+
 [Microsoft が Cursor を含む VSCode フォークで C/C++ 拡張機能をブロック - BigGo ニュース](https://biggo.jp/news/202504050723_Microsoft_Blocks_CPP_Extension_VSCode_Forks)
+:::
+
+::::
 
 ### 2.2. 左下歯車アイコンから行う設定 (1)
 
 アクティビティバーを VS Code 風にする
 
-VS Code からの乗り換えで戸惑った方も多いはず
+> The vertical orientation is no longer maintained.
+
+使いやすくなりますが自己責任で
 
 ![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-activitybar.png)
 
 ### 2.3. 左下歯車アイコンから行う設定 (2)
 
+:::: {.columns}
+
+::: {.column width="55%"}
 チャットメッセージのサイズを大きくする
 
+チャット欄が Cursor の本体なのでデカくしましょう
+
 ![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-chat-msg-size.png)
+:::
+
+::: {.column width="45%"}
+文字を大きくする決意をさせてくれたポスト
+
+ポストの内容通り右上歯車からも設定できる
+
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-down-left-chat-msg-size-x.png)
+
+<https://x.com/tetsuro_b/status/1922679755863970196>
+:::
+
+::::
 
 ### 2.4. 右上歯車アイコンから行う設定
 
-### 2.5. MCP 設定
+:::: {.columns}
 
-### 2.6. ルール設定
+::: {.column width="50%"}
+見ておくべき項目
 
-### 2.7. その他設定
+- General
+    - Privacy mode: **Enabled**
+        - ポリシーで設定変更禁止になっていれば安心
+- Features
+    - Include project structure [BETA]: **ON**
+        - 効果は実感できていないが ON
+    - Enable auto-run mode: **ON** (要注意)
+        - MCP tools protection: **OFF** (要注意)
+
+auto-run mode は自分の用途や権限に合った範囲内で最大限許容すると効率アップ！
+:::
+
+::: {.column width="50%"}
+![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-up-right-features.png)
+:::
+
+::::
+
+### 2.5. 外部設定
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**global gitignore 設定**
+
+リポジトリ内に自分と Cursor の作業用ディレクトリを作成する
+
+```{.gitignore filename=~/.config/git/ignore}
+.i9wa4/
+```
+
+`~/.gitignore_global` ではなくデフォルト設定に従ったほうが Git と仲良くなれる
+
+[まだ .gitconfig に core.excludesfile を設定しているの？ #Git - Qiita](https://qiita.com/ueokande/items/e0409219e7c68e4277b9)
+:::
+
+::: {.column width="50%"}
+![](/assets/2025-05-22-midas-cursor-tips/gitignore-x.png)
+
+ポスト内容と用途が違うが Cursor に文脈を与えたりアウトプットさせるのに便利であった
+
+<https://x.com/mizchi/status/1914543131888066561>
+:::
+
+::::
+
+### 2.6. MCP 設定
+
+:::: {.columns}
+
+::: {.column width="60%"}
+DWH 向けの MCP Server を利用しクエリを実行できるようにする
+
+ここまでの設定により Cursor が自律的にクエリを実行し適宜 SQL や CSV ファイルを残せる！
+
+---
+
+参考
+
+<https://github.com/RafaelCartenet/mcp-databricks-server>
+
+```{.json filename=mcp.json}
+{
+    "mcpServers": {
+        "databricks": {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "~/ghq/github.com/RafaelCartenet/mcp-databricks-server",
+                "run",
+                "main.py"
+            ]
+        }
+    }
+}
+```
+:::
+
+::: {.column width="40%"}
+実行の様子
+
+![](/assets/2025-05-22-midas-cursor-tips/cursor-mcp-databricks-query.png){width=150%}
+:::
+
+::::
+
+### 2.7. ルール設定
+
+⚠️いずれも未検証です
+
+:::: {.columns}
+
+::: {.column width="50%"}
+プロジェクトに対してルールを設定できると便利
+
+```
+project/
+  .cursor/rules/        # Project-wide rules
+  backend/
+    server/
+      .cursor/rules/    # Backend-specific rules
+  frontend/
+    .cursor/rules/      # Frontend-specific rules
+```
+
+<https://docs.cursor.com/context/rules>
+
+Devin 向けにも別途ルールを整備する必要があり躊躇していました😢
+:::
+
+::: {.column width="50%"}
+シンボリックリンクを張ればよいという発想
+
+> - Unified `.ai/` folder for all your project-wide AI rules (Markdown)
+> - Auto-generate:
+>     - ``.cursor/rules/*.mdc``
+>     - `.cline-rules`
+>     - `.github/copilot-instructions.md`
+> - devin-guidelines.md
+> - Symlink or copy mode (auto-detects OS capability)
+
+<https://github.com/airulefy/Airulefy>
+:::
+
+::::
+
+## 3. まとめ
+
+### 3.1. [まとめ] Cursor x データ抽出はいいぞ
+
+Cursor に正しいクエリを書いてもらいデータ抽出をしてもらうことにフォーカスして利用方法を説明しました
+
+ここまで設定しておくと Cursor 自律的に爆速でデータ抽出をしてくれるため作業効率が上がりました！
