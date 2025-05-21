@@ -1,5 +1,5 @@
 ---
-title: "データエンジニア的 Cursor 利用のコツ"
+title: "Cursorの設定Tips集とCursorにデータ分析を任せる方法"
 author:
   - name: 馬渡 大樹
     affiliation: 株式会社GENDA
@@ -8,7 +8,7 @@ date: 2025-05-22
 date-modified: last-modified
 draft: true
 description: |
-  [登壇資料] "データエンジニア的 Cursor 利用のコツ" in "2025-05-22 ミダスキャピタル 生成AI勉強会"
+  [登壇資料] "Cursorの設定Tips集とCursorにデータ分析を任せる方法" in "2025-05-22 ミダスキャピタル 生成AI勉強会"
 categories:
   - "slides"
   - "genda"
@@ -77,10 +77,11 @@ Cursor の用途を説明するために簡単に業務を紹介します
 
 - DWH のデータ整備
 - dbt (data build tool) により集計テーブルを SQL ファイルとして管理する
+    - SQL ファイル主体のプロジェクトがあるという認識で OK
 
 **業務2**
 
-- データ可視化のためのダッシュボード作成
+- データ可視化用ダッシュボード作成
 - データ分析サポート
 
 **業務3**
@@ -111,7 +112,7 @@ C4Context
 
 ::::
 
-## 2. Cursor 設定 Tips
+## 2. Cursor の設定 Tips
 
 ### 2.1. Cursor 設定との向き合い方
 
@@ -192,8 +193,8 @@ F1 > Preferences: Open Settings
 - Features
     - Include project structure [BETA]: **ON**
         - 効果は実感できていないが ON
-    - Enable auto-run mode: **ON** (要注意)
-        - MCP tools protection: **OFF** (要注意)
+    - Enable auto-run mode: **ON** ⚠️ 要注意
+        - MCP tools protection: **OFF** ⚠️ 要注意
 
 auto-run mode は自分の用途や権限に合った範囲内で最大限許容すると効率アップ！
 :::
@@ -209,7 +210,7 @@ auto-run mode は自分の用途や権限に合った範囲内で最大限許容
 :::: {.columns}
 
 ::: {.column width="50%"}
-**global gitignore 設定**
+**グローバルな gitignore 設定**
 
 リポジトリ内に自分と Cursor の作業用ディレクトリを作成する
 
@@ -280,7 +281,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
 
 1. 実装を理解した上でコミットハッシュ指定して使う
     - コード量は少なめだし DeepWiki を使えば壁打ちもできる
-2. 自分で作る
+1. 自分で作る
     - 私は Fork して機能追加してます
         - [Databricks MCP Server を Service Principal 認証対応させた](https://zenn.dev/genda_jp/articles/2025-04-29-mcp-databricks-server-service-principal)
 
@@ -291,7 +292,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
 
 ### 2.8. MCP 設定 (認証情報隠蔽)
 
-⚠️未検証の内容です
+⚠️ 未検証の内容です
 
 プロジェクト共通設定として `.cursor/mcp.json` を置きたい場合に備えて MCP 設定から認証情報を隠蔽するために **envmcp** が利用できます
 
@@ -348,7 +349,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
 
 ### 2.9. ルール設定
 
-⚠️いずれも未検証です
+⚠️ いずれも未検証の内容です
 
 :::: {.columns}
 
@@ -388,7 +389,15 @@ Devin 向けにも別途ルールを整備する必要があり躊躇してい�
 
 ## 3. まとめ
 
-### 3.1. [まとめ] Cursor x データ抽出はいいぞ
+### 3.1. [まとめ] Cursor で Databricks から効率良くデータ抽出する体制
+
+1. [MCP] Databricks MCP Server を利用する
+1. [Cursor 設定] auto-run mode を利用する
+1. [その他設定] gitignore を設定して個人作業用フォルダを用意する
+1. [dbt] dbt プロジェクト内の個人作業用フォルダを作業の場とする
+    - テーブルの情報やデータ集計方法を学習させることができる
+
+### 3.2. [まとめ] Cursor x データ抽出はいいぞ
 
 Cursor に正しいクエリを書いてもらいデータ抽出をしてもらうことにフォーカスして利用方法を説明しました
 
