@@ -8,7 +8,7 @@ date: 2025-05-22
 date-modified: last-modified
 draft: true
 description: |
-  [登壇資料] 2025-05-22 ミダスキャピタル 生成AI勉強会
+  [登壇資料] 2025-05-22 AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル 勉強会)
 categories:
   - "slides"
   - "genda"
@@ -16,7 +16,7 @@ format:
   revealjs:
     code-copy: true
     embed-resources: true
-    footer: "2025-05-22 ミダスキャピタル 生成AI勉強会"
+    footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
     incremental: false
     scrollable: true
     self-contained: true
