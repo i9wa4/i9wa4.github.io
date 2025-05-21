@@ -20,6 +20,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-05-21-databricks-dashboard-github-operation.html",
       "/blog/2025-05-12-hands-on-lambda-ecr.html",
       "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
       "/blog/2025-05-06-editorconfig-vim.html",
@@ -62,6 +63,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-05-21-databricks-dashboard-github-operation.html",
       "/blog/2025-05-12-hands-on-lambda-ecr.html",
       "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
       "/blog/2025-05-06-editorconfig-vim.html",

@@ -17,7 +17,103 @@
 <width>144</width>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sun, 11 May 2025 15:13:12 GMT</lastBuildDate>
+<lastBuildDate>Wed, 21 May 2025 12:45:51 GMT</lastBuildDate>
+<item>
+  <title>Databricks AI/BI ダッシュボードの Git 連携の運用方法</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>Databricks のダッシュボードは Git 連携できます！</p>
+<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
+<p>バックアップを取り安心したいので必ず導入しましょう。</p>
+<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
+</section>
+<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
+<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
+<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
+<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
+<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
+</section>
+<section id="databricks-の考えるベストプラクティス" class="level2">
+<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
+<blockquote class="blockquote">
+<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
+</blockquote>
+<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
+<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
+<p>これを守るのは現実的ではないです。</p>
+</section>
+<section id="実際の運用" class="level2">
+<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
+<p>共有ワークスペース内に Git フォルダを作成して Git flow で運用しています。</p>
+<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
+<p>main へのマージは Pull Request 必須という企業も多いと思いますので、その観点でも Git flow は有ってそうです。</p>
+<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{
+    init: {
+        'logLevel': 'debug',
+        'theme': 'base',
+        'themeVariables': {
+            'commitLabelFontSize': '14px',
+            'tagLabelFontSize': '12px'
+        }
+    }
+}%%
+gitGraph LR:
+    checkout main
+    commit
+    branch develop order: 3
+    checkout develop
+    commit
+    commit
+    checkout main
+    merge develop tag: "25.02"
+    checkout develop
+    commit
+    commit
+
+    branch feature/add-dashboard order: 4
+    checkout feature/add-dashboard
+    commit
+    commit
+    checkout develop
+    merge feature/add-dashboard
+
+    checkout main
+    merge develop tag: "25.05"
+
+    checkout develop
+    commit
+    commit
+    commit
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <guid>https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html</guid>
+  <pubDate>Wed, 21 May 2025 12:45:51 GMT</pubDate>
+</item>
 <item>
   <title>AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</title>
   <dc:creator>uma-chan </dc:creator>
@@ -1157,7 +1253,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="3affe3e8" class="cell" data-execution_count="3">
+<div id="d3ae5b73" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1355,7 +1451,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="897175ee" class="cell" data-execution_count="4">
+<div id="7f8d4746" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1409,7 +1505,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="5a8865d0" class="cell" data-execution_count="5">
+<div id="4b1ef04d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1499,7 +1595,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="d19391a5" class="cell" data-execution_count="6">
+<div id="4550e2d0" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1541,7 +1637,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="7ac4f430" class="cell" data-execution_count="7">
+<div id="cc5d8a65" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1583,7 +1679,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="610fc030" class="cell" data-execution_count="8">
+<div id="62af2570" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1661,7 +1757,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="dfd8b252" class="cell" data-execution_count="9">
+<div id="4fba15f7" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -3304,28 +3400,6 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</guid>
   <pubDate>Fri, 25 Oct 2024 14:17:19 GMT</pubDate>
-</item>
-<item>
-  <title>:%s/i9wa4/uma-chan/g</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。</p>
-<p>それに伴いブログの記事も修正しています。</p>
-<p>というわけでよろしくお願いします！</p>
-
-
-
- ]]></description>
-  <category>blog</category>
-  <category>diary</category>
-  <guid>https://i9wa4.github.io/blog/2024-10-25-s-i9wa4-umachan-g.html</guid>
-  <pubDate>Fri, 25 Oct 2024 12:29:49 GMT</pubDate>
 </item>
 </channel>
 </rss>
