@@ -7,6 +7,9 @@ categories:
 description: |
   データエンジニア・MLOps エンジニア
 Period: "2025/06 - 現在"
+format:
+  html:
+    title-prefix: ""
 ---
 
 :会社概要・雇用形態 (2025年時点) {#tbl-company tbl-colwidths="[20,80]"}

@@ -1,5 +1,7 @@
 ---
 title: "職務経歴書"
+title-meta: "職務経歴書"
+title-block-style: none
 date-modified: last-modified
 repo-actions: false
 listing:
@@ -39,6 +41,9 @@ listing:
       - "filename desc"
     sort-ui: false
     type: table
+format:
+  html:
+    title-prefix: ""
 ---
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->

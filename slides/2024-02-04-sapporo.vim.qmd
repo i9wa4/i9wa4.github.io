@@ -14,6 +14,7 @@ format:
     slide-number: true
     smaller: false
     theme: white
+    title-prefix: ""
     footer: "https://connpass.com/event/307552/"
 ---
 

@@ -8,6 +8,9 @@ description: |
   Windows アプリエンジニアとして以下に従事<br>
   - Windows 用 CAD/CAM アプリ開発の要件定義・テスト
 Period: "2016/04 - 2018/07"
+format:
+  html:
+    title-prefix: ""
 ---
 
 :会社概要・雇用形態 (2018年時点) {#tbl-company tbl-colwidths="[20,80]"}

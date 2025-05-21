@@ -25,13 +25,14 @@ format:
     smaller: false
     theme:
       - default
-      - themes/genda.scss
+      - ../themes/genda.scss
     width: 1920
     height: 1080
     title-slide-attributes:
       data-background-color: "#001722"  # Dark Navy
       data-background-image: "/assets/2025-05-22-midas-cursor-tips/title-background.jpg"
       data-background-size: "cover"
+    title-prefix: ""
 ---
 
 ## 1. はじめに
