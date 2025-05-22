@@ -4,8 +4,8 @@ listing:
   - id: "list-all"
     categories: numbered
     contents:
-      - "blog"
-      - "slides"
+      - "/blog"
+      - "/slides"
     exclude:
       filename:
         - "index.qmd"
@@ -16,7 +16,7 @@ listing:
       - "image"
       - "categories"
       - "description"
-    image-placeholder: "assets/common/icon_hhkb3.png"
+    image-placeholder: "/assets/common/icon_hhkb3.png"
     sort:
       - "date desc"
       - "title"
