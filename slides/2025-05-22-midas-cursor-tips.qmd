@@ -379,7 +379,7 @@ Devin 向けにも別途ルールを整備する必要があり躊躇してい�
 >     - ``.cursor/rules/*.mdc``
 >     - `.cline-rules`
 >     - `.github/copilot-instructions.md`
-> - devin-guidelines.md
+>     - devin-guidelines.md
 > - Symlink or copy mode (auto-detects OS capability)
 
 <https://github.com/airulefy/Airulefy>
