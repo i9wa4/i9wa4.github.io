@@ -1,7 +1,5 @@
 ---
 title: "職務経歴書"
-title-meta: "職務経歴書"
-title-block-style: none
 date-modified: last-modified
 repo-actions: false
 listing:
