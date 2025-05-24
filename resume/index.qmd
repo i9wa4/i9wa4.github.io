@@ -95,7 +95,7 @@ format:
 現職の株式会社GENDAにて取り組んでいる以下です。
 データ基盤の改修・データマート構築・ダッシュボード作成・全体の運用・データ分析支援といったデータに関すること全てを私が対応しており、プロジェクト進行上人員不足の面での課題に向き合い解消に向かっている最中です。
 
-[[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA](05-genda.qmd#データ-カラオケ事業会社のデータ利活用推進)
+[[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA](05-genda.qmd#main)
 
 ### 3.4. 職務経歴 図解
 
@@ -123,28 +123,28 @@ gitGraph LR:
     commit id: "オークマ株式会社 入社" tag: "16.04" type: HIGHLIGHT
     commit id: "Windows アプリエンジニア"
     checkout main
-    merge b01 id: "18.07"
+    merge b01
 
     checkout main
     branch b02 order: 2
     commit id: "新光商事LSIデザインセンター株式会社 入社" tag: "18.08" type: HIGHLIGHT
     commit id: "組込エンジニア"
     checkout main
-    merge b02 id: "22.03"
+    merge b02
 
     checkout main
     branch b03 order: 3
     commit id: "株式会社シイエヌエス北海道 入社" tag: "22.04" type: HIGHLIGHT
     commit id: "データエンジニア / MLOps エンジニア-1"
     checkout main
-    merge b03 id: "24.03"
+    merge b03
 
     checkout main
     branch b04 order: 4
     commit id: "株式会社hacomono 入社" tag: "24.04" type: HIGHLIGHT
     commit id: "データエンジニア"
     checkout main
-    merge b04 id: "24.10"
+    merge b04
 
     checkout main
     branch b05 order: 5
@@ -218,13 +218,19 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 - [2015/03] TOEIC スコア 805
 <!-- - [2012/11] 普通自動車第一種運転免許 -->
 
-## 7. 通常業務以外の活動
+## 7. 通常業務以外の活動 {#activities}
 
 ### 7.1. 記事執筆・掲載
 
-| 日付           | 概要                        | リンク                                                                                                                                  |
-| :---           | :---                        | :---                                                                                                                                    |
-| 2024/12 - 現在 | GENDA テックブログ執筆      | [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)                                                                                 |
-| 2024/10/08     | Findy Tools 様 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28) |
-| 2024/08/21     | Findy Tools 様 レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                     |
-| 2024/07/02     | hacomono テックブログ執筆   | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)       |
+| 日付           | 所属             | 概要                        | リンク                                                                                                                                  |
+| :---           | :---             | :---                        | :---                                                                                                                                    |
+| 2024/12 - 現在 | 株式会社GENDA    | GENDA テックブログ執筆      | [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)                                                                                 |
+| 2024/10/08     | 株式会社hacomono | Findy Tools 様 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28) |
+| 2024/08/21     | 株式会社hacomono | Findy Tools 様 レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                     |
+| 2024/07/02     | 株式会社hacomono | hacomono テックブログ執筆   | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)       |
+
+### 7.2. 登壇
+
+| 日付       | 所属          | 概要                                                                           | リンク                                                                                            |
+| :---       | :---          | :---                                                                           | :---                                                                                              |
+| 2025/05/22 | 株式会社GENDA | [登壇先] AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会) | [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](/slides/2025-05-22-midas-cursor-tips.qmd) |

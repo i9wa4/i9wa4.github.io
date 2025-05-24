@@ -5,7 +5,6 @@ listing:
     categories: numbered
     contents:
       - "blog"
-      - "slides"
     exclude:
       filename:
         - "index.qmd"
