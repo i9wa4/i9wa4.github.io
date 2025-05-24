@@ -60,10 +60,10 @@ website:
             text: "X (formerly Twitter)"
           - href: "https://www.linkedin.com/in/daikm/"
             text: "LinkedIn"
+          # - href: "https://speakerdeck.com/i9wa4"
+          #   text: "Speaker Deck"
           - href: "https://zenn.dev/i9wa4"
             text: "Zenn"
-          - href: "https://speakerdeck.com/i9wa4"
-            text: "Speaker Deck"
           - href: "https://deepwiki.com/i9wa4/i9wa4.github.io"
             text: "DeepWiki (ask about me)"
   page-footer:
