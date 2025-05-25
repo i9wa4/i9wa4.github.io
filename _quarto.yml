@@ -8,6 +8,7 @@ website:
   title: "uma-chan's page"
   bread-crumbs: false
   favicon: "assets/common/icon_hhkb3.png"
+  google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
   image: "assets/common/icon_hhkb3.png"
   repo-actions: [source, issue]
   repo-url: "https://github.com/i9wa4/i9wa4.github.io"
@@ -62,7 +63,7 @@ website:
       #       text: "Zenn"
   page-footer:
     left:
-      - text: "Copyright 2024 uma-chan"
+      - text: "Copyright 2024-YEAR_PLACEHOLDER uma-chan"
     right:
       - text: "Built with Quarto"
         href: "https://quarto.org/"

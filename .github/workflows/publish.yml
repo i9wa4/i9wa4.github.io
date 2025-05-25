@@ -32,6 +32,13 @@ jobs:
       - name: (Optional) Set up Jupyter
         run: python3 -m pip install jupyter
 
+      - name: Update Quarto config
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+        run: |
+          sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yml
+          sed -i "s/YEAR_PLACEHOLDER/$(date +%Y)/g" _quarto.yml
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
