@@ -35,3 +35,5 @@ categories:
 | 2024-10-05 | Apple      | [Apple Watch Series 10](https://www.yodobashi.com/product/100000001008724031/)                                                                |
 | 2024-12-13 | final      | [ZE500 for ASMR -Patra Black-](https://final-inc.com/products/ze500-patra)                                                                    |
 | 2024-12-15 | 象印       | [スチーム式加湿器 EE-RT50-WA](https://www.yodobashi.com/product/100000001008633000/)                                                          |
+| 2025-02-12 | ProtoArc   | [ProtoArc EM01](https://www.amazon.co.jp/dp/B0D3QJDBHW)                                                                                       |
+| 2025-03-23 | Apple      | [MacBook Air M4 13インチ 10コアCPU 10コアGPU メモリ32GB](https://www.yodobashi.com/product/100000001008981683/)                               |
