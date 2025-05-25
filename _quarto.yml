@@ -6,11 +6,12 @@ date-format: iso
 
 website:
   title: "uma-chan's page"
+  bread-crumbs: false
   favicon: "assets/common/icon_hhkb3.png"
   image: "assets/common/icon_hhkb3.png"
   repo-actions: [edit, source, issue]
   repo-url: "https://github.com/i9wa4/i9wa4.github.io"
-  search: true
+  search: false
   site-url: "https://i9wa4.github.io"
   open-graph:
     locale: "ja_JP"
