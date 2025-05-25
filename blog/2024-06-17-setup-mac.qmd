@@ -6,6 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "tech"
+  - "memo"
 ---
 
 私の Mac 環境構築手順をまとめておきます。

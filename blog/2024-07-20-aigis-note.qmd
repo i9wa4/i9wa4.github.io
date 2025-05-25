@@ -6,6 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "game"
+  - "memo"
 ---
 
 偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。

@@ -5,6 +5,7 @@ date: 2025-04-07 23:10:38 +0900
 date-modified: last-modified
 categories:
   - "blog"
+  - "memo"
 ---
 
 ```{python}

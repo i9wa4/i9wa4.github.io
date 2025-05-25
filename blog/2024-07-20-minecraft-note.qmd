@@ -6,6 +6,7 @@ date-modified: last-modified
 categories:
   - "blog"
   - "game"
+  - "memo"
 ---
 
 Minecraft の自分用メモを公開しておきます。
