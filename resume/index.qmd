@@ -95,78 +95,6 @@ format:
 
 [[データ] カラオケ事業会社のデータ利活用推進 | 株式会社GENDA](05-genda.qmd#データ-カラオケ事業会社のデータ利活用推進)
 
-### 3.4. 職務経歴 図解
-
-```{mermaid}
-%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'gitGraph': {
-            'rotateCommitLabel': true,
-            'showBranches': false
-        },
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit id: "北海道大学 理学部数学科 卒業" tag: "16.03"
-
-    checkout main
-    branch b01 order: 1
-    commit id: "オークマ株式会社 入社" tag: "16.04" type: HIGHLIGHT
-    commit id: "Windows アプリエンジニア"
-    checkout main
-    merge b01
-
-    checkout main
-    branch b02 order: 2
-    commit id: "新光商事LSIデザインセンター株式会社 入社" tag: "18.08" type: HIGHLIGHT
-    commit id: "組込エンジニア"
-    checkout main
-    merge b02
-
-    checkout main
-    branch b03 order: 3
-    commit id: "株式会社シイエヌエス北海道 入社" tag: "22.04" type: HIGHLIGHT
-    commit id: "データエンジニア / MLOps エンジニア-1"
-    checkout main
-    merge b03
-
-    checkout main
-    branch b04 order: 4
-    commit id: "株式会社hacomono 入社" tag: "24.04" type: HIGHLIGHT
-    commit id: "データエンジニア"
-    checkout main
-    merge b04
-
-    checkout main
-    branch b05 order: 5
-    commit id: "株式会社GENDA 入社" tag: "24.11" type: HIGHLIGHT
-    commit id: "データエンジニア / MLOps エンジニア-2"
-
-    checkout main
-    commit id: "25.05"
-    branch b07 order: 7
-    commit id: "PIVOT株式会社 業務委託として参画" tag: "25.06" type: HIGHLIGHT
-    commit id: "データエンジニア / MLOps エンジニア-3"
-
-    %% --- Current Activity ---
-
-    %% checkout main
-    %% commit id: "個人活動"
-
-    checkout b05
-    commit id: "就業中" type: HIGHLIGHT
-
-    checkout b07
-    commit id: "参画中" type: HIGHLIGHT
-```
-
 ## 4. 今後取り組みたいこと
 
 **◆役割面：**<br>
@@ -200,7 +128,8 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 | Data / ML | Snowflake             | <!-- 2022/04-2024/03, 2024/11-xxxx/xx --> ★2年 | データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能                                                        |
 | ML        | DataRobot             | <!-- 2022/04-2024/03 --> ★2年                  | オートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能                                    |
 | OS        | Amazon Linux / Ubuntu | <!-- 2021/04-xxxx/xx --> ★4年                  | 要件に応じた環境構築や開発環境利用が可能                                                                                                   |
-| OS        | Windows / macOS       | <!-- 2016/04-xxxx/xx --> ★9年                  | 開発利用が可能                                                                                                                             |
+| OS        | Windows               | <!-- 2016/04-xxxx/xx --> ★9年                  | 開発利用が可能                                                                                                                             |
+| OS        | macOS                 | <!-- 2024/04-xxxx/xx --> ★1年                  | 開発利用が可能                                                                                                                             |
 | 言語      | C                     | <!-- 2018/08-2022/03 --> ★3年                  | 一人称で作業可能                                                                                                                           |
 | 言語      | Python                | <!-- 2021/04-xxxx/xx --> ★4年                  | 一人称で作業可能                                                                                                                           |
 | 言語      | SQL                   | <!-- 2022/04-xxxx/xx --> ★3年                  | 一人称で作業可能                                                                                                                           |
