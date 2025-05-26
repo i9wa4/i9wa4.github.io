@@ -478,6 +478,7 @@ font-style: inherit;"> crlf</span></span></code></pre></div>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2025-05-06-editorconfig-vim.html</guid>
   <pubDate>Tue, 06 May 2025 14:06:23 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Python venv インストール・更新スクリプトの供養</title>
@@ -770,7 +771,7 @@ font-style: inherit;">deactivate</span></span></code></pre></div>
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>GitHub Profile 用のリポジトリで lefthook を活用していたですが、不要になり削除しようと思うのでここに知見を残します。</p>
+<p>GitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します。</p>
 </section>
 <section id="lefthook-とは" class="level2">
 <h2 class="anchored" data-anchor-id="lefthook-とは">2. lefthook とは</h2>
@@ -1020,6 +1021,7 @@ font-style: inherit;">//  []string{"1_command", "10command", "3 command", "comma
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-04-20-lefthook.html</guid>
   <pubDate>Sun, 20 Apr 2025 10:47:21 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>MCP に入門した</title>
@@ -1209,6 +1211,7 @@ font-style: inherit;">}</span></span></code></pre></div>
   <category>tech-ai-tools</category>
   <guid>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</guid>
   <pubDate>Thu, 10 Apr 2025 15:51:06 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Gemini API に課金した</title>
@@ -1242,6 +1245,7 @@ font-style: inherit;">}</span></span></code></pre></div>
   <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini-api.html</guid>
   <pubDate>Thu, 10 Apr 2025 12:08:10 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>個人的ブックマーク</title>
@@ -1256,7 +1260,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="7ae04974" class="cell" data-execution_count="3">
+<div id="81592c3c" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1453,8 +1457,8 @@ Website
 </div>
 </section>
 <section id="テキストエディタ" class="level2">
-<h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="e7acb949" class="cell" data-execution_count="4">
+<h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
+<div id="3c6beeb9" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1507,8 +1511,8 @@ Website
 </div>
 </section>
 <section id="github-git" class="level2">
-<h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="a0733e47" class="cell" data-execution_count="5">
+<h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
+<div id="c9538b8a" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1597,8 +1601,8 @@ Website
 </div>
 </section>
 <section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="ebfd1ac0" class="cell" data-execution_count="6">
+<h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
+<div id="896ec08e" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1639,8 +1643,8 @@ Website
 </div>
 </section>
 <section id="データ分析" class="level2">
-<h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="422e65b8" class="cell" data-execution_count="7">
+<h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
+<div id="6acbd250" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1681,8 +1685,8 @@ Website
 </div>
 </section>
 <section id="データエンジニアリング" class="level2">
-<h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="01c8f482" class="cell" data-execution_count="8">
+<h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
+<div id="8e26b2cd" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1759,8 +1763,8 @@ Website
 </div>
 </section>
 <section id="機械学習" class="level2">
-<h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="0cf125b6" class="cell" data-execution_count="9">
+<h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
+<div id="ffbfc738" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1892,6 +1896,7 @@ Website
   <category>memo</category>
   <guid>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</guid>
   <pubDate>Mon, 07 Apr 2025 14:10:38 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>2024年度を振り返る</title>
@@ -1958,6 +1963,7 @@ Website
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html</guid>
   <pubDate>Tue, 01 Apr 2025 16:02:31 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Aider を使ってみる</title>
@@ -2368,6 +2374,7 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
   <category>tech-ai-tools</category>
   <guid>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</guid>
   <pubDate>Mon, 31 Mar 2025 16:37:05 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>見やすい SQL を書くための Tips</title>
@@ -2586,6 +2593,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</guid>
   <pubDate>Fri, 21 Feb 2025 02:03:49 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>最近の Vim プラグイン開発のアイデア</title>
@@ -2647,6 +2655,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2025-02-20-vim-plugin-idea.html</guid>
   <pubDate>Thu, 20 Feb 2025 03:22:55 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Instagram API のアクセストークンを取得する</title>
@@ -2701,6 +2710,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html</guid>
   <pubDate>Fri, 31 Jan 2025 12:06:02 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Quarto の YAML ヘッダにコードを埋め込みたい</title>
@@ -2727,6 +2737,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech-quarto</category>
   <guid>https://i9wa4.github.io/blog/2024-12-07-inline-r-code-in-yaml.html</guid>
   <pubDate>Sat, 07 Dec 2024 06:30:24 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>事故らない OneDrive 設定変更手順</title>
@@ -2771,6 +2782,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-12-07-configure-onedrive.html</guid>
   <pubDate>Sat, 07 Dec 2024 06:30:24 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>SnowSQL セットアップ (Mac)</title>
@@ -2877,6 +2889,7 @@ font-style: inherit;">-c</span> connection_name1</span></code></pre></div></li>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-12-05-setup-snowsql-mac.html</guid>
   <pubDate>Thu, 05 Dec 2024 00:48:09 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Zennの記事をGitHubリポジトリで管理する</title>
@@ -3044,6 +3057,7 @@ font-style: inherit;">---</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-11-20-manage-zenn-with-github.html</guid>
   <pubDate>Wed, 20 Nov 2024 08:49:32 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>nektos/act を使ってみた</title>
@@ -3341,6 +3355,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2024-11-12-use-nektos-act.html</guid>
   <pubDate>Tue, 12 Nov 2024 14:54:57 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>キャリアについてぼんやり考えていたことを時系列順にまとめる</title>
@@ -3404,6 +3419,7 @@ font-style: inherit;">-</span> consider ugrading to 0.2.69.</span></code></pre><
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2024-10-25-thinking-of-my-career.html</guid>
   <pubDate>Fri, 25 Oct 2024 14:17:19 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
