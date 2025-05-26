@@ -113,6 +113,7 @@ gitGraph LR:
   <category>tech-data</category>
   <guid>https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html</guid>
   <pubDate>Wed, 21 May 2025 12:45:51 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</title>
@@ -243,6 +244,7 @@ font-style: inherit;">└──</span> versions.tf</span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html</guid>
   <pubDate>Sun, 11 May 2025 15:13:12 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Bash/Zsh でコマンドをエディタで編集する</title>
@@ -299,6 +301,7 @@ font-style: inherit;">'^x^e'</span> edit-command-line</span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html</guid>
   <pubDate>Sat, 10 May 2025 05:51:17 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>今更ながら Vim に EditorConfig を導入しました</title>
@@ -476,6 +479,7 @@ font-style: inherit;"> crlf</span></span></code></pre></div>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2025-05-06-editorconfig-vim.html</guid>
   <pubDate>Tue, 06 May 2025 14:06:23 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Python venv インストール・更新スクリプトの供養</title>
@@ -754,6 +758,7 @@ font-style: inherit;">deactivate</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-06-python-venv.html</guid>
   <pubDate>Tue, 06 May 2025 13:57:36 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する</title>
@@ -3058,6 +3063,7 @@ font-style: inherit;">"oauth"</span></span></code></pre></div>
   <category>tech-data</category>
   <guid>https://i9wa4.github.io/blog/2025-04-29-mcp-databricks-server-service-principal.html</guid>
   <pubDate>Tue, 29 Apr 2025 03:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>lefthook 設定の供養</title>
@@ -3321,6 +3327,7 @@ font-style: inherit;">//  []string{"1_command", "10command", "3 command", "comma
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-04-20-lefthook.html</guid>
   <pubDate>Sun, 20 Apr 2025 10:47:21 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Python でありがちな本体バージョンとライブラリバージョンの不整合の例</title>
@@ -7217,6 +7224,7 @@ font-style: inherit;">$</span> pip install dbt-databricks==1.7.17</span></code><
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-04-16-issue-with-python-libraries.html</guid>
   <pubDate>Wed, 16 Apr 2025 03:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>MCP に入門した</title>
@@ -7439,6 +7447,7 @@ font-style: inherit;">}</span></span></code></pre></div>
   <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini-api.html</guid>
   <pubDate>Thu, 10 Apr 2025 12:08:10 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>個人的ブックマーク</title>
@@ -7453,7 +7462,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="ca7162a7" class="cell" data-execution_count="3">
+<div id="15775ab9" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7651,7 +7660,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="a7277c23" class="cell" data-execution_count="4">
+<div id="98e7abab" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7705,7 +7714,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="efb70c3a" class="cell" data-execution_count="5">
+<div id="52316f75" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7795,7 +7804,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="7230937e" class="cell" data-execution_count="6">
+<div id="bcb8c7e4" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7837,7 +7846,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="b03664f2" class="cell" data-execution_count="7">
+<div id="3ba088da" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7879,7 +7888,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="b64283d1" class="cell" data-execution_count="8">
+<div id="7a1998bf" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7957,7 +7966,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="08060b89" class="cell" data-execution_count="9">
+<div id="c46f2177" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8089,6 +8098,7 @@ Website
   <category>memo</category>
   <guid>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</guid>
   <pubDate>Mon, 07 Apr 2025 14:10:38 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Devin に週報を書いてもらった</title>
@@ -8141,6 +8151,7 @@ Website
   <category>tech-ai-tools</category>
   <guid>https://i9wa4.github.io/blog/2025-04-05-weekly-report-by-devin.html</guid>
   <pubDate>Sat, 05 Apr 2025 03:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Devin 週報作成用プロンプト</title>
@@ -8362,6 +8373,7 @@ font-style: inherit;">&gt; 集計終了日：2025/03/18</span></span></code></pr
   <category>tech-ai-tools</category>
   <guid>https://i9wa4.github.io/blog/2025-04-05-weekly-report-prompt-for-devin.html</guid>
   <pubDate>Sat, 05 Apr 2025 03:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>2024年度を振り返る</title>
@@ -8839,6 +8851,7 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
   <category>tech-ai-tools</category>
   <guid>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</guid>
   <pubDate>Mon, 31 Mar 2025 16:37:05 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)</title>
@@ -9121,6 +9134,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</guid>
   <pubDate>Fri, 21 Feb 2025 02:03:49 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>最近の Vim プラグイン開発のアイデア</title>
@@ -9182,6 +9196,7 @@ font-style: inherit;">id</span></span></code></pre></div>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2025-02-20-vim-plugin-idea.html</guid>
   <pubDate>Thu, 20 Feb 2025 03:22:55 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
