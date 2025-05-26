@@ -25,7 +25,7 @@ categories:
 import numpy as np
 import pandas as pd
 
-df_all = pd.read_csv('../assets/notes/bookmarks.csv')
+df_all = pd.read_csv('../assets/2025-04-07-bookmarks/bookmarks.csv')
 
 
 def make_clickable(url, title):
