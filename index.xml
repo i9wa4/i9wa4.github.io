@@ -11,11 +11,9 @@
 <description>All of my thoughts.
 </description>
 <image>
-<url>https://i9wa4.github.io/assets/common/icon_hhkb3.png</url>
+<url>https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg</url>
 <title>uma-chan&#39;s page</title>
 <link>https://i9wa4.github.io/</link>
-<height>144</height>
-<width>144</width>
 </image>
 <generator>quarto-1.7.31</generator>
 <lastBuildDate>Wed, 21 May 2025 12:45:51 GMT</lastBuildDate>
@@ -114,6 +112,7 @@ gitGraph LR:
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html</guid>
   <pubDate>Wed, 21 May 2025 12:45:51 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</title>
@@ -244,6 +243,7 @@ font-style: inherit;">└──</span> versions.tf</span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html</guid>
   <pubDate>Sun, 11 May 2025 15:13:12 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Bash/Zsh でコマンドをエディタで編集する</title>
@@ -300,6 +300,7 @@ font-style: inherit;">'^x^e'</span> edit-command-line</span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html</guid>
   <pubDate>Sat, 10 May 2025 05:51:17 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>今更ながら Vim に EditorConfig を導入しました</title>
@@ -755,6 +756,7 @@ font-style: inherit;">deactivate</span></span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-05-06-python-venv.html</guid>
   <pubDate>Tue, 06 May 2025 13:57:36 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>lefthook 設定の供養</title>
@@ -1254,7 +1256,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="d3693901" class="cell" data-execution_count="3">
+<div id="7ae04974" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1452,7 +1454,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="1b1fd732" class="cell" data-execution_count="4">
+<div id="e7acb949" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1506,7 +1508,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="55dec485" class="cell" data-execution_count="5">
+<div id="a0733e47" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1596,7 +1598,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="e65bad84" class="cell" data-execution_count="6">
+<div id="ebfd1ac0" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1638,7 +1640,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="6e720fd7" class="cell" data-execution_count="7">
+<div id="422e65b8" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1680,7 +1682,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="56e93219" class="cell" data-execution_count="8">
+<div id="01c8f482" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1758,7 +1760,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="81862441" class="cell" data-execution_count="9">
+<div id="0cf125b6" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
