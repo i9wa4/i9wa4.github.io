@@ -14,7 +14,7 @@ listing:
       - "image"
       - "categories"
       - "description"
-    image-placeholder: "/assets/common/icon_hhkb3_large.jpg"
+    # image-placeholder: "/assets/common/icon_hhkb3_large.jpg"
     sort:
       - "date desc"
       - "title"
