@@ -3,6 +3,9 @@ title: "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介"
 author: uma-chan
 date: 2024-01-02 21:47:46 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+descriptin: |
+  自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介記事です。
 categories:
   - "blog"
   - "tech"
@@ -25,13 +28,13 @@ categories:
 
 ## 3. Denops プラグインとして作ろうと思った理由
 
-まず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。  
+まず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。
 そして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。
 
 ## 4. Denops プラグイン開発体験について
 
-初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。  
-核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。  
+初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。
+核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。
 まず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。
 
 - 参考ページ:
@@ -40,5 +43,5 @@ categories:
 
 ## 5. 感想
 
-今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。  
+今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。
 今後も必要なものは自分で作っていたいですね。

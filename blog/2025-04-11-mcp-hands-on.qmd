@@ -3,6 +3,9 @@ title: "MCP に入門した"
 author: uma-chan
 date: 2025-04-11 00:51:06 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  MCP (Model Context Protocol) に入門してみました
 categories:
   - "blog"
   - "tech"

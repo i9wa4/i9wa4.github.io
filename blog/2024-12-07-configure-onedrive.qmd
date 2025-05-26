@@ -3,6 +3,9 @@ title: "事故らない OneDrive 設定変更手順"
 author: uma-chan
 date: 2024-12-07 15:30:24 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  OneDrive の設定変更手順をまとめました。デスクトップやドキュメントの同期を避けたい場合に役立つ内容です。
 categories:
   - "blog"
   - "tech"

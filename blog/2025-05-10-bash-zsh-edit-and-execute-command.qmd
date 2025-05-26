@@ -4,6 +4,8 @@ author: uma-chan
 date: 2025-05-10 14:51:17 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  Bash/Zsh で入力中のコマンドをエディタで編集して実行する方法について書いています。
 categories:
   - "blog"
   - "tech"

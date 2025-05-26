@@ -3,6 +3,9 @@ title: "最近の Vim プラグイン開発のアイデア"
 author: uma-chan
 date: 2025-02-20 12:22:55 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  最近の Vim プラグイン開発のアイデアを振り返ります。
 categories:
   - "blog"
   - "tech"

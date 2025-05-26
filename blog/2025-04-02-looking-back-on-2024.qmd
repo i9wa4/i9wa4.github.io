@@ -3,6 +3,9 @@ title: "2024年度を振り返る"
 author: uma-chan
 date: 2025-04-02 01:02:31 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  2024年度に初めて経験したことを振り返ってみます。
 categories:
   - "blog"
   - "diary"

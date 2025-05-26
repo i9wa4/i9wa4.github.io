@@ -3,6 +3,9 @@ title: "GitHub Pages (Jekyll) blog のタグ追加対応"
 author: uma-chan
 date: 2024-01-02 17:34:55 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+descriptin: |
+  GitHub Pages (Jekyll) blog のタグ追加対応について
 categories:
   - "blog"
   - "tech"

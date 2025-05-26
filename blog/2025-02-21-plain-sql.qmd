@@ -3,6 +3,9 @@ title: "見やすい SQL を書くための Tips"
 author: uma-chan
 date: 2025-02-21 11:03:49 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。
 categories:
   - "blog"
   - "tech"

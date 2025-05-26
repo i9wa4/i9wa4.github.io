@@ -18,7 +18,7 @@ website:
     locale: "ja_JP"
     site-name: "uma-chan's page"
   twitter-card:
-    card-style: summary
+    card-style: summary_large_image
     creator: "@i9wa4_"
     site: "@i9wa4_"
   sidebar:
