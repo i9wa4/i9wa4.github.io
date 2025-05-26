@@ -3,6 +3,7 @@ title: "今更ながら Vim に EditorConfig を導入しました"
 author: uma-chan
 date: 2025-05-06 23:06:23 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   今更ながら Vim に EditorConfig を導入しました。設定方法と感想を書いています。
 categories:

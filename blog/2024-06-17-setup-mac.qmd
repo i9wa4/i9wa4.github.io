@@ -3,6 +3,7 @@ title: "Mac 環境構築手順"
 author: uma-chan
 date: 2024-06-17 12:21:36 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   私の Mac 環境構築手順をまとめておきます。
 categories:

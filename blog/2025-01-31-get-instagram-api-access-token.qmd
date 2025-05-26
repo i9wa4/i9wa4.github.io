@@ -3,6 +3,7 @@ title: "Instagram API のアクセストークンを取得する"
 author: uma-chan
 date: 2025-01-31 21:06:02 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   失敗していますが Instagram API のアクセストークンを取得する手順を途中まで書いておきます。
 categories:

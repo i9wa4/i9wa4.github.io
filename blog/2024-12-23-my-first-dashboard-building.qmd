@@ -3,6 +3,7 @@ title: "データエンジニアが初めてダッシュボードを作成して
 author: uma-chan
 date: 2024-12-23 07:00 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。
 categories:

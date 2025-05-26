@@ -3,6 +3,7 @@ title: "SnowSQL セットアップ (Mac)"
 author: uma-chan
 date: 2024-12-05 09:48:09 +0900
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   Mac で SnowSQL をセットアップする手順をまとめました。
 categories:

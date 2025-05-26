@@ -3,6 +3,7 @@ title: "tmux と Zsh に Git リポジトリのステータスを表示する"
 author: uma-chan
 date: 2025-05-04 12:00:00 +0900
 date-modified: last-modified
+# image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   tmux のステータスラインと Zsh プロンプトに Git リポジトリのステータスを表示させる方法を紹介します。
 categories:
