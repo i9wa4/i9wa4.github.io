@@ -37,7 +37,7 @@ jobs:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: |
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yml
-          sed -i "s/YEAR_PLACEHOLDER/$(date +%Y)/g" _quarto.yml
+          sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yml
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
