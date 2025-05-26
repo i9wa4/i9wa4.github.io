@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-05-21">
-<meta name="description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="dcterms.date" content="2025-04-29">
+<meta name="description" content="Databricks MCP Server を Service Principal 認証対応させたものを公開しました。">
 
-<title>Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page</title>
+<title>Databricks MCP Server を Service Principal 認証対応させた – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -84,18 +119,15 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta property="og:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta property="og:title" content="Databricks MCP Server を Service Principal 認証対応させた – uma-chan’s page">
+<meta property="og:description" content="Databricks MCP Server を Service Principal 認証対応させたものを公開しました。">
 <meta property="og:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta name="twitter:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="twitter:title" content="Databricks MCP Server を Service Principal 認証対応させた – uma-chan’s page">
+<meta name="twitter:description" content="Databricks MCP Server を Service Principal 認証対応させたものを公開しました。">
 <meta name="twitter:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -274,7 +306,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+          <h1 class="quarto-secondary-nav-title">Databricks MCP Server を Service Principal 認証対応させた</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -363,11 +395,12 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#databricks-の-git-連携機能とダッシュボードの相性" id="toc-databricks-の-git-連携機能とダッシュボードの相性" class="nav-link" data-scroll-target="#databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</a></li>
-  <li><a href="#databricks-の考えるベストプラクティス" id="toc-databricks-の考えるベストプラクティス" class="nav-link" data-scroll-target="#databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</a></li>
-  <li><a href="#実際の運用" id="toc-実際の運用" class="nav-link" data-scroll-target="#実際の運用">4. 実際の運用</a></li>
+  <li><a href="#service-principal-とは" id="toc-service-principal-とは" class="nav-link" data-scroll-target="#service-principal-とは">2. Service Principal とは</a></li>
+  <li><a href="#存在意義" id="toc-存在意義" class="nav-link" data-scroll-target="#存在意義">3. 存在意義</a></li>
+  <li><a href="#利用方法" id="toc-利用方法" class="nav-link" data-scroll-target="#利用方法">4. 利用方法</a></li>
+  <li><a href="#おまけ実装上の工夫" id="toc-おまけ実装上の工夫" class="nav-link" data-scroll-target="#おまけ実装上の工夫">5. おまけ：実装上の工夫</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-04-29-mcp-databricks-server-service-principal.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -375,17 +408,18 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+<h1 class="title d-none d-lg-block">Databricks MCP Server を Service Principal 認証対応させた</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
+    <div class="quarto-category">tech-ai-tools</div>
     <div class="quarto-category">tech-data</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について</p>
+    <p>Databricks MCP Server を Service Principal 認証対応させたものを公開しました。</p>
   </div>
 </div>
 
@@ -402,7 +436,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-05-21</p>
+      <p class="date">2025-04-29</p>
     </div>
   </div>
   
@@ -422,80 +456,43 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Databricks のダッシュボードは Git 連携できます！</p>
-<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
-<p>バックアップを取り安心したいので必ず導入しましょう。</p>
-<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
+<p><a href="https://github.com/RafaelCartenet/mcp-databricks-server" class="uri">https://github.com/RafaelCartenet/mcp-databricks-server</a></p>
+<p>上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。</p>
+<p><a href="https://github.com/i9wa4/mcp-databricks-server/" class="uri">https://github.com/i9wa4/mcp-databricks-server/</a></p>
+<p>存在意義と利用方法について説明します。</p>
 </section>
-<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
-<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
-<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
-<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
-</section>
-<section id="databricks-の考えるベストプラクティス" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
+<section id="service-principal-とは" class="level2">
+<h2 class="anchored" data-anchor-id="service-principal-とは">2. Service Principal とは</h2>
+<p><a href="https://docs.databricks.com/gcp/ja/admin/users-groups/service-principals" class="uri">https://docs.databricks.com/gcp/ja/admin/users-groups/service-principals</a></p>
 <blockquote class="blockquote">
-<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
+<p>サービスプリンシパルは、自動化とプログラムによるアクセス用に設計された Databricks の特殊な ID です。 サービスプリンシパル は、自動化されたツールとスクリプトに API のみのアクセスを Databricks リソースに付与し、users アカウントを使用するよりも優れたセキュリティを提供します。</p>
 </blockquote>
-<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
-<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
-<p>これを守るのは現実的ではないです。</p>
+<p>一言でまとめると人間に紐付かない ID なので適切な権限管理ができます！</p>
 </section>
-<section id="実際の運用" class="level2">
-<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
-<p>共有ワークスペース内に Git フォルダを作成して Git flow で運用しています。</p>
-<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
-<p>main へのマージは Pull Request 必須という企業も多いと思いますので、その観点でも Git flow は運用しやすそうです。</p>
-<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit
-    branch develop order: 3
-    checkout develop
-    commit
-    commit
-    checkout main
-    merge develop tag: "25.02"
-    checkout develop
-    commit
-    commit
-
-    branch feature/add-dashboard order: 4
-    checkout feature/add-dashboard
-    commit
-    commit
-    checkout develop
-    merge feature/add-dashboard
-
-    checkout main
-    merge develop tag: "25.05"
-
-    checkout develop
-    commit
-    commit
-    commit
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="存在意義" class="level2">
+<h2 class="anchored" data-anchor-id="存在意義">3. 存在意義</h2>
+<p>Databricks MCP Server を含む AI エージェントを社内展開しようと思っています。</p>
+<p>ただ、Databricks MCP Server に必要な Token として私のアカウントで作成する Personal Access Token を使うのは権限が強すぎるのとクエリ履歴管理上良くないため Service Principal を使うようにしたかったのです。</p>
+</section>
+<section id="利用方法" class="level2">
+<h2 class="anchored" data-anchor-id="利用方法">4. 利用方法</h2>
+<p><a href="https://github.com/i9wa4/mcp-databricks-server/" class="uri">https://github.com/i9wa4/mcp-databricks-server/</a></p>
+<p>こちらの README に記載していますが、fork 元と異なる点は環境変数として下の3つを読み込める状態にすることです。</p>
+<p>ちなみに Service Principal 認証の場合は <code>DATABRICKS_TOKEN</code> は不要です。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATABRICKS_HOST</span><span class="op">=</span><span class="st">"your-databricks-instance.cloud.databricks.com"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATABRICKS_TOKEN</span><span class="op">=</span><span class="st">"your-databricks-access-token"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATABRICKS_SQL_WAREHOUSE_ID</span><span class="op">=</span><span class="st">"your-sql-warehouse-id"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># for OAuth authentication</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATABRICKS_CLIENT_ID</span><span class="op">=</span><span class="st">"your-client-id"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATABRICKS_CLIENT_SECRET</span><span class="op">=</span><span class="st">"your-client-secret"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">DATABRICKS_AUTH_TYPE</span><span class="op">=</span><span class="st">"oauth"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>DATABRICKS_CLIENT_ID</code> と <code>DATABRICKS_CLIENT_SECRET</code> の作成方法は以下のドキュメントを参考にしてください。</p>
+<p><a href="https://docs.databricks.com/aws/ja/dev-tools/auth/oauth-m2m" class="uri">https://docs.databricks.com/aws/ja/dev-tools/auth/oauth-m2m</a></p>
+</section>
+<section id="おまけ実装上の工夫" class="level2">
+<h2 class="anchored" data-anchor-id="おまけ実装上の工夫">5. おまけ：実装上の工夫</h2>
+<p>手元で Formatter を効かせてしまった都合で fork 元に Pull Request を出すのはちょっと難しくなってしまったのですが、それでも差分をできるだけ小さくしておきました。</p>
+<p>ヘッダ作成に必要なトークン取得部分を同期関数にして、その中で OAuth or PAT という形で分岐させる構成が結構良い感じに書けたのではないかと思います。 OAuth を優先してる都合でここは非同期にはできないですよね。</p>
 
 
 </section>
@@ -925,7 +922,7 @@ gitGraph LR:
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-04-29-mcp-databricks-server-service-principal.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

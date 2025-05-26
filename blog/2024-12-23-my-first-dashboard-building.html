@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-05-21">
-<meta name="description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="dcterms.date" content="2024-12-23">
+<meta name="description" content="データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。">
 
-<title>Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page</title>
+<title>データエンジニアが初めてダッシュボードを作成して気づいたこと – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,18 +84,15 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta property="og:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta property="og:title" content="データエンジニアが初めてダッシュボードを作成して気づいたこと – uma-chan’s page">
+<meta property="og:description" content="データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。">
 <meta property="og:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta name="twitter:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="twitter:title" content="データエンジニアが初めてダッシュボードを作成して気づいたこと – uma-chan’s page">
+<meta name="twitter:description" content="データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。">
 <meta name="twitter:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -274,7 +271,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+          <h1 class="quarto-secondary-nav-title">データエンジニアが初めてダッシュボードを作成して気づいたこと</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -363,11 +360,12 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#databricks-の-git-連携機能とダッシュボードの相性" id="toc-databricks-の-git-連携機能とダッシュボードの相性" class="nav-link" data-scroll-target="#databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</a></li>
-  <li><a href="#databricks-の考えるベストプラクティス" id="toc-databricks-の考えるベストプラクティス" class="nav-link" data-scroll-target="#databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</a></li>
-  <li><a href="#実際の運用" id="toc-実際の運用" class="nav-link" data-scroll-target="#実際の運用">4. 実際の運用</a></li>
+  <li><a href="#今回のダッシュボード作成の前提" id="toc-今回のダッシュボード作成の前提" class="nav-link" data-scroll-target="#今回のダッシュボード作成の前提">2. 今回のダッシュボード作成の前提</a></li>
+  <li><a href="#ダッシュボード作成前に考えていたこと" id="toc-ダッシュボード作成前に考えていたこと" class="nav-link" data-scroll-target="#ダッシュボード作成前に考えていたこと">3. ダッシュボード作成前に考えていたこと</a></li>
+  <li><a href="#ダッシュボード作成中に考えていること" id="toc-ダッシュボード作成中に考えていること" class="nav-link" data-scroll-target="#ダッシュボード作成中に考えていること">4. ダッシュボード作成中に考えていること</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">5. おわりに</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-12-23-my-first-dashboard-building.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -375,7 +373,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+<h1 class="title d-none d-lg-block">データエンジニアが初めてダッシュボードを作成して気づいたこと</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
@@ -385,7 +383,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    <p>Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について</p>
+    <p>データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。</p>
   </div>
 </div>
 
@@ -402,7 +400,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-05-21</p>
+      <p class="date">2024-12-23</p>
     </div>
   </div>
   
@@ -422,80 +420,93 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Databricks のダッシュボードは Git 連携できます！</p>
-<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
-<p>バックアップを取り安心したいので必ず導入しましょう。</p>
-<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
+<p>データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。</p>
 </section>
-<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
-<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
-<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
-<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
+<section id="今回のダッシュボード作成の前提" class="level2">
+<h2 class="anchored" data-anchor-id="今回のダッシュボード作成の前提">2. 今回のダッシュボード作成の前提</h2>
+<section id="要望" class="level3">
+<h3 class="anchored" data-anchor-id="要望">2.1. 要望</h3>
+<p>弊社グループ企業の担当者が毎日 Excel で KPI 算出や社内に向けたサマリ配信を行っており、ダッシュボード導入によりこの作業を自動化していこうという要望がありました。所謂 DX の一環です。</p>
 </section>
-<section id="databricks-の考えるベストプラクティス" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
-<blockquote class="blockquote">
-<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
-</blockquote>
-<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
-<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
-<p>これを守るのは現実的ではないです。</p>
+<section id="技術要素" class="level3">
+<h3 class="anchored" data-anchor-id="技術要素">2.2. 技術要素</h3>
+<ul>
+<li>ダッシュボードは Databricks で作成する</li>
+<li>その他要素は主題ではないので割愛する</li>
+</ul>
 </section>
-<section id="実際の運用" class="level2">
-<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
-<p>共有ワークスペース内に Git フォルダを作成して Git flow で運用しています。</p>
-<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
-<p>main へのマージは Pull Request 必須という企業も多いと思いますので、その観点でも Git flow は運用しやすそうです。</p>
-<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit
-    branch develop order: 3
-    checkout develop
-    commit
-    commit
-    checkout main
-    merge develop tag: "25.02"
-    checkout develop
-    commit
-    commit
-
-    branch feature/add-dashboard order: 4
-    checkout feature/add-dashboard
-    commit
-    commit
-    checkout develop
-    merge feature/add-dashboard
-
-    checkout main
-    merge develop tag: "25.05"
-
-    checkout develop
-    commit
-    commit
-    commit
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+</section>
+<section id="ダッシュボード作成前に考えていたこと" class="level2">
+<h2 class="anchored" data-anchor-id="ダッシュボード作成前に考えていたこと">3. ダッシュボード作成前に考えていたこと</h2>
+<section id="なぜ今までダッシュボード作成をしてこなかったのか" class="level3">
+<h3 class="anchored" data-anchor-id="なぜ今までダッシュボード作成をしてこなかったのか">3.1. なぜ今までダッシュボード作成をしてこなかったのか</h3>
+<section id="データエンジニアはデータ基盤タスクに追われている" class="level4">
+<h4 class="anchored" data-anchor-id="データエンジニアはデータ基盤タスクに追われている">3.1.1. データエンジニアはデータ基盤タスクに追われている</h4>
+<p>ダッシュボードは SQL が理解できれば作成できますが、データ基盤に関するタスクはデータエンジニアでないと対応できません。そしてデータエンジニアは人員不足であることが多いので基本的にデータエンジニアはデータ基盤に張り付くことになります。</p>
+<p>私はこのような経験をしてきましたが実際多くの企業で普遍的に起きていることではないでしょうか。</p>
+</section>
+<section id="そもそもダッシュボードを新規作成する機会が少ない" class="level4">
+<h4 class="anchored" data-anchor-id="そもそもダッシュボードを新規作成する機会が少ない">3.1.2. そもそもダッシュボードを新規作成する機会が少ない</h4>
+<p>一旦主要なダッシュボードを作成してしまえば作業が落ち着いてしまうことが多く、ダッシュボードを新規作成する機会を継続的にもてる方は少ないと思います。</p>
+<p>私の経験してきた中では新しくダッシュボードが作られる場面は少なかったです。</p>
+</section>
+</section>
+<section id="業務に対する心境の変化" class="level3">
+<h3 class="anchored" data-anchor-id="業務に対する心境の変化">3.2. 業務に対する心境の変化</h3>
+<p>これまではエンジニアとしてこの先生きのこるにはできるだけ技術を身につけていくべき、という強迫観念に突き動かされていたので技術的に新規性が少ないダッシュボード作成には積極的に手を挙げようとはあまり思っていませんでした。</p>
+<p>ただ、データエンジニアが自分しかいない環境を経験して、自分でもやれば何とかなるという自己効力感をもてたことでこの強迫観念に関しては一定程度薄れたと思います。やればできるのであれば焦る必要もないという気持ちをもてるようになりました。</p>
+<p>そして社会人として働く自分の実際のモチベーションとしては、目の前の同僚の役に立つことをしたい、あるいは苦労して構築運用がなされているデータ基盤の価値を高めたい、といった思いが強いことを自覚するようになりました。ダッシュボード作成はこのような自分の特性に結構マッチしたタスクだと思います。</p>
+<p>このような経緯があり今回のダッシュボード作成タスクに手を挙げて取り組むことになりました。</p>
+</section>
+</section>
+<section id="ダッシュボード作成中に考えていること" class="level2">
+<h2 class="anchored" data-anchor-id="ダッシュボード作成中に考えていること">4. ダッシュボード作成中に考えていること</h2>
+<p>実は自分が携わっているダッシュボードは現在作成中です。作成して利用いただいた後の状況は今後追いかけていきます。</p>
+<section id="databricks-上でのダッシュボード作成-tips" class="level3">
+<h3 class="anchored" data-anchor-id="databricks-上でのダッシュボード作成-tips">4.1. Databricks 上でのダッシュボード作成 Tips</h3>
+<p>本記事中唯一の技術要素です。 いずれも特に Databricks 特有のものではありませんが、使ってみて良いなと思った機能を一応メモしておきます。</p>
+<ul>
+<li>パラメータ
+<ul>
+<li>ドロップダウンリストで選択した値やフォームに入力した値をパラメータ経由でクエリに組み込むことができます。
+<ul>
+<li><a href="https://docs.databricks.com/en/dashboards/parameters.html">Work with dashboard parameters | Databricks on AWS</a></li>
+</ul></li>
+</ul></li>
+<li>ピボットテーブル
+<ul>
+<li>サクッと集計テーブルを作成できます。Excel やスプレッドシートで活用してたので特に抵抗なく使えました。
+<ul>
+<li><a href="https://docs.databricks.com/en/dashboards/visualizations/types.html#pivot-visualization">Dashboard visualizations types | Databricks on AWS</a></li>
+</ul></li>
+</ul></li>
+<li>SQL フォーマット
+<ul>
+<li>残念ながらダッシュボード内では利用できませんが Databricks で SQL フォーマットが利用できるので時々利用しています。
+<ul>
+<li><a href="https://docs.databricks.com/en/sql/user/sql-editor/index.html#query-options">Write queries and explore data in the SQL editor | Databricks on AWS</a></li>
+</ul></li>
+<li>ノートブックのセルでも利用できます。私は使い捨てのクエリをノートブックで管理してるので助かります。</li>
+<li>ちょっとクセの強いフォーマットをしてくるので賛否両論あると思います。</li>
+</ul></li>
+</ul>
+</section>
+<section id="弊社におけるダッシュボード作成の感想" class="level3">
+<h3 class="anchored" data-anchor-id="弊社におけるダッシュボード作成の感想">4.2. 弊社におけるダッシュボード作成の感想</h3>
+<p>今回のダッシュボード作成作業は弊社本社メンバーと当該グループ企業メンバーとで取り組んでいます。全員当事者意識をもっているため、本当に意味のあるものを充実感をもって作れる環境であると感じました。</p>
+<p>またデータチームにノウハウが蓄積していくため新たな企業をグループに迎え入れる際にはもっとスムーズに一連の作業を進めていけそうです。</p>
+<p>ダッシュボードを一気に新規作成する機会も弊社の成長と共に継続的に訪れるのではないかと思います。</p>
+</section>
+<section id="データエンジニアはダッシュボードを作るべきか" class="level3">
+<h3 class="anchored" data-anchor-id="データエンジニアはダッシュボードを作るべきか">4.3. データエンジニアはダッシュボードを作るべきか</h3>
+<p>データ利用者の立場に立った考え方ができるようになるので、データ基盤により磨きをかけて使いやすくしようと思える効果はありました。</p>
+<p>またデータ自体に対する知識を深めていけるのもダッシュボード作成の良さで、さらなるデータ活用のための過程と捉えることもできます。私の場合はデータサイエンス系業務にも関わっているのでデータの知識を深めることはデータ分析や機械学習に活かすことのできる経験になっています。</p>
+<p>とはいえデータエンジニアリングスキルをもつ人間がデータ基盤タスクではなくデータ活用タスクに時間を投入しても許される環境でないと取り組むのは難しいので、ある種贅沢なことかもしれません。</p>
+</section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">5. おわりに</h2>
+<p>結局やってみたいことに取り組んで納得感を得ることは良いことですね。今後もできるだけそうしたいです。</p>
 
 
 </section>
@@ -925,7 +936,7 @@ gitGraph LR:
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-12-23-my-first-dashboard-building.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

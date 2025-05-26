@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-05-21">
-<meta name="description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="dcterms.date" content="2025-04-05">
+<meta name="description" content="Devin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。">
 
-<title>Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page</title>
+<title>Devin に週報を書いてもらった – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,18 +84,15 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta property="og:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta property="og:title" content="Devin に週報を書いてもらった – uma-chan’s page">
+<meta property="og:description" content="Devin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。">
 <meta property="og:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta name="twitter:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="twitter:title" content="Devin に週報を書いてもらった – uma-chan’s page">
+<meta name="twitter:description" content="Devin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。">
 <meta name="twitter:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -274,7 +271,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+          <h1 class="quarto-secondary-nav-title">Devin に週報を書いてもらった</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -363,11 +360,11 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#databricks-の-git-連携機能とダッシュボードの相性" id="toc-databricks-の-git-連携機能とダッシュボードの相性" class="nav-link" data-scroll-target="#databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</a></li>
-  <li><a href="#databricks-の考えるベストプラクティス" id="toc-databricks-の考えるベストプラクティス" class="nav-link" data-scroll-target="#databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</a></li>
-  <li><a href="#実際の運用" id="toc-実際の運用" class="nav-link" data-scroll-target="#実際の運用">4. 実際の運用</a></li>
+  <li><a href="#週報作成の概要" id="toc-週報作成の概要" class="nav-link" data-scroll-target="#週報作成の概要">2. 週報作成の概要</a></li>
+  <li><a href="#devin-へのプロンプト" id="toc-devin-へのプロンプト" class="nav-link" data-scroll-target="#devin-へのプロンプト">3. Devin へのプロンプト</a></li>
+  <li><a href="#devin-へのプロンプトを書く上でのコツ" id="toc-devin-へのプロンプトを書く上でのコツ" class="nav-link" data-scroll-target="#devin-へのプロンプトを書く上でのコツ">4. Devin へのプロンプトを書く上でのコツ</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-04-05-weekly-report-by-devin.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -375,17 +372,17 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+<h1 class="title d-none d-lg-block">Devin に週報を書いてもらった</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-data</div>
+    <div class="quarto-category">tech-ai-tools</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について</p>
+    <p>Devin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。</p>
   </div>
 </div>
 
@@ -402,7 +399,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-05-21</p>
+      <p class="date">2025-04-05</p>
     </div>
   </div>
   
@@ -422,82 +419,37 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Databricks のダッシュボードは Git 連携できます！</p>
-<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
-<p>バックアップを取り安心したいので必ず導入しましょう。</p>
-<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
+<p>最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。</p>
 </section>
-<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
-<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
-<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
-<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
+<section id="週報作成の概要" class="level2">
+<h2 class="anchored" data-anchor-id="週報作成の概要">2. 週報作成の概要</h2>
+<p>集計期間の GitHub の issue と pull request の情報を基に各メンバーの活動の概要と詳細を issue にまとめてもらいます。</p>
 </section>
-<section id="databricks-の考えるベストプラクティス" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
+<section id="devin-へのプロンプト" class="level2">
+<h2 class="anchored" data-anchor-id="devin-へのプロンプト">3. Devin へのプロンプト</h2>
+<p>長文プロンプトを用意する必要があります。 Devin では Playbook を利用すればよいですね。 今回はリポジトリ内の Markdown ファイルを参照させてます。</p>
+<p>プロンプトは別記事に分けてます。</p>
+<p><a href="../blog/2025-04-05-weekly-report-prompt-for-devin.html">Devin 週報作成用プロンプト</a></p>
+<p>上に書いたような長文プロンプトを用意した上で以下のように Devin に指示を出します。</p>
 <blockquote class="blockquote">
-<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
+<p>以下の Markdown の指示に従って情報収集を行った上で GitHub issue を作成してください。 &lt;プロンプトとなるMarkdownのURL&gt;</p>
+<p>集計開始日：2025/03/12 集計終了日：2025/03/18</p>
 </blockquote>
-<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
-<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
-<p>これを守るのは現実的ではないです。</p>
 </section>
-<section id="実際の運用" class="level2">
-<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
-<p>共有ワークスペース内に Git フォルダを作成して Git flow で運用しています。</p>
-<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
-<p>main へのマージは Pull Request 必須という企業も多いと思いますので、その観点でも Git flow は運用しやすそうです。</p>
-<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit
-    branch develop order: 3
-    checkout develop
-    commit
-    commit
-    checkout main
-    merge develop tag: "25.02"
-    checkout develop
-    commit
-    commit
-
-    branch feature/add-dashboard order: 4
-    checkout feature/add-dashboard
-    commit
-    commit
-    checkout develop
-    merge feature/add-dashboard
-
-    checkout main
-    merge develop tag: "25.05"
-
-    checkout develop
-    commit
-    commit
-    commit
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="devin-へのプロンプトを書く上でのコツ" class="level2">
+<h2 class="anchored" data-anchor-id="devin-へのプロンプトを書く上でのコツ">4. Devin へのプロンプトを書く上でのコツ</h2>
+<section id="devin-というか-llm-の忘れっぽさへの対処" class="level3">
+<h3 class="anchored" data-anchor-id="devin-というか-llm-の忘れっぽさへの対処">4.1. Devin というか LLM の忘れっぽさへの対処</h3>
+<p>長文だとどうしても近眼的に周囲数行の記述に引っぱられてしまうので、大枠の構造を提示しつつ、詳細は具体例とピンポイントなコメントという書き味にすることで出力が安定しました。</p>
+<p>今回各メンバーを列挙する箇所がありますが、横着せず愚直に列挙しました。 冗長だなあと思いつつもこうすることで Devin が忘れずに全メンバーの情報収集をしてくれました。</p>
+</section>
+<section id="github-cli-の仕様への対処" class="level3">
+<h3 class="anchored" data-anchor-id="github-cli-の仕様への対処">4.2. GitHub CLI の仕様への対処</h3>
+<p>Devin がうまく情報収集してくれないことがあるので GitHub CLI の仕様を理解し適切なコマンドを実行できているか見ておく必要があります。 今回は <code>--state all</code> オプションを指定して閉じられた issue なども取得させるように指示を出しています。</p>
+<p>また、issue の description が長文になると文章を分割して編集追加させなければならなくなるので issue の description とコメントの行数を想定した上で適度に分割しておくと良いでしょう。 もし長文投稿させたい場合は作成した issue を読み込ませて見切れてないか Devin に確認させるのも良いかもしれません。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -925,7 +877,7 @@ gitGraph LR:
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-04-05-weekly-report-by-devin.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

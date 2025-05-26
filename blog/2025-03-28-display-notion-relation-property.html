@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-05-21">
-<meta name="description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="dcterms.date" content="2025-03-23">
+<meta name="description" content="Notion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。">
 
-<title>Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page</title>
+<title>Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点) – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,22 +84,23 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta property="og:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
-<meta property="og:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:title" content="Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点) – uma-chan’s page">
+<meta property="og:description" content="Notion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。">
+<meta property="og:image" content="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/goal.png">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta name="twitter:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
-<meta name="twitter:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:image:height" content="683">
+<meta property="og:image:width" content="1051">
+<meta name="twitter:title" content="Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点) – uma-chan’s page">
+<meta name="twitter:description" content="Notion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/goal.png">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="683">
+<meta name="twitter:image-width" content="1051">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -274,7 +275,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+          <h1 class="quarto-secondary-nav-title">Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -363,11 +364,9 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#databricks-の-git-連携機能とダッシュボードの相性" id="toc-databricks-の-git-連携機能とダッシュボードの相性" class="nav-link" data-scroll-target="#databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</a></li>
-  <li><a href="#databricks-の考えるベストプラクティス" id="toc-databricks-の考えるベストプラクティス" class="nav-link" data-scroll-target="#databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</a></li>
-  <li><a href="#実際の運用" id="toc-実際の運用" class="nav-link" data-scroll-target="#実際の運用">4. 実際の運用</a></li>
+  <li><a href="#リレーションプロパティの表示設定" id="toc-リレーションプロパティの表示設定" class="nav-link" data-scroll-target="#リレーションプロパティの表示設定">2. リレーションプロパティの表示設定</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-03-28-display-notion-relation-property.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -375,17 +374,16 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+<h1 class="title d-none d-lg-block">Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-data</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について</p>
+    <p>Notion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。</p>
   </div>
 </div>
 
@@ -402,7 +400,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-05-21</p>
+      <p class="date">2025-03-23</p>
     </div>
   </div>
   
@@ -422,82 +420,50 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Databricks のダッシュボードは Git 連携できます！</p>
-<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
-<p>バックアップを取り安心したいので必ず導入しましょう。</p>
-<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
+<p>下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/2025-03-28-display-notion-relation-property-as-section/goal.png" class="img-fluid figure-img"></p>
+<figcaption>リレーションプロパティの表示設定成功例</figcaption>
+</figure>
+</div>
+<p>タイトル記載日時点で公式ドキュメントに記載された通りに設定ができなかったので手順を共有します。</p>
+<p>一応以下が公式ドキュメントです。</p>
+<p><a href="https://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション" class="uri">https://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション</a></p>
 </section>
-<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
-<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
-<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
-<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
+<section id="リレーションプロパティの表示設定" class="level2">
+<h2 class="anchored" data-anchor-id="リレーションプロパティの表示設定">2. リレーションプロパティの表示設定</h2>
+<p>最も混乱しづらいであろう手順を以下に示します。</p>
+<section id="利用するデータベースの説明" class="level3">
+<h3 class="anchored" data-anchor-id="利用するデータベースの説明">2.1. 利用するデータベースの説明</h3>
+<section id="item_master" class="level4">
+<h4 class="anchored" data-anchor-id="item_master">2.1.1. item_master</h4>
+<p>リレーション元として利用します。</p>
+<p><img src="../assets/2025-03-28-display-notion-relation-property-as-section/item_master.png" class="img-fluid"></p>
 </section>
-<section id="databricks-の考えるベストプラクティス" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
-<blockquote class="blockquote">
-<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
-</blockquote>
-<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
-<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
-<p>これを守るのは現実的ではないです。</p>
+<section id="transaction_a" class="level4">
+<h4 class="anchored" data-anchor-id="transaction_a">2.1.2. transaction_a</h4>
+<p>item_master をプロパティに追加させたいデータベースです。</p>
+<p><img src="../assets/2025-03-28-display-notion-relation-property-as-section/transaction_a.png" class="img-fluid"></p>
 </section>
-<section id="実際の運用" class="level2">
-<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
-<p>共有ワークスペース内に Git フォルダを作成して Git flow で運用しています。</p>
-<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
-<p>main へのマージは Pull Request 必須という企業も多いと思いますので、その観点でも Git flow は運用しやすそうです。</p>
-<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit
-    branch develop order: 3
-    checkout develop
-    commit
-    commit
-    checkout main
-    merge develop tag: "25.02"
-    checkout develop
-    commit
-    commit
-
-    branch feature/add-dashboard order: 4
-    checkout feature/add-dashboard
-    commit
-    commit
-    checkout develop
-    merge feature/add-dashboard
-
-    checkout main
-    merge develop tag: "25.05"
-
-    checkout develop
-    commit
-    commit
-    commit
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+</section>
+<section id="リレーションプロパティの追加" class="level3">
+<h3 class="anchored" data-anchor-id="リレーションプロパティの追加">2.2. リレーションプロパティの追加</h3>
+<p>データベース全体の設定を行うのではなく、1アイテムを編集→全体適用でいきます。</p>
+<ol type="1">
+<li>transaction_a の1アイテムをサイドピークで開く</li>
+<li>右上の「…」→「レイアウトをカスタマイズ」とクリックする <img src="../assets/2025-03-28-display-notion-relation-property-as-section/01-customize-layout.png" class="img-fluid"></li>
+<li>「＋」をクリックする <img src="../assets/2025-03-28-display-notion-relation-property-as-section/02-click-plus.png" class="img-fluid"></li>
+<li>リレーションプロパティを選択する <img src="../assets/2025-03-28-display-notion-relation-property-as-section/03-add-relation.png" class="img-fluid"></li>
+<li>リレーション元として item_master を選択する <img src="../assets/2025-03-28-display-notion-relation-property-as-section/04-add-item-master.png" class="img-fluid"></li>
+<li>リレーションを追加する <img src="../assets/2025-03-28-display-notion-relation-property-as-section/05-add-relation.png" class="img-fluid"></li>
+<li>すべてのページに適用する <img src="../assets/2025-03-28-display-notion-relation-property-as-section/06-apply.png" class="img-fluid"></li>
+<li>リレーションプロパティの「…」から表示させたいプロパティを選択する <img src="../assets/2025-03-28-display-notion-relation-property-as-section/07-set-property.png" class="img-fluid"></li>
+<li>完了 <img src="../assets/2025-03-28-display-notion-relation-property-as-section/goal.png" class="img-fluid"></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -925,7 +891,7 @@ gitGraph LR:
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-03-28-display-notion-relation-property.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

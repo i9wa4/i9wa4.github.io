@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-05-21">
-<meta name="description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="dcterms.date" content="2024-12-02">
+<meta name="description" content="私が業務でよく利用する dbt のローカル開発環境の話をしていきます。">
 
-<title>Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page</title>
+<title>Vim/Neovim の dbt 開発環境の現状と Vim を救う話 – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,18 +84,15 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta property="og:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta property="og:title" content="Vim/Neovim の dbt 開発環境の現状と Vim を救う話 – uma-chan’s page">
+<meta property="og:description" content="私が業務でよく利用する dbt のローカル開発環境の話をしていきます。">
 <meta property="og:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="Databricks AI/BI ダッシュボードの Git 連携の運用方法 – uma-chan’s page">
-<meta name="twitter:description" content="Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について">
+<meta name="twitter:title" content="Vim/Neovim の dbt 開発環境の現状と Vim を救う話 – uma-chan’s page">
+<meta name="twitter:description" content="私が業務でよく利用する dbt のローカル開発環境の話をしていきます。">
 <meta name="twitter:image" content="https://i9wa4.github.io/blog/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -274,7 +271,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+          <h1 class="quarto-secondary-nav-title">Vim/Neovim の dbt 開発環境の現状と Vim を救う話</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -363,11 +360,13 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#databricks-の-git-連携機能とダッシュボードの相性" id="toc-databricks-の-git-連携機能とダッシュボードの相性" class="nav-link" data-scroll-target="#databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</a></li>
-  <li><a href="#databricks-の考えるベストプラクティス" id="toc-databricks-の考えるベストプラクティス" class="nav-link" data-scroll-target="#databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</a></li>
-  <li><a href="#実際の運用" id="toc-実際の運用" class="nav-link" data-scroll-target="#実際の運用">4. 実際の運用</a></li>
+  <li><a href="#dbt-とは" id="toc-dbt-とは" class="nav-link" data-scroll-target="#dbt-とは">2. dbt とは</a></li>
+  <li><a href="#dbt-開発環境に求めること" id="toc-dbt-開発環境に求めること" class="nav-link" data-scroll-target="#dbt-開発環境に求めること">3. dbt 開発環境に求めること</a></li>
+  <li><a href="#年現在の-dbt-開発環境" id="toc-年現在の-dbt-開発環境" class="nav-link" data-scroll-target="#年現在の-dbt-開発環境">4. 2024年現在の dbt 開発環境</a></li>
+  <li><a href="#vim-の救済" id="toc-vim-の救済" class="nav-link" data-scroll-target="#vim-の救済">5. Vim の救済</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">6. おわりに</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-12-02-vim-neovim-environment-for-dbt.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -375,17 +374,18 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Databricks AI/BI ダッシュボードの Git 連携の運用方法</h1>
+<h1 class="title d-none d-lg-block">Vim/Neovim の dbt 開発環境の現状と Vim を救う話</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
     <div class="quarto-category">tech-data</div>
+    <div class="quarto-category">tech-vim</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Databricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について</p>
+    <p>私が業務でよく利用する dbt のローカル開発環境の話をしていきます。</p>
   </div>
 </div>
 
@@ -402,7 +402,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-05-21</p>
+      <p class="date">2024-12-02</p>
     </div>
   </div>
   
@@ -422,80 +422,67 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Databricks のダッシュボードは Git 連携できます！</p>
-<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
-<p>バックアップを取り安心したいので必ず導入しましょう。</p>
-<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
+<p>こんにちは。MLOps エンジニア/データエンジニアの uma-chan です。</p>
+<p>私が業務でよく利用する dbt のローカル開発環境の話をしていきます。</p>
 </section>
-<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
-<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
-<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
-<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
-</section>
-<section id="databricks-の考えるベストプラクティス" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
+<section id="dbt-とは" class="level2">
+<h2 class="anchored" data-anchor-id="dbt-とは">2. dbt とは</h2>
+<p>dbt について知りたい方がおそらく最初に読む記事から抜粋。</p>
+<p><a href="https://zenn.dev/dbt_tokyo/books/537de43829f3a0/viewer/what_dbt" class="uri">https://zenn.dev/dbt_tokyo/books/537de43829f3a0/viewer/what_dbt</a></p>
 <blockquote class="blockquote">
-<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
+<p>dbt（正式名称はdata build tool）はデータアナリストやアナリティクスエンジニアが（ほぼ）SQLだけで、データを変換しデータウエアハウス、データマートを構築していくことができるツールです。</p>
 </blockquote>
-<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
-<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
-<p>これを守るのは現実的ではないです。</p>
+<p>FROM 句内のサブクエリの部分を別の SQL ファイルに切り出していく形で想像すると大体合ってるはず。 SELECT 文の書かれた SQL ファイル (モデルといいます) が複数あって FROM 句内で SQL ファイル名 (モデル) を指し示すことでモデル同士の依存関係を表現しています。</p>
 </section>
-<section id="実際の運用" class="level2">
-<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
-<p>共有ワークスペース内に Git フォルダを作成して Git flow で運用しています。</p>
-<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
-<p>main へのマージは Pull Request 必須という企業も多いと思いますので、その観点でも Git flow は運用しやすそうです。</p>
-<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit
-    branch develop order: 3
-    checkout develop
-    commit
-    commit
-    checkout main
-    merge develop tag: "25.02"
-    checkout develop
-    commit
-    commit
-
-    branch feature/add-dashboard order: 4
-    checkout feature/add-dashboard
-    commit
-    commit
-    checkout develop
-    merge feature/add-dashboard
-
-    checkout main
-    merge develop tag: "25.05"
-
-    checkout develop
-    commit
-    commit
-    commit
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="dbt-開発環境に求めること" class="level2">
+<h2 class="anchored" data-anchor-id="dbt-開発環境に求めること">3. dbt 開発環境に求めること</h2>
+<p>個人の主観で列挙します。</p>
+<ol type="1">
+<li>dbt 向け SQL ファイルのフォーマッタである <a href="https://github.com/tconbeer/sqlfmt">sqlfmt</a> が動くこと
+<ul>
+<li>フォーマッタを動かすというテキストエディタとしては基本的な部分なので、重要ではあるものの今回は割愛します</li>
+</ul></li>
+<li>dbt コマンドとの連携
+<ul>
+<li>手数少なく <code>dbt run</code> などのコマンドを実行できること</li>
+</ul></li>
+<li>定義参照・自動補完のようなモダンな編集機能 (LSP)
+<ul>
+<li>最近の開発ではこれらがないと非効率ですが dbt 向け LSP (各テキストエディタが共通で利用できるコア機能) が提供されていないため各テキストエディタが自前で対応する必要があります</li>
+</ul></li>
+</ol>
+</section>
+<section id="年現在の-dbt-開発環境" class="level2">
+<h2 class="anchored" data-anchor-id="年現在の-dbt-開発環境">4. 2024年現在の dbt 開発環境</h2>
+<section id="vs-code" class="level3">
+<h3 class="anchored" data-anchor-id="vs-code">4.1. VS Code</h3>
+<p>ベンチマークとして VS Code について言及します。 やはり圧倒的に使いやすいです。 以下の拡張機能を使用するのが現状の最適解です。</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=innoverio.vscode-dbt-power-user" class="uri">https://marketplace.visualstudio.com/items?itemName=innoverio.vscode-dbt-power-user</a></p>
+<p>日本語解説記事は以下をはじめとして複数投稿されています。</p>
+<p><a href="https://www.yasuhisay.info/entry/2023/07/09/120000" class="uri">https://www.yasuhisay.info/entry/2023/07/09/120000</a></p>
+</section>
+<section id="neovim" class="level3">
+<h3 class="anchored" data-anchor-id="neovim">4.2. Neovim</h3>
+<p>VS Code 向け拡張機能に比べると提供されている機能の数は少ないものの十分に豊富な機能をもつプラグインが提供されています。</p>
+<p><a href="https://github.com/PedramNavid/dbtpal" class="uri">https://github.com/PedramNavid/dbtpal</a></p>
+</section>
+<section id="vim" class="level3">
+<h3 class="anchored" data-anchor-id="vim">4.3. Vim</h3>
+<p>以下のプラグインでシンタックスハイライトといくつかの dbt コマンド連携機能が提供されています。</p>
+<p><a href="https://github.com/chrismaher/vim-dbt" class="uri">https://github.com/chrismaher/vim-dbt</a></p>
+<p>正直なところ機能が少ないので Vim ではなく Neovim もしくは VS Code を使うことをおすすめします。</p>
+</section>
+</section>
+<section id="vim-の救済" class="level2">
+<h2 class="anchored" data-anchor-id="vim-の救済">5. Vim の救済</h2>
+<p>……ですが Vim でも dbt 開発をしたいですよね！ なんといっても私の好きなエディタですし。 というわけで最低限欲しかったモデル定義へのジャンプ機能のプラグインを作りました。</p>
+<p><a href="https://github.com/i9wa4/vim-dbt-jump2def" class="uri">https://github.com/i9wa4/vim-dbt-jump2def</a></p>
+<p>インストール方法や使い方は README を参照してください。 ジャンプ機能はコマンドで提供したので各自好みのキーマッピングを設定することをオススメします。</p>
+<p>ちなみに Vim/Neovim 両対応のフレームワークである Denops で書いたので Neovim でも使えます。 そしてこの際なので他の Denops プラグインの沼にもハマっていきましょう。。</p>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">6. おわりに</h2>
+<p>今回プラグインを作るために Denops や Deno の情報収集をしつつ、慣れない TypeScript を書いていたのですが結構楽しかったです。</p>
 
 
 </section>
@@ -925,7 +912,7 @@ gitGraph LR:
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-05-21-databricks-dashboard-github-operation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-12-02-vim-neovim-environment-for-dbt.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
