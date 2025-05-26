@@ -3,7 +3,6 @@ title: "AWS Lambda でコンテナイメージを実行する with Terraform & G
 author: uma-chan
 date: 2025-05-12 00:13:12 +0900
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   AWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。
 categories:

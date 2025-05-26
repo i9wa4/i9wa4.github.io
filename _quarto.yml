@@ -12,7 +12,7 @@ website:
   image: "assets/common/icon_hhkb3_large.jpg"
   repo-actions: [source, issue]
   repo-url: "https://github.com/i9wa4/i9wa4.github.io"
-  search: false
+  search: true
   site-url: "https://i9wa4.github.io"
   open-graph:
     locale: "ja_JP"

@@ -3,7 +3,6 @@ title: "購入したガジェットの紹介"
 author: uma-chan
 date: 2024-06-17 12:42:17 +0900
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   これまで購入したガジェットの一覧
 categories:

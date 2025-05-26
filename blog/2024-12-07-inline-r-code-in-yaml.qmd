@@ -3,7 +3,6 @@ title: "Quarto の YAML ヘッダにコードを埋め込みたい"
 author: uma-chan
 date: 2024-12-07 15:30:24 +0900
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   Quarto の YAML ヘッダにコードを埋め込む方法についてのメモです。GitHub Actions で生成した値を埋め込むことができます。
 categories:

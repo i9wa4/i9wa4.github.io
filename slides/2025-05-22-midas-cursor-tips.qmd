@@ -6,7 +6,6 @@ author:
     roles: データエンジニア
 date: 2025-05-22
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   [登壇資料] 2025-05-22 AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)
 categories:

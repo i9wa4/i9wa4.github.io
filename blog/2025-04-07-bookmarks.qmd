@@ -3,7 +3,6 @@ title: "個人的ブックマーク"
 author: uma-chan
 date: 2025-04-07 23:10:38 +0900
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   個人的な重要記事などをまとめておきます。
 categories:

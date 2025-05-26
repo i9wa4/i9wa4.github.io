@@ -3,7 +3,6 @@ title: "自分用 Minecraft メモ"
 author: uma-chan
 date: 2024-07-20 22:39:28 +0900
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   Minecraft の自分用メモを公開しておきます。
 categories:

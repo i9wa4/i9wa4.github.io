@@ -3,7 +3,6 @@ title: "Aider を使ってみる"
 author: uma-chan
 date: 2025-04-01 01:37:05 +0900
 date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   AI エージェント Aider を使ってみました。
 categories:
