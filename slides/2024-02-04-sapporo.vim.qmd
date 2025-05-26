@@ -3,6 +3,9 @@ title: "Sapporo.vim 自己紹介"
 author: i9wa4
 date: 2024-02-04
 date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  2024-02-04 Sapporo.vim 自己紹介
 categories:
   - "slides"
   - "vim-jp"
