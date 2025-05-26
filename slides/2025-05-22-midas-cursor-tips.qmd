@@ -15,11 +15,11 @@ categories:
 format:
   revealjs:
     code-copy: true
-    embed-resources: true
+    # embed-resources: true
     footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
     incremental: false
     scrollable: true
-    self-contained: true
+    # self-contained: true
     slide-level: 3
     slide-number: true
     smaller: false
