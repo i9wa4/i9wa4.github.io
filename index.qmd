@@ -1,5 +1,7 @@
 ---
 title: "uma-chan's page"
+description: |
+  All of my thoughts.
 listing:
   - id: "list-all"
     categories: numbered
@@ -20,10 +22,6 @@ listing:
       - "date desc"
       - "title"
     type: grid
----
-
-Welcome to uma-chan's page!
-
 ---
 
 ::: {#list-all}
