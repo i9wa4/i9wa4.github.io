@@ -8,7 +8,8 @@
 <title>uma-chan&#39;s page</title>
 <link>https://i9wa4.github.io/</link>
 <atom:link href="https://i9wa4.github.io/index.xml" rel="self" type="application/rss+xml"/>
-<description></description>
+<description>All of my thoughts.
+</description>
 <image>
 <url>https://i9wa4.github.io/assets/common/icon_hhkb3.png</url>
 <title>uma-chan&#39;s page</title>
@@ -1253,7 +1254,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="d2b9d5eb" class="cell" data-execution_count="3">
+<div id="d3693901" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1451,7 +1452,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">7. テキストエディタ</h2>
-<div id="340f7b3d" class="cell" data-execution_count="4">
+<div id="1b1fd732" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1505,7 +1506,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">4. GitHub / Git</h2>
-<div id="99443058" class="cell" data-execution_count="5">
+<div id="55dec485" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1595,7 +1596,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">6. Quarto</h2>
-<div id="2c25a252" class="cell" data-execution_count="6">
+<div id="e65bad84" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1637,7 +1638,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">2. データ分析</h2>
-<div id="c4db821b" class="cell" data-execution_count="7">
+<div id="6e720fd7" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1679,7 +1680,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">3. データエンジニアリング</h2>
-<div id="e0111ff8" class="cell" data-execution_count="8">
+<div id="56e93219" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -1757,7 +1758,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">5. 機械学習</h2>
-<div id="b2a8d428" class="cell" data-execution_count="9">
+<div id="81862441" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
