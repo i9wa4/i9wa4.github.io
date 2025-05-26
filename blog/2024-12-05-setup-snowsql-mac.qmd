@@ -8,6 +8,7 @@ description: |
 categories:
   - "blog"
   - "tech"
+  - "tech-data"
 ---
 
 PC を新調するとセットアップがつきものですね。
