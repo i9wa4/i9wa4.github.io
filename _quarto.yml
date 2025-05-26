@@ -9,7 +9,7 @@ website:
   bread-crumbs: false
   favicon: "assets/common/icon_hhkb3.png"
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
-  image: "assets/common/icon_hhkb3.png"
+  image: "assets/common/icon_hhkb3_large.jpg"
   repo-actions: [source, issue]
   repo-url: "https://github.com/i9wa4/i9wa4.github.io"
   search: false
