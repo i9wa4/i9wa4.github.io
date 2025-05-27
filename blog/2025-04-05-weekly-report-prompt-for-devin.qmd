@@ -9,7 +9,7 @@ description: |
 categories:
   - "blog"
   - "tech"
-  - "tech-ai-tools"
+  - "tech-ai"
 ---
 
 親記事は以下です。
