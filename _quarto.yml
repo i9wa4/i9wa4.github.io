@@ -63,9 +63,10 @@ website:
       #       text: "Zenn"
   page-footer:
     left:
-      - text: "Copyright 2024-YEAR_PLACEHOLDER uma-chan"
+      - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
     right:
-      - text: "Built with Quarto"
+      - text: "Built with"
+      - text: "Quarto"
         href: "https://quarto.org/"
 
 format:

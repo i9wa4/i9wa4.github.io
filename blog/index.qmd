@@ -1,5 +1,6 @@
 ---
 title: "Blog"
+repo-actions: false
 listing:
   - id: "list-all"
     categories: numbered
