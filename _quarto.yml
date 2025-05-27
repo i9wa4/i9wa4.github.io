@@ -6,6 +6,7 @@ date-format: iso
 
 website:
   title: "uma-chan's page"
+  bread-crumbs: false
   favicon: "assets/common/icon_hhkb3.png"
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
   image: "assets/common/icon_hhkb3_large.jpg"
