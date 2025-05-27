@@ -3059,7 +3059,7 @@ font-style: inherit;">"oauth"</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <category>tech-data</category>
   <guid>https://i9wa4.github.io/blog/2025-04-29-mcp-databricks-server-service-principal.html</guid>
   <pubDate>Tue, 29 Apr 2025 03:00:00 GMT</pubDate>
@@ -7411,7 +7411,7 @@ font-style: inherit;">}</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html</guid>
   <pubDate>Thu, 10 Apr 2025 15:51:06 GMT</pubDate>
 </item>
@@ -7462,7 +7462,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="4ae36db6" class="cell" data-execution_count="3">
+<div id="7edffeef" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7660,7 +7660,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="d91b53bb" class="cell" data-execution_count="4">
+<div id="439df36f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7714,7 +7714,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="3a7c0c80" class="cell" data-execution_count="5">
+<div id="7921f0d9" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7804,7 +7804,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="e58e9d58" class="cell" data-execution_count="6">
+<div id="1d7da6fc" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7846,7 +7846,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="61d075d6" class="cell" data-execution_count="7">
+<div id="fd313473" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7888,7 +7888,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="f746391b" class="cell" data-execution_count="8">
+<div id="b95cfbd7" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7966,7 +7966,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="348d0f8d" class="cell" data-execution_count="9">
+<div id="c61ca864" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8148,7 +8148,7 @@ Website
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-05-weekly-report-by-devin.html</guid>
   <pubDate>Sat, 05 Apr 2025 03:00:00 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
@@ -8370,7 +8370,7 @@ font-style: inherit;">&gt; 集計終了日：2025/03/18</span></span></code></pr
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-05-weekly-report-prompt-for-devin.html</guid>
   <pubDate>Sat, 05 Apr 2025 03:00:00 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
@@ -8848,7 +8848,7 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
-  <category>tech-ai-tools</category>
+  <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</guid>
   <pubDate>Mon, 31 Mar 2025 16:37:05 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
