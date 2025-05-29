@@ -65,25 +65,36 @@ Git flow は運用しやすそうです。
 gitGraph LR:
     checkout main
     commit
-    branch develop order: 3
-    checkout develop
-    commit
-    commit
-    checkout main
-    merge develop tag: "25.02"
+    branch develop order: 4
     checkout develop
     commit
     commit
 
-    branch feature/add-dashboard order: 4
-    checkout feature/add-dashboard
+    branch release-1 order: 2
+    checkout release-1
+    commit
+
+    checkout main
+    merge release-1 tag: "25.02"
+
+    checkout develop
+    commit
+    commit
+
+    branch feature/new-master-data order: 5
+    checkout feature/new-master-data
     commit
     commit
     checkout develop
-    merge feature/add-dashboard
+    merge feature/new-master-data
+    commit
+
+    branch release-2 order: 3
+    checkout release-2
+    commit
 
     checkout main
-    merge develop tag: "25.05"
+    merge release-2 tag: "25.05"
 
     checkout develop
     commit
