@@ -49,7 +49,7 @@ Daiki Mawatari / 馬渡大樹 / uma-chan
 ::: {.column width="20%"}
 ![](/assets/2025-06-03-self-introduction/icon-mawatari-2025602.png){fig-align="left"}
 
-![uma-chan (X, GitHub)](https://github.com/i9wa4.png){fig-align="left" width=80%}
+![GitHub 等で利用しているアイコン](https://github.com/i9wa4.png){fig-align="left" width=80%}
 :::
 
 ::::
