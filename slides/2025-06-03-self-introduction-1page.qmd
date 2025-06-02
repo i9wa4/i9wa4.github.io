@@ -1,0 +1,51 @@
+---
+title: "自己紹介 (1枚)"
+author: 馬渡大樹
+date: 2025-06-03
+date-modified: last-modified
+categories:
+  - "slides"
+  - "pivot"
+format:
+  revealjs:
+    incremental: false
+    logo: "https://github.com/i9wa4.png"
+    slide-level: 3
+    slide-number: true
+    smaller: true
+    theme: beige
+    footer: "自己紹介 馬渡大樹"
+    toc: false
+    toc-depth: 2
+    embed-resources: true
+---
+
+## 1. プロフィール
+
+:::: {.columns}
+
+::: {.column width="80%"}
+Daiki Mawatari / 馬渡大樹 / uma-chan
+
+- 住所：北海道札幌市
+- 職歴
+
+    |             |                                         |
+    | ---         | ---                                     |
+    | 2016 - 2022 | 組込エンジニアなど                      |
+    | 2022 - 2024 | 2社でデータエンジニア・MLOpsエンジニア  |
+    | 2024.11-    | GENDA データエンジニア・MLOpsエンジニア |
+    | 2025.06-    | PIVOT データエンジニア 業務委託         |
+
+- 好きなもの
+    - 音楽ゲーム (DanceDanceRevolution・beatmania IIDX)
+    - テキストエディタ等のツール
+:::
+
+::: {.column width="20%"}
+![](/assets/2025-06-03-self-introduction/icon-mawatari-2025602.png){fig-align="left"}
+
+![uma-chan (X, GitHub)](https://github.com/i9wa4.png){fig-align="left" width=80%}
+:::
+
+::::
