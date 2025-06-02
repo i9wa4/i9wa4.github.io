@@ -1,5 +1,5 @@
 ---
-title: "自己紹介 (1枚)"
+title: "自己紹介"
 author:
   - name: 馬渡 大樹
     affiliation: PIVOT株式会社
