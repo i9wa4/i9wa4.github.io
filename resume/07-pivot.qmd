@@ -5,7 +5,7 @@ repo-actions: false
 categories:
   - "業務委託"
 description: |
-  データエンジニア・MLOps エンジニア
+  データエンジニア
 Period: "2025/06 - 現在"
 format:
   html:
