@@ -13,6 +13,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
       "/blog/2025-05-21-databricks-dashboard-github-operation.html",
       "/blog/2025-05-12-hands-on-lambda-ecr.html",
       "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
@@ -74,6 +75,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
       "/blog/2025-05-21-databricks-dashboard-github-operation.html",
       "/blog/2025-05-12-hands-on-lambda-ecr.html",
       "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
