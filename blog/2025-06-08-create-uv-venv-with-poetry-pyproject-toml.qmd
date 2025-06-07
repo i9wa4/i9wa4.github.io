@@ -22,9 +22,6 @@ categories:
 ## 2. 仮想環境構築手順
 
 ```{.sh}
-# pyproject.toml から requirements.txt を生成する
-$ uv pip compile pyproject.toml --output-file requirements.txt
-
 # .venv を作成する
 # このとき .python-version に記載された Python で構築される
 $ uv venv
@@ -33,15 +30,12 @@ Creating virtual environment at: .venv
 Activate with: source .venv/bin/activate
 
 # 仮想環境にパッケージをインストールする
-$ uv pip sync requirements.txt
-
-# requirements.txt を削除する
-$ rm requirements.txt
+$ uv pip install --requirement pyproject.toml
 ```
 
 ## 3. おわりに
 
-`$ uv pip sync requirements.txt` これ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。
+`$ uv pip install --requirement pyproject.toml` ここ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。
 
 ちなみにこの方法だと poetry.lock に従うわけではないので完全に同じ環境を再現するわけではありません。
 
