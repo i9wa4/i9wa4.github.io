@@ -16,7 +16,85 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Wed, 04 Jun 2025 14:24:39 GMT</lastBuildDate>
+<lastBuildDate>Sat, 07 Jun 2025 15:58:37 GMT</lastBuildDate>
+<item>
+  <title>Poetry の pyproject.toml を使って uv で .venv を作成する</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。</p>
+<p>とはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。</p>
+<p>まずは自分のローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。</p>
+</section>
+<section id="仮想環境構築手順" class="level2">
+<h2 class="anchored" data-anchor-id="仮想環境構築手順">2. 仮想環境構築手順</h2>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pyproject.toml から requirements.txt を生成する</span></span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> uv pip compile pyproject.toml <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--output-file</span> requirements.txt</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># .venv を作成する</span></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># このとき .python-version に記載された Python で構築される</span></span>
+<span id="cb1-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> uv venv</span>
+<span id="cb1-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Using</span> CPython 3.12.1</span>
+<span id="cb1-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Creating</span> virtual environment at: .venv</span>
+<span id="cb1-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Activate</span> with: source .venv/bin/activate</span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 仮想環境にパッケージをインストールする</span></span>
+<span id="cb1-12"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> uv pip sync requirements.txt</span>
+<span id="cb1-13"></span>
+<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># requirements.txt を削除する</span></span>
+<span id="cb1-15"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> rm requirements.txt</span></code></pre></div>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">3. おわりに</h2>
+<p><code>$ uv pip sync requirements.txt</code> これ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。</p>
+<p>ちなみにこの方法だと poetry.lock に従うわけではないので完全に同じ環境を再現するわけではありません。</p>
+<p>とはいえほとんど齟齬のない環境を構築できます。</p>
+<p>しばらくすると忘れそうなのでメモ代わりの記事でした。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-python</category>
+  <guid>https://i9wa4.github.io/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html</guid>
+  <pubDate>Sat, 07 Jun 2025 15:58:37 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法</title>
   <dc:creator>uma-chan </dc:creator>
@@ -1044,6 +1122,7 @@ font-style: inherit;">deactivate</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
+  <category>tech-python</category>
   <guid>https://i9wa4.github.io/blog/2025-05-06-python-venv.html</guid>
   <pubDate>Tue, 06 May 2025 13:57:36 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
@@ -7510,6 +7589,7 @@ font-style: inherit;">$</span> pip install dbt-databricks==1.7.17</span></code><
  ]]></description>
   <category>blog</category>
   <category>tech</category>
+  <category>tech-python</category>
   <guid>https://i9wa4.github.io/blog/2025-04-16-issue-with-python-libraries.html</guid>
   <pubDate>Wed, 16 Apr 2025 03:00:00 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
@@ -7750,7 +7830,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="44a1247c" class="cell" data-execution_count="3">
+<div id="782e4e0d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -7948,7 +8028,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="98459fb4" class="cell" data-execution_count="4">
+<div id="cd4a9007" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8002,7 +8082,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="ed411bdc" class="cell" data-execution_count="5">
+<div id="2ed1a281" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8092,7 +8172,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="2c41ddbb" class="cell" data-execution_count="6">
+<div id="53063cef" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8134,7 +8214,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="65a2dfa1" class="cell" data-execution_count="7">
+<div id="873d96b2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8176,7 +8256,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="09940bc3" class="cell" data-execution_count="8">
+<div id="44005e72" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8254,7 +8334,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="41446d96" class="cell" data-execution_count="9">
+<div id="6a29e3ca" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -9204,225 +9284,6 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
   <category>tech</category>
   <guid>https://i9wa4.github.io/blog/2025-03-28-display-notion-relation-property.html</guid>
   <pubDate>Sun, 23 Mar 2025 03:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>見やすい SQL を書くための Tips</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。</p>
-<p>因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。</p>
-<p>勢いで書いたので思い出したらどんどん追記します</p>
-<section id="フォーマッタで整形する" class="level2">
-<h2 class="anchored" data-anchor-id="フォーマッタで整形する">1. フォーマッタで整形する</h2>
-<p>フォーマッタを使って統一感のある SQL を書きましょう。</p>
-<p>sqlfmt が個人的におすすめです。</p>
-</section>
-<section id="with-句を使う" class="level2">
-<h2 class="anchored" data-anchor-id="with-句を使う">2. with 句を使う</h2>
-<p>ネストすると認知負荷が高まるので使ったほうがいいと思ってます。</p>
-<p>良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">with</span></span>
-<span id="cb1-2">    a <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">as</span> (<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">select</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span>, name <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">from</span> table_a),</span>
-<span id="cb1-3">    b <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">as</span> (<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">select</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span>, common_id <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">from</span> table_b),</span>
-<span id="cb1-4">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">out</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">as</span> (</span>
-<span id="cb1-5">        <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">select</span> a.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">as</span> `顧客ID`, a.name <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">as</span> `顧客名`, b.common_id <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">as</span> `共通ID`</span>
-<span id="cb1-6">        <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">from</span> a</span>
-<span id="cb1-7">        <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">left</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">outer</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">join</span> b <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">on</span> a.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> b.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span></span>
-<span id="cb1-8">        <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">order</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">by</span> a.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span></span>
-<span id="cb1-9">    )</span>
-<span id="cb1-10"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">select</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span></span>
-<span id="cb1-11"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">from</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">out</span></span></code></pre></div>
-</section>
-<section id="つのサブクエリに1つの目的を持たせる" class="level2">
-<h2 class="anchored" data-anchor-id="つのサブクエリに1つの目的を持たせる">3. 1つのサブクエリに1つの目的を持たせる</h2>
-<p>もちろん with 句で名前をつけたサブクエリの話をしてます。</p>
-<p>ごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。</p>
-<p>例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。</p>
-</section>
-<section id="省略表現を減らす" class="level2">
-<h2 class="anchored" data-anchor-id="省略表現を減らす">4. 省略表現を減らす</h2>
-<p>これはもはや好みの問題かもしれません。</p>
-<p>例えば</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">select</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">from</span> table_a</span></code></pre></div>
-<p>と書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。</p>
-<p>私は初登場するカラム名は明記するようにしてます。</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">order</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">by</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span></span>
-<span id="cb3-2"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">order</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">by</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">all</span></span></code></pre></div>
-<p>なども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">left</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">outer</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">join</span> table_b <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">using</span> (<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span>)</span></code></pre></div>
-<p>もそうですね。いつも同じ書き方ができるとは限らないので</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">left</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">outer</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">join</span> table_b <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">on</span> table_a.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> table_b.<span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">id</span></span></code></pre></div>
-<p>と書いて書き味をいつも同じにしておきたいです。</p>
-<p>これ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。</p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <guid>https://i9wa4.github.io/blog/2025-02-21-plain-sql.html</guid>
-  <pubDate>Fri, 21 Feb 2025 02:03:49 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -697,582 +697,242 @@
     "text": "2. このブログの運用方針\n\n他サービスに流用するかもしれないけど記事の元データはここで一元管理したい\nこれまで色々書いてきた記事もここに集約していきたい"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html",
+    "href": "blog/2024-10-25-thinking-of-my-career.html",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
     "section": "",
-    "text": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2025-06-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks AI/BI ダッシュボードの Git 連携の運用方法\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nDatabricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について\n\n\n\n2025-05-21\n\n\n\n\n\n\n\n\n\n\n\n\n\nAWS Lambda でコンテナイメージを実行する with Terraform & GitHub Actions\n\n\n\nblog\n\ntech\n\n\n\nAWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。\n\n\n\n2025-05-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nBash/Zsh でコマンドをエディタで編集する\n\n\n\nblog\n\ntech\n\n\n\nBash/Zsh で入力中のコマンドをエディタで編集して実行する方法について書いています。\n\n\n\n2025-05-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n今更ながら Vim に EditorConfig を導入しました\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n今更ながら Vim に EditorConfig を導入しました。設定方法と感想を書いています。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython venv インストール・更新スクリプトの供養\n\n\n\nblog\n\ntech\n\n\n\nPython venv 仮想環境のインストール・更新スクリプトを供養します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する方法を紹介します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\ntmux と Zsh に Git リポジトリのステータスを表示する\n\n\n\nblog\n\ntech\n\n\n\ntmux のステータスラインと Zsh プロンプトに Git リポジトリのステータスを表示させる方法を紹介します。\n\n\n\n2025-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させた\n\n\n\nblog\n\ntech\n\ntech-ai\n\ntech-data\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させたものを公開しました。\n\n\n\n2025-04-29\n\n\n\n\n\n\n\n\n\n\n\n\n\nlefthook 設定の供養\n\n\n\nblog\n\ntech\n\n\n\nGitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します。\n\n\n\n2025-04-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython でありがちな本体バージョンとライブラリバージョンの不整合の例\n\n\n\nblog\n\ntech\n\n\n\nPython のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます。\n\n\n\n2025-04-16\n\n\n\n\n\n\n\n\n\n\n\nMCP に入門した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nMCP (Model Context Protocol) に入門してみました\n\n\n\n2025-04-11\n\n\n\n\n\n\n\n\n\n\n\n\n\nGemini API に課金した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nGemini API に課金したので手順をメモしておきます。\n\n\n\n2025-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nblog\n\nmemo\n\n\n\n個人的な重要記事などをまとめておきます。\n\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin に週報を書いてもらった\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin 週報作成用プロンプト\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプト\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\ndiary\n\n\n\n2024年度に初めて経験したことを振り返ってみます。\n\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nAI エージェント Aider を使ってみました。\n\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\nNotion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)\n\n\n\nblog\n\ntech\n\n\n\nNotion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。\n\n\n\n2025-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\ntech\n\n\n\ndbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n最近の Vim プラグイン開発のアイデアを振り返ります。\n\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\ntech\n\n\n\n失敗していますが Instagram API のアクセストークンを取得する手順を途中まで書いておきます。\n\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータエンジニアが初めてダッシュボードを作成して気づいたこと\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nデータエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。\n\n\n\n2024-12-23\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto の YAML ヘッダにコードを埋め込む方法についてのメモです。GitHub Actions で生成した値を埋め込むことができます。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\ntech\n\n\n\nOneDrive の設定変更手順をまとめました。デスクトップやドキュメントの同期を避けたい場合に役立つ内容です。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nMac で SnowSQL をセットアップする手順をまとめました。\n\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim/Neovim の dbt 開発環境の現状と Vim を救う話\n\n\n\nblog\n\ntech\n\ntech-data\n\ntech-vim\n\n\n\n私が業務でよく利用する dbt のローカル開発環境の話をしていきます。\n\n\n\n2024-12-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\ntech\n\n\n\nZenn の記事を GitHub リポジトリで管理する方法をまとめました。\n\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\ntech\n\n\n\nGitHub Actions をローカルで実行できる便利な OSS nektos/act を使ってみました。\n\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\ndiary\n\n\n\n自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました。\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\ndiary\n\n\n\nRenaming i9wa4 to uma-chan\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\ndotfiles から切り離したくなってきたらそれがプラグインの作り時。 最近の Vim プラグイン開発のアイデアをメモしておきます。\n\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介します。\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\n千年戦争アイギスの自分用メモです。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\nMinecraft の自分用メモを公開しておきます。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\ntech\n\n\n\nたまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\ntech\n\n\n\nsystemd がユーザー権限でも設定できると知ったので記事にします。\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\ndiary\n\n\n\nこれまで購入したガジェットの一覧\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\ntech\n\nmemo\n\n\n\n私の Mac 環境構築手順をまとめておきます。\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする方法について書いています。\n\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\ntech\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\ndiary\n\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Content",
-      "Blog"
-    ]
+    "text": "言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。"
   },
   {
-    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html",
-    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html",
-    "title": "Devin 週報作成用プロンプト",
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "1. 大学入学時",
+    "text": "1. 大学入学時\n特に何も考えていなかったのですが、自分が生意気すぎる生徒だったことからそんな生徒を受け持ちたくなくて教師だけは絶対にならないぞとは思っていました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "2. 就職活動時",
+    "text": "2. 就職活動時\n本当にぼんやりとIT系業務をやってみたいと思っていました (ただしスキルは大学の授業で少しだけC言語を書けるようになった程度)。\n当時業務系システムの求人が多かったのですがどうしても興味がもてず、実際にモノを動かせたり難しいことに挑戦したりとやりがいのありそうな仕事を選んでみました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "3. 1回目の転職活動時",
+    "text": "3. 1回目の転職活動時\n大学時代に住んでいた土地に戻りたくて転職することに。\nどうせならと経験を積めなかったプログラミングができてモノを動かすこともできる組み込みエンジニアを選びました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "4. 2回目の転職活動時",
+    "text": "4. 2回目の転職活動時\nコロナ禍でテレワークを経験し、今後のライフステージを踏まえた上でテレワークに向いている職種に切り替えようと思っていました。\n面白そうだったのでデータサイエンティスト求人に応募してみたところ、景気の良い時期だったためか未経験ながら内定を頂きました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "5. 3回目の転職活動時",
+    "text": "5. 3回目の転職活動時\n案件都合でデータエンジニア・アナリティクスエンジニア業務に取り組んでいました。\nこの頃はデータ基盤について割とブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータ基盤業務を志すようになりました。\nまた、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。\n体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "6. 4回目の転職活動時",
+    "text": "6. 4回目の転職活動時\nこれまでの経験から自分の仕事のモチベーションを上げる要因はどうやら以下の4点のようであると理解できました。\n\nチームで仕事ができること\n自分の仕事が目の前の社員の役に立っていると胸を張って言えること\n自分の仕事が会社の売上につながっていると胸を張って言えること\nできればエンドユーザーの満足度を高める方向の仕事であること\n\nこのような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。\nそんなことを考えているところにお声がけいただいた会社で2024年11月から働くことにしました。\n決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。"
+  },
+  {
+    "objectID": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
+    "href": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
+    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "section": "7. おわりに",
+    "text": "7. おわりに\nこれ以上の詳しい話は飲みの場で！笑"
+  },
+  {
+    "objectID": "blog/2024-06-17-setup-mac.html",
+    "href": "blog/2024-06-17-setup-mac.html",
+    "title": "Mac 環境構築手順",
     "section": "",
-    "text": "親記事は以下です。\nDevin に週報を書いてもらった"
+    "text": "私の Mac 環境構築手順をまとめておきます。"
   },
   {
-    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html#人間への補足",
-    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html#人間への補足",
-    "title": "Devin 週報作成用プロンプト",
-    "section": "1. 人間への補足",
-    "text": "1. 人間への補足\nDevin にこのプロンプトを見せて、集計開始日と集計終了日を教えてあげてください。\n指示例は以下のようになります。\n以下の Markdown の指示に従って情報収集を行った上で GitHub issue を作成してください。\n&lt;プロンプトとなるMarkdownのURL&gt;\n\n集計開始日：2025/03/12\n集計終了日：2025/03/18"
+    "objectID": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
+    "href": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
+    "title": "Mac 環境構築手順",
+    "section": "1. dotfiles 導入",
+    "text": "1. dotfiles 導入\ncf. https://github.com/i9wa4/dotfiles"
   },
   {
-    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html#github-の情報収集方法",
-    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html#github-の情報収集方法",
-    "title": "Devin 週報作成用プロンプト",
-    "section": "2. GitHub の情報収集方法",
-    "text": "2. GitHub の情報収集方法\n\nテンプレートに記載した対象リポジトリの issue, pull request, そしてそれらの comment を取得してください。\nissue や pull request を GitHub CLI で取得する場合は --state all オプションを使用して Closed や Merged になっているものも忘れずに取得してください。\n対象リポジトリにアクセスできない場合は、そのリポジトリは集計対象外としてください。\n対象メンバー毎に活動をまとめる際は対象者が assignee でない issue や pull request は含めないでください。"
+    "objectID": "blog/2024-06-17-setup-mac.html#システム設定",
+    "href": "blog/2024-06-17-setup-mac.html#システム設定",
+    "title": "Mac 環境構築手順",
+    "section": "2. システム設定",
+    "text": "2. システム設定\n\nバッテリー\n\nバッテリーの状態\n\nバッテリー充電の最適化\n\n\nコントロールセンター\n\nBluetooth\n\nメニューバーに表示\n\nバッテリー\n\nメニューバーに表示 ON\n割合 (%) を表示 ON\n\nメニューバーのみ\n\n時計\n\n日付を表示 常に\n曜日を表示 ON\n秒を表示 ON\n\nメニューバーを自動的に表示/非表示 しない\n\n\nディスプレイ\n\nTrue Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)\nNight Shift\n\nカスタム 5:00-4:59\n色温度 中央と右端の間\n\n\nデスクトップと Dock\n\nDock\n\n画面上の位置 任意\nDock を自動的に表示/非表示 任意\nアプリの提案と最近使用したアプリを Dock に表示 OFF\n\nデスクトップとステージマネージャー\n\n壁紙をクリックしてデスクトップを表示\n\nステージマネージャー使用時のみ\n\n\nウィジェット\n\nデフォルトの Web ブラウザ\n\nGoogle Chrome\n\n\n\n通知\n\n通知センター OFF\nアプリケーションの通知 システム系以外は OFF\n\nロック画面\n\n時間設定 30分\n\nプライバシーとセキュリティ\n\n画面収録とシステムオーディオ録音\n\nSlack\nWeb ブラウザ\nZoom\n\n\nユーザとグループ\n\n管理者\n\nキーボード\n\nキーボードの輝度 最小\nキーボードショートカット\n\n修飾キー\n\n内蔵キーボード\n\nCaps Lock -&gt; Control\n\n\n\n入力ソース\n\nすべての入力ソース\n\n英字入力中にスペルを自動変換 OFF\n文頭を自動的に大文字にする OFF\nインライン予測テキストを表示 OFF\nスペースバーを2回押してピリオドを入力 OFF\nスマート引用符とスマートダッシュを使用 OFF\n二重引用符 “abc”\n一重引用符 ‘abc’\n\n日本語 - ローマ字入力\n\nライフ変換 OFF\nタイプミスを修正\n\n\n音声入力 OFF\n\nマウス\n\nナチュラルなスクロール OFF\n\nトラックパッド\n\nスクロールとズーム\n\nナチュラルなスクロール OFF"
   },
   {
-    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html#issue-テンプレート",
-    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html#issue-テンプレート",
-    "title": "Devin 週報作成用プロンプト",
-    "section": "3. issue テンプレート",
-    "text": "3. issue テンプレート\n\n補足コメントは &lt;!-- --&gt; で与えているので参照してください。\nただし issue 作成時には補足コメントは記載しないでください。\n\n\n3.1. Title\n集計開始日と集計終了日を YYYY/MM/DD 形式で記載してください。\n[Devin] チーム週報 (YYYY/MM/DD-YYYY/MM/DD)\n\n\n3.2. Assignee\n\n@i9wa4\n\n\n\n3.3. Description\n## 1. 期間\n\n&lt;!-- 集計開始日と集計終了日を記載してください。 --&gt;\n&lt;!-- (aaa) は曜日です。(月) や (火) のように記載してください。 --&gt;\n\nYYYY/MM/DD(aaa)～YYYY/MM/DD(aaa)\n\n## 2. 対象リポジトリ\n\n- GitHub リポジトリの URL\n\n## 3. 対象メンバー (GitHub ユーザー名)\n\n- `@i9wa4`\n\n## 4. 概要\n\n### 4.1. `@i9wa4`\n\n&lt;!-- 当該メンバーの大きめの活動をしたプロジェクトから順にやったことの概要を4文程度に要約して紹介してください。 --&gt;\n\n### 4.2. 他メンバーはこのような記述にする\n\n&lt;!-- 集計期間に活動があれば上記と同様の形式で記入してください。 --&gt;\n\n\n3.4. Comment (1)\n## 5. 詳細\n\n### 5.1. `@i9wa4`\n\n&lt;!-- 当該メンバーの活動詳細を以下の形式で列挙してください。 --&gt;\n&lt;!-- - [status (Open/Closed/Merged)] [category (issue/pull request)] [issue/pull request title #number](URL) --&gt;\n&lt;!-- 列挙したあとアルファベット順にソートしてください。 --&gt;\n\n- [Closed] [issue] [issue title #189](issue url)\n- [Merged] [pull request] [pull request title #124](pull request url)\n- [Open] [issue] [issue #106](issue url)\n\n### 5.2. 他メンバーはこのような記述にする\n\n&lt;!-- 集計期間に活動があれば上記と同様の形式で記入してください。 --&gt;\n\n\n3.5. Comment (2)\n## 6. Devin への指示内容\n\n&lt;!-- Devin へ指示した内容をそのまま引用符付きで記載してください。 --&gt;\n&lt;!-- 例 --&gt;\n\n&gt; 以下の Markdown の指示に従って GitHub issue を作成してください。\n&gt; &lt;プロンプトとなるMarkdownのURL&gt;\n&gt;\n&gt; 集計開始日：2025/03/12\n&gt; 集計終了日：2025/03/18"
+    "objectID": "blog/2024-06-17-setup-mac.html#その他",
+    "href": "blog/2024-06-17-setup-mac.html#その他",
+    "title": "Mac 環境構築手順",
+    "section": "3. その他",
+    "text": "3. その他\n\nFinder\n\n表示\n\nパスバーを表示\n\nよく使う項目にユーザーホームをドラッグ&ドロップで追加する\n\nDocker Desktop\n\nSettings\n\nGeneral\n\nStart Docker Desktop when you sign in to your computer\n\n\n\nRectangle\n\nログイン時に起動 ON\nアップデートを自動的に確認 ON"
   },
   {
-    "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
-    "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
-    "title": ":%s/i9wa4/uma-chan/g",
+    "objectID": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
+    "href": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
+    "title": "Mac 環境構築手順",
+    "section": "4. (おまけ) ショートカット集",
+    "text": "4. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
+  },
+  {
+    "objectID": "blog/2024-06-17-purchased-gadgets.html",
+    "href": "blog/2024-06-17-purchased-gadgets.html",
+    "title": "購入したガジェットの紹介",
     "section": "",
-    "text": "元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
+    "text": "詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-09-12\n象印\nスチーム式加湿器 EE-RN35-WA\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10\n\n\n2024-12-13\nfinal\nZE500 for ASMR -Patra Black-\n\n\n2024-12-15\n象印\nスチーム式加湿器 EE-RT50-WA\n\n\n2025-02-12\nProtoArc\nProtoArc EM01\n\n\n2025-03-23\nApple\nMacBook Air M4 13インチ 10コアCPU 10コアGPU メモリ32GB"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "objectID": "blog/2024-12-07-inline-r-code-in-yaml.html",
+    "href": "blog/2024-12-07-inline-r-code-in-yaml.html",
+    "title": "Quarto の YAML ヘッダにコードを埋め込みたい",
     "section": "",
-    "text": "少し前に作った Vim/Neovim プラグインの紹介記事となります。"
+    "text": "R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。\nInline R code in YAML · quarto-dev/quarto-cli · Discussion #606\n変数対応していてそちらは上手く動いてくれました！\nhttps://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008\nということは GitHub Actions 内で生成できる値を Quarto で作ったページに埋め込むことができますね。\nQuarto 向けの Publish Workflow も対応させたいので PR 作りたいです。"
   },
   {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "1. プラグイン概要",
-    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
-  },
-  {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "2. プラグインを作ることになったきっかけ",
-    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
-  },
-  {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "3. Denops プラグインとして作ろうと思った理由",
-    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。 そして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
-  },
-  {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "4. Denops プラグイン開発体験について",
-    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。 核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。 まず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
-  },
-  {
-    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
-    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
-    "section": "5. 感想",
-    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。 今後も必要なものは自分で作っていたいですね。"
-  },
-  {
-    "objectID": "blog/2025-04-05-weekly-report-by-devin.html",
-    "href": "blog/2025-04-05-weekly-report-by-devin.html",
-    "title": "Devin に週報を書いてもらった",
+    "objectID": "blog/2024-03-25-setup-wsl2.html",
+    "href": "blog/2024-03-25-setup-wsl2.html",
+    "title": "WSL2 のセットアップ",
     "section": "",
-    "text": "最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。"
+    "text": "Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
   },
   {
-    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#はじめに",
-    "href": "blog/2025-04-05-weekly-report-by-devin.html#はじめに",
-    "title": "Devin に週報を書いてもらった",
+    "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "1. WSL コマンドのインストール",
+    "text": "1. WSL コマンドのインストール\nWSL のインストール | Microsoft Learn に従います。\n\n管理者権限で PowerShell or コマンドプロンプトを開きます。\nwsl --install を実行します。 \n以下のように表示されるのでマシンを再起動します。"
+  },
+  {
+    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "2. ディストリビューションのインストール",
+    "text": "2. ディストリビューションのインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール可能なディストリビューションを表示します。\nwsl --list --online\nUbuntu 22.04 LTS をインストールする場合は以下のように入力します。\nwsl --install -d Ubuntu-22.04\n画面表示に従ってユーザー名とパスワードを入力します。\nUbuntu を終了します。\nexit\n(必要に応じて) 既定のディストリビューションを設定します。\nwsl --set-default Ubuntu-22.04"
+  },
+  {
+    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
+    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
+    "title": "WSL2 のセットアップ",
+    "section": "3. ディストリビューションのアンインストール",
+    "text": "3. ディストリビューションのアンインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール済みのディストリビューションを表示します。\nwsl --list\n不要なディストリビューションをアンインストールします。\nwsl --unregister Ubuntu-22.04"
+  },
+  {
+    "objectID": "blog/2024-03-25-setup-wsl2.html#詳細設定",
+    "href": "blog/2024-03-25-setup-wsl2.html#詳細設定",
+    "title": "WSL2 のセットアップ",
+    "section": "4. 詳細設定",
+    "text": "4. 詳細設定\n設定ファイルや systemd に関しては以下のページを参考にするとよいです。\nWSL での詳細設定の構成 | Microsoft Learn"
+  },
+  {
+    "objectID": "blog/2025-05-06-python-venv.html",
+    "href": "blog/2025-05-06-python-venv.html",
+    "title": "Python venv インストール・更新スクリプトの供養",
     "section": "",
-    "text": "最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。"
+    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
   },
   {
-    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#週報作成の概要",
-    "href": "blog/2025-04-05-weekly-report-by-devin.html#週報作成の概要",
-    "title": "Devin に週報を書いてもらった",
-    "section": "2. 週報作成の概要",
-    "text": "2. 週報作成の概要\n集計期間の GitHub の issue と pull request の情報を基に各メンバーの活動の概要と詳細を issue にまとめてもらいます。"
-  },
-  {
-    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプト",
-    "href": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプト",
-    "title": "Devin に週報を書いてもらった",
-    "section": "3. Devin へのプロンプト",
-    "text": "3. Devin へのプロンプト\n長文プロンプトを用意する必要があります。 Devin では Playbook を利用すればよいですね。 今回はリポジトリ内の Markdown ファイルを参照させてます。\nプロンプトは別記事に分けてます。\nDevin 週報作成用プロンプト\n上に書いたような長文プロンプトを用意した上で以下のように Devin に指示を出します。\n\n以下の Markdown の指示に従って情報収集を行った上で GitHub issue を作成してください。 &lt;プロンプトとなるMarkdownのURL&gt;\n集計開始日：2025/03/12 集計終了日：2025/03/18"
-  },
-  {
-    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプトを書く上でのコツ",
-    "href": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプトを書く上でのコツ",
-    "title": "Devin に週報を書いてもらった",
-    "section": "4. Devin へのプロンプトを書く上でのコツ",
-    "text": "4. Devin へのプロンプトを書く上でのコツ\n\n4.1. Devin というか LLM の忘れっぽさへの対処\n長文だとどうしても近眼的に周囲数行の記述に引っぱられてしまうので、大枠の構造を提示しつつ、詳細は具体例とピンポイントなコメントという書き味にすることで出力が安定しました。\n今回各メンバーを列挙する箇所がありますが、横着せず愚直に列挙しました。 冗長だなあと思いつつもこうすることで Devin が忘れずに全メンバーの情報収集をしてくれました。\n\n\n4.2. GitHub CLI の仕様への対処\nDevin がうまく情報収集してくれないことがあるので GitHub CLI の仕様を理解し適切なコマンドを実行できているか見ておく必要があります。 今回は --state all オプションを指定して閉じられた issue なども取得させるように指示を出しています。\nまた、issue の description が長文になると文章を分割して編集追加させなければならなくなるので issue の description とコメントの行数を想定した上で適度に分割しておくと良いでしょう。 もし長文投稿させたい場合は作成した issue を読み込ませて見切れてないか Devin に確認させるのも良いかもしれません。"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html",
-    "href": "blog/2024-12-07-configure-onedrive.html",
-    "title": "事故らない OneDrive 設定変更手順",
+    "objectID": "blog/2025-05-06-python-venv.html#はじめに",
+    "href": "blog/2025-05-06-python-venv.html#はじめに",
+    "title": "Python venv インストール・更新スクリプトの供養",
     "section": "",
-    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
+    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
   },
   {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#はじめに",
-    "href": "blog/2024-12-07-configure-onedrive.html#はじめに",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "",
-    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
+    "objectID": "blog/2025-05-06-python-venv.html#スクリプト-makefile",
+    "href": "blog/2025-05-06-python-venv.html#スクリプト-makefile",
+    "title": "Python venv インストール・更新スクリプトの供養",
+    "section": "2. スクリプト (Makefile)",
+    "text": "2. スクリプト (Makefile)\n実際はこのように Makefile に書いていましたが、流石に見辛いのでシェルスクリプト版も載せます。\npython-venv:  ## install/update Python venv (e.g. make python-venv VENV_PATH=\"${PY_VENV_MYENV}\" REQUIREMENTS_PATH=\"${HOME}\"/ghq/github.com/i9wa4/dotfiles/etc/requirements-venv-myenv.txt)\n    # https://dev.classmethod.jp/articles/change-venv-python-version/\n    . $(MF_DOTFILES_DIR)/dot.zshenv \\\n    && if [ -d \"$(VENV_PATH)\" ]; then \\\n      python -m venv \"$(VENV_PATH)\" --clear; \\\n    else \\\n      python -m venv \"$(VENV_PATH)\"; \\\n    fi \\\n    && . \"$(VENV_PATH)\"/bin/activate \\\n    && python -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\" \\\n    && python -m pip install --upgrade pip setuptools wheel \\\n    && [ -r \"$(REQUIREMENTS_PATH)\" ] && python -m pip install --requirement \"$(REQUIREMENTS_PATH)\" \\\n    && python -m pip check \\\n    && python --version \\\n    && deactivate"
   },
   {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
-    "href": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "2. 想定するユースケース",
-    "text": "2. 想定するユースケース\n同期対象を「デスクトップ」や「ドキュメント」そのものではなく、明示的に作成したフォルダだけとしたい場合です。"
+    "objectID": "blog/2025-05-06-python-venv.html#スクリプト-シェルスクリプト",
+    "href": "blog/2025-05-06-python-venv.html#スクリプト-シェルスクリプト",
+    "title": "Python venv インストール・更新スクリプトの供養",
+    "section": "3. スクリプト (シェルスクリプト)",
+    "text": "3. スクリプト (シェルスクリプト)\n#!/usr/bin/env bash\n\nVENV_PATH=\"${HOME}\"/.venv\nREQUIREMENTS_PATH=\"${HOME}\"/requirements.txt\n\nif [ -d \"${VENV_PATH}\" ]; then\n  python -m venv \"${VENV_PATH}\" --clear;\nelse\n  python -m venv \"${VENV_PATH}\";\nfi\n\n. \"${VENV_PATH}\"/bin/activate\npython -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\"\npython -m pip install --upgrade pip setuptools wheel\n[ -r \"${REQUIREMENTS_PATH}\" ] && python -m pip install --requirement \"${REQUIREMENTS_PATH}\"\npython -m pip check\npython --version\ndeactivate"
   },
   {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
-    "href": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "3. 事故らない OneDrive セットアップ手順",
-    "text": "3. 事故らない OneDrive セットアップ手順\n\n全フォルダを OneDrive の同期対象から外す\n同期対象から外した「デスクトップ」や「ドキュメント」はこの時点では OneDrive フォルダ配下に置かれているので右クリックして「プロパティ→場所→標準に戻す」で元の場所 (%USERPROFILE% 直下) に戻す\n明示的にバックアップ対象としたいフォルダを OneDrive の同期対象に設定する\nブラウザで OneDrive にアクセスして不要なデータを削除する\nOneDrive の同期を再開する"
-  },
-  {
-    "objectID": "blog/2024-12-07-configure-onedrive.html#おわりに",
-    "href": "blog/2024-12-07-configure-onedrive.html#おわりに",
-    "title": "事故らない OneDrive 設定変更手順",
-    "section": "4. おわりに",
-    "text": "4. おわりに\nOneDrive の操作手順を詳細に書けず心苦しいのですが、きっと何とかなるはず。信じてます。"
-  },
-  {
-    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
-    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
-    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
-    "section": "",
-    "text": "以下の記事を読んで Conform.nvim は使っていなかったものの悩みごとが解決する！！！！と思ったので自分の環境でも試してみました。\nConform.nvimの保存時フォーマットをスキップする方法 | Atusy’s blog"
-  },
-  {
-    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#はじめに",
-    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#はじめに",
-    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
-    "section": "",
-    "text": "以下の記事を読んで Conform.nvim は使っていなかったものの悩みごとが解決する！！！！と思ったので自分の環境でも試してみました。\nConform.nvimの保存時フォーマットをスキップする方法 | Atusy’s blog"
-  },
-  {
-    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#vim-での設定",
-    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#vim-での設定",
-    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
-    "section": "2. Vim での設定",
-    "text": "2. Vim での設定\ndpp.vim で管理している TOML ファイルから vim-lsp-settings 向け設定を抜粋しました。\nformat on save 設定に v:cmdbang を使うことで、:w! のときはフォーマットをスキップするようにしています。\n[[plugins]]\nrepo = 'mattn/vim-lsp-settings'\non_source = ['vim-lsp']\nhook_source = '''\nlet g:lsp_diagnostics_float_cursor = v:true\nlet g:lsp_diagnostics_virtual_text_align = \"after\"\nlet g:lsp_diagnostics_virtual_text_wrap = \"truncate\"\nlet g:lsp_log_file = ''\nlet g:lsp_settings_enable_suggestions = v:false\nlet g:lsp_settings = {\n\\   'deno': {\n\\     'disabled': v:false,\n\\   },\n\\   'efm-langserver': {\n\\     'disabled': v:false,\n\\   },\n\\   'pylsp': {\n\\     'disabled': v:true,\n\\   },\n\\   'pylsp-all': {\n\\     'disabled': v:true,\n\\   },\n\\ }\n\naugroup MyLspSetting\n  autocmd!\n  autocmd BufWritePost * if !v:cmdbang | execute 'LspDocumentFormatSync' | endif\naugroup END\n'''"
-  },
-  {
-    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#neovim-での設定",
-    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#neovim-での設定",
-    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
-    "section": "3. Neovim での設定",
-    "text": "3. Neovim での設定\n同様に TOML で管理している nvim-lspconfig 設定を抜粋しました。\nvim.v.cmdbang を使っています。\n[[plugins]]\nrepo = 'neovim/nvim-lspconfig'\non_event = ['VimEnter']\nlua_source = '''\n-- https://github.com/uga-rosa/ddc-source-lsp-setup\nrequire('ddc_source_lsp_setup').setup()\n\n-- https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#configuration\nlocal lspconfig = require('lspconfig')\n-- lspconfig.pylsp.setup{}\nlspconfig.denols.setup{}\nlspconfig.efm.setup{}\n\n-- :help lsp-defaults-disable\nvim.api.nvim_create_autocmd('LspAttach', {\n  callback = function(ev)\n    -- unset\n    vim.bo[ev.buf].formatexpr = nil\n    vim.bo[ev.buf].omnifunc = nil\n\n    -- unmap\n    -- vim.keymap.del('n', 'K', { buffer = ev.buf })\n\n    -- map\n    local opts = { buffer = bufnr, noremap = true, silent = true }\n    vim.keymap.set('n', '&lt;space&gt;lf', vim.diagnostic.open_float, opts)\n  end,\n})\n\nvim.api.nvim_create_autocmd('BufWritePost', {\n  callback = function()\n    if vim.v.cmdbang == 0 then\n      vim.lsp.buf.format()\n    end\n  end,\n})\n'''"
-  },
-  {
-    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#まとめ",
-    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#まとめ",
-    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
-    "section": "4. まとめ",
-    "text": "4. まとめ\nこれまでは保存したいけどフォーマットしたくない場面を回避するためにフォーマット用のキーバインドを用意して format on save を無効化していました。\nたまにフォーマットし忘れて辛かったのでこの対応でとってもハッピーになりました！"
-  },
-  {
-    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
-    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
-    "title": "Bash/Zsh でコマンドをエディタで編集する",
-    "section": "",
-    "text": "Bash/Zsh で入力中のコマンドの編集にエディタが使えるという便利機能の話です。名前がパッと出てこないのでメモ代わりに記事にしておきます。"
-  },
-  {
-    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#はじめに",
-    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#はじめに",
-    "title": "Bash/Zsh でコマンドをエディタで編集する",
-    "section": "",
-    "text": "Bash/Zsh で入力中のコマンドの編集にエディタが使えるという便利機能の話です。名前がパッと出てこないのでメモ代わりに記事にしておきます。"
-  },
-  {
-    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#bash",
-    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#bash",
-    "title": "Bash/Zsh でコマンドをエディタで編集する",
-    "section": "2. Bash",
-    "text": "2. Bash\nC-x C-e で $VISUAL で指定したエディタが開きます。\nbash で入力中のコマンドをエディタで編集して実行するショートカットキー #Bash - Qiita"
-  },
-  {
-    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#zsh",
-    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#zsh",
-    "title": "Bash/Zsh でコマンドをエディタで編集する",
-    "section": "3. Zsh",
-    "text": "3. Zsh\nBash と同等の機能を実現させるには以下のように設定します。\n\n\n~/.zshrc\n\nautoload -Uz edit-command-line\nzle -N edit-command-line\nbindkey '^x^e' edit-command-line"
-  },
-  {
-    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#おわりに",
-    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#おわりに",
-    "title": "Bash/Zsh でコマンドをエディタで編集する",
-    "section": "4. おわりに",
-    "text": "4. おわりに\nedit-and-execute-command あるいは edit-command-line と呼ばれる機能であると覚えましょう！"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html",
-    "href": "blog/2024-07-20-aigis-note.html",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "",
-    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
-    "href": "blog/2024-07-20-aigis-note.html#週次周回",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "1. 週次周回",
-    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
-  },
-  {
-    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
-    "title": "自分用千年戦争アイギスメモ",
-    "section": "2. 月次の交換先",
-    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\nイベントヒストリー 11年目 星降る黎明の大神ディアスの効率が良いらしい\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
-  },
-  {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html",
-    "href": "blog/2024-09-22-vim-plugin-idea.html",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html",
+    "href": "blog/2025-02-20-vim-plugin-idea.html",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "",
-    "text": "dotfiles から切り離したくなってきたらそれがプラグインの作り時。\n今温めているアイデアをメモしておきます。"
+    "text": "少し前の Vim プラグイン開発のアイデア記事 で7個のアイデアを書いてました。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#ローカル設定の読み込み",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#ローカル設定の読み込み",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "1. ローカル設定の読み込み",
-    "text": "1. ローカル設定の読み込み\nおそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。\nthinca/vim-localrc: Enable configuration file of each directory."
+    "text": "1. ローカル設定の読み込み\nおそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。\nthinca/vim-localrc: Enable configuration file of each directory.\n相変わらず自作のローカル設定読み込みは活用してます。設定ファイル作成コマンドと最下層のローカル設定ファイルにジャンプするキーバインドが結構お気に入り。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#terminal-管理",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#terminal-管理",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "2. Terminal 管理",
-    "text": "2. Terminal 管理\nVim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。\ndotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。\n他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？"
+    "text": "2. Terminal 管理\nVim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。\ndotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。\n他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？\nやっぱり tmux をゴリゴリ使ってるので用途が結構限定的ですね。CWDに対してちょっとしたコマンドを実行したいときなんかは重宝してます。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "3. Jupytext と ipynb の同期",
-    "text": "3. Jupytext と ipynb の同期\nJupytext で ipynb と py を同期させるプラグイン。\n通常は Jupytext をコマンドで実行させると思いますが、非同期で同期させる (？) 挙動をさせたいですね。\nJupytext に変換しておくと Git 管理しやすくなるものの、Jupytext がマイナー過ぎてチーム開発で自分が他人に推奨できない点がネックで最近あまり使わなくなりつつあります。\nみんな ipynb の管理どうしているんだろう。。"
+    "text": "3. Jupytext と ipynb の同期\nJupytext で ipynb と py を同期させるプラグイン。\n最近 Databricks を使うようになったのですが、 Databricks では .ipynb を .py として保存する機能がもともと備わっていたので尚のこと必要でなくなってしまいました。次回はこの項目を削除しようかな。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#tabline-設定",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#tabline-設定",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "4. Tabline 設定",
-    "text": "4. Tabline 設定\n頑張って書き上げたため切り離してもよいかも。\nちなみに最近 Statusline は使ってません！"
+    "text": "4. Tabline 設定\n頑張って書き上げたため切り離してもよいかも。\nTabline 用と Statusline 用の2関数だけだし既存プラグインとの差別化には至らないのでこの項目も削除かな。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#追記-virtualtext-を活用したメモプラグイン",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#追記-virtualtext-を活用したメモプラグイン",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
     "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "5. [2024-10-25 追記] virtualtext を活用したメモプラグイン",
-    "text": "5. [2024-10-25 追記] virtualtext を活用したメモプラグイン\nコードリーディング中にメモを残すためのプラグイン。\nメモ一覧をリポジトリ内に保持しておきたい。\nLinter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。"
+    "section": "5. virtualtext を活用したメモプラグイン",
+    "text": "5. virtualtext を活用したメモプラグイン\nコードリーディング中にメモを残すためのプラグイン。\nメモ一覧をリポジトリ内に保持しておきたい。\nLinter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#追記-dbt-プラグイン-deno",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#追記-dbt-プラグイン-deno",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
     "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "6. [2024-11-25 追記] dbt プラグイン (Deno)",
-    "text": "6. [2024-11-25 追記] dbt プラグイン (Deno)\nVim/Neovim 両対応で最低限の機能をもったものがほしい。"
+    "section": "6. dbt プラグイン (Deno)",
+    "text": "6. dbt プラグイン (Deno)\nこれは作りました！一応以下が紹介記事です。\nVim/Neovimのdbt開発環境の現状とVimを救う話\nバグ取りをする必要あり。"
   },
   {
-    "objectID": "blog/2024-09-22-vim-plugin-idea.html#追記-zenn-quarto-の本文変換",
-    "href": "blog/2024-09-22-vim-plugin-idea.html#追記-zenn-quarto-の本文変換",
+    "objectID": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
+    "href": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
     "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "7. [2024-11-25 追記] Zenn <–> Quarto の本文変換",
-    "text": "7. [2024-11-25 追記] Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？"
+    "section": "7. Zenn <–> Quarto の本文変換",
+    "text": "7. Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？\n個人執筆記事については Quarto で書いて Zenn に連携という流れにしたいので、利用機会があまりなさそう。。"
   },
   {
-    "objectID": "blog/2025-03-28-display-notion-relation-property.html",
-    "href": "blog/2025-03-28-display-notion-relation-property.html",
-    "title": "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)",
+    "objectID": "blog/2025-04-10-paid-for-gemini-api.html",
+    "href": "blog/2025-04-10-paid-for-gemini-api.html",
+    "title": "Gemini API に課金した",
     "section": "",
-    "text": "下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。\n\n\n\nリレーションプロパティの表示設定成功例\n\n\nタイトル記載日時点で公式ドキュメントに記載された通りに設定ができなかったので手順を共有します。\n一応以下が公式ドキュメントです。\nhttps://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション"
+    "text": "個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。\nCursor でもいいかと思いましたが Vim やコマンドラインでも使える汎用性を考えて Gemini API への課金としました。"
   },
   {
-    "objectID": "blog/2025-03-28-display-notion-relation-property.html#はじめに",
-    "href": "blog/2025-03-28-display-notion-relation-property.html#はじめに",
-    "title": "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)",
-    "section": "",
-    "text": "下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。\n\n\n\nリレーションプロパティの表示設定成功例\n\n\nタイトル記載日時点で公式ドキュメントに記載された通りに設定ができなかったので手順を共有します。\n一応以下が公式ドキュメントです。\nhttps://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション"
-  },
-  {
-    "objectID": "blog/2025-03-28-display-notion-relation-property.html#リレーションプロパティの表示設定",
-    "href": "blog/2025-03-28-display-notion-relation-property.html#リレーションプロパティの表示設定",
-    "title": "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)",
-    "section": "2. リレーションプロパティの表示設定",
-    "text": "2. リレーションプロパティの表示設定\n最も混乱しづらいであろう手順を以下に示します。\n\n2.1. 利用するデータベースの説明\n\n2.1.1. item_master\nリレーション元として利用します。\n\n\n\n2.1.2. transaction_a\nitem_master をプロパティに追加させたいデータベースです。\n\n\n\n\n2.2. リレーションプロパティの追加\nデータベース全体の設定を行うのではなく、1アイテムを編集→全体適用でいきます。\n\ntransaction_a の1アイテムをサイドピークで開く\n右上の「…」→「レイアウトをカスタマイズ」とクリックする \n「＋」をクリックする \nリレーションプロパティを選択する \nリレーション元として item_master を選択する \nリレーションを追加する \nすべてのページに適用する \nリレーションプロパティの「…」から表示させたいプロパティを選択する \n完了"
-  },
-  {
-    "objectID": "blog/2024-07-15-technical-tips.html",
-    "href": "blog/2024-07-15-technical-tips.html",
-    "title": "技術系 Tips まとめ",
-    "section": "",
-    "text": "たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n分量が増えてきた分野は別記事に切り出すかもしれません。"
-  },
-  {
-    "objectID": "blog/2024-07-15-technical-tips.html#git",
-    "href": "blog/2024-07-15-technical-tips.html#git",
-    "title": "技術系 Tips まとめ",
-    "section": "1. Git",
-    "text": "1. Git\n# よく使うコマンド\ngit add -n .\ngit log --graph\ngit diff --name-only HEAD HEAD~2\ngit diff ID1 ID2 filename\ngit difftool ID1 ID2\ngit show ID\n\ngit reflog\ngit rebase\n\n# リモートリポジトリ作成\ngit init --bare --shared\ngit remote add origin url\ngit clone url"
-  },
-  {
-    "objectID": "blog/2024-07-15-technical-tips.html#postgresql",
-    "href": "blog/2024-07-15-technical-tips.html#postgresql",
-    "title": "技術系 Tips まとめ",
-    "section": "2. PostgreSQL",
-    "text": "2. PostgreSQL\n# 起動～データベースへのアクセス\npg_ctl restart\npsql -U postgres -d db_name\n\npg_ctl restart\npsql -U postgres\nCREATE DATABASE db_name;\n\\c db_name\nCREATE SCHEMA sc_name;"
-  },
-  {
-    "objectID": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
-    "href": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
-    "title": "技術系 Tips まとめ",
-    "section": "3. Google Cloud CLI (gcloud CLI)",
-    "text": "3. Google Cloud CLI (gcloud CLI)\n# keyfile 登録からテーブル確認まで\ngcloud auth activate-service-account --key-file ***.json\ngcloud auth list\ngcloud set account ***\nbq --project_id=aaaaa ls\nbq --project_id=aaaaa ls dataset_name\nbq --project_id=aaaaa show dataset_name.table_name\nbq --project_id=aaaaa head --max_rows 5 dataset_name.table_name\n# ログイン\ngcloud auth login"
-  },
-  {
-    "objectID": "blog/2024-07-15-technical-tips.html#excel",
-    "href": "blog/2024-07-15-technical-tips.html#excel",
-    "title": "技術系 Tips まとめ",
-    "section": "4. Excel",
-    "text": "4. Excel\n\n4.1. Excel VBA\n\nアドイン追加先\n\n%USERPROFILE%\\AppData\\Roaming\\Microsoft\\AddIns\n\n\n\n\n4.2. Excel 関数\n\nシート名を記載したセルB2を利用したハイパーリンク作成\n\n=HYPERLINK(\"#'\"&B2&\"'!$A$1\",B2)"
-  },
-  {
-    "objectID": "blog/2024-07-15-technical-tips.html#word",
-    "href": "blog/2024-07-15-technical-tips.html#word",
-    "title": "技術系 Tips まとめ",
-    "section": "5. Word",
-    "text": "5. Word\n\n5.1. Normal.dotm 作成\n\n%APPDATA%\\Microsoft\\Templates\\Normal.dotm 削除\nデザインを作成し既定に設定する\n\nテーマ設定\n\n見出し: 游ゴシック Arial\n本文: 游ゴシック Medium Arial\n\nアウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル"
-  },
-  {
-    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html",
-    "href": "blog/2025-01-31-get-instagram-api-access-token.html",
-    "title": "Instagram API のアクセストークンを取得する",
-    "section": "",
-    "text": "こういった作業ってテックブログ見るしかないですよね。 やっていきます。"
-  },
-  {
-    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
-    "href": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
-    "title": "Instagram API のアクセストークンを取得する",
-    "section": "1. 参考ページ",
-    "text": "1. 参考ページ\n\nInstagram API のアクセストークン取得手順\n超簡単！Instagram graph APIのアクセストークンを取得する - to inc マーケティングを企業のスタンダードに"
-  },
-  {
-    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
-    "href": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
-    "title": "Instagram API のアクセストークンを取得する",
-    "section": "2. 手順",
-    "text": "2. 手順\n\nFacebook アカウント作成\n\n会社メールアドレスで個人アカウントに該当するアカウントを作成してます\n\nmeta for Developers アカウント作成\n新規アプリ作成\n\nユースケース：その他\nアプリタイプ：ビジネス\n\n作成したアプリの設定\n\nアプリID・app secret を控える\n\nmeta for Developers の「ツール」→「グラフ API エクスプローラ」を起動する\nページ作成\n\n「ページアクセストークンの取得」を選択\n「現在のページにのみオプトイン」を選択\nページを作成する\n(ここでページ名がユニークである必要があるようで、エラーを起こしてページ作成制限を受けてしまいました😢また挑戦します)"
-  },
-  {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "",
-    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
-  },
-  {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "",
-    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
-  },
-  {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "2. Gemini との開発過程",
-    "text": "2. Gemini との開発過程\nGemini とのやりとりを書き残しておきます。\n\n2.1. .git 探索関数作成\n\n2.1.1. 質問\nVim script で以下の関数を作成してほしいです。\n- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。\n\n\n2.1.2. 回答\nVim script で .git ディレクトリを探す関数\n\n以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。\n\nfunction! FindGitDir(dir)\n  \" 引数がない場合はカレントディレクトリを代入 \"\n  if (empty(a:dir))\n    let dir = expand('%:p')\n  endif\n\n  \" ループフラグを初期化 \"\n  let found = 0\n\n  \" 順に上の階層をたどる \"\n  while (!found && !empty(dir) && dir != '/')\n    \" .git ディレクトリが存在するか確認 \"\n    if (isdirectory(dir . '/.git'))\n      let found = 1\n      let gitdir = dir . '/.git'\n    endif\n\n    \" 上の階層へ移動 \"\n    let dir = expand(dirname(dir))\n  endwhile\n\n  \" 結果を返す \"\n  if (found)\n    return gitdir\n  else\n    return ''\n  endif\nendfunction\n\n\n\n2.2. ブランチ名取得関数作成\n\n2.2.1. 質問\nVim script で以下の関数を作成してほしいです。\n- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。\n\n\n2.2.2. 回答\n以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。\n\nfunction! GetCurrentBranch(gitdir)\n  \" 引数が空の場合、エラーを返す \"\n  if (empty(a:gitdir))\n    error('引数が空です')\n  endif\n\n  \" カレントブランチ名の取得 \"\n  let branch = system('git --git-dir=\"' . a:gitdir . '\" rev-parse --abbrev-ref HEAD')\n\n  \" .git ディレクトリを除いたブランチ名を返す \"\n  return substitute(branch, a:gitdir . '/', '', 'g')\nendfunction\n\n\n2.2.3. 質問\nsystem() を使わず、gitコマンドを使わずに実現させてほしいです。\n\n\n2.2.4. 回答\nVim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。\n\n\n1. :echo %b コマンドを使用する\n\nこの方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。\n\n\" 現在のブランチ名をエコーする \"\n:echo %b\n\n\n2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む\n\nこの方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。\n\n\" .git/HEAD ファイルのパスを取得 \"\nlet headfile = expand('%:p:h') . '/.git/HEAD'\n\n\" HEAD ファイルの内容を読み込む \"\nlet headcontent = readfile(headfile)\n\n\" ブランチ名を抽出する \"\nlet branch = match(headcontent, 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n\n\n3. git log の出力を解析する\n\nこの方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。\nVim Script\n\n\" git log の出力をバッファに読み込む \"\n:redir &gt; /dev/null git log -1\n\n\" ブランチ名を抽出する \"\nlet branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n回答1が嘘すぎてびっくり。今回は回答2がよさそう。\nこの時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。\nhttps://github.com/itchyny/vim-gitbranch\nここまで分かればあとは動作を確認しながら書けそうです。"
-  },
-  {
-    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
-    "href": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
-    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
-    "section": "3. 完成品",
-    "text": "3. 完成品\nGemini と考えたコードが跡形もなくなっている。。なぜ。。\nTODO: 繰り返し呼ばれることを念頭に処理を軽くしたい\nhttps://github.com/i9wa4/get-git-branch-name.vim"
-  },
-  {
-    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html",
-    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html",
-    "title": "Databricks MCP Server を Service Principal 認証対応させた",
-    "section": "",
-    "text": "https://github.com/RafaelCartenet/mcp-databricks-server\n上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。\nhttps://github.com/i9wa4/mcp-databricks-server/\n存在意義と利用方法について説明します。"
-  },
-  {
-    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#はじめに",
-    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#はじめに",
-    "title": "Databricks MCP Server を Service Principal 認証対応させた",
-    "section": "",
-    "text": "https://github.com/RafaelCartenet/mcp-databricks-server\n上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。\nhttps://github.com/i9wa4/mcp-databricks-server/\n存在意義と利用方法について説明します。"
-  },
-  {
-    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#service-principal-とは",
-    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#service-principal-とは",
-    "title": "Databricks MCP Server を Service Principal 認証対応させた",
-    "section": "2. Service Principal とは",
-    "text": "2. Service Principal とは\nhttps://docs.databricks.com/gcp/ja/admin/users-groups/service-principals\n\nサービスプリンシパルは、自動化とプログラムによるアクセス用に設計された Databricks の特殊な ID です。 サービスプリンシパル は、自動化されたツールとスクリプトに API のみのアクセスを Databricks リソースに付与し、users アカウントを使用するよりも優れたセキュリティを提供します。\n\n一言でまとめると人間に紐付かない ID なので適切な権限管理ができます！"
-  },
-  {
-    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#存在意義",
-    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#存在意義",
-    "title": "Databricks MCP Server を Service Principal 認証対応させた",
-    "section": "3. 存在意義",
-    "text": "3. 存在意義\nDatabricks MCP Server を含む AI エージェントを社内展開しようと思っています。\nただ、Databricks MCP Server に必要な Token として私のアカウントで作成する Personal Access Token を使うのは権限が強すぎるのとクエリ履歴管理上良くないため Service Principal を使うようにしたかったのです。"
-  },
-  {
-    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#利用方法",
-    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#利用方法",
-    "title": "Databricks MCP Server を Service Principal 認証対応させた",
-    "section": "4. 利用方法",
-    "text": "4. 利用方法\nhttps://github.com/i9wa4/mcp-databricks-server/\nこちらの README に記載していますが、fork 元と異なる点は環境変数として下の3つを読み込める状態にすることです。\nちなみに Service Principal 認証の場合は DATABRICKS_TOKEN は不要です。\nexport DATABRICKS_HOST=\"your-databricks-instance.cloud.databricks.com\"\nexport DATABRICKS_TOKEN=\"your-databricks-access-token\"\nexport DATABRICKS_SQL_WAREHOUSE_ID=\"your-sql-warehouse-id\"\n# for OAuth authentication\nexport DATABRICKS_CLIENT_ID=\"your-client-id\"\nexport DATABRICKS_CLIENT_SECRET=\"your-client-secret\"\nexport DATABRICKS_AUTH_TYPE=\"oauth\"\nDATABRICKS_CLIENT_ID と DATABRICKS_CLIENT_SECRET の作成方法は以下のドキュメントを参考にしてください。\nhttps://docs.databricks.com/aws/ja/dev-tools/auth/oauth-m2m"
-  },
-  {
-    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#おまけ実装上の工夫",
-    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#おまけ実装上の工夫",
-    "title": "Databricks MCP Server を Service Principal 認証対応させた",
-    "section": "5. おまけ：実装上の工夫",
-    "text": "5. おまけ：実装上の工夫\n手元で Formatter を効かせてしまった都合で fork 元に Pull Request を出すのはちょっと難しくなってしまったのですが、それでも差分をできるだけ小さくしておきました。\nヘッダ作成に必要なトークン取得部分を同期関数にして、その中で OAuth or PAT という形で分岐させる構成が結構良い感じに書けたのではないかと思います。 OAuth を優先してる都合でここは非同期にはできないですよね。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html",
-    "href": "blog/2025-02-21-plain-sql.html",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "",
-    "text": "dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。\n勢いで書いたので思い出したらどんどん追記します"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
-    "href": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "1. フォーマッタで整形する",
-    "text": "1. フォーマッタで整形する\nフォーマッタを使って統一感のある SQL を書きましょう。\nsqlfmt が個人的におすすめです。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#with-句を使う",
-    "href": "blog/2025-02-21-plain-sql.html#with-句を使う",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "2. with 句を使う",
-    "text": "2. with 句を使う\nネストすると認知負荷が高まるので使ったほうがいいと思ってます。\n良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。\nwith\n    a as (select id, name from table_a),\n    b as (select id, common_id from table_b),\n    out as (\n        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`\n        from a\n        left outer join b on a.id = b.id\n        order by a.id\n    )\nselect *\nfrom out"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
-    "href": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "3. 1つのサブクエリに1つの目的を持たせる",
-    "text": "3. 1つのサブクエリに1つの目的を持たせる\nもちろん with 句で名前をつけたサブクエリの話をしてます。\nごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。\n例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。"
-  },
-  {
-    "objectID": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
-    "href": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
-    "title": "見やすい SQL を書くための Tips",
-    "section": "4. 省略表現を減らす",
-    "text": "4. 省略表現を減らす\nこれはもはや好みの問題かもしれません。\n例えば\nselect * from table_a\nと書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。\n私は初登場するカラム名は明記するようにしてます。\norder by 1, 2\norder by all\nなども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。\nleft outer join table_b using (id)\nもそうですね。いつも同じ書き方ができるとは限らないので\nleft outer join table_b on table_a.id = table_b.id\nと書いて書き味をいつも同じにしておきたいです。\nこれ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。"
-  },
-  {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "",
-    "text": "PC を新調するとセットアップがつきものですね。\nではいきます。"
-  },
-  {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "1. SnowSQL インストール",
-    "text": "1. SnowSQL インストール\nSnowSQL のインストール | Snowflake Documentation\n\nHomebrew でインストールします。\nbrew install --cask snowflake-snowsql\nエイリアス設定を ~/.zshrc に記載して再読み込み or シェルの再起動を行います。\nalias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql"
-  },
-  {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "2. ~/.snowsql/config 作成",
-    "text": "2. ~/.snowsql/config 作成\nSnowSQL を介した接続 | Snowflake Documentation\n\nsnowsql コマンドを実行します。\n$ snowsql\nUsage: snowsql [OPTIONS]\n~/.snowsql/config が作成されているので編集していきます。\n[connections.connection_name1]\naccountname = myorganization-myaccount\nusername = jsmith\npassword = xxxxx\nrolename = myrole\nwarehousename = mywh"
-  },
-  {
-    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
-    "href": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
-    "title": "SnowSQL セットアップ (Mac)",
-    "section": "3. コマンド実行",
-    "text": "3. コマンド実行\nSnowSQLの使用 | Snowflake Documentation\n\n以下のコマンドで接続します。\n# どちらでも OK\nsnowsql --connection connection_name1\nsnowsql -c connection_name1\n接続後は SQL 文を直接実行できます。\n\n必要に応じて USE ROLE xxxxxx; で権限を切り替えることができます。\n\n各種コマンドは !help で参照できます。"
-  },
-  {
-    "objectID": "blog/2024-05-05-deploy-quarto.html",
-    "href": "blog/2024-05-05-deploy-quarto.html",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "",
-    "text": "スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (https://quarto.org/) に決めました。\n.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。\n\n環境構築が pip で完了する\nVS Code で開くと Jupyter Notebook っぽくセルを実行できる"
-  },
-  {
-    "objectID": "blog/2024-05-05-deploy-quarto.html#前提",
-    "href": "blog/2024-05-05-deploy-quarto.html#前提",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "",
-    "text": "スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (https://quarto.org/) に決めました。\n.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。\n\n環境構築が pip で完了する\nVS Code で開くと Jupyter Notebook っぽくセルを実行できる"
-  },
-  {
-    "objectID": "blog/2024-05-05-deploy-quarto.html#やったこと",
-    "href": "blog/2024-05-05-deploy-quarto.html#やったこと",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "2. やったこと",
-    "text": "2. やったこと\n下記リポジトリを整備しました。\nhttps://github.com/i9wa4/slides\nREADME.md にも書いてますが\nQuartoでスライドを作ってGitHub Pagesで公開する #GitHubActions - Qiita\nを参考にしてます。"
-  },
-  {
-    "objectID": "blog/2024-05-05-deploy-quarto.html#感想",
-    "href": "blog/2024-05-05-deploy-quarto.html#感想",
-    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
-    "section": "3. 感想",
-    "text": "3. 感想\nGitHub Actions はまだよく分かってないままなのですが、一旦動くようになってよかったです。"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html",
-    "href": "blog/2024-06-28-systemd-user.html",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "",
-    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "1. 基本的な情報まとめ",
-    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "2. timer 設定手順",
-    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
-  },
-  {
-    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
-    "title": "systemd がユーザー権限でも使える",
-    "section": "3. 参考リンク",
-    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
+    "objectID": "blog/2025-04-10-paid-for-gemini-api.html#手順",
+    "href": "blog/2025-04-10-paid-for-gemini-api.html#手順",
+    "title": "Gemini API に課金した",
+    "section": "1. 手順",
+    "text": "1. 手順\n\nGoogle AI Studio の API Plan Billing から Gemini AI 向けの Google Cloud プロジェクトの支払い情報に飛ぶ\n\nhttps://aistudio.google.com/plan_information\n\nGemini AI プロジェクトに対して請求先アカウントをリンクさせる\n請求課金アカウントで予算とアラートを設定して課金額に敏感にしておく"
   },
   {
     "objectID": "blog/2025-05-06-quarto-slides.html",
@@ -1366,242 +1026,610 @@
     "text": "12. おわりに\nここまでリポジトリを整備できればあとはどんどん AI にスライドを生成してもらうだけですね！楽にスライドを量産していきましょう！"
   },
   {
-    "objectID": "blog/2025-04-10-paid-for-gemini-api.html",
-    "href": "blog/2025-04-10-paid-for-gemini-api.html",
-    "title": "Gemini API に課金した",
+    "objectID": "blog/2024-06-28-systemd-user.html",
+    "href": "blog/2024-06-28-systemd-user.html",
+    "title": "systemd がユーザー権限でも使える",
     "section": "",
-    "text": "個人的に試したいことの数に対して無料枠では流石に足りないので課金しました。\nCursor でもいいかと思いましたが Vim やコマンドラインでも使える汎用性を考えて Gemini API への課金としました。"
+    "text": "systemd がユーザー権限でも設定できると知ったので記事にします。"
   },
   {
-    "objectID": "blog/2025-04-10-paid-for-gemini-api.html#手順",
-    "href": "blog/2025-04-10-paid-for-gemini-api.html#手順",
-    "title": "Gemini API に課金した",
-    "section": "1. 手順",
-    "text": "1. 手順\n\nGoogle AI Studio の API Plan Billing から Gemini AI 向けの Google Cloud プロジェクトの支払い情報に飛ぶ\n\nhttps://aistudio.google.com/plan_information\n\nGemini AI プロジェクトに対して請求先アカウントをリンクさせる\n請求課金アカウントで予算とアラートを設定して課金額に敏感にしておく"
+    "objectID": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "href": "blog/2024-06-28-systemd-user.html#基本的な情報まとめ",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "1. 基本的な情報まとめ",
+    "text": "1. 基本的な情報まとめ\n\n設定ファイル格納先\n\n~/.config/systemd/user/\n\nコマンド\n\nsystemd --user\nuser オプションを付けて通常の systemd と同様に使用する"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html",
-    "href": "blog/2025-02-20-vim-plugin-idea.html",
+    "objectID": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "href": "blog/2024-06-28-systemd-user.html#timer-設定手順",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "2. timer 設定手順",
+    "text": "2. timer 設定手順\n私の用途では timer 設定ができれば OK です。\n下記リポジトリの設定を使って説明していきます。\ni9wa4/minecraft-bedrock-server-setup/bin/init.sh\n# ~/.config/systemd/user/ に設定ファイルを配置する\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.service \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.service\nln -fs \"${DIR_REPO}\"/etc/mbs-backup.timer \\\n  \"${HOME}\"/.config/systemd/user/mbs-backup.timer\n\n# 設定ファイルを読み込む\nsystemctl --user daemon-reload\n\n# timer をログイン時に実行する\nsystemctl --user enable mbs-backup.timer\n\n# timer を実行する\nsystemctl --user start mbs-backup.timer\n\n# サーバーの起動時にサービスを立ち上げる\nsudo loginctl enable-linger i9wa4"
+  },
+  {
+    "objectID": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "href": "blog/2024-06-28-systemd-user.html#参考リンク",
+    "title": "systemd がユーザー権限でも使える",
+    "section": "3. 参考リンク",
+    "text": "3. 参考リンク\n\nsystemd/ユーザー - ArchWiki\nサーバー起動時に非rootユーザーでsystemdを使ってサービスを立ち上げる #systemd - Qiita"
+  },
+  {
+    "objectID": "blog/2024-05-05-deploy-quarto.html",
+    "href": "blog/2024-05-05-deploy-quarto.html",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "",
+    "text": "スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (https://quarto.org/) に決めました。\n.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。\n\n環境構築が pip で完了する\nVS Code で開くと Jupyter Notebook っぽくセルを実行できる"
+  },
+  {
+    "objectID": "blog/2024-05-05-deploy-quarto.html#前提",
+    "href": "blog/2024-05-05-deploy-quarto.html#前提",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "",
+    "text": "スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (https://quarto.org/) に決めました。\n.qmd ファイルという見慣れないファイルを利用しますが、利点としては以下ですね。\n\n環境構築が pip で完了する\nVS Code で開くと Jupyter Notebook っぽくセルを実行できる"
+  },
+  {
+    "objectID": "blog/2024-05-05-deploy-quarto.html#やったこと",
+    "href": "blog/2024-05-05-deploy-quarto.html#やったこと",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "2. やったこと",
+    "text": "2. やったこと\n下記リポジトリを整備しました。\nhttps://github.com/i9wa4/slides\nREADME.md にも書いてますが\nQuartoでスライドを作ってGitHub Pagesで公開する #GitHubActions - Qiita\nを参考にしてます。"
+  },
+  {
+    "objectID": "blog/2024-05-05-deploy-quarto.html#感想",
+    "href": "blog/2024-05-05-deploy-quarto.html#感想",
+    "title": "Quarto で作ったスライドを GitHub Pages にデプロイする",
+    "section": "3. 感想",
+    "text": "3. 感想\nGitHub Actions はまだよく分かってないままなのですが、一旦動くようになってよかったです。"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "",
+    "text": "PC を新調するとセットアップがつきものですね。\nではいきます。"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsql-インストール",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "1. SnowSQL インストール",
+    "text": "1. SnowSQL インストール\nSnowSQL のインストール | Snowflake Documentation\n\nHomebrew でインストールします。\nbrew install --cask snowflake-snowsql\nエイリアス設定を ~/.zshrc に記載して再読み込み or シェルの再起動を行います。\nalias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#snowsqlconfig-作成",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "2. ~/.snowsql/config 作成",
+    "text": "2. ~/.snowsql/config 作成\nSnowSQL を介した接続 | Snowflake Documentation\n\nsnowsql コマンドを実行します。\n$ snowsql\nUsage: snowsql [OPTIONS]\n~/.snowsql/config が作成されているので編集していきます。\n[connections.connection_name1]\naccountname = myorganization-myaccount\nusername = jsmith\npassword = xxxxx\nrolename = myrole\nwarehousename = mywh"
+  },
+  {
+    "objectID": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
+    "href": "blog/2024-12-05-setup-snowsql-mac.html#コマンド実行",
+    "title": "SnowSQL セットアップ (Mac)",
+    "section": "3. コマンド実行",
+    "text": "3. コマンド実行\nSnowSQLの使用 | Snowflake Documentation\n\n以下のコマンドで接続します。\n# どちらでも OK\nsnowsql --connection connection_name1\nsnowsql -c connection_name1\n接続後は SQL 文を直接実行できます。\n\n必要に応じて USE ROLE xxxxxx; で権限を切り替えることができます。\n\n各種コマンドは !help で参照できます。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html",
+    "href": "blog/2025-02-21-plain-sql.html",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "",
+    "text": "dbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n因みに私がよく書くダッシュボード向けの SQL は基本的に select, sum, avg, 日付操作くらいでレコード数もそんなに多くないので重い長大な SQL を書くような方とは観点が異なるはずです。\n勢いで書いたので思い出したらどんどん追記します"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
+    "href": "blog/2025-02-21-plain-sql.html#フォーマッタで整形する",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "1. フォーマッタで整形する",
+    "text": "1. フォーマッタで整形する\nフォーマッタを使って統一感のある SQL を書きましょう。\nsqlfmt が個人的におすすめです。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#with-句を使う",
+    "href": "blog/2025-02-21-plain-sql.html#with-句を使う",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "2. with 句を使う",
+    "text": "2. with 句を使う\nネストすると認知負荷が高まるので使ったほうがいいと思ってます。\n良い例が全然浮かびませんが、以下のように最後の select 文が単純になっていると SQL 文をちょっと書き換えて様子見がしやすいです。\nwith\n    a as (select id, name from table_a),\n    b as (select id, common_id from table_b),\n    out as (\n        select a.id as `顧客ID`, a.name as `顧客名`, b.common_id as `共通ID`\n        from a\n        left outer join b on a.id = b.id\n        order by a.id\n    )\nselect *\nfrom out"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
+    "href": "blog/2025-02-21-plain-sql.html#つのサブクエリに1つの目的を持たせる",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "3. 1つのサブクエリに1つの目的を持たせる",
+    "text": "3. 1つのサブクエリに1つの目的を持たせる\nもちろん with 句で名前をつけたサブクエリの話をしてます。\nごちゃごちゃとしたサブクエリは読みづらいし再利用しづらいので1つのサブクエリに1つの目的を持たせるようにしましょう。\n例えば最終出力のためにカラムをリネームするのであれば、そのためだけのサブクエリを作るといいです。"
+  },
+  {
+    "objectID": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
+    "href": "blog/2025-02-21-plain-sql.html#省略表現を減らす",
+    "title": "見やすい SQL を書くための Tips",
+    "section": "4. 省略表現を減らす",
+    "text": "4. 省略表現を減らす\nこれはもはや好みの問題かもしれません。\n例えば\nselect * from table_a\nと書いてしまうとデータカタログを参照してカラム名を確認する必要が出てくるので結果的に手間になることがあります。\n私は初登場するカラム名は明記するようにしてます。\norder by 1, 2\norder by all\nなども便利ではあるものの、再利用性を重視したい！と思ったら避けるのが吉です。\nleft outer join table_b using (id)\nもそうですね。いつも同じ書き方ができるとは限らないので\nleft outer join table_b on table_a.id = table_b.id\nと書いて書き味をいつも同じにしておきたいです。\nこれ重要な論点だと思うのですが、生成AIをコーディングの補助に使う場合は愚直にしつこく書いたほうが結果的に楽だったりします。"
+  },
+  {
+    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html",
+    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html",
+    "title": "Databricks MCP Server を Service Principal 認証対応させた",
+    "section": "",
+    "text": "https://github.com/RafaelCartenet/mcp-databricks-server\n上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。\nhttps://github.com/i9wa4/mcp-databricks-server/\n存在意義と利用方法について説明します。"
+  },
+  {
+    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#はじめに",
+    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#はじめに",
+    "title": "Databricks MCP Server を Service Principal 認証対応させた",
+    "section": "",
+    "text": "https://github.com/RafaelCartenet/mcp-databricks-server\n上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。\nhttps://github.com/i9wa4/mcp-databricks-server/\n存在意義と利用方法について説明します。"
+  },
+  {
+    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#service-principal-とは",
+    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#service-principal-とは",
+    "title": "Databricks MCP Server を Service Principal 認証対応させた",
+    "section": "2. Service Principal とは",
+    "text": "2. Service Principal とは\nhttps://docs.databricks.com/gcp/ja/admin/users-groups/service-principals\n\nサービスプリンシパルは、自動化とプログラムによるアクセス用に設計された Databricks の特殊な ID です。 サービスプリンシパル は、自動化されたツールとスクリプトに API のみのアクセスを Databricks リソースに付与し、users アカウントを使用するよりも優れたセキュリティを提供します。\n\n一言でまとめると人間に紐付かない ID なので適切な権限管理ができます！"
+  },
+  {
+    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#存在意義",
+    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#存在意義",
+    "title": "Databricks MCP Server を Service Principal 認証対応させた",
+    "section": "3. 存在意義",
+    "text": "3. 存在意義\nDatabricks MCP Server を含む AI エージェントを社内展開しようと思っています。\nただ、Databricks MCP Server に必要な Token として私のアカウントで作成する Personal Access Token を使うのは権限が強すぎるのとクエリ履歴管理上良くないため Service Principal を使うようにしたかったのです。"
+  },
+  {
+    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#利用方法",
+    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#利用方法",
+    "title": "Databricks MCP Server を Service Principal 認証対応させた",
+    "section": "4. 利用方法",
+    "text": "4. 利用方法\nhttps://github.com/i9wa4/mcp-databricks-server/\nこちらの README に記載していますが、fork 元と異なる点は環境変数として下の3つを読み込める状態にすることです。\nちなみに Service Principal 認証の場合は DATABRICKS_TOKEN は不要です。\nexport DATABRICKS_HOST=\"your-databricks-instance.cloud.databricks.com\"\nexport DATABRICKS_TOKEN=\"your-databricks-access-token\"\nexport DATABRICKS_SQL_WAREHOUSE_ID=\"your-sql-warehouse-id\"\n# for OAuth authentication\nexport DATABRICKS_CLIENT_ID=\"your-client-id\"\nexport DATABRICKS_CLIENT_SECRET=\"your-client-secret\"\nexport DATABRICKS_AUTH_TYPE=\"oauth\"\nDATABRICKS_CLIENT_ID と DATABRICKS_CLIENT_SECRET の作成方法は以下のドキュメントを参考にしてください。\nhttps://docs.databricks.com/aws/ja/dev-tools/auth/oauth-m2m"
+  },
+  {
+    "objectID": "blog/2025-04-29-mcp-databricks-server-service-principal.html#おまけ実装上の工夫",
+    "href": "blog/2025-04-29-mcp-databricks-server-service-principal.html#おまけ実装上の工夫",
+    "title": "Databricks MCP Server を Service Principal 認証対応させた",
+    "section": "5. おまけ：実装上の工夫",
+    "text": "5. おまけ：実装上の工夫\n手元で Formatter を効かせてしまった都合で fork 元に Pull Request を出すのはちょっと難しくなってしまったのですが、それでも差分をできるだけ小さくしておきました。\nヘッダ作成に必要なトークン取得部分を同期関数にして、その中で OAuth or PAT という形で分岐させる構成が結構良い感じに書けたのではないかと思います。 OAuth を優先してる都合でここは非同期にはできないですよね。"
+  },
+  {
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "",
+    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
+  },
+  {
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#経緯",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "",
+    "text": "私の Vim 設定では操作中のリポジトリのブランチ名を tabline に表示させていて、これは bash-completion に依存した実装となっています。この依存をなくし、ついでに依存をゼロにしようと思ったので Vim script でプラグインを書いてみようと思いました。\n.git ディレクトリを覗けば現在のブランチ名が分かるらしいことは知っていて、以下のリポジトリが自分のやりたいことであるということも知っている状態です。\nhttps://github.com/itchyny/vim-gitbranch\nGemini がどれくらい使えるか試してみたくて、上記リポジトリは見ずに進めてみます。"
+  },
+  {
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#gemini-との開発過程",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "2. Gemini との開発過程",
+    "text": "2. Gemini との開発過程\nGemini とのやりとりを書き残しておきます。\n\n2.1. .git 探索関数作成\n\n2.1.1. 質問\nVim script で以下の関数を作成してほしいです。\n- あるディレクトリのパスを引数にとり、そこから順に上の階層をたどって、.git ディレクトリがあればそこで探索をやめて.gitディレクトリのパスを戻り値とする。見つからなければ空文字列を返す。\n\n\n2.1.2. 回答\nVim script で .git ディレクトリを探す関数\n\n以下の Vim script は、引数として渡されたディレクトリパスから順に上の階層をたどり、.git ディレクトリを見つけたらそのパスを返します。見つからなければ空文字列を返します。\n\nfunction! FindGitDir(dir)\n  \" 引数がない場合はカレントディレクトリを代入 \"\n  if (empty(a:dir))\n    let dir = expand('%:p')\n  endif\n\n  \" ループフラグを初期化 \"\n  let found = 0\n\n  \" 順に上の階層をたどる \"\n  while (!found && !empty(dir) && dir != '/')\n    \" .git ディレクトリが存在するか確認 \"\n    if (isdirectory(dir . '/.git'))\n      let found = 1\n      let gitdir = dir . '/.git'\n    endif\n\n    \" 上の階層へ移動 \"\n    let dir = expand(dirname(dir))\n  endwhile\n\n  \" 結果を返す \"\n  if (found)\n    return gitdir\n  else\n    return ''\n  endif\nendfunction\n\n\n\n2.2. ブランチ名取得関数作成\n\n2.2.1. 質問\nVim script で以下の関数を作成してほしいです。\n- .gitディレクトリのパスを引数にとり、.gitディレクトリを除いて現在のブランチ名を取得し、それを戻り値とする。\n\n\n2.2.2. 回答\n以下の Vim script は、.git ディレクトリのパスを引数にとり、.git ディレクトリを除いた現在のブランチ名を取得し、それを戻り値とします。\n\nfunction! GetCurrentBranch(gitdir)\n  \" 引数が空の場合、エラーを返す \"\n  if (empty(a:gitdir))\n    error('引数が空です')\n  endif\n\n  \" カレントブランチ名の取得 \"\n  let branch = system('git --git-dir=\"' . a:gitdir . '\" rev-parse --abbrev-ref HEAD')\n\n  \" .git ディレクトリを除いたブランチ名を返す \"\n  return substitute(branch, a:gitdir . '/', '', 'g')\nendfunction\n\n\n2.2.3. 質問\nsystem() を使わず、gitコマンドを使わずに実現させてほしいです。\n\n\n2.2.4. 回答\nVim script で system() や git コマンドを使わずに現在のブランチ名を取得するには、以下の方法があります。\n\n\n1. :echo %b コマンドを使用する\n\nこの方法は、最も簡単でシンプルな方法です。%b 変数は、現在選択されているバッファのブランチ名を表します。\n\n\" 現在のブランチ名をエコーする \"\n:echo %b\n\n\n2. expand('%:p:h') を使って .git/HEAD ファイルを読み込む\n\nこの方法は、より汎用的で、カレントバッファ以外のブランチ名を取得する場合にも使用できます。.git/HEAD ファイルには、現在のブランチ名が格納されています。\n\n\" .git/HEAD ファイルのパスを取得 \"\nlet headfile = expand('%:p:h') . '/.git/HEAD'\n\n\" HEAD ファイルの内容を読み込む \"\nlet headcontent = readfile(headfile)\n\n\" ブランチ名を抽出する \"\nlet branch = match(headcontent, 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n\n\n3. git log の出力を解析する\n\nこの方法は、より詳細なブランチ情報 (コミットハッシュなど) を取得する場合に役立ちます。\nVim Script\n\n\" git log の出力をバッファに読み込む \"\n:redir &gt; /dev/null git log -1\n\n\" ブランチ名を抽出する \"\nlet branch = match(v:buffer['[0]'], 'ref: refs/heads/(.+)')\n\n\" 結果を確認 \"\necho \"現在のブランチ: \" . branch\n回答1が嘘すぎてびっくり。今回は回答2がよさそう。\nこの時点で下記リポジトリを確認してみたところ回答2と同様の手法でブランチ名を取得しているようでした。\nhttps://github.com/itchyny/vim-gitbranch\nここまで分かればあとは動作を確認しながら書けそうです。"
+  },
+  {
+    "objectID": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
+    "href": "blog/2024-05-04-get-git-branch-name.vim.html#完成品",
+    "title": "Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた",
+    "section": "3. 完成品",
+    "text": "3. 完成品\nGemini と考えたコードが跡形もなくなっている。。なぜ。。\nTODO: 繰り返し呼ばれることを念頭に処理を軽くしたい\nhttps://github.com/i9wa4/get-git-branch-name.vim"
+  },
+  {
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "",
+    "text": "こういった作業ってテックブログ見るしかないですよね。 やっていきます。"
+  },
+  {
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html#参考ページ",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "1. 参考ページ",
+    "text": "1. 参考ページ\n\nInstagram API のアクセストークン取得手順\n超簡単！Instagram graph APIのアクセストークンを取得する - to inc マーケティングを企業のスタンダードに"
+  },
+  {
+    "objectID": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
+    "href": "blog/2025-01-31-get-instagram-api-access-token.html#手順",
+    "title": "Instagram API のアクセストークンを取得する",
+    "section": "2. 手順",
+    "text": "2. 手順\n\nFacebook アカウント作成\n\n会社メールアドレスで個人アカウントに該当するアカウントを作成してます\n\nmeta for Developers アカウント作成\n新規アプリ作成\n\nユースケース：その他\nアプリタイプ：ビジネス\n\n作成したアプリの設定\n\nアプリID・app secret を控える\n\nmeta for Developers の「ツール」→「グラフ API エクスプローラ」を起動する\nページ作成\n\n「ページアクセストークンの取得」を選択\n「現在のページにのみオプトイン」を選択\nページを作成する\n(ここでページ名がユニークである必要があるようで、エラーを起こしてページ作成制限を受けてしまいました😢また挑戦します)"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html",
+    "href": "blog/2024-07-15-technical-tips.html",
+    "title": "技術系 Tips まとめ",
+    "section": "",
+    "text": "たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n分量が増えてきた分野は別記事に切り出すかもしれません。"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#git",
+    "href": "blog/2024-07-15-technical-tips.html#git",
+    "title": "技術系 Tips まとめ",
+    "section": "1. Git",
+    "text": "1. Git\n# よく使うコマンド\ngit add -n .\ngit log --graph\ngit diff --name-only HEAD HEAD~2\ngit diff ID1 ID2 filename\ngit difftool ID1 ID2\ngit show ID\n\ngit reflog\ngit rebase\n\n# リモートリポジトリ作成\ngit init --bare --shared\ngit remote add origin url\ngit clone url"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#postgresql",
+    "href": "blog/2024-07-15-technical-tips.html#postgresql",
+    "title": "技術系 Tips まとめ",
+    "section": "2. PostgreSQL",
+    "text": "2. PostgreSQL\n# 起動～データベースへのアクセス\npg_ctl restart\npsql -U postgres -d db_name\n\npg_ctl restart\npsql -U postgres\nCREATE DATABASE db_name;\n\\c db_name\nCREATE SCHEMA sc_name;"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
+    "href": "blog/2024-07-15-technical-tips.html#google-cloud-cli-gcloud-cli",
+    "title": "技術系 Tips まとめ",
+    "section": "3. Google Cloud CLI (gcloud CLI)",
+    "text": "3. Google Cloud CLI (gcloud CLI)\n# keyfile 登録からテーブル確認まで\ngcloud auth activate-service-account --key-file ***.json\ngcloud auth list\ngcloud set account ***\nbq --project_id=aaaaa ls\nbq --project_id=aaaaa ls dataset_name\nbq --project_id=aaaaa show dataset_name.table_name\nbq --project_id=aaaaa head --max_rows 5 dataset_name.table_name\n# ログイン\ngcloud auth login"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#excel",
+    "href": "blog/2024-07-15-technical-tips.html#excel",
+    "title": "技術系 Tips まとめ",
+    "section": "4. Excel",
+    "text": "4. Excel\n\n4.1. Excel VBA\n\nアドイン追加先\n\n%USERPROFILE%\\AppData\\Roaming\\Microsoft\\AddIns\n\n\n\n\n4.2. Excel 関数\n\nシート名を記載したセルB2を利用したハイパーリンク作成\n\n=HYPERLINK(\"#'\"&B2&\"'!$A$1\",B2)"
+  },
+  {
+    "objectID": "blog/2024-07-15-technical-tips.html#word",
+    "href": "blog/2024-07-15-technical-tips.html#word",
+    "title": "技術系 Tips まとめ",
+    "section": "5. Word",
+    "text": "5. Word\n\n5.1. Normal.dotm 作成\n\n%APPDATA%\\Microsoft\\Templates\\Normal.dotm 削除\nデザインを作成し既定に設定する\n\nテーマ設定\n\n見出し: 游ゴシック Arial\n本文: 游ゴシック Medium Arial\n\nアウトライン –&gt; 新しいアウトラインの定義 –&gt; オプション –&gt; レベルと対応付ける見出しスタイル"
+  },
+  {
+    "objectID": "blog/2025-03-28-display-notion-relation-property.html",
+    "href": "blog/2025-03-28-display-notion-relation-property.html",
+    "title": "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)",
+    "section": "",
+    "text": "下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。\n\n\n\nリレーションプロパティの表示設定成功例\n\n\nタイトル記載日時点で公式ドキュメントに記載された通りに設定ができなかったので手順を共有します。\n一応以下が公式ドキュメントです。\nhttps://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション"
+  },
+  {
+    "objectID": "blog/2025-03-28-display-notion-relation-property.html#はじめに",
+    "href": "blog/2025-03-28-display-notion-relation-property.html#はじめに",
+    "title": "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)",
+    "section": "",
+    "text": "下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。\n\n\n\nリレーションプロパティの表示設定成功例\n\n\nタイトル記載日時点で公式ドキュメントに記載された通りに設定ができなかったので手順を共有します。\n一応以下が公式ドキュメントです。\nhttps://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション"
+  },
+  {
+    "objectID": "blog/2025-03-28-display-notion-relation-property.html#リレーションプロパティの表示設定",
+    "href": "blog/2025-03-28-display-notion-relation-property.html#リレーションプロパティの表示設定",
+    "title": "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)",
+    "section": "2. リレーションプロパティの表示設定",
+    "text": "2. リレーションプロパティの表示設定\n最も混乱しづらいであろう手順を以下に示します。\n\n2.1. 利用するデータベースの説明\n\n2.1.1. item_master\nリレーション元として利用します。\n\n\n\n2.1.2. transaction_a\nitem_master をプロパティに追加させたいデータベースです。\n\n\n\n\n2.2. リレーションプロパティの追加\nデータベース全体の設定を行うのではなく、1アイテムを編集→全体適用でいきます。\n\ntransaction_a の1アイテムをサイドピークで開く\n右上の「…」→「レイアウトをカスタマイズ」とクリックする \n「＋」をクリックする \nリレーションプロパティを選択する \nリレーション元として item_master を選択する \nリレーションを追加する \nすべてのページに適用する \nリレーションプロパティの「…」から表示させたいプロパティを選択する \n完了"
+  },
+  {
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html",
+    "href": "blog/2024-09-22-vim-plugin-idea.html",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "",
-    "text": "少し前の Vim プラグイン開発のアイデア記事 で7個のアイデアを書いてました。"
+    "text": "dotfiles から切り離したくなってきたらそれがプラグインの作り時。\n今温めているアイデアをメモしておきます。"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#ローカル設定の読み込み",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#ローカル設定の読み込み",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#ローカル設定の読み込み",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "1. ローカル設定の読み込み",
-    "text": "1. ローカル設定の読み込み\nおそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。\nthinca/vim-localrc: Enable configuration file of each directory.\n相変わらず自作のローカル設定読み込みは活用してます。設定ファイル作成コマンドと最下層のローカル設定ファイルにジャンプするキーバインドが結構お気に入り。"
+    "text": "1. ローカル設定の読み込み\nおそらく以下が近い気がしていて、自分の dotfiles の設定を切り出しつつ自分が使いやすい形で作りたいです。\nthinca/vim-localrc: Enable configuration file of each directory."
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#terminal-管理",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#terminal-管理",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#terminal-管理",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "2. Terminal 管理",
-    "text": "2. Terminal 管理\nVim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。\ndotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。\n他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？\nやっぱり tmux をゴリゴリ使ってるので用途が結構限定的ですね。CWDに対してちょっとしたコマンドを実行したいときなんかは重宝してます。"
+    "text": "2. Terminal 管理\nVim/Neovim のターミナルを気軽に開いたり選択範囲のコマンドを流し込むためのプラグイン。\ndotfiles の中で温めてはいるものの、tmux に対する優位性を見い出せずあまり使ってません。\n他には REPL (IPython) 向けの設定もあります。ただ、細々とした Python コードを Vim で動作確認したいユースケースがあるのかなあ？"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#jupytext-と-ipynb-の同期",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "3. Jupytext と ipynb の同期",
-    "text": "3. Jupytext と ipynb の同期\nJupytext で ipynb と py を同期させるプラグイン。\n最近 Databricks を使うようになったのですが、 Databricks では .ipynb を .py として保存する機能がもともと備わっていたので尚のこと必要でなくなってしまいました。次回はこの項目を削除しようかな。"
+    "text": "3. Jupytext と ipynb の同期\nJupytext で ipynb と py を同期させるプラグイン。\n通常は Jupytext をコマンドで実行させると思いますが、非同期で同期させる (？) 挙動をさせたいですね。\nJupytext に変換しておくと Git 管理しやすくなるものの、Jupytext がマイナー過ぎてチーム開発で自分が他人に推奨できない点がネックで最近あまり使わなくなりつつあります。\nみんな ipynb の管理どうしているんだろう。。"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#tabline-設定",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#tabline-設定",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#tabline-設定",
     "title": "最近の Vim プラグイン開発のアイデア",
     "section": "4. Tabline 設定",
-    "text": "4. Tabline 設定\n頑張って書き上げたため切り離してもよいかも。\nTabline 用と Statusline 用の2関数だけだし既存プラグインとの差別化には至らないのでこの項目も削除かな。"
+    "text": "4. Tabline 設定\n頑張って書き上げたため切り離してもよいかも。\nちなみに最近 Statusline は使ってません！"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#virtualtext-を活用したメモプラグイン",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#追記-virtualtext-を活用したメモプラグイン",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#追記-virtualtext-を活用したメモプラグイン",
     "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "5. virtualtext を活用したメモプラグイン",
-    "text": "5. virtualtext を活用したメモプラグイン\nコードリーディング中にメモを残すためのプラグイン。\nメモ一覧をリポジトリ内に保持しておきたい。\nLinter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。"
+    "section": "5. [2024-10-25 追記] virtualtext を活用したメモプラグイン",
+    "text": "5. [2024-10-25 追記] virtualtext を活用したメモプラグイン\nコードリーディング中にメモを残すためのプラグイン。\nメモ一覧をリポジトリ内に保持しておきたい。\nLinter を参考にすればいけそうだけど、コードの行追加削除に追従させるのは自分の技術力では難しそう。"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#dbt-プラグイン-deno",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#追記-dbt-プラグイン-deno",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#追記-dbt-プラグイン-deno",
     "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "6. dbt プラグイン (Deno)",
-    "text": "6. dbt プラグイン (Deno)\nこれは作りました！一応以下が紹介記事です。\nVim/Neovimのdbt開発環境の現状とVimを救う話\nバグ取りをする必要あり。"
+    "section": "6. [2024-11-25 追記] dbt プラグイン (Deno)",
+    "text": "6. [2024-11-25 追記] dbt プラグイン (Deno)\nVim/Neovim 両対応で最低限の機能をもったものがほしい。"
   },
   {
-    "objectID": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
-    "href": "blog/2025-02-20-vim-plugin-idea.html#zenn-quarto-の本文変換",
+    "objectID": "blog/2024-09-22-vim-plugin-idea.html#追記-zenn-quarto-の本文変換",
+    "href": "blog/2024-09-22-vim-plugin-idea.html#追記-zenn-quarto-の本文変換",
     "title": "最近の Vim プラグイン開発のアイデア",
-    "section": "7. Zenn <–> Quarto の本文変換",
-    "text": "7. Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？\n個人執筆記事については Quarto で書いて Zenn に連携という流れにしたいので、利用機会があまりなさそう。。"
+    "section": "7. [2024-11-25 追記] Zenn <–> Quarto の本文変換",
+    "text": "7. [2024-11-25 追記] Zenn &lt;–&gt; Quarto の本文変換\nコードブロックの書き方を変換するだけで足りる？"
   },
   {
-    "objectID": "blog/2025-05-06-python-venv.html",
-    "href": "blog/2025-05-06-python-venv.html",
-    "title": "Python venv インストール・更新スクリプトの供養",
+    "objectID": "blog/2024-07-20-aigis-note.html",
+    "href": "blog/2024-07-20-aigis-note.html",
+    "title": "自分用千年戦争アイギスメモ",
     "section": "",
-    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
+    "text": "偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。"
   },
   {
-    "objectID": "blog/2025-05-06-python-venv.html#はじめに",
-    "href": "blog/2025-05-06-python-venv.html#はじめに",
-    "title": "Python venv インストール・更新スクリプトの供養",
+    "objectID": "blog/2024-07-20-aigis-note.html#週次周回",
+    "href": "blog/2024-07-20-aigis-note.html#週次周回",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "1. 週次周回",
+    "text": "1. 週次周回\n\n\n\n曜日\n対象\n\n\n\n\n月\n刻水晶\n\n\n火\n\n\n\n水\n魔水晶\n\n\n木\n好感度\n\n\n金\n\n\n\n土\n刻水晶, 魔水晶\n\n\n日\n好感度"
+  },
+  {
+    "objectID": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "href": "blog/2024-07-20-aigis-note.html#月次の交換先",
+    "title": "自分用千年戦争アイギスメモ",
+    "section": "2. 月次の交換先",
+    "text": "2. 月次の交換先\n\n刻水晶 400\n\n白の皇帝 * 4 に交換する\n白の皇帝 信頼度150% Lv20 まで育成して他ユニットの餌にする\nイベントヒストリー 11年目 星降る黎明の大神ディアスの効率が良いらしい\n\n魔水晶 900\n\nリングと勲章に交換する\n\n覚醒聖霊ヴィクトワール\n\n統帥結晶ではなく魔水晶で交換する"
+  },
+  {
+    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
+    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
+    "title": "Bash/Zsh でコマンドをエディタで編集する",
     "section": "",
-    "text": "uv で venv 仮想環境をメンテナンスすることにしたためこれまで利用していた venv のインストール・更新スクリプトを供養します。"
+    "text": "Bash/Zsh で入力中のコマンドの編集にエディタが使えるという便利機能の話です。名前がパッと出てこないのでメモ代わりに記事にしておきます。"
   },
   {
-    "objectID": "blog/2025-05-06-python-venv.html#スクリプト-makefile",
-    "href": "blog/2025-05-06-python-venv.html#スクリプト-makefile",
-    "title": "Python venv インストール・更新スクリプトの供養",
-    "section": "2. スクリプト (Makefile)",
-    "text": "2. スクリプト (Makefile)\n実際はこのように Makefile に書いていましたが、流石に見辛いのでシェルスクリプト版も載せます。\npython-venv:  ## install/update Python venv (e.g. make python-venv VENV_PATH=\"${PY_VENV_MYENV}\" REQUIREMENTS_PATH=\"${HOME}\"/ghq/github.com/i9wa4/dotfiles/etc/requirements-venv-myenv.txt)\n    # https://dev.classmethod.jp/articles/change-venv-python-version/\n    . $(MF_DOTFILES_DIR)/dot.zshenv \\\n    && if [ -d \"$(VENV_PATH)\" ]; then \\\n      python -m venv \"$(VENV_PATH)\" --clear; \\\n    else \\\n      python -m venv \"$(VENV_PATH)\"; \\\n    fi \\\n    && . \"$(VENV_PATH)\"/bin/activate \\\n    && python -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\" \\\n    && python -m pip install --upgrade pip setuptools wheel \\\n    && [ -r \"$(REQUIREMENTS_PATH)\" ] && python -m pip install --requirement \"$(REQUIREMENTS_PATH)\" \\\n    && python -m pip check \\\n    && python --version \\\n    && deactivate"
-  },
-  {
-    "objectID": "blog/2025-05-06-python-venv.html#スクリプト-シェルスクリプト",
-    "href": "blog/2025-05-06-python-venv.html#スクリプト-シェルスクリプト",
-    "title": "Python venv インストール・更新スクリプトの供養",
-    "section": "3. スクリプト (シェルスクリプト)",
-    "text": "3. スクリプト (シェルスクリプト)\n#!/usr/bin/env bash\n\nVENV_PATH=\"${HOME}\"/.venv\nREQUIREMENTS_PATH=\"${HOME}\"/requirements.txt\n\nif [ -d \"${VENV_PATH}\" ]; then\n  python -m venv \"${VENV_PATH}\" --clear;\nelse\n  python -m venv \"${VENV_PATH}\";\nfi\n\n. \"${VENV_PATH}\"/bin/activate\npython -m pip config --site set global.trusted-host \"pypi.org pypi.python.org files.pythonhosted.org\"\npython -m pip install --upgrade pip setuptools wheel\n[ -r \"${REQUIREMENTS_PATH}\" ] && python -m pip install --requirement \"${REQUIREMENTS_PATH}\"\npython -m pip check\npython --version\ndeactivate"
-  },
-  {
-    "objectID": "blog/2024-03-25-setup-wsl2.html",
-    "href": "blog/2024-03-25-setup-wsl2.html",
-    "title": "WSL2 のセットアップ",
+    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#はじめに",
+    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#はじめに",
+    "title": "Bash/Zsh でコマンドをエディタで編集する",
     "section": "",
-    "text": "Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。"
+    "text": "Bash/Zsh で入力中のコマンドの編集にエディタが使えるという便利機能の話です。名前がパッと出てこないのでメモ代わりに記事にしておきます。"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#wsl-コマンドのインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "1. WSL コマンドのインストール",
-    "text": "1. WSL コマンドのインストール\nWSL のインストール | Microsoft Learn に従います。\n\n管理者権限で PowerShell or コマンドプロンプトを開きます。\nwsl --install を実行します。 \n以下のように表示されるのでマシンを再起動します。"
+    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#bash",
+    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#bash",
+    "title": "Bash/Zsh でコマンドをエディタで編集する",
+    "section": "2. Bash",
+    "text": "2. Bash\nC-x C-e で $VISUAL で指定したエディタが開きます。\nbash で入力中のコマンドをエディタで編集して実行するショートカットキー #Bash - Qiita"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "2. ディストリビューションのインストール",
-    "text": "2. ディストリビューションのインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール可能なディストリビューションを表示します。\nwsl --list --online\nUbuntu 22.04 LTS をインストールする場合は以下のように入力します。\nwsl --install -d Ubuntu-22.04\n画面表示に従ってユーザー名とパスワードを入力します。\nUbuntu を終了します。\nexit\n(必要に応じて) 既定のディストリビューションを設定します。\nwsl --set-default Ubuntu-22.04"
+    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#zsh",
+    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#zsh",
+    "title": "Bash/Zsh でコマンドをエディタで編集する",
+    "section": "3. Zsh",
+    "text": "3. Zsh\nBash と同等の機能を実現させるには以下のように設定します。\n\n\n~/.zshrc\n\nautoload -Uz edit-command-line\nzle -N edit-command-line\nbindkey '^x^e' edit-command-line"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
-    "href": "blog/2024-03-25-setup-wsl2.html#ディストリビューションのアンインストール",
-    "title": "WSL2 のセットアップ",
-    "section": "3. ディストリビューションのアンインストール",
-    "text": "3. ディストリビューションのアンインストール\n\nPowerShell or コマンドプロンプトを開きます。\nインストール済みのディストリビューションを表示します。\nwsl --list\n不要なディストリビューションをアンインストールします。\nwsl --unregister Ubuntu-22.04"
+    "objectID": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#おわりに",
+    "href": "blog/2025-05-10-bash-zsh-edit-and-execute-command.html#おわりに",
+    "title": "Bash/Zsh でコマンドをエディタで編集する",
+    "section": "4. おわりに",
+    "text": "4. おわりに\nedit-and-execute-command あるいは edit-command-line と呼ばれる機能であると覚えましょう！"
   },
   {
-    "objectID": "blog/2024-03-25-setup-wsl2.html#詳細設定",
-    "href": "blog/2024-03-25-setup-wsl2.html#詳細設定",
-    "title": "WSL2 のセットアップ",
-    "section": "4. 詳細設定",
-    "text": "4. 詳細設定\n設定ファイルや systemd に関しては以下のページを参考にするとよいです。\nWSL での詳細設定の構成 | Microsoft Learn"
-  },
-  {
-    "objectID": "blog/2024-12-07-inline-r-code-in-yaml.html",
-    "href": "blog/2024-12-07-inline-r-code-in-yaml.html",
-    "title": "Quarto の YAML ヘッダにコードを埋め込みたい",
+    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
+    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
+    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
     "section": "",
-    "text": "R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。\nInline R code in YAML · quarto-dev/quarto-cli · Discussion #606\n変数対応していてそちらは上手く動いてくれました！\nhttps://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008\nということは GitHub Actions 内で生成できる値を Quarto で作ったページに埋め込むことができますね。\nQuarto 向けの Publish Workflow も対応させたいので PR 作りたいです。"
+    "text": "以下の記事を読んで Conform.nvim は使っていなかったものの悩みごとが解決する！！！！と思ったので自分の環境でも試してみました。\nConform.nvimの保存時フォーマットをスキップする方法 | Atusy’s blog"
   },
   {
-    "objectID": "blog/2024-06-17-purchased-gadgets.html",
-    "href": "blog/2024-06-17-purchased-gadgets.html",
-    "title": "購入したガジェットの紹介",
+    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#はじめに",
+    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#はじめに",
+    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
     "section": "",
-    "text": "詳細まで書くかは決めていませんが、これまで購入したガジェット一覧を作っておきます。\n\n\n\nTable 1: 購入ガジェット一覧\n\n\n\n\n\n購入日\nメーカー\n製品名\n\n\n\n\n2019-07-01\nLogicool\nPebble M350\n\n\n2020-09-12\n象印\nスチーム式加湿器 EE-RN35-WA\n\n\n2020-07-19\nPFU\nHHKB Professional HYBRID Type-S 英語配列／墨\n\n\n2022-03-12\nLogicool\nERGO M575\n\n\n2022-12-05\nKensington\nスリムブレードトラックボール\n\n\n2023-03-05\nGoogle\nPixel 6a\n\n\n2023-03-12\nSONY\nWF-1000XM4\n\n\n2023-08-05\nBeelink\nBeelink SEi10 Mini PC\n\n\n2024-02-28\nAnker\nAnker PowerExpand 6-in-1 USB-C PD イーサネット ハブ\n\n\n2024-03-02\nLenovo\nThinkPad T14s Gen 4 (AMD)\n\n\n2024-04-05\nShokz\nOpenRun Pro Mini\n\n\n2024-05-06\nFitbit\nFitbit Charge 6\n\n\n2024-06-03\nDell\nDell 27 USB-C モニター - S2722DC\n\n\n2024-06-07\nLogicool\nC270n HDウェブカメラ\n\n\n2024-07-07\nPanasonic\nラムダッシュ パームイン ES-PV3A\n\n\n2024-08-18\nOMRON\n体重体組成計 HBF-702T カラダスキャン\n\n\n2024-10-05\nApple\niPhone 16 256GB\n\n\n2024-10-05\nApple\nApple Watch Series 10\n\n\n2024-12-13\nfinal\nZE500 for ASMR -Patra Black-\n\n\n2024-12-15\n象印\nスチーム式加湿器 EE-RT50-WA\n\n\n2025-02-12\nProtoArc\nProtoArc EM01\n\n\n2025-03-23\nApple\nMacBook Air M4 13インチ 10コアCPU 10コアGPU メモリ32GB"
+    "text": "以下の記事を読んで Conform.nvim は使っていなかったものの悩みごとが解決する！！！！と思ったので自分の環境でも試してみました。\nConform.nvimの保存時フォーマットをスキップする方法 | Atusy’s blog"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html",
-    "href": "blog/2024-06-17-setup-mac.html",
-    "title": "Mac 環境構築手順",
+    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#vim-での設定",
+    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#vim-での設定",
+    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
+    "section": "2. Vim での設定",
+    "text": "2. Vim での設定\ndpp.vim で管理している TOML ファイルから vim-lsp-settings 向け設定を抜粋しました。\nformat on save 設定に v:cmdbang を使うことで、:w! のときはフォーマットをスキップするようにしています。\n[[plugins]]\nrepo = 'mattn/vim-lsp-settings'\non_source = ['vim-lsp']\nhook_source = '''\nlet g:lsp_diagnostics_float_cursor = v:true\nlet g:lsp_diagnostics_virtual_text_align = \"after\"\nlet g:lsp_diagnostics_virtual_text_wrap = \"truncate\"\nlet g:lsp_log_file = ''\nlet g:lsp_settings_enable_suggestions = v:false\nlet g:lsp_settings = {\n\\   'deno': {\n\\     'disabled': v:false,\n\\   },\n\\   'efm-langserver': {\n\\     'disabled': v:false,\n\\   },\n\\   'pylsp': {\n\\     'disabled': v:true,\n\\   },\n\\   'pylsp-all': {\n\\     'disabled': v:true,\n\\   },\n\\ }\n\naugroup MyLspSetting\n  autocmd!\n  autocmd BufWritePost * if !v:cmdbang | execute 'LspDocumentFormatSync' | endif\naugroup END\n'''"
+  },
+  {
+    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#neovim-での設定",
+    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#neovim-での設定",
+    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
+    "section": "3. Neovim での設定",
+    "text": "3. Neovim での設定\n同様に TOML で管理している nvim-lspconfig 設定を抜粋しました。\nvim.v.cmdbang を使っています。\n[[plugins]]\nrepo = 'neovim/nvim-lspconfig'\non_event = ['VimEnter']\nlua_source = '''\n-- https://github.com/uga-rosa/ddc-source-lsp-setup\nrequire('ddc_source_lsp_setup').setup()\n\n-- https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#configuration\nlocal lspconfig = require('lspconfig')\n-- lspconfig.pylsp.setup{}\nlspconfig.denols.setup{}\nlspconfig.efm.setup{}\n\n-- :help lsp-defaults-disable\nvim.api.nvim_create_autocmd('LspAttach', {\n  callback = function(ev)\n    -- unset\n    vim.bo[ev.buf].formatexpr = nil\n    vim.bo[ev.buf].omnifunc = nil\n\n    -- unmap\n    -- vim.keymap.del('n', 'K', { buffer = ev.buf })\n\n    -- map\n    local opts = { buffer = bufnr, noremap = true, silent = true }\n    vim.keymap.set('n', '&lt;space&gt;lf', vim.diagnostic.open_float, opts)\n  end,\n})\n\nvim.api.nvim_create_autocmd('BufWritePost', {\n  callback = function()\n    if vim.v.cmdbang == 0 then\n      vim.lsp.buf.format()\n    end\n  end,\n})\n'''"
+  },
+  {
+    "objectID": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#まとめ",
+    "href": "blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html#まとめ",
+    "title": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法",
+    "section": "4. まとめ",
+    "text": "4. まとめ\nこれまでは保存したいけどフォーマットしたくない場面を回避するためにフォーマット用のキーバインドを用意して format on save を無効化していました。\nたまにフォーマットし忘れて辛かったのでこの対応でとってもハッピーになりました！"
+  },
+  {
+    "objectID": "blog/2024-12-07-configure-onedrive.html",
+    "href": "blog/2024-12-07-configure-onedrive.html",
+    "title": "事故らない OneDrive 設定変更手順",
     "section": "",
-    "text": "私の Mac 環境構築手順をまとめておきます。"
+    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
   },
   {
-    "objectID": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
-    "href": "blog/2024-06-17-setup-mac.html#dotfiles-導入",
-    "title": "Mac 環境構築手順",
-    "section": "1. dotfiles 導入",
-    "text": "1. dotfiles 導入\ncf. https://github.com/i9wa4/dotfiles"
-  },
-  {
-    "objectID": "blog/2024-06-17-setup-mac.html#システム設定",
-    "href": "blog/2024-06-17-setup-mac.html#システム設定",
-    "title": "Mac 環境構築手順",
-    "section": "2. システム設定",
-    "text": "2. システム設定\n\nバッテリー\n\nバッテリーの状態\n\nバッテリー充電の最適化\n\n\nコントロールセンター\n\nBluetooth\n\nメニューバーに表示\n\nバッテリー\n\nメニューバーに表示 ON\n割合 (%) を表示 ON\n\nメニューバーのみ\n\n時計\n\n日付を表示 常に\n曜日を表示 ON\n秒を表示 ON\n\nメニューバーを自動的に表示/非表示 しない\n\n\nディスプレイ\n\nTrue Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)\nNight Shift\n\nカスタム 5:00-4:59\n色温度 中央と右端の間\n\n\nデスクトップと Dock\n\nDock\n\n画面上の位置 任意\nDock を自動的に表示/非表示 任意\nアプリの提案と最近使用したアプリを Dock に表示 OFF\n\nデスクトップとステージマネージャー\n\n壁紙をクリックしてデスクトップを表示\n\nステージマネージャー使用時のみ\n\n\nウィジェット\n\nデフォルトの Web ブラウザ\n\nGoogle Chrome\n\n\n\n通知\n\n通知センター OFF\nアプリケーションの通知 システム系以外は OFF\n\nロック画面\n\n時間設定 30分\n\nプライバシーとセキュリティ\n\n画面収録とシステムオーディオ録音\n\nSlack\nWeb ブラウザ\nZoom\n\n\nユーザとグループ\n\n管理者\n\nキーボード\n\nキーボードの輝度 最小\nキーボードショートカット\n\n修飾キー\n\n内蔵キーボード\n\nCaps Lock -&gt; Control\n\n\n\n入力ソース\n\nすべての入力ソース\n\n英字入力中にスペルを自動変換 OFF\n文頭を自動的に大文字にする OFF\nインライン予測テキストを表示 OFF\nスペースバーを2回押してピリオドを入力 OFF\nスマート引用符とスマートダッシュを使用 OFF\n二重引用符 “abc”\n一重引用符 ‘abc’\n\n日本語 - ローマ字入力\n\nライフ変換 OFF\nタイプミスを修正\n\n\n音声入力 OFF\n\nマウス\n\nナチュラルなスクロール OFF\n\nトラックパッド\n\nスクロールとズーム\n\nナチュラルなスクロール OFF"
-  },
-  {
-    "objectID": "blog/2024-06-17-setup-mac.html#その他",
-    "href": "blog/2024-06-17-setup-mac.html#その他",
-    "title": "Mac 環境構築手順",
-    "section": "3. その他",
-    "text": "3. その他\n\nFinder\n\n表示\n\nパスバーを表示\n\nよく使う項目にユーザーホームをドラッグ&ドロップで追加する\n\nDocker Desktop\n\nSettings\n\nGeneral\n\nStart Docker Desktop when you sign in to your computer\n\n\n\nRectangle\n\nログイン時に起動 ON\nアップデートを自動的に確認 ON"
-  },
-  {
-    "objectID": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
-    "href": "blog/2024-06-17-setup-mac.html#おまけ-ショートカット集",
-    "title": "Mac 環境構築手順",
-    "section": "4. (おまけ) ショートカット集",
-    "text": "4. (おまけ) ショートカット集\n\n\n\nカテゴリ\nショートカット\n説明\n\n\n\n\nウインドウ操作\nCommand + Tab\nアプリケーション切り替え\n\n\nウインドウ操作\nCommand + @\n同一アプリケーションの切り替え\n\n\nその他\nCommad + Q\nFinder 終了\n\n\nその他\nCommand + Ctrl + Q\nロック"
-  },
-  {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html",
-    "href": "blog/2024-10-25-thinking-of-my-career.html",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
+    "objectID": "blog/2024-12-07-configure-onedrive.html#はじめに",
+    "href": "blog/2024-12-07-configure-onedrive.html#はじめに",
+    "title": "事故らない OneDrive 設定変更手順",
     "section": "",
-    "text": "言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。"
+    "text": "OneDrive でありがちな勝手にデスクトップのファイルが同期されている状況の回避策をポストしたところ反響がまあまあありました。\nhttps://x.com/i9wa4_/status/1864940454409834645\n意外と OneDrive って難しいのでこういった手順は需要があると分かり記事に残しておこうと思います。\n業務用PCが Windows ではなく Mac になってしまい詳細手順をスクショ付きで書けないので日和って個人ブログに書きます。"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#大学入学時",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "1. 大学入学時",
-    "text": "1. 大学入学時\n特に何も考えていなかったのですが、自分が生意気すぎる生徒だったことからそんな生徒を受け持ちたくなくて教師だけは絶対にならないぞとは思っていました。"
+    "objectID": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
+    "href": "blog/2024-12-07-configure-onedrive.html#想定するユースケース",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "2. 想定するユースケース",
+    "text": "2. 想定するユースケース\n同期対象を「デスクトップ」や「ドキュメント」そのものではなく、明示的に作成したフォルダだけとしたい場合です。"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#就職活動時",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "2. 就職活動時",
-    "text": "2. 就職活動時\n本当にぼんやりとIT系業務をやってみたいと思っていました (ただしスキルは大学の授業で少しだけC言語を書けるようになった程度)。\n当時業務系システムの求人が多かったのですがどうしても興味がもてず、実際にモノを動かせたり難しいことに挑戦したりとやりがいのありそうな仕事を選んでみました。"
+    "objectID": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
+    "href": "blog/2024-12-07-configure-onedrive.html#事故らない-onedrive-セットアップ手順",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "3. 事故らない OneDrive セットアップ手順",
+    "text": "3. 事故らない OneDrive セットアップ手順\n\n全フォルダを OneDrive の同期対象から外す\n同期対象から外した「デスクトップ」や「ドキュメント」はこの時点では OneDrive フォルダ配下に置かれているので右クリックして「プロパティ→場所→標準に戻す」で元の場所 (%USERPROFILE% 直下) に戻す\n明示的にバックアップ対象としたいフォルダを OneDrive の同期対象に設定する\nブラウザで OneDrive にアクセスして不要なデータを削除する\nOneDrive の同期を再開する"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "3. 1回目の転職活動時",
-    "text": "3. 1回目の転職活動時\n大学時代に住んでいた土地に戻りたくて転職することに。\nどうせならと経験を積めなかったプログラミングができてモノを動かすこともできる組み込みエンジニアを選びました。"
+    "objectID": "blog/2024-12-07-configure-onedrive.html#おわりに",
+    "href": "blog/2024-12-07-configure-onedrive.html#おわりに",
+    "title": "事故らない OneDrive 設定変更手順",
+    "section": "4. おわりに",
+    "text": "4. おわりに\nOneDrive の操作手順を詳細に書けず心苦しいのですが、きっと何とかなるはず。信じてます。"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-1",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "4. 2回目の転職活動時",
-    "text": "4. 2回目の転職活動時\nコロナ禍でテレワークを経験し、今後のライフステージを踏まえた上でテレワークに向いている職種に切り替えようと思っていました。\n面白そうだったのでデータサイエンティスト求人に応募してみたところ、景気の良い時期だったためか未経験ながら内定を頂きました。"
+    "objectID": "blog/2025-04-05-weekly-report-by-devin.html",
+    "href": "blog/2025-04-05-weekly-report-by-devin.html",
+    "title": "Devin に週報を書いてもらった",
+    "section": "",
+    "text": "最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-2",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "5. 3回目の転職活動時",
-    "text": "5. 3回目の転職活動時\n案件都合でデータエンジニア・アナリティクスエンジニア業務に取り組んでいました。\nこの頃はデータ基盤について割とブラックボックス状態でしたが、純粋に興味もありましたし、かつこのまま自分が偉くなったときにデータ基盤のことも知らないようでは責任をもってデータ業務の指揮ができないだろうなという危機感からデータ基盤業務を志すようになりました。\nまた、この辺りで本格的に vim-jp Slack で東京のエンジニアの空気感・レベル感を知り、エンジニアとしてのレベルや年収を上げていこうという発想が人生で初めて出てきたことも転職を後押ししてくれました。\n体感としてはこの辺りでようやく自分はITエンジニアであると思えるようになりました。"
+    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#はじめに",
+    "href": "blog/2025-04-05-weekly-report-by-devin.html#はじめに",
+    "title": "Devin に週報を書いてもらった",
+    "section": "",
+    "text": "最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#回目の転職活動時-3",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "6. 4回目の転職活動時",
-    "text": "6. 4回目の転職活動時\nこれまでの経験から自分の仕事のモチベーションを上げる要因はどうやら以下の4点のようであると理解できました。\n\nチームで仕事ができること\n自分の仕事が目の前の社員の役に立っていると胸を張って言えること\n自分の仕事が会社の売上につながっていると胸を張って言えること\nできればエンドユーザーの満足度を高める方向の仕事であること\n\nこのような自分の特性を踏まえると、今後の先の長い職業人生で自分が充実感をもつには、技術的なエキスパートに向かっていくというより、マネジメントに取り組んだりビジネスサイドに寄せたりしてより抽象度の高い課題解決に向き合う立場を目指した方が良さそうだなと思うようになりました。\nそんなことを考えているところにお声がけいただいた会社で2024年11月から働くことにしました。\n決め手としては上に挙げた要素を全て満足できそう、将来的なキャリア構築の観点でもプラスになりそう、という点以外にも、事業領域が個人的な趣味と合致し会社の売上貢献に本気になれそうと思った点も意外と大きかったです。"
+    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#週報作成の概要",
+    "href": "blog/2025-04-05-weekly-report-by-devin.html#週報作成の概要",
+    "title": "Devin に週報を書いてもらった",
+    "section": "2. 週報作成の概要",
+    "text": "2. 週報作成の概要\n集計期間の GitHub の issue と pull request の情報を基に各メンバーの活動の概要と詳細を issue にまとめてもらいます。"
   },
   {
-    "objectID": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
-    "href": "blog/2024-10-25-thinking-of-my-career.html#おわりに",
-    "title": "キャリアについてぼんやり考えていたことを時系列順にまとめる",
-    "section": "7. おわりに",
-    "text": "7. おわりに\nこれ以上の詳しい話は飲みの場で！笑"
+    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプト",
+    "href": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプト",
+    "title": "Devin に週報を書いてもらった",
+    "section": "3. Devin へのプロンプト",
+    "text": "3. Devin へのプロンプト\n長文プロンプトを用意する必要があります。 Devin では Playbook を利用すればよいですね。 今回はリポジトリ内の Markdown ファイルを参照させてます。\nプロンプトは別記事に分けてます。\nDevin 週報作成用プロンプト\n上に書いたような長文プロンプトを用意した上で以下のように Devin に指示を出します。\n\n以下の Markdown の指示に従って情報収集を行った上で GitHub issue を作成してください。 &lt;プロンプトとなるMarkdownのURL&gt;\n集計開始日：2025/03/12 集計終了日：2025/03/18"
+  },
+  {
+    "objectID": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプトを書く上でのコツ",
+    "href": "blog/2025-04-05-weekly-report-by-devin.html#devin-へのプロンプトを書く上でのコツ",
+    "title": "Devin に週報を書いてもらった",
+    "section": "4. Devin へのプロンプトを書く上でのコツ",
+    "text": "4. Devin へのプロンプトを書く上でのコツ\n\n4.1. Devin というか LLM の忘れっぽさへの対処\n長文だとどうしても近眼的に周囲数行の記述に引っぱられてしまうので、大枠の構造を提示しつつ、詳細は具体例とピンポイントなコメントという書き味にすることで出力が安定しました。\n今回各メンバーを列挙する箇所がありますが、横着せず愚直に列挙しました。 冗長だなあと思いつつもこうすることで Devin が忘れずに全メンバーの情報収集をしてくれました。\n\n\n4.2. GitHub CLI の仕様への対処\nDevin がうまく情報収集してくれないことがあるので GitHub CLI の仕様を理解し適切なコマンドを実行できているか見ておく必要があります。 今回は --state all オプションを指定して閉じられた issue なども取得させるように指示を出しています。\nまた、issue の description が長文になると文章を分割して編集追加させなければならなくなるので issue の description とコメントの行数を想定した上で適度に分割しておくと良いでしょう。 もし長文投稿させたい場合は作成した issue を読み込ませて見切れてないか Devin に確認させるのも良いかもしれません。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "",
+    "text": "少し前に作った Vim/Neovim プラグインの紹介記事となります。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグイン概要",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "1. プラグイン概要",
+    "text": "1. プラグイン概要\n\nhttps://github.com/i9wa4/markdown-number-header.vim\n\nMarkdown の見出し番号を付ける or 更新するプラグインです。\nDeno と Denops に依存しています。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#プラグインを作ることになったきっかけ",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "2. プラグインを作ることになったきっかけ",
+    "text": "2. プラグインを作ることになったきっかけ\nMarkdown All in One という VSCode 拡張の Markdown 見出し番号を付ける機能を Vim でも使いたかったのですが、CLI アプリケーション (Formatter) や Vim プラグインを探しても見つからなかったので自作しようと思い至りました。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグインとして作ろうと思った理由",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "3. Denops プラグインとして作ろうと思った理由",
+    "text": "3. Denops プラグインとして作ろうと思った理由\nまず、自分が Vim 上でしか使わないため CLI アプリケーションとしてではなく Vim プラグインとして作ろうとは思ってました。 そして私は Vim 使いなので Vim script で書くか Denops プラグインとして TypeScript で書くかの二択で、楽しそうなので後者を選びました。"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#denops-プラグイン開発体験について",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "4. Denops プラグイン開発体験について",
+    "text": "4. Denops プラグイン開発体験について\n初めて Denops プラグインを作ったし、しかも TypeScript にも触れたことがなかったのですが意外と困ることは少なかったです。 核となる見出し番号を振る処理は TypeScript の本領発揮という感じで楽に書けましたね。 まず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。\n\n参考ページ:\n\nDeno で Vim/Neovim のプラグインを書く (denops.vim) | Zenn\nIntroduction - Denops Documentation (英語版)"
+  },
+  {
+    "objectID": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "href": "blog/2024-01-02-vim-plugin-mnh.html#感想",
+    "title": "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介",
+    "section": "5. 感想",
+    "text": "5. 感想\n今も毎日使っているプラグインなので「無いんだったら作ればいい」精神でフッ軽に作れたことを嬉しく思ってます。 今後も必要なものは自分で作っていたいですね。"
+  },
+  {
+    "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
+    "href": "blog/2024-10-25-s-i9wa4-umachan-g.html",
+    "title": ":%s/i9wa4/uma-chan/g",
+    "section": "",
+    "text": "元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。\nそれに伴いブログの記事も修正しています。\nというわけでよろしくお願いします！"
+  },
+  {
+    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html",
+    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html",
+    "title": "Devin 週報作成用プロンプト",
+    "section": "",
+    "text": "親記事は以下です。\nDevin に週報を書いてもらった"
+  },
+  {
+    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html#人間への補足",
+    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html#人間への補足",
+    "title": "Devin 週報作成用プロンプト",
+    "section": "1. 人間への補足",
+    "text": "1. 人間への補足\nDevin にこのプロンプトを見せて、集計開始日と集計終了日を教えてあげてください。\n指示例は以下のようになります。\n以下の Markdown の指示に従って情報収集を行った上で GitHub issue を作成してください。\n&lt;プロンプトとなるMarkdownのURL&gt;\n\n集計開始日：2025/03/12\n集計終了日：2025/03/18"
+  },
+  {
+    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html#github-の情報収集方法",
+    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html#github-の情報収集方法",
+    "title": "Devin 週報作成用プロンプト",
+    "section": "2. GitHub の情報収集方法",
+    "text": "2. GitHub の情報収集方法\n\nテンプレートに記載した対象リポジトリの issue, pull request, そしてそれらの comment を取得してください。\nissue や pull request を GitHub CLI で取得する場合は --state all オプションを使用して Closed や Merged になっているものも忘れずに取得してください。\n対象リポジトリにアクセスできない場合は、そのリポジトリは集計対象外としてください。\n対象メンバー毎に活動をまとめる際は対象者が assignee でない issue や pull request は含めないでください。"
+  },
+  {
+    "objectID": "blog/2025-04-05-weekly-report-prompt-for-devin.html#issue-テンプレート",
+    "href": "blog/2025-04-05-weekly-report-prompt-for-devin.html#issue-テンプレート",
+    "title": "Devin 週報作成用プロンプト",
+    "section": "3. issue テンプレート",
+    "text": "3. issue テンプレート\n\n補足コメントは &lt;!-- --&gt; で与えているので参照してください。\nただし issue 作成時には補足コメントは記載しないでください。\n\n\n3.1. Title\n集計開始日と集計終了日を YYYY/MM/DD 形式で記載してください。\n[Devin] チーム週報 (YYYY/MM/DD-YYYY/MM/DD)\n\n\n3.2. Assignee\n\n@i9wa4\n\n\n\n3.3. Description\n## 1. 期間\n\n&lt;!-- 集計開始日と集計終了日を記載してください。 --&gt;\n&lt;!-- (aaa) は曜日です。(月) や (火) のように記載してください。 --&gt;\n\nYYYY/MM/DD(aaa)～YYYY/MM/DD(aaa)\n\n## 2. 対象リポジトリ\n\n- GitHub リポジトリの URL\n\n## 3. 対象メンバー (GitHub ユーザー名)\n\n- `@i9wa4`\n\n## 4. 概要\n\n### 4.1. `@i9wa4`\n\n&lt;!-- 当該メンバーの大きめの活動をしたプロジェクトから順にやったことの概要を4文程度に要約して紹介してください。 --&gt;\n\n### 4.2. 他メンバーはこのような記述にする\n\n&lt;!-- 集計期間に活動があれば上記と同様の形式で記入してください。 --&gt;\n\n\n3.4. Comment (1)\n## 5. 詳細\n\n### 5.1. `@i9wa4`\n\n&lt;!-- 当該メンバーの活動詳細を以下の形式で列挙してください。 --&gt;\n&lt;!-- - [status (Open/Closed/Merged)] [category (issue/pull request)] [issue/pull request title #number](URL) --&gt;\n&lt;!-- 列挙したあとアルファベット順にソートしてください。 --&gt;\n\n- [Closed] [issue] [issue title #189](issue url)\n- [Merged] [pull request] [pull request title #124](pull request url)\n- [Open] [issue] [issue #106](issue url)\n\n### 5.2. 他メンバーはこのような記述にする\n\n&lt;!-- 集計期間に活動があれば上記と同様の形式で記入してください。 --&gt;\n\n\n3.5. Comment (2)\n## 6. Devin への指示内容\n\n&lt;!-- Devin へ指示した内容をそのまま引用符付きで記載してください。 --&gt;\n&lt;!-- 例 --&gt;\n\n&gt; 以下の Markdown の指示に従って GitHub issue を作成してください。\n&gt; &lt;プロンプトとなるMarkdownのURL&gt;\n&gt;\n&gt; 集計開始日：2025/03/12\n&gt; 集計終了日：2025/03/18"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Poetry の pyproject.toml を使って uv で .venv を作成する\n\n\n\nblog\n\ntech\n\ntech-python\n\n\n\n\n\n\n\n2025-06-08\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2025-06-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks AI/BI ダッシュボードの Git 連携の運用方法\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nDatabricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について\n\n\n\n2025-05-21\n\n\n\n\n\n\n\n\n\n\n\n\n\nAWS Lambda でコンテナイメージを実行する with Terraform & GitHub Actions\n\n\n\nblog\n\ntech\n\n\n\nAWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。\n\n\n\n2025-05-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nBash/Zsh でコマンドをエディタで編集する\n\n\n\nblog\n\ntech\n\n\n\nBash/Zsh で入力中のコマンドをエディタで編集して実行する方法について書いています。\n\n\n\n2025-05-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n今更ながら Vim に EditorConfig を導入しました\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n今更ながら Vim に EditorConfig を導入しました。設定方法と感想を書いています。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython venv インストール・更新スクリプトの供養\n\n\n\nblog\n\ntech\n\ntech-python\n\n\n\nPython venv 仮想環境のインストール・更新スクリプトを供養します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する方法を紹介します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\ntmux と Zsh に Git リポジトリのステータスを表示する\n\n\n\nblog\n\ntech\n\n\n\ntmux のステータスラインと Zsh プロンプトに Git リポジトリのステータスを表示させる方法を紹介します。\n\n\n\n2025-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させた\n\n\n\nblog\n\ntech\n\ntech-ai\n\ntech-data\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させたものを公開しました。\n\n\n\n2025-04-29\n\n\n\n\n\n\n\n\n\n\n\n\n\nlefthook 設定の供養\n\n\n\nblog\n\ntech\n\n\n\nGitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します。\n\n\n\n2025-04-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython でありがちな本体バージョンとライブラリバージョンの不整合の例\n\n\n\nblog\n\ntech\n\ntech-python\n\n\n\nPython のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます。\n\n\n\n2025-04-16\n\n\n\n\n\n\n\n\n\n\n\nMCP に入門した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nMCP (Model Context Protocol) に入門してみました\n\n\n\n2025-04-11\n\n\n\n\n\n\n\n\n\n\n\n\n\nGemini API に課金した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nGemini API に課金したので手順をメモしておきます。\n\n\n\n2025-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nblog\n\nmemo\n\n\n\n個人的な重要記事などをまとめておきます。\n\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin に週報を書いてもらった\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin 週報作成用プロンプト\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプト\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\ndiary\n\n\n\n2024年度に初めて経験したことを振り返ってみます。\n\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nAI エージェント Aider を使ってみました。\n\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\nNotion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)\n\n\n\nblog\n\ntech\n\n\n\nNotion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。\n\n\n\n2025-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\ntech\n\n\n\ndbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n最近の Vim プラグイン開発のアイデアを振り返ります。\n\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\ntech\n\n\n\n失敗していますが Instagram API のアクセストークンを取得する手順を途中まで書いておきます。\n\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータエンジニアが初めてダッシュボードを作成して気づいたこと\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nデータエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。\n\n\n\n2024-12-23\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto の YAML ヘッダにコードを埋め込む方法についてのメモです。GitHub Actions で生成した値を埋め込むことができます。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\ntech\n\n\n\nOneDrive の設定変更手順をまとめました。デスクトップやドキュメントの同期を避けたい場合に役立つ内容です。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nMac で SnowSQL をセットアップする手順をまとめました。\n\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim/Neovim の dbt 開発環境の現状と Vim を救う話\n\n\n\nblog\n\ntech\n\ntech-data\n\ntech-vim\n\n\n\n私が業務でよく利用する dbt のローカル開発環境の話をしていきます。\n\n\n\n2024-12-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\ntech\n\n\n\nZenn の記事を GitHub リポジトリで管理する方法をまとめました。\n\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\ntech\n\n\n\nGitHub Actions をローカルで実行できる便利な OSS nektos/act を使ってみました。\n\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\ndiary\n\n\n\n自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました。\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\ndiary\n\n\n\nRenaming i9wa4 to uma-chan\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\ndotfiles から切り離したくなってきたらそれがプラグインの作り時。 最近の Vim プラグイン開発のアイデアをメモしておきます。\n\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介します。\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\n千年戦争アイギスの自分用メモです。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\nMinecraft の自分用メモを公開しておきます。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\ntech\n\n\n\nたまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\ntech\n\n\n\nsystemd がユーザー権限でも設定できると知ったので記事にします。\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\ndiary\n\n\n\nこれまで購入したガジェットの一覧\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\ntech\n\nmemo\n\n\n\n私の Mac 環境構築手順をまとめておきます。\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする方法について書いています。\n\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\ntech\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\ndiary\n\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Content",
+      "Blog"
+    ]
+  },
+  {
+    "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
+    "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
+    "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
+    "section": "",
+    "text": "最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。\nとはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。\nまずは自分のローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。"
+  },
+  {
+    "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#はじめに",
+    "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#はじめに",
+    "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
+    "section": "",
+    "text": "最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。\nとはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。\nまずは自分のローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。"
+  },
+  {
+    "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#仮想環境構築手順",
+    "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#仮想環境構築手順",
+    "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
+    "section": "2. 仮想環境構築手順",
+    "text": "2. 仮想環境構築手順\n# pyproject.toml から requirements.txt を生成する\n$ uv pip compile pyproject.toml --output-file requirements.txt\n\n# .venv を作成する\n# このとき .python-version に記載された Python で構築される\n$ uv venv\nUsing CPython 3.12.1\nCreating virtual environment at: .venv\nActivate with: source .venv/bin/activate\n\n# 仮想環境にパッケージをインストールする\n$ uv pip sync requirements.txt\n\n# requirements.txt を削除する\n$ rm requirements.txt"
+  },
+  {
+    "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#おわりに",
+    "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#おわりに",
+    "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
+    "section": "3. おわりに",
+    "text": "3. おわりに\n$ uv pip sync requirements.txt これ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。\nちなみにこの方法だと poetry.lock に従うわけではないので完全に同じ環境を再現するわけではありません。\nとはいえほとんど齟齬のない環境を構築できます。\nしばらくすると忘れそうなのでメモ代わりの記事でした。"
   },
   {
     "objectID": "blog/2025-05-06-editorconfig-vim.html",
@@ -2018,7 +2046,7 @@
     "href": "index.html",
     "title": "uma-chan’s page",
     "section": "",
-    "text": "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2025-06-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks AI/BI ダッシュボードの Git 連携の運用方法\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nDatabricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について\n\n\n\n2025-05-21\n\n\n\n\n\n\n\n\n\n\n\n\n\nAWS Lambda でコンテナイメージを実行する with Terraform & GitHub Actions\n\n\n\nblog\n\ntech\n\n\n\nAWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。\n\n\n\n2025-05-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nBash/Zsh でコマンドをエディタで編集する\n\n\n\nblog\n\ntech\n\n\n\nBash/Zsh で入力中のコマンドをエディタで編集して実行する方法について書いています。\n\n\n\n2025-05-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n今更ながら Vim に EditorConfig を導入しました\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n今更ながら Vim に EditorConfig を導入しました。設定方法と感想を書いています。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython venv インストール・更新スクリプトの供養\n\n\n\nblog\n\ntech\n\n\n\nPython venv 仮想環境のインストール・更新スクリプトを供養します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する方法を紹介します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\ntmux と Zsh に Git リポジトリのステータスを表示する\n\n\n\nblog\n\ntech\n\n\n\ntmux のステータスラインと Zsh プロンプトに Git リポジトリのステータスを表示させる方法を紹介します。\n\n\n\n2025-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させた\n\n\n\nblog\n\ntech\n\ntech-ai\n\ntech-data\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させたものを公開しました。\n\n\n\n2025-04-29\n\n\n\n\n\n\n\n\n\n\n\n\n\nlefthook 設定の供養\n\n\n\nblog\n\ntech\n\n\n\nGitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します。\n\n\n\n2025-04-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython でありがちな本体バージョンとライブラリバージョンの不整合の例\n\n\n\nblog\n\ntech\n\n\n\nPython のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます。\n\n\n\n2025-04-16\n\n\n\n\n\n\n\n\n\n\n\nMCP に入門した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nMCP (Model Context Protocol) に入門してみました\n\n\n\n2025-04-11\n\n\n\n\n\n\n\n\n\n\n\n\n\nGemini API に課金した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nGemini API に課金したので手順をメモしておきます。\n\n\n\n2025-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nblog\n\nmemo\n\n\n\n個人的な重要記事などをまとめておきます。\n\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin に週報を書いてもらった\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin 週報作成用プロンプト\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプト\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\ndiary\n\n\n\n2024年度に初めて経験したことを振り返ってみます。\n\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nAI エージェント Aider を使ってみました。\n\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\nNotion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)\n\n\n\nblog\n\ntech\n\n\n\nNotion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。\n\n\n\n2025-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\ntech\n\n\n\ndbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n最近の Vim プラグイン開発のアイデアを振り返ります。\n\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\ntech\n\n\n\n失敗していますが Instagram API のアクセストークンを取得する手順を途中まで書いておきます。\n\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータエンジニアが初めてダッシュボードを作成して気づいたこと\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nデータエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。\n\n\n\n2024-12-23\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto の YAML ヘッダにコードを埋め込む方法についてのメモです。GitHub Actions で生成した値を埋め込むことができます。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\ntech\n\n\n\nOneDrive の設定変更手順をまとめました。デスクトップやドキュメントの同期を避けたい場合に役立つ内容です。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nMac で SnowSQL をセットアップする手順をまとめました。\n\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim/Neovim の dbt 開発環境の現状と Vim を救う話\n\n\n\nblog\n\ntech\n\ntech-data\n\ntech-vim\n\n\n\n私が業務でよく利用する dbt のローカル開発環境の話をしていきます。\n\n\n\n2024-12-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\ntech\n\n\n\nZenn の記事を GitHub リポジトリで管理する方法をまとめました。\n\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\ntech\n\n\n\nGitHub Actions をローカルで実行できる便利な OSS nektos/act を使ってみました。\n\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\ndiary\n\n\n\n自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました。\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\ndiary\n\n\n\nRenaming i9wa4 to uma-chan\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\ndotfiles から切り離したくなってきたらそれがプラグインの作り時。 最近の Vim プラグイン開発のアイデアをメモしておきます。\n\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介します。\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\n千年戦争アイギスの自分用メモです。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\nMinecraft の自分用メモを公開しておきます。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\ntech\n\n\n\nたまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\ntech\n\n\n\nsystemd がユーザー権限でも設定できると知ったので記事にします。\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\ndiary\n\n\n\nこれまで購入したガジェットの一覧\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\ntech\n\nmemo\n\n\n\n私の Mac 環境構築手順をまとめておきます。\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする方法について書いています。\n\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\ntech\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\ndiary\n\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
+    "text": "Poetry の pyproject.toml を使って uv で .venv を作成する\n\n\n\nblog\n\ntech\n\ntech-python\n\n\n\n\n\n\n\n2025-06-08\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2025-06-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks AI/BI ダッシュボードの Git 連携の運用方法\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nDatabricks AI/BI ダッシュボードを Git flow で運用することにした経緯と実際の運用について\n\n\n\n2025-05-21\n\n\n\n\n\n\n\n\n\n\n\n\n\nAWS Lambda でコンテナイメージを実行する with Terraform & GitHub Actions\n\n\n\nblog\n\ntech\n\n\n\nAWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。\n\n\n\n2025-05-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nBash/Zsh でコマンドをエディタで編集する\n\n\n\nblog\n\ntech\n\n\n\nBash/Zsh で入力中のコマンドをエディタで編集して実行する方法について書いています。\n\n\n\n2025-05-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n今更ながら Vim に EditorConfig を導入しました\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n今更ながら Vim に EditorConfig を導入しました。設定方法と感想を書いています。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython venv インストール・更新スクリプトの供養\n\n\n\nblog\n\ntech\n\ntech-python\n\n\n\nPython venv 仮想環境のインストール・更新スクリプトを供養します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nMarkdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する方法を紹介します。\n\n\n\n2025-05-06\n\n\n\n\n\n\n\n\n\n\n\ntmux と Zsh に Git リポジトリのステータスを表示する\n\n\n\nblog\n\ntech\n\n\n\ntmux のステータスラインと Zsh プロンプトに Git リポジトリのステータスを表示させる方法を紹介します。\n\n\n\n2025-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させた\n\n\n\nblog\n\ntech\n\ntech-ai\n\ntech-data\n\n\n\nDatabricks MCP Server を Service Principal 認証対応させたものを公開しました。\n\n\n\n2025-04-29\n\n\n\n\n\n\n\n\n\n\n\n\n\nlefthook 設定の供養\n\n\n\nblog\n\ntech\n\n\n\nGitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します。\n\n\n\n2025-04-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython でありがちな本体バージョンとライブラリバージョンの不整合の例\n\n\n\nblog\n\ntech\n\ntech-python\n\n\n\nPython のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます。\n\n\n\n2025-04-16\n\n\n\n\n\n\n\n\n\n\n\nMCP に入門した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nMCP (Model Context Protocol) に入門してみました\n\n\n\n2025-04-11\n\n\n\n\n\n\n\n\n\n\n\n\n\nGemini API に課金した\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nGemini API に課金したので手順をメモしておきます。\n\n\n\n2025-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n個人的ブックマーク\n\n\n\nblog\n\nmemo\n\n\n\n個人的な重要記事などをまとめておきます。\n\n\n\n2025-04-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin に週報を書いてもらった\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプトを用意して実際に週報を書いてもらったのでその内容を共有します。\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nDevin 週報作成用プロンプト\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nDevin に週報を書いてもらうためのプロンプト\n\n\n\n2025-04-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n2024年度を振り返る\n\n\n\nblog\n\ndiary\n\n\n\n2024年度に初めて経験したことを振り返ってみます。\n\n\n\n2025-04-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nAider を使ってみる\n\n\n\nblog\n\ntech\n\ntech-ai\n\n\n\nAI エージェント Aider を使ってみました。\n\n\n\n2025-04-01\n\n\n\n\n\n\n\n\n\n\n\nNotion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)\n\n\n\nblog\n\ntech\n\n\n\nNotion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します。\n\n\n\n2025-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n見やすい SQL を書くための Tips\n\n\n\nblog\n\ntech\n\n\n\ndbt モデルやダッシュボード向けの SQL を書くことが多いので戒めの意味も込めて見やすい SQL を書くための Tips をまとめてみました。\n\n\n\n2025-02-21\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n最近の Vim プラグイン開発のアイデアを振り返ります。\n\n\n\n2025-02-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstagram API のアクセストークンを取得する\n\n\n\nblog\n\ntech\n\n\n\n失敗していますが Instagram API のアクセストークンを取得する手順を途中まで書いておきます。\n\n\n\n2025-01-31\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータエンジニアが初めてダッシュボードを作成して気づいたこと\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nデータエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。\n\n\n\n2024-12-23\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto の YAML ヘッダにコードを埋め込みたい\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto の YAML ヘッダにコードを埋め込む方法についてのメモです。GitHub Actions で生成した値を埋め込むことができます。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\n事故らない OneDrive 設定変更手順\n\n\n\nblog\n\ntech\n\n\n\nOneDrive の設定変更手順をまとめました。デスクトップやドキュメントの同期を避けたい場合に役立つ内容です。\n\n\n\n2024-12-07\n\n\n\n\n\n\n\n\n\n\n\n\n\nSnowSQL セットアップ (Mac)\n\n\n\nblog\n\ntech\n\ntech-data\n\n\n\nMac で SnowSQL をセットアップする手順をまとめました。\n\n\n\n2024-12-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim/Neovim の dbt 開発環境の現状と Vim を救う話\n\n\n\nblog\n\ntech\n\ntech-data\n\ntech-vim\n\n\n\n私が業務でよく利用する dbt のローカル開発環境の話をしていきます。\n\n\n\n2024-12-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nZennの記事をGitHubリポジトリで管理する\n\n\n\nblog\n\ntech\n\n\n\nZenn の記事を GitHub リポジトリで管理する方法をまとめました。\n\n\n\n2024-11-20\n\n\n\n\n\n\n\n\n\n\n\n\n\nnektos/act を使ってみた\n\n\n\nblog\n\ntech\n\n\n\nGitHub Actions をローカルで実行できる便利な OSS nektos/act を使ってみました。\n\n\n\n2024-11-12\n\n\n\n\n\n\n\n\n\n\n\n\n\nキャリアについてぼんやり考えていたことを時系列順にまとめる\n\n\n\nblog\n\ndiary\n\n\n\n自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました。\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n:%s/i9wa4/uma-chan/g\n\n\n\nblog\n\ndiary\n\n\n\nRenaming i9wa4 to uma-chan\n\n\n\n2024-10-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n最近の Vim プラグイン開発のアイデア\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\ndotfiles から切り離したくなってきたらそれがプラグインの作り時。 最近の Vim プラグイン開発のアイデアをメモしておきます。\n\n\n\n2024-09-22\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto による DataFrame の表示テスト\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nPandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。\n\n\n\n2024-09-08\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nGitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介します。\n\n\n\n2024-08-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用千年戦争アイギスメモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\n千年戦争アイギスの自分用メモです。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n自分用 Minecraft メモ\n\n\n\nblog\n\ngame\n\nmemo\n\n\n\nMinecraft の自分用メモを公開しておきます。\n\n\n\n2024-07-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n技術系 Tips まとめ\n\n\n\nblog\n\ntech\n\n\n\nたまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。\n\n\n\n2024-07-15\n\n\n\n\n\n\n\n\n\n\n\n\n\nsystemd がユーザー権限でも使える\n\n\n\nblog\n\ntech\n\n\n\nsystemd がユーザー権限でも設定できると知ったので記事にします。\n\n\n\n2024-06-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n購入したガジェットの紹介\n\n\n\nblog\n\ndiary\n\n\n\nこれまで購入したガジェットの一覧\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nMac 環境構築手順\n\n\n\nblog\n\ntech\n\nmemo\n\n\n\n私の Mac 環境構築手順をまとめておきます。\n\n\n\n2024-06-17\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする\n\n\n\nblog\n\ntech\n\ntech-quarto\n\n\n\nQuarto で作ったスライドを GitHub Pages にデプロイする方法について書いています。\n\n\n\n2024-05-05\n\n\n\n\n\n\n\n\n\n\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\nVim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた\n\n\n\n2024-05-04\n\n\n\n\n\n\n\n\n\n\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\nblog\n\ntech\n\n\n\nデータサイエンス100本ノックの実行環境構築 (WSL2)\n\n\n\n2024-03-26\n\n\n\n\n\n\n\n\n\n\n\n\n\nWSL2 のセットアップ\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-03-25\n\n\n\n\n\n\n\n\n\n\n\n\n\nefm-langserver を Vim/Neovim で利用する\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-27\n\n\n\n\n\n\n\n\n\n\n\n\n\n自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介\n\n\n\nblog\n\ntech\n\ntech-vim\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub Pages (Jekyll) blog のタグ追加対応\n\n\n\nblog\n\ntech\n\n\n\n\n\n\n\n2024-01-02\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Post\n\n\n\nblog\n\ndiary\n\n\n\n\n\n\n\n2024-01-01\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "resume/04-hacomono.html",
