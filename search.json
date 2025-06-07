@@ -1622,14 +1622,14 @@
     "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#仮想環境構築手順",
     "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
     "section": "2. 仮想環境構築手順",
-    "text": "2. 仮想環境構築手順\n# pyproject.toml から requirements.txt を生成する\n$ uv pip compile pyproject.toml --output-file requirements.txt\n\n# .venv を作成する\n# このとき .python-version に記載された Python で構築される\n$ uv venv\nUsing CPython 3.12.1\nCreating virtual environment at: .venv\nActivate with: source .venv/bin/activate\n\n# 仮想環境にパッケージをインストールする\n$ uv pip sync requirements.txt\n\n# requirements.txt を削除する\n$ rm requirements.txt"
+    "text": "2. 仮想環境構築手順\n# .venv を作成する\n# このとき .python-version に記載された Python で構築される\n$ uv venv\nUsing CPython 3.12.1\nCreating virtual environment at: .venv\nActivate with: source .venv/bin/activate\n\n# 仮想環境にパッケージをインストールする\n$ uv pip install --requirement pyproject.toml"
   },
   {
     "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#おわりに",
     "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#おわりに",
     "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
     "section": "3. おわりに",
-    "text": "3. おわりに\n$ uv pip sync requirements.txt これ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。\nちなみにこの方法だと poetry.lock に従うわけではないので完全に同じ環境を再現するわけではありません。\nとはいえほとんど齟齬のない環境を構築できます。\nしばらくすると忘れそうなのでメモ代わりの記事でした。"
+    "text": "3. おわりに\n$ uv pip install --requirement pyproject.toml ここ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。\nちなみにこの方法だと poetry.lock に従うわけではないので完全に同じ環境を再現するわけではありません。\nとはいえほとんど齟齬のない環境を構築できます。\nしばらくすると忘れそうなのでメモ代わりの記事でした。"
   },
   {
     "objectID": "blog/2025-05-06-editorconfig-vim.html",

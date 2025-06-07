@@ -37,49 +37,35 @@
 <h2 class="anchored" data-anchor-id="仮想環境構築手順">2. 仮想環境構築手順</h2>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># pyproject.toml から requirements.txt を生成する</span></span>
-<span id="cb1-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> uv pip compile pyproject.toml <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--output-file</span> requirements.txt</span>
-<span id="cb1-3"></span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
 font-style: inherit;"># .venv を作成する</span></span>
-<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># このとき .python-version に記載された Python で構築される</span></span>
-<span id="cb1-6"><span class="ex" style="color: null;
+<span id="cb1-3"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">$</span> uv venv</span>
-<span id="cb1-7"><span class="ex" style="color: null;
+<span id="cb1-4"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Using</span> CPython 3.12.1</span>
-<span id="cb1-8"><span class="ex" style="color: null;
+<span id="cb1-5"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Creating</span> virtual environment at: .venv</span>
-<span id="cb1-9"><span class="ex" style="color: null;
+<span id="cb1-6"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">Activate</span> with: source .venv/bin/activate</span>
-<span id="cb1-10"></span>
-<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 仮想環境にパッケージをインストールする</span></span>
-<span id="cb1-12"><span class="ex" style="color: null;
+<span id="cb1-9"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">$</span> uv pip sync requirements.txt</span>
-<span id="cb1-13"></span>
-<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">$</span> uv pip install <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"># requirements.txt を削除する</span></span>
-<span id="cb1-15"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> rm requirements.txt</span></code></pre></div>
+font-style: inherit;">--requirement</span> pyproject.toml</span></code></pre></div>
 </section>
 <section id="おわりに" class="level2">
 <h2 class="anchored" data-anchor-id="おわりに">3. おわりに</h2>
-<p><code>$ uv pip sync requirements.txt</code> これ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。</p>
+<p><code>$ uv pip install --requirement pyproject.toml</code> ここ爆速すぎて uv が好きになると思うのでちょっとやってみてほしいです。</p>
 <p>ちなみにこの方法だと poetry.lock に従うわけではないので完全に同じ環境を再現するわけではありません。</p>
 <p>とはいえほとんど齟齬のない環境を構築できます。</p>
 <p>しばらくすると忘れそうなのでメモ代わりの記事でした。</p>
@@ -7830,7 +7816,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="782e4e0d" class="cell" data-execution_count="3">
+<div id="f5f2f89e" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8028,7 +8014,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="cd4a9007" class="cell" data-execution_count="4">
+<div id="09ab95fb" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8082,7 +8068,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="2ed1a281" class="cell" data-execution_count="5">
+<div id="bd49bf48" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8172,7 +8158,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="53063cef" class="cell" data-execution_count="6">
+<div id="c4d55328" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8214,7 +8200,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="873d96b2" class="cell" data-execution_count="7">
+<div id="8122baa7" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8256,7 +8242,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="44005e72" class="cell" data-execution_count="8">
+<div id="8f0ddb79" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8334,7 +8320,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="6a29e3ca" class="cell" data-execution_count="9">
+<div id="83972add" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
