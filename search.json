@@ -1608,14 +1608,14 @@
     "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
     "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
     "section": "",
-    "text": "最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。\nとはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。\nまずは自分のローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。"
+    "text": "最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。\nとはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。\n過渡期の対応としてローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。"
   },
   {
     "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#はじめに",
     "href": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#はじめに",
     "title": "Poetry の pyproject.toml を使って uv で .venv を作成する",
     "section": "",
-    "text": "最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。\nとはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。\nまずは自分のローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。"
+    "text": "最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv を削除してしまったりとすっかり uv が気に入っています。\nとはいえ全てのプロジェクトを直ちに uv へ移行するのも全員の学習コストがかかるため難しいと思います。\n過渡期の対応としてローカルで Poetry の pyproject.toml を使用して uv で仮想環境構築する方法をメモしておきます。"
   },
   {
     "objectID": "blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html#仮想環境構築手順",
