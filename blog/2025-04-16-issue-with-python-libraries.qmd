@@ -9,6 +9,7 @@ description: |
 categories:
   - "blog"
   - "tech"
+  - "tech-python"
 ---
 
 ## 1. はじめに
