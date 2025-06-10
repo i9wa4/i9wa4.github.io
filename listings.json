@@ -13,6 +13,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
       "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
       "/blog/2025-05-21-databricks-dashboard-github-operation.html",
@@ -76,6 +77,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
       "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
       "/blog/2025-05-21-databricks-dashboard-github-operation.html",

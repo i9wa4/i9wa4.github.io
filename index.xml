@@ -16,7 +16,43 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sat, 07 Jun 2025 15:58:37 GMT</lastBuildDate>
+<lastBuildDate>Tue, 10 Jun 2025 05:37:57 GMT</lastBuildDate>
+<item>
+  <title>uv で Python のグローバルインストールを行う</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-06-10-install-global-python-with-uv.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>Python 環境管理に uv を使い始めて以来 pyenv が不要になりアンインストールしたのですが、スポット的に Python のグローバルインストールが必要になったので uv での手順をメモしておきます。</p>
+</section>
+<section id="手順" class="level2">
+<h2 class="anchored" data-anchor-id="手順">2. 手順</h2>
+<p><a href="https://docs.astral.sh/uv/concepts/python-versions/#installing-python-executables">Python versions | uv</a></p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> uv python install 3.12 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--default</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--preview</span></span></code></pre></div>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-python</category>
+  <guid>https://i9wa4.github.io/blog/2025-06-10-install-global-python-with-uv.html</guid>
+  <pubDate>Tue, 10 Jun 2025 05:37:57 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Poetry の pyproject.toml を使って uv で .venv を作成する</title>
   <dc:creator>uma-chan </dc:creator>
@@ -7816,7 +7852,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="fe7f288a" class="cell" data-execution_count="3">
+<div id="953beb7f" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8014,7 +8050,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="031b8133" class="cell" data-execution_count="4">
+<div id="0eb915e6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8068,7 +8104,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="82951798" class="cell" data-execution_count="5">
+<div id="04a26dfa" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8158,7 +8194,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="6d4b308d" class="cell" data-execution_count="6">
+<div id="6d98607e" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8200,7 +8236,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="2a1a70ce" class="cell" data-execution_count="7">
+<div id="f0cb7988" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8242,7 +8278,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="96c92de9" class="cell" data-execution_count="8">
+<div id="55bb7d3a" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8320,7 +8356,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="ff0cb774" class="cell" data-execution_count="9">
+<div id="289fb92d" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -9206,70 +9242,6 @@ font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
   <guid>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</guid>
   <pubDate>Mon, 31 Mar 2025 16:37:05 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-03-28-display-notion-relation-property.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/goal.png" class="img-fluid figure-img"></p>
-<figcaption>リレーションプロパティの表示設定成功例</figcaption>
-</figure>
-</div>
-<p>タイトル記載日時点で公式ドキュメントに記載された通りに設定ができなかったので手順を共有します。</p>
-<p>一応以下が公式ドキュメントです。</p>
-<p><a href="https://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション" class="uri">https://www.notion.com/ja/help/relations-and-rollups#リレーションの表示オプション</a></p>
-</section>
-<section id="リレーションプロパティの表示設定" class="level2">
-<h2 class="anchored" data-anchor-id="リレーションプロパティの表示設定">2. リレーションプロパティの表示設定</h2>
-<p>最も混乱しづらいであろう手順を以下に示します。</p>
-<section id="利用するデータベースの説明" class="level3">
-<h3 class="anchored" data-anchor-id="利用するデータベースの説明">2.1. 利用するデータベースの説明</h3>
-<section id="item_master" class="level4">
-<h4 class="anchored" data-anchor-id="item_master">2.1.1. item_master</h4>
-<p>リレーション元として利用します。</p>
-<p><img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/item_master.png" class="img-fluid"></p>
-</section>
-<section id="transaction_a" class="level4">
-<h4 class="anchored" data-anchor-id="transaction_a">2.1.2. transaction_a</h4>
-<p>item_master をプロパティに追加させたいデータベースです。</p>
-<p><img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/transaction_a.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="リレーションプロパティの追加" class="level3">
-<h3 class="anchored" data-anchor-id="リレーションプロパティの追加">2.2. リレーションプロパティの追加</h3>
-<p>データベース全体の設定を行うのではなく、1アイテムを編集→全体適用でいきます。</p>
-<ol type="1">
-<li>transaction_a の1アイテムをサイドピークで開く</li>
-<li>右上の「…」→「レイアウトをカスタマイズ」とクリックする <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/01-customize-layout.png" class="img-fluid"></li>
-<li>「＋」をクリックする <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/02-click-plus.png" class="img-fluid"></li>
-<li>リレーションプロパティを選択する <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/03-add-relation.png" class="img-fluid"></li>
-<li>リレーション元として item_master を選択する <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/04-add-item-master.png" class="img-fluid"></li>
-<li>リレーションを追加する <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/05-add-relation.png" class="img-fluid"></li>
-<li>すべてのページに適用する <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/06-apply.png" class="img-fluid"></li>
-<li>リレーションプロパティの「…」から表示させたいプロパティを選択する <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/07-set-property.png" class="img-fluid"></li>
-<li>完了 <img src="https://i9wa4.github.io/assets/2025-03-28-display-notion-relation-property-as-section/goal.png" class="img-fluid"></li>
-</ol>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <guid>https://i9wa4.github.io/blog/2025-03-28-display-notion-relation-property.html</guid>
-  <pubDate>Sun, 23 Mar 2025 03:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
