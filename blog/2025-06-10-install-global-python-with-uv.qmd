@@ -1,0 +1,24 @@
+---
+title: "uv で Python のグローバルインストールを行う"
+author: uma-chan
+date: 2025-06-10 14:37:57 +0900
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+categories:
+  - "blog"
+  - "tech"
+  - "tech-python"
+---
+
+## 1. はじめに
+
+Python 環境管理に uv を使い始めて以来 pyenv が不要になりアンインストールしたのですが、スポット的に Python のグローバルインストールが必要になったので uv での手順をメモしておきます。
+
+## 2. 手順
+
+[Python versions | uv](https://docs.astral.sh/uv/concepts/python-versions/#installing-python-executables)
+
+```{.sh}
+$ uv python install 3.12 --default --preview
+```
