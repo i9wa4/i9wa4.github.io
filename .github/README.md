@@ -4,16 +4,16 @@
 
 <https://i9wa4.github.io>
 
-## How to preview this page locally
+## 1. How to preview this page
 
-1. Install Quarto.
+1. Install venv with uv.
 
     ```sh
-    pip install quarto-cli
+    uv sync --frozen
     ```
 
 1. Preview with Quarto.
 
     ```sh
-    quarto preview
+    uv run quarto preview
     ```
