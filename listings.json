@@ -1,18 +1,8 @@
 [
   {
-    "listing": "/resume/index.html",
+    "listing": "/index.html",
     "items": [
-      "/resume/05-genda.html",
-      "/resume/04-hacomono.html",
-      "/resume/03-cnsh.html",
-      "/resume/02-sld.html",
-      "/resume/01-okuma.html",
-      "/resume/07-pivot.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
+      "/blog/2025-06-15-dbt-bigquery-auth.html",
       "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
       "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
@@ -66,6 +56,17 @@
     ]
   },
   {
+    "listing": "/resume/index.html",
+    "items": [
+      "/resume/05-genda.html",
+      "/resume/04-hacomono.html",
+      "/resume/03-cnsh.html",
+      "/resume/02-sld.html",
+      "/resume/01-okuma.html",
+      "/resume/07-pivot.html"
+    ]
+  },
+  {
     "listing": "/slides/index.html",
     "items": [
       "/slides/2025-06-03-self-introduction-1page.html",
@@ -75,8 +76,9 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-06-15-dbt-bigquery-auth.html",
       "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
       "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",

@@ -16,7 +16,148 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Tue, 10 Jun 2025 05:37:57 GMT</lastBuildDate>
+<lastBuildDate>Sun, 15 Jun 2025 13:35:51 GMT</lastBuildDate>
+<item>
+  <title>ローカル dbt で BigQuery への認証を行う</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-06-15-dbt-bigquery-auth.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>dbt も BigQuery も経験それなりにあるものの dbt x BigQuery をやったことがなかったので認証方法を知ったのが今となります。</p>
+</section>
+<section id="dbt-のドキュメントを参照してみる" class="level2">
+<h2 class="anchored" data-anchor-id="dbt-のドキュメントを参照してみる">2. dbt のドキュメントを参照してみる</h2>
+<p>OAuth を使った認証方法は以下のドキュメントに記載されています。</p>
+<p><a href="https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup#local-oauth-gcloud-setup" class="uri">https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup#local-oauth-gcloud-setup</a></p>
+<p>ではあるのですが、実際のログイン方法として紹介されているコマンドは少し違うようで、代表的なものは以下のような感じです。</p>
+<p><a href="https://dev.classmethod.jp/articles/dbt-core-bigquery/">dbt CoreでローカルからBigQueryを操作するためのセットアップ方法 | DevelopersIO</a></p>
+<p>記事でよく見かけるものを実行していきます。</p>
+</section>
+<section id="認証手順" class="level2">
+<h2 class="anchored" data-anchor-id="認証手順">3. 認証手順</h2>
+<section id="profiles.yml-の設定" class="level3">
+<h3 class="anchored" data-anchor-id="profiles.yml-の設定">3.1. profiles.yml の設定</h3>
+<p>以下のような記載が含まれていれば OK</p>
+<p><code>method: oauth</code> を指定していることがポイントです。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.dbt/profiles.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="~/.dbt/profiles.yml" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">my_dbt_project</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">target</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> dev</span></span>
+<span id="cb1-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">outputs</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dev</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">type</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> bigquery</span></span>
+<span id="cb1-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">method</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> oauth</span></span>
+<span id="cb1-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">project</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> my-google-cloud-project</span></span>
+<span id="cb1-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">threads</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span>
+<span id="cb1-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">schema</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> my_schema</span></span></code></pre></div>
+</div>
+</section>
+<section id="アプリケーション向けのログイン" class="level3">
+<h3 class="anchored" data-anchor-id="アプリケーション向けのログイン">3.2. アプリケーション向けのログイン</h3>
+<p>以下のコマンドにより dbt が Google Cloud の API を呼び出せることになります。</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> gcloud auth application-default login</span></code></pre></div>
+</section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
+<p>いま手元では1環境にしかログインしないのであまり深く理解していなくても大丈夫ですが、複数環境にログインする際にもうちょっと深く理解しておきます。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-data</category>
+  <guid>https://i9wa4.github.io/blog/2025-06-15-dbt-bigquery-auth.html</guid>
+  <pubDate>Sun, 15 Jun 2025 13:35:51 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>uv で Python のグローバルインストールを行う</title>
   <dc:creator>uma-chan </dc:creator>
@@ -7852,7 +7993,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="953beb7f" class="cell" data-execution_count="3">
+<div id="ea196efc" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8050,7 +8191,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="0eb915e6" class="cell" data-execution_count="4">
+<div id="50e2573b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8104,7 +8245,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="04a26dfa" class="cell" data-execution_count="5">
+<div id="ffbdb1a2" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8194,7 +8335,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="6d98607e" class="cell" data-execution_count="6">
+<div id="11d043ed" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8236,7 +8377,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="f0cb7988" class="cell" data-execution_count="7">
+<div id="a3540466" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8278,7 +8419,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="55bb7d3a" class="cell" data-execution_count="8">
+<div id="87d3bd35" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8356,7 +8497,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="289fb92d" class="cell" data-execution_count="9">
+<div id="25fb0625" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8830,417 +8971,6 @@ font-style: inherit;">&gt; 集計終了日：2025/03/18</span></span></code></pr
   <category>diary</category>
   <guid>https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html</guid>
   <pubDate>Tue, 01 Apr 2025 16:02:31 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Aider を使ってみる</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>最近チームの生産性向上のためにAIツールの更なる活用を検討をしています。そうすると選択肢に出てくるのは Cursor だったり VS Code 拡張活用だったりするんですよね。</p>
-<p>Vimmer である私はチームの開発環境整備では VS Code を基準に考えるくらいの社会性は残してますが、ギリギリまで Vim と付き合い続けたいと思っていて最近もどかしさを感じてました。</p>
-<p>そんな中以下の光明が差したのです！</p>
-<p><a href="https://zenn.dev/acro5piano/articles/1d900a93c608e1">Vimmer にお勧めしたい AI エージェント「Aider」</a></p>
-<p>さっそく使ってみましょう。</p>
-</section>
-<section id="aider-インストール" class="level2">
-<h2 class="anchored" data-anchor-id="aider-インストール">2. Aider インストール</h2>
-<p><a href="https://aider.chat/docs/install.html" class="uri">https://aider.chat/docs/install.html</a></p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">python</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-m</span> pip install aider-install</span>
-<span id="cb1-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">aider-install</span></span></code></pre></div>
-</section>
-<section id="gemini-との接続" class="level2">
-<h2 class="anchored" data-anchor-id="gemini-との接続">3. Gemini との接続</h2>
-<p>LLM 専用にアカウントを作るのがあまり好きではないので Google アカウントで使える Gemini に期待してます。</p>
-<p>手順としては以下です。</p>
-<p><a href="https://aider.chat/docs/llms/gemini.html" class="uri">https://aider.chat/docs/llms/gemini.html</a></p>
-<p>まず Gemini API キーを取得していきましょう。</p>
-<section id="gemini-api-キーの取得" class="level3">
-<h3 class="anchored" data-anchor-id="gemini-api-キーの取得">3.1. Gemini API キーの取得</h3>
-<ol type="1">
-<li><a href="https://ai.google.dev/gemini-api/docs" class="uri">https://ai.google.dev/gemini-api/docs</a> の “Get a Gemini API key” をクリックする</li>
-<li>プライバシーポリシーに同意する</li>
-<li><a href="https://aistudio.google.com/apikey" class="uri">https://aistudio.google.com/apikey</a> から API キーを取得する</li>
-<li><a href="https://console.cloud.google.com/billing/projects" class="uri">https://console.cloud.google.com/billing/projects</a> で当該プロジェクトの請求先アカウントを確認する
-<ul>
-<li>NOTE: 取り急ぎ私は課金したくないので請求が無効であることを確認しました</li>
-</ul></li>
-</ol>
-</section>
-<section id="gemini-の設定" class="level3">
-<h3 class="anchored" data-anchor-id="gemini-の設定">3.2. Gemini の設定</h3>
-<p>公式手順に沿って以下の準備をしておきます。</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">python</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-m</span> pip install <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-U</span> aider-chat</span>
-<span id="cb2-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pip</span> install <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-U</span> google-generativeai</span></code></pre></div>
-</section>
-</section>
-<section id="aider-の利用例" class="level2">
-<h2 class="anchored" data-anchor-id="aider-の利用例">4. Aider の利用例</h2>
-<p>Aider の利用例として私の自作プラグインの簡単なバグ修正をやってみます。</p>
-<p>issue は以下です。</p>
-<p><a href="https://github.com/i9wa4/vim-dbt-jump2def/issues/1">ignore compiled model · Issue #1 · i9wa4/vim-dbt-jump2def</a></p>
-<section id="gemini_api_key-の読み込み" class="level3">
-<h3 class="anchored" data-anchor-id="gemini_api_key-の読み込み">4.1. GEMINI_API_KEY の読み込み</h3>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># export GEMINI_API_KEY=xxxx を ~/.env に書いてます</span></span>
-<span id="cb3-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> . ~/.env</span></code></pre></div>
-</section>
-<section id="gemini-の利用可能なモデルの確認" class="level3">
-<h3 class="anchored" data-anchor-id="gemini-の利用可能なモデルの確認">4.2. Gemini の利用可能なモデルの確認</h3>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> aider <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--list-models</span> gemini/</span>
-<span id="cb4-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
-<span id="cb4-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Models</span> which match <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"gemini/"</span>:</span>
-<span id="cb4-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash</span>
-<span id="cb4-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-001</span>
-<span id="cb4-6"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-002</span>
-<span id="cb4-7"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-8b</span>
-<span id="cb4-8"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-8b-exp-0827</span>
-<span id="cb4-9"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-8b-exp-0924</span>
-<span id="cb4-10"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-exp-0827</span>
-<span id="cb4-11"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-flash-latest</span>
-<span id="cb4-12"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-pro</span>
-<span id="cb4-13"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-pro-001</span>
-<span id="cb4-14"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-pro-002</span>
-<span id="cb4-15"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-pro-exp-0801</span>
-<span id="cb4-16"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-pro-exp-0827</span>
-<span id="cb4-17"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-1.5-pro-latest</span>
-<span id="cb4-18"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash</span>
-<span id="cb4-19"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash-001</span>
-<span id="cb4-20"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash-exp</span>
-<span id="cb4-21"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash-lite</span>
-<span id="cb4-22"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash-lite-preview-02-05</span>
-<span id="cb4-23"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash-thinking-exp</span>
-<span id="cb4-24"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-flash-thinking-exp-01-21</span>
-<span id="cb4-25"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.0-pro-exp-02-05</span>
-<span id="cb4-26"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-2.5-pro-exp-03-25</span>
-<span id="cb4-27"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-exp-1114</span>
-<span id="cb4-28"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-exp-1206</span>
-<span id="cb4-29"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-gemma-2-27b-it</span>
-<span id="cb4-30"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-gemma-2-9b-it</span>
-<span id="cb4-31"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-pro</span>
-<span id="cb4-32"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemini-pro-vision</span>
-<span id="cb4-33"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/gemma-3-27b-it</span>
-<span id="cb4-34"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">-</span> gemini/learnlm-1.5-pro-experimental</span></code></pre></div>
-</section>
-<section id="gemini-2.0-flash-001-を利用する" class="level3">
-<h3 class="anchored" data-anchor-id="gemini-2.0-flash-001-を利用する">4.3. gemini-2.0-flash-001 を利用する</h3>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> aider <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--model</span> gemini/gemini-2.0-flash-001</span>
-<span id="cb5-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span>
-<span id="cb5-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Aider</span> v0.80.0</span>
-<span id="cb5-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Model:</span> gemini/gemini-2.0-flash-001 with whole edit format</span>
-<span id="cb5-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Git</span> repo: .git with 9 files</span>
-<span id="cb5-6"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Repo-map:</span> using 4096 tokens, auto refresh</span>
-<span id="cb5-7"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
-</section>
-<section id="バグ修正のプロンプト" class="level3">
-<h3 class="anchored" data-anchor-id="バグ修正のプロンプト">4.4. バグ修正のプロンプト</h3>
-<p>ここで修正コミットをしてくれました。すごいですね。</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> in <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">denops/dbt-jump2def/main.ts,</span> I want to fix not to jump to the model in <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"target"</span> directory.</span>
-<span id="cb6-2"></span>
-<span id="cb6-3"></span>
-<span id="cb6-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">denops/dbt-jump2def/main.ts</span></span>
-<span id="cb6-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Add</span> file to the chat<span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">?</span> <span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">(</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Y</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">es/</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">(</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">N</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">o/</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">(</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">D</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">on</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'t ask again [Yes]: yes</span></span>
-<span id="cb6-6"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">Ok, I understand. You want to modify the denops/dbt-jump2def/main.ts file so that it doesn'</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">t</span> jump to</span>
-<span id="cb6-7"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">models</span> located in the <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"target"</span> directory. I will achieve this by excluding the <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"target"</span> directory from the</span>
-<span id="cb6-8"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">search</span> path when using fn.findfile.</span>
-<span id="cb6-9"></span>
-<span id="cb6-10"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Here</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'s the updated denops/dbt-jump2def/main.ts file:</span></span>
-<span id="cb6-11"></span>
-<span id="cb6-12"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">denops/dbt-jump2def/main.ts</span></span>
-<span id="cb6-13"></span>
-<span id="cb6-14"></span>
-<span id="cb6-15"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">@@ -1,4 +1,5 @@</span></span>
-<span id="cb6-16"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> export const main: Entrypoint = (denops: Denops) =&gt; {</span></span>
-<span id="cb6-17"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">jumpToModelDefinition</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">', [&lt;q-args&gt;])`,</span></span>
-<span id="cb6-18"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       }</span></span>
-<span id="cb6-19"></span>
-<span id="cb6-20"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       // get the relative path of the target model</span></span>
-<span id="cb6-21"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">+      // exclude the "target" directory</span></span>
-<span id="cb6-22"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       const targetModelRalativePath = await fn.findfile(</span></span>
-<span id="cb6-23"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">         denops,</span></span>
-<span id="cb6-24"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">         `${targetModelName}.sql`,</span></span>
-<span id="cb6-25"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">-        dbtProjectRootPath + "**",</span></span>
-<span id="cb6-26"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">+        dbtProjectRootPath + "**,!target/**",</span></span>
-<span id="cb6-27"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       );</span></span>
-<span id="cb6-28"></span>
-<span id="cb6-29"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       // if the target model not found, show error message</span></span>
-<span id="cb6-30"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       if (!targetModelRalativePath) {</span></span>
-<span id="cb6-31"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">         await helper.echoerr(</span></span>
-<span id="cb6-32"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">@@ -64,5 +65,6 @@</span></span>
-<span id="cb6-33"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">         );</span></span>
-<span id="cb6-34"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">         return;</span></span>
-<span id="cb6-35"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       }</span></span>
-<span id="cb6-36"></span>
-<span id="cb6-37"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">       // get the absolute path of the target model</span></span>
-<span id="cb6-38"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">+  68 /  84 lines [████████████████████████░░░░░░]  81%</span></span>
-<span id="cb6-39"></span>
-<span id="cb6-40"></span>
-<span id="cb6-41"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">Tokens: 1.5k sent, 782 received. Cost: $0.00046 message, $0.00046 session.</span></span>
-<span id="cb6-42"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">Applied edit to denops/dbt-jump2def/main.ts</span></span>
-<span id="cb6-43"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">Commit 3ba9cfb fix: Exclude "target" directory from model search path.</span></span>
-<span id="cb6-44"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">You can use /undo to undo and discard each aider commit.</span></span>
-<span id="cb6-45"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">──────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
-</section>
-<section id="終わり" class="level3">
-<h3 class="anchored" data-anchor-id="終わり">4.5. 終わり</h3>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">denops/dbt-jump2def/main.ts</span></span>
-<span id="cb7-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> /exit</span></code></pre></div>
-</section>
-<section id="実は" class="level3">
-<h3 class="anchored" data-anchor-id="実は">4.6. 実は……</h3>
-<p>上記コミットは Gemini 2.0 Pro が適当な修正してくれてたので動きませんでした。</p>
-<p>結局 Gemini 2.5 Pro に聞きながら正しい対応を入れました。</p>
-<p>まだ私が LLM に慣れてないんだなぁと感じました。</p>
-</section>
-</section>
-<section id="感想" class="level2">
-<h2 class="anchored" data-anchor-id="感想">5. 感想</h2>
-<p>Aider すごいです。Aider に慣れていけば LLM をすげ替えるだけで流行りに乗り続けられるので安心して乗っかれますね。</p>
-<p>プロンプトの精度も磨いていく必要性を感じました。</p>
-<p>とにかく使い慣れていかねば！</p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-ai</category>
-  <guid>https://i9wa4.github.io/blog/2025-04-01-try-aider.html</guid>
-  <pubDate>Mon, 31 Mar 2025 16:37:05 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

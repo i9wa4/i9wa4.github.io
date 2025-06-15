@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2024-01-27">
+<meta name="dcterms.date" content="2025-06-15">
 
-<title>efm-langserver を Vim/Neovim で利用する – uma-chan’s page</title>
+<title>ローカル dbt で BigQuery への認証を行う – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,12 +120,12 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="efm-langserver を Vim/Neovim で利用する – uma-chan’s page">
+<meta property="og:title" content="ローカル dbt で BigQuery への認証を行う – uma-chan’s page">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="efm-langserver を Vim/Neovim で利用する – uma-chan’s page">
+<meta name="twitter:title" content="ローカル dbt で BigQuery への認証を行う – uma-chan’s page">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
@@ -305,7 +305,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">efm-langserver を Vim/Neovim で利用する</h1>
+          <h1 class="quarto-secondary-nav-title">ローカル dbt で BigQuery への認証を行う</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -393,14 +393,12 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#efm-langserver-とは" id="toc-efm-langserver-とは" class="nav-link active" data-scroll-target="#efm-langserver-とは">1. efm-langserver とは</a></li>
-  <li><a href="#efm-langserver-のインストール" id="toc-efm-langserver-のインストール" class="nav-link" data-scroll-target="#efm-langserver-のインストール">2. efm-langserver のインストール</a></li>
-  <li><a href="#config.yaml-の作成" id="toc-config.yaml-の作成" class="nav-link" data-scroll-target="#config.yaml-の作成">3. config.yaml の作成</a></li>
-  <li><a href="#vim-の設定" id="toc-vim-の設定" class="nav-link" data-scroll-target="#vim-の設定">4. Vim の設定</a></li>
-  <li><a href="#neovim-の設定" id="toc-neovim-の設定" class="nav-link" data-scroll-target="#neovim-の設定">5. Neovim の設定</a></li>
-  <li><a href="#感想" id="toc-感想" class="nav-link" data-scroll-target="#感想">6. 感想</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
+  <li><a href="#dbt-のドキュメントを参照してみる" id="toc-dbt-のドキュメントを参照してみる" class="nav-link" data-scroll-target="#dbt-のドキュメントを参照してみる">2. dbt のドキュメントを参照してみる</a></li>
+  <li><a href="#認証手順" id="toc-認証手順" class="nav-link" data-scroll-target="#認証手順">3. 認証手順</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">4. おわりに</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-01-27-setup-efm-langserver.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-06-15-dbt-bigquery-auth.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -408,11 +406,11 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">efm-langserver を Vim/Neovim で利用する</h1>
+<h1 class="title d-none d-lg-block">ローカル dbt で BigQuery への認証を行う</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-vim</div>
+    <div class="quarto-category">tech-data</div>
   </div>
   </div>
 
@@ -430,14 +428,14 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-27</p>
+      <p class="date">2025-06-15</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025-05-26</p>
+      <p class="date-modified">2025-06-15</p>
     </div>
   </div>
     
@@ -448,86 +446,48 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </header>
 
 
-<p>最近 Vim と Neovim に efm-langserver を導入したので手順を説明していきます。</p>
-<section id="efm-langserver-とは" class="level2">
-<h2 class="anchored" data-anchor-id="efm-langserver-とは">1. efm-langserver とは</h2>
-<p>mattn さんの記事を見るのが最良ですね。</p>
-<p><a href="https://mattn.kaoriya.net/software/lang/go/20190205190203.htm">Big Sky :: Lint ツールを Language Server に対応させるコマンド efm-langserver 作った。</a></p>
-<blockquote class="blockquote">
-<p>どんな言語であろうとも Lint ツールが grep と同様の形式で結果を出力してくれさえすれば Language Server にしてしまうコマンド</p>
-</blockquote>
-<p>Linter をインストールした後 Vim/Neovim で Info や Error を画面内に表示させたいときに efm-langserver が活用できると思えばよいです。</p>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>dbt も BigQuery も経験それなりにあるものの dbt x BigQuery をやったことがなかったので認証方法を知ったのが今となります。</p>
 </section>
-<section id="efm-langserver-のインストール" class="level2">
-<h2 class="anchored" data-anchor-id="efm-langserver-のインストール">2. efm-langserver のインストール</h2>
-<p>Ubuntu 22.04 (WSL2) でのインストール手順を記載しておきます。</p>
-<p>Go 言語を <a href="https://go.dev/wiki/Ubuntu">Go Wiki: Ubuntu - The Go Programming Language</a> に従ってインストールします。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository <span class="at">-y</span> ppa:longsleep/golang-backports</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">-y</span> golang-go</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>efm-langserver を <a href="https://github.com/mattn/efm-langserver#installation">GitHub - mattn/efm-langserver: General purpose Language Server</a> に従ってインストールします。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">go</span> install github.com/mattn/efm-langserver@latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>~/.profile</code> などに以下を追記して PATH を通しておきます。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">${HOME}</span><span class="st">"</span>/go/bin:<span class="st">"</span><span class="va">${PATH}</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="dbt-のドキュメントを参照してみる" class="level2">
+<h2 class="anchored" data-anchor-id="dbt-のドキュメントを参照してみる">2. dbt のドキュメントを参照してみる</h2>
+<p>OAuth を使った認証方法は以下のドキュメントに記載されています。</p>
+<p><a href="https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup#local-oauth-gcloud-setup" class="uri">https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup#local-oauth-gcloud-setup</a></p>
+<p>ではあるのですが、実際のログイン方法として紹介されているコマンドは少し違うようで、代表的なものは以下のような感じです。</p>
+<p><a href="https://dev.classmethod.jp/articles/dbt-core-bigquery/">dbt CoreでローカルからBigQueryを操作するためのセットアップ方法 | DevelopersIO</a></p>
+<p>記事でよく見かけるものを実行していきます。</p>
 </section>
-<section id="config.yaml-の作成" class="level2">
-<h2 class="anchored" data-anchor-id="config.yaml-の作成">3. config.yaml の作成</h2>
-<p>efm-langserver 用設定ファイル <code>$XDG_CONFIG_HOME/efm-langserver/config.yaml</code> に必要な設定を記述していきます。</p>
-<p><a href="https://github.com/mattn/efm-langserver#example-for-configyaml">README</a> を参考に shellcheck を使うための設定のみ抽出したものが以下です。</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">root-markers</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> .git/</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lint-debounce</span><span class="kw">:</span><span class="at"> 1s</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tools</span><span class="kw">:</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sh-shellcheck</span><span class="kw">:</span><span class="at"> </span><span class="ot">&amp;sh-shellcheck</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">lint-command</span><span class="kw">:</span><span class="at"> </span><span class="st">'shellcheck -f gcc -x'</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">lint-source</span><span class="kw">:</span><span class="at"> </span><span class="st">'shellcheck'</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">lint-formats</span><span class="kw">:</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">'%f:%l:%c: %trror: %m'</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">'%f:%l:%c: %tarning: %m'</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">'%f:%l:%c: %tote: %m'</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">languages</span><span class="kw">:</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sh</span><span class="kw">:</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">&lt;&lt;</span><span class="kw">:</span><span class="at"> </span><span class="ot">*sh-shellcheck</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="認証手順" class="level2">
+<h2 class="anchored" data-anchor-id="認証手順">3. 認証手順</h2>
+<section id="profiles.yml-の設定" class="level3">
+<h3 class="anchored" data-anchor-id="profiles.yml-の設定">3.1. profiles.yml の設定</h3>
+<p>以下のような記載が含まれていれば OK</p>
+<p><code>method: oauth</code> を指定していることがポイントです。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.dbt/profiles.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="~/.dbt/profiles.yml"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_dbt_project</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">target</span><span class="kw">:</span><span class="at"> dev</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">outputs</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">dev</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> bigquery</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">method</span><span class="kw">:</span><span class="at"> oauth</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">project</span><span class="kw">:</span><span class="at"> my-google-cloud-project</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">threads</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">schema</span><span class="kw">:</span><span class="at"> my_schema</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="vim-の設定" class="level2">
-<h2 class="anchored" data-anchor-id="vim-の設定">4. Vim の設定</h2>
-<p>プラグインマネージャー <a href="https://github.com/Shougo/dein.vim">dein.vim</a> や <a href="https://github.com/Shougo/dpp.vim">dpp.vim</a> などで採用されている TOML ファイルでのプラグイン設定箇所を抽出しました。遅延起動設定はお好みで。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[[plugins]]</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">repo</span> <span class="op">=</span> <span class="st">'</span><span class="vs">prabirshrestha/vim-lsp</span><span class="st">'</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">on_event</span> <span class="op">=</span> <span class="op">[</span><span class="st">'</span><span class="vs">VimEnter</span><span class="st">'</span><span class="op">]</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">[[plugins]]</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dt">repo</span> <span class="op">=</span> <span class="st">'</span><span class="vs">mattn/vim-lsp-settings</span><span class="st">'</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dt">on_source</span> <span class="op">=</span> <span class="op">[</span><span class="st">'</span><span class="vs">vim-lsp</span><span class="st">'</span><span class="op">]</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="dt">hook_source</span> <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="vs">let g:lsp_auto_enable = 1</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="vs">let g:lsp_log_file = ''</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="vs">let g:lsp_settings = {</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="vs">  \   'efm-langserver': {</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="vs">  \     'disabled': v:false,</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="vs">  \     'allowlist': ['sh'],</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="vs">  \   }</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="vs">  \ }</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="アプリケーション向けのログイン" class="level3">
+<h3 class="anchored" data-anchor-id="アプリケーション向けのログイン">3.2. アプリケーション向けのログイン</h3>
+<p>以下のコマンドにより dbt が Google Cloud の API を呼び出せることになります。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gcloud auth application-default login</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="neovim-の設定" class="level2">
-<h2 class="anchored" data-anchor-id="neovim-の設定">5. Neovim の設定</h2>
-<p>Vim 同様に TOML ファイルの記述を抽出しました。こちらも遅延起動設定はお好みで。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[[plugins]]</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">repo</span> <span class="op">=</span> <span class="st">'</span><span class="vs">neovim/nvim-lspconfig</span><span class="st">'</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">on_event</span> <span class="op">=</span> <span class="op">[</span><span class="st">'</span><span class="vs">VimEnter</span><span class="st">'</span><span class="op">]</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">lua_source</span> <span class="op">=</span> <span class="st">'''</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="vs">local lspconfig = require('lspconfig')</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="vs">lspconfig.efm.setup{}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="感想" class="level2">
-<h2 class="anchored" data-anchor-id="感想">6. 感想</h2>
-<p>Linter をインストールできていれば出力形式を見て自力で Language Server として組み込める……素晴らしいですね！</p>
-<p>Linter は手動でインストールして設定ファイルを管理しておくのが結局一番分かりやすいなと実感しているのですが、その状態で簡単に Vim/Neovim に反映できる efm-langserver はかなり有り難いです。</p>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
+<p>いま手元では1環境にしかログインしないのであまり深く理解していなくても大丈夫ですが、複数環境にログインする際にもうちょっと深く理解しておきます。</p>
 
 
 </section>
@@ -957,7 +917,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-01-27-setup-efm-langserver.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-06-15-dbt-bigquery-auth.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
