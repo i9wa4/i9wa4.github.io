@@ -15,8 +15,55 @@
 <title>uma-chan&#39;s page</title>
 <link>https://i9wa4.github.io/</link>
 </image>
-<generator>quarto-1.7.31</generator>
-<lastBuildDate>Sun, 15 Jun 2025 13:35:51 GMT</lastBuildDate>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Thu, 19 Jun 2025 18:00:02 GMT</lastBuildDate>
+<item>
+  <title>tmux で Vim から Claude Code にテキストを送信するプラグインを作った</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>昨日 Claude Code デビューしました！🙌</p>
+<p>Claude Code 入力欄に Vim からテキストを送信したかったので Claude Code で Vim プラグインを作りました。</p>
+</section>
+<section id="プラグインの概要" class="level2">
+<h2 class="anchored" data-anchor-id="プラグインの概要">2. プラグインの概要</h2>
+<p>こちらが作成した Vim プラグインです。</p>
+<p><a href="https://github.com/i9wa4/vim-tmux-send-to-claude-code"><img src="https://i9wa4.github.io/assets/2025-06-20-vim-plugin-for-tmux-claude-code/vim-tmux-send-to-claude-code.jpeg" class="img-fluid"></a></p>
+<p><a href="https://github.com/i9wa4/vim-tmux-send-to-claude-code" class="uri">https://github.com/i9wa4/vim-tmux-send-to-claude-code</a></p>
+<p>tmux で同一ウインドウ内の特定の Claude Code ペイン (変数で指定可) に対して Vim ペインから以下のテキストを送信できます。</p>
+<ul>
+<li>バッファ全体</li>
+<li>ヤンクしたテキスト</li>
+<li>Visual モードで選択したテキスト</li>
+<li>指定した行範囲のテキスト</li>
+</ul>
+</section>
+<section id="claude-code-を使ってみた感想" class="level2">
+<h2 class="anchored" data-anchor-id="claude-code-を使ってみた感想">3. Claude Code を使ってみた感想</h2>
+<p>もともとヤンクしたテキストを tmux のペイン間で送信するためのプラグインを作ろうと思っていました。</p>
+<p>Claude Code に任せつつ私のアイデアを共有したところ、気の効いた機能追加やドキュメント整備をサクッとやってくれました。</p>
+<p>README.md で紹介されているプラグインマネージャーが古かったり、キーバインドをデフォルトで押し付けてこようとしたりと既存のプラグインのリポジトリの特徴を掴んでいて面白いかったです。</p>
+<p>キーバインド押し付けは主義に反するので直してもらいましたが、プラグインマネージャーは古いままにしておきましょうかね。笑</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-ai</category>
+  <category>tech-vim</category>
+  <guid>https://i9wa4.github.io/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html</guid>
+  <pubDate>Thu, 19 Jun 2025 18:00:02 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>ローカル dbt で BigQuery への認証を行う</title>
   <dc:creator>uma-chan </dc:creator>
@@ -7993,7 +8040,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="9f9c1c76" class="cell" data-execution_count="3">
+<div id="ec12e1e8" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8191,7 +8238,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="db4549da" class="cell" data-execution_count="4">
+<div id="15a7bffe" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8245,7 +8292,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="765c45f3" class="cell" data-execution_count="5">
+<div id="0637350c" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8335,7 +8382,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="ba57b3f6" class="cell" data-execution_count="6">
+<div id="111c7576" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8377,7 +8424,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="9122baf1" class="cell" data-execution_count="7">
+<div id="1b000740" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8419,7 +8466,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="f96382de" class="cell" data-execution_count="8">
+<div id="24cffa2a" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8497,7 +8544,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="663dcb04" class="cell" data-execution_count="9">
+<div id="f02677e3" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8904,73 +8951,6 @@ font-style: inherit;">&gt; 集計終了日：2025/03/18</span></span></code></pr
   <category>tech-ai</category>
   <guid>https://i9wa4.github.io/blog/2025-04-05-weekly-report-prompt-for-devin.html</guid>
   <pubDate>Sat, 05 Apr 2025 03:00:00 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>2024年度を振り返る</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>本当は年末に振り返ろうかと思っていましたが転職したてだったのでこのタイミングになりました。</p>
-<p>2024年度に初めて経験したことを振り返ってみます。</p>
-<section id="初めて東京の会社に勤めた" class="level2">
-<h2 class="anchored" data-anchor-id="初めて東京の会社に勤めた">1. 初めて東京の会社に勤めた</h2>
-<p>2018年からずっと東京の顧客相手に仕事をしてきたものの拠点自体は東京ではありませんでした。</p>
-<p>東京に住んでいないというハンデがある中でどのようにキャリア構築していくかというゲームだと思って頑張ってます。折角なのでいつかこの手の話で登壇したいです。</p>
-<p>リモートワークとはいえやはり東京の会社に正社員として勤めていると刺激を多く得られますね。</p>
-<p>東京のエンジニアのキャリア構築の考え方や仕事ぶりを目の前で見るという経験を今得られて本当によかったと思ってます。</p>
-<p>自分の職業人生もプライベートもよりよいものにできる指針が見つかった1年でした。</p>
-</section>
-<section id="初めてインフラ領域に触れた" class="level2">
-<h2 class="anchored" data-anchor-id="初めてインフラ領域に触れた">2. 初めてインフラ領域に触れた</h2>
-<p>2024年3月以前の自分は AWS に触っていたとはいえ SageMaker や MWAA (Amazon Managed Workflows for Apache Airflow) など構築済みのリソースを利用するばかりで全般に解像度が低めでした。</p>
-<p>CloudWatch を使う必要のない仕事をしていたというと分かりやすいかしれません。</p>
-<p>それが今では AWS の主要サービス全般をデータエンジニア業務遂行上全く困らなくなるレベルで使えるようになりました。</p>
-<p>Terraform を介して AWS/Google Cloud (BigQuery)/Snowflake の使われている基盤の構築や修正、GitHub Actions を使った CI/CD 整備、機械学習におけるインフラリソース調整までできるようになり飛躍的に基盤周りの仕事がこなせるようになりました。</p>
-<p>特に Terraform に関しては2024年3月まで勤めていた会社ではベテランのつよつよインフラエンジニアが社内で唯一ちょっと齧ったことがあるという程度で正直雲の上の存在でした。</p>
-<p>まさか自分がここまでできるようになるとはという思いです。</p>
-<p>とは言えこれからデータ組織の長を目指していく上で Terraform や基盤のことくらい分からないとダメだよねと思って転職していて自分で引き寄せた結果ではあります。</p>
-<p>エンジニアとしての仕事の密度が非常に高く、これまでの社会人生活で最も成長した1年間でした。</p>
-</section>
-<section id="初めてデータ基盤開発からダッシュボード運用までの一気通貫な仕事をした" class="level2">
-<h2 class="anchored" data-anchor-id="初めてデータ基盤開発からダッシュボード運用までの一気通貫な仕事をした">3. 初めてデータ基盤開発からダッシュボード運用までの一気通貫な仕事をした</h2>
-<p>現職での話です。</p>
-<p>直接目の前の誰かの役に立つ仕事、良いですね。</p>
-<p>売上を追求するというより社員のためになることに喜びを感じます。</p>
-</section>
-<section id="初めて-macbook-を会社支給された-私用端末として購入した" class="level2">
-<h2 class="anchored" data-anchor-id="初めて-macbook-を会社支給された-私用端末として購入した">4. 初めて MacBook を会社支給された &amp; 私用端末として購入した</h2>
-<p>上に書いたものに比べるとスケールが小さい話ですが自分にとっては大きなターニングポイントであると感じます。</p>
-<p>Windows か macOS かなんてただ OS が違うだけではないかと思ってしまいそうですが、これが会社のカテゴリを象徴してるんですよね。</p>
-<p>自分はこれからも個人に自由や裁量のある環境で仕事を続けていこうと思っていて、MacBook はその象徴であると感じています。</p>
-<p>これから先の自分のキャリアは MacBook と共にあるということです。</p>
-<p>これは Apple というブランドが好きになったということなのだろうと思います。</p>
-<p>実は iPhone と Apple Watch を初めて買ったのも2024年でした。</p>
-</section>
-<section id="初めて会社ブログを執筆した" class="level2">
-<h2 class="anchored" data-anchor-id="初めて会社ブログを執筆した">5. 初めて会社ブログを執筆した</h2>
-<p>SIer 歴が長く会社ブログを書く機会がありませんでした。</p>
-<p>現状は Zenn に好きなだけ記事を投稿させてもらえるのでもっと色々と書いていきたいです。</p>
-<p>とりとめのないことを書くという立ち位置のこのブログは2024年1月から始めてますが意外と飽きずに続いてますね。えらい。</p>
-</section>
-<section id="まとめ" class="level2">
-<h2 class="anchored" data-anchor-id="まとめ">6. まとめ</h2>
-<p>間違いなく人生のターニングポイントになった1年でした。</p>
-<p>泥臭くキャリアを構築してきた地方民とキャリアの話をしてみたいですねぇ。こういう話をしながら飲む酒が一番良いんだ。。</p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>diary</category>
-  <guid>https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html</guid>
-  <pubDate>Tue, 01 Apr 2025 16:02:31 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

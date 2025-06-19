@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html",
       "/blog/2025-06-15-dbt-bigquery-auth.html",
       "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
@@ -56,6 +57,15 @@
     ]
   },
   {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/2025-06-03-self-introduction-1page.html",
+      "/slides/2025-05-22-midas-cursor-tips.html",
+      "/slides/2024-02-04-sapporo.vim.html",
+      "/slides/2023-12-16-sapporo.vim.html"
+    ]
+  },
+  {
     "listing": "/resume/index.html",
     "items": [
       "/resume/05-genda.html",
@@ -67,17 +77,9 @@
     ]
   },
   {
-    "listing": "/slides/index.html",
-    "items": [
-      "/slides/2025-06-03-self-introduction-1page.html",
-      "/slides/2025-05-22-midas-cursor-tips.html",
-      "/slides/2024-02-04-sapporo.vim.html",
-      "/slides/2023-12-16-sapporo.vim.html"
-    ]
-  },
-  {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html",
       "/blog/2025-06-15-dbt-bigquery-auth.html",
       "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
