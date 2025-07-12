@@ -1,0 +1,77 @@
+---
+title: "Vimへの初コントリビューションの経緯と学び"
+author: uma-chan
+date: 2025-07-14 00:00:00 +0900
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+categories:
+  - "blog"
+  - "tech"
+  - "tech-vim"
+  - "vim-jp"
+---
+
+この記事は [Vim 駅伝](https://vim-jp.org/ekiden/) の 2025-07-14 の記事です。
+
+## 1. はじめに
+
+Vim 本体に出したバグ修正の Pull Request がマージされました。
+
+<https://github.com/vim/vim/commit/b3eaae21b9f681d23466e7caa0b9d7e32cb4b206>
+
+以降でバグ発見の経緯と学びを共有します。
+
+![Vim の Contributor になってる](/assets/2025-07-14-my-first-vim-contribution/vim-contributor.png)
+
+## 2. バグ発見の経緯
+
+私は朝 Vim の HEAD (main ブランチの最新コミット) をビルドするのが日課です。
+
+毎日最新の Vim を使っていると、ある日標準ファイラープラグインである Netrw.vim のファイル一覧に空行の入るバグに気づきました。
+
+毎日使っているものなので気になって Vim 本体の Issue や Pull Request を見ても同様のバグが報告されていなかったので自分で Pull Request を出すことにしました。
+
+……反省点として後述しますがこの判断は良くなかったです。この時は HEAD を使う人で Netrw.vim 利用者が少ないのかなくらいに思っていました。
+
+## 3. Pull Request 作成まで
+
+OSS プロジェクトに Pull Request を出したことがなかったのですが、 CONTRIBUTING.md を読めばいいであろうということだけ知っていたので Vim のリポジトリの CONTRIBUTING.md を読みました。
+
+<https://github.com/vim/vim/blob/master/CONTRIBUTING.md>
+
+今回については Signing-off commits 推奨ということくらいで特に細かく何かを守る必要はないのかなという理解をしました。
+
+とは言えそれでは不安があったので直近の Netrw.vim 関連のコミットや Pull Request を確認してみました。
+
+実際の修正内容については Netrw.vim プラグインの直近1-2週間の間に入ったコミットの影響であろうことは分かっていたので Claude Code に調べてもらって自分のマシン (macOS) では1行追加するだけで修正できることが分かりました。
+
+そして勢いで Pull Request を作成しました。
+
+## 4. Pull Request のレビュー
+
+Netrw.vim のメンテナの @saccarosium さんにレビューしていただき Upstream と書き味を揃える Suggestion をいただきマージされました。
+
+@saccarosium さんにコメントをいただいたタイミングで Upstream のリポジトリの存在を知りました。
+
+以下、反省点です。
+
+## 5. 反省点
+
+Pull Request を出すまでは近眼的になって気付かなかったのですが今回の修正対象のファイルのトップに
+
+<https://github.com/vim/vim/blob/68ee1cf7de36bdd6e642807c8beda751112aaab8/runtime/pack/dist/opt/netrw/autoload/netrw.vim>
+
+```{.vim}
+" Upstream: <https://github.com/saccarosium/netrw.vim>
+```
+
+と書かれている通り Netrw.vim には Upstream のリポジトリがあります。
+
+なので本来はこの Upstream のリポジトリを最初に確認するのが正しい手順でした。
+
+実際 Upsteram では2日前に修正済みとなっていました。
+
+このような状況でしたが気になる部分の修正がされて
+
+## 6. おわりに
