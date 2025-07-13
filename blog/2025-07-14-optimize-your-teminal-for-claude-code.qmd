@@ -1,11 +1,11 @@
 ---
-title: "【集大成】個人的ターミナル最適化 for Claude Code"
+title: "個人的ターミナル最適化 for Claude Code"
 author: uma-chan
-date: 2025-07-13 18:30:03 +0900
+date: 2025-07-14 00:32:17 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  Claude Code を使うために個人的にターミナルを最適化した内容を共有します。
+  Claude Code を便利に使うためのターミナル環境について共有します。
 categories:
   - "blog"
   - "tech"
@@ -34,7 +34,7 @@ Claude Code で並列作業を行いやすくなるための工夫ポイント�
 
 ### 3.1. モニタ
 
-私は27インチWQHDモニタを1枚使っていますが、やはりウルトラワイドモニタが良いらしいですね。
+私は27インチ WQHD モニタを1枚使っていますが、やはりウルトラワイドモニタが良いらしいですね。
 
 とはいえ私は出先や出社時はPC内蔵モニタを使っており、その場合も以降の内容で十分に Claude Code で並列作業はできるのでモニタが整っていない勢も安心して読み進めてください。
 
@@ -44,7 +44,7 @@ Claude Code で並列作業を行いやすくなるための工夫ポイント�
 
 一応 Ubuntu や Windows (WSL) も利用してはいるのである程度はクロスプラットフォームな内容にできていると思います。
 
-### 3.4. ウインドウマネージャー
+### 3.3. ウインドウマネージャー
 
 ブラウザとターミナルの行き来を快適にできるのであればウインドウマネージャーは必須ではないです。
 
@@ -56,7 +56,7 @@ macOS では Windows でいう「Win+数字」に相当する一発でウイン�
 
 [デスクトップは「清く・正しく・美しく」AeroSpace, JankyBorders, SketchyBar, alt-tab](https://zenn.dev/mozumasu/articles/mozumasu-window-costomization)
 
-### 3.3. ブラウザ
+### 3.4. ブラウザ
 
 私は複数ウインドウや仮想デスクトップを使いこなすのが苦手なので Chrome のタブグループ機能で並行作業に対応することが多いです。
 
