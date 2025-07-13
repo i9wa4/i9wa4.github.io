@@ -10,6 +10,7 @@ categories:
   - "blog"
   - "tech"
   - "tech-ai"
+  - "tech-tmux"
   - "tech-vim"
 ---
 

@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = "~=3.13.0"
 dependencies = [
   "numpy",
+  "pandas",
   "quarto-cli",
 ]
