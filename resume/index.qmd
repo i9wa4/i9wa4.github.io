@@ -151,6 +151,7 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 
 | 日付           | 所属             | 概要                        | リンク                                                                                                                                  |
 | :---           | :---             | :---                        | :---                                                                                                                                    |
+| 2025/06/25     | 株式会社GENDA    | note 掲載                   | [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)       |
 | 2024/12 - 現在 | 株式会社GENDA    | GENDA テックブログ執筆      | [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)                                                                                 |
 | 2024/10/08     | 株式会社hacomono | Findy Tools 様 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28) |
 | 2024/08/21     | 株式会社hacomono | Findy Tools 様 レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                     |
