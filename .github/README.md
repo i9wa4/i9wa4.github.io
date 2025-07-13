@@ -17,3 +17,12 @@
     ```sh
     uv run quarto preview
     ```
+
+## 2. How to update uv.lock
+
+1. Update .python-version or pyproject.toml.
+1. Execute the following command.
+
+    ```sh
+    uv lock --upgrade
+    ```
