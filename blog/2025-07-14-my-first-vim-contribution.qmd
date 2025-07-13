@@ -1,7 +1,7 @@
 ---
 title: "Vimへの初コントリビューションの経緯と学び"
 author: uma-chan
-date: 2025-07-14 00:00:00 +0900
+date: 2025-07-14 00:06:04 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
