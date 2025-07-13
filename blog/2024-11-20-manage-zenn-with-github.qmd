@@ -5,7 +5,7 @@ date: 2024-11-20 17:49:32 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  Zenn の記事を GitHub リポジトリで管理する方法をまとめました。
+  Zenn の記事を GitHub リポジトリで管理する方法をまとめました
 categories:
   - "blog"
   - "tech"

@@ -5,7 +5,7 @@ date: 2024-05-05 03:23:09 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  Quarto で作ったスライドを GitHub Pages にデプロイする方法について書いています。
+  Quarto で作ったスライドを GitHub Pages にデプロイする方法について書いています
 categories:
   - "blog"
   - "tech"

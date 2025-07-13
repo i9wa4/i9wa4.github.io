@@ -5,7 +5,7 @@ date: 2025-05-06 12:00:00 +0900
 date-modified: last-modified
 # image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する方法を紹介します。
+  Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する方法を紹介します
 categories:
   - "blog"
   - "tech"

@@ -5,7 +5,7 @@ date: 2024-10-25 23:17:19 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました。
+  自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました
 categories:
   - "blog"
   - "diary"

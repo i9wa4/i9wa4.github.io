@@ -5,7 +5,7 @@ date: 2024-09-08 00:24:34 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事です。
+  Pandas の DataFrame をウェブサイト一覧表作成に転用するための実験記事
 categories:
   - "blog"
   - "tech"

@@ -5,7 +5,7 @@ date: 2024-11-12 23:54:57 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  GitHub Actions をローカルで実行できる便利な OSS nektos/act を使ってみました。
+  GitHub Actions をローカルで実行できる便利な OSS nektos/act を使ってみました
 categories:
   - "blog"
   - "tech"

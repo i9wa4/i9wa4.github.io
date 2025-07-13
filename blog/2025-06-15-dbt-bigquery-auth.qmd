@@ -5,6 +5,7 @@ date: 2025-06-15 22:35:51 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
+  ローカル dbt で BigQuery への認証を行う
 categories:
   - "blog"
   - "tech"

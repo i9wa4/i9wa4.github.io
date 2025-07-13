@@ -5,7 +5,7 @@ date: 2025-04-20 19:47:21 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  GitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します。
+  GitHub Profile 用のリポジトリで lefthook を活用していましたが、不要になり削除しようと思うのでここに知見を残します
 categories:
   - "blog"
   - "tech"

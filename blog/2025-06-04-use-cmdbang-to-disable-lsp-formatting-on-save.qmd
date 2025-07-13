@@ -5,6 +5,7 @@ date: 2025-06-04 23:24:39 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
+  Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法
 categories:
   - "blog"
   - "tech"

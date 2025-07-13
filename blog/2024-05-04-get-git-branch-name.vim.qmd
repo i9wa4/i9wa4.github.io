@@ -5,7 +5,7 @@ date: 2024-05-04 04:07:04 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみた
+  Vim script で Git ブランチ名を取得するプラグインを Gemini を使って書いてみました
 categories:
   - "blog"
   - "tech"

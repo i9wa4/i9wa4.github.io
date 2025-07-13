@@ -5,7 +5,7 @@ date: 2024-07-15 16:15:11 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
-  たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です。
+  たまに使うけど忘れてしまうような技術系の小ネタ (コマンド・設定) まとめ記事です
 categories:
   - "blog"
   - "tech"
