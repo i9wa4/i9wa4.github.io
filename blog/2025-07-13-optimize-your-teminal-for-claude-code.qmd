@@ -1,0 +1,35 @@
+---
+title: "個人的ターミナル最適化 for Claude Code"
+author: uma-chan
+date: 2025-07-13 18:30:03 +0900
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  Claude Code を使うために個人的にターミナルを最適化した内容を共有します。
+categories:
+  - "blog"
+  - "tech"
+  - "tech-ai"
+  - "tech-tmux"
+  - "tech-vim"
+---
+
+## 1. はじめに
+
+## 2. ターミナル以前
+
+### 2.1. OS
+
+### 2.2. ウインドウマネージャー
+
+## 5. シェル
+
+## 3. ターミナル
+
+## 4. ターミナルマルチプレクサ
+
+## 6. エディタ
+
+## 7. Claude Code 設定
+
+## 8. おわりに
