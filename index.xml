@@ -90,7 +90,7 @@ Note
 <p>というわけで本来はこの Upstream のリポジトリを最初に確認するのが正しい手順でした。</p>
 <p>この状況を理解していた場合でも早めに Vim 本体側へ適用してほしい旨を相談することに変わりはなかったのですが、全てを知った上で行動するのが最善だったなあと思います。</p>
 <p>だれがどのように関わって Vim という巨大なリポジトリが成り立っているのかもっと知ろうと思うようになりました。</p>
-<p>もう1つの反省点としては、改行回りが関係するので macOS だけでなく Windows についても考慮する必要があったという点です。</p>
+<p>もう1つの反省点は、改行回りが関係するので macOS だけでなく Windows についても考慮する必要があったという点です。</p>
 <p>Vim のクロスプラットフォーム対応って大変なことなんだなあと改めて実感しました。</p>
 </section>
 <section id="netrw.vim-の理解度アップ" class="level3">
@@ -8147,7 +8147,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="5d13c4c2" class="cell" data-execution_count="3">
+<div id="53414436" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8345,7 +8345,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="7ceeba3a" class="cell" data-execution_count="4">
+<div id="2dac2589" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8399,7 +8399,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="f62a1a3d" class="cell" data-execution_count="5">
+<div id="92e85969" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8489,7 +8489,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="18a07330" class="cell" data-execution_count="6">
+<div id="4497a7d6" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8531,7 +8531,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="8cdef249" class="cell" data-execution_count="7">
+<div id="efbf4f3a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8573,7 +8573,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="053d10cf" class="cell" data-execution_count="8">
+<div id="fd20f669" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8651,7 +8651,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="395ad193" class="cell" data-execution_count="9">
+<div id="c39d1cb4" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
