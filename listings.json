@@ -11,8 +11,9 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-07-14-optimize-your-teminal-for-claude-code.html",
       "/blog/2025-07-14-my-first-vim-contribution.html",
       "/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html",
       "/blog/2025-06-15-dbt-bigquery-auth.html",
@@ -78,8 +79,9 @@
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/index.html",
     "items": [
+      "/blog/2025-07-14-optimize-your-teminal-for-claude-code.html",
       "/blog/2025-07-14-my-first-vim-contribution.html",
       "/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html",
       "/blog/2025-06-15-dbt-bigquery-auth.html",

@@ -16,7 +16,504 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Sun, 13 Jul 2025 15:06:04 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Jul 2025 17:27:26 GMT</lastBuildDate>
+<item>
+  <title>個人的ターミナル最適化 for Claude Code</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-07-14-optimize-your-teminal-for-claude-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>Claude Code で並行作業を行いやすくなるための工夫ポイントを全て共有します！</p>
+<p>本当の私個人の趣味盛り盛りの内容なので役に立つ部分だけ読む形でお願いします。</p>
+<p>なお分量が多いので参考記事やリンクを用意していない部分もあります。</p>
+<p>インストール方法も各自で調べてください。</p>
+</section>
+<section id="対象読者" class="level2">
+<h2 class="anchored" data-anchor-id="対象読者">2. 対象読者</h2>
+<ul>
+<li>Claude Code を使っている方</li>
+<li>GitHub を使っている方</li>
+<li>Vim を使っている、もしくは使いたい方</li>
+</ul>
+</section>
+<section id="ターミナル以前" class="level2">
+<h2 class="anchored" data-anchor-id="ターミナル以前">3. ターミナル以前</h2>
+<section id="モニタ" class="level3">
+<h3 class="anchored" data-anchor-id="モニタ">3.1. モニタ</h3>
+<p>私は27インチ WQHD モニタを1枚使っていますが、やはりウルトラワイドモニタが良いらしいですね。</p>
+<p>とはいえ私は出先や出社時はPC内蔵モニタを使っており、その場合も以降の内容で十分に Claude Code で並行作業はできるのでモニタが整っていない勢も安心して読み進めてください。</p>
+</section>
+<section id="os" class="level3">
+<h3 class="anchored" data-anchor-id="os">3.2. OS</h3>
+<p>最近よく使っているという理由で macOS (MacBook) を前提に話しますが、適宜読み替えても同様の環境が構築できるはずです。</p>
+<p>一応 Ubuntu や Windows (WSL) も利用してはいるのである程度はクロスプラットフォームな内容にできていると思います。</p>
+</section>
+<section id="ウインドウマネージャー" class="level3">
+<h3 class="anchored" data-anchor-id="ウインドウマネージャー">3.3. ウインドウマネージャー</h3>
+<p>ターミナルと他ウインドウとの行き来を快適にできるのであればウインドウマネージャーは必須ではないです。</p>
+<p>macOS では Windows でいう「Win+数字」に相当する一手で表示アプリを切り替えるショートカットが無いので AeroSpace を利用しています。</p>
+<p><a href="https://github.com/nikitabobko/AeroSpace" class="uri">https://github.com/nikitabobko/AeroSpace</a></p>
+<p>導入時に以下の記事がとても参考になりました。</p>
+<p><a href="https://zenn.dev/mozumasu/articles/mozumasu-window-costomization">デスクトップは「清く・正しく・美しく」AeroSpace, JankyBorders, SketchyBar, alt-tab</a></p>
+</section>
+<section id="ブラウザ" class="level3">
+<h3 class="anchored" data-anchor-id="ブラウザ">3.4. ブラウザ</h3>
+<p>私は複数ウインドウや仮想デスクトップを使いこなすのが苦手なので Chrome のタブグループ機能で並行作業に対応することが多いです。</p>
+</section>
+<section id="dotfiles" class="level3">
+<h3 class="anchored" data-anchor-id="dotfiles">3.5. dotfiles</h3>
+<p>Claude Code による生産性をいかに上げるかが注目されている昨今、いつでもどんな PC でも快適に作業するために設定を記述しておく dotfiles の重要性が増していると個人的に話題です。</p>
+<p>dotfiles にまだ入門できていない方は入門記事を参考にしてください。</p>
+<p>今回述べている内容はほとんど以下の dotfiles に記述したものとなります。</p>
+<p><a href="https://github.com/i9wa4/dotfiles" class="uri">https://github.com/i9wa4/dotfiles</a></p>
+<p>私の設定で気になる内容がある場合は以下の DeepWiki で質問してみると的確な回答が得られます。</p>
+<p><a href="https://deepwiki.com/i9wa4/dotfiles" class="uri">https://deepwiki.com/i9wa4/dotfiles</a></p>
+</section>
+</section>
+<section id="シェル" class="level2">
+<h2 class="anchored" data-anchor-id="シェル">4. シェル</h2>
+<p>Zsh を愛用してます。</p>
+<p>以下で Zsh のおすすめプラグインを紹介します。</p>
+<section id="zinit" class="level3">
+<h3 class="anchored" data-anchor-id="zinit">4.1. Zinit</h3>
+<p>Zsh のプラグインマネージャーです。</p>
+<p><a href="https://github.com/zdharma-continuum/zinit" class="uri">https://github.com/zdharma-continuum/zinit</a></p>
+</section>
+<section id="zeno.zsh-zshfish" class="level3">
+<h3 class="anchored" data-anchor-id="zeno.zsh-zshfish">4.2. zeno.zsh (Zsh/Fish)</h3>
+<p>Zsh の操作体験を全般的に向上させるプラグインの zeno.zsh です。</p>
+<p><a href="https://github.com/yuki-yano/zeno.zsh" class="uri">https://github.com/yuki-yano/zeno.zsh</a></p>
+<p>正直これが無いとターミナルを使う気になれないと思えるくらいに便利です。</p>
+<p>最近 Fish にも対応したようなので Fish ユーザーの方もぜひ試してみてください。</p>
+<p>作者の yuki-yano さんによる記事が参考になります。</p>
+<p><a href="https://zenn.dev/yano/articles/zsh_plugin_from_deno">Deno + TypeScriptでzshプラグインを実装して最高になった</a></p>
+<p>以下で Claude Code と共に生きる上で zeno.zsh に担ってもらっている役割を紹介します。</p>
+<p>もちろんここに記述していない他の機能も便利です。</p>
+<section id="ghq-管理リポジトリへの移動" class="level4">
+<h4 class="anchored" data-anchor-id="ghq-管理リポジトリへの移動">4.2.1. ghq 管理リポジトリへの移動</h4>
+<p>ghq については後述します。</p>
+<p>zeno.zsh によって ghq + fzf の組み合わせでリポジトリへの移動がとても快適になります。</p>
+</section>
+<section id="tmux-セッション名へのリポジトリ名自動反映" class="level4">
+<h4 class="anchored" data-anchor-id="tmux-セッション名へのリポジトリ名自動反映">4.2.2. tmux セッション名へのリポジトリ名自動反映</h4>
+<p>ghq でリポジトリ移動すると tmux セッション名が自動でリポジトリ名に変更されます。</p>
+<p>これにより難なく複数セッションを扱えます。</p>
+</section>
+</section>
+</section>
+<section id="ターミナル" class="level2">
+<h2 class="anchored" data-anchor-id="ターミナル">5. ターミナル</h2>
+<p>何でもよいのですが私は Alacritty を使っています。</p>
+<p>通知音が鳴るように設定しておくとよいです。</p>
+</section>
+<section id="tmux" class="level2">
+<h2 class="anchored" data-anchor-id="tmux">6. tmux</h2>
+<p>複数ターミナルの管理について、タブ機能をもつターミナルもありますが私は tmux で複数ターミナルを管理するのが好きです。</p>
+<section id="tmux-おすすめキーバインド" class="level3">
+<h3 class="anchored" data-anchor-id="tmux-おすすめキーバインド">6.1. tmux おすすめキーバインド</h3>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>tmux.conf</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="tmux.conf" style="background: #f1f3f5;"><pre class="sourceCode conf code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-n</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">M-Left</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">previous-window</span></span>
+<span id="cb1-2"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-n</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">M-Right</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">next-window</span></span>
+<span id="cb1-3"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-n</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">M-Up</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">switch-client</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-p</span></span>
+<span id="cb1-4"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-n</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">M-Down</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">switch-client</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-n</span></span></code></pre></div>
+</div>
+<p>こちらは</p>
+<ul>
+<li>tmux のセッション間を Alt + 上下キーで切り替える</li>
+<li>tmux のウインドウ間を Alt + 左右キーで切り替える</li>
+</ul>
+<p>を実現するキーバインドです。</p>
+<p>これにより Claude Code の並行作業の様子を片手でセッションやウインドウを切り替えながら確認できます。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>tmux.conf</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="tmux.conf" style="background: #f1f3f5;"><pre class="sourceCode conf code-with-copy"><code class="sourceCode toml"><span id="cb2-1"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">%</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">split-window</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-h</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-c</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"#{pane_current_path}"</span></span>
+<span id="cb2-2"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">'"'</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">split-window</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-v</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-c</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"#{pane_current_path}"</span></span>
+<span id="cb2-3"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">bind-key</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">c</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">new-window</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">-c</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"#{pane_current_path}"</span></span></code></pre></div>
+</div>
+<p>こちらは現在開いているディレクトリを継承して新しいペインやウインドウを作成するキーバインドです。</p>
+<p>Claude Code と同じディレクトリに移動した状態のターミナルを即座に起動できます。</p>
+</section>
+<section id="tmux-おすすめプラグイン" class="level3">
+<h3 class="anchored" data-anchor-id="tmux-おすすめプラグイン">6.2. tmux おすすめプラグイン</h3>
+<p><a href="https://github.com/tmux-plugins/tpm" class="uri">https://github.com/tmux-plugins/tpm</a></p>
+<p>tmux のプラグインマネージャーです。</p>
+<p><a href="https://github.com/kristijanhusak/tmux-simple-git-status" class="uri">https://github.com/kristijanhusak/tmux-simple-git-status</a></p>
+<p>tmux のステータスバーに Git の状態を表示するプラグインです。</p>
+</section>
+</section>
+<section id="git" class="level2">
+<h2 class="anchored" data-anchor-id="git">7. Git</h2>
+<section id="worktree" class="level3">
+<h3 class="anchored" data-anchor-id="worktree">7.1. worktree</h3>
+<p>最近注目されている <code>git worktree</code> を使いましょう。</p>
+<p>worktree 作成作業は定型化できると思うので worktree 作成用のスクリプトを作成しておくと便利です。</p>
+</section>
+<section id="gitignore" class="level3">
+<h3 class="anchored" data-anchor-id="gitignore">7.2. gitignore</h3>
+<p>リポジトリ内の作業ディレクトリ (<code>tmp/</code> など) を gitignore して Claude Code の作業場にしておくことをおすすめします。</p>
+<p>指示用のドキュメントやログを格納して Claude Code に読ませるといった使い方ができます。</p>
+</section>
+<section id="ghq" class="level3">
+<h3 class="anchored" data-anchor-id="ghq">7.3. ghq</h3>
+<p>リポジトリの管理は ghq に任せたほうがよいです。</p>
+</section>
+</section>
+<section id="エディタ" class="level2">
+<h2 class="anchored" data-anchor-id="エディタ">8. エディタ</h2>
+<p>私は Vim が好きで使っています。</p>
+<p>以下で私が Claude Code のために利用している Vim プラグインを紹介します。</p>
+<section id="vim-tmux-send-to-ai-cli" class="level3">
+<h3 class="anchored" data-anchor-id="vim-tmux-send-to-ai-cli">8.1. vim-tmux-send-to-ai-cli</h3>
+<p><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli" class="uri">https://github.com/i9wa4/vim-tmux-send-to-ai-cli</a></p>
+<p>拙作プラグインです。</p>
+<p>Vim のバッファや複数行にわたる選択範囲などを自在に tmux の Claude Code ペインに送信できます。</p>
+<p>現時点では Claude Code と Gemini CLI に対応しています。</p>
+<p>このプラグインを使うと基本的に AI への入力にまつわる問題を Vim での文章作成における問題に帰着できます。</p>
+<p>つまり何が言いたいかというと AI の入力欄の機能に依存せずに AI への入力を作成できるということです。</p>
+<p>Vim に帰着させることで改行しづらい問題や Gemini CLI にカスタムスラッシュコマンドがない問題などを全て解決できます。</p>
+</section>
+<section id="ddc.vim" class="level3">
+<h3 class="anchored" data-anchor-id="ddc.vim">8.2. ddc.vim</h3>
+<p><a href="https://github.com/Shougo/ddc.vim" class="uri">https://github.com/Shougo/ddc.vim</a></p>
+<p>補完機能を強化するために ddc.vim を使っています。</p>
+</section>
+<section id="skkeleton" class="level3">
+<h3 class="anchored" data-anchor-id="skkeleton">8.3. skkeleton</h3>
+<p><a href="https://github.com/vim-skk/skkeleton" class="uri">https://github.com/vim-skk/skkeleton</a></p>
+<p>Vim で日本語入力をしづらいという問題を解決するために SKK を利用できる skkeleton を使っています。</p>
+<p>私は ddc.vim の source として利用しています。</p>
+</section>
+<section id="ddc-source-file" class="level3">
+<h3 class="anchored" data-anchor-id="ddc-source-file">8.4. ddc-source-file</h3>
+<p><a href="https://github.com/LumaKernel/ddc-source-file" class="uri">https://github.com/LumaKernel/ddc-source-file</a></p>
+<p>ddc.vim の source です。ファイル名やパスを補完してくれます。</p>
+<p>一応 Vim の補完機能で</p>
+<blockquote class="blockquote">
+<p>CTRL-X CTRL-F</p>
+</blockquote>
+<p><a href="https://vim-jp.org/vimdoc-ja/usr_24.html#24.3" class="uri">https://vim-jp.org/vimdoc-ja/usr_24.html#24.3</a></p>
+<p>を使用すると同等の補完ができますが、より快適な ddc.vim の補完機能がよいと思います。</p>
+</section>
+</section>
+<section id="claude-code-設定" class="level2">
+<h2 class="anchored" data-anchor-id="claude-code-設定">9. Claude Code 設定</h2>
+<section id="claude_config_dir" class="level3">
+<h3 class="anchored" data-anchor-id="claude_config_dir">9.1. <code>$CLAUDE_CONFIG_DIR</code></h3>
+<p>必ず設定しましょう。</p>
+<p>私は以下のように設定しています。</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">export</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">CLAUDE_CONFIG_DIR</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${XDG_CONFIG_HOME}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/claude</span></code></pre></div>
+</section>
+<section id="claude.md" class="level3">
+<h3 class="anchored" data-anchor-id="claude.md">9.2. CLAUDE.md</h3>
+<p>私は CLAUDE.md は作成していません。</p>
+<p>CLAUDE.md を作成せず Claude Code に最適化しすぎないことで Gemini CLI などの他の AI ツールに移行しやすくしようと考えています。</p>
+<p>もう1つの理由としては再読み込みが必要になる場面では CLAUDE.md よりカスタムスラッシュコマンドの再実行の方が楽だと感じているからです。</p>
+</section>
+<section id="カスタムスラッシュコマンド" class="level3">
+<h3 class="anchored" data-anchor-id="カスタムスラッシュコマンド">9.3. カスタムスラッシュコマンド</h3>
+<p>ここが AI とやりとりをする上での肝になります。</p>
+<p>私の dotfiles では以下のカスタムスラッシュコマンドを用意しています。</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docs</span></span>
+<span id="cb4-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> commands</span>
+<span id="cb4-3">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> commit.md</span>
+<span id="cb4-4">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> CONTRIBUTING.md</span>
+<span id="cb4-5">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> issue-to-pr.md</span>
+<span id="cb4-6">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> learn-bigquery.md</span>
+<span id="cb4-7">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> learn-databricks.md</span>
+<span id="cb4-8">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">├──</span> learn-dbt.md</span>
+<span id="cb4-9">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">└──</span> review.md</span></code></pre></div>
+<p>issue-to-pr.md については、羃等性をもたせ Anthropic のベストプラクティスに沿った形で Pull Request 作成に誘導できるコマンドに仕上げている最中で、ノウハウが蓄積されてきたら別途記事にしようと思います。</p>
+</section>
+<section id="settings.json" class="level3">
+<h3 class="anchored" data-anchor-id="settings.json">9.4. settings.json</h3>
+<p>あまり凝ったことはしていません。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>settings.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="settings.json" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-2">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"permissions"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-3">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"allow"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb5-4">        <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-5">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"deny"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb5-6">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bash(rm:*)"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-7">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"WebFetch(domain:github.com)"</span></span>
+<span id="cb5-8">        <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb5-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">},</span></span>
+<span id="cb5-10">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"env"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb5-11">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"BASH_DEFAULT_TIMEOUT_MS"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300000</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-12">        <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"BASH_MAX_TIMEOUT_MS"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300000</span></span>
+<span id="cb5-13">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">},</span></span>
+<span id="cb5-14">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"includeCoAuthoredBy"</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">false</span></span>
+<span id="cb5-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
+</div>
+<p>基本的に</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">claude</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--dangerously-skip-permissions</span></span></code></pre></div>
+<p>で起動するので permissions に関しては allow ではなく deny を充実させていく方針で設定しています。</p>
+<p>Claude Code はよくファイル削除を試みるので <code>Bash(rm:*)</code> は必須だと思います。</p>
+</section>
+<section id="claude.json" class="level3">
+<h3 class="anchored" data-anchor-id="claude.json">9.5. .claude.json</h3>
+<p>通知音を鳴らすための設定を行います。</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">claude</span> config set <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--global</span> preferredNotifChannel terminal_bell</span></code></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.claude.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename=".claude.json" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb8-1">  <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"preferredNotifChannel":</span> <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"terminal_bell",</span></span></code></pre></div>
+</div>
+<p>これで足りなければ Hooks 設定の作り込みで対応していきましょう。</p>
+<p>通知音設定については勉強中です。</p>
+</section>
+</section>
+<section id="dev-container" class="level2">
+<h2 class="anchored" data-anchor-id="dev-container">10. Dev Container</h2>
+<p>Dev Container で Claude Code を利用することで安全に</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">claude</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--dangerously-skip-permissions</span></span></code></pre></div>
+<p>ができます。</p>
+<p><a href="https://docs.anthropic.com/en/docs/claude-code/devcontainer" class="uri">https://docs.anthropic.com/en/docs/claude-code/devcontainer</a></p>
+<p>Anthropic 公式が示す <code>.devcontainer</code> がそのまま使えます。</p>
+<p>以下のようにグローバルな Claude Code 設定をマウントするなどして利便性向上を図りつつ使っていきましょう。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>.devcontainer/devcontainer.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename=".devcontainer/devcontainer.json" style="background: #f1f3f5;"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb10-1">    <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">"mounts":</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">[</span></span>
+<span id="cb10-2">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb10-3">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb10-4">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"source=${localEnv:HOME}/ghq/github.com/i9wa4/dotfiles/dot.config/claude,target=/home/node/.claude,type=bind,consistency=cached"</span></span>
+<span id="cb10-5">    <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">]</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">,</span></span></code></pre></div>
+</div>
+<p><a href="https://github.com/devcontainers/cli" class="uri">https://github.com/devcontainers/cli</a></p>
+<p>Dev Container を CLI で利用する際は Dev Container CLI を利用しましょう。</p>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">11. おわりに</h2>
+<p>各項目それだけでも記事になるくらいの内容で消化が大変かもしれませんが参考になれば幸いです。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-ai</category>
+  <category>tech-tmux</category>
+  <category>tech-vim</category>
+  <guid>https://i9wa4.github.io/blog/2025-07-14-optimize-your-teminal-for-claude-code.html</guid>
+  <pubDate>Sun, 13 Jul 2025 17:27:26 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Vimへの初コントリビューションの経緯と学び</title>
   <dc:creator>uma-chan </dc:creator>
@@ -166,6 +663,7 @@ Note
   <category>blog</category>
   <category>tech</category>
   <category>tech-ai</category>
+  <category>tech-tmux</category>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html</guid>
   <pubDate>Thu, 19 Jun 2025 18:00:02 GMT</pubDate>
@@ -3634,6 +4132,7 @@ font-style: inherit;">%F{#696969}$%f "</span></span></code></pre></div>
  ]]></description>
   <category>blog</category>
   <category>tech</category>
+  <category>tech-tmux</category>
   <guid>https://i9wa4.github.io/blog/2025-05-04-tmux-zsh-git-status.html</guid>
   <pubDate>Sun, 04 May 2025 03:00:00 GMT</pubDate>
 </item>
@@ -8147,7 +8646,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="2e997129" class="cell" data-execution_count="3">
+<div id="809ae0aa" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8345,7 +8844,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="57334829" class="cell" data-execution_count="4">
+<div id="0164726c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8399,7 +8898,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="df379c2f" class="cell" data-execution_count="5">
+<div id="7edbd268" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8489,7 +8988,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="31814f02" class="cell" data-execution_count="6">
+<div id="6b0f0265" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8531,7 +9030,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="b20c091e" class="cell" data-execution_count="7">
+<div id="316e0888" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8573,7 +9072,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="bf3f3c52" class="cell" data-execution_count="8">
+<div id="1054b3cb" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8651,7 +9150,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="9233886a" class="cell" data-execution_count="9">
+<div id="f86184d4" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8783,59 +9282,6 @@ Website
   <category>memo</category>
   <guid>https://i9wa4.github.io/blog/2025-04-07-bookmarks.html</guid>
   <pubDate>Mon, 07 Apr 2025 14:10:38 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Devin に週報を書いてもらった</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-04-05-weekly-report-by-devin.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。</p>
-</section>
-<section id="週報作成の概要" class="level2">
-<h2 class="anchored" data-anchor-id="週報作成の概要">2. 週報作成の概要</h2>
-<p>集計期間の GitHub の issue と pull request の情報を基に各メンバーの活動の概要と詳細を issue にまとめてもらいます。</p>
-</section>
-<section id="devin-へのプロンプト" class="level2">
-<h2 class="anchored" data-anchor-id="devin-へのプロンプト">3. Devin へのプロンプト</h2>
-<p>長文プロンプトを用意する必要があります。 Devin では Playbook を利用すればよいですね。 今回はリポジトリ内の Markdown ファイルを参照させてます。</p>
-<p>プロンプトは別記事に分けてます。</p>
-<p><a href="../blog/2025-04-05-weekly-report-prompt-for-devin.html">Devin 週報作成用プロンプト</a></p>
-<p>上に書いたような長文プロンプトを用意した上で以下のように Devin に指示を出します。</p>
-<blockquote class="blockquote">
-<p>以下の Markdown の指示に従って情報収集を行った上で GitHub issue を作成してください。 &lt;プロンプトとなるMarkdownのURL&gt;</p>
-<p>集計開始日：2025/03/12 集計終了日：2025/03/18</p>
-</blockquote>
-</section>
-<section id="devin-へのプロンプトを書く上でのコツ" class="level2">
-<h2 class="anchored" data-anchor-id="devin-へのプロンプトを書く上でのコツ">4. Devin へのプロンプトを書く上でのコツ</h2>
-<section id="devin-というか-llm-の忘れっぽさへの対処" class="level3">
-<h3 class="anchored" data-anchor-id="devin-というか-llm-の忘れっぽさへの対処">4.1. Devin というか LLM の忘れっぽさへの対処</h3>
-<p>長文だとどうしても近眼的に周囲数行の記述に引っぱられてしまうので、大枠の構造を提示しつつ、詳細は具体例とピンポイントなコメントという書き味にすることで出力が安定しました。</p>
-<p>今回各メンバーを列挙する箇所がありますが、横着せず愚直に列挙しました。 冗長だなあと思いつつもこうすることで Devin が忘れずに全メンバーの情報収集をしてくれました。</p>
-</section>
-<section id="github-cli-の仕様への対処" class="level3">
-<h3 class="anchored" data-anchor-id="github-cli-の仕様への対処">4.2. GitHub CLI の仕様への対処</h3>
-<p>Devin がうまく情報収集してくれないことがあるので GitHub CLI の仕様を理解し適切なコマンドを実行できているか見ておく必要があります。 今回は <code>--state all</code> オプションを指定して閉じられた issue なども取得させるように指示を出しています。</p>
-<p>また、issue の description が長文になると文章を分割して編集追加させなければならなくなるので issue の description とコメントの行数を想定した上で適度に分割しておくと良いでしょう。 もし長文投稿させたい場合は作成した issue を読み込ませて見切れてないか Devin に確認させるのも良いかもしれません。</p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-ai</category>
-  <guid>https://i9wa4.github.io/blog/2025-04-05-weekly-report-by-devin.html</guid>
-  <pubDate>Sat, 05 Apr 2025 03:00:00 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
