@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2025-06-10">
+<meta name="dcterms.date" content="2025-07-14">
+<meta name="description" content="Vim 本体への初コントリビューションの経緯と学びを共有します">
 
-<title>uv で Python のグローバルインストールを行う – uma-chan’s page</title>
+<title>Vimへの初コントリビューションの経緯と学び – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -120,13 +86,13 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </script>
 
 
-<meta property="og:title" content="uv で Python のグローバルインストールを行う – uma-chan’s page">
-<meta property="og:description" content="">
+<meta property="og:title" content="Vimへの初コントリビューションの経緯と学び – uma-chan’s page">
+<meta property="og:description" content="Vim 本体への初コントリビューションの経緯と学びを共有します">
 <meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="uv で Python のグローバルインストールを行う – uma-chan’s page">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Vimへの初コントリビューションの経緯と学び – uma-chan’s page">
+<meta name="twitter:description" content="Vim 本体への初コントリビューションの経緯と学びを共有します">
 <meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -305,7 +271,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">uv で Python のグローバルインストールを行う</h1>
+          <h1 class="quarto-secondary-nav-title">Vimへの初コントリビューションの経緯と学び</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -394,9 +360,14 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#手順" id="toc-手順" class="nav-link" data-scroll-target="#手順">2. 手順</a></li>
+  <li><a href="#バグ発見の経緯" id="toc-バグ発見の経緯" class="nav-link" data-scroll-target="#バグ発見の経緯">2. バグ発見の経緯</a></li>
+  <li><a href="#pull-request-作成まで" id="toc-pull-request-作成まで" class="nav-link" data-scroll-target="#pull-request-作成まで">3. Pull Request 作成まで</a></li>
+  <li><a href="#pull-request-のレビュー" id="toc-pull-request-のレビュー" class="nav-link" data-scroll-target="#pull-request-のレビュー">4. Pull Request のレビュー</a></li>
+  <li><a href="#学び" id="toc-学び" class="nav-link" data-scroll-target="#学び">5. 学び</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">6. おわりに</a></li>
+  <li><a href="#おまけ" id="toc-おまけ" class="nav-link" data-scroll-target="#おまけ">7. おまけ</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-06-10-install-global-python-with-uv.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-07-14-my-first-vim-contribution.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -404,14 +375,20 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">uv で Python のグローバルインストールを行う</h1>
+<h1 class="title d-none d-lg-block">Vimへの初コントリビューションの経緯と学び</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-python</div>
+    <div class="quarto-category">tech-vim</div>
+    <div class="quarto-category">vim-jp</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    <p>Vim 本体への初コントリビューションの経緯と学びを共有します</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-body">
@@ -426,14 +403,14 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-10</p>
+      <p class="date">2025-07-14</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025-06-10</p>
+      <p class="date-modified">2025-07-13</p>
     </div>
   </div>
     
@@ -444,14 +421,90 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>この記事は <a href="https://vim-jp.org/ekiden/">Vim 駅伝</a> の 2025-07-14 の記事です。</p>
+<p>前回は 2025-07-11 NI57721 さんの <a href="https://zenn.dev/vim_jp/articles/wayland-clipboard-feature-in-vim">Vim が Wayland のクリップボードをサポート</a> でした。</p>
+</div>
+</div>
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Python 環境管理に uv を使い始めて以来 pyenv が不要になりアンインストールしたのですが、スポット的に Python のグローバルインストールが必要になったので uv での手順をメモしておきます。</p>
+<p>Vim 本体に出したバグ修正の Pull Request がマージされました。</p>
+<p><a href="https://github.com/vim/vim/commit/b3eaae21b9f681d23466e7caa0b9d7e32cb4b206" class="uri">https://github.com/vim/vim/commit/b3eaae21b9f681d23466e7caa0b9d7e32cb4b206</a></p>
+<p>以降でバグ発見の経緯と学びを共有します。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/2025-07-14-my-first-vim-contribution/vim-contributor.png" class="img-fluid figure-img"></p>
+<figcaption>私に Vim Contributor 表記が付与されている様子</figcaption>
+</figure>
+</div>
 </section>
-<section id="手順" class="level2">
-<h2 class="anchored" data-anchor-id="手順">2. 手順</h2>
-<p><a href="https://docs.astral.sh/uv/concepts/python-versions/#installing-python-executables">Python versions | uv</a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uv python install 3.12 <span class="at">--default</span> <span class="at">--preview</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="バグ発見の経緯" class="level2">
+<h2 class="anchored" data-anchor-id="バグ発見の経緯">2. バグ発見の経緯</h2>
+<p>私は Vim の HEAD (main ブランチの最新コミット) ビルドを日課にしています。</p>
+<p>自分でビルドするとビルドオプションを指定できたり最新機能が使えたりして楽しいです。</p>
+<p>そうしているうちにある日ビルトインのファイラープラグインである Netrw.vim のファイル一覧に空行の入るバグが入ったことに気付きました。</p>
+<p>気になって Vim 本体の Issue や Pull Request を見ても同様のバグが報告されていなかったので自分で Pull Request を出すことにしました。</p>
+<p>……反省点として後述しますがこの判断はちょっと考慮が足りなかったです。</p>
+</section>
+<section id="pull-request-作成まで" class="level2">
+<h2 class="anchored" data-anchor-id="pull-request-作成まで">3. Pull Request 作成まで</h2>
+<p>OSS プロジェクトに Pull Request を出したことがなかったのですが、 CONTRIBUTING.md を読めばいいであろうということは知っていたので Vim のリポジトリの CONTRIBUTING.md を読みました。</p>
+<p><a href="https://github.com/vim/vim/blob/master/CONTRIBUTING.md" class="uri">https://github.com/vim/vim/blob/master/CONTRIBUTING.md</a></p>
+<p>今回については Signing-off commits 推奨ということくらいで特に細かく何かを守る必要はないのかなという理解をしました。</p>
+<p>とは言えそれでは不安があったので直近の Netrw.vim 関連のコミットや Pull Request をざっくり確認してみました。</p>
+<p>実際の修正内容については Netrw.vim プラグインの直近1-2週間の間に入ったコミットの影響であろうことは分かっていたので Claude Code にバグ混入コミットを特定してもらって、修正案も出してもらいました。</p>
+<p>自分のマシン (macOS) では1行追加するだけで修正できることが分かり、勢いで Pull Request を作成しました。</p>
+</section>
+<section id="pull-request-のレビュー" class="level2">
+<h2 class="anchored" data-anchor-id="pull-request-のレビュー">4. Pull Request のレビュー</h2>
+<p>Netrw.vim のメンテナの <span class="citation" data-cites="saccarosium">@saccarosium</span> さんにレビューしていただき Upstream と書き味を揃える Suggestion をいただきマージされました。</p>
+</section>
+<section id="学び" class="level2">
+<h2 class="anchored" data-anchor-id="学び">5. 学び</h2>
+<section id="反省点" class="level3">
+<h3 class="anchored" data-anchor-id="反省点">5.1. 反省点</h3>
+<p>Pull Request を出すまでは近眼的になって気付かなかったのですが今回の修正対象のファイルのトップに</p>
+<p><a href="https://github.com/vim/vim/blob/68ee1cf7de36bdd6e642807c8beda751112aaab8/runtime/pack/dist/opt/netrw/autoload/netrw.vim">vim/runtime/pack/dist/opt/netrw/autoload/netrw.vim</a></p>
+<blockquote class="blockquote">
+<pre class="vim"><code>" Upstream: &lt;https://github.com/saccarosium/netrw.vim&gt;</code></pre>
+</blockquote>
+<p>と書かれている通り Netrw.vim には Upstream のリポジトリ</p>
+<p><a href="https://github.com/saccarosium/netrw.vim" class="uri">https://github.com/saccarosium/netrw.vim</a></p>
+<p>が存在します。</p>
+<p>実際 Upstream では私が Pull Request を作成する2日前に既に本件は修正済みとなっていました。</p>
+<p>というわけで本来はこの Upstream のリポジトリを最初に確認するのが正しい手順でした。</p>
+<p>この状況を理解していた場合でも早めに Vim 本体側へ適用してほしい旨を相談することに変わりはなかったのですが、全てを知った上で行動するのが最善だったなあと思います。</p>
+<p>だれがどのように関わって Vim という巨大なリポジトリが成り立っているのかもっと知ろうと思うようになりました。</p>
+<p>もう1つの反省点としては、改行回りが関係するので macOS だけでなく Windows についても考慮する必要があったという点です。</p>
+<p>Vim のクロスプラットフォーム対応って大変なことなんだなあと改めて実感しました。</p>
+</section>
+<section id="netrw.vim-の理解度アップ" class="level3">
+<h3 class="anchored" data-anchor-id="netrw.vim-の理解度アップ">5.2. Netrw.vim の理解度アップ</h3>
+<p>Netrw.vim はメンテナ不在でバグも放置されていると言われていてここ数年その理解のままでした。</p>
+<p>今回の Pull Request をきっかけにメンテナが精力的にリファクタリングを行っている現状を知ることができました。</p>
+<p>(今回のバグはリファクタリングの影響で発生したものでした)</p>
+</section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">6. おわりに</h2>
+<p>理解が不十分なまま勢いで Pull Request を作成したもののメンテナの <span class="citation" data-cites="saccarosium">@saccarosium</span> さんの温情によりマージに至りました。</p>
+<p>なんやかんやで自分は Netrw.vim を毎日使っていて愛着があるなと自覚したのでこれ以降 Upstream の最新版を利用してます。</p>
+<p>また次のコントリビュートチャンスを狙っていきたいと思います。</p>
+</section>
+<section id="おまけ" class="level2">
+<h2 class="anchored" data-anchor-id="おまけ">7. おまけ</h2>
+<p><a href="https://vim-jp.org/docs/chat.html">vim-jp Slack</a> の #dev チャンネルにて成果報告した様子</p>
+<p>vim-jp における #dev チャンネルとはもちろん Vim 本体開発の話題を扱うチャンネルですよ！</p>
+<p><img src="../assets/2025-07-14-my-first-vim-contribution/vim-jp-igyo.png" class="img-fluid" style="width:50.0%"></p>
 
 
 </section>
@@ -881,7 +934,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-06-10-install-global-python-with-uv.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-07-14-my-first-vim-contribution.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
