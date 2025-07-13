@@ -12,7 +12,11 @@ categories:
   - "vim-jp"
 ---
 
+::: {.callout-note}
 この記事は [Vim 駅伝](https://vim-jp.org/ekiden/) の 2025-07-14 の記事です。
+
+前回は 2025-07-11 NI57721 さんの [Vim が Wayland のクリップボードをサポート](https://zenn.dev/vim_jp/articles/wayland-clipboard-feature-in-vim) でした。
+:::
 
 ## 1. はじめに
 
@@ -22,56 +26,88 @@ Vim 本体に出したバグ修正の Pull Request がマージされました�
 
 以降でバグ発見の経緯と学びを共有します。
 
-![Vim の Contributor になってる](/assets/2025-07-14-my-first-vim-contribution/vim-contributor.png)
+![私に Vim Contributor 表記が付与されている様子](/assets/2025-07-14-my-first-vim-contribution/vim-contributor.png)
 
 ## 2. バグ発見の経緯
 
-私は朝 Vim の HEAD (main ブランチの最新コミット) をビルドするのが日課です。
+私は Vim の HEAD (main ブランチの最新コミット) ビルドを日課にしています。
 
-毎日最新の Vim を使っていると、ある日標準ファイラープラグインである Netrw.vim のファイル一覧に空行の入るバグに気づきました。
+自分でビルドするとビルドオプションを指定できたり最新機能が使えたりして楽しいです。
 
-毎日使っているものなので気になって Vim 本体の Issue や Pull Request を見ても同様のバグが報告されていなかったので自分で Pull Request を出すことにしました。
+そうしているうちにある日ビルトインのファイラープラグインである Netrw.vim のファイル一覧に空行の入るバグが入ったことに気付きました。
 
-……反省点として後述しますがこの判断は良くなかったです。この時は HEAD を使う人で Netrw.vim 利用者が少ないのかなくらいに思っていました。
+気になって Vim 本体の Issue や Pull Request を見ても同様のバグが報告されていなかったので自分で Pull Request を出すことにしました。
+
+……反省点として後述しますがこの判断はちょっと考慮が足りなかったです。
 
 ## 3. Pull Request 作成まで
 
-OSS プロジェクトに Pull Request を出したことがなかったのですが、 CONTRIBUTING.md を読めばいいであろうということだけ知っていたので Vim のリポジトリの CONTRIBUTING.md を読みました。
+OSS プロジェクトに Pull Request を出したことがなかったのですが、 CONTRIBUTING.md を読めばいいであろうということは知っていたので Vim のリポジトリの CONTRIBUTING.md を読みました。
 
 <https://github.com/vim/vim/blob/master/CONTRIBUTING.md>
 
 今回については Signing-off commits 推奨ということくらいで特に細かく何かを守る必要はないのかなという理解をしました。
 
-とは言えそれでは不安があったので直近の Netrw.vim 関連のコミットや Pull Request を確認してみました。
+とは言えそれでは不安があったので直近の Netrw.vim 関連のコミットや Pull Request をざっくり確認してみました。
 
-実際の修正内容については Netrw.vim プラグインの直近1-2週間の間に入ったコミットの影響であろうことは分かっていたので Claude Code に調べてもらって自分のマシン (macOS) では1行追加するだけで修正できることが分かりました。
+実際の修正内容については Netrw.vim プラグインの直近1-2週間の間に入ったコミットの影響であろうことは分かっていたので Claude Code にバグ混入コミットを特定してもらって、修正案も出してもらいました。
 
-そして勢いで Pull Request を作成しました。
+自分のマシン (macOS) では1行追加するだけで修正できることが分かり、勢いで Pull Request を作成しました。
 
 ## 4. Pull Request のレビュー
 
 Netrw.vim のメンテナの @saccarosium さんにレビューしていただき Upstream と書き味を揃える Suggestion をいただきマージされました。
 
-@saccarosium さんにコメントをいただいたタイミングで Upstream のリポジトリの存在を知りました。
+## 5. 学び
 
-以下、反省点です。
-
-## 5. 反省点
+### 5.1. 反省点
 
 Pull Request を出すまでは近眼的になって気付かなかったのですが今回の修正対象のファイルのトップに
 
-<https://github.com/vim/vim/blob/68ee1cf7de36bdd6e642807c8beda751112aaab8/runtime/pack/dist/opt/netrw/autoload/netrw.vim>
+[vim/runtime/pack/dist/opt/netrw/autoload/netrw.vim](https://github.com/vim/vim/blob/68ee1cf7de36bdd6e642807c8beda751112aaab8/runtime/pack/dist/opt/netrw/autoload/netrw.vim)
 
-```{.vim}
-" Upstream: <https://github.com/saccarosium/netrw.vim>
-```
+> ```{.vim}
+> " Upstream: <https://github.com/saccarosium/netrw.vim>
+> ```
 
-と書かれている通り Netrw.vim には Upstream のリポジトリがあります。
+と書かれている通り Netrw.vim には Upstream のリポジトリ
 
-なので本来はこの Upstream のリポジトリを最初に確認するのが正しい手順でした。
+<https://github.com/saccarosium/netrw.vim>
 
-実際 Upsteram では2日前に修正済みとなっていました。
+が存在します。
 
-このような状況でしたが気になる部分の修正がされて
+実際 Upsteram では私が Pull Request を作成する2日前に既に本件は修正済みとなっていました。
+
+というわけで本来はこの Upstream のリポジトリを最初に確認するのが正しい手順でした。
+
+この状況を理解していた場合でも早めに Vim 本体側へ適用してほしい旨を相談することに変わりはなかったのですが、全てを知った上で行動するのが最善だったなあと思います。
+
+だれがどのように関わって Vim という巨大なリポジトリが成り立っているのかもっと知ろうと思うようになりました。
+
+もう1つの反省点としては、改行回りが関係するので macOS だけでなく Windows についても考慮する必要があったという点です。
+
+Vim のクロスプラットフォーム対応って大変なことなんだなあと改めて実感しました。
+
+### 5.2. Netrw.vim の理解度アップ
+
+Netrw.vim はメンテナ不在でバグも放置されていると言われていてここ数年その理解のままでした。
+
+今回の Pull Request をきっかけにメンテナが精力的にリファクタリングを行っている現状を知ることができました。
+
+(今回のバグはリファクタリングの影響で発生したものでした)
 
 ## 6. おわりに
+
+理解が不十分なまま勢いで Pull Request を作成したもののメンテナの @saccarosium さんの温情によりマージに至りました。
+
+なんやかんやで自分は Netrw.vim を毎日使っていて愛着があるなと自覚したのでこれ以降 Upstream の最新版を利用してます。
+
+また次のコントリビュートチャンスを狙っていきたいと思います。
+
+## 7. おまけ
+
+[vim-jp Slack](https://vim-jp.org/docs/chat.html) の #dev チャンネルにて成果報告した様子
+
+vim-jp における #dev チャンネルとはもちろん Vim 本体開発の話題を扱うチャンネルですよ！
+
+![](/assets/2025-07-14-my-first-vim-contribution/vim-jp-igyo.png){width=50%}
