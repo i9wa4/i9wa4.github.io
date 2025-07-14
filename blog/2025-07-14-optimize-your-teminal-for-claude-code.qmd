@@ -259,7 +259,7 @@ CLAUDE.md を作成せず Claude Code に最適化しすぎないことで Gemin
 私の dotfiles では以下のカスタムスラッシュコマンドを用意しています。
 
 ```{.sh}
-docs
+.
 └── commands
     ├── commit.md
     ├── CONTRIBUTING.md
