@@ -126,6 +126,8 @@ ghq でリポジトリ移動すると tmux セッション名が自動でリポ�
 
 複数ターミナルの管理について、タブ機能をもつターミナルもありますが私は tmux で複数ターミナルを管理するのが好きです。
 
+<https://github.com/tmux/tmux/wiki/Installing>
+
 ### 6.1. tmux おすすめキーバインド
 
 ```{.conf filename="tmux.conf"}
@@ -181,6 +183,8 @@ worktree 作成作業は定型化できると思うので worktree 作成用の�
 ### 7.3. ghq
 
 リポジトリの管理は ghq に任せたほうがよいです。
+
+<https://github.com/x-motemen/ghq>
 
 ## 8. エディタ
 
@@ -311,6 +315,8 @@ Claude Code はよくファイル削除を試みるので `Bash(rm:*)` は必須
 ```{.sh}
 claude config set --global preferredNotifChannel terminal_bell
 ```
+
+このコマンドを実行すると以下のような設定が `.claude.json` に追加されます。
 
 ```{.json filename=".claude.json"}
   "preferredNotifChannel": "terminal_bell",
