@@ -115,6 +115,7 @@
 <section id="tmux" class="level2">
 <h2 class="anchored" data-anchor-id="tmux">6. tmux</h2>
 <p>複数ターミナルの管理について、タブ機能をもつターミナルもありますが私は tmux で複数ターミナルを管理するのが好きです。</p>
+<p><a href="https://github.com/tmux/tmux/wiki/Installing" class="uri">https://github.com/tmux/tmux/wiki/Installing</a></p>
 <section id="tmux-おすすめキーバインド" class="level3">
 <h3 class="anchored" data-anchor-id="tmux-おすすめキーバインド">6.1. tmux おすすめキーバインド</h3>
 <div class="code-with-filename">
@@ -237,6 +238,7 @@ font-style: inherit;">"#{pane_current_path}"</span></span></code></pre></div>
 <section id="ghq" class="level3">
 <h3 class="anchored" data-anchor-id="ghq">7.3. ghq</h3>
 <p>リポジトリの管理は ghq に任せたほうがよいです。</p>
+<p><a href="https://github.com/x-motemen/ghq" class="uri">https://github.com/x-motemen/ghq</a></p>
 </section>
 </section>
 <section id="エディタ" class="level2">
@@ -440,6 +442,7 @@ background-color: null;
 font-style: inherit;">claude</span> config set <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--global</span> preferredNotifChannel terminal_bell</span></code></pre></div>
+<p>このコマンドを実行すると以下のような設定が <code>.claude.json</code> に追加されます。</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>.claude.json</strong></pre>
@@ -8646,7 +8649,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <p>個人的な重要記事などをまとめておきます。</p>
 <section id="キャリア" class="level2">
 <h2 class="anchored" data-anchor-id="キャリア">1. キャリア</h2>
-<div id="bc40e1dd" class="cell" data-execution_count="3">
+<div id="3037c4eb" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8844,7 +8847,7 @@ Website
 </section>
 <section id="テキストエディタ" class="level2">
 <h2 class="anchored" data-anchor-id="テキストエディタ">2. テキストエディタ</h2>
-<div id="770ff46e" class="cell" data-execution_count="4">
+<div id="80580fe5" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8898,7 +8901,7 @@ Website
 </section>
 <section id="github-git" class="level2">
 <h2 class="anchored" data-anchor-id="github-git">3. GitHub / Git</h2>
-<div id="dc9ef17b" class="cell" data-execution_count="5">
+<div id="c0abec9a" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <table class="dataframe table table-sm table-striped small">
 
@@ -8988,7 +8991,7 @@ Website
 </section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">4. Quarto</h2>
-<div id="7596ad6f" class="cell" data-execution_count="6">
+<div id="ed9f0a7b" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <table class="dataframe table table-sm table-striped small">
 
@@ -9030,7 +9033,7 @@ Website
 </section>
 <section id="データ分析" class="level2">
 <h2 class="anchored" data-anchor-id="データ分析">5. データ分析</h2>
-<div id="4da75f53" class="cell" data-execution_count="7">
+<div id="efad8109" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <table class="dataframe table table-sm table-striped small">
 
@@ -9072,7 +9075,7 @@ Website
 </section>
 <section id="データエンジニアリング" class="level2">
 <h2 class="anchored" data-anchor-id="データエンジニアリング">6. データエンジニアリング</h2>
-<div id="552d21de" class="cell" data-execution_count="8">
+<div id="3aa81968" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <table class="dataframe table table-sm table-striped small">
 
@@ -9150,7 +9153,7 @@ Website
 </section>
 <section id="機械学習" class="level2">
 <h2 class="anchored" data-anchor-id="機械学習">7. 機械学習</h2>
-<div id="14a6e5e2" class="cell" data-execution_count="9">
+<div id="36a59258" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <table class="dataframe table table-sm table-striped small">
 
