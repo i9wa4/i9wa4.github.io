@@ -838,39 +838,51 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </section>
 <section id="おまけ-claude-code-に読ませると便利なルール" class="level2">
 <h2 class="anchored" data-anchor-id="おまけ-claude-code-に読ませると便利なルール">11. (おまけ) Claude Code に読ませると便利なルール</h2>
-<blockquote class="blockquote">
-<h1 id="contributing">CONTRIBUTING</h1>
-<h2 id="重要なルール" class="anchored">重要なルール</h2>
-<h3 id="pre-commit-設定について" class="anchored">pre-commit 設定について</h3>
-<ul>
-<li><strong>NEVER</strong>: pre-commit を無効化してはならない</li>
-<li><strong>NEVER</strong>: <code>pre-commit skip</code> や <code>git commit --no-verify</code> を使用してはならない</li>
-<li><strong>IMPORTANT</strong>: pre-commit のチェックに失敗した場合は、必ずコードを修正してからコミットする</li>
-</ul>
-<h2 id="jupyter-notebook-実行方法" class="anchored">Jupyter Notebook 実行方法</h2>
-<h3 id="デフォルトの実行方法" class="anchored">デフォルトの実行方法</h3>
-<p>Notebook全体を実行する指示を受けた際は、以下のコマンドを使用する</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="op">&lt;</span>notebook_path<span class="op">&gt;</span> --inplace <span class="at">--ExecutePreprocessor.timeout</span><span class="op">=</span>300</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h4 id="使用例" class="anchored">使用例</h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># databricks-connect-sample.ipynbを実行</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> /workspace/notebooks/databricks-connect-sample.ipynb <span class="at">--inplace</span> <span class="at">--ExecutePreprocessor.timeout</span><span class="op">=</span>300</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h4 id="オプション説明" class="anchored">オプション説明</h4>
-<ul>
-<li><code>--to notebook</code>: Notebook形式で出力</li>
-<li><code>--execute</code>: セルを実際に実行</li>
-<li><code>--inplace</code>: 元のファイルに実行結果を上書き</li>
-<li><code>--ExecutePreprocessor.timeout=300</code>: タイムアウトを300秒に設定</li>
-</ul>
-<h3 id="実行ログの確認" class="anchored">実行ログの確認</h3>
-<p>実行時のログを確認したい場合は以下のように実行する</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter nbconvert <span class="at">--to</span> notebook <span class="at">--execute</span> <span class="op">&lt;</span>notebook_path<span class="op">&gt;</span> --inplace <span class="at">--ExecutePreprocessor.timeout</span><span class="op">=</span>300 <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">|</span> <span class="fu">tee</span> /tmp/notebook_execution.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="注意事項" class="anchored">注意事項</h3>
-<ul>
-<li>実行前に必要な環境変数（<code>.env</code>ファイル等）が適切に設定されていることを確認する</li>
-<li>長時間実行されるセルがある場合は<code>--ExecutePreprocessor.timeout</code>の値を調整する</li>
-<li>VS Codeで開いている場合は実行後にファイルの更新を確認する</li>
-</ul>
-</blockquote>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>CONTRIBUTING.md</strong></pre>
+</div>
+<div class="sourceCode" id="cb12" data-filename="CONTRIBUTING.md"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># CONTRIBUTING</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 重要なルール</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### pre-commit 設定について</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**NEVER**: pre-commit を無効化してはならない</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**NEVER**: <span class="in">`pre-commit skip`</span> や <span class="in">`git commit --no-verify`</span> を使用してはならない</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**IMPORTANT**: pre-commit のチェックに失敗した場合は、必ずコードを修正してからコミットする</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Jupyter Notebook 実行方法</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### デフォルトの実行方法</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>Notebook全体を実行する指示を受けた際は、以下のコマンドを使用する</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="in">`uv run jupyter nbconvert --to notebook --execute &lt;notebook_path&gt; --inplace --ExecutePreprocessor.timeout=300`</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 使用例</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="in">`uv run jupyter nbconvert --to notebook --execute /workspace/notebooks/databricks-connect-sample.ipynb --inplace --ExecutePreprocessor.timeout=300`</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### オプション説明</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--to notebook`</span>: Notebook形式で出力</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--execute`</span>: セルを実際に実行</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--inplace`</span>: 元のファイルに実行結果を上書き</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`--ExecutePreprocessor.timeout=300`</span>: タイムアウトを300秒に設定</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### 実行ログの確認</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>実行時のログを確認したい場合は以下のように実行する</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="in">`uv run jupyter nbconvert --to notebook --execute &lt;notebook_path&gt; --inplace --ExecutePreprocessor.timeout=300 2&gt;&amp;1 | tee /tmp/notebook_execution.log`</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### 注意事項</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>実行前に必要な環境変数（<span class="in">`.env`</span>ファイル等）が適切に設定されていることを確認する</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>長時間実行されるセルがある場合は<span class="in">`--ExecutePreprocessor.timeout`</span>の値を調整する</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>VS Codeで開いている場合は実行後にファイルの更新を確認する</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
