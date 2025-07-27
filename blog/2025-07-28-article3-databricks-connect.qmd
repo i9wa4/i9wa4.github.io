@@ -387,50 +387,45 @@ Claude Code にこの手の作業を任せるときは時間がかかるので�
 
 ## 11. (おまけ) Claude Code に読ませると便利なルール
 
-> # CONTRIBUTING
-> 
-> ## 重要なルール
-> 
-> ### pre-commit 設定について
-> 
-> - **NEVER**: pre-commit を無効化してはならない
-> - **NEVER**: `pre-commit skip` や `git commit --no-verify` を使用してはならない
-> - **IMPORTANT**: pre-commit のチェックに失敗した場合は、必ずコードを修正してからコミットする
-> 
-> ## Jupyter Notebook 実行方法
-> 
-> ### デフォルトの実行方法
-> 
-> Notebook全体を実行する指示を受けた際は、以下のコマンドを使用する
-> 
-> ```bash
-> uv run jupyter nbconvert --to notebook --execute <notebook_path> --inplace --ExecutePreprocessor.timeout=300
-> ```
-> 
-> #### 使用例
-> 
-> ```bash
-> # databricks-connect-sample.ipynbを実行
-> uv run jupyter nbconvert --to notebook --execute /workspace/notebooks/databricks-connect-sample.ipynb --inplace --ExecutePreprocessor.timeout=300
-> ```
-> 
-> #### オプション説明
-> 
-> - `--to notebook`: Notebook形式で出力
-> - `--execute`: セルを実際に実行
-> - `--inplace`: 元のファイルに実行結果を上書き
-> - `--ExecutePreprocessor.timeout=300`: タイムアウトを300秒に設定
-> 
-> ### 実行ログの確認
-> 
-> 実行時のログを確認したい場合は以下のように実行する
-> 
-> ```bash
-> uv run jupyter nbconvert --to notebook --execute <notebook_path> --inplace --ExecutePreprocessor.timeout=300 2>&1 | tee /tmp/notebook_execution.log
-> ```
-> 
-> ### 注意事項
-> 
-> - 実行前に必要な環境変数（`.env`ファイル等）が適切に設定されていることを確認する
-> - 長時間実行されるセルがある場合は`--ExecutePreprocessor.timeout`の値を調整する
-> - VS Codeで開いている場合は実行後にファイルの更新を確認する
+```{.md filename="CONTRIBUTING.md"}
+# CONTRIBUTING
+
+## 重要なルール
+
+### pre-commit 設定について
+
+- **NEVER**: pre-commit を無効化してはならない
+- **NEVER**: `pre-commit skip` や `git commit --no-verify` を使用してはならない
+- **IMPORTANT**: pre-commit のチェックに失敗した場合は、必ずコードを修正してからコミットする
+
+## Jupyter Notebook 実行方法
+
+### デフォルトの実行方法
+
+Notebook全体を実行する指示を受けた際は、以下のコマンドを使用する
+
+`uv run jupyter nbconvert --to notebook --execute <notebook_path> --inplace --ExecutePreprocessor.timeout=300`
+
+#### 使用例
+
+`uv run jupyter nbconvert --to notebook --execute /workspace/notebooks/databricks-connect-sample.ipynb --inplace --ExecutePreprocessor.timeout=300`
+
+#### オプション説明
+
+- `--to notebook`: Notebook形式で出力
+- `--execute`: セルを実際に実行
+- `--inplace`: 元のファイルに実行結果を上書き
+- `--ExecutePreprocessor.timeout=300`: タイムアウトを300秒に設定
+
+### 実行ログの確認
+
+実行時のログを確認したい場合は以下のように実行する
+
+`uv run jupyter nbconvert --to notebook --execute <notebook_path> --inplace --ExecutePreprocessor.timeout=300 2>&1 | tee /tmp/notebook_execution.log`
+
+### 注意事項
+
+- 実行前に必要な環境変数（`.env`ファイル等）が適切に設定されていることを確認する
+- 長時間実行されるセルがある場合は`--ExecutePreprocessor.timeout`の値を調整する
+- VS Codeで開いている場合は実行後にファイルの更新を確認する
+```
