@@ -329,3 +329,5 @@ uv add --group dev pytest
 これで Python 開発環境が完成しました。
 
 次回はこの環境に Databricks Connect を追加してクラウドデータウェアハウスと連携する方法を紹介します。
+
+[Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用](2025-07-28-article3-databricks-connect.qmd)
