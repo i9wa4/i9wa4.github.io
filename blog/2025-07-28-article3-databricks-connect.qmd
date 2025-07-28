@@ -21,7 +21,7 @@ categories:
 
 ## 1. はじめに
 
-前回までの環境に Databricks Connect を追加して、ローカル開発環境から Databricks の Spark クラスタを利用できるようにします。
+前回までの環境に Databricks Connect を追加して、ローカル開発環境から Databricks の Spark セッションを利用できるようにします。
 
 Databricks 上でもローカルでも同じコードが動作する汎用的なライブラリも紹介します。
 
@@ -33,7 +33,7 @@ Databricks 上でもローカルでも同じコードが動作する汎用的な
 
 ## 3. Databricks Connect とは
 
-Databricks Connect は、ローカル開発環境から Databricks クラスタに接続してSparkジョブを実行できるライブラリです。
+Databricks Connect は、ローカル開発環境から Databricks クラスタに接続できるライブラリです。
 
 これにより以下のメリットが得られます。
 
