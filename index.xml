@@ -35,7 +35,7 @@
 </ol>
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>前回までの環境に Databricks Connect を追加して、ローカル開発環境から Databricks の Spark クラスタを利用できるようにします。</p>
+<p>前回までの環境に Databricks Connect を追加して、ローカル開発環境から Databricks の Spark セッションを利用できるようにします。</p>
 <p>Databricks 上でもローカルでも同じコードが動作する汎用的なライブラリも紹介します。</p>
 </section>
 <section id="対象読者" class="level2">
@@ -48,7 +48,7 @@
 </section>
 <section id="databricks-connect-とは" class="level2">
 <h2 class="anchored" data-anchor-id="databricks-connect-とは">3. Databricks Connect とは</h2>
-<p>Databricks Connect は、ローカル開発環境から Databricks クラスタに接続してSparkジョブを実行できるライブラリです。</p>
+<p>Databricks Connect は、ローカル開発環境から Databricks クラスタに接続できるライブラリです。</p>
 <p>これにより以下のメリットが得られます。</p>
 <ul>
 <li>VS Code や Claude Code などのローカル開発環境が利用できる</li>

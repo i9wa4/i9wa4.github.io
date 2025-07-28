@@ -1318,7 +1318,7 @@
     "href": "blog/2025-07-28-article3-databricks-connect.html#はじめに",
     "title": "Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用",
     "section": "1. はじめに",
-    "text": "1. はじめに\n前回までの環境に Databricks Connect を追加して、ローカル開発環境から Databricks の Spark クラスタを利用できるようにします。\nDatabricks 上でもローカルでも同じコードが動作する汎用的なライブラリも紹介します。"
+    "text": "1. はじめに\n前回までの環境に Databricks Connect を追加して、ローカル開発環境から Databricks の Spark セッションを利用できるようにします。\nDatabricks 上でもローカルでも同じコードが動作する汎用的なライブラリも紹介します。"
   },
   {
     "objectID": "blog/2025-07-28-article3-databricks-connect.html#対象読者",
@@ -1332,7 +1332,7 @@
     "href": "blog/2025-07-28-article3-databricks-connect.html#databricks-connect-とは",
     "title": "Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用",
     "section": "3. Databricks Connect とは",
-    "text": "3. Databricks Connect とは\nDatabricks Connect は、ローカル開発環境から Databricks クラスタに接続してSparkジョブを実行できるライブラリです。\nこれにより以下のメリットが得られます。\n\nVS Code や Claude Code などのローカル開発環境が利用できる\nローカルでの開発と Databricks 上での実行で同じコードが使える"
+    "text": "3. Databricks Connect とは\nDatabricks Connect は、ローカル開発環境から Databricks クラスタに接続できるライブラリです。\nこれにより以下のメリットが得られます。\n\nVS Code や Claude Code などのローカル開発環境が利用できる\nローカルでの開発と Databricks 上での実行で同じコードが使える"
   },
   {
     "objectID": "blog/2025-07-28-article3-databricks-connect.html#環境設定",
