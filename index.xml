@@ -3044,6 +3044,7 @@ font-style: inherit;">--group</span> dev pytest</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="おわりに">7. おわりに</h2>
 <p>これで Python 開発環境が完成しました。</p>
 <p>次回はこの環境に Databricks Connect を追加してクラウドデータウェアハウスと連携する方法を紹介します。</p>
+<p><a href="../blog/2025-07-28-article3-databricks-connect.html">Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用</a></p>
 
 
 </section>

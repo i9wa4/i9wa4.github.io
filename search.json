@@ -2375,7 +2375,7 @@
     "href": "blog/2025-07-28-article2-python-env.html#おわりに",
     "title": "Python 開発環境最適化編 - uv + pre-commit + GitHub Actions",
     "section": "7. おわりに",
-    "text": "7. おわりに\nこれで Python 開発環境が完成しました。\n次回はこの環境に Databricks Connect を追加してクラウドデータウェアハウスと連携する方法を紹介します。"
+    "text": "7. おわりに\nこれで Python 開発環境が完成しました。\n次回はこの環境に Databricks Connect を追加してクラウドデータウェアハウスと連携する方法を紹介します。\nDatabricks Connect 実践編 - ローカルから Databricks コンピュートを利用"
   },
   {
     "objectID": "blog/2024-10-25-s-i9wa4-umachan-g.html",
