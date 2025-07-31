@@ -541,22 +541,45 @@ font-style: inherit;">import</span> DatabricksSession</span>
 <span id="cb5-62"></span>
 <span id="cb5-63">        <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># .env読み込み</span></span>
-<span id="cb5-64">        <span class="im" style="color: #00769E;
+font-style: inherit;"># 環境変数のデフォルト値を設定</span></span>
+<span id="cb5-64">        os.environ.setdefault(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DATABRICKS_CONFIG_PROFILE"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DEFAULT"</span>)</span>
+<span id="cb5-65">        os.environ.setdefault(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DATABRICKS_SERVERLESS_COMPUTE_ID"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"auto"</span>)</span>
+<span id="cb5-66">        os.environ.setdefault(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DATABRICKS_CONNECT_DISABLE_VERSION_CHECK"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"true"</span>)</span>
+<span id="cb5-67"></span>
+<span id="cb5-68">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># .env読み込み（オプション）</span></span>
+<span id="cb5-69">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">try</span>:</span>
+<span id="cb5-70">            <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> dotenv <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> find_dotenv, load_dotenv</span>
-<span id="cb5-65"></span>
-<span id="cb5-66">        env_file <span class="op" style="color: #5E5E5E;
+<span id="cb5-71"></span>
+<span id="cb5-72">            env_file <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> find_dotenv()</span>
-<span id="cb5-67">        <span class="cf" style="color: #003B4F;
+<span id="cb5-73">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> env_file:</span>
-<span id="cb5-68">            load_dotenv(env_file)</span>
-<span id="cb5-69">            _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-74">                load_dotenv(env_file)</span>
+<span id="cb5-75">                _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"📁 .env読み込み: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -565,21 +588,30 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-70"></span>
-<span id="cb5-71">        <span class="co" style="color: #5E5E5E;
+<span id="cb5-76">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ImportError</span>:</span>
+<span id="cb5-77">            _logger.info(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"📁 dotenvモジュールなし - 環境変数のみ使用"</span>)</span>
+<span id="cb5-78"></span>
+<span id="cb5-79">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># プロファイル指定チェック</span></span>
-<span id="cb5-72">        profile_name <span class="op" style="color: #5E5E5E;
+<span id="cb5-80">        profile_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.environ.get(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_CONFIG_PROFILE"</span>)</span>
-<span id="cb5-73"></span>
-<span id="cb5-74">        <span class="cf" style="color: #003B4F;
+<span id="cb5-81"></span>
+<span id="cb5-82">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> profile_name:</span>
-<span id="cb5-75">            _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-83">            _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"🔧 .databrickscfgプロファイル使用: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -588,31 +620,26 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-76">            os.environ.setdefault(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"DATABRICKS_CONNECT_DISABLE_VERSION_CHECK"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"true"</span>)</span>
-<span id="cb5-77"></span>
-<span id="cb5-78">            <span class="cf" style="color: #003B4F;
+<span id="cb5-84"></span>
+<span id="cb5-85">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> os.environ.get(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_CLUSTER_ID"</span>):</span>
-<span id="cb5-79">                cluster_id <span class="op" style="color: #5E5E5E;
+<span id="cb5-86">                cluster_id <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.environ.get(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_CLUSTER_ID"</span>)</span>
-<span id="cb5-80">                spark <span class="op" style="color: #5E5E5E;
+<span id="cb5-87">                spark <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (</span>
-<span id="cb5-81">                    DatabricksSession.builder.profile(profile_name)</span>
-<span id="cb5-82">                    .clusterId(cluster_id)</span>
-<span id="cb5-83">                    .getOrCreate()</span>
-<span id="cb5-84">                )</span>
-<span id="cb5-85">                _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-88">                    DatabricksSession.builder.profile(profile_name)</span>
+<span id="cb5-89">                    .clusterId(cluster_id)</span>
+<span id="cb5-90">                    .getOrCreate()</span>
+<span id="cb5-91">                )</span>
+<span id="cb5-92">                _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"🆔 クラスター使用: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -621,43 +648,38 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-86">            <span class="cf" style="color: #003B4F;
+<span id="cb5-93">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb5-87">                os.environ.setdefault(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"DATABRICKS_SERVERLESS_COMPUTE_ID"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"auto"</span>)</span>
-<span id="cb5-88">                spark <span class="op" style="color: #5E5E5E;
+<span id="cb5-94">                spark <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> (</span>
-<span id="cb5-89">                    DatabricksSession.builder.profile(profile_name)</span>
-<span id="cb5-90">                    .serverless(<span class="va" style="color: #111111;
+<span id="cb5-95">                    DatabricksSession.builder.profile(profile_name)</span>
+<span id="cb5-96">                    .serverless(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span>
-<span id="cb5-91">                    .getOrCreate()</span>
-<span id="cb5-92">                )</span>
-<span id="cb5-93">                _logger.info(<span class="st" style="color: #20794D;
+<span id="cb5-97">                    .getOrCreate()</span>
+<span id="cb5-98">                )</span>
+<span id="cb5-99">                _logger.info(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"🚀 Serverless Compute使用"</span>)</span>
-<span id="cb5-94">        <span class="cf" style="color: #003B4F;
+<span id="cb5-100">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb5-95">            _logger.info(<span class="st" style="color: #20794D;
+<span id="cb5-101">            _logger.info(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"🔧 環境変数から直接接続"</span>)</span>
-<span id="cb5-96"></span>
-<span id="cb5-97">            required_vars <span class="op" style="color: #5E5E5E;
+<span id="cb5-102"></span>
+<span id="cb5-103">            required_vars <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_HOST"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_TOKEN"</span>]</span>
-<span id="cb5-98">            missing_vars <span class="op" style="color: #5E5E5E;
+<span id="cb5-104">            missing_vars <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [var <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -672,12 +694,12 @@ font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> os.environ.get(var)]</span>
-<span id="cb5-99"></span>
-<span id="cb5-100">            <span class="cf" style="color: #003B4F;
+<span id="cb5-105"></span>
+<span id="cb5-106">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> missing_vars:</span>
-<span id="cb5-101">                <span class="cf" style="color: #003B4F;
+<span id="cb5-107">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
@@ -691,28 +713,22 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-102"></span>
-<span id="cb5-103">            os.environ.setdefault(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"DATABRICKS_CONNECT_DISABLE_VERSION_CHECK"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"true"</span>)</span>
-<span id="cb5-104"></span>
-<span id="cb5-105">            <span class="cf" style="color: #003B4F;
+<span id="cb5-108"></span>
+<span id="cb5-109">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> os.environ.get(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_CLUSTER_ID"</span>):</span>
-<span id="cb5-106">                cluster_id <span class="op" style="color: #5E5E5E;
+<span id="cb5-110">                cluster_id <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.environ.get(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"DATABRICKS_CLUSTER_ID"</span>)</span>
-<span id="cb5-107">                spark <span class="op" style="color: #5E5E5E;
+<span id="cb5-111">                spark <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DatabricksSession.builder.clusterId(cluster_id).getOrCreate()</span>
-<span id="cb5-108">                _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-112">                _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"🆔 クラスター使用: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -721,56 +737,51 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-109">            <span class="cf" style="color: #003B4F;
+<span id="cb5-113">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:</span>
-<span id="cb5-110">                os.environ.setdefault(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"DATABRICKS_SERVERLESS_COMPUTE_ID"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"auto"</span>)</span>
-<span id="cb5-111">                spark <span class="op" style="color: #5E5E5E;
+<span id="cb5-114">                spark <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> DatabricksSession.builder.serverless(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>).getOrCreate()</span>
-<span id="cb5-112">                _logger.info(<span class="st" style="color: #20794D;
+<span id="cb5-115">                _logger.info(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"🚀 Serverless Compute使用"</span>)</span>
-<span id="cb5-113"></span>
-<span id="cb5-114">        <span class="co" style="color: #5E5E5E;
+<span id="cb5-116"></span>
+<span id="cb5-117">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># DataFrame表示最適化（Serverless環境では一部設定が制限される）</span></span>
-<span id="cb5-115">        <span class="cf" style="color: #003B4F;
+<span id="cb5-118">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">try</span>:</span>
-<span id="cb5-116">            spark.conf.<span class="bu" style="color: null;
+<span id="cb5-119">            spark.conf.<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"spark.sql.repl.eagerEval.enabled"</span>, <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span>
-<span id="cb5-117">        <span class="cf" style="color: #003B4F;
+<span id="cb5-120">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">Exception</span>:</span>
-<span id="cb5-118">            <span class="co" style="color: #5E5E5E;
+<span id="cb5-121">            <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Serverless Computeでは設定できない場合があるのでスキップ</span></span>
-<span id="cb5-119">            <span class="cf" style="color: #003B4F;
+<span id="cb5-122">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">pass</span></span>
-<span id="cb5-120"></span>
-<span id="cb5-121">        _logger.info(<span class="st" style="color: #20794D;
+<span id="cb5-123"></span>
+<span id="cb5-124">        _logger.info(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"✅ Databricks Connect Sparkセッション作成完了"</span>)</span>
-<span id="cb5-122">        _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-125">        _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"📊 Spark version: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -781,7 +792,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-123">        _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-126">        _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"🌐 接続先: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -794,12 +805,12 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-124">        <span class="cf" style="color: #003B4F;
+<span id="cb5-127">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> spark</span>
-<span id="cb5-125"></span>
-<span id="cb5-126">    <span class="cf" style="color: #003B4F;
+<span id="cb5-128"></span>
+<span id="cb5-129">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
@@ -807,7 +818,7 @@ background-color: null;
 font-style: inherit;">ImportError</span> <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> e:</span>
-<span id="cb5-127">        <span class="cf" style="color: #003B4F;
+<span id="cb5-130">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
@@ -821,19 +832,19 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-128"></span>
-<span id="cb5-129"></span>
-<span id="cb5-130"><span class="kw" style="color: #003B4F;
+<span id="cb5-131"></span>
+<span id="cb5-132"></span>
+<span id="cb5-133"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> create_spark_session():</span>
-<span id="cb5-131">    <span class="co" style="color: #5E5E5E;
+<span id="cb5-134">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""実行環境に応じて適切なSparkセッションを作成"""</span></span>
-<span id="cb5-132">    env_type <span class="op" style="color: #5E5E5E;
+<span id="cb5-135">    env_type <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> get_environment_type()</span>
-<span id="cb5-133">    _logger.info(<span class="ss" style="color: #20794D;
+<span id="cb5-136">    _logger.info(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"🔍 実行環境検出: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -842,12 +853,12 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-134"></span>
-<span id="cb5-135">    <span class="cf" style="color: #003B4F;
+<span id="cb5-137"></span>
+<span id="cb5-138">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">try</span>:</span>
-<span id="cb5-136">        <span class="cf" style="color: #003B4F;
+<span id="cb5-139">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> env_type <span class="op" style="color: #5E5E5E;
@@ -855,22 +866,22 @@ background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"databricks"</span>:</span>
-<span id="cb5-137">            <span class="cf" style="color: #003B4F;
+<span id="cb5-140">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> create_databricks_native_session()</span>
-<span id="cb5-138">        <span class="cf" style="color: #003B4F;
+<span id="cb5-141">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span>:  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># local環境（VS Code、Cursor、Dev Container CLI等）</span></span>
-<span id="cb5-139">            <span class="cf" style="color: #003B4F;
+<span id="cb5-142">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> create_local_connect_session()</span>
-<span id="cb5-140"></span>
-<span id="cb5-141">    <span class="cf" style="color: #003B4F;
+<span id="cb5-143"></span>
+<span id="cb5-144">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
@@ -878,12 +889,12 @@ background-color: null;
 font-style: inherit;">Exception</span> <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> e:</span>
-<span id="cb5-142">        error_msg <span class="op" style="color: #5E5E5E;
+<span id="cb5-145">        error_msg <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">str</span>(e)</span>
-<span id="cb5-143">        _logger.error(<span class="ss" style="color: #20794D;
+<span id="cb5-146">        _logger.error(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"❌ Sparkセッション作成失敗: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -892,11 +903,11 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-144"></span>
-<span id="cb5-145">        <span class="co" style="color: #5E5E5E;
+<span id="cb5-147"></span>
+<span id="cb5-148">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># バージョン不整合の検出と対応提案</span></span>
-<span id="cb5-146">        <span class="cf" style="color: #003B4F;
+<span id="cb5-149">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="st" style="color: #20794D;
@@ -913,27 +924,27 @@ font-style: inherit;">"Databricks Runtime"</span> <span class="kw" style="color:
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> error_msg:</span>
-<span id="cb5-147">            _logger.error(<span class="st" style="color: #20794D;
+<span id="cb5-150">            _logger.error(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"🔧 バージョン不整合が検出されました"</span>)</span>
-<span id="cb5-148">            _logger.error(<span class="st" style="color: #20794D;
+<span id="cb5-151">            _logger.error(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"💡 以下のいずれかの対応を行ってください:"</span>)</span>
-<span id="cb5-149">            _logger.error(</span>
-<span id="cb5-150">                <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"   1. DatabricksConnectをクラスターのランタイムに合わせてダウングレード:"</span></span>
-<span id="cb5-151">            )</span>
 <span id="cb5-152">            _logger.error(</span>
 <span id="cb5-153">                <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"      uv add 'databricks-connect~=[クラスターのランタイムバージョン]'"</span></span>
+font-style: inherit;">"   1. DatabricksConnectをクラスターのランタイムに合わせてダウングレード:"</span></span>
 <span id="cb5-154">            )</span>
-<span id="cb5-155">            _logger.error(<span class="st" style="color: #20794D;
+<span id="cb5-155">            _logger.error(</span>
+<span id="cb5-156">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"      uv add 'databricks-connect~=[クラスターのランタイムバージョン]'"</span></span>
+<span id="cb5-157">            )</span>
+<span id="cb5-158">            _logger.error(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"   2. Databricksクラスターのランタイムをアップグレード"</span>)</span>
-<span id="cb5-156"></span>
-<span id="cb5-157">        _logger.error(<span class="ss" style="color: #20794D;
+<span id="cb5-159"></span>
+<span id="cb5-160">        _logger.error(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"💡 環境タイプ: </span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -942,16 +953,16 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb5-158">        <span class="cf" style="color: #003B4F;
+<span id="cb5-161">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">raise</span></span>
-<span id="cb5-159"></span>
-<span id="cb5-160"></span>
-<span id="cb5-161"><span class="co" style="color: #5E5E5E;
+<span id="cb5-162"></span>
+<span id="cb5-163"></span>
+<span id="cb5-164"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 明示的にcreate_spark_session()を呼び出してセッションを作成してください</span></span>
-<span id="cb5-162"><span class="co" style="color: #5E5E5E;
+<span id="cb5-165"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 例: spark = create_spark_session()</span></span></code></pre></div>
 </div>
