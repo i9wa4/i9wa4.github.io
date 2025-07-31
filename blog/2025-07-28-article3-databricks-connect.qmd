@@ -189,20 +189,27 @@ def create_local_connect_session():
     try:
         from databricks.connect import DatabricksSession
 
-        # .env読み込み
-        from dotenv import find_dotenv, load_dotenv
+        # 環境変数のデフォルト値を設定
+        os.environ.setdefault("DATABRICKS_CONFIG_PROFILE", "DEFAULT")
+        os.environ.setdefault("DATABRICKS_SERVERLESS_COMPUTE_ID", "auto")
+        os.environ.setdefault("DATABRICKS_CONNECT_DISABLE_VERSION_CHECK", "true")
 
-        env_file = find_dotenv()
-        if env_file:
-            load_dotenv(env_file)
-            _logger.info(f"📁 .env読み込み: {env_file}")
+        # .env読み込み（オプション）
+        try:
+            from dotenv import find_dotenv, load_dotenv
+
+            env_file = find_dotenv()
+            if env_file:
+                load_dotenv(env_file)
+                _logger.info(f"📁 .env読み込み: {env_file}")
+        except ImportError:
+            _logger.info("📁 dotenvモジュールなし - 環境変数のみ使用")
 
         # プロファイル指定チェック
         profile_name = os.environ.get("DATABRICKS_CONFIG_PROFILE")
 
         if profile_name:
             _logger.info(f"🔧 .databrickscfgプロファイル使用: {profile_name}")
-            os.environ.setdefault("DATABRICKS_CONNECT_DISABLE_VERSION_CHECK", "true")
 
             if os.environ.get("DATABRICKS_CLUSTER_ID"):
                 cluster_id = os.environ.get("DATABRICKS_CLUSTER_ID")
@@ -213,7 +220,6 @@ def create_local_connect_session():
                 )
                 _logger.info(f"🆔 クラスター使用: {cluster_id}")
             else:
-                os.environ.setdefault("DATABRICKS_SERVERLESS_COMPUTE_ID", "auto")
                 spark = (
                     DatabricksSession.builder.profile(profile_name)
                     .serverless(True)
@@ -229,14 +235,11 @@ def create_local_connect_session():
             if missing_vars:
                 raise ValueError(f"環境変数が未設定: {missing_vars}")
 
-            os.environ.setdefault("DATABRICKS_CONNECT_DISABLE_VERSION_CHECK", "true")
-
             if os.environ.get("DATABRICKS_CLUSTER_ID"):
                 cluster_id = os.environ.get("DATABRICKS_CLUSTER_ID")
                 spark = DatabricksSession.builder.clusterId(cluster_id).getOrCreate()
                 _logger.info(f"🆔 クラスター使用: {cluster_id}")
             else:
-                os.environ.setdefault("DATABRICKS_SERVERLESS_COMPUTE_ID", "auto")
                 spark = DatabricksSession.builder.serverless(True).getOrCreate()
                 _logger.info("🚀 Serverless Compute使用")
 
