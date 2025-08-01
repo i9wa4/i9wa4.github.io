@@ -200,13 +200,21 @@ jobs:
         run: |
           uv sync --only-group dev
 
+      - name: Cache pre-commit
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            pre-commit-${{ runner.os }}-
+
       - name: Install pre-commit
         run: |
-          uv run pre-commit install
+          uv run --no-sync pre-commit install
 
       - name: Run pre-commit
         run: |
-          uv run pre-commit run --all-files
+          uv run --no-sync pre-commit run --all-files
 ```
 
 ## 5. Dev Container への統合
