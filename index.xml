@@ -2409,8 +2409,71 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
+font-style: inherit;"> Cache pre-commit</span></span>
+<span id="cb3-53"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/cache@v4</span></span>
+<span id="cb3-54"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-55"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">path</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ~/.cache/pre-commit</span></span>
+<span id="cb3-56"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">key</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}</span></span>
+<span id="cb3-57"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">          restore-keys</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="cb3-58">            pre-commit-${{ runner.os }}-</span>
+<span id="cb3-59"></span>
+<span id="cb3-60"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
 font-style: inherit;"> Install pre-commit</span></span>
-<span id="cb3-53"><span class="fu" style="color: #4758AB;
+<span id="cb3-61"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">        run</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2418,9 +2481,9 @@ font-weight: bold;
 font-style: inherit;">: </span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">|</span></span>
-<span id="cb3-54">          uv run pre-commit install</span>
-<span id="cb3-55"></span>
-<span id="cb3-56"><span class="at" style="color: #657422;
+<span id="cb3-62">          uv run --no-sync pre-commit install</span>
+<span id="cb3-63"></span>
+<span id="cb3-64"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2435,7 +2498,7 @@ font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Run pre-commit</span></span>
-<span id="cb3-57"><span class="fu" style="color: #4758AB;
+<span id="cb3-65"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">        run</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2443,7 +2506,7 @@ font-weight: bold;
 font-style: inherit;">: </span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">|</span></span>
-<span id="cb3-58">          uv run pre-commit run --all-files</span></code></pre></div>
+<span id="cb3-66">          uv run --no-sync pre-commit run --all-files</span></code></pre></div>
 </div>
 </section>
 </section>
