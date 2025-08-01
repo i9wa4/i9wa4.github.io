@@ -1760,7 +1760,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"> uv run black</span></span>
+font-style: inherit;"> uv run --no-sync black</span></span>
 <span id="cb2-21"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
@@ -1847,7 +1847,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"> uv run isort</span></span>
+font-style: inherit;"> uv run --no-sync isort</span></span>
 <span id="cb2-29"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
@@ -1934,7 +1934,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;"> uv run flake8</span></span>
+font-style: inherit;"> uv run --no-sync flake8</span></span>
 <span id="cb2-37"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
