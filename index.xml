@@ -15,7 +15,7 @@
 <title>uma-chan&#39;s page</title>
 <link>https://i9wa4.github.io/</link>
 </image>
-<generator>quarto-1.7.32</generator>
+<generator>quarto-1.7.33</generator>
 <lastBuildDate>Sun, 27 Jul 2025 16:54:03 GMT</lastBuildDate>
 <item>
   <title>Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用</title>
@@ -1459,7 +1459,7 @@ font-style: inherit;">max-line-length</span> <span class="op" style="color: #5E5
 background-color: null;
 font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">120</span></span>
+font-style: inherit;">88</span></span>
 <span id="cb1-36"><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">extend-exclude</span> <span class="op" style="color: #5E5E5E;
@@ -2438,17 +2438,23 @@ font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> ~/.cache/pre-commit</span></span>
-<span id="cb3-56"><span class="at" style="color: #657422;
+<span id="cb3-56"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">key</span><span class="kw" style="color: #003B4F;
+font-style: inherit;">          key</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">:</span><span class="at" style="color: #657422;
+font-style: inherit;">: </span><span class="ch" style="color: #20794D;
 background-color: null;
-font-style: inherit;"> pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}</span></span>
-<span id="cb3-57"><span class="fu" style="color: #4758AB;
+font-style: inherit;">|</span></span>
+<span id="cb3-57">            pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}-${{ hashFiles('uv.lock') }}</span>
+<span id="cb3-58"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">          # </span><span class="al" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">NOTE</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">: 設定ファイルの変更時に必ずキャッシュを更新する</span></span>
+<span id="cb3-59"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">          restore-keys</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2456,9 +2462,9 @@ font-weight: bold;
 font-style: inherit;">: </span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">|</span></span>
-<span id="cb3-58">            pre-commit-${{ runner.os }}-</span>
-<span id="cb3-59"></span>
-<span id="cb3-60"><span class="at" style="color: #657422;
+<span id="cb3-60">            pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}-${{ hashFiles('uv.lock') }}</span>
+<span id="cb3-61"></span>
+<span id="cb3-62"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2473,7 +2479,7 @@ font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Install pre-commit</span></span>
-<span id="cb3-61"><span class="fu" style="color: #4758AB;
+<span id="cb3-63"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">        run</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2481,9 +2487,9 @@ font-weight: bold;
 font-style: inherit;">: </span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">|</span></span>
-<span id="cb3-62">          uv run --no-sync pre-commit install</span>
-<span id="cb3-63"></span>
-<span id="cb3-64"><span class="at" style="color: #657422;
+<span id="cb3-64">          uv run --no-sync pre-commit install</span>
+<span id="cb3-65"></span>
+<span id="cb3-66"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2498,7 +2504,7 @@ font-weight: bold;
 font-style: inherit;">:</span><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;"> Run pre-commit</span></span>
-<span id="cb3-65"><span class="fu" style="color: #4758AB;
+<span id="cb3-67"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">        run</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2506,7 +2512,7 @@ font-weight: bold;
 font-style: inherit;">: </span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">|</span></span>
-<span id="cb3-66">          uv run --no-sync pre-commit run --all-files</span></code></pre></div>
+<span id="cb3-68">          uv run --no-sync pre-commit run --all-files</span></code></pre></div>
 </div>
 </section>
 </section>
