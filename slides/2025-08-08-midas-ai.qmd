@@ -1,0 +1,148 @@
+---
+title: "Claude Code データ業務活用"
+subtitle: "ミダス企業群生成AI横断勉強会"
+author:
+  - name: 馬渡 大樹
+    affiliation: 株式会社GENDA
+    roles: データエンジニア
+date: 2025-08-08
+date-modified: last-modified
+description: |
+  [登壇資料] 2025-08-08 ミダス企業群生成AI横断勉強会
+categories:
+  - "slides"
+  - "genda"
+format:
+  revealjs:
+    footer: "2025-08-08 ミダス企業群生成AI横断勉強会"
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: true
+    theme: beige
+    toc-depth: 2
+    toc: false
+---
+
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+|        |                                           |
+| ---    | ---                                       |
+| 名前   | 馬渡 大樹 (Mawatari Daiki)                |
+| 所属   | 株式会社GENDA - IT戦略部                  |
+| 職種   | データエンジニア / 機械学習基盤エンジニア |
+| 住所   | 北海道札幌市                              |
+| GitHub | [@i9wa4](https://github.com/i9wa4)        |
+| X      | [@i9wa4_](https://x.com/i9wa4_)           |
+
+ゲームセンター / Vim / 飲み会が好き。
+
+このスライドは Vim で作りました。
+
+昨日は Vim 友達と飲み会してきました。友達も Vim で作りました。
+:::
+
+::: {.column width="30%"}
+![](/assets/2025-05-22-midas-cursor-tips/IMG20240922183711-trimmed.jpg){fig-align="left" width="100%"}
+:::
+
+::::
+
+### 1.2. 目次
+
+1. Claude Code を組み込んだ開発環境
+1. Vibe Data Science
+1. 雑多なタスクをやらせてみる
+
+## 2. Claude Code を組み込んだ開発環境
+
+### 2.1. 記事紹介
+
+VS Code や CLI で Claude Code を業務利用するための環境構築方法を記事化
+
+余った時間で記事を見ます
+
+:::: {.columns}
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="80%"}
+![[GENDA Creators Blog](https://blog.genda.jp/creators/)](/assets/2025-08-08-midas-ai/articles.png){fig-align="left"}
+:::
+
+::: {.column width="10%"}
+:::
+
+::::
+
+## 3. Vibe Data Science
+
+### 3.1. データサイエンティストの作業が辛い問題
+
+:::: {.columns}
+
+::: {.column width="60%"}
+社内外でよく聞く声
+
+- クラウドの計算リソースに依存するのでローカル環境で AI 活用しづらい
+- 機械学習に時間がかかるので待ちが長くて気が散る
+- 分析や機械学習のためにデータを探索しないといけないが膨大なデータマートの調査がしんどい
+- 他職種のノウハウ共有を取り入れづらく人口も少ないのでベストプラクティスが全然出回らない
+:::
+
+::: {.column width="40%"}
+![8/5 の記事。今回割愛しますが BigQuery Studio が現状最強の DS 環境ですね！](/assets/2025-08-08-midas-ai/vibe-data-science-bq.jpeg){fig-align="left"}
+:::
+
+::::
+
+### 3.2. Databricks を軸とした Vibe Data Science 環境
+
+記事で解説しました
+
+Dev Container (VS Code) でノートブックを Databricks 上の計算リソースに接続できるようになってます
+
+### 3.3. Vibe Data Science のお題目
+
+```
+簡単な機械学習をやってください
+
+job/ の既存ファイルを参考にして job/ に追加してください
+
+## 手順
+
+1. 参考リポジトリの情報を詳しく確認する
+    - README.md や CONTRIBUTING.md は必ず読むこと
+2. EDA (探索的データ解析) を行う
+3. データを利用して機械学習を行う
+```
+
+```
+## 参考リポジトリ
+
+私のローカル環境に存在するリポジトリ
+
+- dbt リポジトリ1 (データマート情報あり)
+- dbt リポジトリ2 (データマート情報あり)
+- Dashboard リポジトリ
+
+## 要件
+
+- 既存のデータを参考にして10分程度で学習と推論ができる内容
+- ビジネス的に有意義な内容
+```
+
+## 4. 雑多なタスクをやらせてみる
+
+### 4.1. 雑多なタスク
+
+- リポジトリの資料更新
+- データ欠損の Slack 通知処理
