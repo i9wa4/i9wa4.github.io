@@ -1233,6 +1233,45 @@
     "text": "1. プロフィール\n\n\nDaiki Mawatari / 馬渡大樹 / uma-chan\n\n住所：北海道札幌市\n職歴\n\n\n\n2016 - 2022\n組込エンジニアなど\n\n\n2022 - 2024\n2社でデータエンジニア・MLOpsエンジニア\n\n\n2024.11-\nGENDA データエンジニア・MLOpsエンジニア\n\n\n2025.06-\nPIVOT データエンジニア 業務委託\n\n\n\n好きなもの\n\n音楽ゲーム (DanceDanceRevolution・beatmania IIDX)\nテキストエディタ等のツール\n\n\n\n\n\n\n\n\n\n\n\nGitHub 等で利用しているアイコン"
   },
   {
+    "objectID": "slides/2025-08-08-midas-ai.html#はじめに",
+    "href": "slides/2025-08-08-midas-ai.html#はじめに",
+    "title": "Claude Code データ業務活用",
+    "section": "1. はじめに",
+    "text": "1. はじめに"
+  },
+  {
+    "objectID": "slides/2025-08-08-midas-ai.html#claude-code-を組み込んだ開発環境",
+    "href": "slides/2025-08-08-midas-ai.html#claude-code-を組み込んだ開発環境",
+    "title": "Claude Code データ業務活用",
+    "section": "2. Claude Code を組み込んだ開発環境",
+    "text": "2. Claude Code を組み込んだ開発環境"
+  },
+  {
+    "objectID": "slides/2025-08-08-midas-ai.html#vibe-data-science",
+    "href": "slides/2025-08-08-midas-ai.html#vibe-data-science",
+    "title": "Claude Code データ業務活用",
+    "section": "3. Vibe Data Science",
+    "text": "3. Vibe Data Science"
+  },
+  {
+    "objectID": "slides/2025-08-08-midas-ai.html#雑多なタスクをやらせてみる",
+    "href": "slides/2025-08-08-midas-ai.html#雑多なタスクをやらせてみる",
+    "title": "Claude Code データ業務活用",
+    "section": "4. 雑多なタスクをやらせてみる",
+    "text": "4. 雑多なタスクをやらせてみる"
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Claude Code データ業務活用\n\n\n\nslides\n\ngenda\n\n\n\n[登壇資料] 2025-08-08 ミダス企業群生成AI横断勉強会\n\n\n\n2025-08-08\n\n\n\n\n\n\n\n\n\n\n\n自己紹介\n\n\n\nslides\n\npivot\n\n\n\n2025-06-03 自己紹介 @PIVOT\n\n\n\n2025-06-03\n\n\n\n\n\n\n\n\n\n\n\nCursorのおすすめ設定 & Cursorにデータ分析を任せる方法\n\n\n\nslides\n\ngenda\n\n\n\n[登壇資料] 2025-05-22 AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)\n\n\n\n2025-05-22\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\nvim-jp\n\n\n\n2024-02-04 Sapporo.vim 自己紹介\n\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\nvim-jp\n\n\n\n2023-12-16 Sapporo.vim 自己紹介\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Content",
+      "Slides"
+    ]
+  },
+  {
     "objectID": "slides/2023-12-16-sapporo.vim.html#自己紹介",
     "href": "slides/2023-12-16-sapporo.vim.html#自己紹介",
     "title": "Sapporo.vim 自己紹介",
@@ -1252,17 +1291,6 @@
     "title": "Sapporo.vim 自己紹介",
     "section": "3. 本日の成果",
     "text": "3. 本日の成果\n\ndein.vim -&gt; dpp.vim 移行\n\n\n遅延なしプラグインの起動までできた\nこのあとは遅延起動プラグイン対応のために設定ファイル (TypeScript) を書きたい"
-  },
-  {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "Slides",
-    "section": "",
-    "text": "自己紹介\n\n\n\nslides\n\npivot\n\n\n\n2025-06-03 自己紹介 @PIVOT\n\n\n\n2025-06-03\n\n\n\n\n\n\n\n\n\n\n\nCursorのおすすめ設定 & Cursorにデータ分析を任せる方法\n\n\n\nslides\n\ngenda\n\n\n\n[登壇資料] 2025-05-22 AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)\n\n\n\n2025-05-22\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\nvim-jp\n\n\n\n2024-02-04 Sapporo.vim 自己紹介\n\n\n\n2024-02-04\n\n\n\n\n\n\n\n\n\n\n\nSapporo.vim 自己紹介\n\n\n\nslides\n\nvim-jp\n\n\n\n2023-12-16 Sapporo.vim 自己紹介\n\n\n\n2023-12-16\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Content",
-      "Slides"
-    ]
   },
   {
     "objectID": "slides/2024-02-04-sapporo.vim.html#自己紹介",
