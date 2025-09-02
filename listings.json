@@ -15,6 +15,7 @@
     "items": [
       "/blog/2025-09-02-activity.html",
       "/blog/2025-08-23-diary.html",
+      "/slides/2025-08-08-midas-ai.html",
       "/blog/2025-07-28-article3-databricks-connect.html",
       "/blog/2025-07-28-article2-python-env.html",
       "/blog/2025-07-28-article1-devcontainer.html",
@@ -25,6 +26,8 @@
       "/blog/2025-06-10-install-global-python-with-uv.html",
       "/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html",
       "/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html",
+      "/slides/2025-06-03-self-introduction-1page.html",
+      "/slides/2025-05-22-midas-cursor-tips.html",
       "/blog/2025-05-21-databricks-dashboard-github-operation.html",
       "/blog/2025-05-12-hands-on-lambda-ecr.html",
       "/blog/2025-05-10-bash-zsh-edit-and-execute-command.html",
@@ -68,10 +71,12 @@
       "/blog/2024-05-04-get-git-branch-name.vim.html",
       "/blog/2024-03-26-setup-ds100knock.html",
       "/blog/2024-03-25-setup-wsl2.html",
+      "/slides/2024-02-04-sapporo.vim.html",
       "/blog/2024-01-27-setup-efm-langserver.html",
       "/blog/2024-01-02-vim-plugin-mnh.html",
       "/blog/2024-01-02-jelyll-adjust.html",
-      "/blog/2024-01-01-init.html"
+      "/blog/2024-01-01-init.html",
+      "/slides/2023-12-16-sapporo.vim.html"
     ]
   },
   {
