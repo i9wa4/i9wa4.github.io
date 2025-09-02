@@ -1,7 +1,19 @@
 [
   {
+    "listing": "/resume/index.html",
+    "items": [
+      "/resume/05-genda.html",
+      "/resume/04-hacomono.html",
+      "/resume/03-cnsh.html",
+      "/resume/02-sld.html",
+      "/resume/01-okuma.html",
+      "/resume/07-pivot.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-09-02-activity.html",
       "/blog/2025-08-23-diary.html",
       "/blog/2025-07-28-article3-databricks-connect.html",
       "/blog/2025-07-28-article2-python-env.html",
@@ -63,19 +75,9 @@
     ]
   },
   {
-    "listing": "/resume/index.html",
-    "items": [
-      "/resume/05-genda.html",
-      "/resume/04-hacomono.html",
-      "/resume/03-cnsh.html",
-      "/resume/02-sld.html",
-      "/resume/01-okuma.html",
-      "/resume/07-pivot.html"
-    ]
-  },
-  {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-09-02-activity.html",
       "/blog/2025-08-23-diary.html",
       "/blog/2025-07-28-article3-databricks-connect.html",
       "/blog/2025-07-28-article2-python-env.html",
