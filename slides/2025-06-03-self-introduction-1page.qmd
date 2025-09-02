@@ -11,6 +11,7 @@ description: |
 categories:
   - "slides"
   - "pivot"
+image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     footer: "自己紹介 馬渡大樹"

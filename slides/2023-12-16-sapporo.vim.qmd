@@ -8,6 +8,7 @@ description: |
 categories:
   - "slides"
   - "vim-jp"
+image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     incremental: false

@@ -11,6 +11,7 @@ description: |
 categories:
   - "slides"
   - "genda"
+image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     code-copy: true
