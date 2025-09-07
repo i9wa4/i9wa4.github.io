@@ -1,36 +1,67 @@
 "Tags","Date","Title","URL"
+ai,2024-01-01,Gemini Proと会話できるSlackBotをAWSサーバレス上に作る,https://zenn.dev/dyoshikawa/articles/gemini-pro-slack-bot-on-aws-serverless
+ai,2025-06-02,「AIエージェント疲れ」の原因と対策,https://zenn.dev/tellernovel_inc/articles/ai-agent-fatigue
+books,2018-11-01,『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ,https://tjo.hatenablog.com/entry/2018/11/01/080000
+books,2024-10-26,技術書の電子書籍を PDF/EPUB で配信しているサイトまとめ #PDF - Qiita,https://qiita.com/tommy_aka_jps/items/9b3a8fb1939033003119
+books,2024-12-06,私たちのR,https://www.jaysong.net/RBook/
 career,2015-05-07,きっと何者にもなれない焦りを抱えながら、がむしゃらに前に進む - Konifar's WIP,https://konifar.hatenablog.com/entry/2015/05/07/101333
-career,2021-02-08,今日のリモート雑談テーマを決める魔法のスプレッドシートを運用している話 - エムスリーテックブログ,https://www.m3tech.blog/entry/zatsudan-mahou-no-spreadsheet
 career,2021-11-25,データサイエンティストのインターン面談をして採用側が感じているズレの正体とは？ #Python - Qiita,https://qiita.com/He110w0r1d/items/054f988e9a9b01c46572
+career,2023-06-10,キャリアに偶発性を呼び込み、複数の専門性を獲得するには？冒険的なキャリアデザインのためには、あえて軸をズラしてキャリア・トラベリングせよ｜安斎勇樹,https://note.com/yuki_anzai/n/n039ff0248424
 career,2023-12-09,"自らを強いエンジニアにするための3つの習慣 / I need to be myself, I can't be no one else - Speaker Deck",https://speakerdeck.com/shinyorke/i-need-to-be-myself-i-cant-be-no-one-else
 career,2024-03-05,行動をするときに「自分には向いてないかも」と悩む時間は必要ない - そーだいなるらくがき帳,https://soudai.hatenablog.com/entry/2024/03/05/120426
+career,2024-03-07,「クランボルツのキャリア論」が教えてくれる人生で大切なこと | 定番読書 | ダイヤモンド・オンライン,https://diamond.jp/articles/-/339423
 career,2024-06-24,課題を管理して実行して達成するための手順 - そーだいなるらくがき帳 | 最終更新日,https://soudai.hatenablog.com/entry/2020/12/31/165940
 career,2024-10-18,40代後半で開発エンジニアからクラウドインフラエンジニアにキャリアチェンジし、生き残れる自信がようやく持てた話 - Speaker Deck,https://speakerdeck.com/iwamot/kinoko-33efec14-974b-4c59-8a81-1c855bc34d54
 career,2024-10-23,中堅の停滞期、ゆるやかな死。｜FromAtom,https://sizu.me/fromatom/posts/w10ht59w9572
-career,2024-10-26,技術書の電子書籍を PDF/EPUB で配信しているサイトまとめ #PDF - Qiita,https://qiita.com/tommy_aka_jps/items/9b3a8fb1939033003119
 career,2024-10-30,「転職した方が年収上げやすい」は過去の話！それでも“年収アップ転職”をしたいエンジニアがやるべき三つの対策 - エンジニアtype | 転職type,https://type.jp/et/feature/27057/
 career,2024-12-20,濃い職務経歴書(Curriculum Vitae/Resume)とは何か｜mtsuka,https://note.com/mtsuka/n/n6b44bb12dd36?sub_rt=share_pb
 career,2024-12-27,ソフトウェアエンジニアの転職活動で準備したこと、そして使ったもの。｜中川 伸一 / shinyorke,https://note.com/shinyorke/n/n52a6156e0eb1?sub_rt=share_pw
 career,2025-01-03,休養も仕事と同じ本気度で取り組むと決めた - 自戒、点検、内省,https://retrospective.hatenadiary.com/entry/20250103/1735903707
 career,2025-03-31,ジュニアエンジニアからシニアエンジニアになるまでに自分がやっていたことまとめ - yasuhisa's blog,https://www.yasuhisay.info/entry/2025/03/31/230212
+career,2025-07-21,【炬燵編】Kaigi on Railsのプロポーザルを評価するときに考えていること、求めていること - 感情的ドリル,https://sakahukamaki.hatenablog.jp/entry/2025/07/21/183625
 data-analysis,2024-12-08,データ分析で用いるSQLクエリの設計方法 - 風音屋TechBlog,https://techblog.kazaneya.com/20241208-design-of-analytical-sql-queries/
+data-analysis,2025-04-14,半年で社内BigQueryの月間利用者数を+300%にした話｜Yuto Shinahara,https://note.com/snhryt/n/nfaa4acab7db2
+data-analysis,2025-08-31,Claude CodeでBigQueryのクエリを実行する際のガードレールを設計する - yasuhisa's blog,https://yasuhisay.info/entry/2025/08/31/144559
 data-engineering,2024-01-23,"ディメンショナルモデリングに入門しよう！Snowflakeとdbt Cloudで「Building a Kimball dimensional model with dbt」をやってみた | DevelopersIO",https://dev.classmethod.jp/articles/building-a-kimball-dimensional-model-with-snowflake-and-dbt/
-data-engineering,2024-12-09,データ精度100%を目指す！dbt test徹底活用ガイド - ENGINEERING BLOG ドコモ開発者ブログ,https://nttdocomo-developers.jp/entry/2024/12/09/090000_1
 data-engineering,2024-12-11,dbt モデルを安全に更新！データ差分検出ツールの「table diff」の実装 | Zenn,https://zenn.dev/medicu/articles/350fc0bef073d6
+data-engineering,2024-12-11,dbt-checkpointを活用したコード検証 #GitHubActions - Qiita,https://qiita.com/i-125/items/1c0ac3193fc3c7c0a96c
 data-engineering,2025-03-30,ディメンショナル・モデリング 勉強法 | Zenn,https://zenn.dev/pei0804/articles/dimensional-modeling-study
+data-engineering,2025-05-08,uvを使ったdbt Coreの導入手順,https://zenn.dev/kazuya_araki/articles/20250508__dbt_core_environment
+data-engineering,2025-05-12,mise + uv + dbt-coreで、ゼロから爆速でdbtの環境構築,https://zenn.dev/soomattsu/articles/08357285c98eaf
+docker,2099-12-31,Dockerfile reference | Docker Docs,https://docs.docker.com/reference/dockerfile/
+github,2021-10-30,GitHub Actions でデフォルトブランチにないワークフローの動作確認をする #GitHubActions - Qiita,https://qiita.com/trackiss/items/02eefc2ab8ccfd41768c
 github,2022-02-26,2022-02-26開催 - merge / rebase 勉強会 - Speaker Deck,https://speakerdeck.com/na0x2c6/rebase-mian-qiang-hui
 github,2022-12-07,GitHub Actions上でgit commitするときにgit userをどうするか #GitHubActions - Qiita,https://qiita.com/thaim/items/3d1a4d09ec4a7d8844ce
-github,2024-10-21,"Github Actions で実現する Terraform plan, apply 自動化",https://findy-tools.io/products/github-actions/366/285
 github,2024-10-24,なんとなくから脱却する GitHub Actionsグッドプラクティス11選 | gihyo.jp | gihyo.jp | 技術評論社,https://gihyo.jp/article/2024/10/good-practices-for-github-actions
 github,2024-11-07,git rebaseの苦労を減らすための覚え書き | Atusy's blog,https://blog.atusy.net/2024/11/07/git-rebase/
+infrastructure,2023-11-14,ロギング設計大全 - kawasima,https://scrapbox.io/kawasima/ロギング設計大全
+infrastructure,2024-10-09,"AWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog",https://studist.tech/aws-opensearch-service-vector-search-entrance-b88d0050480d
+infrastructure,2024-10-21,"Github Actions で実現する Terraform plan, apply 自動化",https://findy-tools.io/products/github-actions/366/285
+infrastructure,2025-04-24,丁度ええ! ロギング - kawasima,https://scrapbox.io/kawasima/丁度ええ!_ロギング
+infrastructure,2025-08-26,なぜ複数のVPCをつなぐ必要があるのか？ - Speaker Deck,https://speakerdeck.com/shotashiratori/nazefu-shu-novpcwotunagubi-yao-gaarunoka
 machine-learning,2015-12-21,プロトタイプで終わらせない死の谷を超える機械学習プロジェクトの進め方 #MLCT4 | PPT,https://www.slideshare.net/slideshow/mlct4/56324728
-machine-learning,2016-02-22,失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT,https://www.slideshare.net/slideshow/2016-devsumi/58541785
-machine-learning,2018-11-01,『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ,https://tjo.hatenablog.com/entry/2018/11/01/080000
 machine-learning,2023-06-12,協調フィルタリングとベクトル検索エンジンを利用した商品推薦精度改善の試み | メルカリエンジニアリング,https://engineering.mercari.com/blog/entry/20230612-cf-similar-item/
 machine-learning,2024-09-11,RAGもファインチューニングも使わない 素朴なAIチャットボットを職場に導入した結果 - Speaker Deck,https://speakerdeck.com/iwamot/success-of-simple-ai-chatbot-in-workspace
-machine-learning,2024-10-09,"AWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog",https://studist.tech/aws-opensearch-service-vector-search-entrance-b88d0050480d
 machine-learning,2024-12-02,MLOpsパイプラインをSnowflakeのみで実現してみた - ENGINEERING BLOG ドコモ開発者ブログ,https://nttdocomo-developers.jp/entry/2024/12/02/090000_1
 machine-learning,2024-12-02,機械学習基盤のアーキテクチャ特集 〜8社の設計意図と今後の展望〜 - Findy Tools,https://findy-tools.io/articles/ml/17
-quarto,2024-12-06,私たちのR,https://www.jaysong.net/RBook/
+mcp,2025-04-19,リモートMCPがやってくる、そしてA2Aについて,https://blog.lai.so/remote-mcp/
+mcp,2025-05-02,A Critical Look at MCP- Raz Blog,https://raz.sh/blog/2025-05-02_a_critical_look_at_mcp
+mcp,2025-05-07,MCP サーバにユーザ認証機能を実装する - フレクトのクラウドblog,https://cloud.flect.co.jp/entry/2025/05/07/100000
+mcp,2025-05-08,比較的安全にMCPサーバを動かす - LIFULL Creators Blog,https://www.lifull.blog/entry/2025/05/08/170000
+mcp,2025-05-11,リモートサーバーで動かす Python MCP Server — Streamable HTTP 時代の始まり ~ uv / Docker / pytest を備えたミニマルテンプレート付き ~ #AI - Qiita,https://qiita.com/airtanker/items/d940ef8c346c3644da3b
+mcp,2025-05-21,Gemini API ＆ SDK が MCP 対応したので試す（Node.js を利用）【Google I/O 2025】 #googleio - Qiita,https://qiita.com/youtoy/items/fd1b123c3f7fc3516264
+mcp,2025-08-04,開いているブラウザの内容を読める MCP サーバー - ぽ靴な缶,https://blog.pokutuna.com/entry/pokutuna-mcp-chrome-tabs
+team-management,2016-02-22,失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT,https://www.slideshare.net/slideshow/2016-devsumi/58541785
+team-management,2021-02-08,今日のリモート雑談テーマを決める魔法のスプレッドシートを運用している話 - エムスリーテックブログ,https://www.m3tech.blog/entry/zatsudan-mahou-no-spreadsheet
+team-management,2024-10-30,役割をお願いする時に伝えていること - Konifar's ZATSU,https://konifar-zatsu.hatenadiary.jp/entry/2024/10/30/174251
+testing,2024-12-09,データ精度100%を目指す！dbt test徹底活用ガイド - ENGINEERING BLOG ドコモ開発者ブログ,https://nttdocomo-developers.jp/entry/2024/12/09/090000_1
+testing,2025-08-29,AIエージェント時代のテスト駆動開発（TDD） - Agile Journey,https://agilejourney.uzabase.com/entry/2025/08/29/103000
 text-editor,2022-05-05,Vim で折り返し行を簡単に移動できるサブモード・テクニック | Zenn,https://zenn.dev/mattn/articles/83c2d4c7645faa
 text-editor,2023-06-04,ddu.vimにちゃんと入門した話 | Zenn,https://zenn.dev/uga_rosa/articles/f55be75a573c0b
+text-editor,2025-04-14,Neovimをはじめよう feat. mini.nvim,https://zenn.dev/kawarimidoll/books/6064bf6f193b51
+tools,2025-01-05,XやSlackで大きめのOGP画像を表示する設定と注意点,https://zenn.dev/yamadashy/scraps/2963f8dbb443c2
+tools,2025-08-12,終活は、まず預貯金口座の付番申請をしよう。,https://anond.hatelabo.jp/20250812174941
+tools,2099-12-31,Card Validator | X Developers,https://cards-dev.x.com/validator
+tools,2099-12-31,Comfy | バツグンに探しやすい物件検索 | 全国の賃貸を検索,https://comfy.maison/
+tools,2099-12-31,LGTMoon - Simplest LGTM Image Generator,https://lgtmoon.herokuapp.com/en
+tools,2099-12-31,MEGAMOJI - カスタム絵文字メーカー,https://zk-phi.github.io/MEGAMOJI/

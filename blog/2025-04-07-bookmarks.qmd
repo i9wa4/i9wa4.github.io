@@ -11,6 +11,12 @@ categories:
   - "memo"
 ---
 
+<!--
+要件メモ:
+- date はそれぞれの記事の投稿日を記載する
+- 記事ではなくポータルサイトの場合は 2099-12-31 を設定
+-->
+
 ```{python}
 #| include: false
 #| echo: false
@@ -75,30 +81,79 @@ extract_tag('text-editor')
 extract_tag('github')
 ```
 
-## 4. Quarto
-
-```{python}
-#| echo: false
-extract_tag('quarto')
-```
-
-## 5. データ分析
+## 4. データ分析
 
 ```{python}
 #| echo: false
 extract_tag('data-analysis')
 ```
 
-## 6. データエンジニアリング
+## 5. データエンジニアリング
 
 ```{python}
 #| echo: false
 extract_tag('data-engineering')
 ```
 
-## 7. 機械学習
+## 6. 機械学習
 
 ```{python}
 #| echo: false
 extract_tag('machine-learning')
+```
+
+## 7. MCP (Model Context Protocol)
+
+```{python}
+#| echo: false
+extract_tag('mcp')
+```
+
+## 8. AI
+
+```{python}
+#| echo: false
+extract_tag('ai')
+```
+
+## 9. Docker
+
+```{python}
+#| echo: false
+extract_tag('docker')
+```
+
+## 10. ツール
+
+```{python}
+#| echo: false
+extract_tag('tools')
+```
+
+## 11. チームマネジメント
+
+```{python}
+#| echo: false
+extract_tag('team-management')
+```
+
+## 12. インフラストラクチャ
+
+```{python}
+#| echo: false
+extract_tag('infrastructure')
+```
+
+## 13. テスト
+
+```{python}
+#| echo: false
+extract_tag('testing')
+```
+
+## 14. 書籍・学習リソース
+
+```{python}
+#| echo: false
+extract_tag('books')
 ```
