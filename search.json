@@ -179,49 +179,98 @@
     "href": "blog/2025-04-07-bookmarks.html#キャリア",
     "title": "個人的ブックマーク",
     "section": "1. キャリア",
-    "text": "1. キャリア\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-03-31\n\n\n\nジュニアエンジニアからシニアエンジニアになるまでに自分がやっていたことまとめ - yasuhisa's blog\n\n\n\n\n\n\n\n2025-01-03\n\n\n\n休養も仕事と同じ本気度で取り組むと決めた - 自戒、点検、内省\n\n\n\n\n\n\n\n2024-12-27\n\n\n\nソフトウェアエンジニアの転職活動で準備したこと、そして使ったもの。｜中川 伸一 / shinyorke\n\n\n\n\n\n\n\n2024-12-20\n\n\n\n濃い職務経歴書(Curriculum Vitae/Resume)とは何か｜mtsuka\n\n\n\n\n\n\n\n2024-10-30\n\n\n\n「転職した方が年収上げやすい」は過去の話！それでも“年収アップ転職”をしたいエンジニアがやるべき三つの対策 - エンジニアtype | 転職type\n\n\n\n\n\n\n\n2024-10-26\n\n\n\n技術書の電子書籍を PDF/EPUB で配信しているサイトまとめ #PDF - Qiita\n\n\n\n\n\n\n\n2024-10-23\n\n\n\n中堅の停滞期、ゆるやかな死。｜FromAtom\n\n\n\n\n\n\n\n2024-10-18\n\n\n\n40代後半で開発エンジニアからクラウドインフラエンジニアにキャリアチェンジし、生き残れる自信がようやく持てた話 - Speaker Deck\n\n\n\n\n\n\n\n2024-06-24\n\n\n\n課題を管理して実行して達成するための手順 - そーだいなるらくがき帳 | 最終更新日\n\n\n\n\n\n\n\n2024-03-05\n\n\n\n行動をするときに「自分には向いてないかも」と悩む時間は必要ない - そーだいなるらくがき帳\n\n\n\n\n\n\n\n2023-12-09\n\n\n\n自らを強いエンジニアにするための3つの習慣 / I need to be myself, I can't be no one else - Speaker Deck\n\n\n\n\n\n\n\n2021-11-25\n\n\n\nデータサイエンティストのインターン面談をして採用側が感じているズレの正体とは？ #Python - Qiita\n\n\n\n\n\n\n\n2021-02-08\n\n\n\n今日のリモート雑談テーマを決める魔法のスプレッドシートを運用している話 - エムスリーテックブログ\n\n\n\n\n\n\n\n2015-05-07\n\n\n\nきっと何者にもなれない焦りを抱えながら、がむしゃらに前に進む - Konifar's WIP"
+    "text": "1. キャリア\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-07-21\n\n\n\n【炬燵編】Kaigi on Railsのプロポーザルを評価するときに考えていること、求めていること - 感情的ドリル\n\n\n\n\n\n\n\n2025-03-31\n\n\n\nジュニアエンジニアからシニアエンジニアになるまでに自分がやっていたことまとめ - yasuhisa's blog\n\n\n\n\n\n\n\n2025-01-03\n\n\n\n休養も仕事と同じ本気度で取り組むと決めた - 自戒、点検、内省\n\n\n\n\n\n\n\n2024-12-27\n\n\n\nソフトウェアエンジニアの転職活動で準備したこと、そして使ったもの。｜中川 伸一 / shinyorke\n\n\n\n\n\n\n\n2024-12-20\n\n\n\n濃い職務経歴書(Curriculum Vitae/Resume)とは何か｜mtsuka\n\n\n\n\n\n\n\n2024-10-30\n\n\n\n「転職した方が年収上げやすい」は過去の話！それでも“年収アップ転職”をしたいエンジニアがやるべき三つの対策 - エンジニアtype | 転職type\n\n\n\n\n\n\n\n2024-10-23\n\n\n\n中堅の停滞期、ゆるやかな死。｜FromAtom\n\n\n\n\n\n\n\n2024-10-18\n\n\n\n40代後半で開発エンジニアからクラウドインフラエンジニアにキャリアチェンジし、生き残れる自信がようやく持てた話 - Speaker Deck\n\n\n\n\n\n\n\n2024-06-24\n\n\n\n課題を管理して実行して達成するための手順 - そーだいなるらくがき帳 | 最終更新日\n\n\n\n\n\n\n\n2024-03-07\n\n\n\n「クランボルツのキャリア論」が教えてくれる人生で大切なこと | 定番読書 | ダイヤモンド・オンライン\n\n\n\n\n\n\n\n2024-03-05\n\n\n\n行動をするときに「自分には向いてないかも」と悩む時間は必要ない - そーだいなるらくがき帳\n\n\n\n\n\n\n\n2023-12-09\n\n\n\n自らを強いエンジニアにするための3つの習慣 / I need to be myself, I can't be no one else - Speaker Deck\n\n\n\n\n\n\n\n2023-06-10\n\n\n\nキャリアに偶発性を呼び込み、複数の専門性を獲得するには？冒険的なキャリアデザインのためには、あえて軸をズラしてキャリア・トラベリングせよ｜安斎勇樹\n\n\n\n\n\n\n\n2021-11-25\n\n\n\nデータサイエンティストのインターン面談をして採用側が感じているズレの正体とは？ #Python - Qiita\n\n\n\n\n\n\n\n2015-05-07\n\n\n\nきっと何者にもなれない焦りを抱えながら、がむしゃらに前に進む - Konifar's WIP"
   },
   {
     "objectID": "blog/2025-04-07-bookmarks.html#テキストエディタ",
     "href": "blog/2025-04-07-bookmarks.html#テキストエディタ",
     "title": "個人的ブックマーク",
     "section": "2. テキストエディタ",
-    "text": "2. テキストエディタ\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2023-06-04\n\n\n\nddu.vimにちゃんと入門した話 | Zenn\n\n\n\n\n\n\n\n2022-05-05\n\n\n\nVim で折り返し行を簡単に移動できるサブモード・テクニック | Zenn"
+    "text": "2. テキストエディタ\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-04-14\n\n\n\nNeovimをはじめよう feat. mini.nvim\n\n\n\n\n\n\n\n2023-06-04\n\n\n\nddu.vimにちゃんと入門した話 | Zenn\n\n\n\n\n\n\n\n2022-05-05\n\n\n\nVim で折り返し行を簡単に移動できるサブモード・テクニック | Zenn"
   },
   {
     "objectID": "blog/2025-04-07-bookmarks.html#github-git",
     "href": "blog/2025-04-07-bookmarks.html#github-git",
     "title": "個人的ブックマーク",
     "section": "3. GitHub / Git",
-    "text": "3. GitHub / Git\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-11-07\n\n\n\ngit rebaseの苦労を減らすための覚え書き | Atusy's blog\n\n\n\n\n\n\n\n2024-10-24\n\n\n\nなんとなくから脱却する GitHub Actionsグッドプラクティス11選 | gihyo.jp | gihyo.jp | 技術評論社\n\n\n\n\n\n\n\n2024-10-21\n\n\n\nGithub Actions で実現する Terraform plan, apply 自動化\n\n\n\n\n\n\n\n2022-12-07\n\n\n\nGitHub Actions上でgit commitするときにgit userをどうするか #GitHubActions - Qiita\n\n\n\n\n\n\n\n2022-02-26\n\n\n\n2022-02-26開催 - merge / rebase 勉強会 - Speaker Deck"
-  },
-  {
-    "objectID": "blog/2025-04-07-bookmarks.html#quarto",
-    "href": "blog/2025-04-07-bookmarks.html#quarto",
-    "title": "個人的ブックマーク",
-    "section": "4. Quarto",
-    "text": "4. Quarto\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-06\n\n\n\n私たちのR"
+    "text": "3. GitHub / Git\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-11-07\n\n\n\ngit rebaseの苦労を減らすための覚え書き | Atusy's blog\n\n\n\n\n\n\n\n2024-10-24\n\n\n\nなんとなくから脱却する GitHub Actionsグッドプラクティス11選 | gihyo.jp | gihyo.jp | 技術評論社\n\n\n\n\n\n\n\n2022-12-07\n\n\n\nGitHub Actions上でgit commitするときにgit userをどうするか #GitHubActions - Qiita\n\n\n\n\n\n\n\n2022-02-26\n\n\n\n2022-02-26開催 - merge / rebase 勉強会 - Speaker Deck\n\n\n\n\n\n\n\n2021-10-30\n\n\n\nGitHub Actions でデフォルトブランチにないワークフローの動作確認をする #GitHubActions - Qiita"
   },
   {
     "objectID": "blog/2025-04-07-bookmarks.html#データ分析",
     "href": "blog/2025-04-07-bookmarks.html#データ分析",
     "title": "個人的ブックマーク",
-    "section": "5. データ分析",
-    "text": "5. データ分析\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-08\n\n\n\nデータ分析で用いるSQLクエリの設計方法 - 風音屋TechBlog"
+    "section": "4. データ分析",
+    "text": "4. データ分析\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-08-31\n\n\n\nClaude CodeでBigQueryのクエリを実行する際のガードレールを設計する - yasuhisa's blog\n\n\n\n\n\n\n\n2025-04-14\n\n\n\n半年で社内BigQueryの月間利用者数を+300%にした話｜Yuto Shinahara\n\n\n\n\n\n\n\n2024-12-08\n\n\n\nデータ分析で用いるSQLクエリの設計方法 - 風音屋TechBlog"
   },
   {
     "objectID": "blog/2025-04-07-bookmarks.html#データエンジニアリング",
     "href": "blog/2025-04-07-bookmarks.html#データエンジニアリング",
     "title": "個人的ブックマーク",
-    "section": "6. データエンジニアリング",
-    "text": "6. データエンジニアリング\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-03-30\n\n\n\nディメンショナル・モデリング 勉強法 | Zenn\n\n\n\n\n\n\n\n2024-12-11\n\n\n\ndbt モデルを安全に更新！データ差分検出ツールの「table diff」の実装 | Zenn\n\n\n\n\n\n\n\n2024-12-09\n\n\n\nデータ精度100%を目指す！dbt test徹底活用ガイド - ENGINEERING BLOG ドコモ開発者ブログ\n\n\n\n\n\n\n\n2024-01-23\n\n\n\nディメンショナルモデリングに入門しよう！Snowflakeとdbt Cloudで「Building a Kimball dimensional model with dbt」をやってみた | DevelopersIO"
+    "section": "5. データエンジニアリング",
+    "text": "5. データエンジニアリング\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-05-12\n\n\n\nmise + uv + dbt-coreで、ゼロから爆速でdbtの環境構築\n\n\n\n\n\n\n\n2025-05-08\n\n\n\nuvを使ったdbt Coreの導入手順\n\n\n\n\n\n\n\n2025-03-30\n\n\n\nディメンショナル・モデリング 勉強法 | Zenn\n\n\n\n\n\n\n\n2024-12-11\n\n\n\ndbt モデルを安全に更新！データ差分検出ツールの「table diff」の実装 | Zenn\n\n\n\n\n\n\n\n2024-12-11\n\n\n\ndbt-checkpointを活用したコード検証 #GitHubActions - Qiita\n\n\n\n\n\n\n\n2024-01-23\n\n\n\nディメンショナルモデリングに入門しよう！Snowflakeとdbt Cloudで「Building a Kimball dimensional model with dbt」をやってみた | DevelopersIO"
   },
   {
     "objectID": "blog/2025-04-07-bookmarks.html#機械学習",
     "href": "blog/2025-04-07-bookmarks.html#機械学習",
     "title": "個人的ブックマーク",
-    "section": "7. 機械学習",
-    "text": "7. 機械学習\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-02\n\n\n\nMLOpsパイプラインをSnowflakeのみで実現してみた - ENGINEERING BLOG ドコモ開発者ブログ\n\n\n\n\n\n\n\n2024-12-02\n\n\n\n機械学習基盤のアーキテクチャ特集 〜8社の設計意図と今後の展望〜 - Findy Tools\n\n\n\n\n\n\n\n2024-10-09\n\n\n\nAWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog\n\n\n\n\n\n\n\n2024-09-11\n\n\n\nRAGもファインチューニングも使わない 素朴なAIチャットボットを職場に導入した結果 - Speaker Deck\n\n\n\n\n\n\n\n2023-06-12\n\n\n\n協調フィルタリングとベクトル検索エンジンを利用した商品推薦精度改善の試み | メルカリエンジニアリング\n\n\n\n\n\n\n\n2018-11-01\n\n\n\n『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ\n\n\n\n\n\n\n\n2016-02-22\n\n\n\n失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT\n\n\n\n\n\n\n\n2015-12-21\n\n\n\nプロトタイプで終わらせない死の谷を超える機械学習プロジェクトの進め方 #MLCT4 | PPT"
+    "section": "6. 機械学習",
+    "text": "6. 機械学習\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-02\n\n\n\nMLOpsパイプラインをSnowflakeのみで実現してみた - ENGINEERING BLOG ドコモ開発者ブログ\n\n\n\n\n\n\n\n2024-12-02\n\n\n\n機械学習基盤のアーキテクチャ特集 〜8社の設計意図と今後の展望〜 - Findy Tools\n\n\n\n\n\n\n\n2024-09-11\n\n\n\nRAGもファインチューニングも使わない 素朴なAIチャットボットを職場に導入した結果 - Speaker Deck\n\n\n\n\n\n\n\n2023-06-12\n\n\n\n協調フィルタリングとベクトル検索エンジンを利用した商品推薦精度改善の試み | メルカリエンジニアリング\n\n\n\n\n\n\n\n2015-12-21\n\n\n\nプロトタイプで終わらせない死の谷を超える機械学習プロジェクトの進め方 #MLCT4 | PPT"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#mcp-model-context-protocol",
+    "href": "blog/2025-04-07-bookmarks.html#mcp-model-context-protocol",
+    "title": "個人的ブックマーク",
+    "section": "7. MCP (Model Context Protocol)",
+    "text": "7. MCP (Model Context Protocol)\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-08-04\n\n\n\n開いているブラウザの内容を読める MCP サーバー - ぽ靴な缶\n\n\n\n\n\n\n\n2025-05-21\n\n\n\nGemini API ＆ SDK が MCP 対応したので試す（Node.js を利用）【Google I/O 2025】 #googleio - Qiita\n\n\n\n\n\n\n\n2025-05-11\n\n\n\nリモートサーバーで動かす Python MCP Server — Streamable HTTP 時代の始まり ~ uv / Docker / pytest を備えたミニマルテンプレート付き ~ #AI - Qiita\n\n\n\n\n\n\n\n2025-05-08\n\n\n\n比較的安全にMCPサーバを動かす - LIFULL Creators Blog\n\n\n\n\n\n\n\n2025-05-07\n\n\n\nMCP サーバにユーザ認証機能を実装する - フレクトのクラウドblog\n\n\n\n\n\n\n\n2025-05-02\n\n\n\nA Critical Look at MCP- Raz Blog\n\n\n\n\n\n\n\n2025-04-19\n\n\n\nリモートMCPがやってくる、そしてA2Aについて"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#ai",
+    "href": "blog/2025-04-07-bookmarks.html#ai",
+    "title": "個人的ブックマーク",
+    "section": "8. AI",
+    "text": "8. AI\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-06-02\n\n\n\n「AIエージェント疲れ」の原因と対策\n\n\n\n\n\n\n\n2024-01-01\n\n\n\nGemini Proと会話できるSlackBotをAWSサーバレス上に作る"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#docker",
+    "href": "blog/2025-04-07-bookmarks.html#docker",
+    "title": "個人的ブックマーク",
+    "section": "9. Docker",
+    "text": "9. Docker\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2099-12-31\n\n\n\nDockerfile reference | Docker Docs"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#ツール",
+    "href": "blog/2025-04-07-bookmarks.html#ツール",
+    "title": "個人的ブックマーク",
+    "section": "10. ツール",
+    "text": "10. ツール\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2099-12-31\n\n\n\nCard Validator | X Developers\n\n\n\n\n\n\n\n2099-12-31\n\n\n\nComfy | バツグンに探しやすい物件検索 | 全国の賃貸を検索\n\n\n\n\n\n\n\n2099-12-31\n\n\n\nLGTMoon - Simplest LGTM Image Generator\n\n\n\n\n\n\n\n2099-12-31\n\n\n\nMEGAMOJI - カスタム絵文字メーカー\n\n\n\n\n\n\n\n2025-08-12\n\n\n\n終活は、まず預貯金口座の付番申請をしよう。\n\n\n\n\n\n\n\n2025-01-05\n\n\n\nXやSlackで大きめのOGP画像を表示する設定と注意点"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#チームマネジメント",
+    "href": "blog/2025-04-07-bookmarks.html#チームマネジメント",
+    "title": "個人的ブックマーク",
+    "section": "11. チームマネジメント",
+    "text": "11. チームマネジメント\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-10-30\n\n\n\n役割をお願いする時に伝えていること - Konifar's ZATSU\n\n\n\n\n\n\n\n2021-02-08\n\n\n\n今日のリモート雑談テーマを決める魔法のスプレッドシートを運用している話 - エムスリーテックブログ\n\n\n\n\n\n\n\n2016-02-22\n\n\n\n失敗から学ぶ データ分析グループの チームマネジメント変遷 （デブサミ2016） #devsumi | PPT"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#インフラストラクチャ",
+    "href": "blog/2025-04-07-bookmarks.html#インフラストラクチャ",
+    "title": "個人的ブックマーク",
+    "section": "12. インフラストラクチャ",
+    "text": "12. インフラストラクチャ\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-08-26\n\n\n\nなぜ複数のVPCをつなぐ必要があるのか？ - Speaker Deck\n\n\n\n\n\n\n\n2025-04-24\n\n\n\n丁度ええ! ロギング - kawasima\n\n\n\n\n\n\n\n2024-10-21\n\n\n\nGithub Actions で実現する Terraform plan, apply 自動化\n\n\n\n\n\n\n\n2024-10-09\n\n\n\nAWSのOpenSearch Serviceで ベクトル検索を実現するまでの流れ | by Akihiro Wakamatsu | スタディスト Tech Blog\n\n\n\n\n\n\n\n2023-11-14\n\n\n\nロギング設計大全 - kawasima"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#テスト",
+    "href": "blog/2025-04-07-bookmarks.html#テスト",
+    "title": "個人的ブックマーク",
+    "section": "13. テスト",
+    "text": "13. テスト\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2025-08-29\n\n\n\nAIエージェント時代のテスト駆動開発（TDD） - Agile Journey\n\n\n\n\n\n\n\n2024-12-09\n\n\n\nデータ精度100%を目指す！dbt test徹底活用ガイド - ENGINEERING BLOG ドコモ開発者ブログ"
+  },
+  {
+    "objectID": "blog/2025-04-07-bookmarks.html#書籍学習リソース",
+    "href": "blog/2025-04-07-bookmarks.html#書籍学習リソース",
+    "title": "個人的ブックマーク",
+    "section": "14. 書籍・学習リソース",
+    "text": "14. 書籍・学習リソース\n\n\n\n\n\n\n\n\n\nDate\n\n\n\nWebsite\n\n\n\n\n\n\n\n\n\n\n\n2024-12-06\n\n\n\n私たちのR\n\n\n\n\n\n\n\n2024-10-26\n\n\n\n技術書の電子書籍を PDF/EPUB で配信しているサイトまとめ #PDF - Qiita\n\n\n\n\n\n\n\n2018-11-01\n\n\n\n『機械学習のエッセンス』はゼロからガチで機械学習を生業にしたい人が「いの一番に」読むべき一冊 - 渋谷駅前で働くデータサイエンティストのブログ"
   },
   {
     "objectID": "blog/2025-05-06-python-venv.html",
