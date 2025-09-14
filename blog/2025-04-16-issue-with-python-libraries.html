@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,18 +71,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bfc4b729c980e1cd049f0a7352d8249b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-abce290775d0e5a0d67f30c34658497d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-bfc4b729c980e1cd049f0a7352d8249b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-db798439e3d375147bcce1b667091d2a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-6ed32b2570669697f93dd03a04c83cf3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-db798439e3d375147bcce1b667091d2a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -320,16 +321,15 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">uma-chan’s page</a> 
-        <div class="sidebar-tools-main tools-wide">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/i9wa4" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="https://x.com/i9wa4_" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter-x"></i></a>
     <a href="https://www.linkedin.com/in/daikm" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
     <a href="../index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -463,27 +463,27 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="背景">2. 背景</h2>
 <p>dbt-databricks==1.7.17 のインストールを試みました。</p>
 <p>本来は最新バージョンをインストールすべきで、執筆時点では 1.10.0 です。 このコマンドを知らなかったのでメモ代わりに残しておきます。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip index versions dbt-databricks</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip index versions dbt-databricks</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">WARNING:</span> pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dbt-databricks</span> <span class="er">(</span><span class="ex">1.10.0</span><span class="kw">)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Available</span> versions: 1.10.0, 1.9.7, 1.9.6, 1.9.5, 1.9.4, 1.9.2, 1.9.1, 1.9.0, 1.8.7, 1.8.6, 1.8.5, 1.8.4, 1.8.3, 1.8.2, 1.8.1, 1.8.0, 1.7.17, 1.7.16, 1.7.15, 1.7.14, 1.7.13, 1.7.11, 1.7.10, 1.7.9, 1.7.8, 1.7.7, 1.7.3, 1.7.2, 1.7.1, 1.7.0, 1.6.9, 1.6.8, 1.6.7, 1.6.6, 1.6.5, 1.6.4, 1.6.3, 1.6.2, 1.6.1, 1.6.0, 1.5.7, 1.5.6, 1.5.5, 1.5.4, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.2, 1.3.1, 1.3.0, 1.2.5, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.1.0, 1.0.3, 1.0.2, 1.0.1, 1.0.0, 0.21.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Available</span> versions: 1.10.0, 1.9.7, 1.9.6, 1.9.5, 1.9.4, 1.9.2, 1.9.1, 1.9.0, 1.8.7, 1.8.6, 1.8.5, 1.8.4, 1.8.3, 1.8.2, 1.8.1, 1.8.0, 1.7.17, 1.7.16, 1.7.15, 1.7.14, 1.7.13, 1.7.11, 1.7.10, 1.7.9, 1.7.8, 1.7.7, 1.7.3, 1.7.2, 1.7.1, 1.7.0, 1.6.9, 1.6.8, 1.6.7, 1.6.6, 1.6.5, 1.6.4, 1.6.3, 1.6.2, 1.6.1, 1.6.0, 1.5.7, 1.5.6, 1.5.5, 1.5.4, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.2, 1.3.1, 1.3.0, 1.2.5, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.1.0, 1.0.3, 1.0.2, 1.0.1, 1.0.0, 0.21.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>以下では Python 3.13 と 3.12 の両方で試してみます。</p>
 </section>
 <section id="python-3.13.3-との相性" class="level2">
 <h2 class="anchored" data-anchor-id="python-3.13.3-との相性">3. Python 3.13.3 との相性</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-3.1. details エラーログ詳細
+<span class="screen-reader-only">Note</span>3.1. details エラーログ詳細
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">--version</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">--version</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.13.3</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">-m</span> venv my-venv-3.13.3</span>
@@ -637,7 +637,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="ex">note:</span> This is an issue with the package mentioned above, not pip.</span>
 <span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> See above for details.</span>
 <span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">my-venv-3.13.3</span><span class="kw">)</span></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -645,17 +645,17 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="エラー原因追跡">3.2. エラー原因追跡</h3>
 <p>執筆時点では Pandas の最新バージョンは 2.2.3 なのですが dbt-databricks のバージョンを固定したことで 2.2.0 未満をインストールするようになっています。 そして 2.1.4 をインストールすることになります。</p>
 <blockquote class="blockquote">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pandas<span class="op">&lt;</span>2.2.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pandas<span class="op">&lt;</span>2.2.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </blockquote>
 <p>Pandas 2.2.3 では Python 3.13 用の wheel が用意されているのですが 2.1.4 時点では用意されておらず Pandas をソースコードからビルドしようとします。</p>
 <p>しかし Pandas 2.1.4 のビルドに利用している関数が Python 3.13.0 では削除されてしまったためビルドに失敗します。</p>
 <blockquote class="blockquote">
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">pandas/_libs/tslibs/base.cpython-313-darwin.so.p/pandas/_libs/tslibs/base.pyx.c:5399:70:</span> error: too few arguments to function call, expected 6, have 5</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">pandas/_libs/tslibs/base.cpython-313-darwin.so.p/pandas/_libs/tslibs/base.pyx.c:5399:70:</span> error: too few arguments to function call, expected 6, have 5</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5397</span> <span class="kw">|</span>                 <span class="ex">int</span> ret = _PyLong_AsByteArray<span class="er">(</span><span class="kw">(</span><span class="ex">PyLongObject</span> <span class="pp">*</span><span class="kw">)</span><span class="ex">v,</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                           <span class="ex">~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5398</span> <span class="kw">|</span>                                               <span class="ex">bytes,</span> sizeof<span class="er">(</span><span class="ex">val</span><span class="kw">)</span><span class="ex">,</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5399</span> <span class="kw">|</span>                                               <span class="ex">is_little,</span> !is_unsigned<span class="kw">);</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                                                                      <span class="ex">^</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                                                                      <span class="ex">^</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </blockquote>
 <p>Pandas 側の Issue: <a href="https://github.com/pandas-dev/pandas/issues/58734" class="uri">https://github.com/pandas-dev/pandas/issues/58734</a></p>
 <p>CPython 側の Pull Request: <a href="https://github.com/python/cpython/pull/108429" class="uri">https://github.com/python/cpython/pull/108429</a></p>
@@ -665,18 +665,18 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <section id="python-3.12.10-との相性" class="level2">
 <h2 class="anchored" data-anchor-id="python-3.12.10-との相性">4. Python 3.12.10 との相性</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-4.1. Python 3.12.10 のエラーログ詳細
+<span class="screen-reader-only">Note</span>4.1. Python 3.12.10 のエラーログ詳細
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">--version</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">--version</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.12.10</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">-m</span> venv my-venv-3.12.10</span>
@@ -909,7 +909,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached typing_inspection-0.4.0-py3-none-any.whl <span class="er">(</span><span class="ex">14</span> kB<span class="kw">)</span></span>
 <span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached zipp-3.21.0-py3-none-any.whl <span class="er">(</span><span class="ex">9.6</span> kB<span class="kw">)</span></span>
 <span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a><span class="ex">Installing</span> collected packages: text-unidecode, pytz, pytimeparse, parsedatetime, logbook, leather, zipp, urllib3, tzdata, typing-extensions, sqlparse, sqlparams, sqlalchemy, six, rpds-py, pyyaml, python-slugify, pycparser, pyasn1, pyarrow, protobuf, pathspec, packaging, oauthlib, numpy, networkx, msgpack, more-itertools, MarkupSafe, lz4, jaraco.context, idna, et-xmlfile, dbt-extractor, colorama, click, charset-normalizer, certifi, cachetools, Babel, attrs, annotated-types, typing-inspection, thrift, rsa, requests, referencing, python-dateutil, pydantic-core, pyasn1-modules, openpyxl, mashumaro, Mako, Jinja2, jaraco.functools, jaraco.classes, isodate, importlib-metadata, cffi, pydantic, pandas, minimal-snowplow-tracker, keyring, jsonschema-specifications, google-auth, alembic, agate, jsonschema, databricks-sql-connector, databricks-sdk, dbt-semantic-interfaces, dbt-core, dbt-spark, dbt-databricks</span>
-<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> installed Babel-2.17.0 Jinja2-3.1.6 Mako-1.3.10 MarkupSafe-3.0.2 agate-1.7.1 alembic-1.15.2 annotated-types-0.7.0 attrs-25.3.0 cachetools-5.5.2 certifi-2025.1.31 cffi-1.17.1 charset-normalizer-3.4.1 click-8.1.8 colorama-0.4.6 databricks-sdk-0.17.0 databricks-sql-connector-2.9.6 dbt-core-1.7.19 dbt-databricks-1.7.17 dbt-extractor-0.5.1 dbt-semantic-interfaces-0.4.4 dbt-spark-1.7.1 et-xmlfile-2.0.0 google-auth-2.39.0 idna-3.10 importlib-metadata-6.11.0 isodate-0.6.1 jaraco.classes-3.4.0 jaraco.context-6.0.1 jaraco.functools-4.1.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 keyring-25.6.0 leather-0.4.0 logbook-1.5.3 lz4-4.4.4 mashumaro-3.14 minimal-snowplow-tracker-0.0.2 more-itertools-10.6.0 msgpack-1.1.0 networkx-3.4.2 numpy-1.26.4 oauthlib-3.2.2 openpyxl-3.1.5 packaging-24.2 pandas-2.1.4 parsedatetime-2.6 pathspec-0.11.2 protobuf-4.25.6 pyarrow-19.0.1 pyasn1-0.6.1 pyasn1-modules-0.4.2 pycparser-2.22 pydantic-2.11.3 pydantic-core-2.33.1 python-dateutil-2.9.0.post0 python-slugify-8.0.4 pytimeparse-1.1.8 pytz-2025.2 pyyaml-6.0.2 referencing-0.36.2 requests-2.32.3 rpds-py-0.24.0 rsa-4.9.1 six-1.17.0 sqlalchemy-1.4.54 sqlparams-6.2.0 sqlparse-0.5.3 text-unidecode-1.3 thrift-0.16.0 typing-extensions-4.13.2 typing-inspection-0.4.0 tzdata-2025.2 urllib3-1.26.20 zipp-3.21.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> installed Babel-2.17.0 Jinja2-3.1.6 Mako-1.3.10 MarkupSafe-3.0.2 agate-1.7.1 alembic-1.15.2 annotated-types-0.7.0 attrs-25.3.0 cachetools-5.5.2 certifi-2025.1.31 cffi-1.17.1 charset-normalizer-3.4.1 click-8.1.8 colorama-0.4.6 databricks-sdk-0.17.0 databricks-sql-connector-2.9.6 dbt-core-1.7.19 dbt-databricks-1.7.17 dbt-extractor-0.5.1 dbt-semantic-interfaces-0.4.4 dbt-spark-1.7.1 et-xmlfile-2.0.0 google-auth-2.39.0 idna-3.10 importlib-metadata-6.11.0 isodate-0.6.1 jaraco.classes-3.4.0 jaraco.context-6.0.1 jaraco.functools-4.1.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 keyring-25.6.0 leather-0.4.0 logbook-1.5.3 lz4-4.4.4 mashumaro-3.14 minimal-snowplow-tracker-0.0.2 more-itertools-10.6.0 msgpack-1.1.0 networkx-3.4.2 numpy-1.26.4 oauthlib-3.2.2 openpyxl-3.1.5 packaging-24.2 pandas-2.1.4 parsedatetime-2.6 pathspec-0.11.2 protobuf-4.25.6 pyarrow-19.0.1 pyasn1-0.6.1 pyasn1-modules-0.4.2 pycparser-2.22 pydantic-2.11.3 pydantic-core-2.33.1 python-dateutil-2.9.0.post0 python-slugify-8.0.4 pytimeparse-1.1.8 pytz-2025.2 pyyaml-6.0.2 referencing-0.36.2 requests-2.32.3 rpds-py-0.24.0 rsa-4.9.1 six-1.17.0 sqlalchemy-1.4.54 sqlparams-6.2.0 sqlparse-0.5.3 text-unidecode-1.3 thrift-0.16.0 typing-extensions-4.13.2 typing-inspection-0.4.0 tzdata-2025.2 urllib3-1.26.20 zipp-3.21.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -918,9 +918,9 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <p>dbt-databricks==1.7.17 のインストールに成功しました。</p>
 <p>ただし以下のようにプロンプト部分の括弧が2重になってしまうのがとても気になりますね。</p>
 <blockquote class="blockquote">
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source my-venv-3.12.10/bin/activate</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source my-venv-3.12.10/bin/activate</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">((</span><span class="ex">my-venv-3.12.10</span><span class="kw">)</span> <span class="kw">)</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install dbt-databricks==1.7.17</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install dbt-databricks==1.7.17</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </blockquote>
 <p>対応する Issue はこちらなのですが Python 3.12 ではもうバグ修正をしないようなのでこの2重括弧と共に生きていくしかないです。 メンテナーの方も仰っていますが目立つバグなのでどうしても気になってしまいます。</p>
 <p><a href="https://github.com/python/cpython/issues/132361" class="uri">https://github.com/python/cpython/issues/132361</a></p>
@@ -998,13 +998,14 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

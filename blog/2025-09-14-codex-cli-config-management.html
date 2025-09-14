@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2024-12-23">
-<meta name="description" content="データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます">
+<meta name="dcterms.date" content="2025-09-14">
+<meta name="description" content="Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。">
 
-<title>データエンジニアが初めてダッシュボードを作成して気づいたこと – uma-chan’s page</title>
+<title>Codex CLI の設定ファイルを dotfiles で管理する – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -88,13 +123,13 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <meta name="Hatena::Bookmark" content="nocomment">
 
 
-<meta property="og:title" content="データエンジニアが初めてダッシュボードを作成して気づいたこと – uma-chan’s page">
-<meta property="og:description" content="データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます">
+<meta property="og:title" content="Codex CLI の設定ファイルを dotfiles で管理する – uma-chan’s page">
+<meta property="og:description" content="Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。">
 <meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="データエンジニアが初めてダッシュボードを作成して気づいたこと – uma-chan’s page">
-<meta name="twitter:description" content="データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます">
+<meta name="twitter:title" content="Codex CLI の設定ファイルを dotfiles で管理する – uma-chan’s page">
+<meta name="twitter:description" content="Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。">
 <meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -273,7 +308,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">データエンジニアが初めてダッシュボードを作成して気づいたこと</h1>
+          <h1 class="quarto-secondary-nav-title">Codex CLI の設定ファイルを dotfiles で管理する</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -360,13 +395,11 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
-  <li><a href="#今回のダッシュボード作成の前提" id="toc-今回のダッシュボード作成の前提" class="nav-link" data-scroll-target="#今回のダッシュボード作成の前提">2. 今回のダッシュボード作成の前提</a></li>
-  <li><a href="#ダッシュボード作成前に考えていたこと" id="toc-ダッシュボード作成前に考えていたこと" class="nav-link" data-scroll-target="#ダッシュボード作成前に考えていたこと">3. ダッシュボード作成前に考えていたこと</a></li>
-  <li><a href="#ダッシュボード作成中に考えていること" id="toc-ダッシュボード作成中に考えていること" class="nav-link" data-scroll-target="#ダッシュボード作成中に考えていること">4. ダッシュボード作成中に考えていること</a></li>
-  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">5. おわりに</a></li>
+  <li><a href="#codex-cli-の設定ファイルについて" id="toc-codex-cli-の設定ファイルについて" class="nav-link active" data-scroll-target="#codex-cli-の設定ファイルについて">1. Codex CLI の設定ファイルについて</a></li>
+  <li><a href="#解決策" id="toc-解決策" class="nav-link" data-scroll-target="#解決策">2. 解決策</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">3. おわりに</a></li>
   </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-12-23-my-first-dashboard-building.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-09-14-codex-cli-config-management.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -374,17 +407,16 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">データエンジニアが初めてダッシュボードを作成して気づいたこと</h1>
+<h1 class="title d-none d-lg-block">Codex CLI の設定ファイルを dotfiles で管理する</h1>
   <div class="quarto-categories">
     <div class="quarto-category">blog</div>
-    <div class="quarto-category">tech</div>
-    <div class="quarto-category">tech-data</div>
+    <div class="quarto-category">tech-ai</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます</p>
+    <p>Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。</p>
   </div>
 </div>
 
@@ -401,14 +433,14 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-12-23</p>
+      <p class="date">2025-09-14</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025-07-14</p>
+      <p class="date-modified">2025-09-14</p>
     </div>
   </div>
     
@@ -419,95 +451,55 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </header>
 
 
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。</p>
+<p>Codex CLI を使い始めたのですが dotfiles 使いにとっては辛い部分があり距離を置いてしまっていました。</p>
+<p>今回力技で設定ファイルを dotfiles で管理する方法を思いついたので紹介します。</p>
+<section id="codex-cli-の設定ファイルについて" class="level2">
+<h2 class="anchored" data-anchor-id="codex-cli-の設定ファイルについて">1. Codex CLI の設定ファイルについて</h2>
+<p>Codex CLI の設定ファイルは <code>~/.config/codex/config.toml</code> です。</p>
+<p>内容は例えば以下のような感じです。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[projects."</span><span class="dt">/Users/uma/ghq/github.com/i9wa4/dotfiles"</span><span class="kw">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">trust_level</span> <span class="op">=</span> <span class="st">"trusted"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="今回のダッシュボード作成の前提" class="level2">
-<h2 class="anchored" data-anchor-id="今回のダッシュボード作成の前提">2. 今回のダッシュボード作成の前提</h2>
-<section id="要望" class="level3">
-<h3 class="anchored" data-anchor-id="要望">2.1. 要望</h3>
-<p>弊社グループ企業の担当者が毎日 Excel で KPI 算出や社内に向けたサマリ配信を行っており、ダッシュボード導入によりこの作業を自動化していこうという要望がありました。所謂 DX の一環です。</p>
-</section>
-<section id="技術要素" class="level3">
-<h3 class="anchored" data-anchor-id="技術要素">2.2. 技術要素</h3>
-<ul>
-<li>ダッシュボードは Databricks で作成する</li>
-<li>その他要素は主題ではないので割愛する</li>
-</ul>
-</section>
-</section>
-<section id="ダッシュボード作成前に考えていたこと" class="level2">
-<h2 class="anchored" data-anchor-id="ダッシュボード作成前に考えていたこと">3. ダッシュボード作成前に考えていたこと</h2>
-<section id="なぜ今までダッシュボード作成をしてこなかったのか" class="level3">
-<h3 class="anchored" data-anchor-id="なぜ今までダッシュボード作成をしてこなかったのか">3.1. なぜ今までダッシュボード作成をしてこなかったのか</h3>
-<section id="データエンジニアはデータ基盤タスクに追われている" class="level4">
-<h4 class="anchored" data-anchor-id="データエンジニアはデータ基盤タスクに追われている">3.1.1. データエンジニアはデータ基盤タスクに追われている</h4>
-<p>ダッシュボードは SQL が理解できれば作成できますが、データ基盤に関するタスクはデータエンジニアでないと対応できません。そしてデータエンジニアは人員不足であることが多いので基本的にデータエンジニアはデータ基盤に張り付くことになります。</p>
-<p>私はこのような経験をしてきましたが実際多くの企業で普遍的に起きていることではないでしょうか。</p>
-</section>
-<section id="そもそもダッシュボードを新規作成する機会が少ない" class="level4">
-<h4 class="anchored" data-anchor-id="そもそもダッシュボードを新規作成する機会が少ない">3.1.2. そもそもダッシュボードを新規作成する機会が少ない</h4>
-<p>一旦主要なダッシュボードを作成してしまえば作業が落ち着いてしまうことが多く、ダッシュボードを新規作成する機会を継続的にもてる方は少ないと思います。</p>
-<p>私の経験してきた中では新しくダッシュボードが作られる場面は少なかったです。</p>
-</section>
-</section>
-<section id="業務に対する心境の変化" class="level3">
-<h3 class="anchored" data-anchor-id="業務に対する心境の変化">3.2. 業務に対する心境の変化</h3>
-<p>これまではエンジニアとしてこの先生きのこるにはできるだけ技術を身につけていくべき、という強迫観念に突き動かされていたので技術的に新規性が少ないダッシュボード作成には積極的に手を挙げようとはあまり思っていませんでした。</p>
-<p>ただ、データエンジニアが自分しかいない環境を経験して、自分でもやれば何とかなるという自己効力感をもてたことでこの強迫観念に関しては一定程度薄れたと思います。やればできるのであれば焦る必要もないという気持ちをもてるようになりました。</p>
-<p>そして社会人として働く自分の実際のモチベーションとしては、目の前の同僚の役に立つことをしたい、あるいは苦労して構築運用がなされているデータ基盤の価値を高めたい、といった思いが強いことを自覚するようになりました。ダッシュボード作成はこのような自分の特性に結構マッチしたタスクだと思います。</p>
-<p>このような経緯があり今回のダッシュボード作成タスクに手を挙げて取り組むことになりました。</p>
-</section>
-</section>
-<section id="ダッシュボード作成中に考えていること" class="level2">
-<h2 class="anchored" data-anchor-id="ダッシュボード作成中に考えていること">4. ダッシュボード作成中に考えていること</h2>
-<p>実は自分が携わっているダッシュボードは現在作成中です。作成して利用いただいた後の状況は今後追いかけていきます。</p>
-<section id="databricks-上でのダッシュボード作成-tips" class="level3">
-<h3 class="anchored" data-anchor-id="databricks-上でのダッシュボード作成-tips">4.1. Databricks 上でのダッシュボード作成 Tips</h3>
-<p>本記事中唯一の技術要素です。 いずれも特に Databricks 特有のものではありませんが、使ってみて良いなと思った機能を一応メモしておきます。</p>
-<ul>
-<li>パラメータ
-<ul>
-<li>ドロップダウンリストで選択した値やフォームに入力した値をパラメータ経由でクエリに組み込むことができます。
-<ul>
-<li><a href="https://docs.databricks.com/en/dashboards/parameters.html">Work with dashboard parameters | Databricks on AWS</a></li>
-</ul></li>
-</ul></li>
-<li>ピボットテーブル
-<ul>
-<li>サクッと集計テーブルを作成できます。Excel やスプレッドシートで活用してたので特に抵抗なく使えました。
-<ul>
-<li><a href="https://docs.databricks.com/en/dashboards/visualizations/types.html#pivot-visualization">Dashboard visualizations types | Databricks on AWS</a></li>
-</ul></li>
-</ul></li>
-<li>SQL フォーマット
-<ul>
-<li>残念ながらダッシュボード内では利用できませんが Databricks で SQL フォーマットが利用できるので時々利用しています。
-<ul>
-<li><a href="https://docs.databricks.com/en/sql/user/sql-editor/index.html#query-options">Write queries and explore data in the SQL editor | Databricks on AWS</a></li>
-</ul></li>
-<li>ノートブックのセルでも利用できます。私は使い捨てのクエリをノートブックで管理してるので助かります。</li>
-<li>ちょっとクセの強いフォーマットをしてくるので賛否両論あると思います。</li>
-</ul></li>
-</ul>
-</section>
-<section id="弊社におけるダッシュボード作成の感想" class="level3">
-<h3 class="anchored" data-anchor-id="弊社におけるダッシュボード作成の感想">4.2. 弊社におけるダッシュボード作成の感想</h3>
-<p>今回のダッシュボード作成作業は弊社本社メンバーと当該グループ企業メンバーとで取り組んでいます。全員当事者意識をもっているため、本当に意味のあるものを充実感をもって作れる環境であると感じました。</p>
-<p>またデータチームにノウハウが蓄積していくため新たな企業をグループに迎え入れる際にはもっとスムーズに一連の作業を進めていけそうです。</p>
-<p>ダッシュボードを一気に新規作成する機会も弊社の成長と共に継続的に訪れるのではないかと思います。</p>
-</section>
-<section id="データエンジニアはダッシュボードを作るべきか" class="level3">
-<h3 class="anchored" data-anchor-id="データエンジニアはダッシュボードを作るべきか">4.3. データエンジニアはダッシュボードを作るべきか</h3>
-<p>データ利用者の立場に立った考え方ができるようになるので、データ基盤により磨きをかけて使いやすくしようと思える効果はありました。</p>
-<p>またデータ自体に対する知識を深めていけるのもダッシュボード作成の良さで、さらなるデータ活用のための過程と捉えることもできます。私の場合はデータサイエンス系業務にも関わっているのでデータの知識を深めることはデータ分析や機械学習に活かすことのできる経験になっています。</p>
-<p>とはいえデータエンジニアリングスキルをもつ人間がデータ基盤タスクではなくデータ活用タスクに時間を投入しても許される環境でないと取り組むのは難しいので、ある種贅沢なことかもしれません。</p>
+<section id="解決策" class="level2">
+<h2 class="anchored" data-anchor-id="解決策">2. 解決策</h2>
+<p>共通設定だけ dotfiles の管理対象とし、プロジェクト別の設定はスクリプトで生成してしまうというものです。</p>
+<p>これで困ることはほとんどないでしょう！</p>
+<section id="config.toml-の生成スクリプト" class="level3">
+<h3 class="anchored" data-anchor-id="config.toml-の生成スクリプト">2.1. config.toml の生成スクリプト</h3>
+<p>共通設定を <code>config.common.toml</code> に書いておき、プロジェクトごとの設定を自動生成して <code>config.toml</code> を生成させます。</p>
+<p>※リポジトリを ghq で管理している前提になってます</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">GHQ_BASE</span><span class="op">=</span><span class="st">"</span><span class="va">${HOME}</span><span class="st">"</span>/ghq/github.com</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">COMMON</span><span class="op">=</span><span class="st">"./config.common.toml"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="va">OUTPUT</span><span class="op">=</span><span class="st">"./config.toml"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">"</span><span class="va">$(</span><span class="fu">dirname</span> <span class="st">"</span><span class="va">$0</span><span class="st">"</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$(</span><span class="fu">dirname</span> <span class="st">"</span><span class="va">$OUTPUT</span><span class="st">"</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-f</span> <span class="st">"</span><span class="va">$COMMON</span><span class="st">"</span> <span class="st">"</span><span class="va">$OUTPUT</span><span class="st">"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">''</span> <span class="st">'/# PROJECT_SETTINGS_PLACEHOLDER/d'</span> <span class="st">"</span><span class="va">$OUTPUT</span><span class="st">"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="st">"</span><span class="va">$GHQ_BASE</span><span class="st">"</span> <span class="at">-maxdepth</span> 3 <span class="at">-type</span> d <span class="at">-name</span> <span class="st">".git"</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/\/\.git$//'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">repo</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">[[</span> <span class="ot">-z</span> <span class="va">$repo</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="cf">continue</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">[projects.</span><span class="dt">\"</span><span class="va">$repo</span><span class="dt">\"</span><span class="st">]</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">trust_level = </span><span class="dt">\"</span><span class="st">trusted</span><span class="dt">\"</span><span class="st">"</span> <span class="op">&gt;&gt;</span><span class="st">"</span><span class="va">$OUTPUT</span><span class="st">"</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">case</span> <span class="st">"</span><span class="va">$repo</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="pp">*</span><span class="ss">/dotfiles</span><span class="kw">)</span> <span class="bu">echo</span> <span class="st">'approval_policy = "never"'</span> <span class="op">&gt;&gt;</span><span class="st">"</span><span class="va">$OUTPUT</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="pp">*</span><span class="ss">/prod</span><span class="pp">*</span><span class="kw">)</span> <span class="bu">echo</span> <span class="st">'sandbox_mode = "read-only"'</span> <span class="op">&gt;&gt;</span><span class="st">"</span><span class="va">$OUTPUT</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">esac</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Generated: </span><span class="va">$OUTPUT</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">5. おわりに</h2>
-<p>結局やってみたいことに取り組んで納得感を得ることは良いことですね。今後もできるだけそうしたいです。</p>
+<h2 class="anchored" data-anchor-id="おわりに">3. おわりに</h2>
+<p>dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使っていきましょう！</p>
 
 
 </section>
@@ -938,7 +930,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-12-23-my-first-dashboard-building.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-09-14-codex-cli-config-management.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
