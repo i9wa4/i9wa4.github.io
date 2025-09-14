@@ -26,19 +26,25 @@ Codex CLI の設定ファイルは `~/.config/codex/config.toml` です。
 trust_level = "trusted"
 ```
 
-## 2. 解決策
+## 2. 問題点
+
+`config.toml` にはフルパスが書かれるため複数のマシンで設定を管理するのが面倒です。
+
+かつどのプロジェクトを信頼するかの設定もマシンごとに異なることが多いので `config.toml` をそのまま dotfiles で管理するのはイマイチと言えます。
+
+## 3. 解決策
 
 共通設定だけ dotfiles の管理対象とし、プロジェクト別の設定はスクリプトで生成してしまうというものです。
 
 これで困ることはほとんどないでしょう！
 
-### 2.1. config.toml の生成スクリプト
+### 3.1. config.toml の生成スクリプト
 
-共通設定を `config.common.toml` に書いておき、プロジェクトごとの設定を自動生成して `config.toml` を生成させます。
+共通設定を `~/.config/codex/config.common.toml` に書いておき、プロジェクトごとの設定を自動生成して `config.toml` を生成させます。
 
-※リポジトリを ghq で管理している前提になってます
+※リポジトリを ghq で管理していることを前提としています。
 
-```{.sh}
+```{.sh filename="~/.config/codex/generate_config.sh"}
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -65,6 +71,6 @@ trust_level = \"trusted\""
 echo "Generated: ${OUTPUT}"
 ```
 
-## 3. おわりに
+## 4. おわりに
 
 dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使っていきましょう！
