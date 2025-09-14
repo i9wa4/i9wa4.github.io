@@ -49,8 +49,9 @@ OUTPUT="./config.toml"
 cd "$(dirname "$0")"
 
 # Copy common settings
-grep -v '# PROJECT_SETTINGS_PLACEHOLDER' "${COMMON}" >"${OUTPUT}"
+cp -f "${COMMON}" "${OUTPUT}"
 
+# Add project-specific settings
 find "${GHQ_BASE}" -maxdepth 3 -type d -name ".git" 2>/dev/null \
   | sed 's|\.git$||' \
   | sort \
