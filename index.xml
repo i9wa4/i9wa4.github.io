@@ -271,86 +271,14 @@ background-color: null;
 font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb2-20"></span>
-<span id="cb2-21">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">case</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${repo}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span></span>
-<span id="cb2-22">    <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">*</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/dotfiles</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'approval_policy = "never"'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;;</span></span>
-<span id="cb2-23">    <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">*</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/prod</span><span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">*</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'sandbox_mode = "read-only"'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;;</span></span>
-<span id="cb2-24">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">esac</span></span>
-<span id="cb2-25"><span class="cf" style="color: #003B4F;
+<span id="cb2-20"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">done</span></span>
-<span id="cb2-26"></span>
-<span id="cb2-27"><span class="bu" style="color: null;
+<span id="cb2-21"></span>
+<span id="cb2-22"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Generated: </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span></code></pre></div></div>
+font-style: inherit;">e</span></span></code></pre></div></div>
 </section>
 </section>
 <section id="おわりに" class="level2">
