@@ -50,15 +50,24 @@ font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"trusted"</span></span></code></pre></div></div>
 </section>
+<section id="問題点" class="level2">
+<h2 class="anchored" data-anchor-id="問題点">2. 問題点</h2>
+<p><code>config.toml</code> にはフルパスが書かれるため複数のマシンで設定を管理するのが面倒です。</p>
+<p>かつどのプロジェクトを信頼するかの設定もマシンごとに異なることが多いので <code>config.toml</code> をそのまま dotfiles で管理するのはイマイチと言えます。</p>
+</section>
 <section id="解決策" class="level2">
-<h2 class="anchored" data-anchor-id="解決策">2. 解決策</h2>
+<h2 class="anchored" data-anchor-id="解決策">3. 解決策</h2>
 <p>共通設定だけ dotfiles の管理対象とし、プロジェクト別の設定はスクリプトで生成してしまうというものです。</p>
 <p>これで困ることはほとんどないでしょう！</p>
 <section id="config.toml-の生成スクリプト" class="level3">
-<h3 class="anchored" data-anchor-id="config.toml-の生成スクリプト">2.1. config.toml の生成スクリプト</h3>
-<p>共通設定を <code>config.common.toml</code> に書いておき、プロジェクトごとの設定を自動生成して <code>config.toml</code> を生成させます。</p>
-<p>※リポジトリを ghq で管理している前提になってます</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<h3 class="anchored" data-anchor-id="config.toml-の生成スクリプト">3.1. config.toml の生成スクリプト</h3>
+<p>共通設定を <code>~/.config/codex/config.common.toml</code> に書いておき、プロジェクトごとの設定を自動生成して <code>config.toml</code> を生成させます。</p>
+<p>※リポジトリを ghq で管理していることを前提としています。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.config/codex/generate_config.sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="~/.config/codex/generate_config.sh" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="cb2-2"><span class="bu" style="color: null;
@@ -263,10 +272,11 @@ background-color: null;
 font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span></code></pre></div></div>
+</div>
 </section>
 </section>
 <section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">3. おわりに</h2>
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
 <p>dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使っていきましょう！</p>
 
 

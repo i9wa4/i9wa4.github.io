@@ -396,8 +396,9 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
    
   <ul class="collapse">
   <li><a href="#codex-cli-の設定ファイルについて" id="toc-codex-cli-の設定ファイルについて" class="nav-link active" data-scroll-target="#codex-cli-の設定ファイルについて">1. Codex CLI の設定ファイルについて</a></li>
-  <li><a href="#解決策" id="toc-解決策" class="nav-link" data-scroll-target="#解決策">2. 解決策</a></li>
-  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">3. おわりに</a></li>
+  <li><a href="#問題点" id="toc-問題点" class="nav-link" data-scroll-target="#問題点">2. 問題点</a></li>
+  <li><a href="#解決策" id="toc-解決策" class="nav-link" data-scroll-target="#解決策">3. 解決策</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">4. おわりに</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-09-14-codex-cli-config-management.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -460,15 +461,24 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[projects."</span><span class="dt">/Users/uma/ghq/github.com/i9wa4/dotfiles"</span><span class="kw">]</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">trust_level</span> <span class="op">=</span> <span class="st">"trusted"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="問題点" class="level2">
+<h2 class="anchored" data-anchor-id="問題点">2. 問題点</h2>
+<p><code>config.toml</code> にはフルパスが書かれるため複数のマシンで設定を管理するのが面倒です。</p>
+<p>かつどのプロジェクトを信頼するかの設定もマシンごとに異なることが多いので <code>config.toml</code> をそのまま dotfiles で管理するのはイマイチと言えます。</p>
+</section>
 <section id="解決策" class="level2">
-<h2 class="anchored" data-anchor-id="解決策">2. 解決策</h2>
+<h2 class="anchored" data-anchor-id="解決策">3. 解決策</h2>
 <p>共通設定だけ dotfiles の管理対象とし、プロジェクト別の設定はスクリプトで生成してしまうというものです。</p>
 <p>これで困ることはほとんどないでしょう！</p>
 <section id="config.toml-の生成スクリプト" class="level3">
-<h3 class="anchored" data-anchor-id="config.toml-の生成スクリプト">2.1. config.toml の生成スクリプト</h3>
-<p>共通設定を <code>config.common.toml</code> に書いておき、プロジェクトごとの設定を自動生成して <code>config.toml</code> を生成させます。</p>
-<p>※リポジトリを ghq で管理している前提になってます</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<h3 class="anchored" data-anchor-id="config.toml-の生成スクリプト">3.1. config.toml の生成スクリプト</h3>
+<p>共通設定を <code>~/.config/codex/config.common.toml</code> に書いておき、プロジェクトごとの設定を自動生成して <code>config.toml</code> を生成させます。</p>
+<p>※リポジトリを ghq で管理していることを前提としています。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.config/codex/generate_config.sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="~/.config/codex/generate_config.sh"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">GHQ_BASE</span><span class="op">=</span><span class="st">"</span><span class="va">${HOME}</span><span class="st">"</span>/ghq/github.com</span>
@@ -492,10 +502,11 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">done</span> <span class="op">&gt;&gt;</span><span class="st">"</span><span class="va">${OUTPUT}</span><span class="st">"</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Generated: </span><span class="va">${OUTPUT}</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
 <section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">3. おわりに</h2>
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
 <p>dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使っていきましょう！</p>
 
 
