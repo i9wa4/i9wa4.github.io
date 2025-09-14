@@ -48,24 +48,24 @@ OUTPUT="./config.toml"
 
 cd "$(dirname "$0")"
 
-mkdir -p "$(dirname "$OUTPUT")"
-cp -f "$COMMON" "$OUTPUT"
-sed -i '' '/# PROJECT_SETTINGS_PLACEHOLDER/d' "$OUTPUT"
+mkdir -p "$(dirname "${OUTPUT}")"
+cp -f "${COMMON}" "${OUTPUT}"
+sed -i '' '/# PROJECT_SETTINGS_PLACEHOLDER/d' "${OUTPUT}"
 
-find "$GHQ_BASE" -maxdepth 3 -type d -name ".git" 2>/dev/null | sed 's/\/\.git$//' | sort | while read -r repo; do
-  [[ -z $repo ]] && continue
+find "${GHQ_BASE}" -maxdepth 3 -type d -name ".git" 2>/dev/null | sed 's/\/\.git$//' | sort | while read -r repo; do
+  [[ -z ${repo} ]] && continue
 
   echo "
-[projects.\"$repo\"]
-trust_level = \"trusted\"" >>"$OUTPUT"
+[projects.\"${repo}\"]
+trust_level = \"trusted\"" >>"${OUTPUT}"
 
-  case "$repo" in
-    */dotfiles) echo 'approval_policy = "never"' >>"$OUTPUT" ;;
-    */prod*) echo 'sandbox_mode = "read-only"' >>"$OUTPUT" ;;
+  case "${repo}" in
+    */dotfiles) echo 'approval_policy = "never"' >>"${OUTPUT}" ;;
+    */prod*) echo 'sandbox_mode = "read-only"' >>"${OUTPUT}" ;;
   esac
 done
 
-echo "Generated: $OUTPUT"
+echo "Generated: ${OUTPUT}"
 ```
 
 ## 3. おわりに
