@@ -113,61 +113,32 @@ font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
 <span id="cb2-9"></span>
-<span id="cb2-10"><span class="fu" style="color: #4758AB;
+<span id="cb2-10"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">mkdir</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-p</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">dirname</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
+font-style: inherit;"># Copy common settings</span></span>
 <span id="cb2-11"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">cp</span> <span class="at" style="color: #657422;
+font-style: inherit;">grep</span> <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
+font-style: inherit;">-v</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'# PROJECT_SETTINGS_PLACEHOLDER'</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">${COMMON}</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+font-style: inherit;">"</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb2-12"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sed</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-i</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">''</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'/# PROJECT_SETTINGS_PLACEHOLDER/d'</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-13"></span>
-<span id="cb2-14"><span class="fu" style="color: #4758AB;
+<span id="cb2-12"></span>
+<span id="cb2-13"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">find</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -187,19 +158,28 @@ font-style: inherit;">".git"</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&gt;</span>/dev/null <span class="kw" style="color: #003B4F;
+font-style: inherit;">&gt;</span>/dev/null <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb2-14">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sed</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'s/\/\.git$//'</span> <span class="kw" style="color: #003B4F;
+font-style: inherit;">'s|\.git$||'</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb2-15">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">sort</span> <span class="kw" style="color: #003B4F;
+font-style: inherit;">sort</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb2-16">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">|</span> <span class="cf" style="color: #003B4F;
@@ -218,7 +198,7 @@ font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">do</span></span>
-<span id="cb2-15">  <span class="kw" style="color: #003B4F;
+<span id="cb2-17">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
@@ -235,13 +215,12 @@ font-style: inherit;">&amp;&amp;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">continue</span></span>
-<span id="cb2-16"></span>
-<span id="cb2-17">  <span class="bu" style="color: null;
+<span id="cb2-18">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb2-18"><span class="st" style="color: #20794D;
+<span id="cb2-19"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">[projects.</span><span class="dt" style="color: #AD0000;
 background-color: null;
@@ -252,7 +231,7 @@ background-color: null;
 font-style: inherit;">\"</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">]</span></span>
-<span id="cb2-19"><span class="st" style="color: #20794D;
+<span id="cb2-20"><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">trust_level = </span><span class="dt" style="color: #AD0000;
 background-color: null;
@@ -262,7 +241,11 @@ font-style: inherit;">trusted</span><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">\"</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">"</span></span>
+<span id="cb2-21">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -271,14 +254,16 @@ background-color: null;
 font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb2-20"><span class="cf" style="color: #003B4F;
+<span id="cb2-22"></span>
+<span id="cb2-23"><span class="bu" style="color: null;
 background-color: null;
-font-weight: bold;
-font-style: inherit;">done</span></span>
-<span id="cb2-21"></span>
-<span id="cb2-22"><span class="ex" style="color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">e</span></span></code></pre></div></div>
+font-style: inherit;">"Generated: </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span></code></pre></div></div>
 </section>
 </section>
 <section id="おわりに" class="level2">
