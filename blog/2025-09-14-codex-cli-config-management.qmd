@@ -73,4 +73,4 @@ echo "Generated: ${OUTPUT}"
 
 ## 4. おわりに
 
-dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使っていきましょう！
+dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使えるようになりましたよ！
