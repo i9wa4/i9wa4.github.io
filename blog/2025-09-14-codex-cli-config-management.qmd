@@ -1,0 +1,73 @@
+---
+title: "Codex CLI の設定ファイルを dotfiles で管理する"
+author: uma-chan
+date: 2025-09-14 21:55:32 +0900
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。
+categories:
+  - "blog"
+  - "tech-ai"
+---
+
+Codex CLI を使い始めたのですが dotfiles 使いにとっては辛い部分があり距離を置いてしまっていました。
+
+今回力技で設定ファイルを dotfiles で管理する方法を思いついたので紹介します。
+
+## 1. Codex CLI の設定ファイルについて
+
+Codex CLI の設定ファイルは `~/.config/codex/config.toml` です。
+
+内容は例えば以下のような感じです。
+
+```{.toml}
+[projects."/Users/uma/ghq/github.com/i9wa4/dotfiles"]
+trust_level = "trusted"
+```
+
+## 2. 解決策
+
+共通設定だけ dotfiles の管理対象とし、プロジェクト別の設定はスクリプトで生成してしまうというものです。
+
+これで困ることはほとんどないでしょう！
+
+### 2.1. config.toml の生成スクリプト
+
+共通設定を `config.common.toml` に書いておき、プロジェクトごとの設定を自動生成して `config.toml` を生成させます。
+
+※リポジトリを ghq で管理している前提になってます
+
+```{.sh}
+#!/usr/bin/env bash
+set -euo pipefail
+
+GHQ_BASE="${HOME}"/ghq/github.com
+COMMON="./config.common.toml"
+OUTPUT="./config.toml"
+
+cd "$(dirname "$0")"
+
+mkdir -p "$(dirname "$OUTPUT")"
+cp -f "$COMMON" "$OUTPUT"
+sed -i '' '/# PROJECT_SETTINGS_PLACEHOLDER/d' "$OUTPUT"
+
+find "$GHQ_BASE" -maxdepth 3 -type d -name ".git" 2>/dev/null | sed 's/\/\.git$//' | sort | while read -r repo; do
+  [[ -z $repo ]] && continue
+
+  echo "
+[projects.\"$repo\"]
+trust_level = \"trusted\"" >>"$OUTPUT"
+
+  case "$repo" in
+    */dotfiles) echo 'approval_policy = "never"' >>"$OUTPUT" ;;
+    */prod*) echo 'sandbox_mode = "read-only"' >>"$OUTPUT" ;;
+  esac
+done
+
+echo "Generated: $OUTPUT"
+```
+
+## 3. おわりに
+
+dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使っていきましょう！
