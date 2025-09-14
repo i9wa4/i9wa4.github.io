@@ -58,14 +58,9 @@ find "${GHQ_BASE}" -maxdepth 3 -type d -name ".git" 2>/dev/null | sed 's/\/\.git
   echo "
 [projects.\"${repo}\"]
 trust_level = \"trusted\"" >>"${OUTPUT}"
-
-  case "${repo}" in
-    */dotfiles) echo 'approval_policy = "never"' >>"${OUTPUT}" ;;
-    */prod*) echo 'sandbox_mode = "read-only"' >>"${OUTPUT}" ;;
-  esac
 done
 
-echo "Generated: ${OUTPUT}"
+e
 ```
 
 ## 3. おわりに
