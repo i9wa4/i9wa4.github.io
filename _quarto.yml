@@ -33,6 +33,9 @@ website:
       - icon: rss
         href: "index.xml"
     contents:
+      - href: "index.qmd"
+        text: "Top"
+      - text: "---"
       - section: "Content"
         contents:
           - href: "blog/index.qmd"
