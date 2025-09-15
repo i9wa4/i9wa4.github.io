@@ -22,6 +22,7 @@ website:
     creator: "@i9wa4_"
     site: "@i9wa4_"
   sidebar:
+    title: "uma-chan's page"
     style: floating
     tools:
       - icon: github
