@@ -32,7 +32,6 @@ format:
 ::: {.column width="80%"}
 Daiki Mawatari / 馬渡大樹 / uma-chan
 
-- 住所：北海道札幌市
 - 職歴
 
     |             |                                         |

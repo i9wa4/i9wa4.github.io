@@ -46,7 +46,6 @@ format:
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
 
-- 現住所：北海道札幌市
 - 職務経歴書公開先：<https://i9wa4.github.io/resume>
 
 ## 1. 職務要約

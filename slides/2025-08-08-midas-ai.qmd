@@ -39,7 +39,6 @@ format:
 | 名前   | 馬渡 大樹 (Mawatari Daiki)                |
 | 所属   | 株式会社GENDA - IT戦略部                  |
 | 職種   | データエンジニア / 機械学習基盤エンジニア |
-| 住所   | 北海道札幌市                              |
 | GitHub | [@i9wa4](https://github.com/i9wa4)        |
 | X      | [@i9wa4_](https://x.com/i9wa4_)           |
 
