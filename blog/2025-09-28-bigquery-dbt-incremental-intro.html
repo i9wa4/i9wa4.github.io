@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="uma-chan">
-<meta name="dcterms.date" content="2024-03-26">
-<meta name="description" content="データサイエンス100本ノックの実行環境構築 (WSL2)">
+<meta name="dcterms.date" content="2025-09-28">
+<meta name="description" content="BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する">
 
-<title>データサイエンス100本ノックの実行環境構築 (WSL2) – uma-chan’s page</title>
+<title>BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた – uma-chan’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,13 +87,13 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <meta name="Hatena::Bookmark" content="nocomment">
 
 
-<meta property="og:title" content="データサイエンス100本ノックの実行環境構築 (WSL2) – uma-chan’s page">
-<meta property="og:description" content="データサイエンス100本ノックの実行環境構築 (WSL2)">
+<meta property="og:title" content="BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた – uma-chan’s page">
+<meta property="og:description" content="BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する">
 <meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:title" content="データサイエンス100本ノックの実行環境構築 (WSL2) – uma-chan’s page">
-<meta name="twitter:description" content="データサイエンス100本ノックの実行環境構築 (WSL2)">
+<meta name="twitter:title" content="BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた – uma-chan’s page">
+<meta name="twitter:description" content="BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する">
 <meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -272,7 +272,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">データサイエンス100本ノックの実行環境構築 (WSL2)</h1>
+          <h1 class="quarto-secondary-nav-title">BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -362,30 +362,41 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
+  <li><a href="#当初の課題" id="toc-当初の課題" class="nav-link" data-scroll-target="#当初の課題">2. 当初の課題</a></li>
+  <li><a href="#実施した改善策" id="toc-実施した改善策" class="nav-link" data-scroll-target="#実施した改善策">3. 実施した改善策</a></li>
+  <li><a href="#効果と検証" id="toc-効果と検証" class="nav-link" data-scroll-target="#効果と検証">4. 効果と検証</a></li>
+  <li><a href="#おわりに" id="toc-おわりに" class="nav-link" data-scroll-target="#おわりに">5. おわりに</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-09-28-bigquery-dbt-incremental-intro.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">データサイエンス100本ノックの実行環境構築 (WSL2)</h1>
+<h1 class="title d-none d-lg-block">BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">blog</div>
     <div class="quarto-category">tech</div>
+    <div class="quarto-category">tech-data</div>
+    <div class="quarto-category">tech-dbt</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>データサイエンス100本ノックの実行環境構築 (WSL2)</p>
+    <p>BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する</p>
   </div>
 </div>
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -397,14 +408,14 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-03-26</p>
+      <p class="date">2025-09-28</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025-05-26</p>
+      <p class="date-modified">2025-09-28</p>
     </div>
   </div>
     
@@ -415,10 +426,55 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 </header>
 
 
-<p>下記リポジトリを見てください。以上。</p>
-<p><a href="https://github.com/i9wa4/wsl2-100knocks-preprocess" class="uri">https://github.com/i9wa4/wsl2-100knocks-preprocess</a></p>
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>ログ同士を突き合わせる dbt モデルの実行時間が1時間を超えていたため、BigQuery の特性を活かしつつ実行時間を40分短縮した流れを紹介します。対象はイミューターなログを扱うモデルで、過去データの更新を考慮しない前提を置ける構造でした。</p>
+</section>
+<section id="当初の課題" class="level2">
+<h2 class="anchored" data-anchor-id="当初の課題">2. 当初の課題</h2>
+<ul>
+<li>incremental_strategy が merge で、ターゲットテーブル全体を走査していた</li>
+<li>unique_key が15列と多く、結合条件が複雑であった</li>
+<li>参照元テーブルが期間条件なしで FULL OUTER JOIN され、中間結果が肥大化していた</li>
+</ul>
+</section>
+<section id="実施した改善策" class="level2">
+<h2 class="anchored" data-anchor-id="実施した改善策">3. 実施した改善策</h2>
+<section id="incremental_strategy-の切り替え" class="level3">
+<h3 class="anchored" data-anchor-id="incremental_strategy-の切り替え">3.1. incremental_strategy の切り替え</h3>
+<ul>
+<li>merge から insert_overwrite へ変更し、対象パーティションのみを差し替えた</li>
+</ul>
+</section>
+<section id="パーティションプルーニングの徹底" class="level3">
+<h3 class="anchored" data-anchor-id="パーティションプルーニングの徹底">3.2. パーティションプルーニングの徹底</h3>
+<ul>
+<li>vars で渡した日付範囲を JOIN 前のフィルタで適用し、読み取り対象を日次で限定した</li>
+<li>パーティション指定を日単位で明示化し、BigQuery のスキャン範囲を事前に制限した</li>
+</ul>
+</section>
+<section id="重複除去ロジックの簡素化" class="level3">
+<h3 class="anchored" data-anchor-id="重複除去ロジックの簡素化">3.3. 重複除去ロジックの簡素化</h3>
+<ul>
+<li>15列のunique_key指定を ROW_NUMBER() による決定的な重複除去に変更した</li>
+<li>複雑なMERGE処理からシンプルな重複除去ロジックへ簡素化した</li>
+</ul>
+</section>
+</section>
+<section id="効果と検証" class="level2">
+<h2 class="anchored" data-anchor-id="効果と検証">4. 効果と検証</h2>
+<ul>
+<li>実行時間は1時間超えから40分短縮できた</li>
+<li>同期間の surrogate key 単位で件数と代表値を比較し整合性を確認できた</li>
+<li>修正前後で更新内容に差異がないことを確認できた (ログデータの特性上そうなる)</li>
+</ul>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">5. おわりに</h2>
+<p>BigQuery の挙動と dbt の incremental モデルへの習熟度がまだまだなので引き続き学びを深めます。</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -845,7 +901,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2024-03-26-setup-ds100knock.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/i9wa4/i9wa4.github.io/blob/main/blog/2025-09-28-bigquery-dbt-incremental-intro.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/i9wa4/i9wa4.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

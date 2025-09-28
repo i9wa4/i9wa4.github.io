@@ -1,7 +1,18 @@
 [
   {
+    "listing": "/slides/index.html",
+    "items": [
+      "/slides/2025-08-08-midas-ai.html",
+      "/slides/2025-06-03-self-introduction-1page.html",
+      "/slides/2025-05-22-midas-cursor-tips.html",
+      "/slides/2024-02-04-sapporo.vim.html",
+      "/slides/2023-12-16-sapporo.vim.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/blog/2025-09-28-bigquery-dbt-incremental-intro.html",
       "/blog/2025-09-14-codex-cli-config-management.html",
       "/blog/2025-09-02-activity.html",
       "/blog/2025-08-23-diary.html",
@@ -83,6 +94,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2025-09-28-bigquery-dbt-incremental-intro.html",
       "/blog/2025-09-14-codex-cli-config-management.html",
       "/blog/2025-09-02-activity.html",
       "/blog/2025-08-23-diary.html",
@@ -143,16 +155,6 @@
       "/blog/2024-01-02-vim-plugin-mnh.html",
       "/blog/2024-01-02-jelyll-adjust.html",
       "/blog/2024-01-01-init.html"
-    ]
-  },
-  {
-    "listing": "/slides/index.html",
-    "items": [
-      "/slides/2025-08-08-midas-ai.html",
-      "/slides/2025-06-03-self-introduction-1page.html",
-      "/slides/2025-05-22-midas-cursor-tips.html",
-      "/slides/2024-02-04-sapporo.vim.html",
-      "/slides/2023-12-16-sapporo.vim.html"
     ]
   }
 ]
