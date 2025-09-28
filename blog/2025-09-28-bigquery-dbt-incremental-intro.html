@@ -8,7 +8,7 @@
 
 <meta name="author" content="uma-chan">
 <meta name="dcterms.date" content="2025-09-28">
-<meta name="description" content="BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する">
+<meta name="description" content="BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する">
 
 <title>BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた – uma-chan’s page</title>
 <style>
@@ -88,12 +88,12 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 
 <meta property="og:title" content="BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた – uma-chan’s page">
-<meta property="og:description" content="BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する">
+<meta property="og:description" content="BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する">
 <meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta property="og:site_name" content="uma-chan's page">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:title" content="BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた – uma-chan’s page">
-<meta name="twitter:description" content="BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する">
+<meta name="twitter:description" content="BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する">
 <meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
 <meta name="twitter:creator" content="@i9wa4_">
 <meta name="twitter:site" content="@i9wa4_">
@@ -391,7 +391,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    <p>BigQuery 上で dbt incremental モデルの実行時間を40分短縮した手順を共有する</p>
+    <p>BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する</p>
   </div>
 </div>
 
@@ -428,7 +428,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 
 <section id="はじめに" class="level2">
 <h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>ログ同士を突き合わせる dbt モデルの実行時間が1時間を超えていたため、BigQuery の特性を活かしつつ実行時間を40分短縮した流れを紹介します。対象はイミューターなログを扱うモデルで、過去データの更新を考慮しない前提を置ける構造でした。</p>
+<p>ログ同士を突き合わせる dbt モデルの dbt run 実行時間が1時間を超えていたため、BigQuery の特性を活かしつつ実行時間を40分短縮した流れを紹介します。対象はイミューターなログを扱うモデルで、過去データの更新を考慮しない前提を置ける構造でした。</p>
 </section>
 <section id="当初の課題" class="level2">
 <h2 class="anchored" data-anchor-id="当初の課題">2. 当初の課題</h2>
@@ -464,7 +464,7 @@ gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
 <section id="効果と検証" class="level2">
 <h2 class="anchored" data-anchor-id="効果と検証">4. 効果と検証</h2>
 <ul>
-<li>実行時間は1時間超えから40分短縮できた</li>
+<li>dbt run 実行時間は1時間超えから40分短縮できた</li>
 <li>同期間の surrogate key 単位で件数と代表値を比較し整合性を確認できた</li>
 <li>修正前後で更新内容に差異がないことを確認できた (ログデータの特性上そうなる)</li>
 </ul>
