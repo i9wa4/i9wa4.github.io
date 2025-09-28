@@ -1,0 +1,53 @@
+---
+title: "BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた"
+author: uma-chan
+date: last-modified
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  BigQuery 上で dbt incremental モデルの実行時間を 40 分短縮した手順を共有する
+categories:
+  - "tech"
+  - "tech-data"
+  - "tech-dbt"
+---
+
+## 1. 概要
+
+ログ同士を突き合わせる dbt モデルの実行時間が 1 時間を超えていたため、BigQuery の特性を活かして 25 分 56 秒まで短縮した流れを紹介します。
+対象はイミューターなログを扱うモデルで、過去データの更新を考慮しない前提を置ける構造でした。
+
+## 2. 当初の課題
+
+- incremental_strategy が merge で、ターゲットテーブル全体を走査
+- unique_key が 15 列と多く、結合条件が複雑
+- 参照元テーブルが期間条件なしで FULL OUTER JOIN され、中間結果が肥大化
+
+## 3. BigQuery で実施した最適化
+
+### 3.1 incremental_strategy の切り替え
+
+- merge から insert_overwrite へ変更し、対象パーティションのみを差し替え
+- メタデータ更新コストが下がり、実行計画もシンプル化
+
+### 3.2 パーティションプルーニングの徹底
+
+- vars で渡した日付範囲をサブクエリで適用し、読み取り対象を日次で限定
+- _PARTITIONTIME や _PARTITIONDATE に静的フィルタを明示して BigQuery プランナーに伝達
+
+### 3.3 重複除去ロジックの簡素化
+
+- unique_key での比較を ROW_NUMBER() による重複除去へ置き換え
+- BigQuery のウィンドウ関数最適化でコンパイル時間とスキャン量が縮小
+
+## 4. 効果と検証
+
+- 実行時間は 1 時間 10 分前後から 25 分 56 秒へ短縮
+- 同期間の surrogate key 単位で件数と代表値を比較し整合性を確認
+- 既存の dbt test (not_null と unique) を再実行して差異なし
+
+## 5. 今後の検討
+
+- days_to_process を vars で調整しつつ既定値 3 日 上限 30 日の運用を整備
+- require_partition_filter の適用可否を再検討し、過去データ再処理時の安全策を整理
+- INFORMATION_SCHEMA.PARTITIONS を用いた差分監視を自動化し、他テーブルにも展開
