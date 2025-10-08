@@ -35,6 +35,9 @@ cf. <https://github.com/i9wa4/dotfiles>
             - 曜日を表示 ON
             - 秒を表示 ON
         - メニューバーを自動的に表示/非表示 しない
+- アクセシビリティ
+    - 視差効果
+        - 視差効果を減らす ON
 - ディスプレイ
     - True Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)
     - Night Shift
@@ -51,6 +54,11 @@ cf. <https://github.com/i9wa4/dotfiles>
     - ウィジェット
         - デフォルトの Web ブラウザ
             - Google Chrome
+    - ウインドウ
+        - ウインドウを画面の左端または右端にドラッグしてタイル表示 ON
+        - Alt キーを押しながらドラッグしてタイル表示 ON
+    - Mission Control
+        - 最新の使用状況に基づいて操作スペースを自動的に並べ替える ON
 - 通知
     - 通知センター OFF
     - アプリケーションの通知 システム系以外は OFF
@@ -67,6 +75,11 @@ cf. <https://github.com/i9wa4/dotfiles>
     - 管理者
 - キーボード
     - キーボードの輝度 最小
+    - アプリのショートカット
+        - ウィンドウ->移動とサイズ変更->上 Alt + Shift + Up
+        - ウィンドウ->移動とサイズ変更->下 Alt + Shift + Down
+        - ウィンドウ->移動とサイズ変更->右 Alt + Shift + Right
+        - ウィンドウ->移動とサイズ変更->左 Alt + Shift + Left
     - キーボードショートカット
         - 修飾キー
             - 内蔵キーボード
@@ -81,7 +94,7 @@ cf. <https://github.com/i9wa4/dotfiles>
             - 二重引用符 "abc"
             - 一重引用符 'abc'
         - 日本語 - ローマ字入力
-            - ライフ変換 OFF
+            - ライブ変換 OFF
             - タイプミスを修正
     - 音声入力 OFF
 - マウス
