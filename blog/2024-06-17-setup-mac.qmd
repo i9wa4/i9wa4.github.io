@@ -72,12 +72,17 @@ cf. <https://github.com/i9wa4/dotfiles>
     - 管理者
 - キーボード
     - キーボードの輝度 最小
-    - アプリのショートカット
-        - ウィンドウ->移動とサイズ変更->上 Alt + Shift + Up
-        - ウィンドウ->移動とサイズ変更->下 Alt + Shift + Down
-        - ウィンドウ->移動とサイズ変更->右 Alt + Shift + Right
-        - ウィンドウ->移動とサイズ変更->左 Alt + Shift + Left
     - キーボードショートカット
+        - Mission Control
+            - Mission Control
+                - デスクトップ1へ切り替え Alt + 1
+                - デスクトップ2へ切り替え Alt + 2
+                - デスクトップ3へ切り替え Alt + 3
+        - アプリのショートカット
+            - ウィンドウ->移動とサイズ変更->上 Alt + Shift + Up
+            - ウィンドウ->移動とサイズ変更->下 Alt + Shift + Down
+            - ウィンドウ->移動とサイズ変更->右 Alt + Shift + Right
+            - ウィンドウ->移動とサイズ変更->左 Alt + Shift + Left
         - 修飾キー
             - 内蔵キーボード
                 - Caps Lock -> Control
