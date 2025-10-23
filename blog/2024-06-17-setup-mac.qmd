@@ -23,7 +23,7 @@ cf. <https://github.com/i9wa4/dotfiles>
 - バッテリー
     - バッテリーの状態
         - バッテリー充電の最適化
-- コントロールセンター
+- メニューバー
     - Bluetooth
         - メニューバーに表示
     - バッテリー
@@ -35,6 +35,10 @@ cf. <https://github.com/i9wa4/dotfiles>
             - 曜日を表示 ON
             - 秒を表示 ON
         - メニューバーを自動的に表示/非表示 しない
+- Spotlight
+    - システムからの結果
+        - アプリ ON
+    - その他の項目はすべて OFF
 - ディスプレイ
     - True Tone OFF (内蔵ディスプレイ使用時に出現する設定項目)
     - Night Shift
