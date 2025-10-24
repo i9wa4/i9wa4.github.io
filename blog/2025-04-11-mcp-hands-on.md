@@ -66,4 +66,4 @@ npx sitemcp
 MCPサーバ設定をこのように記載して Cursor の Agent
 でサイトのインデックス取得を命令していくことで内容に関する質問ができるようになりました。
 
-![](../assets/2025-04-11-mcp-hands-on/cursor-sitemcp.png)
+![](https://i9wa4.github.io/assets/2025-04-11-mcp-hands-on/cursor-sitemcp.png)

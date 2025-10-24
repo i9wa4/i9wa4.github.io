@@ -35,7 +35,7 @@ Quarto で作成しています。 GitHub Pages
 での公開方法が気になる方は以下の記事を参考にしてください。
 
 [Markdown ライクな Quarto でブログやスライドを作って GitHub Pages
-で公開する](2025-08-25-publishing-github-pages-with-quarto.qmd)
+で公開する](https://i9wa4.github.io/blog/2025-08-25-publishing-github-pages-with-quarto.md)
 
 ## 4. この記事でやること
 
@@ -411,12 +411,12 @@ reveal.js 形式の HTML ファイルとなります。
 HTML ファイルを Web
 ブラウザで開くと以下のような表示になります。左下のハンバーガーメニューをクリックします。
 
-![](../assets/2025-05-06-quarto-slides/01-quarto.png)
+![](https://i9wa4.github.io/assets/2025-05-06-quarto-slides/01-quarto.png)
 
 複数のモードが選択できます。PDF Export Mode を選択すると PDF
 印刷できる状態になります。
 
-![](../assets/2025-05-06-quarto-slides/02-quarto.png)
+![](https://i9wa4.github.io/assets/2025-05-06-quarto-slides/02-quarto.png)
 
 その他詳細は下記ページを参照してください。
 

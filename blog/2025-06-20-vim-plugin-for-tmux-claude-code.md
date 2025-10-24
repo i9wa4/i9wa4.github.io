@@ -13,7 +13,7 @@ Vim プラグインを作りました。
 
 こちらが作成した Vim プラグインです。
 
-[![](../assets/2025-06-20-vim-plugin-for-tmux-claude-code/vim-tmux-send-to-claude-code.jpeg)](https://github.com/i9wa4/vim-tmux-send-to-claude-code)
+[![](https://i9wa4.github.io/assets/2025-06-20-vim-plugin-for-tmux-claude-code/vim-tmux-send-to-claude-code.jpeg)](https://github.com/i9wa4/vim-tmux-send-to-claude-code)
 
 <https://github.com/i9wa4/vim-tmux-send-to-claude-code>
 

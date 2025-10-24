@@ -3,7 +3,7 @@ uma-chan
 2025-02-20
 
 [少し前の Vim
-プラグイン開発のアイデア記事](./2024-09-22-vim-plugin-idea.qmd)
+プラグイン開発のアイデア記事](https://i9wa4.github.io/blog/./2024-09-22-vim-plugin-idea.md)
 で7個のアイデアを書いてました。
 
 ## 1. ローカル設定の読み込み

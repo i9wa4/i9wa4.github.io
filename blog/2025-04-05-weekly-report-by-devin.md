@@ -22,7 +22,7 @@ uma-chan
 プロンプトは別記事に分けてます。
 
 [Devin
-週報作成用プロンプト](2025-04-05-weekly-report-prompt-for-devin.qmd)
+週報作成用プロンプト](https://i9wa4.github.io/blog/2025-04-05-weekly-report-prompt-for-devin.md)
 
 上に書いたような長文プロンプトを用意した上で以下のように Devin
 に指示を出します。

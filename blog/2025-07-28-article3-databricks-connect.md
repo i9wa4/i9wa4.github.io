@@ -5,11 +5,11 @@ uma-chan
 本記事は3部構成の3本目です。
 
 1.  [Claude Code 対応 Dev Container 環境構築編 - VS Code
-    でもそれ以外でも](2025-07-28-article1-devcontainer.qmd)
+    でもそれ以外でも](https://i9wa4.github.io/blog/2025-07-28-article1-devcontainer.md)
 2.  [Python 開発環境最適化編 - uv + pre-commit + GitHub
-    Actions](2025-07-28-article2-python-env.qmd)
+    Actions](https://i9wa4.github.io/blog/2025-07-28-article2-python-env.md)
 3.  [Databricks Connect 実践編 - ローカルから Databricks
-    コンピュートを利用](2025-07-28-article3-databricks-connect.qmd)
+    コンピュートを利用](https://i9wa4.github.io/blog/2025-07-28-article3-databricks-connect.md)
 
 ## 1. はじめに
 
