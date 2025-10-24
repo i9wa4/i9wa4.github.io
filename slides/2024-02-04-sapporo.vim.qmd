@@ -19,6 +19,7 @@ format:
     theme: white
     title-prefix: ""
     footer: "https://connpass.com/event/307552/"
+  gfm: default
 ---
 
 ## 1. 自己紹介

@@ -11,6 +11,7 @@ Period: "2016/04 - 2018/07"
 format:
   html:
     title-prefix: ""
+  gfm: default
 ---
 
 :会社概要・雇用形態 (2018年時点) {#tbl-company tbl-colwidths="[20,80]"}

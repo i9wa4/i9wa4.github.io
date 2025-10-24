@@ -33,6 +33,7 @@ format:
       # data-background-image: ""
       data-background-size: "cover"
     title-prefix: ""
+  gfm: default
 ---
 
 ## 1. はじめに

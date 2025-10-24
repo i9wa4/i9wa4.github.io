@@ -24,6 +24,7 @@ format:
     theme: beige
     toc-depth: 2
     toc: false
+  gfm: default
 ---
 
 ## 1. はじめに

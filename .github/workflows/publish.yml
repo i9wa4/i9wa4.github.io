@@ -51,9 +51,23 @@ jobs:
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yml
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yml
 
-      - name: Render and Publish
+      - name: Render Quarto Project
+        run: quarto render
+
+      - name: Fix image paths and links in GFM files
+        run: |
+          # 画像パスを絶対URLに変換
+          find _site -name "*.md" -type f -exec sed -i 's|(\.\./assets/|(https://i9wa4.github.io/assets/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|src="\.\./assets/|src="https://i9wa4.github.io/assets/|g' {} \;
+          # 記事への相対リンクを絶対URLに変換 (.qmd -> .md)
+          find _site/blog -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/blog/\1.md)|g' {} \;
+          find _site/slides -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/slides/\1.md)|g' {} \;
+          find _site/resume -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/resume/\1.md)|g' {} \;
+
+      - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
+          render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
