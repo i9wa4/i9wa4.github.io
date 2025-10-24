@@ -90,3 +90,5 @@ format:
     toc-expand: 2
     toc: true
     include-in-header: _includes/hatena-nocomment.html
+  markdown:
+    variant: gfm
