@@ -56,13 +56,31 @@ jobs:
 
       - name: Fix image paths and links in GFM files
         run: |
-          # 画像パスを絶対URLに変換
+          # 画像パスを絶対URLに変換 (相対パス)
           find _site -name "*.md" -type f -exec sed -i 's|(\.\./assets/|(https://i9wa4.github.io/assets/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|src="\.\./assets/|src="https://i9wa4.github.io/assets/|g' {} \;
+
+          # 画像パスを絶対URLに変換 (絶対パス)
+          find _site -name "*.md" -type f -exec sed -i 's|](/assets/|](https://i9wa4.github.io/assets/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|src="/assets/|src="https://i9wa4.github.io/assets/|g' {} \;
+
           # 記事への相対リンクを絶対URLに変換 (.qmd -> .md)
-          find _site/blog -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/blog/\1.md)|g' {} \;
-          find _site/slides -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/slides/\1.md)|g' {} \;
-          find _site/resume -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/resume/\1.md)|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/\1.md)|g' {} \;
+
+          # 相対パスを絶対URLに変換 (../blog/, ../slides/, ../resume/)
+          find _site -name "*.md" -type f -exec sed -i 's|(../blog/|(https://i9wa4.github.io/blog/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|(../slides/|(https://i9wa4.github.io/slides/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|(../resume/|(https://i9wa4.github.io/resume/|g' {} \;
+
+          # 相対パスを絶対URLに変換 (./blog/, ./slides/, ./resume/)
+          find _site -name "*.md" -type f -exec sed -i 's|(./blog/|(https://i9wa4.github.io/blog/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|(./slides/|(https://i9wa4.github.io/slides/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|(./resume/|(https://i9wa4.github.io/resume/|g' {} \;
+
+          # 絶対パス形式を絶対URLに変換 (/blog/, /slides/, /resume/)
+          find _site -name "*.md" -type f -exec sed -i 's|](/blog/|](https://i9wa4.github.io/blog/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|](/slides/|](https://i9wa4.github.io/slides/|g' {} \;
+          find _site -name "*.md" -type f -exec sed -i 's|](/resume/|](https://i9wa4.github.io/resume/|g' {} \;
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
