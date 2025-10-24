@@ -1,0 +1,40 @@
+# Poetry の pyproject.toml を使って uv で .venv を作成する
+uma-chan
+2025-06-08
+
+## 1. はじめに
+
+最近 Python の仮想環境構築に uv を利用し始めて以来 pyenv
+を削除してしまったりとすっかり uv が気に入っています。
+
+とはいえ全てのプロジェクトを直ちに uv
+へ移行するのも全員の学習コストがかかるため難しいと思います。
+
+過渡期の対応としてローカルで Poetry の pyproject.toml を使用して uv
+で仮想環境構築する方法をメモしておきます。
+
+## 2. 仮想環境構築手順
+
+``` sh
+# .venv を作成する
+# このとき .python-version に記載された Python で構築される
+$ uv venv
+Using CPython 3.12.1
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+
+# 仮想環境にパッケージをインストールする
+$ uv pip install --requirement pyproject.toml
+```
+
+## 3. おわりに
+
+`$ uv pip install --requirement pyproject.toml` ここ爆速すぎて uv
+が好きになると思うのでちょっとやってみてほしいです。
+
+ちなみにこの方法だと poetry.lock
+に従うわけではないので完全に同じ環境を再現するわけではありません。
+
+とはいえほとんど齟齬のない環境を構築できます。
+
+しばらくすると忘れそうなのでメモ代わりの記事でした。
