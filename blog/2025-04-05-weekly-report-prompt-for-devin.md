@@ -4,7 +4,7 @@ uma-chan
 
 親記事は以下です。
 
-[Devin に週報を書いてもらった](https://i9wa4.github.io/blog/2025-04-05-weekly-report-by-devin.md)
+[Devin に週報を書いてもらった](https://i9wa4.github.io/2025-04-05-weekly-report-by-devin.md)
 
 ## 1. 人間への補足
 

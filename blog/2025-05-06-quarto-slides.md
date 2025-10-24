@@ -35,7 +35,7 @@ Quarto で作成しています。 GitHub Pages
 での公開方法が気になる方は以下の記事を参考にしてください。
 
 [Markdown ライクな Quarto でブログやスライドを作って GitHub Pages
-で公開する](https://i9wa4.github.io/blog/2025-08-25-publishing-github-pages-with-quarto.md)
+で公開する](https://i9wa4.github.io/2025-08-25-publishing-github-pages-with-quarto.md)
 
 ## 4. この記事でやること
 
@@ -359,7 +359,7 @@ https://example.com
 
 画像を表示する場合はこのように記述します。
 
-![](/assets/common/title-background.jpg)
+![](https://i9wa4.github.io/assets/common/title-background.jpg)
 
 :::
 
