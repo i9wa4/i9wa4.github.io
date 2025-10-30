@@ -929,7 +929,7 @@ font-style: inherit;">"</span></span></code></pre></div>
   <category>zenn</category>
   <guid>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-databricks-connect-practice.html</guid>
   <pubDate>Wed, 06 Aug 2025 10:02:01 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions</title>
@@ -952,7 +952,7 @@ font-style: inherit;">"</span></span></code></pre></div>
   <category>zenn</category>
   <guid>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-python-env-optimization.html</guid>
   <pubDate>Wed, 06 Aug 2025 10:01:01 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも</title>
@@ -975,7 +975,7 @@ font-style: inherit;">"</span></span></code></pre></div>
   <category>zenn</category>
   <guid>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-devcontainer-claude-code.html</guid>
   <pubDate>Wed, 06 Aug 2025 10:00:01 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用</title>
@@ -5082,7 +5082,7 @@ font-style: inherit;">--workspace-folder</span> . zsh</span></code></pre></div>
   <category>zenn</category>
   <guid>https://i9wa4.github.io/blog/2025-07-16-zenn-2025-07-16-optimize-your-terminal-for-claude-code.html</guid>
   <pubDate>Wed, 16 Jul 2025 06:31:24 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>個人的ターミナル最適化 for Claude Code</title>
