@@ -1,0 +1,10 @@
+# zizmor configuration
+# https://woodruffw.github.io/zizmor/usage/#configuration
+
+rules:
+  artipacked:
+    # We need persist-credentials for quarto publish to push to gh-pages
+    # The workflow only runs on trusted code (main branch push only)
+    # and permissions are already restricted to contents: write
+    ignore:
+      - ".github/workflows/publish.yml"
