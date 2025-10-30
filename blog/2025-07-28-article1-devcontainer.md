@@ -1,4 +1,4 @@
-# Claude Code 対応 Dev Container 環境構築編 - VS Code でもそれ以外でも
+# Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも
 uma-chan
 2025-07-28
 

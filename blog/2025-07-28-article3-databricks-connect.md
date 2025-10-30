@@ -1,4 +1,4 @@
-# Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用
+# Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用
 uma-chan
 2025-07-28
 
