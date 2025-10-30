@@ -44,6 +44,9 @@ jobs:
       - name: (Optional) Set up Jupyter
         run: python3 -m pip install jupyter
 
+      - name: Fetch Zenn articles
+        run: python3 .github/scripts/fetch_zenn_articles.py
+
       - name: Update Quarto config
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
