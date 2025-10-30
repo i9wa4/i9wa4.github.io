@@ -107,7 +107,7 @@ title: "{article['title']}"
 author: uma-chan
 date: {date_yaml}
 date-modified: last-modified
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-logo-only.svg"
 description: |
   {description_yaml}
 categories:
