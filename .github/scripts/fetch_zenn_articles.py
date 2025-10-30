@@ -95,8 +95,11 @@ def generate_qmd_files(articles: list[dict], output_dir: Path) -> None:
         # Format date for YAML frontmatter
         date_yaml = article["pub_date"].strftime("%Y-%m-%d %H:%M:%S %z")
 
-        # Clean description (remove HTML tags if any)
+        # Clean description (remove HTML tags if any, and fix multiline for YAML)
         description = article["description"].strip()
+        # Indent each line of description for YAML block scalar
+        description_lines = description.split("\n")
+        description_yaml = "\n  ".join(description_lines)
 
         # Generate .qmd content
         content = f"""---
@@ -106,7 +109,7 @@ date: {date_yaml}
 date-modified: last-modified
 image: "/assets/common/zenn-logo.png"
 description: |
-  {description}
+  {description_yaml}
 categories:
   - "blog"
   - "tech"
