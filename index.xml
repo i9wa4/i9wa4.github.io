@@ -911,6 +911,75 @@ font-style: inherit;">"</span></span></code></pre></div>
 <item>
   <title>Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用</title>
   <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-databricks-connect-practice.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-08-06-databricks-connect-practice">Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用</a></p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-databricks-connect-practice.html</guid>
+  <pubDate>Wed, 06 Aug 2025 10:02:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+</item>
+<item>
+  <title>Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-python-env-optimization.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-08-06-python-env-optimization">Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions</a></p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-python-env-optimization.html</guid>
+  <pubDate>Wed, 06 Aug 2025 10:01:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+</item>
+<item>
+  <title>Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-devcontainer-claude-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-08-06-devcontainer-claude-code">Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも</a></p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/2025-08-06-zenn-2025-08-06-devcontainer-claude-code.html</guid>
+  <pubDate>Wed, 06 Aug 2025 10:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+</item>
+<item>
+  <title>Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2025-07-28-article3-databricks-connect.html</link>
   <description><![CDATA[ 
 
@@ -4995,6 +5064,29 @@ font-style: inherit;">--workspace-folder</span> . zsh</span></code></pre></div>
 <item>
   <title>個人的ターミナル最適化 for Claude Code</title>
   <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-07-16-zenn-2025-07-16-optimize-your-terminal-for-claude-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/i9wa4/articles/2025-07-16-optimize-your-terminal-for-claude-code">個人的ターミナル最適化 for Claude Code</a></p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/2025-07-16-zenn-2025-07-16-optimize-your-terminal-for-claude-code.html</guid>
+  <pubDate>Wed, 16 Jul 2025 06:31:24 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo.png" medium="image" type="image/png" height="29" width="144"/>
+</item>
+<item>
+  <title>個人的ターミナル最適化 for Claude Code</title>
+  <dc:creator>uma-chan </dc:creator>
   <link>https://i9wa4.github.io/blog/2025-07-14-optimize-your-teminal-for-claude-code.html</link>
   <description><![CDATA[ 
 
@@ -6174,314 +6266,6 @@ font-style: inherit;">'''</span></span></code></pre></div>
   <category>pivot</category>
   <guid>https://i9wa4.github.io/slides/2025-06-03-self-introduction-1page.html</guid>
   <pubDate>Mon, 02 Jun 2025 15:00:00 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title></title>
-  <dc:creator>馬渡 大樹</dc:creator>
-  <link>https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html</link>
-  <description><![CDATA[ undefined ]]></description>
-  <category>slides</category>
-  <category>genda</category>
-  <guid>https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html</guid>
-  <pubDate>Wed, 21 May 2025 15:00:00 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Databricks AI/BI ダッシュボードの Git 連携の運用方法</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Databricks のダッシュボードは Git 連携できます！</p>
-<p><a href="https://qiita.com/taka_yayoi/items/af580c4bad7db4aebc38">GitにおけるDatabricks AI/BIダッシュボードのソース管理 #Databricks_AI_BI - Qiita</a></p>
-<p>バックアップを取り安心したいので必ず導入しましょう。</p>
-<p>Git 連携を用いた運用方法について検討したので記事として残します。</p>
-</section>
-<section id="databricks-の-git-連携機能とダッシュボードの相性" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の-git-連携機能とダッシュボードの相性">2. Databricks の Git 連携機能とダッシュボードの相性</h2>
-<p>Commit &amp; Push とブランチ切り替え以外の操作は結構厳しいです。</p>
-<p>JSON形式でウィジェット配置やSQLを管理しているのでコンフリクトが起きた場合の解消が難しいです。</p>
-<p>なのでそもそもコンフリクトの起きない運用をしておきたいです。</p>
-</section>
-<section id="databricks-の考えるベストプラクティス" class="level2">
-<h2 class="anchored" data-anchor-id="databricks-の考えるベストプラクティス">3. Databricks の考えるベストプラクティス</h2>
-<blockquote class="blockquote">
-<p>自分の開発ブランチで作業するユーザーごとに、リモート Git リポジトリにマップされた個別の Databricks Git フォルダーを使用します 。</p>
-</blockquote>
-<p><a href="https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業" class="uri">https://docs.databricks.com/aws/ja/repos/git-operations-with-repos#ベスト-プラクティス-git-フォルダーでの共同作業</a></p>
-<p>そうは言うけれども実際は開発スキルを持たない方がダッシュボードを作成しますよね。</p>
-<p>これを守るのは現実的ではないです。</p>
-</section>
-<section id="実際の運用" class="level2">
-<h2 class="anchored" data-anchor-id="実際の運用">4. 実際の運用</h2>
-<p>共有ワークスペース内に Git フォルダを作成して Git Flow で運用しています。</p>
-<p>ワークスペースでは常時 develop ブランチ固定で時々 Commit &amp; Push したり main にマージしたりします。</p>
-<p>main への直接の Push 禁止という企業も多いと思いますので、その観点でも Git Flow は運用しやすそうです。</p>
-<p>これくらいのゆるさで気楽に今後も運用していきます。</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{
-    init: {
-        'logLevel': 'debug',
-        'theme': 'base',
-        'themeVariables': {
-            'commitLabelFontSize': '14px',
-            'tagLabelFontSize': '12px'
-        }
-    }
-}%%
-gitGraph LR:
-    checkout main
-    commit
-    branch develop order: 4
-    checkout develop
-    commit
-    commit
-
-    branch release-1 order: 2
-    checkout release-1
-    commit
-
-    checkout main
-    merge release-1 tag: "25.02"
-
-    checkout develop
-    commit
-    commit
-
-    branch feature/new-master-data order: 5
-    checkout feature/new-master-data
-    commit
-    commit
-    checkout develop
-    merge feature/new-master-data
-    commit
-
-    branch release-2 order: 3
-    checkout release-2
-    commit
-
-    checkout main
-    merge release-2 tag: "25.05"
-
-    checkout develop
-    commit
-    commit
-    commit
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <category>tech-data</category>
-  <guid>https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html</guid>
-  <pubDate>Wed, 21 May 2025 12:45:51 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>AWS Lambda で ECR にあるコンテナイメージを実行するために必要な全てのリソースを Terraform で構築し、GitHub Actions でデプロイできるようにします。</p>
-</section>
-<section id="背景" class="level2">
-<h2 class="anchored" data-anchor-id="背景">2. 背景</h2>
-<p>以下のような記事を参考にしながら MCP クライアントと MCP サーバーを全て Lambda (&amp; ECR) で管理させようと考えています。</p>
-<ul>
-<li><a href="https://zenn.dev/georgia1/articles/214056407379b2">SlackからLambda上にあるMCPクライアントとMCPサーバー動かす</a></li>
-<li><a href="https://qiita.com/kyamamoto9120/items/f1cda89ffc7cb5254f17">コンテナイメージを使用してAWS Lambda関数を作成する #Python - Qiita</a></li>
-<li><a href="https://dev.classmethod.jp/articles/securing-mcp-tools-with-aws-lambda-integration/">AWS Cost Analysis MCP ServerのツールをLambda関数に移植してAWS Lambda MCP Server経由で実行する | DevelopersIO</a></li>
-<li><a href="https://dev.classmethod.jp/articles/measure-container-image-lambda-coldstart/">爆速？！コンテナイメージからデプロイしたLambdaのコールドスタートについて検証してみた #reinvent | DevelopersIO</a></li>
-</ul>
-<p>まずは表題の通り動く Lambda を作成し CI/CD を整備することで以降に備えます。</p>
-</section>
-<section id="構成" class="level2">
-<h2 class="anchored" data-anchor-id="構成">3. 構成</h2>
-<p>とりあえず動くようになったので、ほぼ無説明で構成だけ載せます。</p>
-<p><a href="https://github.com/i9wa4/terraform-mono-repo/tree/fe67b11fe6e7696325103fd997980f5cf8e94f1d" class="uri">https://github.com/i9wa4/terraform-mono-repo/tree/fe67b11fe6e7696325103fd997980f5cf8e94f1d</a></p>
-<p>関係する部分は以下になっています。</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> tree <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-a</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-I</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">".git/|hands-on-import|hands-on-sfn|.terraform"</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-A</span></span>
-<span id="cb1-2"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">.</span></span>
-<span id="cb1-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> .github</span>
-<span id="cb1-4"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>   └── workflows</span>
-<span id="cb1-5"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>       └── hands-on-lambda-ecr-deploy.yml</span>
-<span id="cb1-6"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">└──</span> services</span>
-<span id="cb1-7">    <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">└──</span> hands-on-lambda-ecr</span>
-<span id="cb1-8">        <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> app</span>
-<span id="cb1-9">        <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>   ├── app.py</span>
-<span id="cb1-10">        <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>   ├── Dockerfile</span>
-<span id="cb1-11">        <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">│</span>   └── requirements.txt</span>
-<span id="cb1-12">        <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> README.md</span>
-<span id="cb1-13">        <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">└──</span> terraform</span>
-<span id="cb1-14">            <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> .terraform.lock.hcl</span>
-<span id="cb1-15">            <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> main.tf</span>
-<span id="cb1-16">            <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> outputs.tf</span>
-<span id="cb1-17">            <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">├──</span> variables.tf</span>
-<span id="cb1-18">            <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">└──</span> versions.tf</span></code></pre></div>
-<p>モノレポの練習で作ってみたリポジトリなのですが、整備はこれからという感じです。</p>
-</section>
-<section id="大変だった点" class="level2">
-<h2 class="anchored" data-anchor-id="大変だった点">4. 大変だった点</h2>
-<ul>
-<li>ECR Image URI の取得周り
-<ul>
-<li>ECR タグを Immutable にしたせい</li>
-</ul></li>
-<li>GitHub Actions 内の OIDC 認証
-<ul>
-<li>初めてやると慣れてなくて手間取った</li>
-</ul></li>
-</ul>
-</section>
-<section id="課題" class="level2">
-<h2 class="anchored" data-anchor-id="課題">5. 課題</h2>
-<ul>
-<li>デプロイだけ手動でできるが CI は追加できていない</li>
-<li>main.tf でかすぎ</li>
-<li>dev/prod 環境分離考慮してない</li>
-<li>ローカルから Makefile でデプロイできるようにしてない</li>
-</ul>
-</section>
-<section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">6. おわりに</h2>
-<p>今までで一番大変な Hello World でした。</p>
-<p>整備は一旦後回しにして MCP 周りの実装をやっていきたいです。</p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <guid>https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html</guid>
-  <pubDate>Sun, 11 May 2025 15:13:12 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Bash/Zsh でコマンドをエディタで編集する</title>
-  <dc:creator>uma-chan </dc:creator>
-  <link>https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="はじめに" class="level2">
-<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
-<p>Bash/Zsh で入力中のコマンドの編集にエディタが使えるという便利機能の話です。名前がパッと出てこないのでメモ代わりに記事にしておきます。</p>
-</section>
-<section id="bash" class="level2">
-<h2 class="anchored" data-anchor-id="bash">2. Bash</h2>
-<p><code>C-x C-e</code> で <code>$VISUAL</code> で指定したエディタが開きます。</p>
-<p><a href="https://qiita.com/oirik/items/1253a12d7f4b88c4ffe0">bash で入力中のコマンドをエディタで編集して実行するショートカットキー #Bash - Qiita</a></p>
-</section>
-<section id="zsh" class="level2">
-<h2 class="anchored" data-anchor-id="zsh">3. Zsh</h2>
-<p>Bash と同等の機能を実現させるには以下のように設定します。</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>~/.zshrc</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="~/.zshrc" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">autoload</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-Uz</span> edit-command-line</span>
-<span id="cb1-2"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">zle</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-N</span> edit-command-line</span>
-<span id="cb1-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bindkey</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'^x^e'</span> edit-command-line</span></code></pre></div>
-</div>
-</section>
-<section id="おわりに" class="level2">
-<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
-<p><strong>edit-and-execute-command</strong> あるいは <strong>edit-command-line</strong> と呼ばれる機能であると覚えましょう！</p>
-
-
-</section>
-
- ]]></description>
-  <category>blog</category>
-  <category>tech</category>
-  <guid>https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html</guid>
-  <pubDate>Sat, 10 May 2025 05:51:17 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
