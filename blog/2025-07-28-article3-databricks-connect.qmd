@@ -1,5 +1,5 @@
 ---
-title: "Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用"
+title: "Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用"
 author: uma-chan
 date: 2025-07-28 01:54:03 +0900
 date-modified: last-modified

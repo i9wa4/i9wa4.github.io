@@ -1,5 +1,5 @@
 ---
-title: "Claude Code 対応 Dev Container 環境構築編 - VS Code でもそれ以外でも"
+title: "Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも"
 author: uma-chan
 date: 2025-07-28 01:53:53 +0900
 date-modified: last-modified
