@@ -16,7 +16,30 @@
 <link>https://i9wa4.github.io/</link>
 </image>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Sun, 28 Sep 2025 12:38:33 GMT</lastBuildDate>
+<lastBuildDate>Thu, 30 Oct 2025 22:00:01 GMT</lastBuildDate>
+<item>
+  <title>データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-10-31-zenn-pivot-incremental-friendly-dbt-model.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model">データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化</a></p>
+
+
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/2025-10-31-zenn-pivot-incremental-friendly-dbt-model.html</guid>
+  <pubDate>Thu, 30 Oct 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
 <item>
   <title>BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた</title>
   <dc:creator>uma-chan </dc:creator>
@@ -6255,17 +6278,6 @@ font-style: inherit;">'''</span></span></code></pre></div>
   <category>tech-vim</category>
   <guid>https://i9wa4.github.io/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html</guid>
   <pubDate>Wed, 04 Jun 2025 14:24:39 GMT</pubDate>
-  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title></title>
-  <dc:creator>馬渡 大樹</dc:creator>
-  <link>https://i9wa4.github.io/slides/2025-06-03-self-introduction-1page.html</link>
-  <description><![CDATA[ undefined ]]></description>
-  <category>slides</category>
-  <category>pivot</category>
-  <guid>https://i9wa4.github.io/slides/2025-06-03-self-introduction-1page.html</guid>
-  <pubDate>Mon, 02 Jun 2025 15:00:00 GMT</pubDate>
   <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
