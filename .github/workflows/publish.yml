@@ -58,7 +58,15 @@ jobs:
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yml
 
       - name: Render Quarto Project
-        run: quarto render
+        run: |
+          # Workaround for Quarto bug where HTML files remain in blog/ after multi-format rendering (HTML + GFM).
+          # Quarto tries to move these files to _site/blog/ but fails with "No such file or directory" error
+          # because some files are already in _site/blog/ while others remain in blog/.
+          # This affects the last file in rendering order (83/83), causing the build to fail.
+          # Clean up any stray HTML files in blog/ before rendering to ensure a clean state.
+          # Issue observed with Quarto 1.7.32 and 1.8.25.
+          find blog -name "*.html" -type f -delete 2>/dev/null || true
+          quarto render
 
       - name: Generate PDF from Reveal.js slides
         run: |
