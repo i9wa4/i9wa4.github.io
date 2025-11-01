@@ -1,0 +1,165 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="開発サイクル比較" id="dev-cycle">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="開発サイクルの比較：AWS ECS vs Databricks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="800" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Left Side: AWS ECS Cycle (Slow) -->
+        <mxCell id="aws-title" value="AWS ECS環境：遅いサイクル（50分～）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Cycle Circle -->
+        <mxCell id="aws-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffcccc;strokeColor=#CC0000;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="130" y="200" width="400" height="400" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Step 1 -->
+        <mxCell id="aws-step1" value="1. コード修正" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#CC0000;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="180" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Step 2 -->
+        <mxCell id="aws-step2" value="2. ビルド&lt;br&gt;(5分)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#CC0000;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="280" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Step 3 -->
+        <mxCell id="aws-step3" value="3. ECS実行&lt;br&gt;(30-60分)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#CC0000;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="450" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Step 4 -->
+        <mxCell id="aws-step4" value="4. ログ確認" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#CC0000;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="520" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Step 5 -->
+        <mxCell id="aws-step5" value="5. デバッグ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#CC0000;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="380" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Arrows -->
+        <mxCell id="aws-arrow1" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;" edge="1" parent="1" source="aws-step1" target="aws-step2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="450" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aws-arrow2" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;" edge="1" parent="1" source="aws-step2" target="aws-step3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="450" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aws-arrow3" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;" edge="1" parent="1" source="aws-step3" target="aws-step4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="450" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aws-arrow4" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;" edge="1" parent="1" source="aws-step4" target="aws-step5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="450" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aws-arrow5" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;" edge="1" parent="1" source="aws-step5" target="aws-step1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="450" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- AWS Center Label -->
+        <mxCell id="aws-center" value="⏱️&lt;br&gt;50分+" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+          <mxGeometry x="260" y="360" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Right Side: Databricks Cycle (Fast) -->
+        <mxCell id="db-title" value="Databricks環境：高速サイクル（1-2分）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#00AA00;" vertex="1" parent="1">
+          <mxGeometry x="920" y="120" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Databricks Cycle Circle -->
+        <mxCell id="db-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#00AA00;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="970" y="250" width="300" height="300" as="geometry"/>
+        </mxCell>
+
+        <!-- DB Step 1 -->
+        <mxCell id="db-step1" value="1. コード記述" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#00AA00;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="230" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- DB Step 2 -->
+        <mxCell id="db-step2" value="2. セル実行&lt;br&gt;(数秒)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#00AA00;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="320" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- DB Step 3 -->
+        <mxCell id="db-step3" value="3. 結果確認&lt;br&gt;(即座)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#00AA00;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="460" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- DB Step 4 -->
+        <mxCell id="db-step4" value="4. 修正" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#00AA00;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="450" width="120" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- DB Arrows -->
+        <mxCell id="db-arrow1" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#00AA00;" edge="1" parent="1" source="db-step1" target="db-step2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="400" as="sourcePoint"/>
+            <mxPoint x="1150" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="db-arrow2" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#00AA00;" edge="1" parent="1" source="db-step2" target="db-step3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="400" as="sourcePoint"/>
+            <mxPoint x="1150" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="db-arrow3" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#00AA00;" edge="1" parent="1" source="db-step3" target="db-step4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="400" as="sourcePoint"/>
+            <mxPoint x="1150" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="db-arrow4" value="" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#00AA00;" edge="1" parent="1" source="db-step4" target="db-step1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="400" as="sourcePoint"/>
+            <mxPoint x="1150" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DB Center Label -->
+        <mxCell id="db-center" value="⚡&lt;br&gt;1-2分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#00AA00;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="360" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Comparison Arrow -->
+        <mxCell id="comp-arrow" value="" style="shape=flexArrow;endArrow=classic;html=1;strokeWidth=3;fillColor=#ffcc99;strokeColor=#FF6600;width=30;endSize=6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="400" as="sourcePoint"/>
+            <mxPoint x="880" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="comp-label" value="約25-50倍速" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#FF6600;" vertex="1" parent="1">
+          <mxGeometry x="700" y="360" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Bottom Summary -->
+        <mxCell id="summary" value="トライアンドエラーによる学習速度が劇的に向上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=20;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="720" width="800" height="60" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

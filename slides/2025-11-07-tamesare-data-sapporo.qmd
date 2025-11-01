@@ -1,0 +1,189 @@
+---
+title: "GENDAのデータサイエンティスト開発体験向上の取り組み"
+author:
+  - name: 馬渡 大樹
+    affiliation: 株式会社GENDA
+    roles: データエンジニア / MLOpsエンジニア
+date: 2025-11-07
+date-modified: last-modified
+description: |
+  [登壇資料] 2025-11-07 試されDATA SAPPORO #1
+categories:
+  - "slides"
+  - "genda"
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    code-copy: true
+    footer: "2025-11-07 試されDATA SAPPORO #1"
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme: default
+    width: 1920
+    height: 1080
+    title-slide-attributes:
+      data-background-color: "#001722"
+      data-background-size: "cover"
+    title-prefix: ""
+  gfm: default
+---
+
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+|        |                                           |
+| ---    | ---                                       |
+| 名前   | 馬渡 大樹 (Mawatari Daiki)                |
+| 所属   | 株式会社GENDA - IT戦略部                  |
+| 職種   | データエンジニア / MLOpsエンジニア        |
+| GitHub | [@i9wa4](https://github.com/i9wa4)        |
+
+- 所属
+    - 株式会社GENDA (データエンジニア / MLOpsエンジニア)
+    - PIVOT株式会社 (データエンジニア 業務委託)
+- 好き
+    - Vim
+    - tmux
+    - ゲームセンター
+    - Happy Hacking Keyboard
+
+:::
+
+::: {.column width="50%"}
+![](https://github.com/i9wa4.png){fig-align="left" width="50%"}
+:::
+
+::::
+
+### 1.2. 発表概要
+
+今回の発表内容
+
+- GENDAのデータサイエンスチームがレコメンドモデル開発環境をAWS ECSからDatabricksに移行した事例を紹介します
+- インターン生の学習負荷軽減と開発体験向上を実現した取り組みです
+
+参考記事
+
+- [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+
+## 2. 移行前の課題（AWS ECS環境）
+
+### 2.1. AWS ECS環境の構成
+
+![](/assets/2025-11-07-tamesare-data-sapporo/aws-ecs-architecture.svg){width="100%"}
+
+### 2.2. インターン生の学習コスト
+
+**AWS特有の知識が必須**
+
+- Docker、ECR、ECSタスク実行、CloudWatch Logsなど多岐にわたる技術スタック
+- インフラ学習に時間を費やし、本来の機械学習に集中できない状況
+- データサイエンスを学びたいインターン生にとって大きな負担
+
+**学習の優先順位の問題**
+
+- 本来学ぶべきはモデル開発やデータ分析
+- しかし実際にはコンテナやクラウドインフラの知識習得が先行
+- 限られたインターン期間で本質的なスキルを学ぶ時間が減少
+
+### 2.2-2. 学習時間の配分比較
+
+![](/assets/2025-11-07-tamesare-data-sapporo/learning-cost-comparison.svg){width="100%"}
+
+
+
+### 2.3. 開発サイクルの遅さ
+
+**典型的な開発フロー**
+
+1. コード修正
+2. push
+3. GitHub Actionsでビルド（5分）
+4. ECSタスク実行（30分～1時間）
+5. CloudWatch Logsで結果確認
+
+**問題点**
+
+- 軽微なエラーでも最短15分の待機時間が発生
+- デバッグサイクルが非常に遅い
+- トライアンドエラーによる学習が困難
+
+### 2.3-2. 開発サイクルの比較
+
+![](/assets/2025-11-07-tamesare-data-sapporo/dev-cycle-comparison.svg){width="100%"}
+
+
+
+## 3. 移行後の改善（Databricks）
+
+### 3.1. Databricks環境の構成
+
+![](/assets/2025-11-07-tamesare-data-sapporo/databricks-architecture.svg){width="100%"}
+
+### 3.2. AWSの学習コストがゼロに
+
+![](/assets/2025-11-07-tamesare-data-sapporo/notebook-image.svg){width="100%"}
+
+
+
+### 3.3. 開発体験の向上
+
+![](/assets/2025-11-07-tamesare-data-sapporo/cell-execution-flow.svg){width="100%"}
+
+
+
+### 3.4. 本番運用までがスムーズ
+
+![](/assets/2025-11-07-tamesare-data-sapporo/notebook-to-job.svg){width="100%"}
+
+### 3.5. 移行前後の比較
+
+![](/assets/2025-11-07-tamesare-data-sapporo/before-after-comparison.svg){width="100%"}
+
+### 3.6. インターン生の声
+
+![](/assets/2025-11-07-tamesare-data-sapporo/intern-voice.svg){width="100%"}
+
+## 4. 今後の展望
+
+### 4.1. ロードマップ
+
+![](/assets/2025-11-07-tamesare-data-sapporo/future-roadmap.svg){width="100%"}
+
+## 5. まとめ
+
+### 5.1. まとめ
+
+**移行の効果**
+
+- インターン生の学習コストを大幅削減（学習時間配分: 30% → 90%が本質的スキルに）
+- 開発サイクルの高速化（50分以上 → 1-2分、約25-50倍速）
+- 本質的なスキル習得に集中できる環境の実現
+
+**重要なポイント**
+
+- 開発体験は生産性に直結する
+- ツール選択は学習コストも考慮すべき
+- インタラクティブな環境が学習を加速する
+
+**今後の方向性**
+
+- データエンジニアとの連携強化
+- 生成AI活用による更なる効率化
+- 継続的な開発環境の改善
+
+---
+
+ご清聴ありがとうございました
+
+- 記事: [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- GitHub: [@i9wa4](https://github.com/i9wa4)
+- My Page: <https://i9wa4.github.io>

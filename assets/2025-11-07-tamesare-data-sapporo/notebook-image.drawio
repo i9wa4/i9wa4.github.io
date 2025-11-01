@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Databricksノートブック" id="notebook">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Databricksノートブック：ブラウザで開くだけ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#FF3621;" vertex="1" parent="1">
+          <mxGeometry x="300" y="30" width="800" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Browser Window -->
+        <mxCell id="browser" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="1000" height="700" as="geometry"/>
+        </mxCell>
+
+        <!-- Browser Tab Bar -->
+        <mxCell id="tab-bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1e1e1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="1000" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Browser Tab -->
+        <mxCell id="tab" value="Databricks Workspace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=1;fontSize=14;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="220" y="130" width="200" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Notebook Container -->
+        <mxCell id="notebook-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#FF3621;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="250" y="200" width="900" height="580" as="geometry"/>
+        </mxCell>
+
+        <!-- Notebook Title -->
+        <mxCell id="nb-title" value="📓 model_training.ipynb" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="270" y="220" width="860" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Cell 1 -->
+        <mxCell id="cell1-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="280" width="840" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell1-label" value="[1] データ読込" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#82b366;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="290" width="820" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell1-code" value="import pandas as pd&lt;br&gt;df = spark.read.table(&quot;training_data&quot;)&lt;br&gt;display(df.head())" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Courier New;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="315" width="820" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Cell 2 -->
+        <mxCell id="cell2-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="840" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell2-label" value="[2] モデル学習" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#d6b656;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="410" width="820" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell2-code" value="from sklearn.ensemble import RandomForestClassifier&lt;br&gt;model = RandomForestClassifier()&lt;br&gt;model.fit(X_train, y_train)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Courier New;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="435" width="820" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Cell 3 -->
+        <mxCell id="cell3-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="520" width="840" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell3-label" value="[3] 結果可視化" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#6c8ebf;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="530" width="820" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell3-code" value="import matplotlib.pyplot as plt&lt;br&gt;plt.plot(results)&lt;br&gt;plt.show()" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Courier New;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="555" width="820" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell3-output" value="📊 グラフが即座に表示される" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="500" y="605" width="400" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- Run All Button -->
+        <mxCell id="run-button" value="▶ Run All" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00AA00;strokeColor=#005500;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="280" y="680" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Features -->
+        <mxCell id="feature1" value="✓ インフラ知識不要" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="450" y="680" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2" value="✓ セル単位で実行" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="680" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3" value="✓ 即座に結果確認" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="920" y="680" width="200" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature4" value="✓ 変数状態を保持" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="450" y="720" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature5" value="✓ コラボレーション" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="720" width="200" height="30" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
