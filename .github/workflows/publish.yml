@@ -58,7 +58,14 @@ jobs:
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yml
 
       - name: Render Quarto Project
-        run: quarto render
+        run: |
+          echo "=== Files to be rendered ==="
+          find blog -name "*.qmd" -type f | sort
+          echo "=== Starting render ==="
+          quarto render
+          echo "=== Render completed ==="
+          echo "=== Checking _site/blog directory ==="
+          ls -la _site/blog/ | tail -20
 
       - name: Generate PDF from Reveal.js slides
         run: |
