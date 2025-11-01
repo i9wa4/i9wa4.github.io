@@ -26,6 +26,21 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         # Wait for page to be ready
         page.wait_for_load_state("networkidle")
 
+        # Rewrite file:// links to https://i9wa4.github.io/
+        page.evaluate("""
+            () => {
+                const links = document.querySelectorAll('a[href^="file://"]');
+                links.forEach(link => {
+                    const url = new URL(link.href);
+                    // Extract path after _site/
+                    const match = url.pathname.match(/\/_site\/(.+)/);
+                    if (match) {
+                        link.href = `https://i9wa4.github.io/${match[1]}`;
+                    }
+                });
+            }
+        """)
+
         # Generate PDF
         page.pdf(
             path=pdf_path,
