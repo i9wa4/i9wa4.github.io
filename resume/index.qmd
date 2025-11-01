@@ -47,7 +47,9 @@ format:
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
 
-- 職務経歴書公開先：<https://i9wa4.github.io/resume>
+- 職務経歴書公開先
+    - <https://i9wa4.github.io/resume/index.html>
+    - <https://i9wa4.github.io/resume/index.pdf>
 
 ## 1. 職務要約
 
