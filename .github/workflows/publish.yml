@@ -62,10 +62,15 @@ jobs:
           echo "=== Files to be rendered ==="
           find blog -name "*.qmd" -type f | sort
           echo "=== Starting render ==="
-          quarto render
-          echo "=== Render completed ==="
-          echo "=== Checking _site/blog directory ==="
-          ls -la _site/blog/ | tail -20
+          quarto render || true
+          echo "=== Render finished (may have failed) ==="
+          echo "=== Checking blog/ directory for HTML files ==="
+          find blog -name "*.html" -type f | sort
+          echo "=== Checking _site/blog/ directory ==="
+          ls -la _site/blog/ 2>&1 | tail -30 || echo "Directory does not exist"
+          echo "=== Checking for zenn-autogen HTML files specifically ==="
+          find . -name "zenn-autogen*.html" -type f 2>&1 || echo "No zenn-autogen HTML files found"
+          exit 1
 
       - name: Generate PDF from Reveal.js slides
         run: |
