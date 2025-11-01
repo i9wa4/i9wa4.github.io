@@ -26,15 +26,6 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         # Wait for page to be ready
         page.wait_for_load_state("networkidle")
 
-        # Add CSS to ensure Japanese fonts are used
-        page.add_style_tag(
-            content="""
-            * {
-                font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
-            }
-        """
-        )
-
         # Generate PDF
         page.pdf(
             path=pdf_path,

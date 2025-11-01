@@ -44,11 +44,6 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
 
-      - name: Install Japanese fonts for PDF generation
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
-
       - name: (Optional) Set up Jupyter
         run: python3 -m pip install jupyter==1.1.1
 

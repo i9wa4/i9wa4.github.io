@@ -75,6 +75,7 @@ format:
     theme:
       light: yeti
       dark: darkly
+    css: default.css
     code-copy: true
     code-overflow: wrap
     grid:

@@ -21,7 +21,7 @@ format:
     slide-level: 3
     slide-number: true
     smaller: false
-    theme: default
+    theme: beige
     width: 1920
     height: 1080
     title-slide-attributes:
