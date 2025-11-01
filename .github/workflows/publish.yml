@@ -44,8 +44,13 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
 
+      - name: Install Japanese fonts for PDF generation
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
+
       - name: (Optional) Set up Jupyter
-        run: python3 -m pip install jupyter
+        run: python3 -m pip install jupyter==1.1.1
 
       - name: Fetch Zenn articles
         run: python3 .github/scripts/fetch_zenn_articles.py
@@ -66,9 +71,15 @@ jobs:
             if [ -f "$html" ]; then
               pdf="${html%.html}.pdf"
               echo "Converting $html to $pdf"
-              uvx deck2pdf "$html" "$pdf" || echo "Warning: Failed to convert $html"
+              uvx deck2pdf@0.9.0 "$html" "$pdf" || echo "Warning: Failed to convert $html"
             fi
           done
+
+      - name: Generate PDF from resume
+        run: |
+          uvx --with playwright==1.55.0 python .github/scripts/html_to_pdf.py \
+            ${{ github.workspace }}/_site/resume/index.html \
+            _site/resume/index.pdf
 
       - name: Fix image paths and links in GFM files
         run: |

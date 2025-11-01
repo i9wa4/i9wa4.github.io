@@ -44,9 +44,6 @@ website:
             text: "Slides"
           - href: "resume/index.qmd"
             text: "Resume"
-      - text: "---"
-      - section: "My Other Websites"
-        contents:
           - href: "https://i9wa4.github.io/i9wa4"
             text: "About"
       # - text: "---"
