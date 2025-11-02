@@ -27,7 +27,7 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         page.wait_for_load_state("networkidle")
 
         # Rewrite file:// links to https://i9wa4.github.io/
-        page.evaluate("""
+        page.evaluate(r"""
             () => {
                 const links = document.querySelectorAll('a[href^="file://"]');
                 links.forEach(link => {
