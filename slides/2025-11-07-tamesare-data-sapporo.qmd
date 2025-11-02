@@ -15,6 +15,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     code-copy: true
+    css: default.css
     footer: "2025-11-07 試されDATA SAPPORO #1"
     incremental: false
     scrollable: true

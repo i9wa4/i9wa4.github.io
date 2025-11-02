@@ -15,6 +15,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     code-copy: true
+    css: default.css
     # embed-resources: true
     footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
     incremental: false
