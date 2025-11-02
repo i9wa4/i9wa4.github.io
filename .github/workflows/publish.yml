@@ -59,15 +59,12 @@ jobs:
 
       - name: Render Quarto Project
         run: |
-          # Workaround for Quarto bug where HTML files remain in blog/ after multi-format rendering (HTML + GFM).
-          # Quarto tries to move these files to _site/blog/ but fails with "No such file or directory" error
-          # because some files are already in _site/blog/ while others remain in blog/.
-          # This affects the last file in rendering order (83/83), causing the build to fail.
-          # Ignore the error and manually move any remaining HTML files to _site/blog/.
-          # Issue observed with Quarto 1.7.32 and 1.8.25.
-          quarto render || true
-          # Move any HTML files that remain in blog/ to _site/blog/
-          find blog -name "*.html" -type f -exec mv {} _site/blog/ \; 2>/dev/null || true
+          # Render HTML and RevealJS formats (default profile)
+          quarto render
+          # Render GFM format using profile to avoid format conflicts
+          # Using profiles prevents the multi-format rendering bug where HTML and GFM compete for the same output path
+          # See: https://github.com/quarto-dev/quarto-cli/issues/6809
+          quarto render --profile gfm
 
       - name: Generate PDF from Reveal.js slides
         run: |

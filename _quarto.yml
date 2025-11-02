@@ -90,4 +90,8 @@ format:
     include-in-header: _includes/hatena-nocomment.html
   revealjs:
     css: default.css
-  gfm: default
+
+profiles:
+  gfm:
+    format:
+      gfm: default
