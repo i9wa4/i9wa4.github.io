@@ -22,7 +22,9 @@ format:
     slide-level: 3
     slide-number: true
     smaller: true
-    theme: beige
+    theme:
+      - beige
+      - ../themes/genda.scss
     toc-depth: 2
     toc: false
   gfm: default

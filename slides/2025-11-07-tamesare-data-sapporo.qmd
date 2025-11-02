@@ -22,7 +22,9 @@ format:
     slide-level: 3
     slide-number: true
     smaller: false
-    theme: beige
+    theme:
+      - beige
+      - ../themes/genda.scss
     width: 1920
     height: 1080
     title-slide-attributes:

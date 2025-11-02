@@ -17,7 +17,9 @@ format:
     slide-level: 2
     slide-number: true
     smaller: false
-    theme: white
+    theme:
+      - white
+      - ../themes/genda.scss
     title-prefix: ""
     footer: "https://connpass.com/event/307552/"
   gfm: default
