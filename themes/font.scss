@@ -12,3 +12,8 @@
 code, pre, .monospace {
   font-family: "JetBrains Mono", "Consolas", "Menlo", monospace !important;
 }
+
+// SVG内のテキストにも日本語フォントを適用
+svg, svg *, foreignObject, foreignObject * {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
+}
