@@ -75,9 +75,12 @@ format:
   html:
     # https://quarto.org/docs/output-formats/html-themes.html
     theme:
-      light: yeti
-      dark: darkly
-    css: default.css
+      light:
+        - yeti
+        - themes/font.scss
+      dark:
+        - darkly
+        - themes/font.scss
     code-copy: true
     code-overflow: wrap
     grid:
