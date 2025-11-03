@@ -413,6 +413,8 @@ draw.io 図の修正時、SVG や PDF の最終的な見た目を確認するた
 - YOU MUST: レビュー用 PNG は `/tmp/drawio-review/` ディレクトリに配置する
 - YOU MUST: ディレクトリが存在しない場合は `mkdir -p /tmp/drawio-review` で作成する
 - YOU MUST: 図を修正したら同じファイル名で上書き更新する
+- YOU MUST: 中間生成 PDF は `/tmp/drawio-review/` 以外に出力する (例: `/tmp/diagram.pdf`)
+- NEVER: `/tmp/drawio-review/` に PDF を配置しない (PNG のみ)
 - IMPORTANT: ユーザーがブラウザで `file:///tmp/drawio-review/diagram.png` を開いてレビューするため、ファイル名を変えてはいけない
 
 **手順**:
@@ -420,13 +422,13 @@ draw.io 図の修正時、SVG や PDF の最終的な見た目を確認するた
 ```bash
 # 初回: ディレクトリを作成して PNG を生成
 mkdir -p /tmp/drawio-review
-drawio -x -f pdf -o /tmp/drawio-review/diagram.pdf assets/your-diagram.drawio
-pdftocairo -png -singlefile /tmp/drawio-review/diagram.pdf /tmp/drawio-review/diagram
+drawio -x -f pdf -o /tmp/diagram.pdf assets/your-diagram.drawio
+pdftocairo -png -singlefile /tmp/diagram.pdf /tmp/drawio-review/diagram
 # 生成された /tmp/drawio-review/diagram.png をブラウザで確認
 
 # 修正後: 同じ名前で上書き更新
-drawio -x -f pdf -o /tmp/drawio-review/diagram.pdf assets/your-diagram.drawio
-pdftocairo -png -singlefile /tmp/drawio-review/diagram.pdf /tmp/drawio-review/diagram
+drawio -x -f pdf -o /tmp/diagram.pdf assets/your-diagram.drawio
+pdftocairo -png -singlefile /tmp/diagram.pdf /tmp/drawio-review/diagram
 # ブラウザをリロードして確認
 ```
 
@@ -437,8 +439,8 @@ pdftocairo -png -singlefile /tmp/drawio-review/diagram.pdf /tmp/drawio-review/di
 mkdir -p /tmp/drawio-review
 for drawio in assets/**/*.drawio; do
   base=$(basename "$drawio" .drawio)
-  drawio -x -f pdf -o "/tmp/drawio-review/${base}.pdf" "$drawio"
-  pdftocairo -png -singlefile "/tmp/drawio-review/${base}.pdf" "/tmp/drawio-review/${base}"
+  drawio -x -f pdf -o "/tmp/${base}.pdf" "$drawio"
+  pdftocairo -png -singlefile "/tmp/${base}.pdf" "/tmp/drawio-review/${base}"
 done
 
 # Claude Code に全図のレイアウトチェックを依頼
