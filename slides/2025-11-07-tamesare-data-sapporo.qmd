@@ -81,7 +81,7 @@ format:
 
 ### 2.1. AWS ECS環境の構成
 
-![](/assets/2025-11-07-tamesare-data-sapporo/aws-ecs-architecture.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/aws-ecs-architecture.drawio.svg){width="100%"}
 
 ### 2.2. インターン生の学習コスト
 
@@ -99,7 +99,7 @@ format:
 
 ### 2.2-2. 学習時間の配分比較
 
-![](/assets/2025-11-07-tamesare-data-sapporo/learning-cost-comparison.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/learning-cost-comparison.drawio.svg){width="100%"}
 
 
 
@@ -121,7 +121,7 @@ format:
 
 ### 2.3-2. 開発サイクルの比較
 
-![](/assets/2025-11-07-tamesare-data-sapporo/dev-cycle-comparison.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/dev-cycle-comparison.drawio.svg){width="100%"}
 
 
 
@@ -129,37 +129,37 @@ format:
 
 ### 3.1. Databricks環境の構成
 
-![](/assets/2025-11-07-tamesare-data-sapporo/databricks-architecture.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/databricks-architecture.drawio.svg){width="100%"}
 
 ### 3.2. AWSの学習コストがゼロに
 
-![](/assets/2025-11-07-tamesare-data-sapporo/notebook-image.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/notebook-image.drawio.svg){width="100%"}
 
 
 
 ### 3.3. 開発体験の向上
 
-![](/assets/2025-11-07-tamesare-data-sapporo/cell-execution-flow.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/cell-execution-flow.drawio.svg){width="100%"}
 
 
 
 ### 3.4. 本番運用までがスムーズ
 
-![](/assets/2025-11-07-tamesare-data-sapporo/notebook-to-job.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/notebook-to-job.drawio.svg){width="100%"}
 
 ### 3.5. 移行前後の比較
 
-![](/assets/2025-11-07-tamesare-data-sapporo/before-after-comparison.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/before-after-comparison.drawio.svg){width="100%"}
 
 ### 3.6. インターン生の声
 
-![](/assets/2025-11-07-tamesare-data-sapporo/intern-voice.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/intern-voice.drawio.svg){width="100%"}
 
 ## 4. 今後の展望
 
 ### 4.1. ロードマップ
 
-![](/assets/2025-11-07-tamesare-data-sapporo/future-roadmap.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo/future-roadmap.drawio.svg){width="100%"}
 
 ## 5. まとめ
 
