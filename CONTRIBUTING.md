@@ -2,24 +2,34 @@
 
 このプロジェクト固有の開発ルールを記載します。
 
-## 1. draw.io
+## 1. pre-commit
 
-### 1.1. 図の作成ルール
+pre-commit hook を利用してコード品質を保つため、以下のコマンドでセットアップしてください。
+
+```sh
+mise exec -- pre-commit install
+```
+
+## 2. draw.io
+
+### 2.1. 図の作成ルール
 
 - 図を作成・編集する際は `.drawio` ファイルのみを編集する
 - `.drawio.svg` ファイルを直接編集しない
 - pre-commit hook により自動生成される `.drawio.svg` をスライド等で利用する
 
-### 1.2. 自動変換ワークフロー
+### 2.2. 自動変換ワークフロー
 
 pre-commit hook により以下の変換が自動的に実行される
 
 1. `.drawio` ファイルを検出
-2. `drawio` CLI で `.drawio.svg` に変換
-3. `inkscape` でテキストをパスに変換（PDF表示時の文字化け防止）
+2. `drawio` CLI で一時的な PDF を生成
+3. `pdftocairo` (poppler-utils) で PDF → SVG に変換（テキストを自動的にパスに変換）
 4. 生成された `.drawio.svg` を自動的に git add
 
-### 1.3. 手動で変換する場合
+この方式により、日本語を含むすべてのテキストがベクターパスに変換され、フォント依存なしで PDF 表示時も正しく表示される
+
+### 2.3. 手動で変換する場合
 
 `.drawio` ファイルを更新した場合は、以下のいずれかの方法で手動変換できる
 
@@ -34,6 +44,18 @@ mise exec -- pre-commit run convert-drawio-to-svg --files assets/my-diagram.draw
 bash .github/scripts/convert-drawio-to-svg.sh assets/diagram1.drawio assets/diagram2.drawio
 ```
 
-### 1.4. CI での実行
+### 2.4. 必要なツール
 
-GitHub Actions では drawio と inkscape の処理をスキップする（ローカルで変換済みのため）
+ローカルで変換を実行するには以下のツールが必要
+
+- `drawio` CLI
+- `poppler-utils` (pdftocairo コマンドを含む)
+
+```sh
+# macOS での poppler-utils インストール
+brew install poppler
+```
+
+### 2.5. CI での実行
+
+GitHub Actions では drawio と pdftocairo の処理をスキップする（ローカルで変換済みのため）
