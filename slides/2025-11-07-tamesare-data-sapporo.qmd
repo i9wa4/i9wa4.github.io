@@ -24,7 +24,7 @@ format:
     smaller: false
     theme:
       - beige
-      - ../themes/genda.scss
+      - ../themes/font.scss
     width: 1920
     height: 1080
     title-slide-attributes:

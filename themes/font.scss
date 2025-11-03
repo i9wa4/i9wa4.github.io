@@ -1,6 +1,9 @@
-/* Global CSS with Japanese font support */
+/*-- scss:defaults --*/
 
+// フォント読み込み (Google Fontsを使用)
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+/*-- scss:rules --*/
 
 * {
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;

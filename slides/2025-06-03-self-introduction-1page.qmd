@@ -23,7 +23,7 @@ format:
     smaller: true
     theme:
       - beige
-      - ../themes/genda.scss
+      - ../themes/font.scss
     toc-depth: 2
     toc: false
   gfm: default

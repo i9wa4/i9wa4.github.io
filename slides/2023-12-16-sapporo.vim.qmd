@@ -19,7 +19,7 @@ format:
     smaller: false
     theme:
       - white
-      - ../themes/genda.scss
+      - ../themes/font.scss
     title-prefix: ""
     footer: "https://connpass.com/event/302060/"
   gfm: default
