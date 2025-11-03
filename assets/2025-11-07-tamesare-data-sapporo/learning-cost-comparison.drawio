@@ -6,12 +6,12 @@
         <mxCell id="1" parent="0"/>
 
         <!-- Title -->
-        <mxCell id="title" value="学習時間の配分比較：AWS ECS環境 vs Databricks環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=39;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+        <mxCell id="title" value="学習時間の配分比較：Amazon ECS環境 vs Databricks環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=39;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
           <mxGeometry x="200" y="40" width="1000" height="50" as="geometry"/>
         </mxCell>
 
         <!-- Left Side: AWS ECS -->
-        <mxCell id="aws-label" value="AWS ECS環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+        <mxCell id="aws-label" value="Amazon ECS環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
           <mxGeometry x="150" y="120" width="300" height="40" as="geometry"/>
         </mxCell>
 

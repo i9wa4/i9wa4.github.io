@@ -15,7 +15,7 @@
           <mxGeometry x="80" y="120" width="680" height="700" as="geometry"/>
         </mxCell>
 
-        <mxCell id="before-title" value="BEFORE：AWS ECS環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=39;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+        <mxCell id="before-title" value="BEFORE：Amazon ECS環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=39;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
           <mxGeometry x="180" y="140" width="480" height="40" as="geometry"/>
         </mxCell>
 
@@ -26,7 +26,7 @@
         <mxCell id="prob1-box" value="学習コストが高い" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#CC0000;strokeWidth=2;fontSize=24;fontStyle=1;align=left;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="240" y="220" width="480" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="prob1-detail" value="Docker、ECR、ECS、CloudWatch...&lt;br&gt;インフラ知識習得に時間を取られる" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;spacingLeft=10;" vertex="1" parent="1">
+        <mxCell id="prob1-detail" value="Docker、Amazon ECR、Amazon ECS、Amazon CloudWatch...&lt;br&gt;インフラ知識習得に時間を取られる" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;spacingLeft=10;" vertex="1" parent="1">
           <mxGeometry x="240" y="265" width="480" height="35" as="geometry"/>
         </mxCell>
 

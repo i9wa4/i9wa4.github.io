@@ -61,8 +61,8 @@
         <mxCell id="s3" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=18;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
           <mxGeometry x="920" y="260" width="78" height="78" as="geometry"/>
         </mxCell>
-        <mxCell id="s3-label" value="データレイク&lt;br&gt;S3/Delta Lake" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="899" y="340" width="120" height="40" as="geometry"/>
+        <mxCell id="s3-label" value="データレイク&lt;br&gt;Amazon S3/Delta Lake" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="869" y="340" width="180" height="40" as="geometry"/>
         </mxCell>
 
         <!-- Job -->

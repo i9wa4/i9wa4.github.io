@@ -14,7 +14,6 @@ categories:
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
-    css: default.css
     footer: "自己紹介 馬渡大樹"
     incremental: false
     scrollable: true

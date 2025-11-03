@@ -63,24 +63,24 @@
         </mxCell>
 
         <mxCell id="arrow3-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="569" y="345" width="170" height="30" as="geometry"/>
+          <mxGeometry x="569" y="305" width="170" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow3-label" value="3. ビルド・Docker化" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
-          <mxGeometry x="569" y="345" width="170" height="30" as="geometry"/>
+          <mxGeometry x="569" y="305" width="170" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow4-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="805" y="345" width="150" height="30" as="geometry"/>
+          <mxGeometry x="805" y="305" width="150" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow4-label" value="4. イメージ取得" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
-          <mxGeometry x="805" y="345" width="150" height="30" as="geometry"/>
+          <mxGeometry x="805" y="305" width="150" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow5-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="345" width="240" height="30" as="geometry"/>
+          <mxGeometry x="1040" y="305" width="240" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow5-label" value="5. タスク実行・ログ出力" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="345" width="240" height="30" as="geometry"/>
+          <mxGeometry x="1040" y="305" width="240" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow6-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
@@ -134,8 +134,8 @@
         <mxCell id="cloudwatch" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=18;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" vertex="1" parent="1">
           <mxGeometry x="1240" y="380" width="78" height="78" as="geometry"/>
         </mxCell>
-        <mxCell id="cloudwatch-label" value="CloudWatch Logs&lt;br&gt;ログ確認" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="1219" y="460" width="120" height="40" as="geometry"/>
+        <mxCell id="cloudwatch-label" value="Amazon CloudWatch Logs&lt;br&gt;ログ確認" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1179" y="460" width="200" height="40" as="geometry"/>
         </mxCell>
 
         <!-- Time Summary Box -->

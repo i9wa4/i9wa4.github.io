@@ -6,12 +6,12 @@
         <mxCell id="1" parent="0"/>
 
         <!-- Title -->
-        <mxCell id="title" value="開発サイクルの比較：AWS ECS vs Databricks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+        <mxCell id="title" value="開発サイクルの比較：Amazon ECS vs Databricks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
           <mxGeometry x="400" y="40" width="800" height="50" as="geometry"/>
         </mxCell>
 
         <!-- Left Side: AWS ECS Cycle (Slow) -->
-        <mxCell id="aws-title" value="AWS ECS環境：遅いサイクル（50分～）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+        <mxCell id="aws-title" value="Amazon ECS環境：遅いサイクル（50分～）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
           <mxGeometry x="80" y="120" width="500" height="40" as="geometry"/>
         </mxCell>
 
@@ -31,8 +31,8 @@
         </mxCell>
 
         <!-- AWS Step 3 -->
-        <mxCell id="aws-step3" value="3. ECS実行&lt;br&gt;(30-60分)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#CC0000;strokeWidth=2;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="410" y="450" width="120" height="60" as="geometry"/>
+        <mxCell id="aws-step3" value="3. Amazon ECS実行&lt;br&gt;(30-60分)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#CC0000;strokeWidth=2;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="450" width="160" height="60" as="geometry"/>
         </mxCell>
 
         <!-- AWS Step 4 -->

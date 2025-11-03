@@ -28,8 +28,8 @@
         <mxCell id="before1-text" value="Dockerのエラーで1日潰れた...&lt;br&gt;機械学習の勉強がしたいのに..." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;spacingLeft=20;" vertex="1" parent="1">
           <mxGeometry x="260" y="165" width="340" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="before1-tag" value="移行前（AWS ECS環境）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=none;fontSize=21;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="350" y="145" width="280" height="35" as="geometry"/>
+        <mxCell id="before1-tag" value="移行前（Amazon ECS環境）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=none;fontSize=21;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="320" y="145" width="340" height="35" as="geometry"/>
         </mxCell>
 
         <!-- Before Voice 2 -->

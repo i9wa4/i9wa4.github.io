@@ -11,7 +11,6 @@ categories:
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
-    css: default.css
     incremental: false
     logo: "/assets/common/icon_hhkb3.png"
     slide-level: 2
