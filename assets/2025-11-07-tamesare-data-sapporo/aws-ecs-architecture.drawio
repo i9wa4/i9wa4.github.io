@@ -1,20 +1,20 @@
 <mxfile host="app.diagrams.net">
   <diagram name="AWS ECS環境" id="aws-ecs">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#ffffff">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
         <!-- Title -->
-        <mxCell id="title" value="AWS ECS環境での開発フロー" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
+        <mxCell id="title" value="AWS ECS環境での開発フロー" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#232F3E;" vertex="1" parent="1">
           <mxGeometry x="400" y="40" width="800" height="50" as="geometry"/>
         </mxCell>
 
         <!-- Developer Icon -->
-        <mxCell id="developer" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+        <mxCell id="developer" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=18;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
           <mxGeometry x="80" y="380" width="78" height="78" as="geometry"/>
         </mxCell>
-        <mxCell id="developer-label" value="開発者&lt;br&gt;インターン生" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="developer-label" value="開発者&lt;br&gt;インターン生" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="59" y="460" width="120" height="40" as="geometry"/>
         </mxCell>
 
@@ -22,7 +22,7 @@
         <mxCell id="github" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github" vertex="1" parent="1">
           <mxGeometry x="280" y="380" width="75" height="75" as="geometry"/>
         </mxCell>
-        <mxCell id="github-label" value="GitHub&lt;br&gt;Repository" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="github-label" value="GitHub&lt;br&gt;Repository" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="257.5" y="460" width="120" height="40" as="geometry"/>
         </mxCell>
 
@@ -30,20 +30,20 @@
         <mxCell id="actions" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-128.png;fillColor=#2088FF;" vertex="1" parent="1">
           <mxGeometry x="488" y="377" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="actions-label" value="GitHub Actions&lt;br&gt;ビルド: 5分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="actions-label" value="GitHub Actions&lt;br&gt;ビルド: 5分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="468" y="460" width="120" height="40" as="geometry"/>
         </mxCell>
 
         <!-- Problem Area Background -->
-        <mxCell id="problem-bg" value="学習コストが高い領域（Docker, AWS知識が必要）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;dashPattern=8 8;strokeWidth=3;fontSize=16;fontStyle=1;verticalAlign=top;align=center;" vertex="1" parent="1">
+        <mxCell id="problem-bg" value="学習コストが高い領域（Docker, AWS知識が必要）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;dashPattern=8 8;strokeWidth=3;fontSize=24;fontStyle=1;verticalAlign=top;align=center;" vertex="1" parent="1">
           <mxGeometry x="650" y="200" width="860" height="420" as="geometry"/>
         </mxCell>
 
         <!-- Amazon ECR -->
-        <mxCell id="ecr" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" vertex="1" parent="1">
+        <mxCell id="ecr" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=18;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" vertex="1" parent="1">
           <mxGeometry x="720" y="380" width="78" height="78" as="geometry"/>
         </mxCell>
-        <mxCell id="ecr-label" value="Amazon ECR&lt;br&gt;Container Registry" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="ecr-label" value="Amazon ECR&lt;br&gt;Container Registry" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="699" y="460" width="120" height="40" as="geometry"/>
         </mxCell>
 
@@ -51,73 +51,73 @@
         <mxCell id="docker" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.docker" vertex="1" parent="1">
           <mxGeometry x="724" y="260" width="70" height="51" as="geometry"/>
         </mxCell>
-        <mxCell id="docker-label" value="Docker&lt;br&gt;コンテナ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="docker-label" value="Docker&lt;br&gt;コンテナ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="709" y="315" width="100" height="30" as="geometry"/>
         </mxCell>
 
         <!-- Amazon ECS -->
-        <mxCell id="ecs" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecs;" vertex="1" parent="1">
+        <mxCell id="ecs" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=18;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecs;" vertex="1" parent="1">
           <mxGeometry x="960" y="380" width="78" height="78" as="geometry"/>
         </mxCell>
-        <mxCell id="ecs-label" value="Amazon ECS&lt;br&gt;タスク実行: 30分-1時間" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="ecs-label" value="Amazon ECS&lt;br&gt;タスク実行: 30分-1時間" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="924" y="460" width="150" height="40" as="geometry"/>
         </mxCell>
 
         <!-- CloudWatch Logs -->
-        <mxCell id="cloudwatch" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" vertex="1" parent="1">
+        <mxCell id="cloudwatch" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=18;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" vertex="1" parent="1">
           <mxGeometry x="1240" y="380" width="78" height="78" as="geometry"/>
         </mxCell>
-        <mxCell id="cloudwatch-label" value="CloudWatch Logs&lt;br&gt;ログ確認" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="cloudwatch-label" value="CloudWatch Logs&lt;br&gt;ログ確認" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="1219" y="460" width="120" height="40" as="geometry"/>
         </mxCell>
 
         <!-- Arrows -->
-        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=14;fontStyle=1;strokeColor=#0066CC;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="developer" target="github">
+        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#0066CC;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="developer" target="github">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arrow1-label" value="1. コード修正・push" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontColor=#0066CC;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow1">
+        <mxCell id="arrow1-label" value="1. コード修正・push" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#0066CC;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow1">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
             <mxPoint x="0" y="-15" as="offset"/>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="arrow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=14;fontStyle=1;strokeColor=#0066CC;" edge="1" parent="1" source="github" target="actions">
+        <mxCell id="arrow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#0066CC;" edge="1" parent="1" source="github" target="actions">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arrow2-label" value="2. トリガー" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontColor=#0066CC;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow2">
+        <mxCell id="arrow2-label" value="2. トリガー" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#0066CC;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow2">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
             <mxPoint x="0" y="-15" as="offset"/>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="arrow3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=14;fontStyle=1;strokeColor=#CC0000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="actions" target="ecr">
+        <mxCell id="arrow3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="actions" target="ecr">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arrow3-label" value="3. ビルド・Docker化" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow3">
+        <mxCell id="arrow3-label" value="3. ビルド・Docker化" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow3">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
             <mxPoint x="0" y="-15" as="offset"/>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="arrow4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=14;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1" source="ecr" target="ecs">
+        <mxCell id="arrow4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1" source="ecr" target="ecs">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arrow4-label" value="4. イメージ取得" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow4">
+        <mxCell id="arrow4-label" value="4. イメージ取得" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow4">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
             <mxPoint x="0" y="-15" as="offset"/>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="arrow5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=14;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1" source="ecs" target="cloudwatch">
+        <mxCell id="arrow5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1" source="ecs" target="cloudwatch">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arrow5-label" value="5. タスク実行・ログ出力" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow5">
+        <mxCell id="arrow5-label" value="5. タスク実行・ログ出力" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow5">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
             <mxPoint x="0" y="-15" as="offset"/>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="arrow6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=14;fontStyle=1;strokeColor=#CC0000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cloudwatch" target="developer">
+        <mxCell id="arrow6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cloudwatch" target="developer">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1279" y="680"/>
@@ -125,14 +125,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="arrow6-label" value="6. ログ確認・デバッグ" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow6">
+        <mxCell id="arrow6-label" value="6. ログ確認・デバッグ" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="arrow6">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
             <mxPoint x="0" y="15" as="offset"/>
           </mxGeometry>
         </mxCell>
 
         <!-- Time Summary Box -->
-        <mxCell id="time-box" value="合計所要時間: 最短15分～1時間以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=20;fontStyle=1;align=center;" vertex="1" parent="1">
+        <mxCell id="time-box" value="合計所要時間: 最短15分～1時間以上" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=30;fontStyle=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="520" y="740" width="560" height="60" as="geometry"/>
         </mxCell>
 
