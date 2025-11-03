@@ -119,6 +119,128 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
 - 複数要素を揃える場合は中心座標を計算して合わせる
 - 変更後は必ず `mise exec -- pre-commit run convert-drawio-to-svg --files <file>` で確認
 
-### 2.6. CI での実行
+### 2.6. フォントサイズ変更時の注意点
+
+フォントサイズを変更した場合、レイアウトが崩れる可能性がある
+
+**よくある問題**:
+
+1. **ラベルが要素からはみ出す**
+   - 例: 吹き出しの上にラベルが飛び出す
+   - 解決策: ラベルの Y 座標と高さを調整して、親要素の内側に収める
+   ```xml
+   <!-- 修正前: Y=110 で吹き出し (Y=140) の外に出ている -->
+   <mxCell id="label" value="タイトル" ...>
+     <mxGeometry x="400" y="110" width="200" height="30" as="geometry"/>
+   </mxCell>
+
+   <!-- 修正後: Y=145 で吹き出しの内側に配置 -->
+   <mxCell id="label" value="タイトル" ...>
+     <mxGeometry x="350" y="145" width="280" height="35" as="geometry"/>
+   </mxCell>
+   ```
+
+2. **テキストが詰まって改行されない**
+   - 例: 複数の短いテキストが横並びで、幅が足りず詰まる
+   - 解決策: `<br>` タグで明示的に改行するか、レイアウトを再構成
+   ```xml
+   <!-- 修正前: 5つのテキストが横並びで詰まっている -->
+   <mxCell id="feature1" value="✓ 機能A" ...>
+     <mxGeometry x="450" y="680" width="200" height="30" as="geometry"/>
+   </mxCell>
+   <mxCell id="feature2" value="✓ 機能B" ...>
+     <mxGeometry x="680" y="680" width="200" height="30" as="geometry"/>
+   </mxCell>
+   ...
+
+   <!-- 修正後: 改行タグで縦並びにグループ化 -->
+   <mxCell id="feature1" value="✓ 機能A&lt;br&gt;✓ 機能B" ...>
+     <mxGeometry x="450" y="680" width="280" height="60" as="geometry"/>
+   </mxCell>
+   ```
+
+3. **矢印が他の要素の上に重なる**
+   - 解決策: 矢印を最背面に移動
+   - draw.io では XML の順序が描画順なので、矢印を先頭（Title の直後）に配置
+   ```xml
+   <!-- Title -->
+   <mxCell id="title" value="..." .../>
+
+   <!-- Arrow (最背面) -->
+   <mxCell id="arrow" style="shape=flexArrow;..." .../>
+
+   <!-- Other elements (前面に表示される) -->
+   <mxCell id="box1" .../>
+   ```
+
+**一括変更後の確認フロー**:
+
+1. 全図を PNG に変換して視覚的に確認
+   ```sh
+   mkdir -p /tmp/drawio-review
+   for drawio in assets/**/*.drawio; do
+     base=$(basename "$drawio" .drawio)
+     drawio -x -f pdf -o "/tmp/drawio-review/${base}.pdf" "$drawio"
+     pdftocairo -png -singlefile "/tmp/drawio-review/${base}.pdf" "/tmp/drawio-review/${base}"
+   done
+   ```
+
+2. Claude Code に全図のレイアウトチェックを依頼
+
+3. 問題のある図を個別に修正
+
+4. SVG を再生成
+   ```sh
+   mise exec -- pre-commit run convert-drawio-to-svg --all-files
+   ```
+
+### 2.7. draw.io 図作成のベストプラクティス
+
+**基本原則**:
+
+1. **背景色を設定しない**
+   - `background="#ffffff"` は削除すること
+   - 透明背景にすることで、様々なテーマに対応できる
+
+2. **フォントサイズは1.5倍推奨**
+   - PDF表示で読みやすくするため、標準フォントサイズの1.5倍を使用
+   - 一括変更する場合は、レイアウトの微調整が必要
+
+3. **矢印は必ず最背面に配置**
+   - draw.io では XML の順序が描画順
+   - 矢印を Title の直後に配置することで、他の要素の下に表示される
+   ```xml
+   <!-- Title -->
+   <mxCell id="title" value="..." .../>
+
+   <!-- Arrows (最背面) -->
+   <mxCell id="arrow1" style="edgeStyle=..." .../>
+   <mxCell id="arrow2" style="edgeStyle=..." .../>
+
+   <!-- Other elements (前面に表示される) -->
+   <mxCell id="box1" .../>
+   ```
+
+4. **不要な要素を削除**
+   - 文脈に不要な装飾アイコンは削除
+   - 例: ECR (Container Registry) があれば、別途 Docker アイコンは不要
+
+5. **絵文字を活用**
+   - draw.io の shape が正しく表示されない場合は絵文字で代用
+   - 例: Docker アイコン → 🐳
+
+6. **AWS アイコンは最新版**
+   - `shape=mxgraph.aws4.resourceIcon` を使用
+   - draw.io で提供される AWS Architecture Icons は最新版
+
+**チェックリスト**:
+
+- [ ] 背景色が設定されていないか
+- [ ] フォントサイズは適切か（大きめ推奨）
+- [ ] 矢印が最背面に配置されているか
+- [ ] 不要な要素が残っていないか
+- [ ] PNG に変換して視覚的に確認したか
+
+### 2.8. CI での実行
 
 GitHub Actions では drawio と pdftocairo の処理はスキップされる

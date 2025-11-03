@@ -10,6 +10,14 @@
           <mxGeometry x="400" y="30" width="600" height="60" as="geometry"/>
         </mxCell>
 
+        <!-- Arrow (最背面) -->
+        <mxCell id="arrow" value="移行" style="shape=flexArrow;endArrow=classic;html=1;strokeWidth=5;fillColor=#ffcc99;strokeColor=#FF6600;width=40;endSize=8;fontSize=30;fontStyle=1;fontColor=#FF6600;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="280" as="sourcePoint"/>
+            <mxPoint x="740" y="280" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
         <!-- Before Voice 1 -->
         <mxCell id="before1-person" value="😰" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=120;" vertex="1" parent="1">
           <mxGeometry x="100" y="150" width="100" height="100" as="geometry"/>
@@ -21,7 +29,7 @@
           <mxGeometry x="260" y="165" width="340" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="before1-tag" value="移行前（AWS ECS環境）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CC0000;strokeColor=none;fontSize=21;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="400" y="110" width="200" height="30" as="geometry"/>
+          <mxGeometry x="350" y="145" width="280" height="35" as="geometry"/>
         </mxCell>
 
         <!-- Before Voice 2 -->
@@ -46,7 +54,7 @@
           <mxGeometry x="940" y="165" width="340" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="after1-tag" value="移行後（Databricks環境）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00AA00;strokeColor=none;fontSize=21;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="110" width="220" height="30" as="geometry"/>
+          <mxGeometry x="990" y="145" width="280" height="35" as="geometry"/>
         </mxCell>
 
         <!-- After Voice 2 -->
@@ -72,14 +80,6 @@
         </mxCell>
         <mxCell id="mentor-text" value="✓ インターン生が本質的なスキル習得に集中できるようになった&lt;br&gt;✓ 質問内容がインフラからモデル改善に変わった&lt;br&gt;✓ インターン期間中の成果物のクオリティが向上した" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;spacingLeft=20;" vertex="1" parent="1">
           <mxGeometry x="400" y="630" width="760" height="100" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow -->
-        <mxCell id="arrow" value="移行" style="shape=flexArrow;endArrow=classic;html=1;strokeWidth=5;fillColor=#ffcc99;strokeColor=#FF6600;width=40;endSize=8;fontSize=30;fontStyle=1;fontColor=#FF6600;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="660" y="280" as="sourcePoint"/>
-            <mxPoint x="740" y="280" as="targetPoint"/>
-          </mxGeometry>
         </mxCell>
 
       </root>

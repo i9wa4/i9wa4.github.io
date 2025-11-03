@@ -57,7 +57,9 @@ website:
       - text: "Quarto"
         href: "https://quarto.org/"
 
-include-in-header: _includes/hatena-nocomment.html
+include-in-header:
+  - _includes/hatena-nocomment.html
+  - _includes/anchor-icon-fix.html
 
 format:
   html:
