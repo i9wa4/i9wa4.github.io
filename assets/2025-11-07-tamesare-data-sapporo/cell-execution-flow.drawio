@@ -104,19 +104,20 @@
 
         <mxCell id="arrow-error" value="YES" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;labelBackgroundColor=#ffffff;fontSize=21;fontStyle=1;" edge="1" parent="1" source="decision-box" target="error-box">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
-            <mxPoint as="offset"/>
+            <mxPoint x="0" y="-25" as="offset"/>
           </mxGeometry>
         </mxCell>
 
         <mxCell id="arrow-success" value="NO" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82b366;labelBackgroundColor=#ffffff;fontSize=21;fontStyle=1;" edge="1" parent="1" source="decision-box" target="success-box">
           <mxGeometry x="0" y="0" relative="1" as="geometry">
-            <mxPoint as="offset"/>
+            <mxPoint x="0" y="-25" as="offset"/>
           </mxGeometry>
         </mxCell>
 
         <!-- Return Arrow from Error -->
         <mxCell id="arrow-return" value="再実行" style="curved=1;endArrow=classic;html=1;strokeWidth=3;strokeColor=#CC0000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=#ffffff;fontSize=21;fontStyle=1;" edge="1" parent="1" source="error-box" target="step1-box">
           <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-60" y="0" as="offset"/>
             <Array as="points">
               <mxPoint x="250" y="380"/>
             </Array>

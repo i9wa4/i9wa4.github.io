@@ -457,3 +457,110 @@ done
 ### 2.11. CI での実行
 
 GitHub Actions では drawio と pdftocairo の処理はスキップされる
+
+### 2.12. Codex MCP を活用した効率的なレビュー
+
+draw.io 図の品質を保つため、Codex MCP（Model Context Protocol）を使った自動レビューを活用する
+
+レビューの進め方
+
+1. 優先順位をつけて3つずつレビュー
+   - 一度に全画像をレビューすると時間がかかりすぎる
+   - 問題が多そうな図から優先的にレビュー
+   - 各ラウンドで点数を記録し、改善の進捗を可視化
+
+2. Codex に十分な文脈を提供
+   - Codex は毎回新しいセッションで、前回の内容を記憶していない
+   - スライドの qmd ファイルの内容（タイトル、メッセージ、各図の役割）を共有
+   - 前回のレビュー結果と修正内容を説明
+   - 目標点数を明示（例: 平均8.5点以上）
+
+3. レビュー観点の明確化
+   - 矢印がラベルと被っていないか
+   - 矢印の起点・終点がラベルから十分離れているか（最低20px以上）
+   - AWS サービス名が正式名称・正しい略称になっているか
+   - スライドのメッセージが明確に伝わるか
+   - 全体的なレイアウトバランスに問題がないか
+
+レビュー結果の活用
+
+- 各画像について「改善された点」「残存する問題点」「点数」を記録
+- 平均点が目標に達するまで修正を繰り返す
+- 最終的に全画像の平均点が8.5点以上になることを目指す
+
+edgeLabel の offset 調整テクニック
+
+矢印ラベルを矢印から離すには、edgeLabel の offset 属性を調整する
+
+```xml
+<!-- 矢印の上側に配置（マイナス値で離す） -->
+<mxCell id="arrow-label" value="ラベル" style="edgeLabel;..." vertex="1" connectable="0" parent="arrow">
+  <mxGeometry x="-0.1" y="2" relative="1" as="geometry">
+    <mxPoint x="0" y="-40" as="offset"/>  <!-- Y座標をマイナスにして上に離す -->
+  </mxGeometry>
+</mxCell>
+
+<!-- 矢印の下側に配置（プラス値で離す） -->
+<mxCell id="arrow-label" value="ラベル" style="edgeLabel;..." vertex="1" connectable="0" parent="arrow">
+  <mxGeometry x="-0.1" y="2" relative="1" as="geometry">
+    <mxPoint x="0" y="40" as="offset"/>  <!-- Y座標をプラスにして下に離す -->
+  </mxGeometry>
+</mxCell>
+
+<!-- 矢印の横に配置 -->
+<mxCell id="arrow-label" value="ラベル" style="edgeLabel;..." vertex="1" connectable="0" parent="arrow">
+  <mxGeometry x="-0.1" y="2" relative="1" as="geometry">
+    <mxPoint x="-60" y="0" as="offset"/>  <!-- X座標を調整して横に離す -->
+  </mxGeometry>
+</mxCell>
+```
+
+重要なポイント
+
+- labelBackgroundColor で白背景をつけても、矢印から20px以上離す必要がある
+- フローチャートの分岐ラベル（YES/NO等）でも、視認性のために矢印から離す
+- offset の値は、実際の矢印位置とラベルサイズ（fontSize × 行数）を考慮して決定
+- 修正後は必ず PNG で視覚確認し、20px以上の余白が確保されているか確認
+
+### 2.13. Codex MCP サーバーが応答しない場合の対処法
+
+Codex MCP サーバー（`mcp__codex-mcp__codex` ツール）を使用してレビューを依頼した際、"Tool ran without output or errors" というメッセージが返ってくる場合がある
+
+原因と対処法
+
+- Codex MCP サーバーは外部プロセスとして動作しており、タイムアウトや接続エラーが発生する場合がある
+- この場合、以下の手順で対処する
+
+対処手順
+
+1. 再試行する
+   - 同じプロンプトで再度 `mcp__codex-mcp__codex` ツールを呼び出す
+   - 1-2回の再試行で成功する場合が多い
+
+2. 再試行しても応答がない場合は代替手段に切り替える
+   - Claude Code の Read ツールで PNG を直接読み込んで目視レビューする
+   - 人間が最終的にブラウザで `/tmp/drawio-review/*.png` を確認する
+
+3. 問題が続く場合はプロセスを確認
+   ```sh
+   ps aux | grep -i codex | grep -v grep
+   ```
+
+代替レビュー手順
+
+```sh
+# PNG を読み込んで自分でレビュー
+Read /tmp/drawio-review/diagram.png
+
+# 目視で以下の観点をチェック
+# - フォントサイズのバランス
+# - 不自然な改行の有無
+# - 文字の重なり・被り（20px以上の余白）
+# - サービス名の正確性
+```
+
+重要なポイント
+
+- Codex MCP サーバーは便利だが、必ず応答するとは限らない
+- 応答がない場合は無理に待たず、代替手段に切り替える
+- 最終的な品質確認は人間の目視が最も確実

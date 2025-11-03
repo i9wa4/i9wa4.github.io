@@ -33,7 +33,12 @@
         </mxCell>
 
         <mxCell id="arrow5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1" source="ecs" target="cloudwatch">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="419"/>
+              <mxPoint x="1160" y="419"/>
+            </Array>
+          </mxGeometry>
         </mxCell>
 
         <mxCell id="arrow6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1">
@@ -84,10 +89,10 @@
         </mxCell>
 
         <mxCell id="arrow6-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="594" y="665" width="200" height="30" as="geometry"/>
+          <mxGeometry x="594" y="675" width="200" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow6-label" value="6. ログ確認・デバッグ" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
-          <mxGeometry x="594" y="665" width="200" height="30" as="geometry"/>
+          <mxGeometry x="594" y="675" width="200" height="30" as="geometry"/>
         </mxCell>
 
         <!-- Developer Icon -->
@@ -103,7 +108,7 @@
           <mxGeometry x="280" y="380" width="75" height="75" as="geometry"/>
         </mxCell>
         <mxCell id="github-label" value="GitHub&lt;br&gt;Repository" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="257.5" y="460" width="120" height="40" as="geometry"/>
+          <mxGeometry x="257.5" y="455" width="120" height="40" as="geometry"/>
         </mxCell>
 
         <!-- GitHub Actions -->
