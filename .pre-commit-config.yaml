@@ -1,0 +1,50 @@
+default_stages: [pre-commit]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=no]
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+
+  - repo: local
+    hooks:
+      - id: convert-svg-for-pdf
+        name: Convert draw.io SVG for PDF rendering
+        entry: bash -c 'for svg in "$@"; do inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$svg.tmp" && mv "$svg.tmp" "$svg"; done' --
+        language: system
+        files: assets/.*\.svg$
+        pass_filenames: true
+        verbose: true
+
+      - id: actionlint
+        name: actionlint
+        entry: actionlint
+        language: system
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        pass_filenames: true
+
+      - id: pinact
+        name: pinact
+        entry: pinact run
+        language: system
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        pass_filenames: false
+
+      - id: zizmor
+        name: zizmor
+        entry: zizmor
+        language: system
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        pass_filenames: true
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks

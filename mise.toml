@@ -1,0 +1,11 @@
+[tools]
+# Package managers
+uv = "latest"
+
+# Development tools
+pre-commit = "latest"
+
+# Aqua tools
+"aqua:rhysd/actionlint" = "latest"
+"aqua:suzuki-shunsuke/pinact" = "latest"
+"aqua:zizmorcore/zizmor" = "latest"
