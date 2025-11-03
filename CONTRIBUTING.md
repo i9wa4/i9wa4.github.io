@@ -229,15 +229,118 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
    - draw.io の shape が正しく表示されない場合は絵文字で代用
    - 例: Docker アイコン → 🐳
 
-6. **AWS アイコンは最新版**
-   - `shape=mxgraph.aws4.resourceIcon` を使用
-   - draw.io で提供される AWS Architecture Icons は最新版
+6. **ラベルと見出しのテキスト配置**
+   - YOU MUST: ラベルや見出しは適切に改行・1行化して読みやすくする
+   - YOU MUST: 不自然な2行表記は避け、意味のある単位で改行する
+   - YOU MUST: 改行が必要な場合は `&lt;br&gt;` タグを使用する
+   - IMPORTANT: 改行後は必ず PNG で視覚確認し、レイアウトが崩れていないか確認する
+
+   良い例:
+   ```xml
+   <!-- サービス名だけなら1行 -->
+   <mxCell id="label" value="Amazon ECR" .../>
+
+   <!-- 補足情報がある場合は改行 -->
+   <mxCell id="label" value="GitHub Actions&lt;br&gt;ビルド: 5分" .../>
+   <mxCell id="label" value="開発者&lt;br&gt;インターン生" .../>
+   ```
+
+   悪い例:
+   ```xml
+   <!-- 不要な改行で2行になっている -->
+   <mxCell id="label" value="Amazon ECR&lt;br&gt;Container Registry" .../>
+   <!-- ECR = Elastic Container Registry なので Registry が二重 -->
+
+   <!-- 無理に1行にして読みづらい -->
+   <mxCell id="label" value="GitHub Actionsビルド: 5分" .../>
+   ```
+
+   判断基準:
+   - サービス名のみ: 1行
+   - サービス名 + 補足情報: 改行して2行
+   - 役割 + 詳細: 改行して2行
+   - 冗長な表記 (例: ECR Container Registry): 短縮して1行
+
+7. **矢印配置の基本原則**
+   - YOU MUST: 矢印は要素の中心座標 (アイコンやラベルの中心) に接続する
+   - YOU MUST: 矢印がラベルのテキストと被らないように配置する
+   - YOU MUST: 矢印の起点・終点はラベルの下辺から十分離す (最低20px以上)
+   - YOU MUST: 修正後は必ず PNG で視覚確認し、被りがないか確認する
+   - IMPORTANT: テキスト要素への接続は `exitX/exitY` が効かないため、明示的な座標 (`sourcePoint`/`targetPoint`) を使用する
+
+   良い例:
+   ```xml
+   <!-- アイコン中心: (119, 419) ラベル下辺: y=500 -->
+   <!-- 起点を y=540 に設定してラベルから40px離す -->
+   <mxCell id="arrow" style="edgeStyle=orthogonalEdgeStyle;..." edge="1" parent="1">
+     <mxGeometry relative="1" as="geometry">
+       <mxPoint x="1279" y="540" as="sourcePoint"/>
+       <mxPoint x="119" y="540" as="targetPoint"/>
+       <Array as="points">
+         <mxPoint x="1279" y="650"/>
+         <mxPoint x="119" y="650"/>
+       </Array>
+     </mxGeometry>
+   </mxCell>
+   ```
+
+   悪い例:
+   ```xml
+   <!-- 起点が y=500 でラベル下辺 (y=500) と一致 → テキストに被る -->
+   <mxCell id="arrow" style="..." edge="1" parent="1">
+     <mxGeometry relative="1" as="geometry">
+       <mxPoint x="1279" y="500" as="sourcePoint"/>
+       <mxPoint x="119" y="500" as="targetPoint"/>
+     </mxGeometry>
+   </mxCell>
+   ```
+
+   座標計算:
+   - アイコン中心 X: `icon.x + (icon.width / 2)`
+   - ラベル下辺 Y: `label.y + label.height`
+   - 矢印起点 Y: `label.y + label.height + 余白 (20px以上)`
+
+7. **AWS アイコンとサービス名**
+   - YOU MUST: サービス名は AWS が示す正式名称・正しい略称を使用する
+   - YOU MUST: アイコンは draw.io 内で利用できる最新版 (`mxgraph.aws4.*`) を使用する
+   - NEVER: 古いアイコン (`mxgraph.aws3.*`) や非公式アイコンは使用しない
+   - IMPORTANT: サービス名とアイコンが一致していることを確認する
+
+   正しいサービス名の例:
+   - Amazon ECS (not "AWS ECS" or "ECS")
+   - Amazon ECR (not "AWS ECR" or "ECR")
+   - Amazon S3 (not "AWS S3" or "S3")
+   - AWS Lambda (Lambda は AWS 始まり)
+   - Amazon CloudWatch (not "AWS CloudWatch" or "CloudWatch")
+   - Amazon RDS (not "AWS RDS" or "RDS")
+
+   正しいアイコン指定:
+   ```xml
+   <!-- Amazon ECS -->
+   <mxCell id="ecs" value="" style="sketch=0;points=[[0,0,0],...];shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecs;" .../>
+
+   <!-- Amazon ECR -->
+   <mxCell id="ecr" value="" style="sketch=0;points=[[0,0,0],...];shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" .../>
+
+   <!-- Amazon CloudWatch -->
+   <mxCell id="cloudwatch" value="" style="sketch=0;points=[[0,0,0],...];shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" .../>
+   ```
+
+   確認方法:
+   - draw.io で AWS Architecture Icons ライブラリを開く
+   - サービス名で検索して正しい名称を確認
+   - アイコンを挿入して XML の `resIcon` 属性を確認
+   - `mxgraph.aws4.*` であることを確認 (aws3 は古い)
 
 **チェックリスト**:
 
 - [ ] 背景色が設定されていないか
 - [ ] フォントサイズは適切か（大きめ推奨）
 - [ ] 矢印が最背面に配置されているか
+- [ ] 矢印がラベルと被っていないか (PNG で確認)
+- [ ] 矢印の起点・終点がラベルから十分離れているか
+- [ ] AWS サービス名が正式名称・正しい略称になっているか
+- [ ] AWS アイコンが最新版 (mxgraph.aws4.*) か
 - [ ] 不要な要素が残っていないか
 - [ ] PNG に変換して視覚的に確認したか
 
