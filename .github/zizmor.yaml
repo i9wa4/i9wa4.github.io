@@ -7,4 +7,4 @@ rules:
     # The workflow only runs on trusted code (main branch push only)
     # and permissions are already restricted to contents: write
     ignore:
-      - "publish.yml"
+      - "publish.yaml"

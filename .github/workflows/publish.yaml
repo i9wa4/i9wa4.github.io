@@ -44,11 +44,12 @@ jobs:
           for svg in assets/**/*.svg; do
             if [ -f "$svg" ]; then
               echo "Converting: $svg"
+              tmp="${svg%.svg}_tmp.svg"
               inkscape "$svg" \
                 --export-text-to-path \
                 --export-plain-svg \
-                --export-filename="$svg.tmp"
-              mv "$svg.tmp" "$svg"
+                --export-filename="$tmp"
+              mv "$tmp" "$svg"
             fi
           done
 

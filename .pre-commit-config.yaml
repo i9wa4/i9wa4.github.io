@@ -17,7 +17,7 @@ repos:
     hooks:
       - id: convert-svg-for-pdf
         name: Convert draw.io SVG for PDF rendering
-        entry: bash -c 'for svg in "$@"; do inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$svg.tmp" && mv "$svg.tmp" "$svg"; done' --
+        entry: bash -c 'for svg in "$@"; do tmp="${svg%.svg}_tmp.svg" && inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$tmp" && mv "$tmp" "$svg"; done' --
         language: system
         files: assets/.*\.svg$
         pass_filenames: true
