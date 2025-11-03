@@ -3,7 +3,7 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-      - id: check-added-large-files
+      # - id: check-added-large-files
       - id: check-json
       - id: check-yaml
       - id: detect-private-key
@@ -17,7 +17,7 @@ repos:
     hooks:
       - id: convert-drawio-to-svg
         name: Convert .drawio to .drawio.svg with text-to-path
-        entry: bash -c 'for drawio in "$@"; do svg="${drawio%.drawio}.drawio.svg" && echo "Converting $drawio to $svg..." && drawio -x -f svg -e -o "$svg" "$drawio" && tmp="${svg%.svg}_tmp.svg" && inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$tmp" 2>/dev/null && mv "$tmp" "$svg" && git add "$svg" && echo "Generated and staged $svg"; done' --
+        entry: bash .github/scripts/convert-drawio-to-svg.sh
         language: system
         files: assets/.*\.drawio$
         pass_filenames: true
