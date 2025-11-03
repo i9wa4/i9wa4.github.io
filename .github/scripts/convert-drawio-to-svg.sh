@@ -16,15 +16,10 @@ for drawio in "$@"; do
         continue
     fi
 
-    # Step 2: inkscape convert PDF to SVG with text-to-path
-    if ! inkscape "$pdf_tmp" --export-text-to-path --export-plain-svg --export-filename="$svg" 2>/dev/null; then
-        echo "✗ inkscape conversion failed for $pdf_tmp" >&2
+    # Step 2: pdftocairo convert PDF to SVG (automatically converts text to paths)
+    if ! pdftocairo -svg "$pdf_tmp" "$svg" 2>/dev/null; then
+        echo "✗ pdftocairo conversion failed for $pdf_tmp" >&2
         continue
-    fi
-
-    # Step 3: Remove font-family attributes from paths to ensure font-independent rendering
-    if command -v sed >/dev/null 2>&1; then
-        sed -i '' -e 's/font-family:[^;"]*//g' -e 's/;;/;/g' "$svg"
     fi
 
     generated_files+=("$svg")
