@@ -8,8 +8,8 @@ for drawio in "$@"; do
     svg="${drawio%.drawio}.drawio.svg"
     echo "Converting $drawio to $svg..."
 
-    # Step 1: drawio CLI export
-    if ! drawio -x -f svg -e -o "$svg" "$drawio" 2>/dev/null; then
+    # Step 1: drawio CLI export (without embed-diagram to avoid re-rendering)
+    if ! drawio -x -f svg -o "$svg" "$drawio" 2>/dev/null; then
         echo "✗ drawio export failed for $drawio" >&2
         continue
     fi
