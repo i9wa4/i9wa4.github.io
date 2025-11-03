@@ -22,6 +22,11 @@ for drawio in "$@"; do
         continue
     fi
 
+    # Step 3: Remove font-family attributes from paths to ensure font-independent rendering
+    if command -v sed >/dev/null 2>&1; then
+        sed -i '' -e 's/font-family:[^;"]*//g' -e 's/;;/;/g' "$svg"
+    fi
+
     generated_files+=("$svg")
     echo "✓ Generated $svg"
 done
