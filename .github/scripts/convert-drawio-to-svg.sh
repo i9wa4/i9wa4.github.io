@@ -22,6 +22,16 @@ for drawio in "$@"; do
         continue
     fi
 
+    # Step 3: Remove white page background from SVG
+    # Remove the first <path> with fill="rgb(100%,100%,100%)"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS sed syntax
+        sed -i '' '/<path fill-rule="nonzero" fill="rgb(100%,100%,100%)"/,/<\/path>/d' "$svg"
+    else
+        # Linux sed syntax
+        sed -i '/<path fill-rule="nonzero" fill="rgb(100%,100%,100%)"/,/<\/path>/d' "$svg"
+    fi
+
     generated_files+=("$svg")
     echo "✓ Generated $svg"
 done

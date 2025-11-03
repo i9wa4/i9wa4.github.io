@@ -16,7 +16,7 @@
         </mxCell>
 
         <!-- Arrows (最背面) -->
-        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#0066CC;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="developer" target="github">
+        <mxCell id="arrow1" value="" style="rounded=0;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#0066CC;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="developer" target="github">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
@@ -36,11 +36,13 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <mxCell id="arrow6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cloudwatch" target="developer">
+        <mxCell id="arrow6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;fontSize=21;fontStyle=1;strokeColor=#CC0000;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1279" y="540" as="sourcePoint"/>
+            <mxPoint x="119" y="540" as="targetPoint"/>
             <Array as="points">
-              <mxPoint x="1279" y="680"/>
-              <mxPoint x="119" y="680"/>
+              <mxPoint x="1279" y="650"/>
+              <mxPoint x="119" y="650"/>
             </Array>
           </mxGeometry>
         </mxCell>
@@ -75,10 +77,10 @@
         </mxCell>
 
         <mxCell id="arrow5-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1060" y="345" width="200" height="30" as="geometry"/>
+          <mxGeometry x="1040" y="345" width="240" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow5-label" value="5. タスク実行・ログ出力" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=19;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
-          <mxGeometry x="1060" y="345" width="200" height="30" as="geometry"/>
+          <mxGeometry x="1040" y="345" width="240" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow6-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">

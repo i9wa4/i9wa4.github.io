@@ -241,6 +241,114 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
 - [ ] 不要な要素が残っていないか
 - [ ] PNG に変換して視覚的に確認したか
 
-### 2.8. CI での実行
+### 2.8. SVG の白背景問題
+
+pdftocairo で PDF → SVG 変換すると、ページ全体の白背景が SVG に含まれてしまう問題がある
+
+**問題**:
+- draw.io の page 概念により、ページ背景が白い矩形として SVG に出力される
+- HTML ページに表示すると白い背景が見えてしまう
+
+**解決策**:
+変換スクリプトで自動的に白背景を削除する
+
+```bash
+# Remove white page background from SVG
+sed -i '/<path fill-rule="nonzero" fill="rgb(100%,100%,100%)"/,/<\/path>/d' "$svg"
+```
+
+この処理により、SVG から最初の白い `<path>` 要素が削除され、透明背景になる
+
+**注意点**:
+- 図の中に意図的に配置した白いボックス（矢印ラベルの背景など）は削除されない
+- ページ背景の白だけが削除される
+
+### 2.9. テキストラベルへの矢印接続
+
+draw.io でテキスト要素（`style="text;..."`）に矢印を接続する場合、`exitY=1` や `entryY=1` などの接続点パラメータが期待通りに動作しない場合がある。
+
+**問題**:
+- `exitX=0.5;exitY=1` を指定してもテキストの中央に接続される
+- テキストラベルの下辺に接続したい場合に正しく配置されない
+
+**解決策**:
+明示的な座標指定（`sourcePoint` と `targetPoint`）を使用する
+
+```xml
+<!-- 悪い例: source/target でラベル要素を指定 + exitY/entryY を使用 -->
+<mxCell id="arrow" style="..." edge="1" parent="1" source="label1" target="label2">
+  <mxGeometry relative="1" as="geometry">
+    <!-- exitY=1 を指定してもテキストの中央に接続される場合がある -->
+  </mxGeometry>
+</mxCell>
+
+<!-- 良い例: sourcePoint/targetPoint で明示的に座標を指定 -->
+<mxCell id="arrow" style="..." edge="1" parent="1">
+  <mxGeometry relative="1" as="geometry">
+    <mxPoint x="1279" y="500" as="sourcePoint"/>
+    <mxPoint x="119" y="500" as="targetPoint"/>
+    <Array as="points">
+      <mxPoint x="1279" y="560"/>
+      <mxPoint x="119" y="560"/>
+    </Array>
+  </mxGeometry>
+</mxCell>
+```
+
+**座標の計算方法**:
+- テキストラベルの下辺中央: `x = label.x + (label.width / 2)`, `y = label.y + label.height`
+- 例: `<mxGeometry x="1219" y="460" width="120" height="40"/>` の場合
+  - 中央 X 座標: 1219 + 60 = 1279
+  - 下辺 Y 座標: 460 + 40 = 500
+
+### 2.10. PNG プレビューによる視覚的確認
+
+draw.io 図の修正時、SVG や PDF の最終的な見た目を確認するため、/tmp ディレクトリで PNG に変換してレビューする。
+
+**レビュー時の運用ルール**:
+
+- YOU MUST: レビュー用 PNG は `/tmp/drawio-review/` ディレクトリに配置する
+- YOU MUST: ディレクトリが存在しない場合は `mkdir -p /tmp/drawio-review` で作成する
+- YOU MUST: 図を修正したら同じファイル名で上書き更新する
+- IMPORTANT: ユーザーがブラウザで `file:///tmp/drawio-review/diagram.png` を開いてレビューするため、ファイル名を変えてはいけない
+
+**手順**:
+
+```bash
+# 初回: ディレクトリを作成して PNG を生成
+mkdir -p /tmp/drawio-review
+drawio -x -f pdf -o /tmp/drawio-review/diagram.pdf assets/your-diagram.drawio
+pdftocairo -png -singlefile /tmp/drawio-review/diagram.pdf /tmp/drawio-review/diagram
+# 生成された /tmp/drawio-review/diagram.png をブラウザで確認
+
+# 修正後: 同じ名前で上書き更新
+drawio -x -f pdf -o /tmp/drawio-review/diagram.pdf assets/your-diagram.drawio
+pdftocairo -png -singlefile /tmp/drawio-review/diagram.pdf /tmp/drawio-review/diagram
+# ブラウザをリロードして確認
+```
+
+**一括変換とレビュー**:
+
+```bash
+# 全図を PNG に変換
+mkdir -p /tmp/drawio-review
+for drawio in assets/**/*.drawio; do
+  base=$(basename "$drawio" .drawio)
+  drawio -x -f pdf -o "/tmp/drawio-review/${base}.pdf" "$drawio"
+  pdftocairo -png -singlefile "/tmp/drawio-review/${base}.pdf" "/tmp/drawio-review/${base}"
+done
+
+# Claude Code に全図のレイアウトチェックを依頼
+# ls /tmp/drawio-review/*.png で確認
+```
+
+**利点**:
+- SVG/PDF の実際の見た目を素早く確認できる
+- フォントサイズ変更やレイアウト調整の効果を視覚的に検証
+- 矢印の重なりやテキストの配置ミスを発見しやすい
+- Claude Code に PNG を読み込ませて自動レビュー可能
+- 同じファイル名で上書きすることでブラウザのリロードだけで確認可能
+
+### 2.11. CI での実行
 
 GitHub Actions では drawio と pdftocairo の処理はスキップされる
