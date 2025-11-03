@@ -28,30 +28,11 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Fix timestamps
         run: |
           bash ${{ github.workspace }}/.github/scripts/fix-timestamps.sh
-
-      - name: Cache apt packages
-        uses: awalsh128/cache-apt-pkgs-action@acb598e5ddbc6f68a970c5da0688d2f3a9f04d05 # v1.6.0
-        with:
-          packages: inkscape
-          version: 1.2.2
-
-      - name: Convert draw.io SVG for PDF rendering
-        run: |
-          for svg in assets/**/*.svg; do
-            if [ -f "$svg" ]; then
-              echo "Converting: $svg"
-              tmp="${svg%.svg}_tmp.svg"
-              inkscape "$svg" \
-                --export-text-to-path \
-                --export-plain-svg \
-                --export-filename="$tmp"
-              mv "$tmp" "$svg"
-            fi
-          done
 
       - name: Install mise
         uses: jdx/mise-action@be3be2260bc02bc3fbf94c5e2fed8b7964baf074 # v3.4.0

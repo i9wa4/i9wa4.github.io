@@ -15,11 +15,20 @@ repos:
 
   - repo: local
     hooks:
+      - id: convert-drawio-to-svg
+        name: Convert .drawio to .drawio.svg with text-to-path
+        entry: bash -c 'for drawio in "$@"; do svg="${drawio%.drawio}.drawio.svg" && echo "Converting $drawio to $svg..." && drawio -x -f svg -e -o "$svg" "$drawio" && tmp="${svg%.svg}_tmp.svg" && inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$tmp" 2>/dev/null && mv "$tmp" "$svg" && git add "$svg" && echo "Generated and staged $svg"; done' --
+        language: system
+        files: assets/.*\.drawio$
+        pass_filenames: true
+        verbose: true
+
       - id: convert-svg-for-pdf
         name: Convert draw.io SVG for PDF rendering
         entry: bash -c 'for svg in "$@"; do tmp="${svg%.svg}_tmp.svg" && inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$tmp" && mv "$tmp" "$svg"; done' --
         language: system
         files: assets/.*\.svg$
+        exclude: assets/.*\.drawio\.svg$
         pass_filenames: true
         verbose: true
 
