@@ -49,21 +49,6 @@ website:
             text: "Resume"
           - href: "https://i9wa4.github.io/i9wa4"
             text: "About"
-      # - text: "---"
-      # - section: "External Links"
-      #   contents:
-      #     - href: "https://github.com/i9wa4"
-      #       text: "GitHub"
-      #     - href: "https://x.com/i9wa4_"
-      #       text: "X (formerly Twitter)"
-      #     - href: "https://www.linkedin.com/in/daikm/"
-      #       text: "LinkedIn"
-      #     - href: "https://speakerdeck.com/i9wa4"
-      #       text: "Speaker Deck"
-      #     - href: "https://deepwiki.com/i9wa4/i9wa4.github.io"
-      #       text: "DeepWiki (ask about me)"
-      #     - href: "https://zenn.dev/i9wa4"
-      #       text: "Zenn"
   page-footer:
     left:
       - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
