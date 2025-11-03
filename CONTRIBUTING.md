@@ -52,10 +52,10 @@ bash .github/scripts/convert-drawio-to-svg.sh assets/diagram1.drawio assets/diag
 - `poppler-utils` (pdftocairo コマンドを含む)
 
 ```sh
-# macOS での poppler-utils インストール
-brew install poppler
+# macOS でのインストール
+brew install drawio poppler
 ```
 
 ### 2.5. CI での実行
 
-GitHub Actions では drawio と pdftocairo の処理をスキップする（ローカルで変換済みのため）
+GitHub Actions では drawio と pdftocairo の処理はスキップされる
