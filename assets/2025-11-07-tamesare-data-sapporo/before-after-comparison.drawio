@@ -27,7 +27,7 @@
           <mxGeometry x="240" y="220" width="480" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="prob1-detail" value="Docker、Amazon ECR、Amazon ECS、Amazon CloudWatch Logs...&lt;br&gt;インフラ知識習得に時間を取られる" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="240" y="265" width="480" height="35" as="geometry"/>
+          <mxGeometry x="240" y="270" width="480" height="35" as="geometry"/>
         </mxCell>
 
         <!-- Problem 2 -->

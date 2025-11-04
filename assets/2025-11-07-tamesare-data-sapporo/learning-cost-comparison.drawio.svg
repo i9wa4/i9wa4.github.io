@@ -793,9 +793,9 @@
 </g>
 <path fill-rule="nonzero" fill="rgb(100%, 79.998779%, 59.999084%)" fill-opacity="1" stroke-width="3" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(100%, 39.99939%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 601.500236 420.999579 L 601.500236 379.001965 L 771.498073 379.001965 L 771.498073 367.500228 L 798.500027 399.998059 L 771.498073 432.501316 L 771.498073 420.999579 Z M 601.500236 420.999579 " transform="matrix(0.72, 0, 0, 0.72, -106.919996, -28.439997)"/>
 <g fill="rgb(100%, 39.99939%, 0%)" fill-opacity="1">
-<use xlink:href="#glyph-40-0" x="381.599991" y="253.439988"/>
+<use xlink:href="#glyph-40-0" x="381.599991" y="264.239987"/>
 </g>
 <g fill="rgb(100%, 39.99939%, 0%)" fill-opacity="1">
-<use xlink:href="#glyph-41-0" x="396.719991" y="253.439988"/>
+<use xlink:href="#glyph-41-0" x="396.719991" y="264.239987"/>
 </g>
 </svg>

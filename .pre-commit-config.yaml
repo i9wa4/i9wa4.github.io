@@ -30,15 +30,6 @@ repos:
         pass_filenames: true
         verbose: true
 
-      - id: convert-svg-for-pdf
-        name: Convert draw.io SVG for PDF rendering
-        entry: bash -c 'for svg in "$@"; do tmp="${svg%.svg}_tmp.svg" && inkscape "$svg" --export-text-to-path --export-plain-svg --export-filename="$tmp" && mv "$tmp" "$svg"; done' --
-        language: system
-        files: assets/.*\.svg$
-        exclude: assets/.*\.drawio\.svg$
-        pass_filenames: true
-        verbose: true
-
       - id: actionlint
         name: actionlint
         entry: actionlint

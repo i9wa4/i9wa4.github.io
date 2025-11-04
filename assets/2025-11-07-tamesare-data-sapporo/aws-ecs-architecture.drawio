@@ -54,24 +54,24 @@
 
         <!-- Arrow Labels (前面に配置) -->
         <mxCell id="arrow1-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="154" y="345" width="170" height="30" as="geometry"/>
+          <mxGeometry x="154" y="305" width="170" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow1-label" value="1. コード修正・push" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontStyle=1;fontColor=#0066CC;" vertex="1" parent="1">
-          <mxGeometry x="154" y="345" width="170" height="30" as="geometry"/>
+          <mxGeometry x="154" y="305" width="170" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow2-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="359" y="345" width="110" height="30" as="geometry"/>
+          <mxGeometry x="359" y="305" width="110" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow2-label" value="2. トリガー" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontStyle=1;fontColor=#0066CC;" vertex="1" parent="1">
-          <mxGeometry x="359" y="345" width="110" height="30" as="geometry"/>
+          <mxGeometry x="359" y="305" width="110" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow3-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="569" y="280" width="170" height="30" as="geometry"/>
+          <mxGeometry x="569" y="305" width="170" height="30" as="geometry"/>
         </mxCell>
         <mxCell id="arrow3-label" value="3. ビルド・Docker化" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
-          <mxGeometry x="569" y="280" width="170" height="30" as="geometry"/>
+          <mxGeometry x="569" y="305" width="170" height="30" as="geometry"/>
         </mxCell>
 
         <mxCell id="arrow4-label-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
