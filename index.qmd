@@ -29,6 +29,10 @@ listing:
 For AI agents: This site provides `.md` versions of all content at the same URL path (e.g., `/blog/index.md`). These markdown files are optimized for AI consumption with absolute URLs for images and links.
 :::
 
+[![X](https://img.shields.io/badge/@i9wa4__-000000.svg?logo=x&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://x.com/i9wa4_) [![GitHub](https://img.shields.io/badge/@i9wa4-000000.svg?logo=github&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://github.com/i9wa4)
+
+<!-- [![Website](https://img.shields.io/badge/🔗_i9wa4.github.io-4285F4.svg?logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://i9wa4.github.io) -->
+
 ---
 
 ::: {#list-all}
