@@ -1,0 +1,107 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="データ前処理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="760" y="80" width="400" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 1: Filter -->
+        <mxCell id="step1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="200" width="560" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1-number" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontSize=30;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1-title" value="フィルタリング" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="370" y="230" width="430" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1-code" value="# 年齢でフィルタ&lt;br&gt;df_filtered = df.filter(&lt;br&gt;  (df.age &gt;= 20) &amp;&lt;br&gt;  (df.age &lt; 60)&lt;br&gt;)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="320" y="290" width="480" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 1 -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82b366" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="310" as="sourcePoint"/>
+            <mxPoint x="920" y="310" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 2: Feature Engineering -->
+        <mxCell id="step2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="920" y="200" width="560" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2-number" value="2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d6b656;strokeColor=#d6b656;fontSize=30;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="940" y="220" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2-title" value="特徴量作成" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1010" y="230" width="430" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2-code" value="# 年代カテゴリ作成&lt;br&gt;from pyspark.sql.functions import when&lt;br&gt;df_featured = df_filtered.withColumn(&lt;br&gt;  &quot;age_group&quot;,&lt;br&gt;  when(df.age &lt; 30, &quot;20s&quot;)&lt;br&gt;  .when(df.age &lt; 40, &quot;30s&quot;)&lt;br&gt;  .otherwise(&quot;40s+&quot;)&lt;br&gt;)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="960" y="290" width="480" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 2 -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82b366" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1200" y="420" as="sourcePoint"/>
+            <mxPoint x="1200" y="500" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 3: Null Handling -->
+        <mxCell id="step3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="920" y="500" width="560" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3-number" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#82b366;strokeColor=#82b366;fontSize=30;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="940" y="520" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3-title" value="欠損値処理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1010" y="530" width="430" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3-code" value="# 欠損値を平均値で埋める&lt;br&gt;mean_amount = df_featured.select(&lt;br&gt;  avg(&quot;purchase_amount&quot;)&lt;br&gt;).first()[0]&lt;br&gt;&lt;br&gt;df_clean = df_featured.fillna({&lt;br&gt;  &quot;purchase_amount&quot;: mean_amount&lt;br&gt;})" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="960" y="590" width="480" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 3 -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82b366" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="610" as="sourcePoint"/>
+            <mxPoint x="840" y="610" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 4: Split -->
+        <mxCell id="step4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="500" width="560" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="step4-number" value="4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#b85450;strokeColor=#b85450;fontSize=30;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="300" y="520" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="step4-title" value="学習・テスト分割" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="370" y="530" width="430" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="step4-code" value="# 80:20に分割&lt;br&gt;train_df, test_df = df_clean.randomSplit(&lt;br&gt;  [0.8, 0.2],&lt;br&gt;  seed=42&lt;br&gt;)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="320" y="590" width="480" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Summary Box -->
+        <mxCell id="summary-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="460" y="800" width="1000" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="summary-title" value="処理完了：学習データ準備完了！" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="830" width="800" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="summary-text" value="✓ フィルタリング完了　✓ 特徴量作成完了　✓ 欠損値処理完了　✓ 学習/テスト分割完了" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24" vertex="1" parent="1">
+          <mxGeometry x="480" y="910" width="960" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="開発環境へのアクセス" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="610" y="80" width="700" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 1: Browser -->
+        <mxCell id="step1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="480" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1-number" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#6c8ebf;strokeColor=#6c8ebf;fontSize=36;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="220" y="260" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="step1-title" value="ブラウザアクセス" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="270" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="browser-icon" value="🌐" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=80" vertex="1" parent="1">
+          <mxGeometry x="360" y="360" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="url-text" value="https://xxxxx.cloud.databricks.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=21;align=center;verticalAlign=middle;strokeWidth=1;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="240" y="480" width="400" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 1 -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=5;strokeColor=#82b366" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="390" as="sourcePoint"/>
+            <mxPoint x="800" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 2: Login -->
+        <mxCell id="step2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="800" y="240" width="480" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2-number" value="2" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d6b656;strokeColor=#d6b656;fontSize=36;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="820" y="260" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="step2-title" value="SSO ログイン" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="840" y="270" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="login-icon" value="🔐" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=80" vertex="1" parent="1">
+          <mxGeometry x="960" y="360" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="login-text" value="AWS IAM / Azure AD 連携" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24" vertex="1" parent="1">
+          <mxGeometry x="840" y="480" width="400" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 2 -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=5;strokeColor=#82b366" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1280" y="390" as="sourcePoint"/>
+            <mxPoint x="1400" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 3: Workspace -->
+        <mxCell id="step3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1400" y="240" width="480" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3-number" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#82b366;strokeColor=#82b366;fontSize=36;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1420" y="260" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="step3-title" value="Workspace画面" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1480" y="270" width="360" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="workspace-icon" value="📂" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=80" vertex="1" parent="1">
+          <mxGeometry x="1560" y="360" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="workspace-text" value="Notebookフォルダ一覧" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24" vertex="1" parent="1">
+          <mxGeometry x="1440" y="480" width="400" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Workspace UI Preview -->
+        <mxCell id="workspace-preview-title" value="Workspace 画面イメージ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="620" width="800" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="workspace-ui" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="360" y="720" width="1200" height="280" as="geometry"/>
+        </mxCell>
+
+        <!-- Sidebar -->
+        <mxCell id="sidebar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="720" width="240" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="sidebar-title" value="Workspace" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="740" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="folder1" value="📁 /Users/xxx" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="380" y="800" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="folder2" value="📁 /Shared" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="380" y="840" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="folder3" value="📁 /Repos" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="380" y="880" width="200" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Main Area -->
+        <mxCell id="main-area-title" value="/Users/xxx" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="740" width="880" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="notebook1" value="📓 ml_model_training" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=21;align=left;verticalAlign=middle;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="800" width="880" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="notebook2" value="📓 data_analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=21;align=left;verticalAlign=middle;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="850" width="880" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="notebook3" value="📓 feature_engineering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=21;align=left;verticalAlign=middle;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="900" width="880" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

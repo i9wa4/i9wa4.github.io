@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="ノートブック作成" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="710" y="80" width="500" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Create Button -->
+        <mxCell id="create-section" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="360" y="200" width="1200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="create-title" value="「Create」→「Notebook」をクリック" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="800" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="create-btn" value="+ Create" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow-to-menu" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82b366" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="350" as="sourcePoint"/>
+            <mxPoint x="860" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="notebook-menu" value="Notebook" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="860" y="320" width="240" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- New Notebook Dialog -->
+        <mxCell id="dialog-title" value="新規ノートブック作成画面" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="480" width="800" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="dialog-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="460" y="580" width="1000" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="dialog-header" value="Create Notebook" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=30;fontStyle=1;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="460" y="580" width="1000" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Form Fields -->
+        <mxCell id="name-label" value="Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="680" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="name-input" value="ml_model_training" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=24;align=left;verticalAlign=middle;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="520" y="720" width="880" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lang-label" value="Default Language" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="800" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="lang-select" value="Python ▼" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=24;align=left;verticalAlign=middle;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="520" y="840" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Create Button -->
+        <mxCell id="submit-create" value="Create" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=30;fontStyle=1;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="860" y="900" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="cancel-btn" value="Cancel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1060" y="900" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

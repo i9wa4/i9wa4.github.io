@@ -1,0 +1,111 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="データ読み込み" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="760" y="80" width="400" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Code Cell -->
+        <mxCell id="cell-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="280" y="200" width="1360" height="340" as="geometry"/>
+        </mxCell>
+        <mxCell id="cell-label" value="Cell [1]: S3からデータ読み込み" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="600" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="code-text" value="# S3からParquetファイルを読み込み&lt;br&gt;df = spark.read.parquet(&quot;s3://my-bucket/data/customer_data.parquet&quot;)&lt;br&gt;&lt;br&gt;# データ確認&lt;br&gt;df.show(5)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontFamily=Courier New" vertex="1" parent="1">
+          <mxGeometry x="320" y="290" width="1280" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Run Button -->
+        <mxCell id="run-btn" value="▶ Run Cell" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1380" y="220" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Output -->
+        <mxCell id="output-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="600" width="1360" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="output-title" value="実行結果 (3.2秒で完了)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#28a745" vertex="1" parent="1">
+          <mxGeometry x="320" y="620" width="600" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Table Output -->
+        <mxCell id="table-header" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="700" width="1280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="col1" value="customer_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="710" width="280" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="col2" value="name" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="710" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="col3" value="age" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="900" y="710" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="col4" value="purchase_amount" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1100" y="710" width="300" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Rows -->
+        <mxCell id="row1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="750" width="1280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c1" value="1001" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="320" y="760" width="280" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c2" value="田中太郎" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="600" y="760" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c3" value="32" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="900" y="760" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c4" value="15000" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="1100" y="760" width="300" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="row2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="800" width="1280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c1" value="1002" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="320" y="810" width="280" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c2" value="佐藤花子" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="600" y="810" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c3" value="28" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="900" y="810" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c4" value="23000" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="1100" y="810" width="300" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="row3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="850" width="1280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c1" value="1003" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="320" y="860" width="280" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c2" value="鈴木一郎" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="600" y="860" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c3" value="45" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="900" y="860" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c4" value="31000" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="1100" y="860" width="300" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="more-rows" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="820" y="910" width="280" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
