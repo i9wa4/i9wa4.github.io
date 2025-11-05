@@ -1,13 +1,13 @@
 ---
 draft: true
 title: Databricks on AWS入門
-subtitle: コスト最適化の仕組み
+subtitle: 機械学習環境の全体像
 author:
   - name: uma-chan
 date: 2025-11-07
 date-modified: last-modified
 description: |
-  [登壇資料] 2025-11-07 試されDATA SAPPORO #1 (A)
+  [登壇資料] 2025-11-07 試されDATA SAPPORO #1 (K)
 categories:
   - "slides"
   - "genda"
@@ -65,3 +65,83 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 :::
 
 :::
+
+---
+
+## 2. Databricks on AWSとは
+
+### 2.1. Databricksの位置づけ
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/databricks-overview.drawio.png)
+
+---
+
+### 2.2. AWS上でのDatabricks構成
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/databricks-on-aws-architecture.drawio.png)
+
+---
+
+### 2.3. Databricksの3つの主要機能
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/databricks-main-features.drawio.png)
+
+---
+
+## 3. 機械学習開発の環境
+
+### 3.1. ノートブック環境
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/notebook-environment.drawio.png)
+
+---
+
+### 3.2. クラスター管理
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/cluster-management.drawio.png)
+
+---
+
+### 3.3. データアクセス
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/data-access.drawio.png)
+
+---
+
+## 4. 開発から本番まで
+
+### 4.1. 開発フロー全体像
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/development-to-production.drawio.png)
+
+---
+
+### 4.2. ノートブックからジョブへ
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/notebook-to-job.drawio.png)
+
+---
+
+### 4.3. スケジュール実行とモニタリング
+
+![](/assets/2025-11-07-tamesare-data-sapporo-k/schedule-and-monitoring.drawio.png)
+
+---
+
+## 5. まとめ
+
+### 5.1. Databricks on AWSの特徴
+
+- AWS上で動作する統合分析プラットフォーム
+- ノートブック環境で機械学習開発が完結
+- 自動クラスター管理でインフラ運用不要
+- ノートブックから数クリックで本番ジョブ化
+
+---
+
+### 5.2. データサイエンティストのメリット
+
+- インフラ知識不要で開発に集中できる
+- セル単位実行で素早く試行錯誤
+- 変数の状態保持で効率的なデバッグ
+- AWS S3/RDSへのシームレスなアクセス

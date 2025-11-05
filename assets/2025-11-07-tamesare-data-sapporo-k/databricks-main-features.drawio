@@ -1,0 +1,120 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Databricksの3つの主要機能" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="800" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Feature 1: Data Engineering -->
+        <mxCell id="feature1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="460" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature1-title" value="① データエンジニアリング" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="210" y="260" width="440" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="etl-box" value="ETL処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="250" y="360" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="etl-sub" value="データ収集・変換・格納" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="250" y="420" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="batch-box" value="バッチ処理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="250" y="480" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="batch-sub" value="大規模データ処理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="250" y="540" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Feature 2: Data Science & ML -->
+        <mxCell id="feature2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="730" y="240" width="460" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2-title" value="② データサイエンス・ML" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="740" y="260" width="440" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="notebook-box" value="Notebook開発" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="780" y="360" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="notebook-sub" value="対話的な分析・開発" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="780" y="420" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ml-box" value="機械学習" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="780" y="480" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ml-sub" value="モデル学習・評価" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="780" y="540" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Feature 3: Data Governance -->
+        <mxCell id="feature3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1260" y="240" width="460" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3-title" value="③ データガバナンス" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1270" y="260" width="440" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="unity-box" value="Unity Catalog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1310" y="360" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="unity-sub" value="データ統合管理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="1310" y="420" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="access-box" value="アクセス制御" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1310" y="480" width="360" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="access-sub" value="権限管理・監査" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21" vertex="1" parent="1">
+          <mxGeometry x="1310" y="540" width="360" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Detail Section -->
+        <mxCell id="detail-title" value="データサイエンス・MLで利用する主な機能" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="460" y="720" width="1000" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Notebook Detail -->
+        <mxCell id="notebook-detail-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="840" width="360" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="notebook-detail-title" value="Notebook" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="290" y="850" width="340" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="notebook-detail-text" value="✓ セル単位で実行&lt;br&gt;✓ 変数の状態保持&lt;br&gt;✓ 即座に結果確認&lt;br&gt;✓ Pythonライブラリ利用" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24" vertex="1" parent="1">
+          <mxGeometry x="310" y="900" width="300" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Cluster Detail -->
+        <mxCell id="cluster-detail-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="700" y="840" width="360" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="cluster-detail-title" value="Cluster" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="710" y="850" width="340" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="cluster-detail-text" value="✓ 自動起動・停止&lt;br&gt;✓ 動的スケーリング&lt;br&gt;✓ アイドル検知&lt;br&gt;✓ コスト最適化" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24" vertex="1" parent="1">
+          <mxGeometry x="720" y="900" width="320" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- MLflow Detail -->
+        <mxCell id="mlflow-detail-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1120" y="840" width="360" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="mlflow-detail-title" value="MLflow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1130" y="850" width="340" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="mlflow-detail-text" value="✓ 実験管理&lt;br&gt;✓ モデル登録&lt;br&gt;✓ バージョン管理&lt;br&gt;✓ デプロイ支援" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24" vertex="1" parent="1">
+          <mxGeometry x="1140" y="900" width="320" height="100" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
