@@ -152,14 +152,13 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 
 ### 7.1. 記事執筆・掲載
 
-| 日付           | 所属             | 概要                        | リンク                                                                                                                                      |
-| :---           | :---             | :---                        | :---                                                                                                                                        |
-| 2025/09/01     | 株式会社GENDA    | GENDA テックブログ執筆      | [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff) |
-| 2025/06/25     | 株式会社GENDA    | note 掲載                   | [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)           |
-| 2024/12 - 現在 | 株式会社GENDA    | GENDA テックブログ執筆      | [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)                                                                                     |
-| 2024/10/08     | 株式会社hacomono | Findy Tools 様 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28)     |
-| 2024/08/21     | 株式会社hacomono | Findy Tools 様 レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                         |
-| 2024/07/02     | 株式会社hacomono | hacomono テックブログ執筆   | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)           |
+| 日付       | 所属             | 概要                        | リンク                                                                                                                                      |
+| :---       | :---             | :---                        | :---                                                                                                                                        |
+| 2025/09/01 | 株式会社GENDA    | GENDA テックブログ執筆      | [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff) |
+| 2025/06/25 | 株式会社GENDA    | note 掲載                   | [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)           |
+| 2024/10/08 | 株式会社hacomono | Findy Tools 様 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28)     |
+| 2024/08/21 | 株式会社hacomono | Findy Tools 様 レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                         |
+| 2024/07/02 | 株式会社hacomono | hacomono テックブログ執筆   | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)           |
 
 ### 7.2. その他技術記事等
 
@@ -168,6 +167,7 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 
 ### 7.3. 登壇
 
-| 日付       | 所属          | 概要                                                                           | リンク                                                                                            |
-| :---       | :---          | :---                                                                           | :---                                                                                              |
-| 2025/05/22 | 株式会社GENDA | [登壇先] AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会) | [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](/slides/2025-05-22-midas-cursor-tips.qmd) |
+| 日付       | 所属          | 概要                                                                                                 | リンク                                                                                            |
+| :---       | :---          | :---                                                                                                 | :---                                                                                              |
+| 2025/11/07 | 株式会社GENDA | [登壇先] [試されDATA SAPPORO #1 - connpass](https://tamesaredatahokkaido.connpass.com/event/369741/) | T.B.D.                                                                                            |
+| 2025/05/22 | 株式会社GENDA | [登壇先] AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)                       | [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](/slides/2025-05-22-midas-cursor-tips.qmd) |
