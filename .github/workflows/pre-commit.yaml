@@ -53,7 +53,5 @@ jobs:
           key: pre-commit-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
 
       - name: Run pre-commit
-        env:
-          SKIP: convert-drawio-to-svg,convert-svg-for-pdf
         run: |
           mise exec -- pre-commit run --all-files

@@ -15,19 +15,16 @@ mise exec -- pre-commit install
 ### 2.1. 図の作成ルール
 
 - 図を作成・編集する際は `.drawio` ファイルのみを編集する
-- `.drawio.svg` ファイルを直接編集しない
-- pre-commit hook により自動生成される `.drawio.svg` をスライド等で利用する
+- `.drawio.png` ファイルを直接編集しない
+- pre-commit hook により自動生成される `.drawio.png` をスライド等で利用する
 
 ### 2.2. 自動変換ワークフロー
 
 pre-commit hook により以下の変換が自動的に実行される
 
 1. `.drawio` ファイルを検出
-2. `drawio` CLI で一時的な PDF を生成
-3. `pdftocairo` (poppler-utils) で PDF → SVG に変換（テキストを自動的にパスに変換）
-4. 生成された `.drawio.svg` を自動的に git add
-
-この方式により、日本語を含むすべてのテキストがベクターパスに変換され、フォント依存なしで PDF 表示時も正しく表示される
+2. `drawio` CLI で高解像度 PNG を生成 (2倍スケール)
+3. 生成された `.drawio.png` を自動的に git add
 
 ### 2.3. 手動で変換する場合
 
@@ -38,10 +35,10 @@ pre-commit hook により以下の変換が自動的に実行される
 mise exec -- pre-commit run --all-files
 
 # 特定の .drawio ファイルのみ変換（推奨）
-mise exec -- pre-commit run convert-drawio-to-svg --files assets/my-diagram.drawio
+mise exec -- pre-commit run convert-drawio-to-png --files assets/my-diagram.drawio
 
 # スクリプトを直接実行（複数ファイル指定可能）
-bash .github/scripts/convert-drawio-to-svg.sh assets/diagram1.drawio assets/diagram2.drawio
+bash .github/scripts/convert-drawio-to-png.sh assets/diagram1.drawio assets/diagram2.drawio
 ```
 
 ### 2.4. 必要なツール
@@ -49,21 +46,20 @@ bash .github/scripts/convert-drawio-to-svg.sh assets/diagram1.drawio assets/diag
 ローカルで変換を実行するには以下のツールが必要
 
 - `drawio` CLI
-- `poppler-utils` (pdftocairo コマンドを含む)
 
 ```sh
 # macOS でのインストール
-brew install drawio poppler
+brew install drawio
 ```
 
 ### 2.5. レイアウトの微調整
 
-SVG に変換後にレイアウトのズレが気になる場合、`.drawio` ファイルを直接編集して調整できる
+PNG 生成後にレイアウトのズレが気になる場合、`.drawio` ファイルを直接編集して調整できる
 
 **ズレを確認する方法**:
 
 1. **人間による確認**
-   - 生成された `.drawio.svg` をブラウザで開く
+   - 生成された `.drawio.png` をブラウザで開く
    - デプロイ後の PDF を確認する（より正確）
      - スライドの場合: `https://i9wa4.github.io/slides/<slide-name>.pdf`
      - テキストの位置、矢印との重なり、要素間の間隔などをチェック
@@ -72,19 +68,8 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
      - PDF での見た目を優先して調整する
 
 2. **Claude Code による自動確認**
-   - `.drawio` または `.drawio.svg` を PNG に変換して視覚的に確認してもらう
+   - 生成された `.drawio.png` を直接読み込んで視覚的に確認してもらう
    - Claude Code は画像として読み込むことで、レイアウトのズレを検出できる
-
-   ```sh
-   # 方法1: .drawio から直接 PNG に変換
-   drawio -x -f pdf -o /tmp/diagram.pdf assets/your-diagram.drawio
-   pdftocairo -png -singlefile /tmp/diagram.pdf /tmp/diagram
-   # 生成された /tmp/diagram.png を Claude Code に読み込んでもらう
-
-   # 方法2: .drawio.svg から PNG に変換
-   pdftocairo -png -singlefile assets/your-diagram.drawio.svg /tmp/diagram
-   # 生成された /tmp/diagram.png を Claude Code に読み込んでもらう
-   ```
 
    Claude Code に「この図のレイアウトをチェックして」と依頼すると、テキストの位置ズレや要素の配置の問題を指摘してくれる
 
@@ -117,7 +102,7 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
 
 - 要素の中心座標 = `y + (height / 2)`
 - 複数要素を揃える場合は中心座標を計算して合わせる
-- 変更後は必ず `mise exec -- pre-commit run convert-drawio-to-svg --files <file>` で確認
+- 変更後は必ず `mise exec -- pre-commit run convert-drawio-to-png --files <file>` で確認
 
 ### 2.6. フォントサイズ変更時の注意点
 
@@ -189,9 +174,9 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
 
 3. 問題のある図を個別に修正
 
-4. SVG を再生成
+4. PNG を再生成
    ```sh
-   mise exec -- pre-commit run convert-drawio-to-svg --all-files
+   mise exec -- pre-commit run convert-drawio-to-png --all-files
    ```
 
 ### 2.7. draw.io 図作成のベストプラクティス
@@ -422,29 +407,8 @@ SVG に変換後にレイアウトのズレが気になる場合、`.drawio` フ
 - [ ] 不要な要素が残っていないか
 - [ ] PNG に変換して視覚的に確認したか
 
-### 2.8. SVG の白背景問題
 
-pdftocairo で PDF → SVG 変換すると、ページ全体の白背景が SVG に含まれてしまう問題がある
-
-**問題**:
-- draw.io の page 概念により、ページ背景が白い矩形として SVG に出力される
-- HTML ページに表示すると白い背景が見えてしまう
-
-**解決策**:
-変換スクリプトで自動的に白背景を削除する
-
-```bash
-# Remove white page background from SVG
-sed -i '/<path fill-rule="nonzero" fill="rgb(100%,100%,100%)"/,/<\/path>/d' "$svg"
-```
-
-この処理により、SVG から最初の白い `<path>` 要素が削除され、透明背景になる
-
-**注意点**:
-- 図の中に意図的に配置した白いボックス（矢印ラベルの背景など）は削除されない
-- ページ背景の白だけが削除される
-
-### 2.9. テキストラベルへの矢印接続
+### 2.8. テキストラベルへの矢印接続
 
 draw.io でテキスト要素（`style="text;..."`）に矢印を接続する場合、`exitY=1` や `entryY=1` などの接続点パラメータが期待通りに動作しない場合がある。
 
@@ -482,61 +446,31 @@ draw.io でテキスト要素（`style="text;..."`）に矢印を接続する場
   - 中央 X 座標: 1219 + 60 = 1279
   - 下辺 Y 座標: 460 + 40 = 500
 
-### 2.10. PNG プレビューによる視覚的確認
+### 2.9. PNG プレビューによる視覚的確認
 
-draw.io 図の修正時、SVG や PDF の最終的な見た目を確認するため、/tmp ディレクトリで PNG に変換してレビューする。
+draw.io 図の修正時、PDF の最終的な見た目を確認するため、生成された PNG をレビューする。
 
 **レビュー時の運用ルール**:
 
-- YOU MUST: レビュー用 PNG は `/tmp/drawio-review/` ディレクトリに配置する
-- YOU MUST: ディレクトリが存在しない場合は `mkdir -p /tmp/drawio-review` で作成する
-- YOU MUST: 図を修正したら同じファイル名で上書き更新する
-- YOU MUST: 中間生成 PDF は `/tmp/drawio-review/` 以外に出力する (例: `/tmp/diagram.pdf`)
-- NEVER: `/tmp/drawio-review/` に PDF を配置しない (PNG のみ)
-- IMPORTANT: ユーザーがブラウザで `file:///tmp/drawio-review/diagram.png` を開いてレビューするため、ファイル名を変えてはいけない
+- YOU MUST: 生成された `.drawio.png` を直接確認する
+- IMPORTANT: ユーザーがブラウザで PNG を開いてレビューする
 
 **手順**:
 
 ```bash
-# 初回: ディレクトリを作成して PNG を生成
-mkdir -p /tmp/drawio-review
-drawio -x -f pdf -o /tmp/diagram.pdf assets/your-diagram.drawio
-pdftocairo -png -singlefile /tmp/diagram.pdf /tmp/drawio-review/diagram
-# 生成された /tmp/drawio-review/diagram.png をブラウザで確認
+# PNG を生成
+mise exec -- pre-commit run convert-drawio-to-png --files assets/your-diagram.drawio
 
-# 修正後: 同じ名前で上書き更新
-drawio -x -f pdf -o /tmp/diagram.pdf assets/your-diagram.drawio
-pdftocairo -png -singlefile /tmp/diagram.pdf /tmp/drawio-review/diagram
-# ブラウザをリロードして確認
-```
-
-**一括変換とレビュー**:
-
-```bash
-# 全図を PNG に変換
-mkdir -p /tmp/drawio-review
-for drawio in assets/**/*.drawio; do
-  base=$(basename "$drawio" .drawio)
-  drawio -x -f pdf -o "/tmp/${base}.pdf" "$drawio"
-  pdftocairo -png -singlefile "/tmp/${base}.pdf" "/tmp/drawio-review/${base}"
-done
-
-# Claude Code に全図のレイアウトチェックを依頼
-# ls /tmp/drawio-review/*.png で確認
+# 生成された assets/your-diagram.drawio.png をブラウザで確認
 ```
 
 **利点**:
-- SVG/PDF の実際の見た目を素早く確認できる
+- PDF の実際の見た目を素早く確認できる
 - フォントサイズ変更やレイアウト調整の効果を視覚的に検証
 - 矢印の重なりやテキストの配置ミスを発見しやすい
 - Claude Code に PNG を読み込ませて自動レビュー可能
-- 同じファイル名で上書きすることでブラウザのリロードだけで確認可能
 
-### 2.11. CI での実行
-
-GitHub Actions では drawio と pdftocairo の処理はスキップされる
-
-### 2.12. Codex MCP を活用した効率的なレビュー
+### 2.10. Codex MCP を活用した効率的なレビュー
 
 draw.io 図の品質を保つため、Codex MCP（Model Context Protocol）を使った自動レビューを活用する
 
@@ -600,7 +534,7 @@ edgeLabel の offset 調整テクニック
 - offset の値は、実際の矢印位置とラベルサイズ（fontSize × 行数）を考慮して決定
 - 修正後は必ず PNG で視覚確認し、20px以上の余白が確保されているか確認
 
-### 2.13. Codex MCP サーバーが応答しない場合の対処法
+### 2.11. Codex MCP サーバーが応答しない場合の対処法
 
 Codex MCP サーバー（`mcp__codex-mcp__codex` ツール）を使用してレビューを依頼した際、"Tool ran without output or errors" というメッセージが返ってくる場合がある
 

@@ -31,9 +31,7 @@ format:
   gfm: default
 ---
 
-## 1. はじめに
-
-### 1.1. 自己紹介
+---
 
 ::: {style="display: flex; flex-direction: column; align-items: center; gap: 2em;"}
 
@@ -42,9 +40,9 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 :::
 
 ::: {style="text-align: left;"}
-|                              |                                     |
-| ---                          | ---                                 |
-| Data Engineer/MLOps Engineer | [株式会社GENDA](https://genda.jp/)  |
+|                              |                                    |
+| ---                          | ---                                |
+| Data Engineer/MLOps Engineer | [株式会社GENDA](https://genda.jp/) |
 :::
 
 ::: {style="text-align: center;"}
@@ -59,7 +57,9 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 :::
 
-### 1.2. 今日の話
+## 1. はじめに
+
+### 1.1. 今日の話
 
 今回の発表内容
 
