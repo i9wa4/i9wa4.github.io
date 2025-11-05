@@ -1,9 +1,7 @@
 ---
-title: "AWS使いが3分で分かる: Databricks on AWSでML開発が爆速になった話"
+title: "Databricks on AWS でやさしい機械学習基盤を構築する"
 author:
-  - name: 馬渡 大樹
-    affiliation: 株式会社GENDA
-    roles: データエンジニア / MLOpsエンジニア
+  - name: uma-chan
 date: 2025-11-07
 date-modified: last-modified
 description: |
@@ -22,20 +20,20 @@ format:
     slide-number: true
     smaller: false
     theme:
-      - beige
+      - simple
       - ../themes/font.scss
     width: 1920
     height: 1080
-    title-slide-attributes:
-      data-background-color: "#001722"
-      data-background-size: "cover"
+    # title-slide-attributes:
+    #   data-background-color: "#001722"
+    #   data-background-size: "cover"
     title-prefix: ""
   gfm: default
 ---
 
 ## 1. はじめに
 
-### 1.1. {.unnumbered .unlisted}
+### 1.1. 自己紹介
 
 ::: {style="display: flex; flex-direction: column; align-items: center; gap: 2em;"}
 
@@ -44,13 +42,19 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 :::
 
 ::: {style="text-align: left;"}
-Data Engineer/MLOps Engineer at [株式会社GENDA](https://genda.jp/)
-
-Data Engineer at [PIVOT株式会社](https://pivot.inc/)
+|                              |                                     |
+| ---                          | ---                                 |
+| Data Engineer/MLOps Engineer | [株式会社GENDA](https://genda.jp/)  |
 :::
 
 ::: {style="text-align: center;"}
-[![X](https://img.shields.io/badge/@i9wa4__-000000.svg?logo=x&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://x.com/i9wa4_) [![GitHub](https://img.shields.io/badge/@i9wa4-181717.svg?logo=github&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://github.com/i9wa4) [![Website](https://img.shields.io/badge/🔗_i9wa4.github.io-4285F4.svg?logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://i9wa4.github.io)
+好きなものたち
+
+[![Vim](https://img.shields.io/badge/Vim-019733.svg?logo=vim&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://www.vim.org/) [![Neovim](https://img.shields.io/badge/Neovim-57A143.svg?logo=neovim&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://neovim.io/) [![tmux](https://img.shields.io/badge/tmux-1BB91F.svg?logo=tmux&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://github.com/tmux/tmux) [![Alacritty](https://img.shields.io/badge/Alacritty-F46D01.svg?logo=alacritty&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://alacritty.org/)
+:::
+
+::: {style="text-align: center;"}
+[![GitHub](https://img.shields.io/badge/@i9wa4-181717.svg?logo=github&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://github.com/i9wa4) [![X](https://img.shields.io/badge/@i9wa4__-000000.svg?logo=x&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://x.com/i9wa4_) [![Website](https://img.shields.io/badge/🔗_i9wa4.github.io-4285F4.svg?logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://i9wa4.github.io)
 :::
 
 :::
@@ -70,7 +74,7 @@ Data Engineer at [PIVOT株式会社](https://pivot.inc/)
 
 ### 2.1. AWS ECS 環境での課題
 
-![](/assets/2025-11-07-tamesare-data-sapporo-b/ecs-problem-compact.drawio.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo-b/ecs-problem-compact.drawio.png){width="100%"}
 
 ### 2.2. 何が問題だったのか
 
@@ -89,7 +93,7 @@ Data Engineer at [PIVOT株式会社](https://pivot.inc/)
 
 ### 3.1. Databricks on AWS アーキテクチャ
 
-![](/assets/2025-11-07-tamesare-data-sapporo-b/databricks-aws-architecture-simple.drawio.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo-b/databricks-aws-architecture-simple.drawio.png){width="100%"}
 
 ### 3.2. AWS 使いが気になるポイント
 
@@ -107,13 +111,13 @@ Data Engineer at [PIVOT株式会社](https://pivot.inc/)
 
 ### 3.3. 開発体験の劇的変化
 
-![](/assets/2025-11-07-tamesare-data-sapporo-b/dev-experience-transformation.drawio.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo-b/dev-experience-transformation.drawio.png){width="100%"}
 
 ## 4. 移行効果まとめ
 
 ### 4.1. Before/After 比較
 
-![](/assets/2025-11-07-tamesare-data-sapporo-b/before-after-summary.drawio.svg){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo-b/before-after-summary.drawio.png){width="100%"}
 
 ### 4.2. まとめ
 
