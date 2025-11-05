@@ -86,19 +86,6 @@ def generate_qmd_files(articles: list[dict], output_dir: Path) -> None:
         filename = f"zenn-autogen-{slug}.qmd"
         filepath = output_dir / filename
 
-        # Skip if file already exists
-        if filepath.exists():
-            continue
-
-        # Skip if a manual file (not starting with zenn-autogen-) with the same slug already exists
-        existing_files = [
-            f for f in output_dir.glob(f"*{slug}.qmd")
-            if not f.name.startswith("zenn-autogen-")
-        ]
-        if existing_files:
-            print(f"Skipped: {filename} (conflicts with {existing_files[0].name})")
-            continue
-
         # Format date for YAML frontmatter
         date_yaml = article["pub_date"].strftime("%Y-%m-%d %H:%M:%S %z")
 
