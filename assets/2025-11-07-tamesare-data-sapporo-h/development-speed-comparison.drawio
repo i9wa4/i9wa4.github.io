@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="開発スピードの比較" id="speed-comparison">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="50倍の開発スピード" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=39;fontStyle=1;fontColor=#FF3621;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="600" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Left: ECS -->
+        <mxCell id="ecs-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#C62828;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="600" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecs-label" value="ECS環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="600" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ECS Stopwatch -->
+        <mxCell id="ecs-clock" value="⏱️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=120;" vertex="1" parent="1">
+          <mxGeometry x="230" y="230" width="300" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecs-time" value="26分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="230" y="390" width="300" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ECS Bar Graph -->
+        <mxCell id="ecs-bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ef5350;strokeColor=#C62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="180" y="480" width="400" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecs-bar-label" value="1サイクル 26分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="180" y="495" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ECS Daily Trials -->
+        <mxCell id="ecs-trials-icon" value="📅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;" vertex="1" parent="1">
+          <mxGeometry x="150" y="600" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ecs-trials" value="1日 約10回試行" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="625" width="350" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- ECS Developer -->
+        <mxCell id="ecs-dev" value="😓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=80;" vertex="1" parent="1">
+          <mxGeometry x="330" y="680" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Right: Databricks -->
+        <mxCell id="db-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2E7D32;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="920" y="150" width="600" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="db-label" value="Databricks環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="920" y="160" width="600" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Databricks Stopwatch -->
+        <mxCell id="db-clock" value="⚡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=120;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="230" width="300" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="db-time" value="30秒" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="390" width="300" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Databricks Bar Graph -->
+        <mxCell id="db-bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#66BB6A;strokeColor=#2E7D32;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="480" width="8" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="db-bar-label" value="1サイクル 30秒" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="495" width="300" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Databricks Daily Trials -->
+        <mxCell id="db-trials-icon" value="📅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;" vertex="1" parent="1">
+          <mxGeometry x="990" y="600" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="db-trials" value="1日 約500回試行" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="625" width="350" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Databricks Developer -->
+        <mxCell id="db-dev" value="😄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=80;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="680" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Center: Comparison -->
+        <mxCell id="comparison-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#F57F17;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="comparison-icon" value="⚡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=80;" vertex="1" parent="1">
+          <mxGeometry x="750" y="320" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="comparison-label" value="約50倍速" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="700" y="420" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Message -->
+        <mxCell id="message-box" value="試行錯誤の回数が機械学習の成果を決める" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=30;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="800" width="1200" height="80" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

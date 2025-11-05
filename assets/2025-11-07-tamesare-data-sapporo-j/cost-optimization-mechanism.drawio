@@ -1,0 +1,159 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="自動コスト最適化の仕組み" id="cost-optimization">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="自動コスト最適化の仕組み" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="800" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Top Layer: Developer View -->
+        <mxCell id="dev-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#2196F3;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="200" y="130" width="1200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-title" value="開発者の視点" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="220" y="140" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-notebook" value="📓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;" vertex="1" parent="1">
+          <mxGeometry x="400" y="155" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-action" value="実行ボタンを押すだけ" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="175" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow Down -->
+        <mxCell id="arrow-down" value="" style="rounded=0;html=1;strokeWidth=5;strokeColor=#2196F3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="250" as="sourcePoint"/>
+            <mxPoint x="800" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Middle Layer: Databricks Auto Management -->
+        <mxCell id="databricks-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#FF6F00;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="1200" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="databricks-title" value="Databricksの自動管理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="200" y="310" width="1200" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Process 1: Auto Start -->
+        <mxCell id="p1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2E7D32;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="370" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1-label" value="1. クラスター&lt;br&gt;自動起動" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="390" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 1 -->
+        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="420" as="sourcePoint"/>
+            <mxPoint x="560" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Process 2: Execute -->
+        <mxCell id="p2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2E7D32;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="370" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2-label" value="2. 処理実行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="395" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 2 -->
+        <mxCell id="arrow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="420" as="sourcePoint"/>
+            <mxPoint x="820" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Process 3: Idle Detection -->
+        <mxCell id="p3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#F57F17;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="820" y="370" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3-label" value="3. アイドル検知&lt;br&gt;(15分)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="390" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow 3 -->
+        <mxCell id="arrow3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#F57F17;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040" y="420" as="sourcePoint"/>
+            <mxPoint x="1100" y="420" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Process 4: Auto Stop -->
+        <mxCell id="p4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor="#e8f5e9;strokeColor=#4CAF50;strokeWidth=2;dashed=1;dashPattern=4 4;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="370" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4-label" value="4. クラスター&lt;br&gt;自動停止" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="390" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Circular Arrow (Back to start) -->
+        <mxCell id="arrow-circle" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#4CAF50;curved=1;dashed=1;dashPattern=4 4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1210" y="470" as="sourcePoint"/>
+            <mxPoint x="390" y="470" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="1210" y="530"/>
+              <mxPoint x="390" y="530"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-circle-label" value="次回使用時に再起動" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#4CAF50;" vertex="1" parent="1">
+          <mxGeometry x="600" y="540" width="400" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow Down 2 -->
+        <mxCell id="arrow-down2" value="" style="rounded=0;html=1;strokeWidth=5;strokeColor=#FF6F00;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="600" as="sourcePoint"/>
+            <mxPoint x="800" y="650" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Bottom Layer: AWS Billing -->
+        <mxCell id="aws-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7B1FA2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="200" y="650" width="1200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="aws-title" value="AWS課金" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#6A1B9A;" vertex="1" parent="1">
+          <mxGeometry x="220" y="660" width="200" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="aws-meter" value="💰" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;" vertex="1" parent="1">
+          <mxGeometry x="400" y="670" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="aws-billing" value="使用時間のみ課金" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="690" width="400" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="aws-check" value="✓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="670" width="100" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Savings Example -->
+        <mxCell id="savings-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="810" width="500" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="savings-title" value="削減例 (1日8時間稼働想定)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="100" y="820" width="500" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="savings-ecs" value="ECS (常時稼働): $720/月" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="120" y="870" width="460" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="savings-db" value="Databricks (自動管理): $200/月" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;spacingLeft=20;fontColor=#2E7D32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="910" width="460" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="savings-amount" value="削減額: $520/月 (約72%削減)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="120" y="950" width="460" height="30" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

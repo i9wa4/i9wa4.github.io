@@ -1,0 +1,124 @@
+---
+draft: true
+title: Databricks on AWS入門
+subtitle: 学習コストの違い
+author:
+  - name: uma-chan
+date: 2025-11-07
+date-modified: last-modified
+description: |
+  [登壇資料] 2025-11-07 試されDATA SAPPORO #1 (Aパターン: Databricks紹介)
+categories:
+  - "slides"
+  - "genda"
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    code-copy: true
+    footer: "2025-11-07 試されDATA SAPPORO #1"
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    width: 1920
+    height: 1080
+    title-prefix: ""
+  gfm: default
+---
+
+# ECS環境で必要な知識
+
+<!--
+図1: ecs-required-knowledge.drawio
+タイトル: ECS環境で機械学習するために必要な知識
+
+中央に開発者アイコン
+
+周囲に知識エリアを円形配置 (8-10個):
+1. Python/機械学習ライブラリ (大きめの円)
+2. Docker (大きめの円)
+3. Dockerfile作成
+4. コンテナレジストリ (ECR)
+5. ECS/Fargate
+6. IAMロール・ポリシー
+7. VPC・ネットワーク
+8. CI/CD (GitHub Actions)
+9. CloudWatch ログ
+10. S3
+
+各知識エリアを異なる色の円で表現。
+開発者から各円への矢印。
+円のサイズで学習コストの重さを表現。
+
+下部メッセージ:
+"インフラ・DevOpsの知識が必須"
+-->
+
+---
+
+# Databricks環境で必要な知識
+
+<!--
+図2: databricks-required-knowledge.drawio
+タイトル: Databricks環境で機械学習するために必要な知識
+
+中央に開発者アイコン
+
+周囲に知識エリアを円形配置 (3個のみ):
+1. Python/機械学習ライブラリ (大きな円、明るい色)
+2. SQL (中くらいの円)
+3. Notebook操作 (小さな円)
+
+ECSの図と同じレイアウトだが、円の数が圧倒的に少ない。
+残りのスペースは空白で、「必要ない知識」を視覚的に表現。
+
+下部メッセージ:
+"Python/SQLだけで開発可能"
+"インフラ知識は不要"
+-->
+
+---
+
+# 学習コストの比較
+
+<!--
+図3: learning-cost-comparison.drawio
+タイトル: 学習コストの違い
+
+左右比較形式:
+
+左側 (ECS):
+- 積み上がった本のアイコン (10冊)
+- ラベル: "Docker", "ECS", "IAM", "VPC", "CI/CD"...
+- 学習時間: "3-6ヶ月"
+- 困った顔の開発者アイコン
+
+右側 (Databricks):
+- 少ない本のアイコン (2-3冊)
+- ラベル: "Python", "SQL", "Notebook"
+- 学習時間: "1-2週間"
+- 笑顔の開発者アイコン
+
+中央に大きく:
+"学習コスト 1/10"
+
+下部に3つのメリットボックス:
+1. "データサイエンティストがすぐ参加可能"
+2. "チーム立ち上げが早い"
+3. "機械学習に集中できる"
+
+本の積み上げの高さで視覚的に差を表現。
+-->
+
+---
+
+# まとめ
+
+- ECS: 10個以上の技術領域の習得が必要
+- Databricks: Python/SQLだけで開始可能
+- 学習コスト約1/10
+- データサイエンティストがすぐ活躍できる

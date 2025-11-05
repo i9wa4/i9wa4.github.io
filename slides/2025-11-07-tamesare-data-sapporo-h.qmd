@@ -1,0 +1,143 @@
+---
+draft: true
+title: Databricks on AWS入門
+subtitle: 開発スピードの違い
+author:
+  - name: uma-chan
+date: 2025-11-07
+date-modified: last-modified
+description: |
+  [登壇資料] 2025-11-07 試されDATA SAPPORO #1 (Aパターン: Databricks紹介)
+categories:
+  - "slides"
+  - "genda"
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    code-copy: true
+    footer: "2025-11-07 試されDATA SAPPORO #1"
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    width: 1920
+    height: 1080
+    title-prefix: ""
+  gfm: default
+---
+
+# 開発サイクルの比較
+
+<!--
+図1: development-cycle-ecs.drawio
+タイトル: ECS環境での開発サイクル
+
+左から右への時系列フロー図:
+1. 開発者アイコン + ノートPCアイコン
+   - "コード修正"
+   - "10分"
+
+2. GitHubアイコン
+   - "Push"
+   - "1分"
+
+3. GitHub Actionsアイコン
+   - "Dockerビルド"
+   - "5分"
+
+4. ECRアイコン
+   - "イメージPush"
+   - "2分"
+
+5. ECSアイコン
+   - "デプロイ・起動"
+   - "3分"
+
+6. 確認アイコン
+   - "動作確認"
+   - "5分"
+
+下部に大きく:
+"合計: 約26分/サイクル"
+
+矢印で全てつなぐ。各ステップを異なる色のボックスで区切る。
+時計アイコンを各ステップに付ける。
+-->
+
+---
+
+# 開発サイクルの比較
+
+<!--
+図2: development-cycle-databricks.drawio
+タイトル: Databricks環境での開発サイクル
+
+左から右への時系列フロー図:
+1. 開発者アイコン + ノートPCアイコン
+   - "コード修正"
+   - "10秒"
+
+2. Notebookアイコン (ブラウザ内)
+   - "セル実行"
+   - "5秒"
+
+3. クラスターアイコン (既に起動済み)
+   - "即時実行"
+   - "10秒"
+
+4. 結果表示アイコン
+   - "結果確認"
+   - "5秒"
+
+下部に大きく:
+"合計: 約30秒/サイクル"
+
+ECSのフロー図と同じレイアウトで配置。
+ステップ数が少なく、各時間が短いことを強調。
+緑色の背景で「速い」ことを視覚的に表現。
+-->
+
+---
+
+# 開発スピードの違い
+
+<!--
+図3: development-speed-comparison.drawio
+タイトル: 50倍の開発スピード
+
+左右比較形式:
+
+左側 (ECS):
+- 大きなストップウォッチアイコン: "26分"
+- カレンダーアイコン: "1日10回試行"
+- 疲れた開発者アイコン
+
+右側 (Databricks):
+- 小さなストップウォッチアイコン: "30秒"
+- カレンダーアイコン: "1日500回試行"
+- 笑顔の開発者アイコン
+
+中央に大きく:
+"⚡ 約50倍速 ⚡"
+"試行錯誤の回数が圧倒的に増える"
+
+下部メッセージボックス:
+"機械学習開発では試行錯誤が命
+→ 開発サイクルの速さが成果に直結"
+
+グラフィカルに時間の差を棒グラフや円グラフで表現。
+26分の棒 vs 30秒の棒を並べて、差を視覚化。
+-->
+
+---
+
+# まとめ
+
+- ECS: 26分/サイクル (コンテナビルド・デプロイ必須)
+- Databricks: 30秒/サイクル (Notebook内で即実行)
+- 約50倍の開発スピード
+- 試行錯誤の回数が成果を決める

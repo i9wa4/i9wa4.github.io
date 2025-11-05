@@ -1,0 +1,172 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ECS環境で必要な知識" id="ecs-knowledge">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="ECS環境で機械学習するために必要な知識" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="1200" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Center: Developer -->
+        <mxCell id="dev-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffebee;strokeColor=#C62828;strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="650" y="350" width="300" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-icon" value="👨‍💻" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=100;" vertex="1" parent="1">
+          <mxGeometry x="700" y="400" width="200" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-label" value="開発者" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="560" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Knowledge 1: Python/ML (Top) -->
+        <mxCell id="k1-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e3f2fd;strokeColor=#1976D2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="675" y="100" width="250" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="k1-label" value="Python/&lt;br&gt;機械学習" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow1" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#1976D2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="350" as="sourcePoint"/>
+            <mxPoint x="800" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 2: Docker (Top Right) -->
+        <mxCell id="k2-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff3e0;strokeColor=#E65100;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="150" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="k2-label" value="Docker" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="225" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#E65100;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="400" as="sourcePoint"/>
+            <mxPoint x="1050" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 3: ECR (Right) -->
+        <mxCell id="k3-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f3e5f5;strokeColor=#7B1FA2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="400" width="180" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="k3-label" value="ECR" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#7B1FA2;" vertex="1" parent="1">
+          <mxGeometry x="1165" y="465" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#7B1FA2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="490" as="sourcePoint"/>
+            <mxPoint x="1150" y="490" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 4: ECS/Fargate (Bottom Right) -->
+        <mxCell id="k4-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fce4ec;strokeColor=#C2185B;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="620" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="k4-label" value="ECS/&lt;br&gt;Fargate" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="695" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow4" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#C2185B;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="600" as="sourcePoint"/>
+            <mxPoint x="1050" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 5: IAM (Bottom) -->
+        <mxCell id="k5-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e8f5e9;strokeColor=#2E7D32;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="700" y="680" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="k5-label" value="IAM" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="725" y="755" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow5" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#2E7D32;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="650" as="sourcePoint"/>
+            <mxPoint x="800" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 6: VPC (Bottom Left) -->
+        <mxCell id="k6-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff9c4;strokeColor=#F57F17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="350" y="620" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="k6-label" value="VPC/&lt;br&gt;ネットワーク" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="375" y="695" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow6" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#F57F17;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="600" as="sourcePoint"/>
+            <mxPoint x="530" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 7: CI/CD (Left) -->
+        <mxCell id="k7-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1f5fe;strokeColor=#0277BD;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="270" y="400" width="180" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="k7-label" value="CI/CD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#0277BD;" vertex="1" parent="1">
+          <mxGeometry x="285" y="465" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow7" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#0277BD;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="490" as="sourcePoint"/>
+            <mxPoint x="450" y="490" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 8: CloudWatch (Top Left) -->
+        <mxCell id="k8-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffccbc;strokeColor=#BF360C;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="350" y="150" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="k8-label" value="CloudWatch" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#BF360C;" vertex="1" parent="1">
+          <mxGeometry x="375" y="225" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow8" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#BF360C;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="400" as="sourcePoint"/>
+            <mxPoint x="550" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 9: S3 -->
+        <mxCell id="k9-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#c5cae9;strokeColor=#3949AB;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="270" width="160" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="k9-label" value="S3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#3949AB;" vertex="1" parent="1">
+          <mxGeometry x="105" y="325" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow9" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#3949AB;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="450" as="sourcePoint"/>
+            <mxPoint x="260" y="380" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Knowledge 10: Dockerfile -->
+        <mxCell id="k10-circle" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dcedc8;strokeColor=#689F38;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="500" width="160" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="k10-label" value="Dockerfile" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#689F38;" vertex="1" parent="1">
+          <mxGeometry x="105" y="555" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow10" value="" style="rounded=0;html=1;strokeWidth=3;strokeColor=#689F38;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="550" as="sourcePoint"/>
+            <mxPoint x="260" y="580" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Message -->
+        <mxCell id="message-box" value="インフラ・DevOpsの知識が必須" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#C62828;fontSize=30;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="800" height="50" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

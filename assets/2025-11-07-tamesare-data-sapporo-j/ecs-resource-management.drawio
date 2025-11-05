@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ECS環境のリソース利用" id="ecs-resource">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="ECS環境のリソース利用" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="800" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Timeline -->
+        <mxCell id="timeline-label" value="24時間のリソース利用" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="130" width="400" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Time 0-9: Stopped (but could be running) -->
+        <mxCell id="time0-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BDBDBD;strokeColor=#616161;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="450" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="time0-label" value="0時 - 9時&lt;br&gt;停止中&lt;br&gt;(手動停止必要)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="175" y="230" width="300" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Time 9-18: Working -->
+        <mxCell id="time1-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB74D;strokeColor=#E65100;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="550" y="200" width="450" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="time1-label" value="9時 - 18時&lt;br&gt;稼働中&lt;br&gt;(業務時間)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="625" y="230" width="300" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Time 18-24: Wasted -->
+        <mxCell id="time2-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#C62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="200" width="400" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="time2-label" value="18時 - 24時&lt;br&gt;無駄な稼働&lt;br&gt;(消し忘れ)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="230" width="300" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Cost Graph -->
+        <mxCell id="cost-label" value="月額コスト" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Cost Bar -->
+        <mxCell id="cost-bar-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#C62828;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="460" width="1300" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="cost-bar-label" value="EC2インスタンス: 24時間稼働 × 30日 = $720/月" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="100" y="485" width="1300" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Wasted Cost Indicator -->
+        <mxCell id="waste-arrow" value="" style="rounded=0;html=1;strokeWidth=4;strokeColor=#C62828;dashed=1;dashPattern=8 8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1200" y="350" as="sourcePoint"/>
+            <mxPoint x="1200" y="460" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="waste-label" value="削減できたはず" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="380" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Problems -->
+        <mxCell id="problems-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#F57F17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="620" width="1300" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="problems-title" value="問題点" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
+          <mxGeometry x="100" y="630" width="1300" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="problem1" value="× 手動での起動・停止が必要" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;spacingLeft=40;" vertex="1" parent="1">
+          <mxGeometry x="150" y="690" width="550" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="problem2" value="× 消し忘れでコスト増" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;spacingLeft=40;" vertex="1" parent="1">
+          <mxGeometry x="750" y="690" width="550" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="problem3" value="× スケール調整が手動" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;spacingLeft=40;" vertex="1" parent="1">
+          <mxGeometry x="150" y="760" width="550" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="problem4" value="× 開発者がコストを意識する必要" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;spacingLeft=40;" vertex="1" parent="1">
+          <mxGeometry x="750" y="760" width="550" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
