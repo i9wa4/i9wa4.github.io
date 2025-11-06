@@ -66,27 +66,19 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 :::
 
----
-
 ## 2. 移行前の課題
 
 ### 2.1. ECS環境の構成
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/before-architecture.drawio.png)
 
----
-
 ### 2.2. インターン生の学習コスト
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/learning-burden.drawio.png)
 
----
-
 ### 2.3. 開発サイクルの遅延
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/development-delay.drawio.png)
-
----
 
 ## 3. 移行後の改善
 
@@ -94,19 +86,13 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/after-architecture.drawio.png)
 
----
-
 ### 3.2. 学習コストの削減
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/reduced-learning-cost.drawio.png)
 
----
-
 ### 3.3. 開発サイクルの高速化
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/improved-development-cycle.drawio.png)
-
----
 
 ## 4. 導入効果
 
@@ -114,19 +100,13 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/intern-success.drawio.png)
 
----
-
 ### 4.2. 定量的な改善効果
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/quantitative-improvement.drawio.png)
 
----
-
 ### 4.3. データサイエンティストの声
 
 ![](/assets/2025-11-07-tamesare-data-sapporo-m/user-feedback.drawio.png)
-
----
 
 ## 5. まとめ
 
@@ -136,8 +116,6 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 開発サイクル高速化
 - インターン生も即戦力
 - 本質的な業務に集中
-
----
 
 ### 5.2. これから導入を検討する方へ
 
