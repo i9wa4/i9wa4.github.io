@@ -588,22 +588,10 @@ Quarto reveal.js スライドで画像を表示する際、スマホでの表示
 - reveal.js は画像に `r-stretch` クラスを自動的に適用する場合がある
 - `r-stretch` はスライドの高さいっぱいに画像を引き伸ばすクラス
 - スマホの小さい画面ではこれが正しく動作せず、画像が表示されない
-- 透過PNG (RGBA) もスマホブラウザで表示問題を起こす場合がある
 
 **解決策**:
 
-1. **PNG は透過なし (RGB) で生成**
-   - drawio CLI の `-t` (transparent) フラグを使用しない
-   - `.github/scripts/convert-drawio-to-png.sh` で `-t` を削除
-   ```sh
-   # 悪い例: 透過PNG (RGBA) を生成
-   drawio -x -f png -s 1 -t -o "$png" "$drawio"
-
-   # 良い例: 透過なしPNG (RGB) を生成
-   drawio -x -f png -s 1 -o "$png" "$drawio"
-   ```
-
-2. **画像に `.nostretch` クラスを追加**
+**画像に `.nostretch` クラスを追加**
    - reveal.js の自動伸縮を無効化
    - 横幅100%に合わせるなら `width="100%"` と併用
    ```markdown
@@ -614,7 +602,7 @@ Quarto reveal.js スライドで画像を表示する際、スマホでの表示
    ![](image.png){width="100%" .nostretch}
    ```
 
-3. **列レイアウト内の画像は影響を受けない**
+**列レイアウト内の画像は影響を受けない**
    - `.column` 内の画像には `r-stretch` が適用されない
    - そのため列レイアウトを使えば `.nostretch` は不要
    ```markdown
