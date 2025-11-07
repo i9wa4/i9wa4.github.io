@@ -215,8 +215,24 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - AWS 構成からの移行がスムーズ
 - インフラは AWS のまま、開発体験が劇的に向上
 
-### 5.2. これから導入を検討する方へ
+### 5.2. 併せてこちらもご確認ください
 
-- AWS機械学習環境の課題を感じている方におすすめ
-- 既存AWS環境との統合が容易
-- 詳細は Zenn記事をご覧ください
+::: {style="display: flex; align-items: center; gap: 3em; margin-top: 2em;"}
+
+::: {style="flex: 1;"}
+[![](/assets/2025-11-07-tamesare-data-sapporo/zenn-twitter-card.jpeg){width="100%"}](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+:::
+
+::: {style="flex: 1; text-align: left;"}
+
+**GENDAのデータサイエンティスト開発体験向上の取り組み紹介**
+
+AWS ECSからDatabricksへの移行
+
+[https://zenn.dev/genda_jp/articles/724a597e8f18ff](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+
+詳細な移行手順や技術的な工夫について解説しています
+
+:::
+
+:::
