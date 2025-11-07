@@ -213,7 +213,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ### 5.1. AWS 知見がそのまま活きる
 
-- S3 や IAM Role など、既存の AWS 知識が活用できる
+- S3 / EC2 / IAM Role など、既存の AWS 知識が活用できる
 - AWS 構成からの移行がスムーズ
 - インフラは AWS のまま、開発体験が劇的に向上
 
