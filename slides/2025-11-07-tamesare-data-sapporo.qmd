@@ -67,7 +67,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ## 2. 入社時のAWS機械学習環境
 
-### 2.1. ECS中心の構成
+### 2.1. 入社時のAWS機械学習環境: ECS中心の構成
 
 <!-- 図の構成案:
 - 左側: データサイエンティスト (開発者)
@@ -101,7 +101,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ## 3. Databricksへの移行
 
-### 3.1. Databricks環境の構成
+### 3.1. 移行後: Databricks 環境の構成
 
 <!-- 図の構成案:
 - 左側: データサイエンティスト (開発者)
@@ -170,7 +170,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ![](/assets/2025-11-07-tamesare-data-sapporo/intern-productivity.drawio.png)
 
-### 4.3. 定性的な改善
+### 4.3. 定量的な改善効果
 
 <!-- 図の構成案:
 - 3つの改善ポイントをカード形式で表示

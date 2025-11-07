@@ -7,9 +7,6 @@
         <mxCell id="aws-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3" parent="1" vertex="1">
           <mxGeometry x="600" y="240" width="1200" height="760" as="geometry" />
         </mxCell>
-        <mxCell id="title" value="入社時のAWS機械学習環境: ECS中心の構成" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="460" y="80" width="1000" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="dev-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3" parent="1" vertex="1">
           <mxGeometry x="120" y="240" width="360" height="300" as="geometry" />
         </mxCell>

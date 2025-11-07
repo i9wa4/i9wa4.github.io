@@ -5,10 +5,6 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- Title -->
-        <mxCell id="title" value="AWSサービスとの対応" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="660" y="80" width="600" height="60" as="geometry"/>
-        </mxCell>
 
         <!-- Header Row -->
         <mxCell id="header-aws" value="AWS構成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=33;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
