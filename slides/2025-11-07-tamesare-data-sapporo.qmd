@@ -47,6 +47,8 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 | ---                          | ---                                 |
 | Data Engineer/MLOps Engineer | [株式会社GENDA](https://genda.jp/)  |
 
+<!-- | Data Engineer | [PIVOT株式会社](https://pivot.inc/) | -->
+
 :::
 
 ::: {style="text-align: center;"}
