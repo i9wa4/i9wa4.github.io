@@ -589,34 +589,50 @@ Quarto reveal.js スライドで画像を表示する際、スマホでの表示
 - `r-stretch` はスライドの高さいっぱいに画像を引き伸ばすクラス
 - スマホの小さい画面ではこれが正しく動作せず、画像が表示されない
 
-**解決策**:
+**解決策（推奨）:**
 
-**画像に `.nostretch` クラスを追加**
-   - reveal.js の自動伸縮を無効化
-   - 横幅100%に合わせるなら `width="100%"` と併用
-   ```markdown
-   # 悪い例: r-stretch が自動適用され、スマホで表示されない
-   ![](image.png)
+YAMLヘッダーに `auto-stretch: false` を追加する（根本的解決）
 
-   # 良い例: 横幅に合わせつつ高さ伸縮を防止
-   ![](image.png){width="100%" .nostretch}
-   ```
+```yaml
+---
+title: "Your Presentation"
+format:
+  revealjs:
+    auto-stretch: false
+---
+```
 
-**列レイアウト内の画像は影響を受けない**
-   - `.column` 内の画像には `r-stretch` が適用されない
-   - そのため列レイアウトを使えば `.nostretch` は不要
-   ```markdown
-   :::: {.columns}
-   ::: {.column width="50%"}
-   ![](image.png){width="100%"}
-   :::
-   ::::
-   ```
+この設定により、スライド内のすべての画像で `r-stretch` が自動適用されなくなる
+
+**画像の記述**:
+```markdown
+# シンプルな記述でOK
+![](image.png)
+```
+
+**代替案（対症療法）:**
+
+個別の画像に `.nostretch` クラスを追加する方法もあるが、`auto-stretch: false` を使う方がシンプルで推奨
+
+```markdown
+# 各画像に手動で追加（非推奨）
+![](image.png){.nostretch}
+```
+
+**列レイアウト内の画像:**
+- `.column` 内の画像には `r-stretch` が適用されないため、設定不要
+```markdown
+:::: {.columns}
+::: {.column width="50%"}
+![](image.png)
+:::
+::::
+```
 
 **効果**:
 - スマホでも画像が正しく表示される
-- 画面横幅に合わせて表示される
-- アスペクト比は維持される
+- 画像サイズが適切に調整される
+- 今後の画像追加時も設定不要
 
 **確認方法**:
 - ビルド後のHTMLで `class="r-stretch"` が付いていないか確認
