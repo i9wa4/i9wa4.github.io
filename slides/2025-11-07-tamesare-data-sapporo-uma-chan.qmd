@@ -85,7 +85,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 課題を赤文字で表示 (.pyファイル実行でREPLなし、ビルド5分、CloudWatch確認が大変)
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-ml-architecture.drawio.png){width="100%"}
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-ml-architecture.drawio.png){width="100%" .nostretch}
 
 ### 2.2. 開発で感じた課題
 
@@ -99,7 +99,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 「1日10回の試行錯誤で2.5時間が無駄」を強調
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-ml-challenges.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-ml-challenges.drawio.png){width="100%" .nostretch}
 
 ## 3. Databricksへの移行
 
@@ -118,7 +118,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 改善点を青文字で表示 (セル単位実行、変数状態保持、結果可視化、気軽にジョブ化)
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/databricks-architecture.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/databricks-architecture.drawio.png){width="100%" .nostretch}
 
 ### 3.2. AWSサービスとの対応
 
@@ -138,7 +138,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
   - 既存データソースそのまま利用可能
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-databricks-mapping.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-databricks-mapping.drawio.png){width="100%" .nostretch}
 
 ## 4. 導入効果
 
@@ -155,7 +155,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - タイムラインで時間の差を視覚化 (15分+ vs 数秒)
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/development-cycle-comparison.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/development-cycle-comparison.drawio.png){width="100%" .nostretch}
 
 ### 4.2. インターン生でもすぐ活躍
 
@@ -170,7 +170,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 左→右の矢印で「AWSの学習コストが実質ゼロに」を強調
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/intern-productivity.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/intern-productivity.drawio.png){width="100%" .nostretch}
 
 ### 4.3. 定量的な改善効果
 
@@ -186,7 +186,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 矢印は「移行前 (Docker/ECR/ECS/CloudWatch Logs)」から「移行後 (不要)」に向ける
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/quantitative-improvement.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/quantitative-improvement.drawio.png){width="100%" .nostretch}
 
 ### 4.4. ほぼゼロコストで本番運用
 
@@ -207,7 +207,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
   - 運用コストほぼゼロ
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/job-migration.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo-uma-chan/job-migration.drawio.png){width="100%" .nostretch}
 
 ## 5. まとめ
 
