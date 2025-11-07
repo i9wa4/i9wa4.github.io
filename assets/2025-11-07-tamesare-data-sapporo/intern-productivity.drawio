@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="インターン生でもすぐ活躍" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="600" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Center Intern Icon -->
+        <mxCell id="intern-icon" value="👨‍💼" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=120" vertex="1" parent="1">
+          <mxGeometry x="860" y="420" width="200" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="intern-label" value="インターン生" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="810" y="600" width="300" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Before: Learning Required (Left Side - Red) -->
+        <mxCell id="before-title" value="学習が必要だった (Before)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#c62828" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="600" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="before1" value="🐳 Docker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="140" y="300" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="before2" value="📦 ECS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="300" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="before3" value="📊 CloudWatch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="140" y="420" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="before4" value="🔐 IAM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="420" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="before5" value="⚙️ CI/CD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="280" y="540" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Reduced -->
+        <mxCell id="arrow-reduced" value="AWS学習コスト削減!" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#f57c00;fontSize=30;fontStyle=1" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="400" as="sourcePoint"/>
+            <mxPoint x="1240" y="400" as="targetPoint"/>
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- After: Focus on Essential (Right Side - Green) -->
+        <mxCell id="after-title" value="集中できる (After)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#2e7d32" vertex="1" parent="1">
+          <mxGeometry x="1220" y="200" width="600" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="after1" value="🐍 Python" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=30;fontStyle=1;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1260" y="320" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="after2" value="🤖 機械学習" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=30;fontStyle=1;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1580" y="320" width="280" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="after3" value="📈 データ分析" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=30;fontStyle=1;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1420" y="460" width="280" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Bottom Message -->
+        <mxCell id="message-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="400" y="760" width="1120" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="message-icon" value="✨" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=70" vertex="1" parent="1">
+          <mxGeometry x="450" y="785" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="message-text" value="本質的な業務に集中できる!" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;fontStyle=1;fontColor=#1565c0" vertex="1" parent="1">
+          <mxGeometry x="580" y="800" width="880" height="60" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
