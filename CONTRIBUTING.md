@@ -579,3 +579,58 @@ Read /tmp/drawio-review/diagram.png
 - Codex MCP サーバーは便利だが、必ず応答するとは限らない
 - 応答がない場合は無理に待たず、代替手段に切り替える
 - 最終的な品質確認は人間の目視が最も確実
+
+### 2.12. reveal.js スライドでの画像表示の注意点
+
+Quarto reveal.js スライドで画像を表示する際、スマホでの表示を確実にするための設定が必要
+
+**問題**:
+- reveal.js は画像に `r-stretch` クラスを自動的に適用する場合がある
+- `r-stretch` はスライドの高さいっぱいに画像を引き伸ばすクラス
+- スマホの小さい画面ではこれが正しく動作せず、画像が表示されない
+- 透過PNG (RGBA) もスマホブラウザで表示問題を起こす場合がある
+
+**解決策**:
+
+1. **PNG は透過なし (RGB) で生成**
+   - drawio CLI の `-t` (transparent) フラグを使用しない
+   - `.github/scripts/convert-drawio-to-png.sh` で `-t` を削除
+   ```sh
+   # 悪い例: 透過PNG (RGBA) を生成
+   drawio -x -f png -s 1 -t -o "$png" "$drawio"
+
+   # 良い例: 透過なしPNG (RGB) を生成
+   drawio -x -f png -s 1 -o "$png" "$drawio"
+   ```
+
+2. **画像に `.nostretch` クラスを追加**
+   - reveal.js の自動伸縮を無効化
+   - 横幅100%に合わせるなら `width="100%"` と併用
+   ```markdown
+   # 悪い例: r-stretch が自動適用され、スマホで表示されない
+   ![](image.png)
+
+   # 良い例: 横幅に合わせつつ高さ伸縮を防止
+   ![](image.png){width="100%" .nostretch}
+   ```
+
+3. **列レイアウト内の画像は影響を受けない**
+   - `.column` 内の画像には `r-stretch` が適用されない
+   - そのため列レイアウトを使えば `.nostretch` は不要
+   ```markdown
+   :::: {.columns}
+   ::: {.column width="50%"}
+   ![](image.png){width="100%"}
+   :::
+   ::::
+   ```
+
+**効果**:
+- スマホでも画像が正しく表示される
+- 画面横幅に合わせて表示される
+- アスペクト比は維持される
+
+**確認方法**:
+- ビルド後のHTMLで `class="r-stretch"` が付いていないか確認
+- スマホブラウザで実際に表示されるか確認
+- PDFでも画像が正しく表示されるか確認
