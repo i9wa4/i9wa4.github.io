@@ -8,8 +8,8 @@ for drawio in "$@"; do
     png="${drawio%.drawio}.drawio.png"
     echo "Converting $drawio to $png..."
 
-    # drawio CLI export to PNG with 2x scale for high quality
-    if ! drawio -x -f png -s 2 -t -o "$png" "$drawio" 2>/dev/null; then
+    # drawio CLI export to PNG with 1x scale for mobile optimization
+    if ! drawio -x -f png -s 1 -t -o "$png" "$drawio" 2>/dev/null; then
         echo "✗ drawio PNG export failed for $drawio" >&2
         continue
     fi
