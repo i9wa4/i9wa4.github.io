@@ -83,7 +83,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 - 課題を赤文字で表示 (.pyファイル実行でREPLなし、ビルド5分、CloudWatch確認が大変)
 -->
 
-![](/assets/2025-11-07-tamesare-data-sapporo/aws-ml-architecture.drawio.png)
+![](/assets/2025-11-07-tamesare-data-sapporo/aws-ml-architecture.drawio.png){width="100%"}
 
 ### 2.2. 開発で感じた課題
 
