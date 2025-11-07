@@ -3,3 +3,5 @@
 /blog/zenn-autogen-*.qmd
 
 **/*.quarto_ipynb
+
+**/*.bkp
