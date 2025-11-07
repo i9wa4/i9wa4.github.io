@@ -62,16 +62,16 @@
         <mxCell id="card3-title" value="学習コスト" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1280" y="420" width="400" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="card3-before" value="Before: 5技術&lt;br&gt;(Docker/ECS/CloudWatch/IAM/CI)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#c62828;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="1280" y="500" width="400" height="80" as="geometry"/>
+        <mxCell id="card3-before" value="Before: 8技術&lt;br&gt;(Docker/ECS/CloudWatch/IAM/CI/&lt;br&gt;Python/SQL/機械学習)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#c62828;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="490" width="400" height="100" as="geometry"/>
         </mxCell>
         <mxCell id="card3-arrow" value="↓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1430" y="600" width="100" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="card3-after" value="After: 2技術&lt;br&gt;(Python/機械学習)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#2e7d32;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="card3-after" value="After: 3技術&lt;br&gt;(Python/SQL/機械学習)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#2e7d32;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1280" y="680" width="400" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="card3-improvement" value="60%削減!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#4a148c;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+        <mxCell id="card3-improvement" value="5技術削減!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#4a148c;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
           <mxGeometry x="1280" y="780" width="400" height="80" as="geometry"/>
         </mxCell>
 
