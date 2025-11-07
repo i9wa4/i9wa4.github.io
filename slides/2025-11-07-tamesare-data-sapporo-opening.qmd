@@ -1,5 +1,5 @@
 ---
-title: 試されDATA SAPPORO #1
+title: "試されDATA SAPPORO #1"
 subtitle: 北海道に縁のある人たちがデータやAIを中心にワイワイする場所
 author:
   - name: 運営チーム
@@ -126,28 +126,24 @@ AI構築コンサルティング専門
 
 :::
 
-### 3.2. LT登壇者
+## 4. 参加者の皆様へ
 
-::: {style="display: flex; flex-direction: column; gap: 2em; margin-top: 2em;"}
+### 4.1. 注意事項
 
-::: {style="font-size: 2em;"}
-データエンジニア・分析専門家によるLT
-:::
+: {tbl-colwidths="[30,70]"}
 
-::: {style="text-align: left; margin-top: 2em;"}
+|                          |                                                                            |
+| ---                      | ---                                                                        |
+| 事前登録                 | 定員に限りがありますので、イベント前に必ず登録を完了してください           |
+| 参加レベル               | データに関する基礎知識があると望ましいですが、すべてのレベルの参加者を歓迎 |
+| 積極的な参加             | 質問、ディスカッション、ネットワーキングセッションに積極的に参加ください   |
+| プロフェッショナルな行動 | スピーカーや他の参加者に対して、敬意と礼儀を持って接してください           |
+| 個人情報の保護           | 参加者やスピーカーの個人情報を無断で共有しないでください                   |
+| キャンセルポリシー       | 参加できなくなった場合は、速やかにキャンセルしてください                   |
 
-- LakeHouse に関する知見
-- Claude × Snowflake × dbt の実践事例
-- Apache Iceberg の活用
-- Databricks on AWS の移行事例
+## 5. お楽しみください
 
-:::
-
-:::
-
-## 4. お楽しみください
-
-### 4.1. Let's enjoy
+### 5.1. Let's enjoy
 
 ::: {style="display: flex; flex-direction: column; align-items: center; gap: 3em; margin-top: 5em;"}
 
