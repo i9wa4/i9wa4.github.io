@@ -231,8 +231,6 @@ AWS ECSからDatabricksへの移行
 
 [https://zenn.dev/genda_jp/articles/724a597e8f18ff](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
 
-詳細な移行手順や技術的な工夫について解説しています
-
 :::
 
 :::
