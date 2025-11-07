@@ -1,6 +1,6 @@
 ---
-title: AWS機械学習環境からの進化
-subtitle: Databricksで変わった開発体験
+title: GENDA の機械学習環境を AWS から Databricks に移行してみた
+subtitle: Databricks on AWS はいいぞ
 author:
   - name: uma-chan
 date: 2025-11-07
@@ -186,13 +186,34 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ![](/assets/2025-11-07-tamesare-data-sapporo/quantitative-improvement.drawio.png)
 
+### 4.4. ほぼゼロコストで本番運用
+
+<!-- 図の構成案:
+- 左側: 開発フロー
+  - Notebook でセル実行
+  - デバッグ・調整
+  - 完成
+- 中央: ワンクリック変換の矢印
+  - 「ワンクリックでジョブ化!」を強調
+- 右側: 本番運用フロー
+  - Databricks Jobs として自動実行
+  - スケジュール実行
+  - エラー通知
+- ポイント:
+  - 開発と運用が全く同じコード
+  - デプロイ作業不要
+  - 運用コストほぼゼロ
+-->
+
+![](/assets/2025-11-07-tamesare-data-sapporo/job-migration.drawio.png)
+
 ## 5. まとめ
 
-### 5.1. AWS知見がそのまま活きる
+### 5.1. AWS 知見がそのまま活きる
 
-- S3やIAM Roleなど、既存のAWS知識が活用できる
-- AWS構成からの移行がスムーズ
-- インフラはAWSのまま、開発体験が劇的に向上
+- S3 や IAM Role など、既存の AWS 知識が活用できる
+- AWS 構成からの移行がスムーズ
+- インフラは AWS のまま、開発体験が劇的に向上
 
 ### 5.2. これから導入を検討する方へ
 
