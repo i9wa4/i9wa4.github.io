@@ -1,5 +1,4 @@
 ---
-draft: true
 title: AWS機械学習環境からの進化
 subtitle: Databricksで変わった開発体験
 author:
