@@ -44,9 +44,9 @@ Vim と tmux で似たような操作を実現させるアイデアを共有す�
 - 推奨
     - Vim 補完プラグイン [ddc.vim](https://github.com/Shougo/ddc.vim) を利用できる方
 
-## 3. Vim と tmux で複数のAIエージェントを操作する様子
+## 3. Vim と tmux による複数のAIエージェント操作実演
 
-構築後の操作を先にお見せしますと Claude Code * 1 と Codex CLI * 2 に同じカスタム指示を送る実演動画が以下となります。
+構築後の操作を先にお見せしますと Claude Code * 1 と Codex CLI * 2 に同じプロンプトを送る実演動画が以下となります。
 
 {{< video https://www.youtube.com/watch?v=AyE-ruGOGCc >}}
 
@@ -99,13 +99,13 @@ Vim 補完プラグイン [ddc.vim](https://github.com/Shougo/ddc.vim) のソー
 
 <https://github.com/i9wa4/vim-tmux-send-to-ai-cli>
 
-Vim から tmux 経由で AI エージェントにプロンプトを送信するためのプラグインです。
+Vim から tmux 経由で AI エージェント起動中のペインにプロンプトを送信するためのプラグインです。
 
 送信先：
 
 - (デフォルト) 同一ウインドウの中で最も小さい番号のペインに送信
-- 同一ウインドウの特定のペインにのみ送信
-- 同一ウインドウの全てのペインの AI エージェントに送信
+- 同一ウインドウの特定のペインに送信
+- 同一ウインドウの全てのペインに送信
 
 送信内容：
 
