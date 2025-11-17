@@ -43,6 +43,7 @@ jobs:
       - name: Set up Python dependencies
         run: |
           mise exec -- uv sync
+          mise exec -- uv run playwright install chromium
 
       - name: Fetch Zenn articles
         run: |
@@ -76,7 +77,7 @@ jobs:
 
       - name: Generate PDF from resume
         run: |
-          mise exec -- uvx --with playwright==1.55.0 python .github/scripts/html_to_pdf.py \
+          mise exec -- uv run python .github/scripts/html_to_pdf.py \
             ${{ github.workspace }}/_site/resume/index.html \
             _site/resume/index.pdf
 
