@@ -1,0 +1,57 @@
+---
+title: "Vim と tmux で複数のAIエージェントを操作する"
+author: uma-chan
+date: 2025-11-18 02:41:01 +0900
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  Vim と tmux で複数のAIエージェントを操作する方法を紹介します。
+categories:
+  - "blog"
+  - "tech"
+  - "tech-vim"
+  - "vim-jp"
+---
+
+::: {.callout-note}
+この記事は [Vim 駅伝](https://vim-jp.org/ekiden/) の 2025-11-19 の記事です。
+
+前回は 2025-11-17 ぺりー さんの [ドットコマンドで再現可能な編集を設計する | Medium](https://satorunooshie.medium.com/designing-repeatable-edits-8ec574ff0acd) でした。
+:::
+
+## 1. AIエージェント並行実行の現在地 (2025年11月時点)
+
+Claude Code や Codex CLI を1つのタスクに対して複数起動させると便利ですが取り回しが難しいですよね。
+
+この需要に応えたのが2025年10月29日にリリースされた Cursor 2.0 でした。
+
+> #### マルチエージェント
+>
+> 新しいエディタでエージェントを管理。サイドバーでエージェントとプランを一覧・操作できます。
+>
+> 1つのプロンプトで最大8つのエージェントを並列実行できます。ファイル競合を防ぐために、git worktree またはリモートマシンを使用します。各エージェントは、コードベースの独立したコピー上で個別に動作します。
+
+[新しいコード生成モデルとエージェントインターフェース · Cursor](https://cursor.com/changelog/2-0)
+
+これはかなり強力な機能追加ですが今のところ Cursor 以外で同様の体験を得るのは難しいです。
+
+## 2. Vim と tmux で複数のAIエージェントを操作する
+
+そこで Vim と tmux を組み合わせて複数の AI コーディングエージェントを操作する方法を紹介します。
+
+まず、実演動画が以下です。
+
+### 2.1. 対象読者
+
+- 必須
+    - Vim & tmux を利用できる方
+- 推奨
+    - Vim 補完プラグイン [ddc.vim](https://github.com/Shougo/ddc.vim) を利用できる方
+
+### 2.2. インストールするもの
+
+- <https://github.com/yuki-yano/vde-layout>
+- <https://github.com/i9wa4/ddc-source-slash-commands>
+- <https://github.com/i9wa4/vim-tmux-send-to-ai-cli>
+
+### 2.3. vde-layout
