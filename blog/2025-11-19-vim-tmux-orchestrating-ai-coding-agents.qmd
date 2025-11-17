@@ -1,7 +1,7 @@
 ---
 title: "Vim と tmux で複数の AI エージェントを操作する"
 author: uma-chan
-date: 2025-11-18 02:41:01 +0900
+date: 2025-11-19 00:00:00 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
