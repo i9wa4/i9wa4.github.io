@@ -7,6 +7,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 description: |
   BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する
 categories:
+  - "blog"
   - "tech"
   - "tech-data"
   - "tech-dbt"
