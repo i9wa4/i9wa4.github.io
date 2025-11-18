@@ -58,7 +58,7 @@ Vim と tmux で似たような操作を実現させるアイデアを共有す�
 
 動画の冒頭で vde-layout 起動時に利用している zeno.zsh のスニペット設定例を共有します。
 
-```{.yaml filename="~/.config/zeno/config.yaml.yml"}
+```{.yaml filename="~/.config/zeno/config.yml"}
 snippets:
   - name: (vde-layout) dev
     keyword: vd
