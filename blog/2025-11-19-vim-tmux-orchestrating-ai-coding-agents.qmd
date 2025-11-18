@@ -155,9 +155,7 @@ Vim から tmux 経由で AI エージェント起動中のペインにプロン
 
 ちなみに global gitignore なディレクトリについては以下のポストを参考にしました。
 
-![](/assets/2025-05-22-midas-cursor-tips/gitignore-x.png)
-
-<https://x.com/mizchi/status/1914543131888066561>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">自分の Git 環境ではグローバルな gitignore で .mizchi/* が無視されており、どうもならんときはここに .mizchi/run.sh などが置かれています <a href="https://t.co/b7r4omHnPs">https://t.co/b7r4omHnPs</a></p>&mdash; mizchi (@mizchi) <a href="https://twitter.com/mizchi/status/1914543131888066561?ref_src=twsrc%5Etfw">April 22, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## 5. おわりに
 
