@@ -52,11 +52,30 @@ Vim と tmux で似たような操作を実現させるアイデアを共有す�
 
 ## 4. 利用ツール等の解説
 
-### 4.1. vde-layout
+### 4.1. zeno.zsh
+
+<https://github.com/yuki-yano/zeno.zsh>
+
+動画の冒頭で vde-layout 起動時に利用している zeno.zsh のスニペット設定例を共有します。
+
+```{.yaml filename="~/.config/zeno/config.yaml.yml"}
+snippets:
+  - name: (vde-layout) dev
+    keyword: vd
+    snippet:
+      vde-layout dev
+
+  - name: (vde-layout) review
+    keyword: vr
+    snippet:
+      vde-layout review
+```
+
+### 4.2. vde-layout
 
 <https://github.com/yuki-yano/vde-layout>
 
-動画冒頭で `vde-layout` コマンドを実行することで予め設定した tmux レイアウトでウインドウを構成しています。
+`vde-layout` コマンドを実行することで予め設定した tmux レイアウトを適用できます。
 
 設定ファイル例は以下となります。
 
@@ -87,7 +106,7 @@ presets:
               command: codex --yolo
 ```
 
-### 4.2. ddc-source-slash-commands
+### 4.3. ddc-source-slash-commands
 
 <https://github.com/i9wa4/ddc-source-slash-commands>
 
@@ -95,7 +114,11 @@ Vim 補完プラグイン [ddc.vim](https://github.com/Shougo/ddc.vim) のソー
 
 カスタムスラッシュコマンドを補完候補として表示するために利用します。
 
-### 4.3. vim-tmux-send-to-ai-cli
+カスタムスラッシュコマンドに対応していない AI エージェントの場合はファイルのフルパスを送信すれば問題ないです。
+
+柔軟にプロンプトを調整できるのが Vim で操作するメリットですね。
+
+### 4.4. vim-tmux-send-to-ai-cli
 
 <https://github.com/i9wa4/vim-tmux-send-to-ai-cli>
 
@@ -115,7 +138,7 @@ Vim から tmux 経由で AI エージェント起動中のペインにプロン
 - ファイル全体
 - 行範囲 (例: 10～20行目)
 
-### 4.4. ペイン間の競合を回避するプロンプト
+### 4.5. ペイン間の競合を回避するプロンプト
 
 複数の AI エージェントを並行実行する際、ファイル編集の競合を避けるために `.i9wa4/` ディレクトリと tmux ペイン番号を活用します。
 
@@ -130,27 +153,8 @@ Vim から tmux 経由で AI エージェント起動中のペインにプロン
 
 このプロンプトによって AI エージェントが生成する中間ファイルが他ペインと競合しなくなります。
 
-### 4.5. (おまけ) zeno.zsh
-
-<https://github.com/yuki-yano/zeno.zsh>
-
-動画の冒頭で vde-layout 起動時に利用している zeno.zsh のスニペット設定例を共有します。
-
-```{.yaml filename="~/.config/zeno/config.yaml.yml"}
-snippets:
-  - name: (vde-layout) dev
-    keyword: vd
-    snippet:
-      vde-layout dev
-
-  - name: (vde-layout) review
-    keyword: vr
-    snippet:
-      vde-layout review
-```
-
 ## 5. おわりに
 
-足りない部分は自作して補う必要がありますが Vim と tmux で複数の AI エージェントを操作するアイデアを共有しました。
+足りない部分を自作して補うことで Vim と tmux で複数の AI エージェントを操作するアイデアを共有しました。
 
 今後もターミナルでの AI エージェント操作が盛り上がっていくことを願っています！
