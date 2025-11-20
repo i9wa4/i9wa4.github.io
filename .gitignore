@@ -1,5 +1,6 @@
 /.quarto/
 /_site/
+/_freeze/
 /blog/zenn-autogen-*.qmd
 
 **/*.quarto_ipynb

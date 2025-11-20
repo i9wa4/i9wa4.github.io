@@ -7,6 +7,9 @@ project:
 
 date-format: iso
 
+execute:
+  freeze: auto
+
 website:
   title: "uma-chan's page"
   bread-crumbs: false

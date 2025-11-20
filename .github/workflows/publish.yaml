@@ -45,6 +45,14 @@ jobs:
           mise exec -- uv sync
           mise exec -- uv run playwright install chromium
 
+      - name: Cache Quarto freeze
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: _freeze/
+          key: quarto-freeze-${{ hashFiles('**/*.qmd') }}
+          restore-keys: |
+            quarto-freeze-
+
       - name: Fetch Zenn articles
         run: |
           mise exec -- uv run python .github/scripts/fetch_zenn_articles.py
