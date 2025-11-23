@@ -63,6 +63,14 @@ jobs:
           restore-keys: |
             quarto-freeze-
 
+      - name: Cache _site directory
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: _site/
+          key: site-${{ github.sha }}
+          restore-keys: |
+            site-
+
       - name: Fetch Zenn articles
         run: |
           mise exec -- uv run python .github/scripts/fetch_zenn_articles.py
@@ -74,7 +82,46 @@ jobs:
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yml
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yml
 
-      - name: Render Quarto Project
+      - name: Detect changed files
+        id: changes
+        run: |
+          # Define files that must always be rendered (listing pages)
+          ALWAYS_BUILD="index.qmd blog/index.qmd slides/index.qmd resume/index.qmd"
+
+          # Detect changed .qmd files from the last commit
+          # If this is the first build or cache miss, render all files
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            CHANGED=$(git diff --name-only HEAD^ HEAD | grep '\.qmd$' || echo "")
+          else
+            # First commit - render all files
+            CHANGED=""
+            FORCE_FULL_RENDER="true"
+          fi
+
+          # If workflow_dispatch was triggered manually, force full render
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            FORCE_FULL_RENDER="true"
+          fi
+
+          # If _site cache was not restored, force full render
+          if [ ! -d "_site" ] || [ -z "$(ls -A _site 2>/dev/null)" ]; then
+            FORCE_FULL_RENDER="true"
+          fi
+
+          if [ "$FORCE_FULL_RENDER" = "true" ]; then
+            echo "Full render triggered"
+            echo "files=" >> "$GITHUB_OUTPUT"
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+          else
+            # Combine changed files and always-build files, remove duplicates
+            FILES_TO_RENDER=$(echo "$CHANGED $ALWAYS_BUILD" | tr ' ' '\n' | sort -u | tr '\n' ' ')
+            echo "files=$FILES_TO_RENDER" >> "$GITHUB_OUTPUT"
+            echo "mode=selective" >> "$GITHUB_OUTPUT"
+            echo "Changed or always-build files: $FILES_TO_RENDER"
+          fi
+
+      - name: Render Quarto Project (Full)
+        if: steps.changes.outputs.mode == 'full'
         run: |
           # Render HTML and RevealJS formats (default profile)
           mise exec -- uv run quarto render
@@ -82,6 +129,40 @@ jobs:
           # Using profiles prevents the multi-format rendering bug where HTML and GFM compete for the same output path
           # See: https://github.com/quarto-dev/quarto-cli/issues/6809
           mise exec -- uv run quarto render --profile gfm
+
+      - name: Render Quarto Project (Selective)
+        if: steps.changes.outputs.mode == 'selective'
+        env:
+          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
+        run: |
+          if [ -n "$FILES_TO_RENDER" ]; then
+            echo "Rendering changed/always-build files: $FILES_TO_RENDER"
+            for file in $FILES_TO_RENDER; do
+              if [ -f "$file" ]; then
+                echo "Rendering $file (HTML/RevealJS)"
+                mise exec -- uv run quarto render "$file"
+              fi
+            done
+          else
+            echo "No files to render"
+          fi
+
+      - name: Render GFM format (Selective)
+        if: steps.changes.outputs.mode == 'selective'
+        env:
+          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
+        run: |
+          if [ -n "$FILES_TO_RENDER" ]; then
+            echo "Rendering GFM format for changed/always-build files: $FILES_TO_RENDER"
+            for file in $FILES_TO_RENDER; do
+              if [ -f "$file" ]; then
+                echo "Rendering $file (GFM)"
+                mise exec -- uv run quarto render "$file" --profile gfm
+              fi
+            done
+          else
+            echo "No files to render for GFM"
+          fi
 
       - name: Generate PDF from Reveal.js slides
         run: |
