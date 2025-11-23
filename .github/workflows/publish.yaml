@@ -90,9 +90,6 @@ jobs:
       - name: Detect changed files
         id: changes
         run: |
-          # Define files that must always be rendered (listing pages)
-          ALWAYS_BUILD="index.qmd blog/index.qmd slides/index.qmd resume/index.qmd"
-
           # Detect changed .qmd files from the last commit
           # If this is the first build or cache miss, render all files
           if git rev-parse HEAD^ >/dev/null 2>&1; then
@@ -118,6 +115,29 @@ jobs:
             echo "files=" >> "$GITHUB_OUTPUT"
             echo "mode=full" >> "$GITHUB_OUTPUT"
           else
+            # Dynamically determine which index files to rebuild based on changed directories
+            ALWAYS_BUILD=""
+
+            if [ -n "$CHANGED" ]; then
+              # If any change exists, always rebuild root index.qmd
+              ALWAYS_BUILD="index.qmd"
+
+              # Check if blog/ has changes
+              if echo "$CHANGED" | grep -q "^blog/"; then
+                ALWAYS_BUILD="$ALWAYS_BUILD blog/index.qmd"
+              fi
+
+              # Check if slides/ has changes
+              if echo "$CHANGED" | grep -q "^slides/"; then
+                ALWAYS_BUILD="$ALWAYS_BUILD slides/index.qmd"
+              fi
+
+              # Check if resume/ has changes
+              if echo "$CHANGED" | grep -q "^resume/"; then
+                ALWAYS_BUILD="$ALWAYS_BUILD resume/index.qmd"
+              fi
+            fi
+
             # Combine changed files and always-build files, remove duplicates
             FILES_TO_RENDER=$(echo "$CHANGED $ALWAYS_BUILD" | tr ' ' '\n' | sort -u | tr '\n' ' ')
             echo "files=$FILES_TO_RENDER" >> "$GITHUB_OUTPUT"
