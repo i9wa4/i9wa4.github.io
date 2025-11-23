@@ -32,7 +32,7 @@ repos:
 
       - id: actionlint
         name: actionlint
-        entry: actionlint
+        entry: mise exec -- actionlint
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
         pass_filenames: true
