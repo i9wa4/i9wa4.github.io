@@ -1,0 +1,186 @@
+---
+title: "2025年のGitHub活動を振り返る：AI駆動開発の年"
+author: uma-chan
+date: 2025-11-23 15:31:03 +0900
+date-modified: last-modified
+image: "/assets/common/icon_hhkb3_large.jpg"
+description: |
+  1,858コミット、42本の技術記事、4つのVimプラグイン。AI駆動開発に本格参戦した2025年の活動を数値とともに振り返ります
+categories:
+  - "blog"
+  - "tech"
+---
+
+## 1. はじめに
+
+ふと自分のGitHub Contributionsグラフを眺めていたら「3,765 contributions in the last year」という文字列が目に入りました。
+
+2025年はAI駆動開発に本格的に取り組んだ1年でした。Claude CodeとCodex CLIを中心に開発環境を構築し、Vimプラグインを4本開発し、Vim本体へのコントリビューションも達成しました。
+
+数字を見るのは好きなので、データを集計しながら2025年の活動を振り返ってみます。
+
+### 1.1. 2025年の数字
+
+**個人リポジトリへのコミット（2025年）**: 約2,106 commits
+
+- dotfiles: 1,058 commits（開発環境の改善）
+- i9wa4.github.io: 331 commits（技術記事42本）
+- github-profile-summary-cards: 315 commits（プロフィール自動更新）
+- terraform-mono-repo: 294 commits（インフラコード実験）
+- zenn-i9wa4: 55 commits（Zenn記事）
+- i9wa4: 53 commits（プロフィールページ）
+
+**その他の活動（過去1年間）**: 約1,659 contributions
+
+- 会社リポジトリへのコミット
+- Issue作成・コメント（個人+会社）
+- Pull Requestレビュー（個人+会社）
+- その他GitHub上での活動
+
+個人プロジェクトへのコミットが約6割、その他活動が約4割の割合です。
+
+### 1.2. 過去からの流れ
+
+2023年3月にdotfilesとブログリポジトリを作成して以来、少しずつ活動を積み重ねてきました。
+
+| 年     | コミット数      | 特徴                     |
+| ---    | --------------- | ------------------------ |
+| 2023年 | 460 commits     | 基盤構築                 |
+| 2024年 | 1,630 commits   | アウトプット爆発         |
+| 2025年 | 2,106 commits   | AI駆動開発への挑戦       |
+
+2024年1月からブログを本格的に書き始めたのが大きな転機で、「学ぶ → 試す → 記事にする」という正のサイクルができました。2025年はそこにAI駆動開発という新しい要素が加わった年です。
+
+## 2. 2025年の月別主な出来事
+
+- 3月: Terraformモノリポ作成、インフラコードの試行錯誤開始
+- 4月: AI駆動開発ツール試用開始（Aider, Devin）
+- 5月: uvに完全移行してPython環境を刷新、Terraform + MCP Lambdaの実装に集中
+- 6月: Vim本体へ初コントリビューション（感動した）、MCP Lambda実装完了
+- 7月: Claude Code導入
+- 9月: Codex CLI導入
+- 10月: dotfilesの月間コミット数が263に達して過去最高を記録
+- 11月: Vimプラグイン開発加速
+
+## 3. 2025年の活動詳細
+
+2025年は特にAI駆動開発に力を入れた1年でした。ここでは主要な活動を詳しく振り返ります。
+
+### 3.1. AI駆動開発環境の構築
+
+Claude CodeとCodex CLIを中心に、自分専用のAI駆動開発環境を作り込みました。
+
+#### 3.1.1. カスタムスラッシュコマンド開発
+
+よくある作業を自動化するために10本以上のカスタムスラッシュコマンドを開発しました。
+
+- `/CONTRIBUTING`: プロジェクトのルール（このドキュメント自体）をAIに覚えさせる
+- `/my-commit`: Gitコミット時のお作法をAIに任せる
+- `/my-review`: PRレビューをAIにサポートしてもらう
+- `/issue-to-pr`: IssueからPRまでの流れを3フェーズで管理
+- `/learn-bigquery`, `/learn-dbt`, `/learn-databricks`, `/learn-jupyter-notebook`: 技術学習用コマンド
+- `/restricted-bigquery-dbt-environment`: 制約付き環境での開発をサポート
+- `/summarize-reviews`: レビューコメントを要約
+
+これらのコマンドはdotfilesで管理していて、どのプロジェクトでもすぐに使える状態にしています。
+
+#### 3.1.2. Vimプラグイン開発
+
+VimからAI CLIを快適に操作するためのプラグインを開発しました。
+
+- [ddc-source-slash-commands](https://github.com/i9wa4/ddc-source-slash-commands): スラッシュコマンドをVimで補完できるようにする
+- [vim-tmux-send-to-ai-cli](https://github.com/i9wa4/vim-tmux-send-to-ai-cli): Vimからtmux経由でAI CLIにプロンプトを送る
+
+この2つのプラグインのおかげで、Vimで書いたコードやテキストをそのままAI CLIに送れるようになりました。
+
+### 3.2. ターミナル環境の最適化
+
+Vim + tmux + Alacritty + Zsh + AI CLI を組み合わせた統合環境を構築しました。
+
+テーマの自動切り替え、透明度制御、カラースキームの統一など、細かいところまでこだわってスクリプトで自動化しています。
+
+正直やりすぎ感はありますが、自分の環境を極限まで最適化するのは楽しいですね。dotfilesに1,000コミット以上している理由がこれです。
+
+### 3.3. データエンジニアリング実務
+
+仕事ではdbt、Databricks、BigQueryを使ったデータ基盤開発に取り組んでいました。
+
+主な成果:
+
+- dbt incremental モデルの最適化とベストプラクティスの確立
+- Devcontainer環境の構築による開発環境の標準化
+- Databricks Connect を使ったローカル開発フローの確立
+- BigQuery + dbtのパフォーマンスチューニング
+
+これらの知見は技術記事として公開していて、特にdbt関連の記事は多くの人に読んでもらえているようです。
+
+### 3.4. 技術記事執筆
+
+2025年は42本の記事を書きました（ブログ37本、スライド5本）。主な記事をいくつか挙げます。
+
+- [Vim と tmux で複数の AI エージェントを操作する](blog/2025-11-19-vim-tmux-orchestrating-ai-coding-agents.qmd)
+- [個人的ターミナル最適化 for Claude Code](blog/2025-07-14-optimize-your-teminal-for-claude-code.qmd)
+- [Codex CLI の設定ファイルを dotfiles で管理する](blog/2025-09-14-codex-cli-config-management.qmd)
+- [BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた](blog/2025-09-28-bigquery-dbt-incremental-intro.qmd)
+- [Vimへの初コントリビューションの経緯と学び](blog/2025-07-14-my-first-vim-contribution.qmd)
+
+### 3.5. Vimエコシステムへの貢献
+
+2025年はVimプラグイン開発にも力を入れました。
+
+開発・更新したプラグイン:
+
+- [vim-tmux-send-to-ai-cli](https://github.com/i9wa4/vim-tmux-send-to-ai-cli): Vimからtmux経由でAI CLIにプロンプトを送る
+- [ddc-source-slash-commands](https://github.com/i9wa4/ddc-source-slash-commands): スラッシュコマンドの補完
+- [vim-dbt-jump2def](https://github.com/i9wa4/vim-dbt-jump2def): dbtプロジェクトで定義ジャンプ
+- [vim-markdown-number-header](https://github.com/i9wa4/vim-markdown-number-header): Markdownの見出し番号付け
+
+特に嬉しかったのは6月にVim本体へ初めてコントリビューションできたことです。小さな修正でしたが、長年使ってきたVimに貢献できたのは感慨深いものがありました。
+
+### 3.6. Terraformとインフラコード
+
+3月から6月にかけて、[terraform-mono-repo](https://github.com/i9wa4/terraform-mono-repo)でTerraformの勉強に力を入れていました。
+
+特に5月から6月にかけてはMCP（Model Context Protocol）のLambda実装に集中していて、VPC構成やECRへのイメージpush、GitHub Actionsとの連携など、かなり作り込みました。
+
+結局実務で使う機会がなかったので現在は中断していますが、この経験はインフラコードへの理解を深めるのに役立ちました。
+
+### 3.7. その他の実験プロジェクト
+
+小規模な実験プロジェクトもいくつか動かしていました。
+
+- 各種hands-onリポジトリ: go, nix, mcp, ghaなど、技術検証用のプロジェクト
+- mcp-databricks-server: Databricks MCP Serverの試作
+
+これらは成果物としては小さいですが、新しい技術を試す場として活用していました。
+
+## 4. 振り返ってみて
+
+### 4.1. 2025年の成果
+
+2025年はAI駆動開発という新しい領域に本格的に取り組んだ年でした。
+
+主な成果:
+
+- Vimプラグイン: 4本開発・更新
+- Vim本体への初コントリビューション
+- Claude Code カスタムスラッシュコマンド: 10本以上
+- 技術記事: 42本執筆（ブログ37本、スライド5本）
+- dotfilesコミット: 1,058回（月平均96回）
+- 総コミット数: 2,106回（個人リポジトリ）
+
+Claude CodeとCodex CLIを軸にした開発環境を構築し、「ツールを使う側」から「ツールを作る側」にもなれた1年です。
+
+### 4.2. 学びと試行錯誤
+
+すべてが成功したわけではありません。Terraformモノリポは実務で使う機会がなく中断しましたし、MCP Lambda実装も結局本番投入には至りませんでした。
+
+でも、それも含めて色々なことに挑戦できた充実した年でした。失敗から学ぶことも多く、次に活かせる経験になっています。
+
+### 4.3. これから
+
+AI駆動開発環境はまだまだ改善の余地があります。特にVim + tmux + AI CLIの連携をさらに洗練させたいと考えています。
+
+データエンジニアリング領域でも、いくつか新しい実験を始めています。詳細はまた別の機会に。
+
+2026年も新しい技術に挑戦しながら、学んだことを記事にして共有していきます。この習慣は続けていきたいですね。
