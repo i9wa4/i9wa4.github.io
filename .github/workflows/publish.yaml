@@ -30,6 +30,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Configure Git
+        run: |
+          git config --global init.defaultBranch main
+          git config --global advice.defaultBranchName false
+
       - name: Fix timestamps
         run: |
           bash ${{ github.workspace }}/.github/scripts/fix-timestamps.sh
@@ -164,7 +169,8 @@ jobs:
             echo "No files to render for GFM"
           fi
 
-      - name: Generate PDF from Reveal.js slides
+      - name: Generate PDF from Reveal.js slides (Full)
+        if: steps.changes.outputs.mode == 'full'
         run: |
           for html in _site/slides/*.html; do
             if [ -f "$html" ]; then
@@ -174,11 +180,42 @@ jobs:
             fi
           done
 
-      - name: Generate PDF from resume
+      - name: Generate PDF from Reveal.js slides (Selective)
+        if: steps.changes.outputs.mode == 'selective'
+        env:
+          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
+        run: |
+          for file in $FILES_TO_RENDER; do
+            if [[ "$file" == slides/*.qmd ]]; then
+              html="_site/${file%.qmd}.html"
+              pdf="${html%.html}.pdf"
+              if [ -f "$html" ]; then
+                echo "Converting $html to $pdf"
+                mise exec -- uvx deck2pdf@0.9.0 "$html" "$pdf" || echo "Warning: Failed to convert $html"
+              fi
+            fi
+          done
+
+      - name: Generate PDF from resume (Full)
+        if: steps.changes.outputs.mode == 'full'
         run: |
           mise exec -- uv run python .github/scripts/html_to_pdf.py \
             ${{ github.workspace }}/_site/resume/index.html \
             _site/resume/index.pdf
+
+      - name: Generate PDF from resume (Selective)
+        if: steps.changes.outputs.mode == 'selective'
+        env:
+          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
+        run: |
+          if echo "$FILES_TO_RENDER" | grep -q "resume/index.qmd"; then
+            echo "Generating resume PDF"
+            mise exec -- uv run python .github/scripts/html_to_pdf.py \
+              ${{ github.workspace }}/_site/resume/index.html \
+              _site/resume/index.pdf
+          else
+            echo "Resume not changed, skipping PDF generation"
+          fi
 
       - name: Fix image paths and links in GFM files
         run: |

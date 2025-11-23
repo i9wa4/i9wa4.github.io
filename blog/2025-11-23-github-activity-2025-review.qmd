@@ -118,11 +118,11 @@ Vim + tmux + Alacritty + Zsh + AI CLI を組み合わせた統合環境を構築
 
 2025年は42本の記事を書きました（ブログ37本、スライド5本）。主な記事をいくつか挙げます。
 
-- [Vim と tmux で複数の AI エージェントを操作する](blog/2025-11-19-vim-tmux-orchestrating-ai-coding-agents.qmd)
-- [個人的ターミナル最適化 for Claude Code](blog/2025-07-14-optimize-your-teminal-for-claude-code.qmd)
-- [Codex CLI の設定ファイルを dotfiles で管理する](blog/2025-09-14-codex-cli-config-management.qmd)
-- [BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた](blog/2025-09-28-bigquery-dbt-incremental-intro.qmd)
-- [Vimへの初コントリビューションの経緯と学び](blog/2025-07-14-my-first-vim-contribution.qmd)
+- [Vim と tmux で複数の AI エージェントを操作する](2025-11-19-vim-tmux-orchestrating-ai-coding-agents.qmd)
+- [個人的ターミナル最適化 for Claude Code](2025-07-14-optimize-your-teminal-for-claude-code.qmd)
+- [Codex CLI の設定ファイルを dotfiles で管理する](2025-09-14-codex-cli-config-management.qmd)
+- [BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた](2025-09-28-bigquery-dbt-incremental-intro.qmd)
+- [Vimへの初コントリビューションの経緯と学び](2025-07-14-my-first-vim-contribution.qmd)
 
 ### 3.5. Vimエコシステムへの貢献
 
