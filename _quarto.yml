@@ -60,10 +60,6 @@ website:
       - text: "Quarto"
         href: "https://quarto.org/"
 
-include-in-header:
-  - _includes/hatena-nocomment.html
-  - _includes/anchor-icon-fix.html
-
 format:
   html:
     # https://quarto.org/docs/output-formats/html-themes.html
@@ -85,4 +81,7 @@ format:
     toc-depth: 2
     toc-expand: 2
     toc: true
+    include-in-header:
+      - _includes/hatena-nocomment.html
+      - _includes/anchor-icon-fix.html
   gfm: default
