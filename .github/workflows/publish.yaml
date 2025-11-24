@@ -25,7 +25,7 @@ jobs:
       TZ: 'Asia/Tokyo'
     steps:
       - name: Check out repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -40,7 +40,7 @@ jobs:
           bash ${{ github.workspace }}/.github/scripts/fix-timestamps.sh
 
       - name: Install mise
-        uses: jdx/mise-action@be3be2260bc02bc3fbf94c5e2fed8b7964baf074 # v3.4.0
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
           install_args: --yes
           cache: true
@@ -150,12 +150,8 @@ jobs:
       - name: Render Quarto Project (Full)
         if: steps.changes.outputs.mode == 'full'
         run: |
-          # Render HTML and RevealJS formats (default profile)
+          # Render all formats (HTML, RevealJS, and GFM)
           mise exec -- uv run quarto render
-          # Render GFM format using profile to avoid format conflicts
-          # Using profiles prevents the multi-format rendering bug where HTML and GFM compete for the same output path
-          # See: https://github.com/quarto-dev/quarto-cli/issues/6809
-          mise exec -- uv run quarto render --profile gfm
 
       - name: Render Quarto Project (Selective)
         if: steps.changes.outputs.mode == 'selective'
@@ -166,29 +162,12 @@ jobs:
             echo "Rendering changed/always-build files: $FILES_TO_RENDER"
             for file in $FILES_TO_RENDER; do
               if [ -f "$file" ]; then
-                echo "Rendering $file (HTML/RevealJS)"
+                echo "Rendering $file (all formats)"
                 mise exec -- uv run quarto render "$file"
               fi
             done
           else
             echo "No files to render"
-          fi
-
-      - name: Render GFM format (Selective)
-        if: steps.changes.outputs.mode == 'selective'
-        env:
-          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
-        run: |
-          if [ -n "$FILES_TO_RENDER" ]; then
-            echo "Rendering GFM format for changed/always-build files: $FILES_TO_RENDER"
-            for file in $FILES_TO_RENDER; do
-              if [ -f "$file" ]; then
-                echo "Rendering $file (GFM)"
-                mise exec -- uv run quarto render "$file" --profile gfm
-              fi
-            done
-          else
-            echo "No files to render for GFM"
           fi
 
       - name: Generate PDF from Reveal.js slides (Full)
