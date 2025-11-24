@@ -23,5 +23,9 @@ listing:
     type: grid
 ---
 
+::: {.callout-note}
+All slides are available in PDF format at the same URL path with `.pdf` extension (e.g., `https://i9wa4.github.io/slides/slide-name.pdf`).
+:::
+
 ::: {#list-all}
 :::

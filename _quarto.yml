@@ -85,8 +85,4 @@ format:
     toc-depth: 2
     toc-expand: 2
     toc: true
-
-profiles:
-  gfm:
-    format:
-      gfm: default
+  gfm: default
