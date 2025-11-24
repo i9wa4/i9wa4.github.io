@@ -1,0 +1,4 @@
+format:
+  revealjs:
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
