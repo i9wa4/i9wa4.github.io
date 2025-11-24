@@ -1,9 +1,9 @@
 <script>
-// Quartoが読み込むAnchorJSのデフォルトオプションを上書き
-// window.quartoConfig が存在する場合はそこから設定を変更
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
 window.addEventListener('load', function() {
   if (window.anchors) {
-    // すでに初期化されている場合は設定を変更して再適用
+    // If already initialized, modify settings and reapply
     window.anchors.options.icon = '#';
     window.anchors.remove('.anchored');
     window.anchors.add('.anchored');
