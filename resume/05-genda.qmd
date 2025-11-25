@@ -12,10 +12,6 @@ description: |
   - AWS から Databricks への機械学習開発基盤移行対応<br>
   - CI 導入など機械学習基盤の整備
 Period: "2024/11 - 現在"
-format:
-  html:
-    title-prefix: ""
-  gfm: default
 ---
 
 :会社概要・雇用形態 (2024年時点) {#tbl-company tbl-colwidths="[20,80]"}

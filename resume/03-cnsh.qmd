@@ -10,10 +10,6 @@ description: |
   - データマート整備<br>
   - 機械学習ワークフロー構築
 Period: "2022/04 - 2024/03"
-format:
-  html:
-    title-prefix: ""
-  gfm: default
 ---
 
 :会社概要・雇用形態 (2024年時点) {#tbl-company tbl-colwidths="[20,80]"}

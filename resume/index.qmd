@@ -39,10 +39,6 @@ listing:
       - "filename desc"
     sort-ui: false
     type: table
-format:
-  html:
-    title-prefix: ""
-  gfm: default
 ---
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->

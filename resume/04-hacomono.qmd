@@ -9,10 +9,6 @@ description: |
   - 自社環境・顧客環境の DWH 構築・運用<br>
   - 自社データ基盤の運用改善・機能追加
 Period: "2024/04 - 2024/10"
-format:
-  html:
-    title-prefix: ""
-  gfm: default
 ---
 
 :会社概要・雇用形態 (2024年時点) {#tbl-company tbl-colwidths="[20,80]"}

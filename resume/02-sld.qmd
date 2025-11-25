@@ -9,10 +9,6 @@ description: |
   - 車載マイコンの機能開発<br>
   - インバータやモータの制御開発
 Period: "2018/08 - 2022/03"
-format:
-  html:
-    title-prefix: ""
-  gfm: default
 ---
 
 :会社概要・雇用形態 (2022年時点) {#tbl-company tbl-colwidths="[20,80]"}
