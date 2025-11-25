@@ -104,8 +104,6 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "Manual trigger detected, removing _site/ for clean build"
             rm -rf _site
-            # Pre-create subdirectories to avoid Quarto rename errors
-            mkdir -p _site/blog _site/slides _site/resume
             FORCE_FULL_RENDER="true"
           fi
 
@@ -152,6 +150,8 @@ jobs:
       - name: Render Quarto Project (Full)
         if: steps.changes.outputs.mode == 'full'
         run: |
+          # Pre-create subdirectories to avoid Quarto rename errors
+          mkdir -p _site/blog _site/slides _site/resume
           # Render all formats (HTML, RevealJS, and GFM)
           mise exec -- uv run quarto render
 
