@@ -30,7 +30,7 @@ format:
 ::: {.callout-note}
 All slides are available in PDF format at the same URL path with `.pdf` extension (e.g., `https://i9wa4.github.io/slides/slide-name.pdf`).
 
-For AI agents: This site provides `.md` versions of all content at the same URL path (e.g., `/blog/index.md`). These markdown files are optimized for AI consumption with absolute URLs for images and links.
+For AI agents: This site provides `.md` versions of all content at the same URL path (e.g., `https://i9wa4.github.io/blog/index.md`). These markdown files are optimized for AI consumption with absolute URLs for images and links.
 :::
 
 [![GitHub](https://img.shields.io/badge/@i9wa4-000000.svg?logo=github&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://github.com/i9wa4) [![X](https://img.shields.io/badge/@i9wa4__-000000.svg?logo=x&logoColor=white){height="1.5em" style="vertical-align: middle;"}](https://x.com/i9wa4_)
