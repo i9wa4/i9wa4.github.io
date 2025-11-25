@@ -152,8 +152,12 @@ jobs:
         run: |
           # Pre-create subdirectories to avoid Quarto rename errors
           mkdir -p _site/blog _site/slides _site/resume
+          echo "=== _site/ before quarto render ==="
+          ls -la _site/ || echo "_site/ does not exist"
           # Render all formats (HTML, RevealJS, and GFM)
           mise exec -- uv run quarto render
+          echo "=== _site/ after quarto render ==="
+          ls -la _site/ || echo "_site/ does not exist"
 
       - name: Render Quarto Project (Selective)
         if: steps.changes.outputs.mode == 'selective'
