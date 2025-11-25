@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: "_site"
+  pre-render: mkdir -p _site/blog _site/slides _site/resume
   render:
     - "**/*.qmd"
     - "!*.md"
