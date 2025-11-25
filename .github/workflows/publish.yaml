@@ -104,6 +104,8 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "Manual trigger detected, removing _site/ for clean build"
             rm -rf _site
+            # Pre-create subdirectories to avoid Quarto rename errors
+            mkdir -p _site/blog _site/slides _site/resume
             FORCE_FULL_RENDER="true"
           fi
 
