@@ -4,8 +4,6 @@ author:
   - name: 運営チーム
 categories:
   - "slides"
-  - "event"
-  - "data"
 date: 2025-11-07
 date-modified: last-modified
 description: |
