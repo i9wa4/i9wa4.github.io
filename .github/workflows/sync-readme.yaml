@@ -1,9 +1,9 @@
 name: Sync README to i9wa4/i9wa4
-run-name: Sync README by @${{ github.actor }}
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # 毎月1日 00:00 UTC
+    - cron: "0 0 1 * *"
   workflow_dispatch:
 
 permissions: {}
@@ -23,7 +23,7 @@ jobs:
       - name: Fetch README from gh-pages
         run: |
           curl -fsSL -o README.md \
-            "https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-pages/about/index.md" || {
+            "https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-pages/about.md" || {
             echo "::error::Failed to fetch README from gh-pages"
             exit 1
           }
@@ -71,6 +71,6 @@ jobs:
           git push origin "$BRANCH"
           gh pr create \
             --title "sync: update README from i9wa4.github.io" \
-            --body "Auto-generated PR to sync README.md from [i9wa4.github.io](https://i9wa4.github.io/about/)." \
+            --body "Auto-generated PR to sync README.md from [i9wa4.github.io](https://i9wa4.github.io/about.html)." \
             --head "$BRANCH" \
             --base main

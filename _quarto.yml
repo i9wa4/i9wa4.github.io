@@ -85,5 +85,5 @@ website:
             text: "Slides"
           - href: "resume/index.qmd"
             text: "Resume"
-          - href: "about/index.qmd"
+          - href: "about.qmd"
             text: "About"
