@@ -189,6 +189,10 @@ jobs:
         if: steps.changes.outputs.mode == 'full'
         run: |
           for html in _site/slides/*.html; do
+            # Skip index.html (listing page, not a reveal.js slide)
+            if [ "$(basename "$html")" = "index.html" ]; then
+              continue
+            fi
             if [ -f "$html" ]; then
               pdf="${html%.html}.pdf"
               echo "Converting $html to $pdf"
@@ -202,6 +206,10 @@ jobs:
           FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
         run: |
           for file in $FILES_TO_RENDER; do
+            # Skip slides/index.qmd (listing page, not a reveal.js slide)
+            if [ "$file" = "slides/index.qmd" ]; then
+              continue
+            fi
             if [[ "$file" == slides/*.qmd ]]; then
               html="_site/${file%.qmd}.html"
               pdf="${html%.html}.pdf"
