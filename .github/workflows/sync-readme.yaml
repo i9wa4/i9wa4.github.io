@@ -1,0 +1,76 @@
+name: Sync README to i9wa4/i9wa4
+run-name: Sync README by @${{ github.actor }}
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"  # 毎月1日 00:00 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: sync-readme
+  cancel-in-progress: true
+
+jobs:
+  sync-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch README from gh-pages
+        run: |
+          curl -fsSL -o README.md \
+            "https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-pages/about/index.md" || {
+            echo "::error::Failed to fetch README from gh-pages"
+            exit 1
+          }
+          echo "=== Fetched README.md ==="
+          head -20 README.md
+
+      - name: Clone target repository
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SYNC_README }}
+        run: |
+          git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/i9wa4/i9wa4.git" target-repo
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if diff -q README.md target-repo/README.md > /dev/null 2>&1; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes detected"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected"
+          fi
+
+      - name: Create PR
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SYNC_README }}
+        run: |
+          cd target-repo
+
+          # Setup git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Create branch
+          BRANCH="sync-readme-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH"
+
+          # Copy and commit
+          cp ../README.md README.md
+          git add README.md
+          git commit -m "sync: update README from i9wa4.github.io"
+
+          # Push and create PR
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "sync: update README from i9wa4.github.io" \
+            --body "Auto-generated PR to sync README.md from [i9wa4.github.io](https://i9wa4.github.io/about/)." \
+            --head "$BRANCH" \
+            --base main

@@ -85,5 +85,5 @@ website:
             text: "Slides"
           - href: "resume/index.qmd"
             text: "Resume"
-          - href: "https://i9wa4.github.io/i9wa4"
+          - href: "about/index.qmd"
             text: "About"
