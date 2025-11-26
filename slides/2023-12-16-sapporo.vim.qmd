@@ -10,7 +10,6 @@ description: |
   2023-12-16 Sapporo.vim 自己紹介
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
-  gfm: default
   revealjs:
     footer: "https://connpass.com/event/302060/"
     incremental: false
@@ -22,6 +21,7 @@ format:
       - white
       - ../themes/font.scss
     title-prefix: ""
+  gfm: default
 ---
 
 ## 1. 自己紹介

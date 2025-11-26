@@ -13,7 +13,6 @@ execute:
 format-links: true
 
 format:
-  gfm: default
   html:
     code-copy: true
     code-overflow: wrap
@@ -37,6 +36,7 @@ format:
     toc-depth: 2
     toc-expand: 2
     toc: true
+  gfm: default
 
 website:
   title: "uma-chan's page"

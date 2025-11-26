@@ -11,7 +11,6 @@ description: |
   [登壇資料] 2025-11-07 試されDATA SAPPORO #1
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
-  gfm: default
   revealjs:
     auto-stretch: false
     code-copy: true
@@ -29,6 +28,7 @@ format:
     toc: false
     height: 1080
     width: 1920
+  gfm: default
 subtitle: Databricks on AWS はいいぞ
 ---
 
