@@ -8,5 +8,5 @@ dependencies = [
   "numpy",
   "pandas",
   "playwright==1.55.0",
-  "quarto-cli==1.8.25",
+  "quarto-cli==1.8.26",
 ]
