@@ -15,6 +15,8 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     footer: "自己紹介 馬渡大樹"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true
     slide-level: 3

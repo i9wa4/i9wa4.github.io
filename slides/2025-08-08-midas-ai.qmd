@@ -15,6 +15,8 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     footer: "2025-08-08 ミダス企業群生成AI横断勉強会"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true
     slide-level: 3

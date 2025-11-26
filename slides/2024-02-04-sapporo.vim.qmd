@@ -12,6 +12,8 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     footer: "https://connpass.com/event/307552/"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
     incremental: false
     logo: "/assets/common/icon_hhkb3.png"
     slide-level: 2

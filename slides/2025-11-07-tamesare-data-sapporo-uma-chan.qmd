@@ -15,6 +15,8 @@ format:
     auto-stretch: false
     code-copy: true
     footer: "[2025-11-07 試されDATA SAPPORO #1](https://tamesaredatahokkaido.connpass.com/event/369741/)"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true
     slide-level: 3

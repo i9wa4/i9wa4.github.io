@@ -16,6 +16,8 @@ format:
   revealjs:
     code-copy: true
     footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true
     slide-level: 3
