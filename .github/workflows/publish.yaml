@@ -152,6 +152,15 @@ jobs:
         run: |
           # Let Quarto manage directory structure for full builds
           mise exec -- uv run quarto render || true
+          # Debug: Show what files exist
+          echo "=== Source HTML files ==="
+          find . -maxdepth 1 -name "*.html" -type f 2>/dev/null || echo "No HTML files in root"
+          for dir in blog slides resume; do
+            echo "=== $dir/*.html ==="
+            find "$dir" -maxdepth 1 -name "*.html" -type f 2>/dev/null || echo "No HTML files in $dir"
+          done
+          echo "=== _site/ contents ==="
+          find _site -type f -name "*.html" 2>/dev/null | head -30 || echo "_site/ not found"
           # Workaround: Copy HTML files that Quarto failed to move
           # Root index.html
           if [ -f "index.html" ] && [ ! -f "_site/index.html" ]; then
