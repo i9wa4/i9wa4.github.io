@@ -59,6 +59,14 @@ website:
     left:
       - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
     right:
+      - icon: github
+        href: "https://github.com/i9wa4"
+      - icon: twitter-x
+        href: "https://x.com/i9wa4_"
+      - icon: linkedin
+        href: "https://www.linkedin.com/in/daikm"
+      - icon: rss
+        href: "index.xml"
       - text: "Built with"
       - text: "Quarto"
         href: "https://quarto.org/"
