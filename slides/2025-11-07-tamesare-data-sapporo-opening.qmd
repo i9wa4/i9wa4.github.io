@@ -12,6 +12,7 @@ description: |
   [オープニングスライド] 2025-11-07 試されDATA SAPPORO #1
 image: "/assets/2025-11-07-tamesare-data-sapporo-opening/tamesare-data.png"
 format:
+  gfm: default
   revealjs:
     code-copy: true
     footer: "[2025-11-07 試されDATA SAPPORO #1](https://tamesaredatahokkaido.connpass.com/event/369741/)"
@@ -23,10 +24,9 @@ format:
     theme:
       - simple
       - ../themes/font.scss
-    width: 1920
-    height: 1080
     title-prefix: ""
-  gfm: default
+    height: 1080
+    width: 1920
 subtitle: 北海道に縁のある人たちがデータやAIを中心にワイワイする場所
 ---
 

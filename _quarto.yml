@@ -10,6 +10,34 @@ date-format: iso
 execute:
   freeze: auto
 
+format-links: true
+
+format:
+  gfm: default
+  html:
+    code-copy: true
+    code-overflow: wrap
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+    include-in-header:
+      - _includes/hatena-nocomment.html
+      - _includes/anchor-icon-fix.html
+    linestretch: 1.4
+    page-layout: full
+    # https://quarto.org/docs/output-formats/html-themes.html
+    theme:
+      light:
+        - yeti
+        - themes/font.scss
+      dark:
+        - darkly
+        - themes/font.scss
+    toc-depth: 2
+    toc-expand: 2
+    toc: true
+
 website:
   title: "uma-chan's page"
   bread-crumbs: false
@@ -27,6 +55,13 @@ website:
     card-style: summary_large_image
     creator: "@i9wa4_"
     site: "@i9wa4_"
+  page-footer:
+    left:
+      - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
+    right:
+      - text: "Built with"
+      - text: "Quarto"
+        href: "https://quarto.org/"
   sidebar:
     style: floating
     tools:
@@ -52,38 +87,3 @@ website:
             text: "Resume"
           - href: "https://i9wa4.github.io/i9wa4"
             text: "About"
-  page-footer:
-    left:
-      - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
-    right:
-      - text: "Built with"
-      - text: "Quarto"
-        href: "https://quarto.org/"
-
-format-links: true
-
-format:
-  html:
-    # https://quarto.org/docs/output-formats/html-themes.html
-    theme:
-      light:
-        - yeti
-        - themes/font.scss
-      dark:
-        - darkly
-        - themes/font.scss
-    code-copy: true
-    code-overflow: wrap
-    grid:
-      sidebar-width: 250px
-      body-width: 900px
-      margin-width: 300px
-    linestretch: 1.4
-    page-layout: full
-    toc-depth: 2
-    toc-expand: 2
-    toc: true
-    include-in-header:
-      - _includes/hatena-nocomment.html
-      - _includes/anchor-icon-fix.html
-  gfm: default

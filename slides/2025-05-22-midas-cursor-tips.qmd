@@ -13,27 +13,25 @@ description: |
   [登壇資料] 2025-05-22 AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
+  gfm: default
   revealjs:
     code-copy: true
-    # embed-resources: true
     footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
     incremental: false
     scrollable: true
-    # self-contained: true
     slide-level: 3
     slide-number: true
     smaller: false
     theme:
       - default
       - ../themes/genda.scss
-    width: 1920
-    height: 1080
+    title-prefix: ""
     title-slide-attributes:
       data-background-color: "#001722"  # Dark Navy
       # data-background-image: ""
       data-background-size: "cover"
-    title-prefix: ""
-  gfm: default
+    height: 1080
+    width: 1920
 ---
 
 ## 1. はじめに
