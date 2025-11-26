@@ -1,7 +1,8 @@
 ---
 title: "Slides"
 format:
-  html: default
+  html:
+    title-prefix: ""
 repo-actions: false
 listing:
   - id: "list-all"
