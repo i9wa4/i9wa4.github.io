@@ -25,6 +25,8 @@ format:
       - simple
       - ../themes/font.scss
     title-prefix: ""
+    toc-depth: 2
+    toc: false
     height: 1080
     width: 1920
 subtitle: 北海道に縁のある人たちがデータやAIを中心にワイワイする場所
