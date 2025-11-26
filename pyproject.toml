@@ -3,10 +3,10 @@ name = "i9wa4-github-io"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = "~=3.13.0"
+requires-python = "~=3.14.0"
 dependencies = [
   "numpy",
   "pandas",
   "playwright==1.56.0",
-  "quarto-cli==1.8.25",
+  "quarto-cli==1.8.26",
 ]
