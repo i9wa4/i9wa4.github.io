@@ -1,16 +1,16 @@
 ---
 title: "Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも"
 author: uma-chan
-date: 2025-07-28 01:53:53 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Claude Code 対応の Dev Container 環境をサクッと構築。VS Code 以外のエディタでも恩恵を受けられます
 categories:
   - "blog"
   - "tech"
   - "tech-ai"
   - "tech-vscode"
+date: 2025-07-28 01:53:53 +0900
+date-modified: last-modified
+description: |
+  Claude Code 対応の Dev Container 環境をサクッと構築。VS Code 以外のエディタでも恩恵を受けられます
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 本記事は3部構成の1本目です。

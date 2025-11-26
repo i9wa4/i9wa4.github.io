@@ -1,14 +1,14 @@
 ---
 title: ":%s/i9wa4/uma-chan/g"
 author: uma-chan
-date: 2024-10-25 21:29:49 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Renaming i9wa4 to uma-chan
 categories:
   - "blog"
   - "diary"
+date: 2024-10-25 21:29:49 +0900
+date-modified: last-modified
+description: |
+  Renaming i9wa4 to uma-chan
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 元々 i9wa4 (いくわよ) を名乗っていましたが、現職でのニックネームに引きずられ、バーチャルがリアルに侵食された末に uma-chan (うまちゃん) と名乗っていくことを決めました。

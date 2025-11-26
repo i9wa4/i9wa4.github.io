@@ -1,16 +1,15 @@
 ---
 title: "試されDATA SAPPORO #1"
-subtitle: 北海道に縁のある人たちがデータやAIを中心にワイワイする場所
 author:
   - name: 運営チーム
-date: 2025-11-07
-date-modified: last-modified
-description: |
-  [オープニングスライド] 2025-11-07 試されDATA SAPPORO #1
 categories:
   - "slides"
   - "event"
   - "data"
+date: 2025-11-07
+date-modified: last-modified
+description: |
+  [オープニングスライド] 2025-11-07 試されDATA SAPPORO #1
 image: "/assets/2025-11-07-tamesare-data-sapporo-opening/tamesare-data.png"
 format:
   revealjs:
@@ -28,6 +27,7 @@ format:
     height: 1080
     title-prefix: ""
   gfm: default
+subtitle: 北海道に縁のある人たちがデータやAIを中心にワイワイする場所
 ---
 
 ## 1. ようこそ

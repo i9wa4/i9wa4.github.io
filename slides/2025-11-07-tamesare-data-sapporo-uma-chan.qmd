@@ -1,15 +1,14 @@
 ---
 title: GENDA の機械学習環境を AWS から Databricks に移行してみた
-subtitle: Databricks on AWS はいいぞ
 author:
   - name: uma-chan
+categories:
+  - "slides"
+  - "genda"
 date: 2025-11-07
 date-modified: last-modified
 description: |
   [登壇資料] 2025-11-07 試されDATA SAPPORO #1
-categories:
-  - "slides"
-  - "genda"
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
@@ -28,6 +27,7 @@ format:
     height: 1080
     title-prefix: ""
   gfm: default
+subtitle: Databricks on AWS はいいぞ
 ---
 
 ## 1. はじめに

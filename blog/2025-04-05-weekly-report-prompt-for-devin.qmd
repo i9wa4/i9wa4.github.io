@@ -1,15 +1,15 @@
 ---
 title: "Devin 週報作成用プロンプト"
 author: uma-chan
-date: 2025-04-05 12:00:00 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Devin に週報を書いてもらうためのプロンプト
 categories:
   - "blog"
   - "tech"
   - "tech-ai"
+date: 2025-04-05 12:00:00 +0900
+date-modified: last-modified
+description: |
+  Devin に週報を書いてもらうためのプロンプト
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 親記事は以下です。

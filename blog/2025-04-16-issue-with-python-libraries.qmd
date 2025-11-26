@@ -1,15 +1,15 @@
 ---
 title: "Python でありがちな本体バージョンとライブラリバージョンの不整合の例"
 author: uma-chan
-date: 2025-04-16 12:00:00 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Python のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます
 categories:
   - "blog"
   - "tech"
   - "tech-python"
+date: 2025-04-16 12:00:00 +0900
+date-modified: last-modified
+description: |
+  Python のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

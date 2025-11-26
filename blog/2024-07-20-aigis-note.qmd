@@ -1,15 +1,15 @@
 ---
 title: "自分用千年戦争アイギスメモ"
 author: uma-chan
-date: 2024-07-20 22:46:56 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  千年戦争アイギスの自分用メモ
 categories:
   - "blog"
   - "game"
   - "memo"
+date: 2024-07-20 22:46:56 +0900
+date-modified: last-modified
+description: |
+  千年戦争アイギスの自分用メモ
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 偶にハマって偶に飽きて辞めるという距離感で遊んでいる千年戦争アイギスのメモです。

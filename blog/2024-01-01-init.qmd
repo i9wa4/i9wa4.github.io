@@ -1,14 +1,14 @@
 ---
 title: "Initial Post"
 author: uma-chan
-date: 2024-01-01 03:28:12 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-descriptin: |
-  初投稿！
 categories:
   - "blog"
   - "diary"
+date: 2024-01-01 03:28:12 +0900
+date-modified: last-modified
+description: |
+  初投稿！
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 初投稿になります。

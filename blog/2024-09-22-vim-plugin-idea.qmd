@@ -1,15 +1,15 @@
 ---
 title: "最近の Vim プラグイン開発のアイデア"
 author: uma-chan
-date: 2024-09-22 23:04:59 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  最近の Vim プラグイン開発のアイデアをメモしておきます
 categories:
   - "blog"
   - "tech"
   - "tech-vim"
+date: 2024-09-22 23:04:59 +0900
+date-modified: last-modified
+description: |
+  最近の Vim プラグイン開発のアイデアをメモしておきます
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 dotfiles から切り離したくなってきたらそれがプラグインの作り時。

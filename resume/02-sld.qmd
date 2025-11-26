@@ -1,8 +1,8 @@
 ---
 title: "新光商事LSIデザインセンター株式会社"
-date-modified: last-modified
 categories:
   - "正社員"
+date-modified: last-modified
 description: |
   組込エンジニアとして以下に従事<br>
   - 車載マイコンの機能開発<br>

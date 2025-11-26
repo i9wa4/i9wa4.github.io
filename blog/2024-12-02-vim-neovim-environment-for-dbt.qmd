@@ -1,16 +1,16 @@
 ---
 title: "Vim/Neovim の dbt 開発環境の現状と Vim を救う話"
 author: uma-chan
-date: 2024-12-02 07:00 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  私が業務でよく利用する dbt のローカル開発環境の話をしていきます
 categories:
   - "blog"
   - "tech"
   - "tech-data"
   - "tech-vim"
+date: 2024-12-02 07:00 +0900
+date-modified: last-modified
+description: |
+  私が業務でよく利用する dbt のローカル開発環境の話をしていきます
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

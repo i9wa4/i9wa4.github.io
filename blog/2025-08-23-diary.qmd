@@ -1,14 +1,14 @@
 ---
 title: "2025-08-23 日誌"
 author: uma-chan
-date: 2025-08-23 23:59:20 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  2025-08-23 日誌
 categories:
   - "blog"
   - "diary"
+date: 2025-08-23 23:59:20 +0900
+date-modified: last-modified
+description: |
+  2025-08-23 日誌
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 毎日書いているような顔してますが初めての日誌です

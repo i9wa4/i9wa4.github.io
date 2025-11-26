@@ -1,14 +1,14 @@
 ---
 title: "GitHub Pages (Jekyll) blog のタグ追加対応"
 author: uma-chan
+categories:
+  - "blog"
+  - "tech"
 date: 2024-01-02 17:34:55 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 descriptin: |
   GitHub Pages (Jekyll) blog のタグ追加対応について
-categories:
-  - "blog"
-  - "tech"
 ---
 
 [2024-07-15 追記] ブログは Jekyll から Quarto に切り替えたため下記内容はブログに反映されなくなっています。

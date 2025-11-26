@@ -1,17 +1,17 @@
 ---
 title: "個人的ターミナル最適化 for Claude Code"
 author: uma-chan
-date: 2025-07-14 02:27:26 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Claude Code を便利に使うためのターミナル環境について共有します
 categories:
   - "blog"
   - "tech"
   - "tech-ai"
   - "tech-tmux"
   - "tech-vim"
+date: 2025-07-14 02:27:26 +0900
+date-modified: last-modified
+description: |
+  Claude Code を便利に使うためのターミナル環境について共有します
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

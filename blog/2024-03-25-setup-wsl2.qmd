@@ -1,14 +1,14 @@
 ---
 title: "WSL2 のセットアップ"
 author: uma-chan
+categories:
+  - "blog"
+  - "tech"
 date: 2024-03-25 23:00:48 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 descriptin: |
   Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます
-categories:
-  - "blog"
-  - "tech"
 ---
 
 Windows マシンを新調する度に WSL2 をインストールしているので手順を書き残しておきます。

@@ -1,8 +1,8 @@
 ---
 title: "株式会社hacomono"
-date-modified: last-modified
 categories:
   - "正社員"
+date-modified: last-modified
 description: |
   データエンジニアとして以下に従事<br>
   - 自社環境・顧客環境の DWH 構築・運用<br>

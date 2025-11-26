@@ -1,16 +1,16 @@
 ---
 title: "Vimへの初コントリビューションの経緯と学び"
 author: uma-chan
-date: 2025-07-14 00:06:04 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Vim 本体への初コントリビューションの経緯と学びを共有します
 categories:
   - "blog"
   - "tech"
   - "tech-vim"
   - "vim-jp"
+date: 2025-07-14 00:06:04 +0900
+date-modified: last-modified
+description: |
+  Vim 本体への初コントリビューションの経緯と学びを共有します
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ::: {.callout-note}

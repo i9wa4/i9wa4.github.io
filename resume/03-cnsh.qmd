@@ -1,8 +1,8 @@
 ---
 title: "株式会社シイエヌエス北海道"
-date-modified: last-modified
 categories:
   - "正社員"
+date-modified: last-modified
 description: |
   データエンジニア・MLOps エンジニアとして以下に従事<br>
   - データパイプライン構築<br>

@@ -1,15 +1,15 @@
 ---
 title: "Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する"
 author: uma-chan
-date: 2024-08-25 17:25:32 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介します
 categories:
   - "blog"
   - "tech"
   - "tech-quarto"
+date: 2024-08-25 17:25:32 +0900
+date-modified: last-modified
+description: |
+  GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介します
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。

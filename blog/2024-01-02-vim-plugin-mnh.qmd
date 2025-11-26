@@ -1,15 +1,15 @@
 ---
 title: "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介"
 author: uma-chan
+categories:
+  - "blog"
+  - "tech"
+  - "tech-vim"
 date: 2024-01-02 21:47:46 +0900
 date-modified: last-modified
 image: "/assets/common/icon_hhkb3_large.jpg"
 descriptin: |
   自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介
-categories:
-  - "blog"
-  - "tech"
-  - "tech-vim"
 ---
 
 少し前に作った Vim/Neovim プラグインの紹介記事となります。

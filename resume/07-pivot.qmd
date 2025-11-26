@@ -1,8 +1,8 @@
 ---
 title: "PIVOT株式会社"
-date-modified: last-modified
 categories:
   - "業務委託"
+date-modified: last-modified
 description: |
   データエンジニア
 Period: "2025/06 - 現在"

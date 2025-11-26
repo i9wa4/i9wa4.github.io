@@ -1,16 +1,16 @@
 ---
 title: "Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions"
 author: uma-chan
-date: 2025-07-28 01:53:58 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  uv と pre-commit で Python 開発環境を最適化。 VS Code 以外のエディタや GitHub Actions でも統一された品質を保てます
 categories:
   - "blog"
   - "tech"
   - "tech-python"
   - "tech-vscode"
+date: 2025-07-28 01:53:58 +0900
+date-modified: last-modified
+description: |
+  uv と pre-commit で Python 開発環境を最適化。 VS Code 以外のエディタや GitHub Actions でも統一された品質を保てます
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 本記事は3部構成の2本目です。

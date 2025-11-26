@@ -1,14 +1,14 @@
 ---
 title: "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)"
 author: uma-chan
-date: 2025-03-23 12:00:00 +0900
-date-modified: last-modified
-# image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Notion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します
 categories:
   - "blog"
   - "tech"
+date: 2025-03-23 12:00:00 +0900
+date-modified: last-modified
+description: |
+  Notion データベースでリレーションプロパティ (列) にリレーション元のプロパティも併せて表示させる方法を紹介します
+# image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

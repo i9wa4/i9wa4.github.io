@@ -4,13 +4,13 @@ author:
   - name: 馬渡 大樹
     affiliation: PIVOT株式会社
     roles: データエンジニア
+categories:
+  - "slides"
+  - "pivot"
 date: 2025-06-03
 date-modified: last-modified
 description: |
   2025-06-03 自己紹介 @PIVOT
-categories:
-  - "slides"
-  - "pivot"
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:

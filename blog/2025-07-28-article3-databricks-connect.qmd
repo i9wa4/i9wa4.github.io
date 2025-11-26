@@ -1,16 +1,16 @@
 ---
 title: "Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用"
 author: uma-chan
-date: 2025-07-28 01:54:03 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Databricks Connect でローカル開発環境から Databricks の Spark セッションを制御します
 categories:
   - "blog"
   - "tech"
   - "tech-python"
   - "tech-databricks"
+date: 2025-07-28 01:54:03 +0900
+date-modified: last-modified
+description: |
+  Databricks Connect でローカル開発環境から Databricks の Spark セッションを制御します
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 本記事は3部構成の3本目です。

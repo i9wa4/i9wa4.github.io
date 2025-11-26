@@ -1,14 +1,14 @@
 ---
 title: "systemd がユーザー権限でも使える"
 author: uma-chan
-date: 2024-06-28 01:56:32 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  systemd がユーザー権限でも設定できる
 categories:
   - "blog"
   - "tech"
+date: 2024-06-28 01:56:32 +0900
+date-modified: last-modified
+description: |
+  systemd がユーザー権限でも設定できる
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 systemd がユーザー権限でも設定できると知ったので記事にします。

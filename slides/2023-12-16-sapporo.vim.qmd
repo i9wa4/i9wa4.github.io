@@ -1,13 +1,13 @@
 ---
 title: "Sapporo.vim 自己紹介"
 author: i9wa4
+categories:
+  - "slides"
+  - "vim-jp"
 date: 2023-12-16
 date-modified: last-modified
 description: |
   2023-12-16 Sapporo.vim 自己紹介
-categories:
-  - "slides"
-  - "vim-jp"
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:

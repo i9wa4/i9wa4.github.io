@@ -1,14 +1,14 @@
 ---
 title: "Codex CLI の設定ファイルを dotfiles で管理する"
 author: uma-chan
-date: 2025-09-14 21:55:32 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。
 categories:
   - "blog"
   - "tech-ai"
+date: 2025-09-14 21:55:32 +0900
+date-modified: last-modified
+description: |
+  Codex CLI の設定ファイルを dotfiles で管理する方法について説明します。
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 Codex CLI を使い始めたのですが dotfiles 使いにとっては辛い部分があり距離を置いてしまっていました。

@@ -1,8 +1,8 @@
 ---
 title: "オークマ株式会社"
-date-modified: last-modified
 categories:
   - "正社員"
+date-modified: last-modified
 description: |
   Windows アプリエンジニアとして以下に従事<br>
   - Windows 用 CAD/CAM アプリ開発の要件定義・テスト

@@ -1,14 +1,14 @@
 ---
 title: "キャリアについてぼんやり考えていたことを時系列順にまとめる"
 author: uma-chan
-date: 2024-10-25 23:17:19 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました
 categories:
   - "blog"
   - "diary"
+date: 2024-10-25 23:17:19 +0900
+date-modified: last-modified
+description: |
+  自分のキャリアについてぼんやり考えていたことを時系列順にまとめてみました
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 言ってしまえばポジティブな就職・転職理由を並べるといったところでしょうか。

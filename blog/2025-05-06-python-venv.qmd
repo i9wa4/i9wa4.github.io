@@ -1,15 +1,15 @@
 ---
 title: "Python venv インストール・更新スクリプトの供養"
 author: uma-chan
-date: 2025-05-06 22:57:36 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Python venv 仮想環境のインストール・更新スクリプトを供養します
 categories:
   - "blog"
   - "tech"
   - "tech-python"
+date: 2025-05-06 22:57:36 +0900
+date-modified: last-modified
+description: |
+  Python venv 仮想環境のインストール・更新スクリプトを供養します
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

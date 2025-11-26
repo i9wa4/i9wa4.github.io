@@ -1,17 +1,17 @@
 ---
 title: "tmux で Vim から Claude Code にテキストを送信するプラグインを作った"
 author: uma-chan
-date: 2025-06-20 03:00:02 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  tmux で Vim から Claude Code にテキストを送信する Vim プラグインの紹介
 categories:
   - "blog"
   - "tech"
   - "tech-ai"
   - "tech-tmux"
   - "tech-vim"
+date: 2025-06-20 03:00:02 +0900
+date-modified: last-modified
+description: |
+  tmux で Vim から Claude Code にテキストを送信する Vim プラグインの紹介
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

@@ -1,17 +1,16 @@
 ---
 title: "Claude Code データ業務活用"
-subtitle: "ミダス企業群生成AI横断勉強会"
 author:
   - name: 馬渡 大樹
     affiliation: 株式会社GENDA
     roles: データエンジニア
+categories:
+  - "slides"
+  - "genda"
 date: 2025-08-08
 date-modified: last-modified
 description: |
   [登壇資料] 2025-08-08 ミダス企業群生成AI横断勉強会
-categories:
-  - "slides"
-  - "genda"
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
@@ -27,6 +26,7 @@ format:
     toc-depth: 2
     toc: false
   gfm: default
+subtitle: "ミダス企業群生成AI横断勉強会"
 ---
 
 ## 1. はじめに

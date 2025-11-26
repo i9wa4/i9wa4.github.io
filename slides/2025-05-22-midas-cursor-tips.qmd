@@ -4,13 +4,13 @@ author:
   - name: 馬渡 大樹
     affiliation: 株式会社GENDA
     roles: データエンジニア
+categories:
+  - "slides"
+  - "genda"
 date: 2025-05-22
 date-modified: last-modified
 description: |
   [登壇資料] 2025-05-22 AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)
-categories:
-  - "slides"
-  - "genda"
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:

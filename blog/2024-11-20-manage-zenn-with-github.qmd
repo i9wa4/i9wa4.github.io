@@ -1,14 +1,14 @@
 ---
 title: "Zennの記事をGitHubリポジトリで管理する"
 author: uma-chan
-date: 2024-11-20 17:49:32 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  Zenn の記事を GitHub リポジトリで管理する方法をまとめました
 categories:
   - "blog"
   - "tech"
+date: 2024-11-20 17:49:32 +0900
+date-modified: last-modified
+description: |
+  Zenn の記事を GitHub リポジトリで管理する方法をまとめました
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 Zenn に書いた以下の記事と全く同じ内容です。

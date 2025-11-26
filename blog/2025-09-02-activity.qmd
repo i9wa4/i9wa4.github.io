@@ -1,14 +1,14 @@
 ---
 title: "2025年のアウトプットまとめ with LAPRAS"
 author: uma-chan
-date: 2025-09-02 09:25:52 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  2025年のアウトプットを LAPRAS に出力してもらいました。
 categories:
   - "blog"
   - "diary"
+date: 2025-09-02 09:25:52 +0900
+date-modified: last-modified
+description: |
+  2025年のアウトプットを LAPRAS に出力してもらいました。
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 2025年のアウトプットと参加イベントをふりかえると

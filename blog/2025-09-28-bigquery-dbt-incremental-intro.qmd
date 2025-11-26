@@ -1,16 +1,16 @@
 ---
 title: "BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた"
 author: uma-chan
-date: 2025-09-28 21:38:33 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する
 categories:
   - "blog"
   - "tech"
   - "tech-data"
   - "tech-dbt"
+date: 2025-09-28 21:38:33 +0900
+date-modified: last-modified
+description: |
+  BigQuery 上で dbt incremental モデルの dbt run 実行時間を40分短縮した手順を共有する
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

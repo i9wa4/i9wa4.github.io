@@ -1,15 +1,15 @@
 ---
 title: "uv で Python のグローバルインストールを行う"
 author: uma-chan
-date: 2025-06-10 14:37:57 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  uv を使って Python のグローバルインストールを行う
 categories:
   - "blog"
   - "tech"
   - "tech-python"
+date: 2025-06-10 14:37:57 +0900
+date-modified: last-modified
+description: |
+  uv を使って Python のグローバルインストールを行う
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに

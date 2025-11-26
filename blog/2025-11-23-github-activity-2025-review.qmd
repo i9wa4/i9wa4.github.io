@@ -1,14 +1,14 @@
 ---
 title: "2025年のGitHub活動を振り返る：AI駆動開発の年"
 author: uma-chan
-date: 2025-11-23 15:31:03 +0900
-date-modified: last-modified
-image: "/assets/common/icon_hhkb3_large.jpg"
-description: |
-  1,858コミット、42本の技術記事、4つのVimプラグイン。AI駆動開発に本格参戦した2025年の活動を数値とともに振り返ります
 categories:
   - "blog"
   - "diary"
+date: 2025-11-23 15:31:03 +0900
+date-modified: last-modified
+description: |
+  1,858コミット、42本の技術記事、4つのVimプラグイン。AI駆動開発に本格参戦した2025年の活動を数値とともに振り返ります
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. はじめに
