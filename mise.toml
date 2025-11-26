@@ -9,4 +9,4 @@ shellcheck = "0.11.0"
 # Aqua tools
 "aqua:rhysd/actionlint" = "1.7.9"
 "aqua:suzuki-shunsuke/pinact" = "3.4.4"
-"aqua:zizmorcore/zizmor" = "1.16.2"
+"aqua:zizmorcore/zizmor" = "1.17.0"
