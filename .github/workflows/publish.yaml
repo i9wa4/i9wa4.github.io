@@ -151,7 +151,22 @@ jobs:
         if: steps.changes.outputs.mode == 'full'
         run: |
           # Let Quarto manage directory structure for full builds
-          mise exec -- uv run quarto render
+          mise exec -- uv run quarto render || true
+          # Workaround: Copy index.html files that Quarto failed to move
+          for dir in blog slides resume; do
+            if [ -f "$dir/index.html" ] && [ ! -f "_site/$dir/index.html" ]; then
+              echo "Workaround: Copying $dir/index.html to _site/$dir/"
+              mkdir -p "_site/$dir"
+              cp "$dir/index.html" "_site/$dir/index.html"
+            fi
+          done
+          # Verify critical files exist
+          for f in _site/index.html _site/blog/index.html _site/slides/index.html _site/resume/index.html; do
+            if [ ! -f "$f" ]; then
+              echo "ERROR: $f not found"
+              exit 1
+            fi
+          done
 
       - name: Render Quarto Project (Selective)
         if: steps.changes.outputs.mode == 'selective'
