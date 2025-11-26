@@ -25,6 +25,7 @@ format:
       - ../themes/font.scss
     toc-depth: 2
     toc: false
+    title-prefix: ""
   gfm: default
 subtitle: "ミダス企業群生成AI横断勉強会"
 ---

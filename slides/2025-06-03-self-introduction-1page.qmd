@@ -25,6 +25,7 @@ format:
       - ../themes/font.scss
     toc-depth: 2
     toc: false
+    title-prefix: ""
   gfm: default
 ---
 
