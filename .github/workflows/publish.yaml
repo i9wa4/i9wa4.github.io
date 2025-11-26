@@ -150,29 +150,7 @@ jobs:
       - name: Render Quarto Project (Full)
         if: steps.changes.outputs.mode == 'full'
         run: |
-          mise exec -- uv run quarto render || true
-          # Workaround for Quarto bug: copy any HTML files left in source directories to _site/
-          echo "=== Workaround: Copy unmoved HTML files to _site/ ==="
-          for dir in blog slides resume; do
-            if [ -d "$dir" ]; then
-              find "$dir" -maxdepth 1 -name "*.html" -type f | while read -r src; do
-                dst="_site/$src"
-                if [ ! -f "$dst" ]; then
-                  mkdir -p "$(dirname "$dst")"
-                  echo "Copying $src to $dst"
-                  cp "$src" "$dst"
-                fi
-              done
-            fi
-          done
-          # Verify critical files exist
-          for f in _site/index.html _site/blog/index.html _site/slides/index.html _site/resume/index.html; do
-            if [ ! -f "$f" ]; then
-              echo "ERROR: $f not found after workaround"
-              exit 1
-            fi
-          done
-          echo "All critical files exist"
+          mise exec -- uv run quarto render
 
       - name: Render Quarto Project (Selective)
         if: steps.changes.outputs.mode == 'selective'
