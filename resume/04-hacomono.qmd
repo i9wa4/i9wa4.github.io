@@ -1,7 +1,6 @@
 ---
 title: "株式会社hacomono"
 date-modified: last-modified
-repo-actions: false
 categories:
   - "正社員"
 description: |

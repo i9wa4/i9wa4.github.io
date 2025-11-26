@@ -2,7 +2,6 @@
 title: "uma-chan's page"
 description: |
   All of my thoughts.
-repo-actions: true
 listing:
   - id: "list-all"
     categories: numbered

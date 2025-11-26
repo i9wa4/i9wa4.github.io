@@ -1,7 +1,6 @@
 ---
 title: "職務経歴書"
 date-modified: last-modified
-repo-actions: false
 listing:
   - id: "list-details-full-time"
     contents:
