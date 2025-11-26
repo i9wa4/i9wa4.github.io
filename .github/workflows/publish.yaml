@@ -150,13 +150,8 @@ jobs:
       - name: Render Quarto Project (Full)
         if: steps.changes.outputs.mode == 'full'
         run: |
-          # Pre-create subdirectories to avoid Quarto rename errors
-          mkdir -p _site/blog _site/slides _site/resume
-          echo "=== _site/ before quarto render ===" && ls -la _site/
-          # Render all formats (HTML, RevealJS, and GFM)
-          # --no-clean: Do not clean project output-dir prior to render
-          mise exec -- uv run quarto render --no-clean || true
-          echo "=== _site/ after quarto render ===" && ls -la _site/ || true
+          # Let Quarto manage directory structure for full builds
+          mise exec -- uv run quarto render
 
       - name: Render Quarto Project (Selective)
         if: steps.changes.outputs.mode == 'selective'
