@@ -150,31 +150,15 @@ jobs:
       - name: Render Quarto Project (Full)
         if: steps.changes.outputs.mode == 'full'
         run: |
-          # Let Quarto manage directory structure for full builds
+          # Pre-create output directories
+          mkdir -p _site/blog _site/slides _site/resume
+          # Run quarto render twice - first run may fail on file moves but second should complete
           mise exec -- uv run quarto render || true
-          # Debug: Show what files exist
-          echo "=== Source HTML files ==="
-          find . -maxdepth 1 -name "*.html" -type f 2>/dev/null || echo "No HTML files in root"
-          for dir in blog slides resume; do
-            echo "=== $dir/*.html ==="
-            find "$dir" -maxdepth 1 -name "*.html" -type f 2>/dev/null || echo "No HTML files in $dir"
-          done
-          echo "=== _site/ contents ==="
-          find _site -type f -name "*.html" 2>/dev/null | head -30 || echo "_site/ not found"
-          # Workaround: Copy HTML files that Quarto failed to move
-          # Root index.html
-          if [ -f "index.html" ] && [ ! -f "_site/index.html" ]; then
-            echo "Workaround: Copying index.html to _site/"
-            cp index.html _site/index.html
-          fi
-          # Subdirectory index.html files
-          for dir in blog slides resume; do
-            if [ -f "$dir/index.html" ] && [ ! -f "_site/$dir/index.html" ]; then
-              echo "Workaround: Copying $dir/index.html to _site/$dir/"
-              mkdir -p "_site/$dir"
-              cp "$dir/index.html" "_site/$dir/index.html"
-            fi
-          done
+          echo "=== First render complete, running again ==="
+          mise exec -- uv run quarto render || true
+          # Debug: Show _site contents
+          echo "=== _site/ HTML files ==="
+          find _site -type f -name "*.html" | wc -l
           # Verify critical files exist
           for f in _site/index.html _site/blog/index.html _site/slides/index.html _site/resume/index.html; do
             if [ ! -f "$f" ]; then
@@ -182,6 +166,7 @@ jobs:
               exit 1
             fi
           done
+          echo "All critical files exist"
 
       - name: Render Quarto Project (Selective)
         if: steps.changes.outputs.mode == 'selective'
