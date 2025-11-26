@@ -23,8 +23,6 @@ listing:
       - "date desc"
       - "title"
     type: grid
-format:
-  gfm: default
 ---
 
 ::: {.callout-note}
