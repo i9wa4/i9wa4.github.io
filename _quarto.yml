@@ -72,7 +72,6 @@ website:
         href: "https://quarto.org/"
   sidebar:
     style: floating
-    title: "uma-chan's page"
     tools:
       - icon: github
         href: "https://github.com/i9wa4"
@@ -83,6 +82,9 @@ website:
       - icon: rss
         href: "index.xml"
     contents:
+      - href: "index.qmd"
+        text: "Home"
+      - text: "---"
       - section: "Content"
         contents:
           - href: "blog/index.qmd"
