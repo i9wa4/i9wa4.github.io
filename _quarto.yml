@@ -60,6 +60,8 @@ website:
       - text: "Quarto"
         href: "https://quarto.org/"
 
+format-links: true
+
 format:
   html:
     # https://quarto.org/docs/output-formats/html-themes.html
