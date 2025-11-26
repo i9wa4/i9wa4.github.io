@@ -1,9 +1,9 @@
 name: Sync README to i9wa4/i9wa4
-run-name: Sync README by @${{ github.actor }}
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
 
 on:
   schedule:
-    - cron: "0 0 1 * *"  # 毎月1日 00:00 UTC
+    - cron: "0 0 1 * *"
   workflow_dispatch:
 
 permissions: {}
