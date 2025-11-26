@@ -1,4 +1,4 @@
-format:
-  revealjs:
-    include-in-header:
-      - ../_includes/hatena-nocomment.html
+# Note: Each slide file defines its own format: revealjs with full options
+# slides/index.qmd uses format: html to render as a listing page
+# This file intentionally has no format settings to avoid conflicts
+_placeholder: true

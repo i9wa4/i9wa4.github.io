@@ -1,5 +1,6 @@
 ---
 title: "Slides"
+format: html
 repo-actions: false
 listing:
   - id: "list-all"
