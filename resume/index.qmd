@@ -40,8 +40,6 @@ listing:
     type: table
 ---
 
-<!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
-
 - 職務経歴書公開先
     - <https://i9wa4.github.io/resume/index.html>
     - <https://i9wa4.github.io/resume/index.pdf>
@@ -166,3 +164,5 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 | :---       | :---          | :---                                                                                                 | :---                                                                                              |
 | 2025/11/07 | 株式会社GENDA | [登壇先] [試されDATA SAPPORO #1 - connpass](https://tamesaredatahokkaido.connpass.com/event/369741/) | T.B.D.                                                                                            |
 | 2025/05/22 | 株式会社GENDA | [登壇先] AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)                       | [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](/slides/2025-05-22-midas-cursor-tips.qmd) |
+
+<!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
