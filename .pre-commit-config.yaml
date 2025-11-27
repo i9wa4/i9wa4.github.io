@@ -15,23 +15,16 @@ repos:
 
   - repo: local
     hooks:
-      - id: selene
-        name: selene
-        entry: selene
-        language: system
-        files: \.lua$
-        pass_filenames: true
-
       - id: shellcheck
         name: shellcheck
-        entry: shellcheck
+        entry: mise exec -- shellcheck
         language: system
         files: \.sh$
         pass_filenames: true
 
       - id: stylua
         name: stylua
-        entry: stylua
+        entry: mise exec -- stylua
         language: system
         files: \.lua$
         pass_filenames: true
@@ -53,19 +46,20 @@ repos:
 
       - id: pinact
         name: pinact
-        entry: pinact run
+        entry: mise exec -- pinact run
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
         pass_filenames: false
 
       - id: zizmor
         name: zizmor
-        entry: zizmor
+        entry: mise exec -- zizmor
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
         pass_filenames: true
 
-  - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.28.0
-    hooks:
       - id: gitleaks
+        name: gitleaks
+        entry: mise exec -- gitleaks protect --staged
+        language: system
+        pass_filenames: false

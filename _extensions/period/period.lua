@@ -1,4 +1,3 @@
---# selene: allow(undefined_variable)
 -- period.lua
 -- Usage:
 --   {{< period 2022/04 >}}                      -- from 2022/04 to now
