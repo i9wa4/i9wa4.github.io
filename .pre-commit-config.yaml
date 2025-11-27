@@ -15,11 +15,25 @@ repos:
 
   - repo: local
     hooks:
+      - id: selene
+        name: selene
+        entry: selene
+        language: system
+        files: \.lua$
+        pass_filenames: true
+
       - id: shellcheck
         name: shellcheck
         entry: shellcheck
         language: system
         files: \.sh$
+        pass_filenames: true
+
+      - id: stylua
+        name: stylua
+        entry: stylua
+        language: system
+        files: \.lua$
         pass_filenames: true
 
       - id: convert-drawio-to-png
