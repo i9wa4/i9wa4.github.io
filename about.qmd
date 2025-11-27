@@ -8,7 +8,7 @@ date-modified: last-modified
 image: "https://github.com/i9wa4.png"
 ---
 
-## 1. Hi, I'm uma-chan!
+## Hi, I'm uma-chan!
 
 ```{.yaml}
 profile:
@@ -29,7 +29,7 @@ profile:
     - tmux
 ```
 
-## 2. Skills
+## Skills
 
 <!-- <https://simpleicons.org> -->
 
@@ -100,7 +100,7 @@ profile:
     [![GitHub_Copilot_CLI](https://img.shields.io/badge/GitHub_Copilot_CLI-000000.svg?logo=githubcopilot&logoColor=white)](https://shields.io)
     [![Model_Context_Protocol](https://img.shields.io/badge/Model_Context_Protocol-000000.svg?logo=modelcontextprotocol&logoColor=white)](https://shields.io)
 
-## 3. GitHub Stats
+## GitHub Stats
 
 <div align="left">
   <a href="https://github.com/antonkomarev/github-profile-views-counter">
