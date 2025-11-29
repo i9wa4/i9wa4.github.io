@@ -1,0 +1,17 @@
+# Quarto の YAML ヘッダにコードを埋め込みたい
+uma-chan
+2024-12-07
+
+R Markdown では実現できてるんですが Quarto ではまだダメなんですねぇ。
+
+[Inline R code in YAML · quarto-dev/quarto-cli · Discussion
+\#606](https://github.com/quarto-dev/quarto-cli/discussions/606)
+
+変数対応していてそちらは上手く動いてくれました！
+
+<https://github.com/quarto-dev/quarto-cli/discussions/606#discussioncomment-8351008>
+
+ということは GitHub Actions 内で生成できる値を Quarto
+で作ったページに埋め込むことができますね。
+
+Quarto 向けの Publish Workflow も対応させたいので PR 作りたいです。
