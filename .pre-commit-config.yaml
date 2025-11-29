@@ -15,51 +15,44 @@ repos:
 
   - repo: local
     hooks:
-      - id: shellcheck
-        name: shellcheck
-        entry: mise exec -- shellcheck
+      - id: gitleaks
+        name: Detect hardcoded secrets
+        entry: mise exec -- gitleaks protect --verbose --redact --staged
         language: system
-        files: \.sh$
-        pass_filenames: true
-
-      - id: stylua
-        name: stylua
-        entry: mise exec -- stylua
-        language: system
-        files: \.lua$
-        pass_filenames: true
-
-      - id: convert-drawio-to-png
-        name: Convert .drawio to .drawio.png
-        entry: bash .github/scripts/convert-drawio-to-png.sh
-        language: system
-        files: assets/.*\.drawio$
-        pass_filenames: true
-        verbose: true
+        pass_filenames: false
 
       - id: actionlint
         name: actionlint
         entry: mise exec -- actionlint
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
-        pass_filenames: true
 
       - id: pinact
         name: pinact
         entry: mise exec -- pinact run
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
-        pass_filenames: false
 
       - id: zizmor
         name: zizmor
         entry: mise exec -- zizmor
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
-        pass_filenames: true
 
-      - id: gitleaks
-        name: gitleaks
-        entry: mise exec -- gitleaks protect --staged
+      - id: shellcheck
+        name: shellcheck
+        entry: mise exec -- shellcheck
         language: system
-        pass_filenames: false
+        types: [shell]
+
+      - id: stylua
+        name: stylua
+        entry: mise exec -- stylua
+        language: system
+        files: \.lua$
+
+      - id: convert-drawio-to-png
+        name: Convert .drawio to .drawio.png
+        entry: bash .github/scripts/convert-drawio-to-png.sh
+        language: system
+        files: assets/.*\.drawio$
