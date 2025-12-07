@@ -71,13 +71,27 @@ jobs:
           restore-keys: |
             quarto-freeze-
 
-      - name: Cache _site directory
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      - name: Delete old _site caches (workflow_dispatch only)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Manual trigger: clearing all site caches for clean build"
+          CACHE_IDS=$(gh cache list --key site-main- --json id --jq '.[].id' 2>/dev/null || echo "")
+          if [ -n "$CACHE_IDS" ]; then
+            echo "$CACHE_IDS" | xargs -I {} gh cache delete {} || true
+          else
+            echo "No caches found to delete"
+          fi
+
+      - name: Restore _site directory cache
+        if: github.event_name != 'workflow_dispatch'
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: _site/
-          key: site-${{ github.sha }}
+          key: site-main-${{ github.sha }}
           restore-keys: |
-            site-
+            site-main-
 
       - name: Fetch Zenn articles
         run: |
@@ -270,6 +284,13 @@ jobs:
           find _site -name "*.md" -type f -exec sed -i 's|](/blog/|](https://i9wa4.github.io/blog/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|](/slides/|](https://i9wa4.github.io/slides/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|](/resume/|](https://i9wa4.github.io/resume/|g' {} \;
+
+      - name: Save _site directory cache
+        if: success()
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: _site/
+          key: site-main-${{ github.sha }}
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
