@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Local Environment Box -->
+        <mxCell id="local-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="500" height="680" as="geometry"/>
+        </mxCell>
+
+        <!-- VS Code -->
+        <mxCell id="vscode-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="200" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- JupyterLab -->
+        <mxCell id="jupyter-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="380" y="300" width="200" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Tools -->
+        <mxCell id="tools-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="160" y="460" width="420" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Files -->
+        <mxCell id="files-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="160" y="640" width="420" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Kernel Box -->
+        <mxCell id="kernel-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="720" y="400" width="480" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- Databricks Box -->
+        <mxCell id="databricks-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="1300" y="200" width="500" height="680" as="geometry"/>
+        </mxCell>
+
+        <!-- Cluster -->
+        <mxCell id="cluster-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1340" y="320" width="420" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- DBFS -->
+        <mxCell id="dbfs-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1340" y="560" width="420" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="530" as="sourcePoint"/>
+            <mxPoint x="720" y="530" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1200" y="530" as="sourcePoint"/>
+            <mxPoint x="1300" y="530" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Solution 1: jupyter-databricks-kernel -->
+        <mxCell id="sol1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="540" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-num" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0a171;strokeColor=#c0a171" vertex="1" parent="1">
+          <mxGeometry x="140" y="180" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 2: Thin Notebook Wrapper -->
+        <mxCell id="sol2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="690" y="160" width="540" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-num" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a3ab91;strokeColor=#a3ab91" vertex="1" parent="1">
+          <mxGeometry x="710" y="180" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 3: Guardrails -->
+        <mxCell id="sol3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="1260" y="160" width="540" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-num" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#82919b;strokeColor=#82919b" vertex="1" parent="1">
+          <mxGeometry x="1280" y="180" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows down -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="460" as="sourcePoint"/>
+            <mxPoint x="390" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#a3ab91" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="460" as="sourcePoint"/>
+            <mxPoint x="960" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1530" y="460" as="sourcePoint"/>
+            <mxPoint x="1530" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Combined Result -->
+        <mxCell id="result-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=6" vertex="1" parent="1">
+          <mxGeometry x="160" y="580" width="1600" height="360" as="geometry"/>
+        </mxCell>
+
+        <!-- AI-Ready Label -->
+        <mxCell id="aiready-badge" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#df3348;strokeColor=#df3348" vertex="1" parent="1">
+          <mxGeometry x="800" y="600" width="320" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Result Features -->
+        <mxCell id="feature1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="780" width="360" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="600" y="780" width="360" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1000" y="780" width="360" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="780" width="320" height="130" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="従来の Databricks Notebook 開発の課題" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="460" y="60" width="1000" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Center Developer Icon -->
+        <mxCell id="dev-icon" value="😰" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=120" vertex="1" parent="1">
+          <mxGeometry x="860" y="420" width="200" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-label" value="困っている&lt;br&gt;データサイエンティスト" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="780" y="590" width="360" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 1: No Formatter -->
+        <mxCell id="challenge1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="180" y="200" width="400" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge1-icon" value="🚫" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=50" vertex="1" parent="1">
+          <mxGeometry x="200" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge1-title" value="フォーマッタが動かない" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="290" y="230" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge1-desc" value="マジックコマンドが干渉&lt;br&gt;Ruff / Black が使えない" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#df3348" vertex="1" parent="1">
+          <mxGeometry x="200" y="290" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 2: Hard to Split -->
+        <mxCell id="challenge2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="180" y="680" width="400" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge2-icon" value="📁" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=50" vertex="1" parent="1">
+          <mxGeometry x="200" y="700" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge2-title" value="ファイル分割が困難" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="290" y="710" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge2-desc" value="1つのNotebookに全部書く&lt;br&gt;巨大になりがち" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#df3348" vertex="1" parent="1">
+          <mxGeometry x="200" y="770" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 3: JSON diff -->
+        <mxCell id="challenge3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1340" y="200" width="400" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge3-icon" value="📝" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=50" vertex="1" parent="1">
+          <mxGeometry x="1360" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge3-title" value="Git diff が読めない" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1450" y="230" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge3-desc" value=".ipynb は JSON 形式&lt;br&gt;レビューが困難" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#df3348" vertex="1" parent="1">
+          <mxGeometry x="1360" y="290" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 4: No Local Test -->
+        <mxCell id="challenge4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1340" y="680" width="400" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge4-icon" value="🧪" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=50" vertex="1" parent="1">
+          <mxGeometry x="1360" y="700" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge4-title" value="ローカルテストが困難" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1450" y="710" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge4-desc" value="pytest が使えない&lt;br&gt;Databricks 上でしか動かない" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#df3348" vertex="1" parent="1">
+          <mxGeometry x="1360" y="770" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#df3348;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="290" as="sourcePoint"/>
+            <mxPoint x="860" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#df3348;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="770" as="sourcePoint"/>
+            <mxPoint x="860" y="540" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#df3348;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1340" y="290" as="sourcePoint"/>
+            <mxPoint x="1060" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#df3348;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1340" y="770" as="sourcePoint"/>
+            <mxPoint x="1060" y="540" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

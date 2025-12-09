@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="AI-Ready 開発環境の全体像" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="510" y="40" width="900" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 1: jupyter-databricks-kernel -->
+        <mxCell id="sol1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="540" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-num" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0a171;strokeColor=#c0a171;fontColor=#ffffff;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="180" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-title" value="jupyter-databricks-kernel" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="220" y="190" width="420" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-icon" value="🔌" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=72" vertex="1" parent="1">
+          <mxGeometry x="160" y="270" width="120" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-desc" value="✅ ローカル Jupyter から&lt;br&gt;　 Databricks へリモート実行&lt;br&gt;✅ ファイル自動同期&lt;br&gt;✅ クラスタ自動起動" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="300" y="280" width="340" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 2: Thin Notebook Wrapper -->
+        <mxCell id="sol2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="690" y="160" width="540" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-num" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a3ab91;strokeColor=#a3ab91;fontColor=#ffffff;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="710" y="180" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-title" value="Thin Notebook Wrapper" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="790" y="190" width="420" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-icon" value="📄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=72" vertex="1" parent="1">
+          <mxGeometry x="730" y="270" width="120" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-desc" value="✅ たった3セルの Notebook&lt;br&gt;✅ Pure Python で開発&lt;br&gt;✅ Ruff/mypy/pytest が動く&lt;br&gt;✅ Git diff が読みやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="870" y="280" width="340" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 3: Guardrails -->
+        <mxCell id="sol3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="1260" y="160" width="540" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-num" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#82919b;strokeColor=#82919b;fontColor=#ffffff;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="180" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-title" value="ガードレール" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1360" y="190" width="420" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-icon" value="🛡️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=72" vertex="1" parent="1">
+          <mxGeometry x="1300" y="270" width="120" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-desc" value="✅ mise + pre-commit + Renovate&lt;br&gt;✅ ローカル/CI で同じチェック&lt;br&gt;✅ AI が作ったコードもチェック&lt;br&gt;✅ ブランチ保護ルール" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1440" y="280" width="340" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows down -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="460" as="sourcePoint"/>
+            <mxPoint x="390" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#a3ab91" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="460" as="sourcePoint"/>
+            <mxPoint x="960" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1530" y="460" as="sourcePoint"/>
+            <mxPoint x="1530" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Combined Result -->
+        <mxCell id="result-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=6" vertex="1" parent="1">
+          <mxGeometry x="160" y="580" width="1600" height="360" as="geometry"/>
+        </mxCell>
+
+        <!-- AI-Ready Label -->
+        <mxCell id="aiready-badge" value="AI-Ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#df3348;strokeColor=#df3348;fontColor=#ffffff;fontSize=36;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="600" width="320" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Result Title -->
+        <mxCell id="result-title" value="最強の Databricks 開発環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="510" y="690" width="900" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Result Features -->
+        <mxCell id="feature1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="780" width="360" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature1-icon" value="🤖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
+          <mxGeometry x="220" y="800" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature1-text" value="AI との協働が容易&lt;br&gt;Pure Python でAIが理解しやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="310" y="810" width="230" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="600" y="780" width="360" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2-icon" value="✅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
+          <mxGeometry x="620" y="800" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2-text" value="品質を自動で担保&lt;br&gt;誰が書いても同じチェック" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="710" y="810" width="230" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1000" y="780" width="360" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3-icon" value="⚡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
+          <mxGeometry x="1020" y="800" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3-text" value="開発体験が向上&lt;br&gt;ローカルで快適に開発" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1110" y="810" width="230" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="780" width="320" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature4-icon" value="🚀" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
+          <mxGeometry x="1420" y="800" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature4-text" value="本番運用もスムーズ&lt;br&gt;Job として実行可能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1510" y="810" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
