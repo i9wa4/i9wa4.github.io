@@ -1,0 +1,160 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="ガードレール構成 (mise + pre-commit + Renovate)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="1200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Config Files -->
+        <mxCell id="config-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="760" y="140" width="400" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="config-icon" value="⚙️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
+          <mxGeometry x="800" y="160" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="config-title" value="設定ファイル" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="890" y="170" width="250" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="config-desc" value="mise.toml&lt;br&gt;.pre-commit-config.yaml" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="890" y="220" width="250" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow down -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="300" as="sourcePoint"/>
+            <mxPoint x="960" y="380" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Local Box -->
+        <mxCell id="local-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="160" y="400" width="480" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="local-title" value="ローカル環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="300" y="420" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="local-source1" value="💻 Vim / VS Code" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#a3ab91;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="200" y="490" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="local-source2" value="🤖 AI エージェント" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#a3ab91;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="200" y="550" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="local-hook" value="pre-commit hook" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;fontSize=21;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="420" y="510" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- CI Box -->
+        <mxCell id="ci-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="1280" y="400" width="480" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci-title" value="GitHub Actions (CI)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1380" y="420" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci-source1" value="☁️ クラウド IDE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1320" y="490" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci-source2" value="🤖 AI エージェント" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1320" y="550" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ci-check" value="pre-commit run" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;fontSize=21;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="1540" y="510" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows to center -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#a3ab91" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="520" as="sourcePoint"/>
+            <mxPoint x="800" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1280" y="520" as="sourcePoint"/>
+            <mxPoint x="1120" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PR Box -->
+        <mxCell id="pr-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="800" y="460" width="320" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="pr-label" value="Pull Request" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="860" y="500" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow to protection -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="580" as="sourcePoint"/>
+            <mxPoint x="960" y="680" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Branch Protection -->
+        <mxCell id="protection-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="760" y="700" width="400" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="protection-icon" value="🛡️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
+          <mxGeometry x="800" y="720" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="protection-title" value="ブランチ保護ルール" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="890" y="730" width="250" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="protection-desc" value="最後の砦" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#df3348" vertex="1" parent="1">
+          <mxGeometry x="890" y="780" width="250" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow to main -->
+        <mxCell id="arrow5" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#a3ab91" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="820" as="sourcePoint"/>
+            <mxPoint x="960" y="900" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Main Branch -->
+        <mxCell id="main-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="800" y="920" width="320" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="main-icon" value="🌳" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42" vertex="1" parent="1">
+          <mxGeometry x="830" y="940" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="main-label" value="main ブランチ" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="900" y="950" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Renovate -->
+        <mxCell id="renovate-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=3;strokeDasharray=5,5" vertex="1" parent="1">
+          <mxGeometry x="160" y="140" width="320" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="renovate-icon" value="🔄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42" vertex="1" parent="1">
+          <mxGeometry x="180" y="160" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="renovate-title" value="Renovate" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="250" y="160" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="renovate-desc" value="依存関係を自動更新" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="250" y="200" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Renovate arrow -->
+        <mxCell id="arrow-renovate" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82919b;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="200" as="sourcePoint"/>
+            <mxPoint x="760" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-renovate-label" value="PR自動作成" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="550" y="160" width="100" height="30" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

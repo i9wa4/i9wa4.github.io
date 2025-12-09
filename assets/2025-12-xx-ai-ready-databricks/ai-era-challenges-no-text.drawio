@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Main Branch -->
+        <mxCell id="main-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="810" y="760" width="300" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Source 1: Local -->
+        <mxCell id="local-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="320" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Source 2: Cloud IDE -->
+        <mxCell id="cloud-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="320" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Source 3: AI Agent -->
+        <mxCell id="ai-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1440" y="200" width="320" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- PR Box -->
+        <mxCell id="pr-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#979a9b;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="800" y="480" width="320" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Question Box -->
+        <mxCell id="question-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="1340" y="540" width="400" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows to PR -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="340" as="sourcePoint"/>
+            <mxPoint x="800" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="340" as="sourcePoint"/>
+            <mxPoint x="960" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1600" y="340" as="sourcePoint"/>
+            <mxPoint x="1120" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrow to main -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#a3ab91" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="600" as="sourcePoint"/>
+            <mxPoint x="960" y="760" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

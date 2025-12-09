@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f3f4f4"/>
+
+  <!-- ボックス1: ライトベージュ + Gold -->
+  <rect x="50" y="50" width="200" height="120" rx="10" ry="10"
+        fill="#e1d2bb" stroke="#c0a171" stroke-width="4"/>
+
+  <!-- ボックス2: ライトグレー3 + カーキグレー -->
+  <rect x="300" y="50" width="200" height="120" rx="10" ry="10"
+        fill="#d4d6cb" stroke="#a3ab91" stroke-width="4"/>
+
+  <!-- ボックス3: ライトグレー1 + ブルーグレー -->
+  <rect x="550" y="50" width="200" height="120" rx="10" ry="10"
+        fill="#d1d6d9" stroke="#82919b" stroke-width="4"/>
+
+  <!-- 矢印1 -->
+  <line x1="250" y1="110" x2="290" y2="110" stroke="#c0a171" stroke-width="4"/>
+  <polygon points="290,100 310,110 290,120" fill="#c0a171"/>
+
+  <!-- 矢印2 -->
+  <line x1="500" y1="110" x2="540" y2="110" stroke="#a3ab91" stroke-width="4"/>
+  <polygon points="540,100 560,110 540,120" fill="#a3ab91"/>
+
+  <!-- 結果ボックス: ライトベージュ + レッド -->
+  <rect x="150" y="220" width="500" height="130" rx="10" ry="10"
+        fill="#e1d2bb" stroke="#df3348" stroke-width="6"/>
+
+  <!-- バッジ: レッド -->
+  <rect x="320" y="240" width="160" height="40" rx="5" ry="5"
+        fill="#df3348"/>
+
+  <!-- 内部ボックス -->
+  <rect x="180" y="300" width="120" height="40" rx="5" ry="5"
+        fill="#f3f4f4" stroke="#df3348" stroke-width="2"/>
+  <rect x="340" y="300" width="120" height="40" rx="5" ry="5"
+        fill="#f3f4f4" stroke="#df3348" stroke-width="2"/>
+  <rect x="500" y="300" width="120" height="40" rx="5" ry="5"
+        fill="#f3f4f4" stroke="#df3348" stroke-width="2"/>
+
+  <!-- 下向き矢印 -->
+  <line x1="150" y1="170" x2="150" y2="210" stroke="#c0a171" stroke-width="4"/>
+  <polygon points="140,210 150,230 160,210" fill="#c0a171"/>
+
+  <line x1="400" y1="170" x2="400" y2="210" stroke="#a3ab91" stroke-width="4"/>
+  <polygon points="390,210 400,230 410,210" fill="#a3ab91"/>
+
+  <line x1="650" y1="170" x2="650" y2="210" stroke="#82919b" stroke-width="4"/>
+  <polygon points="640,210 650,230 660,210" fill="#82919b"/>
+</svg>
