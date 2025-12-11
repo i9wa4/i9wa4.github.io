@@ -13,22 +13,22 @@
         <mxCell id="launcher-icon" value="📓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
           <mxGeometry x="200" y="220" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="launcher-title" value="launcher.ipynb" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="launcher-title" value="launcher.ipynb" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="290" y="240" width="250" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="launcher-subtitle" value="数セル!" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#c0a171;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="launcher-subtitle" value="数セル!" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#c0a171;fontStyle=1;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="290" y="290" width="250" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="launcher-cell0" value="Cell 0: %pip install" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="launcher-cell0" value="Cell 0: %pip install" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="180" y="340" width="360" height="45" as="geometry"/>
         </mxCell>
-        <mxCell id="launcher-cell1" value="Cell 1: Widget定義" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="launcher-cell1" value="Cell 1: Widget定義" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="180" y="395" width="360" height="45" as="geometry"/>
         </mxCell>
-        <mxCell id="launcher-cell2" value="Cell 2: パラメータ取得" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="launcher-cell2" value="Cell 2: パラメータ取得" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="180" y="450" width="360" height="45" as="geometry"/>
         </mxCell>
-        <mxCell id="launcher-cell3" value="Cell 3: main() 実行" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="launcher-cell3" value="Cell 3: main() 実行" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;fontSize=18;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="180" y="505" width="360" height="45" as="geometry"/>
         </mxCell>
 
@@ -47,10 +47,10 @@
         <mxCell id="main-icon" value="📄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
           <mxGeometry x="740" y="220" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="main-title" value="main.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="main-title" value="main.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="830" y="240" width="250" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="main-subtitle" value="Pure Python!" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#a3ab91;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="main-subtitle" value="Pure Python!" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#a3ab91;fontStyle=1;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="830" y="290" width="250" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="main-desc" value="def main(&lt;br&gt;    table_name: str,&lt;br&gt;    output_path: str,&lt;br&gt;) -&gt; None:&lt;br&gt;    ...&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#a3ab91;fontSize=18;align=left;spacing=10;fontFamily=monospace;fontColor=#001722" vertex="1" parent="1">
@@ -64,7 +64,7 @@
             <mxPoint x="1240" y="400" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="arrow2-label" value="import" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="arrow2-label" value="import" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1120" y="350" width="80" height="30" as="geometry"/>
         </mxCell>
 
@@ -75,22 +75,22 @@
         <mxCell id="proc-icon" value="📁" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
           <mxGeometry x="1280" y="220" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="proc-title" value="processors/*.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="proc-title" value="processors/*.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1370" y="240" width="350" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="proc-subtitle" value="ビジネスロジック" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#82919b;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="proc-subtitle" value="ビジネスロジック" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#82919b;fontStyle=1;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1370" y="290" width="350" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="proc-file1" value="📄 exporter.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="proc-file1" value="📄 exporter.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1260" y="360" width="220" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="proc-file2" value="📄 transformer.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="proc-file2" value="📄 transformer.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1500" y="360" width="220" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="proc-file3" value="📄 validator.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="proc-file3" value="📄 validator.py" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1260" y="420" width="220" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="proc-file4" value="📄 ..." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="proc-file4" value="📄 ..." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;fontSize=21;align=left;spacing=10;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1500" y="420" width="220" height="50" as="geometry"/>
         </mxCell>
 
@@ -98,7 +98,7 @@
         <mxCell id="benefits-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=3" vertex="1" parent="1">
           <mxGeometry x="160" y="680" width="1580" height="280" as="geometry"/>
         </mxCell>
-        <mxCell id="benefits-title" value="メリット" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefits-title" value="メリット" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="860" y="700" width="200" height="50" as="geometry"/>
         </mxCell>
 
@@ -109,10 +109,10 @@
         <mxCell id="benefit1-icon" value="✅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42" vertex="1" parent="1">
           <mxGeometry x="220" y="790" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit1-title" value="Ruff/mypy が使える" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit1-title" value="Ruff/mypy が使える" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="290" y="800" width="230" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit1-desc" value="Pure Python だから&lt;br&gt;静的解析ツールが動く" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit1-desc" value="Pure Python だから&lt;br&gt;静的解析ツールが動く" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="220" y="850" width="300" height="60" as="geometry"/>
         </mxCell>
 
@@ -123,10 +123,10 @@
         <mxCell id="benefit2-icon" value="✅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42" vertex="1" parent="1">
           <mxGeometry x="600" y="790" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit2-title" value="Git diff が読みやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit2-title" value="Git diff が読みやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="670" y="800" width="230" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit2-desc" value=".py ファイルだから&lt;br&gt;レビューしやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit2-desc" value=".py ファイルだから&lt;br&gt;レビューしやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="600" y="850" width="300" height="60" as="geometry"/>
         </mxCell>
 
@@ -137,10 +137,10 @@
         <mxCell id="benefit3-icon" value="✅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42" vertex="1" parent="1">
           <mxGeometry x="980" y="790" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit3-title" value="pytest で テスト可能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit3-title" value="pytest で テスト可能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1050" y="800" width="230" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit3-desc" value="Pure 関数をテスト&lt;br&gt;ローカルで TDD" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit3-desc" value="Pure 関数をテスト&lt;br&gt;ローカルで TDD" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="980" y="850" width="300" height="60" as="geometry"/>
         </mxCell>
 
@@ -151,10 +151,10 @@
         <mxCell id="benefit4-icon" value="✅" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42" vertex="1" parent="1">
           <mxGeometry x="1360" y="790" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit4-title" value="Databricks Job 対応" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit4-title" value="Databricks Job 対応" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1430" y="800" width="250" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="benefit4-desc" value="そのまま本番運用&lt;br&gt;Widget でパラメータ受け取り" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="benefit4-desc" value="そのまま本番運用&lt;br&gt;Widget でパラメータ受け取り" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1360" y="850" width="320" height="60" as="geometry"/>
         </mxCell>
 

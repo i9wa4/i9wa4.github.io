@@ -10,7 +10,7 @@
         <mxCell id="local-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
           <mxGeometry x="120" y="200" width="500" height="680" as="geometry"/>
         </mxCell>
-        <mxCell id="local-title" value="ローカル環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="local-title" value="ローカル環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="220" y="220" width="300" height="60" as="geometry"/>
         </mxCell>
 
@@ -21,7 +21,7 @@
         <mxCell id="vscode-icon" value="💻" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
           <mxGeometry x="200" y="320" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="vscode-label" value="VS Code" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="vscode-label" value="VS Code" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="250" y="340" width="120" height="40" as="geometry"/>
         </mxCell>
 
@@ -32,7 +32,7 @@
         <mxCell id="jupyter-icon" value="📓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
           <mxGeometry x="420" y="320" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="jupyter-label" value="JupyterLab" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="jupyter-label" value="JupyterLab" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="480" y="340" width="80" height="40" as="geometry"/>
         </mxCell>
 
@@ -40,10 +40,10 @@
         <mxCell id="tools-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=2" vertex="1" parent="1">
           <mxGeometry x="160" y="460" width="420" height="140" as="geometry"/>
         </mxCell>
-        <mxCell id="tools-title" value="ローカルで使えるツール" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="tools-title" value="ローカルで使えるツール" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="200" y="480" width="340" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="tools-list" value="✅ Ruff (lint/format)&lt;br&gt;✅ mypy (型チェック)&lt;br&gt;✅ pytest (テスト)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="tools-list" value="✅ Ruff (lint/format)&lt;br&gt;✅ mypy (型チェック)&lt;br&gt;✅ pytest (テスト)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="200" y="520" width="340" height="70" as="geometry"/>
         </mxCell>
 
@@ -51,10 +51,10 @@
         <mxCell id="files-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
           <mxGeometry x="160" y="640" width="420" height="200" as="geometry"/>
         </mxCell>
-        <mxCell id="files-title" value="プロジェクトファイル" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="files-title" value="プロジェクトファイル" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="200" y="660" width="340" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="files-list" value="📄 launcher.ipynb&lt;br&gt;📄 main.py&lt;br&gt;📁 processors/*.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="files-list" value="📄 launcher.ipynb&lt;br&gt;📄 main.py&lt;br&gt;📁 processors/*.py" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="200" y="710" width="340" height="110" as="geometry"/>
         </mxCell>
 
@@ -65,10 +65,10 @@
         <mxCell id="kernel-icon" value="🔌" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
           <mxGeometry x="780" y="380" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="kernel-title" value="jupyter-databricks-kernel" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="kernel-title" value="jupyter-databricks-kernel" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="870" y="400" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="kernel-desc" value="✅ ファイル自動同期&lt;br&gt;✅ リモート実行&lt;br&gt;✅ クラスタ自動起動" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="kernel-desc" value="✅ ファイル自動同期&lt;br&gt;✅ リモート実行&lt;br&gt;✅ クラスタ自動起動" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="780" y="480" width="360" height="120" as="geometry"/>
         </mxCell>
 
@@ -76,7 +76,7 @@
         <mxCell id="databricks-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
           <mxGeometry x="1300" y="200" width="500" height="680" as="geometry"/>
         </mxCell>
-        <mxCell id="databricks-title" value="Databricks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="databricks-title" value="Databricks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1450" y="220" width="200" height="60" as="geometry"/>
         </mxCell>
 
@@ -87,10 +87,10 @@
         <mxCell id="cluster-icon" value="⚡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
           <mxGeometry x="1380" y="360" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="cluster-title" value="Compute Cluster" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="cluster-title" value="Compute Cluster" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1470" y="380" width="260" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="cluster-desc" value="Spark 実行環境&lt;br&gt;自動起動/停止" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="cluster-desc" value="Spark 実行環境&lt;br&gt;自動起動/停止" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1380" y="440" width="340" height="60" as="geometry"/>
         </mxCell>
 
@@ -101,10 +101,10 @@
         <mxCell id="dbfs-icon" value="📦" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48" vertex="1" parent="1">
           <mxGeometry x="1380" y="600" width="80" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="dbfs-title" value="DBFS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="dbfs-title" value="DBFS" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1470" y="610" width="260" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="dbfs-desc" value="同期されたファイル" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="dbfs-desc" value="同期されたファイル" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1470" y="660" width="260" height="40" as="geometry"/>
         </mxCell>
 
@@ -123,10 +123,10 @@
         </mxCell>
 
         <!-- Labels on arrows -->
-        <mxCell id="arrow1-label" value="コード実行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="arrow1-label" value="コード実行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="630" y="480" width="120" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="arrow2-label" value="ファイル同期" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+        <mxCell id="arrow2-label" value="ファイル同期" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
           <mxGeometry x="1170" y="480" width="120" height="30" as="geometry"/>
         </mxCell>
 
