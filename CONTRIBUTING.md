@@ -17,9 +17,13 @@ mise exec -- pre-commit install
 - 図を作成・編集する際は `.drawio` ファイルのみを編集する
 - `.drawio.png` ファイルを直接編集しない
 - pre-commit hook により自動生成される `.drawio.png` をスライド等で利用する
-- YOU MUST: Quartoスライドで使用する図は、mxGraphModelタグに `defaultFontFamily="Noto Sans JP"` を指定する
-  - これによりスライド本体のフォント (Noto Sans JP) と図のフォントが統一される
-  - 例: `<mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="844" ...>`
+- YOU MUST: Quartoスライドで使用する図は、mxGraphModelタグに `defaultFontFamily` を指定する
+    - これによりスライド本体のフォントと図のフォントが統一される
+    - 例: `<mxGraphModel defaultFontFamily="Noto Sans JP" ...>`
+- YOU MUST: 各テキスト要素の style 属性にも明示的に `fontFamily` を指定する
+    - `defaultFontFamily` だけでは PNG 出力時にフォントが反映されない場合がある
+    - 全てのテキスト要素に `fontFamily=フォント名;` を追加する
+    - 例: `style="text;html=1;fontSize=27;fontFamily=Noto Sans JP;"`
 
 ### 2.2. 自動変換ワークフロー
 

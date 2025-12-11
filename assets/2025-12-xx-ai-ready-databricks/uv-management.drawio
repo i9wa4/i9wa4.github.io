@@ -5,10 +5,6 @@
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- Title -->
-        <mxCell id="title" value="uv による依存関係管理フロー" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#001722" vertex="1" parent="1">
-          <mxGeometry x="510" y="60" width="900" height="80" as="geometry"/>
-        </mxCell>
 
         <!-- Local Development Box -->
         <mxCell id="local-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
@@ -20,13 +16,13 @@
 
         <!-- pyproject.toml -->
         <mxCell id="pyproject-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="160" y="300" width="200" height="100" as="geometry"/>
+          <mxGeometry x="160" y="300" width="250" height="100" as="geometry"/>
         </mxCell>
         <mxCell id="pyproject-icon" value="📄" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36" vertex="1" parent="1">
           <mxGeometry x="180" y="320" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="pyproject-label" value="pyproject.toml" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#001722" vertex="1" parent="1">
-          <mxGeometry x="240" y="335" width="110" height="30" as="geometry"/>
+        <mxCell id="pyproject-label" value="pyproject.toml" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722" vertex="1" parent="1">
+          <mxGeometry x="240" y="335" width="160" height="30" as="geometry"/>
         </mxCell>
 
         <!-- Arrow 1 -->
@@ -42,7 +38,7 @@
 
         <!-- uv.lock -->
         <mxCell id="uvlock-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=3" vertex="1" parent="1">
-          <mxGeometry x="160" y="480" width="200" height="100" as="geometry"/>
+          <mxGeometry x="160" y="480" width="250" height="100" as="geometry"/>
         </mxCell>
         <mxCell id="uvlock-icon" value="🔒" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36" vertex="1" parent="1">
           <mxGeometry x="180" y="500" width="60" height="60" as="geometry"/>
@@ -54,8 +50,8 @@
         <!-- Arrow 2 -->
         <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#a3ab91" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="360" y="530" as="sourcePoint"/>
-            <mxPoint x="460" y="530" as="targetPoint"/>
+            <mxPoint x="410" y="530" as="sourcePoint"/>
+            <mxPoint x="470" y="530" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
 
