@@ -91,17 +91,17 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ### 2.1. 従来の Databricks Notebook 開発の課題
 
-![](/assets/2025-12-xx-ai-ready-databricks/notebook-challenges.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/notebook-challenges.drawio.png)
 
 ### 2.2. AI 時代の新たな課題
 
-![](/assets/2025-12-xx-ai-ready-databricks/ai-era-challenges.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/ai-era-challenges.drawio.png)
 
 ## 3. 解決策1: jupyter-databricks-kernel
 
 ### 3.1. jupyter-databricks-kernel とは
 
-![](/assets/2025-12-xx-ai-ready-databricks/jupyter-databricks-kernel.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/jupyter-databricks-kernel.drawio.png)
 
 ### 3.2. 開発フロー
 
@@ -125,7 +125,7 @@ uma-chan (馬渡 大樹 / Mawatari Daiki)
 
 ### 4.1. プロジェクト構成
 
-![](/assets/2025-12-xx-ai-ready-databricks/skinny-notebook-wrapper.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/skinny-notebook-wrapper.drawio.png)
 
 ### 4.2. launcher.ipynb は数セル
 
@@ -145,7 +145,7 @@ main(table_name=table_name, output_path=output_path)
 
 ### 4.3. uv による依存関係管理
 
-![](/assets/2025-12-xx-ai-ready-databricks/uv-management.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/uv-management.drawio.png)
 
 ### 4.4. launcher.ipynb (uv対応版)
 
@@ -181,7 +181,7 @@ main(table_name=table_name)
 
 ### 5.1. ガードレール構成
 
-![](/assets/2025-12-xx-ai-ready-databricks/guardrails.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/guardrails.drawio.png)
 
 ### 5.2. AI が作ったコードもチェック
 
@@ -204,7 +204,7 @@ AI が pre-commit hook を無視しても、**GitHub Actions で必ずチェッ�
 
 ### 6.1. AI-Ready 開発環境の全体像
 
-![](/assets/2025-12-xx-ai-ready-databricks/ai-ready-overview.drawio.png)
+![](/assets/2025-12-12-ai-ready-databricks/ai-ready-overview.drawio.png)
 
 ### 6.2. リソース
 
