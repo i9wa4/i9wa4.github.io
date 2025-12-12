@@ -1,0 +1,1987 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>uma-chan&#39;s page</title>
+<link>https://i9wa4.github.io/</link>
+<atom:link href="https://i9wa4.github.io/index.xml" rel="self" type="application/rss+xml"/>
+<description>All of my thoughts.
+</description>
+<image>
+<url>https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg</url>
+<title>uma-chan&#39;s page</title>
+<link>https://i9wa4.github.io/</link>
+</image>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Fri, 12 Dec 2025 22:00:01 GMT</lastBuildDate>
+<item>
+  <title>jupyter-databricks-kernel を作りました ― OSS 開発の振り返り</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-13-jupyter-databricks-kernel-oss-dev.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-13-jupyter-databricks-kernel-oss-dev">jupyter-databricks-kernel を作りました ― OSS 開発の振り返り</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-13-jupyter-databricks-kernel-oss-dev.html</guid>
+  <pubDate>Fri, 12 Dec 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Claude Code に draw.io の図を描かせるコツ</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-12-drawio-tips-claude-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-12-drawio-tips-claude-code">Claude Code に draw.io の図を描かせるコツ</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-12-drawio-tips-claude-code.html</guid>
+  <pubDate>Thu, 11 Dec 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Databricks で uv を活用して依存関係を管理する</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-11-use-uv-in-databricks.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-11-use-uv-in-databricks">Databricks で uv を活用して依存関係を管理する</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-11-use-uv-in-databricks.html</guid>
+  <pubDate>Wed, 10 Dec 2025 22:00:05 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Databricksのノートブック管理方法2選</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-10-organize-databricks-notebook-management.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-10-organize-databricks-notebook-management">Databricksのノートブック管理方法2選</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-10-organize-databricks-notebook-management.html</guid>
+  <pubDate>Tue, 09 Dec 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Git Worktree &amp; ghq 入門 ― Issue/PR 毎の環境を一発生成する便利スクリプトもあるよ！</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-07-manage-git-worktree-with-ghq.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-07-manage-git-worktree-with-ghq">Git Worktree &amp; ghq 入門 ― Issue/PR 毎の環境を一発生成する便利スクリプトもあるよ！</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-07-manage-git-worktree-with-ghq.html</guid>
+  <pubDate>Sat, 06 Dec 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>mise + pre-commit + Renovate で作るメンテしやすいガードレール</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-06-ai-guardrails-local-cloud.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-06-ai-guardrails-local-cloud">mise + pre-commit + Renovate で作るメンテしやすいガードレール</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-06-ai-guardrails-local-cloud.html</guid>
+  <pubDate>Fri, 05 Dec 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Vim x tmux によるレビュー用 MAGI システム (AI多数決レビューシステム)</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-04-magi-system-ai-review.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-04-magi-system-ai-review">Vim x tmux によるレビュー用 MAGI システム (AI多数決レビューシステム)</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-04-magi-system-ai-review.html</guid>
+  <pubDate>Wed, 03 Dec 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>シェルスクリプト × Claude Code: 日常スクリプトへの導入実践</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-12-01-shell-script-claude-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-12-01-shell-script-claude-code">シェルスクリプト × Claude Code: 日常スクリプトへの導入実践</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-12-01-shell-script-claude-code.html</guid>
+  <pubDate>Sun, 30 Nov 2025 22:00:06 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>2025年のGitHub活動を振り返る：AI駆動開発の年</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-11-23-github-activity-2025-review.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>ふと自分のGitHub Contributionsグラフを眺めていたら「3,765 contributions in the last year」という文字列が目に入りました。</p>
+<p>2025年はAI駆動開発に本格的に取り組んだ1年でした。Claude CodeとCodex CLIを中心に開発環境を構築し、Vimプラグインを4本開発し、Vim本体へのコントリビューションも達成しました。</p>
+<p>数字を見るのは好きなので、データを集計しながら2025年の活動を振り返ってみます。</p>
+<section id="年の数字" class="level3">
+<h3 class="anchored" data-anchor-id="年の数字">1.1. 2025年の数字</h3>
+<p><strong>個人リポジトリへのコミット（2025年）</strong>: 約2,106 commits</p>
+<ul>
+<li>dotfiles: 1,058 commits（開発環境の改善）</li>
+<li>i9wa4.github.io: 331 commits（技術記事42本）</li>
+<li>github-profile-summary-cards: 315 commits（プロフィール自動更新）</li>
+<li>terraform-mono-repo: 294 commits（インフラコード実験）</li>
+<li>zenn-i9wa4: 55 commits（Zenn記事）</li>
+<li>i9wa4: 53 commits（プロフィールページ）</li>
+</ul>
+<p><strong>その他の活動（過去1年間）</strong>: 約1,659 contributions</p>
+<ul>
+<li>会社リポジトリへのコミット</li>
+<li>Issue作成・コメント（個人+会社）</li>
+<li>Pull Requestレビュー（個人+会社）</li>
+<li>その他GitHub上での活動</li>
+</ul>
+<p>個人プロジェクトへのコミットが約6割、その他活動が約4割の割合です。</p>
+</section>
+<section id="過去からの流れ" class="level3">
+<h3 class="anchored" data-anchor-id="過去からの流れ">1.2. 過去からの流れ</h3>
+<p>2023年3月にdotfilesとブログリポジトリを作成して以来、少しずつ活動を積み重ねてきました。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>年</th>
+<th>コミット数</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2023年</td>
+<td>460 commits</td>
+<td>基盤構築</td>
+</tr>
+<tr class="even">
+<td>2024年</td>
+<td>1,630 commits</td>
+<td>アウトプット爆発</td>
+</tr>
+<tr class="odd">
+<td>2025年</td>
+<td>2,106 commits</td>
+<td>AI駆動開発への挑戦</td>
+</tr>
+</tbody>
+</table>
+<p>2024年1月からブログを本格的に書き始めたのが大きな転機で、「学ぶ → 試す → 記事にする」という正のサイクルができました。2025年はそこにAI駆動開発という新しい要素が加わった年です。</p>
+</section>
+</section>
+<section id="年の月別主な出来事" class="level2">
+<h2 class="anchored" data-anchor-id="年の月別主な出来事">2. 2025年の月別主な出来事</h2>
+<ul>
+<li>3月: Terraformモノリポ作成、インフラコードの試行錯誤開始</li>
+<li>4月: AI駆動開発ツール試用開始（Aider, Devin）</li>
+<li>5月: uvに完全移行してPython環境を刷新、Terraform + MCP Lambdaの実装に集中</li>
+<li>6月: Vim本体へ初コントリビューション（感動した）、MCP Lambda実装完了</li>
+<li>7月: Claude Code導入</li>
+<li>9月: Codex CLI導入</li>
+<li>10月: dotfilesの月間コミット数が263に達して過去最高を記録</li>
+<li>11月: Vimプラグイン開発加速</li>
+</ul>
+</section>
+<section id="年の活動詳細" class="level2">
+<h2 class="anchored" data-anchor-id="年の活動詳細">3. 2025年の活動詳細</h2>
+<p>2025年は特にAI駆動開発に力を入れた1年でした。ここでは主要な活動を詳しく振り返ります。</p>
+<section id="ai駆動開発環境の構築" class="level3">
+<h3 class="anchored" data-anchor-id="ai駆動開発環境の構築">3.1. AI駆動開発環境の構築</h3>
+<p>Claude CodeとCodex CLIを中心に、自分専用のAI駆動開発環境を作り込みました。</p>
+<section id="カスタムスラッシュコマンド開発" class="level4">
+<h4 class="anchored" data-anchor-id="カスタムスラッシュコマンド開発">3.1.1. カスタムスラッシュコマンド開発</h4>
+<p>よくある作業を自動化するために10本以上のカスタムスラッシュコマンドを開発しました。</p>
+<ul>
+<li><code>/CONTRIBUTING</code>: プロジェクトのルール（このドキュメント自体）をAIに覚えさせる</li>
+<li><code>/my-commit</code>: Gitコミット時のお作法をAIに任せる</li>
+<li><code>/my-review</code>: PRレビューをAIにサポートしてもらう</li>
+<li><code>/issue-to-pr</code>: IssueからPRまでの流れを3フェーズで管理</li>
+<li><code>/learn-bigquery</code>, <code>/learn-dbt</code>, <code>/learn-databricks</code>, <code>/learn-jupyter-notebook</code>: 技術学習用コマンド</li>
+<li><code>/restricted-bigquery-dbt-environment</code>: 制約付き環境での開発をサポート</li>
+<li><code>/summarize-reviews</code>: レビューコメントを要約</li>
+</ul>
+<p>これらのコマンドはdotfilesで管理していて、どのプロジェクトでもすぐに使える状態にしています。</p>
+</section>
+<section id="vimプラグイン開発" class="level4">
+<h4 class="anchored" data-anchor-id="vimプラグイン開発">3.1.2. Vimプラグイン開発</h4>
+<p>VimからAI CLIを快適に操作するためのプラグインを開発しました。</p>
+<ul>
+<li><a href="https://github.com/i9wa4/ddc-source-slash-commands">ddc-source-slash-commands</a>: スラッシュコマンドをVimで補完できるようにする</li>
+<li><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli">vim-tmux-send-to-ai-cli</a>: Vimからtmux経由でAI CLIにプロンプトを送る</li>
+</ul>
+<p>この2つのプラグインのおかげで、Vimで書いたコードやテキストをそのままAI CLIに送れるようになりました。</p>
+</section>
+</section>
+<section id="ターミナル環境の最適化" class="level3">
+<h3 class="anchored" data-anchor-id="ターミナル環境の最適化">3.2. ターミナル環境の最適化</h3>
+<p>Vim + tmux + Alacritty + Zsh + AI CLI を組み合わせた統合環境を構築しました。</p>
+<p>テーマの自動切り替え、透明度制御、カラースキームの統一など、細かいところまでこだわってスクリプトで自動化しています。</p>
+<p>正直やりすぎ感はありますが、自分の環境を極限まで最適化するのは楽しいですね。dotfilesに1,000コミット以上している理由がこれです。</p>
+</section>
+<section id="データエンジニアリング実務" class="level3">
+<h3 class="anchored" data-anchor-id="データエンジニアリング実務">3.3. データエンジニアリング実務</h3>
+<p>仕事ではdbt、Databricks、BigQueryを使ったデータ基盤開発に取り組んでいました。</p>
+<p>主な成果:</p>
+<ul>
+<li>dbt incremental モデルの最適化とベストプラクティスの確立</li>
+<li>Devcontainer環境の構築による開発環境の標準化</li>
+<li>Databricks Connect を使ったローカル開発フローの確立</li>
+<li>BigQuery + dbtのパフォーマンスチューニング</li>
+</ul>
+<p>これらの知見は技術記事として公開していて、特にdbt関連の記事は多くの人に読んでもらえているようです。</p>
+</section>
+<section id="技術記事執筆" class="level3">
+<h3 class="anchored" data-anchor-id="技術記事執筆">3.4. 技術記事執筆</h3>
+<p>2025年は42本の記事を書きました（ブログ37本、スライド5本）。主な記事をいくつか挙げます。</p>
+<ul>
+<li><a href="../blog/2025-11-19-vim-tmux-orchestrating-ai-coding-agents.html">Vim と tmux で複数の AI エージェントを操作する</a></li>
+<li><a href="../blog/2025-07-14-optimize-your-teminal-for-claude-code.html">個人的ターミナル最適化 for Claude Code</a></li>
+<li><a href="../blog/2025-09-14-codex-cli-config-management.html">Codex CLI の設定ファイルを dotfiles で管理する</a></li>
+<li><a href="../blog/2025-09-28-bigquery-dbt-incremental-intro.html">BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた</a></li>
+<li><a href="../blog/2025-07-14-my-first-vim-contribution.html">Vimへの初コントリビューションの経緯と学び</a></li>
+</ul>
+</section>
+<section id="vimエコシステムへの貢献" class="level3">
+<h3 class="anchored" data-anchor-id="vimエコシステムへの貢献">3.5. Vimエコシステムへの貢献</h3>
+<p>2025年はVimプラグイン開発にも力を入れました。</p>
+<p>開発・更新したプラグイン:</p>
+<ul>
+<li><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli">vim-tmux-send-to-ai-cli</a>: Vimからtmux経由でAI CLIにプロンプトを送る</li>
+<li><a href="https://github.com/i9wa4/ddc-source-slash-commands">ddc-source-slash-commands</a>: スラッシュコマンドの補完</li>
+<li><a href="https://github.com/i9wa4/vim-dbt-jump2def">vim-dbt-jump2def</a>: dbtプロジェクトで定義ジャンプ</li>
+<li><a href="https://github.com/i9wa4/vim-markdown-number-header">vim-markdown-number-header</a>: Markdownの見出し番号付け</li>
+</ul>
+<p>特に嬉しかったのは6月にVim本体へ初めてコントリビューションできたことです。小さな修正でしたが、長年使ってきたVimに貢献できたのは感慨深いものがありました。</p>
+</section>
+<section id="terraformとインフラコード" class="level3">
+<h3 class="anchored" data-anchor-id="terraformとインフラコード">3.6. Terraformとインフラコード</h3>
+<p>3月から6月にかけて、<a href="https://github.com/i9wa4/terraform-mono-repo">terraform-mono-repo</a>でTerraformの勉強に力を入れていました。</p>
+<p>特に5月から6月にかけてはMCP（Model Context Protocol）のLambda実装に集中していて、VPC構成やECRへのイメージpush、GitHub Actionsとの連携など、かなり作り込みました。</p>
+<p>結局実務で使う機会がなかったので現在は中断していますが、この経験はインフラコードへの理解を深めるのに役立ちました。</p>
+</section>
+<section id="その他の実験プロジェクト" class="level3">
+<h3 class="anchored" data-anchor-id="その他の実験プロジェクト">3.7. その他の実験プロジェクト</h3>
+<p>小規模な実験プロジェクトもいくつか動かしていました。</p>
+<ul>
+<li>各種hands-onリポジトリ: go, nix, mcp, ghaなど、技術検証用のプロジェクト</li>
+<li>mcp-databricks-server: Databricks MCP Serverの試作</li>
+</ul>
+<p>これらは成果物としては小さいですが、新しい技術を試す場として活用していました。</p>
+</section>
+</section>
+<section id="振り返ってみて" class="level2">
+<h2 class="anchored" data-anchor-id="振り返ってみて">4. 振り返ってみて</h2>
+<section id="年の成果" class="level3">
+<h3 class="anchored" data-anchor-id="年の成果">4.1. 2025年の成果</h3>
+<p>2025年はAI駆動開発という新しい領域に本格的に取り組んだ年でした。</p>
+<p>主な成果:</p>
+<ul>
+<li>Vimプラグイン: 4本開発・更新</li>
+<li>Vim本体への初コントリビューション</li>
+<li>Claude Code カスタムスラッシュコマンド: 10本以上</li>
+<li>技術記事: 42本執筆（ブログ37本、スライド5本）</li>
+<li>dotfilesコミット: 1,058回（月平均96回）</li>
+<li>総コミット数: 2,106回（個人リポジトリ）</li>
+</ul>
+<p>Claude CodeとCodex CLIを軸にした開発環境を構築し、「ツールを使う側」から「ツールを作る側」にもなれた1年です。</p>
+</section>
+<section id="学びと試行錯誤" class="level3">
+<h3 class="anchored" data-anchor-id="学びと試行錯誤">4.2. 学びと試行錯誤</h3>
+<p>すべてが成功したわけではありません。Terraformモノリポは実務で使う機会がなく中断しましたし、MCP Lambda実装も結局本番投入には至りませんでした。</p>
+<p>でも、それも含めて色々なことに挑戦できた充実した年でした。失敗から学ぶことも多く、次に活かせる経験になっています。</p>
+</section>
+<section id="これから" class="level3">
+<h3 class="anchored" data-anchor-id="これから">4.3. これから</h3>
+<p>AI駆動開発環境はまだまだ改善の余地があります。特にVim + tmux + AI CLIの連携をさらに洗練させたいと考えています。</p>
+<p>データエンジニアリング領域でも、いくつか新しい実験を始めています。詳細はまた別の機会に。</p>
+<p>2026年も新しい技術に挑戦しながら、学んだことを記事にして共有していきます。この習慣は続けていきたいですね。</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>diary</category>
+  <guid>https://i9wa4.github.io/blog/2025-11-23-github-activity-2025-review.html</guid>
+  <pubDate>Sun, 23 Nov 2025 06:31:03 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Vim と tmux で複数の AI エージェントを操作する</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-11-19-vim-tmux-orchestrating-ai-coding-agents.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>この記事は <a href="https://vim-jp.org/ekiden/">Vim 駅伝</a> の 2025-11-19 の記事です。</p>
+<p>前回は 2025-11-17 ぺりー さんの <a href="https://satorunooshie.medium.com/designing-repeatable-edits-8ec574ff0acd">ドットコマンドで再現可能な編集を設計する | Medium</a> でした。</p>
+</div>
+</div>
+<section id="aiエージェント並行実行の現在地-2025年11月時点" class="level2">
+<h2 class="anchored" data-anchor-id="aiエージェント並行実行の現在地-2025年11月時点">1. AIエージェント並行実行の現在地 (2025年11月時点)</h2>
+<p>Claude Code や Codex CLI を1つのタスクに対して複数起動させると便利ですが取り回しが難しいですよね。</p>
+<p>この需要に応えたのが2025年10月29日にリリースされた Cursor 2.0 でした。</p>
+<blockquote class="blockquote">
+<p><strong>マルチエージェント</strong></p>
+<p>新しいエディタでエージェントを管理。サイドバーでエージェントとプランを一覧・操作できます。</p>
+<p>1つのプロンプトで最大8つのエージェントを並列実行できます。ファイル競合を防ぐために、git worktree またはリモートマシンを使用します。各エージェントは、コードベースの独立したコピー上で個別に動作します。</p>
+</blockquote>
+<p><a href="https://cursor.com/changelog/2-0">新しいコード生成モデルとエージェントインターフェース · Cursor</a></p>
+<p>これはかなり強力な機能追加ですが今のところ Cursor 以外で同様の体験を得るのは難しいです。</p>
+<p>Vim と tmux で似たような操作を実現させるアイデアを共有するので、ターミナルでの AI エージェント操作についても盛り上げていきましょう！</p>
+</section>
+<section id="対象読者" class="level2">
+<h2 class="anchored" data-anchor-id="対象読者">2. 対象読者</h2>
+<ul>
+<li>必須
+<ul>
+<li>Vim &amp; tmux を利用できる方</li>
+</ul></li>
+<li>推奨
+<ul>
+<li>Vim 補完プラグイン <a href="https://github.com/Shougo/ddc.vim">ddc.vim</a> を利用できる方</li>
+</ul></li>
+</ul>
+</section>
+<section id="vim-と-tmux-による複数のaiエージェント操作実演" class="level2">
+<h2 class="anchored" data-anchor-id="vim-と-tmux-による複数のaiエージェント操作実演">3. Vim と tmux による複数のAIエージェント操作実演</h2>
+<p>構築後の操作画面を先にお見せします。Claude Code * 1 と Codex CLI * 2 に同じプロンプトを送っている様子です。</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/AyE-ruGOGCc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="利用ツール等の解説" class="level2">
+<h2 class="anchored" data-anchor-id="利用ツール等の解説">4. 利用ツール等の解説</h2>
+<section id="zeno.zsh" class="level3">
+<h3 class="anchored" data-anchor-id="zeno.zsh">4.1. zeno.zsh</h3>
+<p><a href="https://github.com/yuki-yano/zeno.zsh" class="uri">https://github.com/yuki-yano/zeno.zsh</a></p>
+<p>動画の冒頭で vde-layout 起動時に利用している zeno.zsh のスニペット設定例を共有します。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.config/zeno/config.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="~/.config/zeno/config.yml" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snippets</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> (vde-layout) dev</span></span>
+<span id="cb1-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">keyword</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> vd</span></span>
+<span id="cb1-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snippet</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      vde-layout dev</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> (vde-layout) review</span></span>
+<span id="cb1-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">keyword</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> vr</span></span>
+<span id="cb1-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snippet</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      vde-layout review</span></span></code></pre></div></div>
+</div>
+</section>
+<section id="vde-layout" class="level3">
+<h3 class="anchored" data-anchor-id="vde-layout">4.2. vde-layout</h3>
+<p><a href="https://github.com/yuki-yano/vde-layout" class="uri">https://github.com/yuki-yano/vde-layout</a></p>
+<p><code>vde-layout</code> コマンドを実行することで予め設定した tmux レイアウトを適用できます。</p>
+<p>設定ファイル例は以下となります。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.config/vde/layout.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="~/.config/vde/layout.yml" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">presets</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">review</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> review</span></span>
+<span id="cb2-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">description</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> review</span></span>
+<span id="cb2-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">windowMode</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> current-window</span></span>
+<span id="cb2-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">layout</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">type</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> horizontal</span></span>
+<span id="cb2-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ratio</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]</span></span>
+<span id="cb2-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">panes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">type</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> vertical</span></span>
+<span id="cb2-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ratio</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]</span></span>
+<span id="cb2-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">panes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">            </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> editor</span></span>
+<span id="cb2-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">              </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">command</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> vim -c "execute 'edit' '.i9wa4/temp.md'-&gt;expand()"</span></span>
+<span id="cb2-15"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">              </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">focus</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">true</span></span>
+<span id="cb2-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">            </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> codex</span></span>
+<span id="cb2-17"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">              </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">command</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> codex --yolo</span></span>
+<span id="cb2-18"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">type</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> vertical</span></span>
+<span id="cb2-19"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ratio</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]</span></span>
+<span id="cb2-20"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">panes</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb2-21"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">            </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> claude</span></span>
+<span id="cb2-22"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">              </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">command</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> claude --dangerously-skip-permissions</span></span>
+<span id="cb2-23"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">            </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> codex</span></span>
+<span id="cb2-24"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">              </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">command</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> codex --yolo</span></span></code></pre></div></div>
+</div>
+</section>
+<section id="ddc-source-slash-commands" class="level3">
+<h3 class="anchored" data-anchor-id="ddc-source-slash-commands">4.3. ddc-source-slash-commands</h3>
+<p><a href="https://github.com/i9wa4/ddc-source-slash-commands" class="uri">https://github.com/i9wa4/ddc-source-slash-commands</a></p>
+<p>Vim 補完プラグイン <a href="https://github.com/Shougo/ddc.vim">ddc.vim</a> のソースプラグインです。</p>
+<p>カスタムスラッシュコマンドを補完候補として表示するために利用します。</p>
+<p>カスタムスラッシュコマンドに対応していない AI エージェントの場合はファイルのフルパスを送信すれば問題ないです。</p>
+<p>柔軟にプロンプトを調整できるのが Vim で操作するメリットですね。</p>
+</section>
+<section id="vim-tmux-send-to-ai-cli" class="level3">
+<h3 class="anchored" data-anchor-id="vim-tmux-send-to-ai-cli">4.4. vim-tmux-send-to-ai-cli</h3>
+<p><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli" class="uri">https://github.com/i9wa4/vim-tmux-send-to-ai-cli</a></p>
+<p>Vim から tmux 経由で AI エージェント起動中のペインにプロンプトを送信するためのプラグインです。</p>
+<p>送信先：</p>
+<ul>
+<li>(デフォルト) 同一ウインドウの中で最も小さい番号のペインに送信</li>
+<li>同一ウインドウの特定のペインに送信</li>
+<li>同一ウインドウの全てのペインに送信</li>
+</ul>
+<p>送信内容：</p>
+<ul>
+<li>カーソル行</li>
+<li>段落</li>
+<li>選択範囲</li>
+<li>ファイル全体</li>
+<li>行範囲 (例: 10～20行目)</li>
+</ul>
+</section>
+<section id="ペイン間の競合を回避するプロンプト" class="level3">
+<h3 class="anchored" data-anchor-id="ペイン間の競合を回避するプロンプト">4.5. ペイン間の競合を回避するプロンプト</h3>
+<p>複数の AI エージェントを並行実行する際、中間生成するドキュメントの競合を避けるために <code>.i9wa4/</code> ディレクトリ (私の環境で global gitignore されているディレクトリ) と tmux ペイン番号を活用します。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span>生成するファイル名は <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`YYYYMMDD-pN-xxxx.md`</span> の形式とする</span>
+<span id="cb3-2"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    - </span><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`YYYYMMDD`</span>: 日付 (例: <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`20251105`</span>)</span>
+<span id="cb3-3"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    - </span><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`pN`</span>: tmux ペイン番号 (例: <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`p0`</span>, <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`p1`</span>, <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`p2`</span>)</span>
+<span id="cb3-4"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    - </span><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`xxxx`</span>: ファイルの目的 (例: <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`review`</span>, <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`plan`</span>, <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`memo`</span>)</span>
+<span id="cb3-5"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    - </span>例: <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`.i9wa4/20251105-p2-review.md`</span></span>
+<span id="cb3-6"><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">- </span>tmux ペイン番号Nは <span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">`tmux display-message -p -t "$${TMUX_PANE}" '#{pane_index}'`</span> で取得する</span></code></pre></div></div>
+<p>このプロンプトによって AI エージェントが生成する中間ファイルが他ペインと競合しなくなります。</p>
+<p>ちなみに global gitignore なディレクトリについては以下のポストを参考にしました。</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="ja" dir="ltr">
+自分の Git 環境ではグローバルな gitignore で .mizchi/* が無視されており、どうもならんときはここに .mizchi/run.sh などが置かれています <a href="https://t.co/b7r4omHnPs">https://t.co/b7r4omHnPs</a>
+</p>
+— mizchi (<span class="citation" data-cites="mizchi">@mizchi</span>) <a href="https://twitter.com/mizchi/status/1914543131888066561?ref_src=twsrc%5Etfw">April 22, 2025</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">5. おわりに</h2>
+<p>足りない部分を自作して補うことで Vim と tmux で複数の AI エージェントを操作するアイデアを共有しました。</p>
+<p>今後もターミナルでの AI エージェント操作が盛り上がっていくことを願っています！</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-vim</category>
+  <category>vim-jp</category>
+  <guid>https://i9wa4.github.io/blog/2025-11-19-vim-tmux-orchestrating-ai-coding-agents.html</guid>
+  <pubDate>Tue, 18 Nov 2025 15:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>slides</category>
+  <category>genda</category>
+  <guid>https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html</guid>
+  <pubDate>Thu, 06 Nov 2025 15:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>運営チーム </dc:creator>
+  <link>https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-opening.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>slides</category>
+  <guid>https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-opening.html</guid>
+  <pubDate>Thu, 06 Nov 2025 15:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/2025-11-07-tamesare-data-sapporo-opening/tamesare-data.png" medium="image" type="image/png" height="96" width="144"/>
+</item>
+<item>
+  <title>データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-pivot-incremental-friendly-dbt-model.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model">データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-pivot-incremental-friendly-dbt-model.html</guid>
+  <pubDate>Thu, 30 Oct 2025 22:00:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>BigQuery で dbt incremental モデルのパフォーマンス改善をしてみた</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-09-28-bigquery-dbt-incremental-intro.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>ログ同士を突き合わせる dbt モデルの dbt run 実行時間が1時間を超えていたため、BigQuery の特性を活かしつつ実行時間を40分短縮した流れを紹介します。対象はイミューターなログを扱うモデルで、過去データの更新を考慮しない前提を置ける構造でした。</p>
+</section>
+<section id="当初の課題" class="level2">
+<h2 class="anchored" data-anchor-id="当初の課題">2. 当初の課題</h2>
+<ul>
+<li>incremental_strategy が merge で、ターゲットテーブル全体を走査していた</li>
+<li>unique_key が15列と多く、結合条件が複雑であった</li>
+<li>参照元テーブルが期間条件なしで FULL OUTER JOIN され、中間結果が肥大化していた</li>
+</ul>
+</section>
+<section id="実施した改善策" class="level2">
+<h2 class="anchored" data-anchor-id="実施した改善策">3. 実施した改善策</h2>
+<section id="incremental_strategy-の切り替え" class="level3">
+<h3 class="anchored" data-anchor-id="incremental_strategy-の切り替え">3.1. incremental_strategy の切り替え</h3>
+<ul>
+<li>merge から insert_overwrite へ変更し、対象パーティションのみを差し替えた</li>
+</ul>
+</section>
+<section id="パーティションプルーニングの徹底" class="level3">
+<h3 class="anchored" data-anchor-id="パーティションプルーニングの徹底">3.2. パーティションプルーニングの徹底</h3>
+<ul>
+<li>vars で渡した日付範囲を JOIN 前のフィルタで適用し、読み取り対象を日次で限定した</li>
+<li>パーティション指定を日単位で明示化し、BigQuery のスキャン範囲を事前に制限した</li>
+</ul>
+</section>
+<section id="重複除去ロジックの簡素化" class="level3">
+<h3 class="anchored" data-anchor-id="重複除去ロジックの簡素化">3.3. 重複除去ロジックの簡素化</h3>
+<ul>
+<li>15列のunique_key指定を ROW_NUMBER() による決定的な重複除去に変更した</li>
+<li>複雑なMERGE処理からシンプルな重複除去ロジックへ簡素化した</li>
+</ul>
+</section>
+</section>
+<section id="効果と検証" class="level2">
+<h2 class="anchored" data-anchor-id="効果と検証">4. 効果と検証</h2>
+<ul>
+<li>dbt run 実行時間は1時間超えから40分短縮できた</li>
+<li>同期間の surrogate key 単位で件数と代表値を比較し整合性を確認できた</li>
+<li>修正前後で更新内容に差異がないことを確認できた (ログデータの特性上そうなる)</li>
+</ul>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">5. おわりに</h2>
+<p>BigQuery の挙動と dbt の incremental モデルへの習熟度がまだまだなので引き続き学びを深めます。</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>tech-data</category>
+  <category>tech-dbt</category>
+  <guid>https://i9wa4.github.io/blog/2025-09-28-bigquery-dbt-incremental-intro.html</guid>
+  <pubDate>Sun, 28 Sep 2025 12:38:33 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Codex CLI の設定ファイルを dotfiles で管理する</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-09-14-codex-cli-config-management.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Codex CLI を使い始めたのですが dotfiles 使いにとっては辛い部分があり距離を置いてしまっていました。</p>
+<p>今回力技で設定ファイルを dotfiles で管理する方法を思いついたので紹介します。</p>
+<section id="codex-cli-の設定ファイルについて" class="level2">
+<h2 class="anchored" data-anchor-id="codex-cli-の設定ファイルについて">1. Codex CLI の設定ファイルについて</h2>
+<p>Codex CLI の設定ファイルは <code>~/.config/codex/config.toml</code> です。</p>
+<p>内容は例えば以下のような感じです。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[projects."</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">/Users/uma/ghq/github.com/i9wa4/dotfiles"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]</span></span>
+<span id="cb1-2"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">trust_level</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"trusted"</span></span></code></pre></div></div>
+</section>
+<section id="問題点" class="level2">
+<h2 class="anchored" data-anchor-id="問題点">2. 問題点</h2>
+<p><code>config.toml</code> にはフルパスが書かれるため複数のマシンで設定を管理するのが面倒です。</p>
+<p>かつどのプロジェクトを信頼するかの設定もマシンごとに異なることが多いので <code>config.toml</code> をそのまま dotfiles で管理するのはイマイチと言えます。</p>
+</section>
+<section id="解決策" class="level2">
+<h2 class="anchored" data-anchor-id="解決策">3. 解決策</h2>
+<p>共通設定だけ dotfiles の管理対象とし、プロジェクト別の設定はスクリプトで生成してしまうというものです。</p>
+<p>これで困ることはほとんどないでしょう！</p>
+<section id="config.toml-の生成スクリプト" class="level3">
+<h3 class="anchored" data-anchor-id="config.toml-の生成スクリプト">3.1. config.toml の生成スクリプト</h3>
+<p>共通設定を <code>~/.config/codex/config.common.toml</code> に書いておき、プロジェクトごとの設定を自動生成して <code>config.toml</code> を生成させます。</p>
+<p>※リポジトリを ghq で管理していることを前提としています。</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>~/.config/codex/generate_config.sh</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="~/.config/codex/generate_config.sh" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#!/usr/bin/env bash</span></span>
+<span id="cb2-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-euo</span> pipefail</span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">GHQ_BASE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${HOME}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/ghq/github.com</span>
+<span id="cb2-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COMMON</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"./config.common.toml"</span></span>
+<span id="cb2-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">OUTPUT</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"./config.toml"</span></span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dirname</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$0</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-9"></span>
+<span id="cb2-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Copy common settings</span></span>
+<span id="cb2-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cp</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${COMMON}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-12"></span>
+<span id="cb2-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add project-specific settings</span></span>
+<span id="cb2-14"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">find</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${GHQ_BASE}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-maxdepth</span> 3 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-type</span> d <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-name</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".git"</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>/dev/null <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb2-15">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sed</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'s|\.git$||'</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb2-16">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb2-17">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">read</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">repo</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb2-18">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${repo}</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]]</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">continue</span></span>
+<span id="cb2-19">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-20"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">[projects.</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${repo}</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="cb2-21"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">trust_level = </span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">trusted</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-22">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-23"></span>
+<span id="cb2-24"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Generated: </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${OUTPUT}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span></code></pre></div></div>
+</div>
+</section>
+</section>
+<section id="おわりに" class="level2">
+<h2 class="anchored" data-anchor-id="おわりに">4. おわりに</h2>
+<p>dotfiles で管理しづらいから Codex CLI と距離を置いていたみなさん、これで今日から使えるようになりましたよ！</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech-ai</category>
+  <guid>https://i9wa4.github.io/blog/2025-09-14-codex-cli-config-management.html</guid>
+  <pubDate>Sun, 14 Sep 2025 12:55:32 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>2025年のアウトプットまとめ with LAPRAS</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-09-02-activity.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>2025年のアウトプットと参加イベントをふりかえると</p>
+<p>アウトプットしたものや参加したイベントなどをまとめてみました。</p>
+<section id="connpass" class="level2">
+<h2 class="anchored" data-anchor-id="connpass">1. connpass</h2>
+<ul>
+<li>2025/09/29
+<ul>
+<li><a href="https://finatext.connpass.com/event/365995/">DataOps Night #8 ～スケーラブルでAI-Readyなデータ基盤の最前線～</a></li>
+</ul></li>
+<li>2025/07/29
+<ul>
+<li><a href="https://datayokocho.connpass.com/event/358114/">エンタメ業界のデータエンジニアリング最前線＃2 ～SEGA、DeNA</a></li>
+</ul></li>
+<li>2025/07/28
+<ul>
+<li><a href="https://findy.connpass.com/event/359455/">t-wadaさんに聞く！SQLアンチパターン第2版 - 全27章まとめて紹介！</a></li>
+</ul></li>
+<li>2025/07/18
+<ul>
+<li><a href="https://forkwell.connpass.com/event/357942/">祝30回！過去登壇者と振り返るデータエンジニアの技術とキャリアのこれまでとこれから</a></li>
+</ul></li>
+<li>2025/07/17
+<ul>
+<li><a href="https://findy.connpass.com/event/359987/">Claude Code Meetup</a></li>
+</ul></li>
+<li>2025/07/13
+<ul>
+<li><a href="https://supporterz-seminar.connpass.com/event/355775/">【！現地参加枠あり！】CoLab Conf（コラコン）【U35限定テックカンファレンス】</a></li>
+</ul></li>
+<li>2025/07/08
+<ul>
+<li><a href="https://aid.connpass.com/event/360017/">Claude Code Meetup Japan #1（Claude Code祭り！）</a></li>
+</ul></li>
+<li>2025/07/04
+<ul>
+<li><a href="https://pixiv.connpass.com/event/358285/">Data Modeling Night -「今」だからできる理論の実践事例 -</a></li>
+</ul></li>
+<li>2025/06/30
+<ul>
+<li><a href="https://cartaholdings.connpass.com/event/360380/">Claude Code Deep Dive</a></li>
+</ul></li>
+<li>2025/06/25
+<ul>
+<li><a href="https://scalar.connpass.com/event/356595/">Database Engineering Meetup #7: データエンジニアリング</a></li>
+</ul></li>
+<li>2025/06/24
+<ul>
+<li><a href="https://datayokocho.connpass.com/event/353850/">エンタメ業界のデータエンジニアリング最前線＃１　～GENDA、バンダイナムコセブンズ</a></li>
+</ul></li>
+<li>2025/06/20
+<ul>
+<li><a href="https://flexy.connpass.com/event/357244/">【SREキャリア最前線】AIと共に進化する！SREの新たな役割とキャリア設計</a></li>
+</ul></li>
+<li>2025/06/17
+<ul>
+<li><a href="https://findy.connpass.com/event/357707/">MCP導入における脅威モデリングのすゝめ</a></li>
+</ul></li>
+<li>2025/06/12
+<ul>
+<li><a href="https://classmethod.connpass.com/event/356615/">エンジニアのためのMCP勉強会 #2</a></li>
+</ul></li>
+<li>2025/06/06
+<ul>
+<li><a href="https://aiau.connpass.com/event/353531/">Cursor Meetup Tokyo</a></li>
+</ul></li>
+<li>2025/06/03
+<ul>
+<li><a href="https://forkwell.connpass.com/event/349495/">ITエンジニアの転職学 – “20代で年収800万円最速RTA”と“その罠”</a></li>
+</ul></li>
+<li>2025/06/02
+<ul>
+<li><a href="https://mlops.connpass.com/event/352150/">MCP Ops LT大会！！！</a></li>
+</ul></li>
+<li>2025/05/28
+<ul>
+<li><a href="https://explaza.connpass.com/event/354178/">Cursorで創作小説を書こう！の会【女オタ生成AI部/株式会社エクスプラザ 共催】</a></li>
+</ul></li>
+<li>2025/05/27
+<ul>
+<li><a href="https://finatext.connpass.com/event/350823/">DataOps Night #7</a></li>
+</ul></li>
+<li>2025/05/16
+<ul>
+<li><a href="https://forkwell.connpass.com/event/354289/">転職したらMCPサーバーだった件</a></li>
+</ul></li>
+<li>2025/05/14
+<ul>
+<li><a href="https://jedai.connpass.com/event/349260/">JEDAI Meetup! Databricks Apps特集 (ハイブリッド開催)</a></li>
+</ul></li>
+<li>2025/05/14
+<ul>
+<li><a href="https://findy.connpass.com/event/349580/">【技術選定を突き詰める】Online Conferenc​​e 2025</a></li>
+</ul></li>
+<li>2025/05/13
+<ul>
+<li><a href="https://forkwell.connpass.com/event/350515/">Cursor導入でログラス社の現場はどう変わったか - Forkwell AI Study #1</a></li>
+</ul></li>
+<li>2025/05/12
+<ul>
+<li><a href="https://itgtechacademy.connpass.com/event/350401/">「データマネジメント」その先へ〜進化するデータと組織戦略～</a></li>
+</ul></li>
+<li>2025/04/25
+<ul>
+<li><a href="https://findy.connpass.com/event/351644/">MCPでLLMはどう進化する？ 〜からあげさんに学ぶ、AI開発の最前線〜</a></li>
+</ul></li>
+<li>2025/04/25
+<ul>
+<li><a href="https://jedai.connpass.com/event/349457/">JEDAI in Osaka 2025 春 (オンサイト+オンライン)</a></li>
+</ul></li>
+<li>2025/04/24
+<ul>
+<li><a href="https://forkwell.connpass.com/event/351066/">Data Engineering Study #29 今だから学びたいDatabricks徹底活用術</a></li>
+</ul></li>
+<li>2025/04/10
+<ul>
+<li><a href="https://supporterz-seminar.connpass.com/event/347922/">データエンジニアの未来【サポーターズCoLab】</a></li>
+</ul></li>
+<li>2025/03/25
+<ul>
+<li><a href="https://findy-tools.connpass.com/event/347398/">ABEMAの事例とともに学ぶ！セマンティックレイヤーで変わるデータエンジニアリングの世界</a></li>
+</ul></li>
+<li>2025/03/21
+<ul>
+<li><a href="https://forkwell.connpass.com/event/346470/">ITエンジニアの転職学 ー 40歳へのカウントダウンとの向き合い方</a></li>
+</ul></li>
+<li>2025/02/27
+<ul>
+<li><a href="https://forkwell.connpass.com/event/339761/">Data Engineering Study #28 データ基盤のCI/CD</a></li>
+</ul></li>
+<li>2025/02/04
+<ul>
+<li><a href="https://datayokocho.connpass.com/event/343004/">金融業界のデータマネジメント最前線 #6</a></li>
+</ul></li>
+<li>2025/01/30
+<ul>
+<li><a href="https://datatech-jp.connpass.com/event/335207/">みんなの考えた最強のデータアーキテクチャ〜2025もやってきましょうSP！</a></li>
+</ul></li>
+<li>2025/01/27
+<ul>
+<li><a href="https://redbrick.connpass.com/event/341139/">レイクハウスって結局何なのっていいました？じゃあ真のレイクハウスをみせてやりますよ！</a></li>
+</ul></li>
+<li>2025/01/24
+<ul>
+<li><a href="https://findy-tools.connpass.com/event/341178/">JR西日本・ファーストリテイリング・ZOZOが語るビジネス要件を踏まえたデータ基盤の構築</a></li>
+</ul></li>
+<li>2025/01/20
+<ul>
+<li><a href="https://datatech-jp.connpass.com/event/337374/">datatech-jp Casual Talks #6</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="blog等" class="level2">
+<h2 class="anchored" data-anchor-id="blog等">2. Blog等</h2>
+<ul>
+<li>2025/08/23
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-08-23-diary.html">2025-08-23 日誌</a></li>
+</ul></li>
+<li>2025/07/28
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-07-28-article3-databricks-connect.html">Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用</a></li>
+</ul></li>
+<li>2025/07/28
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-07-28-article2-python-env.html">Python 開発環境最適化編 - uv + pre-commit + GitHub Actions</a></li>
+</ul></li>
+<li>2025/07/28
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-07-28-article1-devcontainer.html">Claude Code 対応 Dev Container 環境構築編 - VS Code でもそれ以外でも</a></li>
+</ul></li>
+<li>2025/07/14
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-07-14-optimize-your-teminal-for-claude-code.html">個人的ターミナル最適化 for Claude Code</a></li>
+</ul></li>
+<li>2025/07/14
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-07-14-my-first-vim-contribution.html">Vimへの初コントリビューションの経緯と学び</a></li>
+</ul></li>
+<li>2025/06/20
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-06-20-vim-plugin-for-tmux-claude-code.html">tmux で Vim から Claude Code にテキストを送信するプラグインを作った</a></li>
+</ul></li>
+<li>2025/06/15
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-06-15-dbt-bigquery-auth.html">ローカル dbt で BigQuery への認証を行う</a></li>
+</ul></li>
+<li>2025/06/10
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-06-10-install-global-python-with-uv.html">uv で Python のグローバルインストールを行う</a></li>
+</ul></li>
+<li>2025/06/08
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-06-08-create-uv-venv-with-poetry-pyproject-toml.html">Poetry の pyproject.toml を使って uv で .venv を作成する</a></li>
+</ul></li>
+<li>2025/06/04
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-06-04-use-cmdbang-to-disable-lsp-formatting-on-save.html">Vim/Neovim の保存時の LSP フォーマットを :w! のときに無効化する方法</a></li>
+</ul></li>
+<li>2025/05/21
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-21-databricks-dashboard-github-operation.html">Databricks AI/BI ダッシュボードの Git 連携の運用方法</a></li>
+</ul></li>
+<li>2025/05/12
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-12-hands-on-lambda-ecr.html">AWS Lambda でコンテナイメージを実行する with Terraform &amp; GitHub Actions</a></li>
+</ul></li>
+<li>2025/05/10
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-10-bash-zsh-edit-and-execute-command.html">Bash/Zsh でコマンドをエディタで編集する</a></li>
+</ul></li>
+<li>2025/05/06
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-06-editorconfig-vim.html">今更ながら Vim に EditorConfig を導入しました</a></li>
+</ul></li>
+<li>2025/05/06
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-06-python-venv.html">Python venv インストール・更新スクリプトの供養</a></li>
+</ul></li>
+<li>2025/05/06
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-06-quarto-slides.html">Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する</a></li>
+</ul></li>
+<li>2025/05/04
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-05-04-tmux-zsh-git-status.html">tmux と Zsh に Git リポジトリのステータスを表示する</a></li>
+</ul></li>
+<li>2025/04/29
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-29-mcp-databricks-server-service-principal.html">Databricks MCP Server を Service Principal 認証対応させた</a></li>
+</ul></li>
+<li>2025/04/20
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-20-lefthook.html">lefthook 設定の供養</a></li>
+</ul></li>
+<li>2025/04/11
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-11-mcp-hands-on.html">MCP に入門した</a></li>
+</ul></li>
+<li>2025/04/10
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini-api.html">Gemini API に課金した</a></li>
+</ul></li>
+<li>2025/04/10
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-10-paid-for-gemini.html">Gemini に課金した</a></li>
+</ul></li>
+<li>2025/04/07
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-07-bookmarks.html">個人的ブックマーク</a></li>
+</ul></li>
+<li>2025/04/02
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-02-looking-back-on-2024.html">2024年度を振り返る</a></li>
+</ul></li>
+<li>2025/04/01
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-04-01-try-aider.html">Aider を使ってみる</a></li>
+</ul></li>
+<li>2025/02/21
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-02-21-plain-sql.html">見やすい SQL を書くための Tips</a></li>
+</ul></li>
+<li>2025/02/20
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-02-20-vim-plugin-idea.html">最近の Vim プラグイン開発のアイデア</a></li>
+</ul></li>
+<li>2025/01/31
+<ul>
+<li><a href="https://i9wa4.github.io/blog/2025-01-31-get-instagram-api-access-token.html">Instagram API のアクセストークンを取得する</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="zenn" class="level2">
+<h2 class="anchored" data-anchor-id="zenn">3. Zenn</h2>
+<ul>
+<li>2025/08/06
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-08-06-databricks-connect-practice">Databricks Connect 実践編 - ローカルから Databricks コンピュートを利用</a></li>
+</ul></li>
+<li>2025/08/06
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-08-06-python-env-optimization">Python 開発環境最適化編 - uv + pre-commit + GitHub Actions</a></li>
+</ul></li>
+<li>2025/08/06
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-08-06-devcontainer-claude-code">Claude Code 対応 Dev Container 環境構築編 - VS Code でもそれ以外でも</a></li>
+</ul></li>
+<li>2025/07/16
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-07-16-optimize-your-terminal-for-claude-code">個人的ターミナル最適化 for Claude Code</a></li>
+</ul></li>
+<li>2025/05/06
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-05-06-quarto-slides">Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する</a></li>
+</ul></li>
+<li>2025/05/04
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-05-04-tmux-zsh-git-status">tmux と Zsh に Git リポジトリのステータスを表示する</a></li>
+</ul></li>
+<li>2025/04/29
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-04-29-mcp-databricks-server-service-principal">Databricks MCP Server を Service Principal 認証対応させた</a></li>
+</ul></li>
+<li>2025/04/16
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-04-16-issue-with-python-libraries">Python でありがちな本体バージョンとライブラリバージョンの不整合の例</a></li>
+</ul></li>
+<li>2025/04/05
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-04-05-weekly-report-prompt-for-devin">Devin 週報作成用プロンプト</a></li>
+</ul></li>
+<li>2025/04/05
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-04-05-weekly-report-by-devin">Devin に週報を書いてもらった</a></li>
+</ul></li>
+<li>2025/03/28
+<ul>
+<li><a href="https://zenn.dev/i9wa4/articles/2025-03-28-display-notion-relation-property">Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="pr作成" class="level2">
+<h2 class="anchored" data-anchor-id="pr作成">4. PR作成</h2>
+<ul>
+<li>2025/08/06
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/07/28
+<ul>
+<li><a href="https://github.com/i9wa4/i9wa4.github.io/pulls?q=is:pr+author:i9wa4">i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+<li>2025/07/16
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/07/14
+<ul>
+<li><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli/pulls?q=is:pr+author:i9wa4">i9wa4/vim-tmux-send-to-ai-cli</a></li>
+</ul></li>
+<li>2025/07/14
+<ul>
+<li><a href="https://github.com/i9wa4/vim-markdown-number-header/pulls?q=is:pr+author:i9wa4">i9wa4/vim-markdown-number-header</a></li>
+</ul></li>
+<li>2025/07/14
+<ul>
+<li><a href="https://github.com/i9wa4/i9wa4.github.io/pulls?q=is:pr+author:i9wa4">i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+<li>2025/07/14
+<ul>
+<li><a href="https://github.com/i9wa4/dotfiles/pulls?q=is:pr+author:i9wa4">i9wa4/dotfiles</a></li>
+</ul></li>
+<li>2025/07/13
+<ul>
+<li><a href="https://github.com/i9wa4/i9wa4.github.io/pulls?q=is:pr+author:i9wa4">i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+<li>2025/06/26
+<ul>
+<li><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli/pulls?q=is:pr+author:i9wa4">i9wa4/vim-tmux-send-to-ai-cli</a></li>
+</ul></li>
+<li>2025/06/25
+<ul>
+<li><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli/pulls?q=is:pr+author:i9wa4">i9wa4/vim-tmux-send-to-ai-cli</a></li>
+</ul></li>
+<li>2025/06/19
+<ul>
+<li><a href="https://github.com/i9wa4/mcp-databricks-server/pulls?q=is:pr+author:i9wa4">i9wa4/mcp-databricks-server</a></li>
+</ul></li>
+<li>2025/05/19
+<ul>
+<li><a href="https://github.com/i9wa4/terraform-mono-repo/pulls?q=is:pr+author:i9wa4">i9wa4/terraform-mono-repo</a></li>
+</ul></li>
+<li>2025/05/18
+<ul>
+<li><a href="https://github.com/i9wa4/terraform-mono-repo/pulls?q=is:pr+author:i9wa4">i9wa4/terraform-mono-repo</a></li>
+</ul></li>
+<li>2025/05/10
+<ul>
+<li><a href="https://github.com/i9wa4/i9wa4.github.io/pulls?q=is:pr+author:i9wa4">i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+<li>2025/05/06
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/05/06
+<ul>
+<li><a href="https://github.com/i9wa4/vim-markdown-number-header/pulls?q=is:pr+author:i9wa4">i9wa4/vim-markdown-number-header</a></li>
+</ul></li>
+<li>2025/05/04
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/04/29
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/04/29
+<ul>
+<li><a href="https://github.com/i9wa4/mcp-databricks-server/pulls?q=is:pr+author:i9wa4">i9wa4/mcp-databricks-server</a></li>
+</ul></li>
+<li>2025/04/16
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/04/08
+<ul>
+<li><a href="https://github.com/i9wa4/i9wa4.github.io/pulls?q=is:pr+author:i9wa4">i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+<li>2025/04/05
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/04/02
+<ul>
+<li><a href="https://github.com/i9wa4/i9wa4.github.io/pulls?q=is:pr+author:i9wa4">i9wa4/i9wa4.github.io</a></li>
+</ul></li>
+<li>2025/04/01
+<ul>
+<li><a href="https://github.com/i9wa4/vim-dbt-jump2def/pulls?q=is:pr+author:i9wa4">i9wa4/vim-dbt-jump2def</a></li>
+</ul></li>
+<li>2025/03/31
+<ul>
+<li><a href="https://github.com/i9wa4/vim-dbt-jump2def/pulls?q=is:pr+author:i9wa4">i9wa4/vim-dbt-jump2def</a></li>
+</ul></li>
+<li>2025/03/28
+<ul>
+<li><a href="https://github.com/i9wa4/zenn-i9wa4/pulls?q=is:pr+author:i9wa4">i9wa4/zenn-i9wa4</a></li>
+</ul></li>
+<li>2025/03/15
+<ul>
+<li><a href="https://github.com/i9wa4/vim-markdown-number-header/pulls?q=is:pr+author:i9wa4">i9wa4/vim-markdown-number-header</a></li>
+</ul></li>
+<li>2025/03/15
+<ul>
+<li><a href="https://github.com/i9wa4/vim-dbt-jump2def/pulls?q=is:pr+author:i9wa4">i9wa4/vim-dbt-jump2def</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="リポジトリ作成" class="level2">
+<h2 class="anchored" data-anchor-id="リポジトリ作成">5. リポジトリ作成</h2>
+<ul>
+<li>2025/06/20
+<ul>
+<li><a href="https://github.com/i9wa4/vim-tmux-send-to-ai-cli">i9wa4/vim-tmux-send-to-ai-cli</a></li>
+</ul></li>
+<li>2025/05/03
+<ul>
+<li><a href="https://github.com/i9wa4/quarto-slides">i9wa4/quarto-slides</a></li>
+</ul></li>
+<li>2025/04/29
+<ul>
+<li><a href="https://github.com/i9wa4/mcp-databricks-server">i9wa4/mcp-databricks-server</a></li>
+</ul></li>
+<li>2025/04/10
+<ul>
+<li><a href="https://github.com/i9wa4/mcp-hands-on">i9wa4/mcp-hands-on</a></li>
+</ul></li>
+<li>2025/03/23
+<ul>
+<li><a href="https://github.com/i9wa4/terraform-mono-repo">i9wa4/terraform-mono-repo</a></li>
+</ul></li>
+<li>2025/02/06
+<ul>
+<li><a href="https://github.com/i9wa4/databricks-notebook-test">i9wa4/databricks-notebook-test</a></li>
+</ul></li>
+</ul>
+<p><a href="https://lapras.com/" title="LAPRASポートフォリオはこちらから">LAPRASポートフォリオはこちらから</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>diary</category>
+  <guid>https://i9wa4.github.io/blog/2025-09-02-activity.html</guid>
+  <pubDate>Tue, 02 Sep 2025 00:25:52 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>2025-08-23 日誌</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/2025-08-23-diary.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>毎日書いているような顔してますが初めての日誌です</p>
+<section id="最近考えていること" class="level2">
+<h2 class="anchored" data-anchor-id="最近考えていること">1. 最近考えていること</h2>
+<p>色々と忙しくなり上手く回ってない感があり自己肯定感が下がっています。</p>
+<p>が、下記のように最近新しく始めたことがちゃんと結構あって案外悪くないかも！</p>
+</section>
+<section id="最近新しく始めたこと" class="level2">
+<h2 class="anchored" data-anchor-id="最近新しく始めたこと">2. 最近新しく始めたこと</h2>
+<p>刺激を求めると色々好転する感覚があるので元々保守的でインドアですが頑張ってます。</p>
+<p>ここ1-2ヶ月で新しく始めたこと</p>
+<ul>
+<li>馴染みのない技術要素 (CloudFormation, Datadog, AWS のネットワーク周り) に触れてみた</li>
+<li>チームメンバーへのタスク切り出し・進捗管理を本格的にやっている</li>
+<li>社内の飲みたい人集めて飲み会開いた</li>
+<li>他部署の定例に勝手に毎週参加して居座る</li>
+<li>半分仕事だけどデータ界隈の交流を増やしてみた</li>
+<li>エンジニア友達 <a href="https://x.com/YKirin0418"><span class="citation" data-cites="YKirin0418">@YKirin0418</span></a> と初対面 &amp; サシ飲みした</li>
+</ul>
+</section>
+<section id="副業ちゃんとやれてそう" class="level2">
+<h2 class="anchored" data-anchor-id="副業ちゃんとやれてそう">3. 副業ちゃんとやれてそう</h2>
+<p>6月から PIVOT の業務委託を始めていました。</p>
+<p>これが副業デビューです。</p>
+<p>最初はドメイン知識や開発環境面で苦戦していましたが徐々にシュッっと貢献する動きができるようになってきました！</p>
+<p>自分のもつ経験やスキルを積極的に提供していければと思っています。</p>
+<p>やっぱり自分の好きなプロダクトに関わるのは楽しいです。</p>
+</section>
+<section id="直近やってみたいこと" class="level2">
+<h2 class="anchored" data-anchor-id="直近やってみたいこと">4. 直近やってみたいこと</h2>
+<p>やる時間は無いだろうなと思いつつも書くだけ書いておきます。</p>
+<p>Ubuntu に Docker Compose で Minecraft 統合版サーバーを立てているのですが、Java 版に切り替えて GeyserMC 対応をしたい！</p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>diary</category>
+  <guid>https://i9wa4.github.io/blog/2025-08-23-diary.html</guid>
+  <pubDate>Sat, 23 Aug 2025 14:59:20 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title></title>
+  <dc:creator>馬渡 大樹</dc:creator>
+  <link>https://i9wa4.github.io/slides/2025-08-08-midas-ai.html</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>slides</category>
+  <category>genda</category>
+  <guid>https://i9wa4.github.io/slides/2025-08-08-midas-ai.html</guid>
+  <pubDate>Thu, 07 Aug 2025 15:00:00 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-08-06-databricks-connect-practice.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-08-06-databricks-connect-practice">Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-08-06-databricks-connect-practice.html</guid>
+  <pubDate>Wed, 06 Aug 2025 10:02:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions</title>
+  <dc:creator>uma-chan </dc:creator>
+  <link>https://i9wa4.github.io/blog/zenn-autogen-2025-08-06-python-env-optimization.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="zenn-リンク先" class="level2">
+<h2 class="anchored" data-anchor-id="zenn-リンク先">Zenn リンク先</h2>
+<p>この記事は Zenn で公開されています。</p>
+<p><a href="https://zenn.dev/genda_jp/articles/2025-08-06-python-env-optimization">Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>blog</category>
+  <category>tech</category>
+  <category>zenn</category>
+  <guid>https://i9wa4.github.io/blog/zenn-autogen-2025-08-06-python-env-optimization.html</guid>
+  <pubDate>Wed, 06 Aug 2025 10:01:01 GMT</pubDate>
+  <media:content url="https://i9wa4.github.io/assets/common/zenn-logo-only.svg" medium="image" type="image/svg+xml"/>
+</item>
+</channel>
+</rss>
