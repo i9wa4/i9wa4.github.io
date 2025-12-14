@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech"
-    date: 2025-12-14 13:01:25 +0900
+date: 2025-12-14 13:01:25 +0900
 date-modified: last-modified
 description: |
   Alacritty のテーマ切り替えと透過度変更を tmux キーバインドで操作する方法を紹介します
