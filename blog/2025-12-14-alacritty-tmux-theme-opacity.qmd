@@ -1,0 +1,466 @@
+---
+title: "Alacritty のテーマ切り替えと透過度変更を tmux キーバインドで操作する"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech"
+    date: 2025-12-14 13:01:25 +0900
+date-modified: last-modified
+description: |
+  Alacritty のテーマ切り替えと透過度変更を tmux キーバインドで操作する方法を紹介します
+---
+
+## 1. はじめに
+
+Alacritty を使っていると、気分や作業環境に応じてテーマを変えたり、背景の透過度を調整したくなることがあります。
+
+今回は tmux のキーバインドから Alacritty のテーマ切り替えと透過度変更をリアルタイムに行う方法を紹介します。
+
+## 2. 仕組みの概要
+
+この仕組みのポイントは以下の2点です。
+
+1. 動的に書き換える専用のファイル (`theme.toml`, `opacity.toml`) を用意する
+2. Alacritty のホットリロード機能で変更を即座に反映する
+
+Alacritty には設定ファイルの変更を検知して自動的にリロードする機能があります。この機能を活用し、シェルスクリプトで設定ファイルを動的に書き換えることでテーマや透過度を変更します。
+
+### 2.1. 設定ファイルの構造
+
+Alacritty の設定ファイルは `import` 機能を使って分割管理できます。
+
+```{.text}
+~/.config/alacritty/
+├── .gitignore
+├── alacritty.toml    # メイン設定ファイル (gitignore)
+├── common.toml       # 共通設定
+├── macos.toml        # OS固有設定
+├── theme.toml        # テーマ設定 (gitignore, 動的に書き換え)
+├── opacity.toml      # 透過度設定 (gitignore, 動的に書き換え)
+└── themes/           # テーマファイル群 (gitignore, 別リポジトリからクローン)
+    └── themes/
+        ├── ayu_dark.toml
+        ├── ayu_light.toml
+        └── ...
+```
+
+動的に書き換えるファイルや環境依存のファイルは `.gitignore` に追加しています。
+
+```{.text filename=".gitignore"}
+themes/
+alacritty.toml
+theme.toml
+opacity.toml
+```
+
+- `themes/`: 別リポジトリからクローンするため
+- `alacritty.toml`: OS固有設定のインポートがあり環境依存のため
+- `theme.toml`, `opacity.toml`: 動的に書き換えられるため
+
+`alacritty.toml` から `common.toml` をインポートし、`common.toml` から `theme.toml` と `opacity.toml` をインポートする構造になっています。
+
+```{.toml filename="alacritty.toml"}
+[general]
+import = [
+    '~/.config/alacritty/common.toml',
+    '~/.config/alacritty/macos.toml'
+]
+```
+
+```{.toml filename="common.toml"}
+[general]
+import = [
+    '~/.config/alacritty/theme.toml',
+    '~/.config/alacritty/opacity.toml'
+]
+
+[font]
+size = 26
+
+[font.normal]
+family = "MyricaM M"
+
+[window]
+startup_mode = "Maximized"
+
+[keyboard]
+bindings = []
+```
+
+`theme.toml` と `opacity.toml` はシェルスクリプトによって動的に書き換えられるファイルです。
+
+```{.toml filename="theme.toml"}
+[general]
+import = [
+    '~/.config/alacritty/themes/themes/enfocado_dark.toml'
+]
+```
+
+```{.toml filename="opacity.toml"}
+[window]
+opacity = 0.60
+```
+
+## 3. テーマ切り替え機能
+
+テーマ切り替えは2つのスクリプトで実現しています。
+
+### 3.1. ダーク/ライトモードの切り替え
+
+`terminal-theme-toggle.sh` はダークモードとライトモードを切り替えます。現在のモードはキャッシュファイルに保存されます。
+
+```{.bash filename="terminal-theme-toggle.sh"}
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+# Toggle terminal theme between dark and light mode.
+# Stores current theme in cache file.
+#
+# Usage:
+#   terminal-theme-toggle.sh
+#
+# Cache file:
+#   $XDG_CACHE_HOME/terminal-theme (default: ~/.cache/terminal-theme)
+
+CACHE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/terminal-theme"
+
+# Get current theme
+if [[ -f "$CACHE_FILE" ]]; then
+  current=$(tr -d ' \n' <"$CACHE_FILE")
+else
+  current="dark"
+fi
+
+# Toggle theme
+if [[ "$current" == "dark" ]]; then
+  echo "light" >"$CACHE_FILE"
+else
+  echo "dark" >"$CACHE_FILE"
+fi
+```
+
+### 3.2. テーマのランダム選択
+
+`theme-change.sh` は現在のモード (ダーク/ライト) に応じたテーマをランダムに選択します。
+
+テーマがダークかライトかは、テーマファイルの背景色から輝度を計算して自動判定しています。
+
+```{.bash filename="theme-change.sh"}
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+THEME_DIR="$HOME/.config/alacritty/themes/themes"
+THEME_FILE="$HOME/.config/alacritty/theme.toml"
+CACHE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/terminal-theme"
+
+# キャッシュファイルからテーマタイプを取得
+if [[ -f $CACHE_FILE ]]; then
+  THEME_TYPE=$(cat "$CACHE_FILE" | tr -d ' \n')
+else
+  THEME_TYPE="dark"
+fi
+
+# light または dark 以外の場合はデフォルト
+if [[ $THEME_TYPE != "light" && $THEME_TYPE != "dark" ]]; then
+  THEME_TYPE="dark"
+fi
+
+CACHE_LIST_FILE="/tmp/alacritty-themes-${THEME_TYPE}.cache"
+
+# 背景色から明るさを判定する関数
+is_matching_theme() {
+  local theme_file="$1"
+  local target_type="$2"
+
+  # background の色を取得
+  local bg_color
+  bg_color=$(grep -E "^\s*background\s*=" "$theme_file" | head -1 | sed -E "s/.*['\"]?(#[0-9a-fA-F]{6})['\"]?.*/\1/")
+
+  if [[ -z $bg_color ]]; then
+    # 判定できない場合はダークとみなす
+    [[ $target_type == "dark" ]]
+    return $?
+  fi
+
+  # RGB値を抽出
+  local r=$((16#${bg_color:1:2}))
+  local g=$((16#${bg_color:3:2}))
+  local b=$((16#${bg_color:5:2}))
+
+  # 輝度を計算 (0.299*R + 0.587*G + 0.114*B)
+  local brightness
+  brightness=$(echo "scale=2; 0.299*$r + 0.587*$g + 0.114*$b" | bc)
+
+  # 128を境界値として判定
+  if [[ $target_type == "light" ]]; then
+    (($(echo "$brightness >= 128" | bc -l)))
+  else
+    (($(echo "$brightness < 128" | bc -l)))
+  fi
+}
+
+# キャッシュに有効なデータがあれば利用し、無効なら再生成
+themes=()
+if [[ -f $CACHE_LIST_FILE ]]; then
+  while IFS= read -r line; do
+    [[ -z $line ]] && continue
+    if [[ -f "$THEME_DIR/$line" ]]; then
+      themes+=("$line")
+    fi
+  done <"$CACHE_LIST_FILE"
+fi
+
+if [[ ${#themes[@]} -eq 0 ]]; then
+  # テーマタイプに一致するテーマのリストを作成
+  for theme_file in "$THEME_DIR"/*.toml; do
+    [[ -f $theme_file ]] || continue
+    if is_matching_theme "$theme_file" "$THEME_TYPE"; then
+      themes+=("$(basename "$theme_file")")
+    fi
+  done
+
+  if [[ ${#themes[@]} -gt 0 ]]; then
+    # shellcheck disable=SC2207
+    IFS=$'\n' themes=($(printf "%s\n" "${themes[@]}" | sort))
+    unset IFS
+    printf "%s\n" "${themes[@]}" >"$CACHE_LIST_FILE"
+  else
+    : >"$CACHE_LIST_FILE"
+  fi
+fi
+
+if [[ ${#themes[@]} -eq 0 ]]; then
+  echo "Error: No ${THEME_TYPE} themes found" >&2
+  exit 1
+fi
+
+# ランダムにテーマを選択
+next_theme="${themes[RANDOM % ${#themes[@]}]}"
+
+# theme.toml を更新
+cat >"$THEME_FILE" <<EOF
+[general]
+import = [
+    '$THEME_DIR/$next_theme'
+]
+EOF
+
+# キャッシュファイルに書き込み (既にあるはずだが念のため)
+mkdir -p "$(dirname "$CACHE_FILE")"
+echo "$THEME_TYPE" >"$CACHE_FILE"
+
+# Alacritty の設定リロードをトリガー
+touch "$HOME/.config/alacritty/alacritty.toml"
+
+# tmux のステータスバーを更新
+if command -v tmux &>/dev/null && tmux list-sessions &>/dev/null; then
+  tmux refresh-client -S
+fi
+```
+
+輝度計算には人間の視覚特性を考慮した係数 `0.299*R + 0.587*G + 0.114*B` を使用しています。輝度が128以上ならライトテーマ、128未満ならダークテーマと判定します。
+
+### 3.3. テーマファイルの入手
+
+テーマファイルは [alacritty-theme](https://github.com/alacritty/alacritty-theme) リポジトリから入手できます。
+
+```{.sh}
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+```
+
+## 4. 透過度変更機能
+
+`opacity-change.sh` は透過度を0.1ステップで上下に調整します。
+
+```{.bash filename="opacity-change.sh"}
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+OPACITY_FILE="$HOME/.config/alacritty/opacity.toml"
+ALACRITTY_FILE="$HOME/.config/alacritty/alacritty.toml"
+STEP=0.1
+DEFAULT_OPACITY=1.0
+
+# 引数チェック
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 {up|down}" >&2
+  exit 1
+fi
+
+DIRECTION="$1"
+
+if [[ $DIRECTION != "up" && $DIRECTION != "down" ]]; then
+  echo "Error: direction must be 'up' or 'down'" >&2
+  exit 1
+fi
+
+# 現在の opacity 値を取得
+if [[ -f $OPACITY_FILE ]]; then
+  CURRENT_OPACITY=$(grep "^opacity" "$OPACITY_FILE" | sed 's/.*= *//')
+else
+  CURRENT_OPACITY=$DEFAULT_OPACITY
+fi
+
+# 新しい opacity 値を計算
+if [[ $DIRECTION == "up" ]]; then
+  NEW_OPACITY=$(echo "$CURRENT_OPACITY + $STEP" | /usr/bin/bc)
+  if (($(echo "$NEW_OPACITY > 1.0" | /usr/bin/bc -l))); then
+    NEW_OPACITY=1.0
+  fi
+else
+  NEW_OPACITY=$(echo "$CURRENT_OPACITY - $STEP" | /usr/bin/bc)
+  if (($(echo "$NEW_OPACITY < 0.0" | /usr/bin/bc -l))); then
+    NEW_OPACITY=0.0
+  fi
+fi
+
+# opacity.toml を更新 (printf で 0.xx フォーマットを保証)
+FORMATTED_OPACITY=$(printf "%.2f" "$NEW_OPACITY")
+cat >"$OPACITY_FILE" <<EOF
+[window]
+opacity = $FORMATTED_OPACITY
+EOF
+
+# Alacritty の設定リロードをトリガー
+touch "$ALACRITTY_FILE"
+
+# tmux のステータスバーを更新
+if command -v tmux &>/dev/null && tmux list-sessions &>/dev/null; then
+  tmux refresh-client -S
+fi
+```
+
+透過度は0.0 (完全透明) から1.0 (不透明) の範囲で制限されます。
+
+## 5. tmux キーバインドの設定
+
+これらのスクリプトを tmux のキーバインドから呼び出せるようにします。
+
+```{.conf filename="tmux.conf"}
+# Switch Alacritty theme
+bind-key -n M-c run-shell "bash ~/path/to/theme-change.sh"
+bind-key -n M-t run-shell "bash ~/path/to/terminal-theme-toggle.sh"
+
+# Adjust Alacritty opacity
+bind-key -n M-a run-shell "bash ~/path/to/opacity-change.sh up"
+bind-key -n M-s run-shell "bash ~/path/to/opacity-change.sh down"
+```
+
+| キーバインド | 機能 |
+|-------------|------|
+| `Alt + c` | 現在のモード内でテーマをランダム変更 |
+| `Alt + t` | ダーク/ライトモードを切り替え |
+| `Alt + a` | 透過度を上げる (不透明に) |
+| `Alt + s` | 透過度を下げる (透明に) |
+
+`-n` オプションを使用しているため、prefix キーなしで直接 `Alt + キー` で操作できます。
+
+## 6. ステータスバーへの表示
+
+現在のテーマ名と透過度を tmux のステータスバーに表示することもできます。
+
+```{.bash filename="theme-status.sh"}
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+THEME_FILE="$HOME/.config/alacritty/theme.toml"
+
+if [[ -f $THEME_FILE ]]; then
+  THEME=$(grep "themes/themes/" "$THEME_FILE" | sed "s/.*themes\/themes\/\(.*\)\.toml.*/\1/")
+  if [[ -n $THEME ]]; then
+    echo "$THEME"
+  else
+    echo "unknown"
+  fi
+else
+  echo "no-theme"
+fi
+```
+
+```{.bash filename="opacity-status.sh"}
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+OPACITY_FILE="$HOME/.config/alacritty/opacity.toml"
+DEFAULT_OPACITY=1.0
+
+if [[ -f $OPACITY_FILE ]]; then
+  OPACITY=$(grep "^opacity" "$OPACITY_FILE" | sed 's/.*= *//')
+  printf "%.1f\n" "$OPACITY"
+else
+  printf "%.1f\n" "$DEFAULT_OPACITY"
+fi
+```
+
+tmux.conf でこれらを呼び出します。
+
+```{.conf filename="tmux.conf"}
+set-option -g status-right "#(bash ~/.config/alacritty/theme-status.sh) #(bash ~/.config/alacritty/opacity-status.sh)"
+```
+
+## 7. ポイント
+
+### 7.1. Alacritty のホットリロード
+
+Alacritty は設定ファイルの変更を自動検知してリロードします。ただし、import しているファイルの変更は検知されないため、`touch alacritty.toml` でメインファイルのタイムスタンプを更新してリロードをトリガーしています。
+
+### 7.2. テーマリストのキャッシュ
+
+テーマの輝度判定は初回のみ実行し、結果を `/tmp/alacritty-themes-{dark,light}.cache` にキャッシュしています。これにより2回目以降のテーマ切り替えが高速になります。
+
+### 7.3. tmux ステータスバーの更新
+
+テーマや透過度を変更した後、`tmux refresh-client -S` でステータスバーを即座に更新しています。
+
+### 7.4. Vim background との連動
+
+Vim 側でも同じキャッシュファイル (`~/.cache/terminal-theme`) を参照して、`background` オプションを連動させています。
+
+```{.vim filename="vimrc"}
+" Detect background from terminal theme cache
+let s:cache_file = expand($XDG_CACHE_HOME) .. '/terminal-theme'
+if filereadable(s:cache_file)
+  let s:theme_type = trim(readfile(s:cache_file)[0])
+  if s:theme_type ==# 'light'
+    set background=light
+  else
+    set background=dark
+  endif
+else
+  set background=dark
+endif
+
+" カラースキームは retrobox 固定
+colorscheme retrobox
+```
+
+現状はカラースキームを retrobox 固定にしていますが、ダーク/ライトモードに応じてランダム選択する仕組みも用意しています。
+
+## 8. おわりに
+
+Alacritty のホットリロード機能と tmux のキーバインドを組み合わせることで、ターミナルの見た目をキーボードだけで素早く変更できるようになりました。
+
+気分転換にテーマを変えたり、プレゼンテーション時に透過度を調整したりと、様々な場面で活用できます。
+
+ちなみに、テーマの輝度判定ロジックはさすがに凝りすぎな気もしますが、AI に丸投げして作ったものなので特に違和感なく動いています。dotfiles も AI に任せる時代になりました。
+
+設定ファイルの全体は以下のリポジトリで公開しています。
+
+<https://github.com/i9wa4/dotfiles/tree/main/dot.config/alacritty>
+
+<https://github.com/i9wa4/dotfiles/blob/main/dot.config/tmux/tmux.conf>
