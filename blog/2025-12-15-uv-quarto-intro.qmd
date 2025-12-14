@@ -1,0 +1,374 @@
+---
+title: "uv + Quarto でブログやスライドを作成して GitHub Pages で公開する (HTML エクスポートにも対応)"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech"
+  - "tech-quarto"
+date: 2025-12-15 04:56:23 +0900
+date-modified: last-modified
+description: |
+  uv と Quarto を使ってブログやスライドを作成し、GitHub Pages で公開する方法を紹介します
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. はじめに
+
+Markdown ライクな記法でブログやスライドを作成できる Quarto の入門記事です。
+
+この記事では以下のリポジトリをテンプレートとして使用します。
+
+<https://github.com/i9wa4/quarto-intro>
+
+公開ページ: <https://i9wa4.github.io/quarto-intro>
+
+## 2. 想定読者
+
+- Python の環境構築ができている方
+- Git/GitHub 操作の説明がなくても問題ない方
+
+## 3. Quarto とは
+
+<https://quarto.org/>
+
+> An open-source scientific and technical publishing system
+
+オープンソースの科学技術出版システムです。Pandoc をベースにしていて手軽でありつつも拡張性があり細かいところに手が届くという印象です。
+
+## 4. 環境構築
+
+uv を使って Quarto をインストールします。
+
+### 4.1. uv のインストール
+
+uv がまだインストールされていない場合は以下を参照してください。
+
+<https://docs.astral.sh/uv/getting-started/installation/>
+
+### 4.2. プロジェクトの作成
+
+```{.sh}
+# GitHub リポジトリを作成
+gh repo create quarto-intro --public --clone
+cd quarto-intro
+
+# uv で初期化
+uv init
+
+# quarto-cli をインストール
+uv add quarto-cli
+```
+
+### 4.3. pyproject.toml
+
+```{.toml filename="pyproject.toml"}
+[project]
+name = "quarto-intro"
+version = "0.1.0"
+description = "Quarto intro project"
+requires-python = ">=3.14"
+dependencies = [
+  "quarto-cli",
+]
+```
+
+## 5. プロジェクト構成
+
+quarto-intro リポジトリの構成は以下の通りです。
+
+```{.sh}
+./
+├── .github/
+│   ├── dependabot.yml
+│   └── workflows/
+│       ├── export-to-html.yaml
+│       └── publish.yaml
+├── .gitignore
+├── .nojekyll
+├── _quarto.yml
+├── assets/
+│   └── common/
+│       └── title-background.jpg
+├── blog/
+│   ├── index.qmd
+│   └── 2024-08-25-test1.qmd
+├── index.qmd
+├── pyproject.toml
+├── slides/
+│   ├── index.qmd
+│   └── 2025-05-05-initial-slide.qmd
+└── uv.lock
+```
+
+### 5.1. `_quarto.yml`
+
+プロジェクトの設定を記述するファイルです。
+
+```{.yaml filename="_quarto.yml"}
+project:
+  type: website
+  output-dir: "_site"
+
+date-format: iso
+
+website:
+  title: "quarto-intro"
+```
+
+### 5.2. `.gitignore`
+
+```{.gitignore filename=".gitignore"}
+/.quarto/
+/_site/
+/_extensions/
+
+**/*.quarto_ipynb
+```
+
+### 5.3. `index.qmd`
+
+トップページを作成するためのファイルです。
+
+```{.markdown filename="index.qmd"}
+---
+title: "quarto-intro"
+listing:
+  contents:
+    - "blog"
+    - "slides"
+  exclude:
+    filename: "index.qmd"
+  sort:
+    - "date desc"
+---
+
+- [ブログ記事一覧](./blog)
+- [スライド一覧](./slides)
+```
+
+## 6. ブログ記事の作成
+
+`blog/` ディレクトリに `.qmd` ファイルを作成します。
+
+### 6.1. `blog/index.qmd`
+
+```{.markdown filename="blog/index.qmd"}
+---
+title: ブログ記事一覧
+listing:
+  contents:
+    - "."
+  sort:
+    - "date desc"
+---
+```
+
+### 6.2. ブログ記事の例
+
+```{.markdown filename="blog/2024-08-25-test1.qmd"}
+---
+title: test1
+date: 2024-08-25
+---
+
+ブログ記事の本文です。
+```
+
+## 7. スライドの作成
+
+Quarto は reveal.js 形式のスライドを作成できます。
+
+### 7.1. `slides/index.qmd`
+
+```{.markdown filename="slides/index.qmd"}
+---
+title: スライド一覧
+listing:
+  contents:
+    - "."
+  sort:
+    - "date desc"
+---
+```
+
+### 7.2. スライドの例
+
+```{.markdown filename="slides/2025-05-05-initial-slide.qmd"}
+---
+title: スライドタイトル
+author: uma-chan
+date: 2025-05-05
+format:
+  revealjs:
+    slide-level: 3
+    slide-number: true
+---
+
+## セクション1
+
+### スライド1
+
+本文
+
+### スライド2
+
+本文
+
+## セクション2
+
+### スライド3
+
+本文
+```
+
+`##` でセクションタイトルのスライド、`###` で通常のスライドを区切ります。
+
+## 8. ローカルでプレビュー
+
+```{.sh}
+uv run quarto preview
+```
+
+ブラウザでリアルタイムにプレビューしながら編集できます。
+
+## 9. GitHub Pages への公開
+
+GitHub Actions を使って GitHub Pages に自動デプロイします。
+
+### 9.1. 初回デプロイ
+
+初回はローカルから以下のコマンドを実行して `gh-pages` ブランチを作成します。
+
+```{.sh}
+uv run quarto publish gh-pages
+```
+
+### 9.2. `publish.yaml`
+
+2回目以降は GitHub Actions で自動デプロイされます。
+
+```{.yaml filename=".github/workflows/publish.yaml"}
+name: Quarto Publish
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## 10. HTML ファイルのエクスポート
+
+Organization のプライベートリポジトリなど GitHub Pages が使えない場合は、HTML ファイルを `html` ブランチにエクスポートしてダウンロードできます。
+
+### 10.1. `export-to-html.yaml`
+
+```{.yaml filename=".github/workflows/export-to-html.yaml"}
+name: Export to HTML
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  export-html:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render Quarto Website
+        run: |
+          quarto render
+
+      - name: Deploy to HTML branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          branch: html
+          clean: true
+```
+
+### 10.2. HTML ファイルの取得方法
+
+1. GitHub で `html` ブランチに切り替え
+2. Code > Download ZIP でダウンロード
+3. または `git checkout html && git pull`
+
+## 11. Dependabot の設定
+
+GitHub Actions と uv のパッケージを自動で更新するために Dependabot を設定します。
+
+```{.yaml filename=".github/dependabot.yml"}
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+これにより毎週自動で PR が作成され、依存パッケージを最新に保てます。
+
+## 12. おわりに
+
+uv と Quarto を使えば、Markdown ライクな記法でブログやスライドを簡単に作成できます。
+
+テンプレートリポジトリをフォークして、自分だけのサイトを作ってみてください。
+
+<https://github.com/i9wa4/quarto-intro>

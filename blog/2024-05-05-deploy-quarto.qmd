@@ -12,6 +12,14 @@ description: |
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
+::: {.callout-warning}
+## Deprecated
+
+この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。
+
+[uv + Quarto でブログやスライドを作成して GitHub Pages で公開する (HTML エクスポートにも対応)](2025-12-15-uv-quarto-intro.qmd)
+:::
+
 ## 1. 前提
 
 スライドをできるだけ Git で管理したいので Markdown をスライドに変換する方向性で色々なツールを比較検討していて、 Quarto (<https://quarto.org/>) に決めました。

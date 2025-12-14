@@ -12,6 +12,14 @@ description: |
 # image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
+::: {.callout-warning}
+## Deprecated
+
+この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。
+
+[uv + Quarto でブログやスライドを作成して GitHub Pages で公開する (HTML エクスポートにも対応)](2025-12-15-uv-quarto-intro.qmd)
+:::
+
 ## 1. はじめに
 
 最近 AI にスライドを生成させたいという声をよく聞くようになりましたので、私の好きな Markdown ライクなツールである Quarto でスライドを作成する方法を紹介します。

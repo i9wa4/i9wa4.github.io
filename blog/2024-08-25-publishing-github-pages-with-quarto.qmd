@@ -12,6 +12,14 @@ description: |
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
+::: {.callout-warning}
+## Deprecated
+
+この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。
+
+[uv + Quarto でブログやスライドを作成して GitHub Pages で公開する (HTML エクスポートにも対応)](2025-12-15-uv-quarto-intro.qmd)
+:::
+
 GitHub でブログやスライドを管理したい方にオススメな Quarto による GitHub Pages 公開手順を紹介していきます。
 
 スライド管理に興味がない方は適宜スライドに関する記述を無視しながら読み進めてください。
