@@ -1,0 +1,10 @@
+# zizmor configuration
+# https://docs.zizmor.sh/usage/
+
+rules:
+  artipacked:
+    # We need persist-credentials for github-profile-summary-cards to push to main
+    # The workflow only runs on trusted code (schedule and manual dispatch)
+    # and permissions are already restricted to contents: write
+    ignore:
+      - github-profile-summary-cards.yaml
