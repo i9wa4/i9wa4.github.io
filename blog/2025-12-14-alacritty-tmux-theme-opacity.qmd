@@ -172,7 +172,7 @@ if [[ $THEME_TYPE != "light" && $THEME_TYPE != "dark" ]]; then
   THEME_TYPE="dark"
 fi
 
-CACHE_LIST_FILE="/tmp/alacritty-themes-${THEME_TYPE}.cache"
+CACHE_LIST_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/alacritty-themes-${THEME_TYPE}"
 
 # 背景色から明るさを判定する関数
 is_matching_theme() {
@@ -422,7 +422,7 @@ Alacritty は設定ファイルの変更を自動検知してリロードしま�
 
 ### 7.2. テーマリストのキャッシュ
 
-テーマの輝度判定は初回のみ実行し、結果を `/tmp/alacritty-themes-{dark,light}.cache` にキャッシュしています。これにより2回目以降のテーマ切り替えが高速になります。
+テーマの輝度判定は初回のみ実行し、結果を `~/.cache/alacritty-themes-{dark,light}` にキャッシュしています。これにより2回目以降のテーマ切り替えが高速になります。
 
 ### 7.3. tmux ステータスバーの更新
 
@@ -461,8 +461,6 @@ Alacritty のホットリロード機能と tmux のキーバインドを組み�
 ちなみに、テーマの輝度判定ロジックはさすがに凝りすぎな気もしますが、AI に丸投げして作ったものなので特に違和感なく動いています。dotfiles も AI に任せる時代になりました。
 
 設定ファイルの全体は以下のリポジトリで公開しています。
-
-全体構成を眺めるとキャッシュファイルを ~/.cache やら /tmp やらバラバラに置いてるのが気になったので今から直します。
 
 <https://github.com/i9wa4/dotfiles/tree/main/dot.config/alacritty>
 
