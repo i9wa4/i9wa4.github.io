@@ -1,0 +1,39 @@
+name: GitHub Profile Summary Cards
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 14 * * *"  # 23:20 JST (14:20 UTC)
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: generate-github-profile-summary-cards
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: github-profile-summary-cards
+        uses: vn7n24fzkq/github-profile-summary-cards@c2fa12c268d76d3d84ff952be25c1b101968dba9 # release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BRANCH_NAME: "gh-summary"
+          UTC_OFFSET: 9
+          EXCLUDE: "JavaScript,HTML,SCSS"
+          AUTO_PUSH: true

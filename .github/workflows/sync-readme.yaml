@@ -13,12 +13,14 @@ defaults:
     shell: bash
 
 concurrency:
-  group: sync-readme
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   sync-readme:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       - name: Fetch README from gh-pages
         run: |
