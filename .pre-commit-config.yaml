@@ -27,6 +27,18 @@ repos:
         language: system
         files: ^\.github/workflows/.*\.(yml|yaml)$
 
+      - id: ghalint
+        name: ghalint
+        entry: mise exec -- ghalint run
+        language: system
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+
+      - id: ghatm
+        name: ghatm
+        entry: mise exec -- ghatm set -t 5
+        language: system
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+
       - id: pinact
         name: pinact
         entry: mise exec -- pinact run
@@ -56,3 +68,4 @@ repos:
         entry: bash .github/scripts/convert-drawio-to-png.sh
         language: system
         files: assets/.*\.drawio$
+        require_serial: true
