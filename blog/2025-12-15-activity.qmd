@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "diary"
-    date: 2025-12-15 22:34:34 +0900
+date: 2025-12-15 23:14:44 +0900
 date-modified: last-modified
 description: |
   2025年のアウトプットを LAPRAS に出力してもらいました。
