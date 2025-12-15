@@ -24,7 +24,6 @@ Markdown ライクな記法でブログやスライドを作成できる Quarto 
 
 ## 2. 想定読者
 
-- Python の環境構築ができている方
 - Git/GitHub 操作の説明がなくても問題ない方
 
 ## 3. Quarto とは
