@@ -1,5 +1,5 @@
 ---
-title: "2025年のアウトプットまとめ with LAPRAS"
+title: "2025年のアウトプットまとめ LAPRAS"
 author: uma-chan
 categories:
   - "blog"
