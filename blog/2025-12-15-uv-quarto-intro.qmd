@@ -51,8 +51,8 @@ GitHub で空のリポジトリを作成してからローカルに clone しま
 
 ```{.sh}
 # リポジトリを clone
-git clone git@github.com:your-username/quarto-intro.git
-cd quarto-intro
+git clone git@github.com:your-username/your-repo.git
+cd your-repo
 
 # uv で初期化
 uv init
@@ -65,7 +65,7 @@ uv add quarto-cli
 
 ```{.toml filename="pyproject.toml"}
 [project]
-name = "quarto-intro"
+name = "your-repo"
 version = "0.1.0"
 description = "Quarto intro project"
 requires-python = ">=3.14"
