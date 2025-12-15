@@ -9,7 +9,8 @@
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
 
-code, pre, .monospace {
+code, pre, .monospace,
+code *, pre *, .sourceCode * {
   font-family: "JetBrains Mono", "Consolas", "Menlo", monospace !important;
 }
 

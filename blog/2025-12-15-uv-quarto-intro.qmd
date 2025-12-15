@@ -118,7 +118,7 @@ website:
 
 ### 5.2. `.gitignore`
 
-```{.gitignore filename=".gitignore"}
+```{.sh filename=".gitignore"}
 /.quarto/
 /_site/
 /_extensions/
