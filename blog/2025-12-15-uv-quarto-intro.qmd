@@ -292,7 +292,7 @@ jobs:
 
 ## 10. HTML ファイルのエクスポート
 
-Organization のプライベートリポジトリなど GitHub Pages が使えない場合は、HTML ファイルを `html` ブランチにエクスポートしてダウンロードできます。
+GitHub Pages を作成しない場合も、HTML ファイルを `html` ブランチ生成するようなデプロイも可能です。
 
 ### 10.1. `export-to-html.yaml`
 
