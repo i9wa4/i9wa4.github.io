@@ -1,6 +1,6 @@
 [tools]
 # Package managers
-uv = "0.9.17"
+uv = "0.9.18"
 
 # Development tools
 gitleaks = "8.30.0"
