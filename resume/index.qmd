@@ -40,9 +40,8 @@ listing:
     type: table
 ---
 
-- 職務経歴書公開先
-    - <https://i9wa4.github.io/resume/index.html>
-    - <https://i9wa4.github.io/resume/index.pdf>
+- [職務経歴書 (Web ページ)](https://i9wa4.github.io/resume/index.html)
+- [職務経歴書 (pdf)](https://i9wa4.github.io/resume/index.pdf)
 
 ## 1. 職務要約
 
@@ -108,32 +107,32 @@ AIを活用して開発環境改善やデータ分析の簡易化 (民主化) �
 
 : {tbl-colwidths="[15,20,10,55]"}
 
-| 項目      | 種類                  | 使用期間                                 | レベル                                                                                                                                     |
-| :---      | :---                  | :---                                     | :---                                                                                                                                       |
-| IaC       | CloudFormation        | {{< period 2025/08 >}}                   | 既存テンプレートの修正が可能                                                                                                               |
-| IaC       | Docker                | {{< period 2022/04 >}}                   | Dockerfile や Docker Compose の記述・実行が可能                                                                                            |
-| IaC       | GitHub / CodeCommit   | {{< period 2021/04 >}}                   | Git flow や GitHub flow に則った開発利用やレビューが可能                                                                                   |
-| IaC       | GitHub Actions        | {{< period 2024/04 >}}                   | 既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能                                            |
-| IaC       | Terraform             | {{< period 2024/04 >}}                   | AWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能                                                       |
-| Data      | BigQuery              | {{< period 2024/04 2024/10 + 2025/08 >}} | 管理者業務や IaC 化作業が可能                                                                                                              |
-| Data      | Embulk                | {{< period 2024/04 2024/10 >}}           | 転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能                                                                      |
-| Data      | TROCCO                | {{< period 2024/04 2024/10 >}}           | ジョブ作成・運用が可能                                                                                                                     |
-| Data      | dbt Cloud             | {{< period 2024/11 >}}                   | ジョブ作成・運用が可能                                                                                                                     |
-| Data      | dbt Core              | {{< period 2023/10 2024/03 + 2024/11 >}} | プロジェクト新規作成から運用まで可能                                                                                                       |
-| Data / ML | Databricks            | {{< period 2024/11 >}}                   | 管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能                                           |
-| Data / ML | Snowflake             | {{< period 2022/04 2024/03 + 2024/11 >}} | データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能                                                        |
-| ML        | DataRobot             | {{< period 2022/04 2024/03 >}}           | オートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能                                    |
-| OS        | Amazon Linux / Ubuntu | {{< period 2021/04 >}}                   | 要件に応じた環境構築や開発環境利用が可能                                                                                                   |
-| OS        | Windows               | {{< period 2016/04 >}}                   | 開発利用が可能                                                                                                                             |
-| OS        | macOS                 | {{< period 2024/04 >}}                   | 開発利用が可能                                                                                                                             |
-| 言語      | C                     | {{< period 2018/08 2022/03 >}}           | 一人称で作業可能                                                                                                                           |
-| 言語      | Python                | {{< period 2021/04 >}}                   | 一人称で作業可能                                                                                                                           |
-| 言語      | SQL                   | {{< period 2022/04 >}}                   | 一人称で作業可能                                                                                                                           |
-| 言語      | Shell Script          | {{< period 2021/04 >}}                   | 一人称で作業可能                                                                                                                           |
-| Cloud     | AWS                   | {{< period 2022/04 >}}                   | EC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能                                         |
-| Cloud     | Google Cloud          | {{< period 2024/04 2024/10 + 2025/08 >}} | BigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能 |
-| DB        | MySQL                 | {{< period 2022/04 2022/05 + 2024/04 >}} | パフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能                                                                     |
-| DB        | PostgreSQL            | {{< period 2022/04 2022/09 >}}           | ローカル環境でのデータベース作成・データ閲覧が可能                                                                                         |
+| 項目      | 種類                  | 使用期間                                         | レベル                                                                                                                                     |
+| :---      | :---                  | :---                                             | :---                                                                                                                                       |
+| IaC       | CloudFormation        | {{< period 2025/08 2025/09 >}}                   | 既存テンプレートの修正が可能                                                                                                               |
+| IaC       | Docker                | {{< period 2022/04 >}}                           | Dockerfile や Docker Compose の記述・実行が可能                                                                                            |
+| IaC       | GitHub / CodeCommit   | {{< period 2021/04 >}}                           | Git flow や GitHub flow に則った開発利用やレビューが可能                                                                                   |
+| IaC       | GitHub Actions        | {{< period 2024/04 >}}                           | 既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能                                            |
+| IaC       | Terraform             | {{< period 2024/04 >}}                           | AWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能                                                       |
+| Data      | BigQuery              | {{< period 2024/04 2024/10 + 2025/08 >}}         | 管理者業務や IaC 化作業が可能                                                                                                              |
+| Data      | Embulk                | {{< period 2024/04 2024/10 >}}                   | 転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能                                                                      |
+| Data      | TROCCO                | {{< period 2024/04 2024/10 >}}                   | ジョブ作成・運用が可能                                                                                                                     |
+| Data      | dbt Cloud             | {{< period 2024/11 >}}                           | ジョブ作成・運用が可能                                                                                                                     |
+| Data      | dbt Core              | {{< period 2023/10 2024/03 + 2024/11 >}}         | プロジェクト新規作成から運用まで可能                                                                                                       |
+| Data / ML | Databricks            | {{< period 2024/11 >}}                           | 管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能                                           |
+| Data / ML | Snowflake             | {{< period 2022/04 2024/03 + 2024/11 >}}         | データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能                                                        |
+| ML        | DataRobot             | {{< period 2022/04 2024/03 >}}                   | オートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能                                    |
+| OS        | Amazon Linux / Ubuntu | {{< period 2021/04 2025/03>}}                    | 要件に応じた環境構築や開発環境利用が可能                                                                                                   |
+| OS        | Windows               | {{< period 2016/04 2025/03 >}}                   | 開発利用が可能                                                                                                                             |
+| OS        | macOS                 | {{< period 2024/04 >}}                           | 開発利用が可能                                                                                                                             |
+| 言語      | C                     | {{< period 2018/08 2022/03 >}}                   | 一人称で作業可能                                                                                                                           |
+| 言語      | Python                | {{< period 2021/04 >}}                           | 一人称で作業可能                                                                                                                           |
+| 言語      | SQL                   | {{< period 2022/04 >}}                           | 一人称で作業可能                                                                                                                           |
+| 言語      | Shell Script          | {{< period 2021/04 >}}                           | 一人称で作業可能                                                                                                                           |
+| Cloud     | AWS                   | {{< period 2022/04 >}}                           | EC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能                                         |
+| Cloud     | Google Cloud          | {{< period 2024/04 2024/10 + 2025/08 2025/09 >}} | BigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能 |
+| DB        | MySQL                 | {{< period 2022/04 2022/05 + 2024/04 2024/10 >}} | パフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能                                                                     |
+| DB        | PostgreSQL            | {{< period 2022/04 2022/09 >}}                   | ローカル環境でのデータベース作成・データ閲覧が可能                                                                                         |
 
 ## 6. 資格
 
