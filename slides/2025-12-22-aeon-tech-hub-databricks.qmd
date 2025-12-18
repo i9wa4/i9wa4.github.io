@@ -1,0 +1,202 @@
+---
+title: M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+  - "genda"
+date: 2025-12-22
+date-modified: last-modified
+description: |
+  [登壇資料] 2025-12-22 AEON TECH HUB #22
+draft: true
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: "[2025-12-22 AEON TECH HUB #22](https://aeon.connpass.com/event/375097/)"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+subtitle: ""
+---
+
+## 1. 自己紹介
+
+Mawatari Daiki / uma-chan
+
+株式会社GENDA IT戦略部 データチーム
+
+データエンジニア / MLOpsエンジニア
+
+### 1.1. 今日話すこと
+
+M&Aで拡大するGENDAで、多様なユーザーが使いやすいDatabricks権限管理をどう実現しているか
+
+- データエンジニア、MLエンジニア、アナリスト、ビジネスメンバー
+- それぞれに適切な権限を、シンプルに管理したい
+- Unity Catalog + グループベースの権限管理で解決
+- まだWIP (改善を続けている段階)
+
+## 2. GENDAとデータチーム
+
+### 2.1. GENDAについて
+
+- 「世界中の人々の日常にもっと『楽しい』を届けたい」
+- M&Aによりグループ拡大中
+- GiGO、カラオケBanBan、ヒューマックス 等
+
+### 2.2. Databricks活用の全体像
+
+![GENDA Databricks活用全体像](/assets/2025-12-22-aeon-tech-hub-databricks/overall-architecture.drawio.png)
+
+### 2.3. Unity Catalog とは (Snowflake比較)
+
+| Snowflake | Unity Catalog |
+|-----------|---------------|
+| DATABASE.SCHEMA.TABLE | CATALOG.SCHEMA.TABLE |
+| ROLE へ GRANT | GROUP へ GRANT |
+| Stage (ファイル) | Volume (ファイル) |
+
+- Databricksのデータガバナンス機能
+- テーブル、ビュー、Volume、MLモデルを一元管理
+
+### 2.4. マルチワークスペース構成
+
+![マルチワークスペース構成](/assets/2025-12-22-aeon-tech-hub-databricks/multi-workspace-architecture.drawio.png)
+
+### 2.5. マルチワークスペースのポイント
+
+- 各グループ企業ごとにワークスペースを分離
+  - リソース競合を回避
+  - 見えるものを減らして権限管理をシンプルに
+- GENDAデータチームは全ワークスペースにアクセス可能 (Superset)
+- Unity Catalogはアカウントレベルで統一管理
+- カタログ単位でアクセス制御
+
+### 2.6. 多様なユーザー
+
+- データエンジニア - パイプライン構築
+- MLエンジニア - モデル開発・運用
+- データアナリスト - SQL分析・可視化
+- ビジネスメンバー - レポート閲覧
+
+## 3. 課題
+
+### 3.1. 多様なユーザーへの権限管理
+
+- 各ロールで必要な機能が異なる
+- セキュリティと利便性のバランス
+- M&Aで新しい会社・チームが増加
+
+### 3.2. ロールごとのニーズ
+
+| ロール | ニーズ |
+|--------|--------|
+| データエンジニア | パイプライン構築、ジョブ管理 |
+| MLエンジニア | モデル開発、実験管理 |
+| データアナリスト | SQL分析、ダッシュボード作成 |
+| ビジネスメンバー | ダッシュボード閲覧、レポート確認 |
+
+## 4. 解決策
+
+### 4.1. 権限の2層構造
+
+![2層権限構造](/assets/2025-12-22-aeon-tech-hub-databricks/two-layer-permissions.drawio.png)
+
+- 両方の権限をグループに付与してシンプルに管理
+- ロールごとに組み合わせを変えて細かい調整も可能
+
+### 4.2. グループによる一元管理
+
+![グループ管理](/assets/2025-12-22-aeon-tech-hub-databricks/group-management.drawio.png)
+
+- 両方の権限をグループに付与
+- 新メンバーはグループ追加だけでオンボーディング完了
+- M&A時も新グループ作成 → テンプレート権限付与でスムーズ
+
+## 5. 活用シーン
+
+### 5.1. ビジネスメンバー向け (Databricks One)
+
+![Databricks One / Consumer Access](/assets/2025-12-22-aeon-tech-hub-databricks/databricks-one-consumer.drawio.png)
+
+### 5.2. Consumer Access のメリット
+
+- シンプルなUI: 複雑な機能が非表示で迷わない
+- SQLスキル不要で自然言語でデータ分析 (Genie)
+- 閲覧専用で安全にデータ活用
+- M&A後の新規メンバーも即座にオンボーディング可能
+
+### 5.3. MLエンジニア向け
+
+![MLエンジニアのワークフロー](/assets/2025-12-22-aeon-tech-hub-databricks/ml-engineer-workflow.drawio.png)
+
+### 5.4. MLワークフローでの権限活用
+
+- Feature Store / Unity Catalog でデータアクセス制御
+- MLflow で実験追跡・モデル管理
+- Unity Catalog Models でモデルの一元管理
+- 本番モデルへのアクセスを適切に制限
+
+### 5.5. データアナリスト向け
+
+![データアナリストのワークフロー](/assets/2025-12-22-aeon-tech-hub-databricks/data-analyst-workflow.drawio.png)
+
+### 5.6. データアナリストの権限活用
+
+- SQL access でクエリ作成・ダッシュボード作成
+- Unity Catalog で必要なデータのみ SELECT 権限付与
+- 行レベルセキュリティで顧客データを制限
+- 列マスキングで機密情報を自動的にマスク
+- 生データ (bronze) へのアクセスは制限し、加工済みデータ (gold) のみ提供
+
+## 6. サービスプリンシパル管理
+
+### 6.1. ネーミングルール
+
+```text
+[利用者]_[システム名]_[環境名]
+```
+
+例:
+
+- `data_dbt_prod` - データチームのdbt本番環境
+- `data_dbt_dev` - データチームのdbt開発環境
+- `gge_looker_prod` - GGEのLooker本番環境
+
+### 6.2. 運用ルール
+
+- サービスプリンシパルの作成/削除はアカウント管理画面から
+- data_adminグループにManager権限を必須付与
+- シークレットは1Passwordで管理
+- PAT/シークレットは年1回（2/1）更新
+
+## 7. まとめ
+
+### 7.1. 権限管理のポイント
+
+- ロール別にワークスペース権限を使い分け
+- Unity Catalogで細かいデータアクセス制御
+- サービスプリンシパルは命名規則と運用ルールを統一
+- セキュリティと利便性のバランスを実現
+
+### 7.2. 今後の展望
+
+- 新規グループ企業への展開を迅速化
+- 権限テンプレートの整備
+- 自動化の推進
