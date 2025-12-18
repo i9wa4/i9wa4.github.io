@@ -189,10 +189,10 @@
 
         <!-- Key point -->
         <mxCell id="key-point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="40" y="700" width="1880" height="60" as="geometry" />
+          <mxGeometry x="40" y="695" width="1880" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="key-point" value="ポイント: genda_analysts は GENDAワークスペースのみ利用だが、全社のデータを分析可能（ワークスペースとデータアクセスが独立）" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontColor=#2E7D32;fontStyle=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="50" y="715" width="1860" height="35" as="geometry" />
+        <mxCell id="key-point" value="ポイント: genda_analysts は GENDAワークスペースのみ利用だが、全社のデータを分析可能（ワークスペースとデータアクセスが独立）" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;fontColor=#2E7D32;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="708" width="1860" height="45" as="geometry" />
         </mxCell>
 
       </root>
