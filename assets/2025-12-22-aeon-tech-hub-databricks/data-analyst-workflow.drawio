@@ -113,48 +113,43 @@
 
         <!-- Unity Catalog Data Access -->
         <mxCell id="uc-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=3;" vertex="1" parent="1">
-          <mxGeometry x="260" y="210" width="810" height="210" as="geometry" />
+          <mxGeometry x="260" y="210" width="810" height="190" as="geometry" />
         </mxCell>
         <mxCell id="uc-title" value="Unity Catalog によるデータアクセス制御" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;align=center;" vertex="1" parent="1">
           <mxGeometry x="260" y="225" width="810" height="30" as="geometry" />
         </mxCell>
 
-        <!-- Catalog/Schema Header -->
-        <mxCell id="catalog-label" value="genda_dbt_prod" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#795548;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="260" width="180" height="25" as="geometry" />
-        </mxCell>
-
         <!-- Data Access Examples - Layer Based -->
-        <mxCell id="data1" value="マート層&lt;br&gt;genda_dwh.mt_*" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
-          <mxGeometry x="280" y="290" width="150" height="55" as="geometry" />
+        <mxCell id="data1" value="マート層" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
+          <mxGeometry x="280" y="270" width="150" height="45" as="geometry" />
         </mxCell>
         <mxCell id="data1-perm" value="SELECT" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#81C784;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="285" y="355" width="140" height="30" as="geometry" />
+          <mxGeometry x="285" y="325" width="140" height="30" as="geometry" />
         </mxCell>
 
-        <mxCell id="data2" value="ステージング層&lt;br&gt;genda_dwh.stg_*" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
-          <mxGeometry x="450" y="290" width="150" height="55" as="geometry" />
+        <mxCell id="data2" value="ステージング層" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
+          <mxGeometry x="450" y="270" width="150" height="45" as="geometry" />
         </mxCell>
         <mxCell id="data2-perm" value="SELECT" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#81C784;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="455" y="355" width="140" height="30" as="geometry" />
+          <mxGeometry x="455" y="325" width="140" height="30" as="geometry" />
         </mxCell>
 
-        <mxCell id="data3" value="中間層&lt;br&gt;dbt_intermediates.*" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
-          <mxGeometry x="620" y="290" width="150" height="55" as="geometry" />
+        <mxCell id="data3" value="中間層" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
+          <mxGeometry x="620" y="270" width="150" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="data3-perm" value="制限付きSELECT" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontFamily=Noto Sans JP;fillColor=#FFB74D;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="625" y="355" width="140" height="30" as="geometry" />
+        <mxCell id="data3-perm" value="制限付き" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#FFB74D;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="625" y="325" width="140" height="30" as="geometry" />
         </mxCell>
 
-        <mxCell id="data4" value="ソースデータ&lt;br&gt;外部カタログ" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
-          <mxGeometry x="790" y="290" width="150" height="55" as="geometry" />
+        <mxCell id="data4" value="外部カタログ" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontFamily=Noto Sans JP;fillColor=#FFECB3;strokeColor=#FFB300;" vertex="1" parent="1">
+          <mxGeometry x="790" y="270" width="150" height="45" as="geometry" />
         </mxCell>
         <mxCell id="data4-perm" value="アクセス不可" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Noto Sans JP;fillColor=#EF5350;fontColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="795" y="355" width="140" height="30" as="geometry" />
+          <mxGeometry x="795" y="325" width="140" height="30" as="geometry" />
         </mxCell>
 
-        <mxCell id="uc-note" value="dbtで整備されたマート層・ステージング層のみアクセス可能 / ソースデータへの直接アクセスは制限" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#F57F17;align=center;fontStyle=2;" vertex="1" parent="1">
-          <mxGeometry x="260" y="395" width="810" height="20" as="geometry" />
+        <mxCell id="uc-note" value="dbtで整備されたマート層・ステージング層のみアクセス可能 / 外部カタログへの直接アクセスは制限" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#F57F17;align=center;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="260" y="365" width="810" height="25" as="geometry" />
         </mxCell>
 
       </root>
