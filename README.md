@@ -6,23 +6,9 @@
 
 ## 1. How to preview this page
 
-1. Install venv with uv.
-
-    ```sh
-    uv sync --frozen
-    ```
-
+1. Install [uv](https://github.com/astral-sh/uv).
 1. Preview with Quarto.
 
     ```sh
     uv run quarto preview
-    ```
-
-## 2. How to update uv.lock
-
-1. Update .python-version or pyproject.toml.
-1. Execute the following command.
-
-    ```sh
-    uv lock --upgrade
     ```
