@@ -57,6 +57,24 @@ repos:
         language: system
         types: [shell]
 
+      - id: shfmt
+        name: shfmt
+        entry: mise exec -- shfmt -i 2 -w
+        language: system
+        types: [shell]
+
+      - id: ruff-check
+        name: ruff check
+        entry: mise exec -- uv run ruff check --fix
+        language: system
+        types: [python]
+
+      - id: ruff-format
+        name: ruff format
+        entry: mise exec -- uv run ruff format
+        language: system
+        types: [python]
+
       - id: stylua
         name: stylua
         entry: mise exec -- stylua

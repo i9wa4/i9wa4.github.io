@@ -43,14 +43,20 @@ jobs:
         with:
           cache: true
 
-      - name: Cache pre-commit
+      - name: Cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
-          path: ~/.cache/pre-commit
+          path: |
+            ~/.cache/pre-commit
+            ~/.cache/uv
+            .venv
           key: |
-            pre-commit-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.pre-commit-config.yaml') }}
+            cache-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.pre-commit-config.yaml', 'uv.lock') }}
           restore-keys: |
-            pre-commit-${{ runner.os }}-${{ runner.arch }}-
+            cache-${{ runner.os }}-${{ runner.arch }}-
+
+      - name: Setup Python environment
+        run: mise exec -- uv sync --only-dev
 
       - name: Run pre-commit
         env:
