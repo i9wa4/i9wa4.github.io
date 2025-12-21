@@ -24,5 +24,13 @@ listing:
 - Slides: PDF available at same URL with `.pdf` extension.
 :::
 
+::: {.category-buttons}
+[All](.){.btn .btn-outline-secondary .btn-sm}
+[genda](#category=genda){.btn .btn-outline-primary .btn-sm}
+[pivot](#category=pivot){.btn .btn-outline-primary .btn-sm}
+[slides](#category=slides){.btn .btn-outline-primary .btn-sm}
+[vim-jp](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
+:::
+
 ::: {#list-all}
 :::

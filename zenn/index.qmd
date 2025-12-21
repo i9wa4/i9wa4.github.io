@@ -20,5 +20,10 @@ listing:
     type: default
 ---
 
+::: {.category-buttons}
+[All](.){.btn .btn-outline-secondary .btn-sm}
+[zenn](#category=zenn){.btn .btn-outline-primary .btn-sm}
+:::
+
 ::: {#list-all}
 :::

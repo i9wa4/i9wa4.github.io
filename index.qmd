@@ -5,7 +5,6 @@ description: |
 listing:
   - id: "list-all"
     categories: numbered
-    filter-ui: true
     contents:
       - "blog"
       - "zenn"

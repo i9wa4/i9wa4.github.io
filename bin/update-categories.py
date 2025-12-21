@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
-"""Extract categories from blog/zenn posts and update index.qmd."""
+"""Extract categories from posts and update index.qmd files.
+
+Category buttons use Pandoc attributes + Bootstrap CSS classes.
+
+Syntax:
+    [label](#category=name){.btn .btn-outline-primary .btn-sm}
+
+References:
+    - Pandoc attributes: https://quarto.org/docs/authoring/markdown-basics.html
+    - Bootstrap buttons: https://getbootstrap.com/docs/5.3/components/buttons/
+    - Quarto listing filter: https://quarto.org/docs/websites/website-listings.html
+"""
 
 from __future__ import annotations
 
@@ -94,27 +105,50 @@ def main() -> int:
     script_dir = Path(__file__).parent.resolve()
     project_root = script_dir.parent
 
-    blog_dir = project_root / "blog"
-    zenn_dir = project_root / "zenn"
-    index_path = project_root / "index.qmd"
+    # Define index files and their source directories
+    targets = [
+        {
+            "index": project_root / "index.qmd",
+            "sources": [project_root / "blog", project_root / "zenn"],
+        },
+        {
+            "index": project_root / "blog" / "index.qmd",
+            "sources": [project_root / "blog"],
+        },
+        {
+            "index": project_root / "zenn" / "index.qmd",
+            "sources": [project_root / "zenn"],
+        },
+        {
+            "index": project_root / "slides" / "index.qmd",
+            "sources": [project_root / "slides"],
+        },
+    ]
 
-    if not index_path.exists():
-        print(f"Error: {index_path} not found")
-        return 1
+    modified_files = []
 
-    categories = extract_categories([blog_dir, zenn_dir])
+    for target in targets:
+        index_path = target["index"]
+        sources = target["sources"]
 
-    if not categories:
-        print("No categories found")
-        return 0
+        if not index_path.exists():
+            print(f"Warning: {index_path} not found, skipping")
+            continue
 
-    new_buttons = generate_category_buttons(categories)
-    modified = update_index_qmd(index_path, new_buttons)
+        # Extract categories and update buttons
+        categories = extract_categories(sources)
 
-    if modified:
-        print(f"Updated {index_path}")
-        print(f"Categories: {dict(categories)}")
-    else:
+        if not categories:
+            continue
+
+        new_buttons = generate_category_buttons(categories)
+        if update_index_qmd(index_path, new_buttons):
+            if index_path not in modified_files:
+                modified_files.append(index_path)
+            print(f"Updated {index_path}")
+            print(f"  Categories: {sorted(categories.keys())}")
+
+    if not modified_files:
         print("No changes needed")
 
     return 0
