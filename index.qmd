@@ -33,14 +33,14 @@ listing:
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
 [blog](#category=blog){.btn .btn-outline-primary .btn-sm}
-[tech](#category=tech){.btn .btn-outline-primary .btn-sm}
-[zenn](#category=zenn){.btn .btn-outline-primary .btn-sm}
-[tech-vim](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
-[tech-ai](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 [diary](#category=diary){.btn .btn-outline-primary .btn-sm}
-[tech-data](#category=tech-data){.btn .btn-outline-primary .btn-sm}
 [memo](#category=memo){.btn .btn-outline-primary .btn-sm}
+[tech](#category=tech){.btn .btn-outline-primary .btn-sm}
+[tech-ai](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
+[tech-data](#category=tech-data){.btn .btn-outline-primary .btn-sm}
+[tech-vim](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
 [vim-jp](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
+[zenn](#category=zenn){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#list-all}

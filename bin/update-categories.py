@@ -52,8 +52,8 @@ def generate_category_buttons(categories: Counter[str]) -> str:
     lines = ["::: {.category-buttons}"]
     lines.append("[All](.){.btn .btn-outline-secondary .btn-sm}")
 
-    # Sort by count descending, then by name
-    sorted_categories = sorted(categories.items(), key=lambda x: (-x[1], x[0]))
+    # Sort alphabetically
+    sorted_categories = sorted(categories.items(), key=lambda x: x[0])
 
     for category, _count in sorted_categories:
         lines.append(
