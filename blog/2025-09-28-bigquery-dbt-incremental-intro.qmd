@@ -3,7 +3,6 @@ title: "BigQuery で dbt incremental モデルのパフォーマンス改善を�
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-data"
 date: 2025-09-28 21:38:33 +0900
 date-modified: last-modified

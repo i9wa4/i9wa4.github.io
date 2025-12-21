@@ -3,7 +3,6 @@ title: "自作 Vim/Neovim プラグイン markdown-number-header.vim の紹介"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
 date: 2024-01-02 21:47:46 +0900
 date-modified: last-modified

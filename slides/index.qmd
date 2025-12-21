@@ -26,10 +26,10 @@ listing:
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[genda](#category=genda){.btn .btn-outline-primary .btn-sm}
-[pivot](#category=pivot){.btn .btn-outline-primary .btn-sm}
-[slides](#category=slides){.btn .btn-outline-primary .btn-sm}
-[vim-jp](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
+[genda (5)](#category=genda){.btn .btn-outline-primary .btn-sm}
+[pivot (1)](#category=pivot){.btn .btn-outline-primary .btn-sm}
+[slides (9)](#category=slides){.btn .btn-outline-primary .btn-sm}
+[vim-jp (2)](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#list-all}

@@ -3,7 +3,6 @@ title: "Vimへの初コントリビューションの経緯と学び"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
   - "vim-jp"
 date: 2025-07-14 00:06:04 +0900

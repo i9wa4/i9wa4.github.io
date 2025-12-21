@@ -3,7 +3,7 @@ title: "systemd がユーザー権限でも使える"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2024-06-28 01:56:32 +0900
 date-modified: last-modified
 description: |

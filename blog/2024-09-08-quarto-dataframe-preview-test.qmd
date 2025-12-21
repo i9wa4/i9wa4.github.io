@@ -3,7 +3,7 @@ title: "Quarto による DataFrame の表示テスト"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2024-09-08 00:24:34 +0900
 date-modified: last-modified
 description: |

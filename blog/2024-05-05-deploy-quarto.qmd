@@ -3,7 +3,7 @@ title: "Quarto で作ったスライドを GitHub Pages にデプロイする"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2024-05-05 03:23:09 +0900
 date-modified: last-modified
 description: |

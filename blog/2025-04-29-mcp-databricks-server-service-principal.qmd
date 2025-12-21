@@ -3,7 +3,6 @@ title: "Databricks MCP Server を Service Principal 認証対応させた"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-ai"
   - "tech-data"
 date: 2025-04-29 12:00:00 +0900

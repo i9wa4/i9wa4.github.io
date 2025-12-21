@@ -3,7 +3,7 @@ title: "tmux と Zsh に Git リポジトリのステータスを表示する"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-05-04 12:00:00 +0900
 date-modified: last-modified
 description: |

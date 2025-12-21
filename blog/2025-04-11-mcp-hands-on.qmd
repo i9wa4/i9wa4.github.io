@@ -3,7 +3,6 @@ title: "MCP に入門した"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-ai"
 date: 2025-04-11 00:51:06 +0900
 date-modified: last-modified

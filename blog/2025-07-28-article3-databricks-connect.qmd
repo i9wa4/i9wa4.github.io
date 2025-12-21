@@ -3,7 +3,6 @@ title: "Databricks Connect 実践編 ― ローカルから Databricks コンピ
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-data"
 date: 2025-07-28 01:54:03 +0900
 date-modified: last-modified

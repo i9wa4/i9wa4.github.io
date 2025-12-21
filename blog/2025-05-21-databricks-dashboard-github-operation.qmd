@@ -3,7 +3,6 @@ title: "Databricks AI/BI ダッシュボードの Git 連携の運用方法"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-data"
 date: 2025-05-21 21:45:51 +0900
 date-modified: last-modified

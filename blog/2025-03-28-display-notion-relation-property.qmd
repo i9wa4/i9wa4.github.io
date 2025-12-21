@@ -3,7 +3,7 @@ title: "Notion データベースでリレーション元のプロパティを�
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-03-23 12:00:00 +0900
 date-modified: last-modified
 description: |

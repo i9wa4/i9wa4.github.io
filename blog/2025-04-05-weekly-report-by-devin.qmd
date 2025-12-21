@@ -3,7 +3,6 @@ title: "Devin に週報を書いてもらった"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-ai"
 date: 2025-04-05 12:00:00 +0900
 date-modified: last-modified

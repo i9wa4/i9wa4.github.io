@@ -3,7 +3,7 @@ title: "Markdown ライクな Quarto でスライドを作成して GitHub Actio
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-05-06 12:00:00 +0900
 date-modified: last-modified
 description: |

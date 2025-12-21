@@ -3,7 +3,6 @@ title: "Vim と tmux で複数の AI エージェントを操作する"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
   - "vim-jp"
 date: 2025-11-19 00:00:00 +0900

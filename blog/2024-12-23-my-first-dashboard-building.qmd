@@ -3,7 +3,6 @@ title: "データエンジニアが初めてダッシュボードを作成して
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-data"
 date: 2024-12-23 07:00 +0900
 date-modified: last-modified

@@ -3,7 +3,7 @@ title: "AWS Lambda でコンテナイメージを実行する with Terraform & G
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-05-12 00:13:12 +0900
 date-modified: last-modified
 description: |

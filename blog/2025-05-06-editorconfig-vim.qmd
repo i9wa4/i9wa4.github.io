@@ -3,7 +3,6 @@ title: "今更ながら Vim に EditorConfig を導入しました"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
 date: 2025-05-06 23:06:23 +0900
 date-modified: last-modified

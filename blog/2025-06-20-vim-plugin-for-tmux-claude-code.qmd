@@ -3,7 +3,6 @@ title: "tmux で Vim から Claude Code にテキストを送信するプラグ�
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-ai"
   - "tech-vim"
 date: 2025-06-20 03:00:02 +0900

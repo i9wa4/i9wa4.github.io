@@ -3,7 +3,6 @@ title: "Vim script で Git ブランチ名を取得するプラグインを Gemi
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
 date: 2024-05-04 04:07:04 +0900
 date-modified: last-modified

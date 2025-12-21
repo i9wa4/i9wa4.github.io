@@ -3,7 +3,7 @@ title: "Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-07-28 01:53:58 +0900
 date-modified: last-modified
 description: |

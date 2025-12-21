@@ -3,7 +3,6 @@ title: "Aider を使ってみる"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-ai"
 date: 2025-04-01 01:37:05 +0900
 date-modified: last-modified

@@ -3,7 +3,6 @@ title: "最近の Vim プラグイン開発のアイデア"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
 date: 2025-02-20 12:22:55 +0900
 date-modified: last-modified

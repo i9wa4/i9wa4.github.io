@@ -3,7 +3,6 @@ title: "Vim/Neovim の保存時の LSP フォーマットを :w! のときに無
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-vim"
 date: 2025-06-04 23:24:39 +0900
 date-modified: last-modified

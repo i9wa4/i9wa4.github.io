@@ -3,7 +3,7 @@ title: "Instagram API のアクセストークンを取得する"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-01-31 21:06:02 +0900
 date-modified: last-modified
 description: |

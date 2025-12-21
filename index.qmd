@@ -31,15 +31,15 @@ listing:
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[blog](#category=blog){.btn .btn-outline-primary .btn-sm}
-[diary](#category=diary){.btn .btn-outline-primary .btn-sm}
-[memo](#category=memo){.btn .btn-outline-primary .btn-sm}
-[tech](#category=tech){.btn .btn-outline-primary .btn-sm}
-[tech-ai](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
-[tech-data](#category=tech-data){.btn .btn-outline-primary .btn-sm}
-[tech-vim](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
-[vim-jp](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
-[zenn](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[blog (66)](#category=blog){.btn .btn-outline-primary .btn-sm}
+[diary (9)](#category=diary){.btn .btn-outline-primary .btn-sm}
+[memo (4)](#category=memo){.btn .btn-outline-primary .btn-sm}
+[tech-ai (10)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
+[tech-data (8)](#category=tech-data){.btn .btn-outline-primary .btn-sm}
+[tech-others (28)](#category=tech-others){.btn .btn-outline-primary .btn-sm}
+[tech-vim (12)](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
+[vim-jp (2)](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
+[zenn (26)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#list-all}

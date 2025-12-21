@@ -3,7 +3,7 @@ title: "データサイエンス100本ノックの実行環境構築 (WSL2)"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2024-03-26 00:19:36 +0900
 date-modified: last-modified
 description: |

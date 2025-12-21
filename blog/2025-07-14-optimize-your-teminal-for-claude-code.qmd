@@ -3,7 +3,6 @@ title: "個人的ターミナル最適化 for Claude Code"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-ai"
   - "tech-vim"
 date: 2025-07-14 02:27:26 +0900

@@ -3,7 +3,7 @@ title: "uv + Quarto でブログやスライドを作成して GitHub Pages で�
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-12-15 04:56:23 +0900
 date-modified: last-modified
 description: |

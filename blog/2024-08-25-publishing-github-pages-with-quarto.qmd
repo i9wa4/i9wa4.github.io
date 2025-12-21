@@ -3,7 +3,7 @@ title: "Markdown ライクな Quarto でブログやスライドを作って Git
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2024-08-25 17:25:32 +0900
 date-modified: last-modified
 description: |

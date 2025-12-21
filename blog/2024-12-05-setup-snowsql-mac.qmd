@@ -3,7 +3,6 @@ title: "SnowSQL セットアップ (Mac)"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-data"
 date: 2024-12-05 09:48:09 +0900
 date-modified: last-modified

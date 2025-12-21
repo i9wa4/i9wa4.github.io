@@ -3,7 +3,7 @@ title: "Poetry の pyproject.toml を使って uv で .venv を作成する"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
+  - "tech-others"
 date: 2025-06-08 00:58:37 +0900
 date-modified: last-modified
 description: |

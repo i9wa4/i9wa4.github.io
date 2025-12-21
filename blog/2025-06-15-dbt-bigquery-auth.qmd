@@ -3,7 +3,6 @@ title: "ローカル dbt で BigQuery への認証を行う"
 author: uma-chan
 categories:
   - "blog"
-  - "tech"
   - "tech-data"
 date: 2025-06-15 22:35:51 +0900
 date-modified: last-modified
