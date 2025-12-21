@@ -1,0 +1,18 @@
+---
+title: "Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する"
+author: uma-chan
+date: 2025-05-06 01:37:58 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  :::message alert **Deprecated**: この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。 https://i9wa4.github.io/blog/2025-12-15-uv-quarto-intro.html ::: 最近 AI にスライドを生成させたいという声をよく聞くようになりましたので、私の好きな Markdown ライクなツールである...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Markdown ライクな Quarto でスライドを作成して GitHub Actions で HTML 出力する](https://zenn.dev/i9wa4/articles/2025-05-06-quarto-slides)

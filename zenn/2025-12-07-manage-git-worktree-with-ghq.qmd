@@ -1,0 +1,18 @@
+---
+title: "Git Worktree & ghq 入門 ― Issue/PR 毎の環境を一発生成する便利スクリプトもあるよ！"
+author: uma-chan
+date: 2025-12-07 07:00:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ3 Day 7 の記事です。 @[card](https://qiita.com/advent-calendar/2025/genda) - 機能開発中に緊急のバグ修正依頼が来た - 複数の PR を同時にレビューしたい - Iss...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Git Worktree & ghq 入門 ― Issue/PR 毎の環境を一発生成する便利スクリプトもあるよ！](https://zenn.dev/genda_jp/articles/2025-12-07-manage-git-worktree-with-ghq)

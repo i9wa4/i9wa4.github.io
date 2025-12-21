@@ -24,7 +24,7 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
     # Find _site in the path and extract everything after it
     if "_site" in path_str:
         site_index = path_str.index("_site")
-        relative_path = path_str[site_index + 6:]  # +6 to skip "_site/"
+        relative_path = path_str[site_index + 6 :]  # +6 to skip "_site/"
         web_dir = "/" + str(Path(relative_path).parent)
     else:
         # Fallback: just use the parent directory name
@@ -41,33 +41,36 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         page.wait_for_load_state("networkidle")
 
         # Rewrite file:// links and relative links to https://i9wa4.github.io/
-        page.evaluate(f"""
-            (webDir) => {{
+        page.evaluate(
+            """
+            (webDir) => {
                 // Fix file:// links
                 const fileLinks = document.querySelectorAll('a[href^="file://"]');
-                fileLinks.forEach(link => {{
+                fileLinks.forEach(link => {
                     const url = new URL(link.href);
                     // Extract path after _site/
                     const match = url.pathname.match(/\\/_site\\/(.+)/);
-                    if (match) {{
-                        link.href = `https://i9wa4.github.io/${{match[1]}}`;
-                    }}
-                }});
+                    if (match) {
+                        link.href = `https://i9wa4.github.io/${match[1]}`;
+                    }
+                });
 
                 // Fix relative links (e.g., "05-genda.qmd#...")
                 const allLinks = document.querySelectorAll('a[href]');
-                allLinks.forEach(link => {{
+                allLinks.forEach(link => {
                     const href = link.getAttribute('href');
                     // Skip if already absolute URL (http://, https://, //, #, mailto:, etc)
-                    if (href && !href.match(/^(https?:\\/\\/|\\/\\/|#|mailto:)/)) {{
+                    if (href && !href.match(/^(https?:\\/\\/|\\/\\/|#|mailto:)/)) {
                         // Convert .qmd to .html
                         let newHref = href.replace(/\\.qmd(#|$)/, '.html$1');
                         // Make it absolute URL using the web directory path
-                        link.href = `https://i9wa4.github.io${{webDir}}/${{newHref}}`;
-                    }}
-                }});
-            }}
-        """, web_dir)
+                        link.href = `https://i9wa4.github.io${webDir}/${newHref}`;
+                    }
+                });
+            }
+        """,
+            web_dir,
+        )
 
         # Generate PDF
         page.pdf(

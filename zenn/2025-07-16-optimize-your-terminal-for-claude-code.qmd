@@ -1,0 +1,18 @@
+---
+title: "個人的ターミナル最適化 for Claude Code"
+author: uma-chan
+date: 2025-07-16 15:31:24 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  Claude Code で並行作業を行いやすくなるための工夫ポイントを全て共有します！ 本当の私個人の趣味盛り盛りの内容なので役に立つ部分だけ読む形でお願いします。 なお分量が多いので参考記事やリンクを用意していない部分もあります。 インストール方法も各自で調べてください。 - Claude Code を使っている方 - GitHub を使っている方 - Vim を使っている、もしくは使いたい方 ...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[個人的ターミナル最適化 for Claude Code](https://zenn.dev/i9wa4/articles/2025-07-16-optimize-your-terminal-for-claude-code)

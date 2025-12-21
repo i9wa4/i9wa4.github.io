@@ -1,0 +1,18 @@
+---
+title: "データエンジニアが初めてダッシュボードを作成して気づいたこと"
+author: uma-chan
+date: 2024-12-23 07:00:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  こんにちは。株式会社GENDAの MLOps エンジニア/データエンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2024 23日目の記事です。 https://qiita.com/advent-calendar/2024/genda データエンジニア3年目にして初めてダッシュボードを作成する機会を得たので時系列順に思ったことを書いていきます。 あるG...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[データエンジニアが初めてダッシュボードを作成して気づいたこと](https://zenn.dev/genda_jp/articles/2024-12-23-my-first-dashboard-building)

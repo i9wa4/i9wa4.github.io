@@ -1,0 +1,18 @@
+---
+title: "Databricks MCP Server を Service Principal 認証対応させた"
+author: uma-chan
+date: 2025-04-29 21:41:36 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  https://github.com/RafaelCartenet/mcp-databricks-server 上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。 https://github.com/i9wa4/mcp-databricks-server/ 存在意義と利用方法について説明します。 https://doc...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Databricks MCP Server を Service Principal 認証対応させた](https://zenn.dev/genda_jp/articles/2025-04-29-mcp-databricks-server-service-principal)

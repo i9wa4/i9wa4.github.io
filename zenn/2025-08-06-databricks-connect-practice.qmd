@@ -1,0 +1,18 @@
+---
+title: "Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用"
+author: uma-chan
+date: 2025-08-06 19:02:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  本記事は3部構成の3本目です。 1. [Claude Code 対応 Dev Container 環境構築編 - VS Code でもそれ以外でも](2025-08-06-devcontainer-claude-code) 2. [Python 開発環境最適化編 - uv + pre-commit + GitHub Actions](2025-08-06-python-env-optimizati...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用](https://zenn.dev/genda_jp/articles/2025-08-06-databricks-connect-practice)

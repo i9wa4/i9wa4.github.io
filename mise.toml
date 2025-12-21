@@ -10,8 +10,13 @@ shellcheck = "0.11.0"
 # Aqua tools
 "aqua:JohnnyMorganz/StyLua" = "2.3.1"
 "aqua:gitleaks/gitleaks" = "8.30.0"
+"aqua:mvdan/sh" = "3.11.0"
 "aqua:rhysd/actionlint" = "1.7.9"
 "aqua:suzuki-shunsuke/ghalint" = "1.5.4"
 "aqua:suzuki-shunsuke/ghatm" = "1.0.0"
 "aqua:suzuki-shunsuke/pinact" = "3.6.0"
 "aqua:zizmorcore/zizmor" = "1.19.0"
+
+[tasks.sync-zenn]
+description = "Sync Zenn articles from local repository"
+run = "uv run python bin/sync-zenn.py"

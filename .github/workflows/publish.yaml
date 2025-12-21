@@ -23,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      actions: read
       contents: write
     env:
       TZ: 'Asia/Tokyo'
@@ -44,10 +43,16 @@ jobs:
         run: |
           bash ${{ github.workspace }}/.github/scripts/fix-timestamps.sh
 
+      - name: Update Quarto config
+        env:
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+        run: |
+          sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yaml
+          sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yaml
+
       - name: Install mise
         uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
-          install_args: --yes
           cache: true
 
       - name: Cache uv dependencies
@@ -69,145 +74,16 @@ jobs:
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: _freeze/
-          key: quarto-freeze-${{ hashFiles('**/*.qmd') }}
-          restore-keys: |
-            quarto-freeze-
+          key: quarto-freeze-${{ github.sha }}
+          restore-keys: quarto-freeze-
 
-      - name: Delete old _site caches (workflow_dispatch only)
-        if: github.event_name == 'workflow_dispatch'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "Manual trigger: clearing all site caches for clean build"
-          CACHE_IDS=$(gh cache list --key site-main- --json id --jq '.[].id' 2>/dev/null || echo "")
-          if [ -n "$CACHE_IDS" ]; then
-            echo "$CACHE_IDS" | xargs -I {} gh cache delete {} || true
-          else
-            echo "No caches found to delete"
-          fi
-
-      - name: Restore _site directory cache
-        if: github.event_name != 'workflow_dispatch'
-        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: _site/
-          key: site-main-${{ github.sha }}
-          restore-keys: |
-            site-main-
-
-      - name: Fetch Zenn articles
-        run: |
-          mise exec -- uv run python .github/scripts/fetch_zenn_articles.py
-
-      - name: Update Quarto config
-        env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-        run: |
-          sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yaml
-          sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yaml
-
-      - name: Detect changed files
-        id: changes
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # Get the last successful workflow run's commit SHA
-          LAST_DEPLOY_SHA=$(gh run list \
-            --workflow "Quarto Publish" \
-            --status success \
-            --branch main \
-            --limit 1 \
-            --json headSha \
-            --jq '.[0].headSha // empty')
-
-          echo "Last deployed SHA: ${LAST_DEPLOY_SHA:-none}"
-          echo "Current SHA: ${{ github.sha }}"
-
-          # Detect changed .qmd files since last deploy
-          if [ -n "$LAST_DEPLOY_SHA" ] && [ "$LAST_DEPLOY_SHA" != "${{ github.sha }}" ]; then
-            CHANGED=$(git diff --name-only "$LAST_DEPLOY_SHA" HEAD | grep '\.qmd$' || echo "")
-            echo "Changed .qmd files since last deploy: $CHANGED"
-          else
-            # No previous successful run or same SHA - force full render
-            CHANGED=""
-            FORCE_FULL_RENDER="true"
-            echo "No previous deploy found or same SHA, forcing full render"
-          fi
-
-          # If workflow_dispatch was triggered manually, remove _site/ for clean build
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "Manual trigger detected, removing _site/ for clean build"
-            rm -rf _site
-            FORCE_FULL_RENDER="true"
-          fi
-
-          # If _site cache was not restored, force full render
-          if [ ! -d "_site" ] || [ -z "$(ls -A _site 2>/dev/null)" ]; then
-            FORCE_FULL_RENDER="true"
-          fi
-
-          if [ "$FORCE_FULL_RENDER" = "true" ]; then
-            echo "Full render triggered"
-            echo "files=" >> "$GITHUB_OUTPUT"
-            echo "mode=full" >> "$GITHUB_OUTPUT"
-          else
-            # Dynamically determine which index files to rebuild based on changed directories
-            ALWAYS_BUILD=""
-
-            if [ -n "$CHANGED" ]; then
-              # If any change exists, always rebuild root index.qmd
-              ALWAYS_BUILD="index.qmd"
-
-              # Check if blog/ has changes
-              if echo "$CHANGED" | grep -q "^blog/"; then
-                ALWAYS_BUILD="$ALWAYS_BUILD blog/index.qmd"
-              fi
-
-              # Check if slides/ has changes
-              if echo "$CHANGED" | grep -q "^slides/"; then
-                ALWAYS_BUILD="$ALWAYS_BUILD slides/index.qmd"
-              fi
-
-              # Check if resume/ has changes
-              if echo "$CHANGED" | grep -q "^resume/"; then
-                ALWAYS_BUILD="$ALWAYS_BUILD resume/index.qmd"
-              fi
-            fi
-
-            # Combine changed files and always-build files, remove duplicates
-            FILES_TO_RENDER=$(echo "$CHANGED $ALWAYS_BUILD" | tr ' ' '\n' | sort -u | tr '\n' ' ')
-            echo "files=$FILES_TO_RENDER" >> "$GITHUB_OUTPUT"
-            echo "mode=selective" >> "$GITHUB_OUTPUT"
-            echo "Changed or always-build files: $FILES_TO_RENDER"
-          fi
-
-      - name: Render Quarto Project (Full)
-        if: steps.changes.outputs.mode == 'full'
+      - name: Render Quarto Project
         run: |
           mise exec -- uv run quarto render
 
-      - name: Render Quarto Project (Selective)
-        if: steps.changes.outputs.mode == 'selective'
-        env:
-          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
-        run: |
-          if [ -n "$FILES_TO_RENDER" ]; then
-            echo "Rendering changed/always-build files: $FILES_TO_RENDER"
-            for file in $FILES_TO_RENDER; do
-              if [ -f "$file" ]; then
-                echo "Rendering $file (all formats)"
-                mise exec -- uv run quarto render "$file" --no-clean
-              fi
-            done
-          else
-            echo "No files to render"
-          fi
-
-      - name: Generate PDF from Reveal.js slides (Full)
-        if: steps.changes.outputs.mode == 'full'
+      - name: Generate PDF from Reveal.js slides
         run: |
           for html in _site/slides/*.html; do
-            # Skip index.html (listing page, not a reveal.js slide)
             if [ "$(basename "$html")" = "index.html" ]; then
               continue
             fi
@@ -218,81 +94,39 @@ jobs:
             fi
           done
 
-      - name: Generate PDF from Reveal.js slides (Selective)
-        if: steps.changes.outputs.mode == 'selective'
-        env:
-          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
-        run: |
-          for file in $FILES_TO_RENDER; do
-            # Skip slides/index.qmd (listing page, not a reveal.js slide)
-            if [ "$file" = "slides/index.qmd" ]; then
-              continue
-            fi
-            if [[ "$file" == slides/*.qmd ]]; then
-              html="_site/${file%.qmd}.html"
-              pdf="${html%.html}.pdf"
-              if [ -f "$html" ]; then
-                echo "Converting $html to $pdf"
-                mise exec -- uvx deck2pdf@0.9.0 "$html" "$pdf" || echo "Warning: Failed to convert $html"
-              fi
-            fi
-          done
-
-      - name: Generate PDF from resume (Full)
-        if: steps.changes.outputs.mode == 'full'
+      - name: Generate PDF from resume
         run: |
           mise exec -- uv run python .github/scripts/html_to_pdf.py \
             ${{ github.workspace }}/_site/resume/index.html \
             _site/resume/index.pdf
 
-      - name: Generate PDF from resume (Selective)
-        if: steps.changes.outputs.mode == 'selective'
-        env:
-          FILES_TO_RENDER: ${{ steps.changes.outputs.files }}
-        run: |
-          if echo "$FILES_TO_RENDER" | grep -q "resume/index.qmd"; then
-            echo "Generating resume PDF"
-            mise exec -- uv run python .github/scripts/html_to_pdf.py \
-              ${{ github.workspace }}/_site/resume/index.html \
-              _site/resume/index.pdf
-          else
-            echo "Resume not changed, skipping PDF generation"
-          fi
-
       - name: Fix image paths and links in GFM files
         run: |
-          # 画像パスを絶対URLに変換 (相対パス)
+          # Convert relative image paths to absolute URLs
           find _site -name "*.md" -type f -exec sed -i 's|(\.\./assets/|(https://i9wa4.github.io/assets/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|src="\.\./assets/|src="https://i9wa4.github.io/assets/|g' {} \;
 
-          # 画像パスを絶対URLに変換 (絶対パス)
+          # Convert absolute image paths to absolute URLs
           find _site -name "*.md" -type f -exec sed -i 's|](/assets/|](https://i9wa4.github.io/assets/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|src="/assets/|src="https://i9wa4.github.io/assets/|g' {} \;
 
-          # 記事への相対リンクを絶対URLに変換 (.qmd -> .md)
+          # Convert relative links to absolute URLs (.qmd -> .md)
           find _site -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/\1.md)|g' {} \;
 
-          # 相対パスを絶対URLに変換 (../blog/, ../slides/, ../resume/)
+          # Convert relative paths to absolute URLs (../blog/, ../slides/, ../resume/)
           find _site -name "*.md" -type f -exec sed -i 's|(../blog/|(https://i9wa4.github.io/blog/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|(../slides/|(https://i9wa4.github.io/slides/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|(../resume/|(https://i9wa4.github.io/resume/|g' {} \;
 
-          # 相対パスを絶対URLに変換 (./blog/, ./slides/, ./resume/)
+          # Convert relative paths to absolute URLs (./blog/, ./slides/, ./resume/)
           find _site -name "*.md" -type f -exec sed -i 's|(./blog/|(https://i9wa4.github.io/blog/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|(./slides/|(https://i9wa4.github.io/slides/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|(./resume/|(https://i9wa4.github.io/resume/|g' {} \;
 
-          # 絶対パス形式を絶対URLに変換 (/blog/, /slides/, /resume/)
+          # Convert absolute paths to absolute URLs (/blog/, /slides/, /resume/)
           find _site -name "*.md" -type f -exec sed -i 's|](/blog/|](https://i9wa4.github.io/blog/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|](/slides/|](https://i9wa4.github.io/slides/|g' {} \;
           find _site -name "*.md" -type f -exec sed -i 's|](/resume/|](https://i9wa4.github.io/resume/|g' {} \;
-
-      - name: Save _site directory cache
-        if: success()
-        uses: actions/cache/save@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: _site/
-          key: site-main-${{ github.sha }}
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0

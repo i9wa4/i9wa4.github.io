@@ -8,6 +8,7 @@ listing:
     contents:
       - "blog"
       - "slides"
+      - "zenn"
     exclude:
       filename:
         - "index.qmd"

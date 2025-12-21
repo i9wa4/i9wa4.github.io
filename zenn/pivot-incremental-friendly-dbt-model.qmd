@@ -1,0 +1,18 @@
+---
+title: "データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化"
+author: uma-chan
+date: 2025-10-31 07:00:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  [ビジネス映像メディア「PIVOT」](https://pivotmedia.co.jp/app) データエンジニアの uma-chan です。 私はデータエンジニアとして、データ利用を促進できるような基盤を作ることを重要視しています。 今回はそれを念頭に置きつつ全期間のユーザー行動を低コストで追跡できる dbt モデル [^1] を設計した話を紹介します。このモデルを足がかりに、様々な時間軸での...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)

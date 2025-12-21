@@ -1,0 +1,18 @@
+---
+title: "tmux と Zsh に Git リポジトリのステータスを表示する"
+author: uma-chan
+date: 2025-05-04 22:36:46 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  tmux / Zsh / Vim を愛用してターミナルに引き籠っている者です。 リポジトリのステータスの表示先として元々 Zsh プロンプトを活用していましたが Vim 起動中やコマンド実行中でプロンプトが見えないときにどうなっているか分からない点が以前から気になっていました。 そこで今回はその点を解消できる tmux のステータスラインを活用してみることにしました。 tmux 上の表示内容が結構...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[tmux と Zsh に Git リポジトリのステータスを表示する](https://zenn.dev/i9wa4/articles/2025-05-04-tmux-zsh-git-status)
