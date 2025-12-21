@@ -24,3 +24,7 @@ run = "mise exec -- uv run --no-sync python bin/sync-zenn.py"
 [tasks.update-categories]
 description = "Update category buttons in index.qmd"
 run = "mise exec -- uv run --no-sync python bin/update-categories.py"
+
+[tasks.build-site]
+description = "Build site with parallel execution"
+run = "mise exec -- uv run --no-sync python .github/scripts/build-site.py"
