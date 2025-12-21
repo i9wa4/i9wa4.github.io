@@ -1,0 +1,18 @@
+---
+title: "シェルスクリプト × Claude Code: 日常スクリプトへの導入実践"
+author: uma-chan
+date: 2025-12-01 07:00:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ1 Day 1 の記事です。 https://qiita.com/advent-calendar/2025/genda 最近は AI コーディングエージェントをターミナルから利用する機会が増えてきました。 - Claude Code...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[シェルスクリプト × Claude Code: 日常スクリプトへの導入実践](https://zenn.dev/genda_jp/articles/2025-12-01-shell-script-claude-code)

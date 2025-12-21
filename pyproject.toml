@@ -7,6 +7,11 @@ requires-python = "~=3.14.0"
 dependencies = [
   "numpy",
   "pandas",
-  "playwright==1.57.0",
-  "quarto-cli==1.8.26",
+  "playwright",
+  "quarto-cli",
+]
+
+[dependency-groups]
+dev = [
+  "ruff",
 ]

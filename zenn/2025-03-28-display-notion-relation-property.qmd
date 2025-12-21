@@ -1,0 +1,18 @@
+---
+title: "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)"
+author: uma-chan
+date: 2025-03-28 16:27:58 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  こんにちは。株式会社GENDAの MLOps エンジニア/データエンジニアの uma-chan です。 下図のように Notion データベースでリレーションプロパティ (列) にはリレーション元のプロパティも併せて表示させると便利ですよね。 ![](/images/2025-03-28-display-notion-relation-property-as-section/goal.png) *...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)](https://zenn.dev/genda_jp/articles/2025-03-28-display-notion-relation-property)

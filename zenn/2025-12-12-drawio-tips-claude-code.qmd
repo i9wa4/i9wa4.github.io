@@ -1,0 +1,18 @@
+---
+title: "Claude Code に draw.io の図を描かせるコツ"
+author: uma-chan
+date: 2025-12-12 07:00:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  :::message [2025-12-16 追記] 手っ取り早く手元で使いたい方は「6.1. drawio のインストール」を済ませてこちらの記事をチェック！ @[card](https://zenn.dev/genda_jp/articles/2025-12-15-drawio-skills-claude-code) ::: 株式会社GENDA データエンジニア / MLOps エンジニアの ...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Claude Code に draw.io の図を描かせるコツ](https://zenn.dev/genda_jp/articles/2025-12-12-drawio-tips-claude-code)

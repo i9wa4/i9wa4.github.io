@@ -1,0 +1,18 @@
+---
+title: "Python でありがちな本体バージョンとライブラリバージョンの不整合の例"
+author: uma-chan
+date: 2025-04-16 23:55:05 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  ライブラリのバージョンを固定した上で最新のバージョンの Python を使おうとすると色々とエラーが発生しがちです。 直近遭遇したエラーを記録に残しておきます。 dbt-databricks==1.7.17 のインストールを試みました。 本来は最新バージョンをインストールすべきで、執筆時点では 1.10.0 です。 このコマンドを知らなかったのでメモ代わりに残しておきます。
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Python でありがちな本体バージョンとライブラリバージョンの不整合の例](https://zenn.dev/genda_jp/articles/2025-04-16-issue-with-python-libraries)

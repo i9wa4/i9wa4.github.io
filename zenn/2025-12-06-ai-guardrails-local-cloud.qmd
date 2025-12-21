@@ -1,0 +1,18 @@
+---
+title: "mise + pre-commit + Renovate で作るメンテしやすいガードレール"
+author: uma-chan
+date: 2025-12-06 07:00:00 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ3 Day 6 の記事です。 @[card](https://qiita.com/advent-calendar/2025/genda) 私の業務上クラウド IDE からコミットしたり AI コーディングエージェントが直接 PR を...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[mise + pre-commit + Renovate で作るメンテしやすいガードレール](https://zenn.dev/genda_jp/articles/2025-12-06-ai-guardrails-local-cloud)

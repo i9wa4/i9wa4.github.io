@@ -1,0 +1,18 @@
+---
+title: "Devin に週報を書いてもらった"
+author: uma-chan
+date: 2025-04-05 17:15:55 +0900
+image: "/assets/common/zenn-logo-only.svg"
+description: |
+  こんにちは。データエンジニア / MLOps エンジニアの uma-chan です。 最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。 集計期間の GitHub の issue と pull request の情報を基に各メンバーの活動の概要と詳細を issue にまとめてもらいます。 長文プロンプトを用意す...
+categories:
+  - "blog"
+  - "tech"
+  - "zenn"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Devin に週報を書いてもらった](https://zenn.dev/genda_jp/articles/2025-04-05-weekly-report-by-devin)
