@@ -223,13 +223,18 @@ def build_incremental(
     if changes["slides"]:
         future = executor.submit(render, "slides/index.qmd")
         futures[future] = ("render", "slides/index.qmd")
-        # Slides PDFs
-        slides_dir = Path("_site/slides")
-        if slides_dir.exists():
-            for html in slides_dir.glob("*.html"):
-                if html.name != "index.html":
-                    future = executor.submit(generate_slides_pdf, html)
-                    futures[future] = ("pdf", f"slides/{html.name}")
+        # Slides PDFs - only for changed slides
+        for f in changed_files:
+            if (
+                f.startswith("slides/")
+                and f.endswith(".qmd")
+                and not f.endswith("index.qmd")
+            ):
+                html_name = Path(f).stem + ".html"
+                html_path = Path("_site/slides") / html_name
+                if html_path.exists():
+                    future = executor.submit(generate_slides_pdf, html_path)
+                    futures[future] = ("pdf", f"slides/{html_name}")
 
     if changes["resume"]:
         future = executor.submit(render, "resume/index.qmd")
