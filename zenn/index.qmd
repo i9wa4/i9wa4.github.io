@@ -2,7 +2,7 @@
 title: "Zenn"
 listing:
   - id: "all"
-    categories: numbered
+    # categories: numbered
     contents:
       - "."
     exclude:

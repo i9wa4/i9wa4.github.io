@@ -33,7 +33,7 @@ format:
         - yeti
         - themes/font.scss
       dark:
-        - darkly
+        - solar
         - themes/font.scss
     toc-depth: 2
     toc-expand: 2

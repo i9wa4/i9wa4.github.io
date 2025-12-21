@@ -4,7 +4,7 @@ description: |
   All of my thoughts.
 listing:
   - id: "all"
-    categories: numbered
+    # categories: numbered
     contents:
       - "blog"
       - "zenn"
