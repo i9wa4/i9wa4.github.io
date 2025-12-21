@@ -192,38 +192,20 @@ def build_full(executor: ThreadPoolExecutor) -> None:
 def build_incremental(
     changed_files: list[str], changes: dict[str, bool], executor: ThreadPoolExecutor
 ) -> None:
-    """Incremental build for changed files only."""
+    """Incremental build for changed directories only."""
     log = get_logger("build")
     futures = {}
 
-    # Phase 1: Render changed files
-    log.info("Phase 1: Building changed files")
-    for f in changed_files:
-        if f.endswith(".qmd") and not f.endswith("index.qmd") and Path(f).exists():
-            future = executor.submit(render, f)
-            futures[future] = ("render", f)
+    # Phase 1: Build changed directories (directory-level parallel, no file-level)
+    log.info("Phase 1: Building changed directories")
+    for dir_name in ["blog", "slides", "resume", "zenn"]:
+        if changes[dir_name]:
+            future = executor.submit(render, f"{dir_name}/")
+            futures[future] = ("render", dir_name)
 
-    # Wait for individual files
-    for future in as_completed(futures):
-        task_type, name = futures[future]
-        try:
-            future.result()
-        except Exception as e:
-            log.error(f"{task_type} {name}: {e}")
-
-    futures.clear()
-
-    # Phase 1.5: Render affected directory indexes + PDF generation
-    log.info("Phase 1.5: Building indexes and PDFs")
-
-    if changes["blog"]:
-        future = executor.submit(render, "blog/index.qmd")
-        futures[future] = ("render", "blog/index.qmd")
-
+    # Phase 1.5: PDF generation for changed slides/resume
+    log.info("Submitting PDF generation (parallel)")
     if changes["slides"]:
-        future = executor.submit(render, "slides/index.qmd")
-        futures[future] = ("render", "slides/index.qmd")
-        # Slides PDFs - only for changed slides
         for f in changed_files:
             if (
                 f.startswith("slides/")
@@ -237,16 +219,10 @@ def build_incremental(
                     futures[future] = ("pdf", f"slides/{html_name}")
 
     if changes["resume"]:
-        future = executor.submit(render, "resume/index.qmd")
-        futures[future] = ("render", "resume/index.qmd")
         future = executor.submit(generate_resume_pdf)
         futures[future] = ("pdf", "resume")
 
-    if changes["zenn"]:
-        future = executor.submit(render, "zenn/index.qmd")
-        futures[future] = ("render", "zenn/index.qmd")
-
-    # Wait for all
+    # Wait for all Phase 1 tasks
     for future in as_completed(futures):
         task_type, name = futures[future]
         try:
@@ -256,11 +232,8 @@ def build_incremental(
 
     # Phase 2: Top-level pages
     log.info("Phase 2: Building top-level pages")
-    if changes["blog"] or changes["zenn"] or changes["main"]:
+    if changes["blog"] or changes["zenn"]:
         render("index.qmd")
-    if changes["main"]:
-        render("about.qmd")
-        render("404.qmd")
 
 
 def main() -> None:
@@ -275,9 +248,13 @@ def main() -> None:
     log.info(f"Changes detected: {changes}")
 
     with ThreadPoolExecutor(max_workers=parallel_jobs) as executor:
-        if not changed_files:
+        if not changed_files or changes["main"]:
+            # Full build when no files specified or global config changed
+            log.info("Running full build")
             build_full(executor)
         else:
+            # Incremental build for directory-only changes
+            log.info("Running incremental build")
             build_incremental(changed_files, changes, executor)
 
     log.info("Build complete")
