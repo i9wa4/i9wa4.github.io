@@ -272,7 +272,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          sparse-checkout: .github/scripts
+          sparse-checkout: |
+            .github/scripts
+            mise.toml
+            pyproject.toml
+            uv.lock
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
