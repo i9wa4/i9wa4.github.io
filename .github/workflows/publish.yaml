@@ -91,7 +91,7 @@ jobs:
     needs: build
     if: github.event_name != 'push' || needs.build.outputs.blog == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       TZ: 'Asia/Tokyo'
 
@@ -147,7 +147,7 @@ jobs:
     needs: build
     if: github.event_name != 'push' || needs.build.outputs.slides == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       TZ: 'Asia/Tokyo'
 
@@ -209,7 +209,7 @@ jobs:
     needs: build
     if: github.event_name != 'push' || needs.build.outputs.resume == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       TZ: 'Asia/Tokyo'
 
@@ -267,7 +267,7 @@ jobs:
     needs: build
     if: github.event_name != 'push' || needs.build.outputs.zenn == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       TZ: 'Asia/Tokyo'
 
@@ -318,7 +318,7 @@ jobs:
       always() &&
       (github.event_name != 'push' || needs.build.outputs.main == 'true')
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       TZ: 'Asia/Tokyo'
 
