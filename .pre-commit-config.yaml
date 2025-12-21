@@ -87,10 +87,3 @@ repos:
         language: system
         files: assets/.*\.drawio$
         require_serial: true
-
-      - id: update-categories
-        name: Update category buttons in index.qmd
-        entry: mise run update-categories
-        language: system
-        files: ^(blog|zenn)/.*\.qmd$
-        pass_filenames: false
