@@ -106,10 +106,10 @@ jobs:
         run: |
           if [ "$EVENT_NAME" = "push" ] && [ -n "$CHANGED_FILES" ]; then
             # shellcheck disable=SC2086
-            mise exec -- uv run python .github/scripts/build-site.py $CHANGED_FILES
+            mise run build-site $CHANGED_FILES
           else
             # workflow_dispatch: full build
-            mise exec -- uv run python .github/scripts/build-site.py
+            mise run build-site
           fi
 
       - name: Fix image paths and links in GFM files
