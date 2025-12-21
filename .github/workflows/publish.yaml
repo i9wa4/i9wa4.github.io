@@ -188,7 +188,9 @@ jobs:
                 mise exec -- uv run quarto render "$f"
               done
             else
-              mise exec -- uv run quarto render index.qmd about.qmd 404.qmd
+              for f in index.qmd about.qmd 404.qmd; do
+                mise exec -- uv run quarto render "$f"
+              done
             fi
           else
             if [ "$EVENT_NAME" = "push" ]; then
