@@ -14,6 +14,7 @@ format-links: true
 
 format:
   html:
+    respect-user-color-scheme: true
     code-copy: true
     code-overflow: wrap
     grid:
