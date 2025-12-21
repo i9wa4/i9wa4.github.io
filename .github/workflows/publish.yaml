@@ -19,21 +19,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 30
     env:
       TZ: 'Asia/Tokyo'
-    outputs:
-      blog: ${{ steps.filter.outputs.blog_any_changed }}
-      blog_files: ${{ steps.filter.outputs.blog_all_changed_files }}
-      slides: ${{ steps.filter.outputs.slides_any_changed }}
-      slides_files: ${{ steps.filter.outputs.slides_all_changed_files }}
-      resume: ${{ steps.filter.outputs.resume_any_changed }}
-      resume_files: ${{ steps.filter.outputs.resume_all_changed_files }}
-      zenn: ${{ steps.filter.outputs.zenn_any_changed }}
-      zenn_files: ${{ steps.filter.outputs.zenn_all_changed_files }}
-      main: ${{ steps.filter.outputs.main_any_changed }}
-      main_files: ${{ steps.filter.outputs.main_all_changed_files }}
-      any: ${{ steps.filter.outputs.any_any_changed }}
+      PARALLEL_JOBS: 1
+    permissions:
+      contents: write
 
     steps:
       - name: Check out repository
@@ -46,31 +37,16 @@ jobs:
         uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
         id: filter
         with:
-          files_yaml: |
-            blog:
-              - 'blog/**'
-            slides:
-              - 'slides/**'
-            resume:
-              - 'resume/**'
-            zenn:
-              - 'zenn/**'
-            main:
-              - 'index.qmd'
-              - 'about.qmd'
-              - '404.qmd'
-              - '_quarto.yaml'
-              - 'assets/**'
-            any:
-              - 'blog/**'
-              - 'slides/**'
-              - 'resume/**'
-              - 'zenn/**'
-              - 'index.qmd'
-              - 'about.qmd'
-              - '404.qmd'
-              - '_quarto.yaml'
-              - 'assets/**'
+          files: |
+            blog/**
+            slides/**
+            resume/**
+            zenn/**
+            index.qmd
+            about.qmd
+            404.qmd
+            _quarto.yaml
+            assets/**
 
       - name: Configure Git
         run: |
@@ -88,74 +64,12 @@ jobs:
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yaml
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yaml
 
-      - name: Upload prepared source
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: source
-          path: |
-            .
-            !.git
-          include-hidden-files: true
-          retention-days: 1
-
-  render:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      TZ: 'Asia/Tokyo'
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - target: blog
-            changed: ${{ needs.build.outputs.blog }}
-            files: ${{ needs.build.outputs.blog_files }}
-            has_index: true
-            pdf_type: none
-          - target: slides
-            changed: ${{ needs.build.outputs.slides }}
-            files: ${{ needs.build.outputs.slides_files }}
-            has_index: true
-            pdf_type: deck2pdf
-          - target: resume
-            changed: ${{ needs.build.outputs.resume }}
-            files: ${{ needs.build.outputs.resume_files }}
-            has_index: false
-            pdf_type: playwright
-          - target: zenn
-            changed: ${{ needs.build.outputs.zenn }}
-            files: ${{ needs.build.outputs.zenn_files }}
-            has_index: true
-            pdf_type: none
-
-    steps:
-      - name: Check if should run
-        id: check
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          CHANGED: ${{ matrix.changed }}
-        run: |
-          if [ "$EVENT_NAME" != "push" ] || [ "$CHANGED" = "true" ]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Download source
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          name: source
-
       - name: Install mise
-        if: steps.check.outputs.should_run == 'true'
         uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
           cache: true
 
       - name: Cache uv dependencies
-        if: steps.check.outputs.should_run == 'true'
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: |
@@ -165,7 +79,6 @@ jobs:
           restore-keys: uv-${{ runner.os }}-
 
       - name: Cache Quarto freeze
-        if: steps.check.outputs.should_run == 'true' && matrix.target == 'blog'
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: _freeze/
@@ -173,270 +86,31 @@ jobs:
           restore-keys: quarto-freeze-
 
       - name: Set up Python dependencies
-        if: steps.check.outputs.should_run == 'true'
         run: mise exec -- uv sync
 
-      - name: Install Playwright (resume only)
-        if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'playwright'
+      - name: Install Playwright
         run: mise exec -- uv run playwright install chromium
 
-      - name: Render
-        if: steps.check.outputs.should_run == 'true'
-        env:
-          CHANGED_FILES: ${{ matrix.files }}
-          EVENT_NAME: ${{ github.event_name }}
-          TARGET: ${{ matrix.target }}
-          HAS_INDEX: ${{ matrix.has_index }}
-        run: |
-          if [ "$TARGET" = "slides" ]; then
-            # slides は複数ファイルを1コマンドで渡す (revealjs format を正しく認識させるため)
-            if [ "$EVENT_NAME" = "push" ]; then
-              # shellcheck disable=SC2086
-              mise exec -- uv run quarto render "$TARGET"/index.qmd $CHANGED_FILES
-            else
-              mise exec -- uv run quarto render "$TARGET"/
-            fi
-          else
-            if [ "$EVENT_NAME" = "push" ]; then
-              if [ "$HAS_INDEX" = "true" ]; then
-                mise exec -- uv run quarto render "$TARGET"/index.qmd
-              fi
-              for f in $CHANGED_FILES; do
-                mise exec -- uv run quarto render "$f"
-              done
-            else
-              mise exec -- uv run quarto render "$TARGET"/
-            fi
-          fi
-
-      - name: Generate PDF (deck2pdf for slides)
-        if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'deck2pdf'
-        run: |
-          for html in _site/${{ matrix.target }}/*.html; do
-            if [ "$(basename "$html")" = "index.html" ]; then
-              continue
-            fi
-            if [ -f "$html" ]; then
-              pdf="${html%.html}.pdf"
-              echo "Converting $html to $pdf"
-              mise exec -- uvx deck2pdf@0.9.0 "$html" "$pdf" || echo "Warning: Failed to convert $html"
-            fi
-          done
-
-      - name: Generate PDF (playwright for resume)
-        if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'playwright'
-        run: |
-          mise exec -- uv run python .github/scripts/html-to-pdf.py \
-            ${{ github.workspace }}/_site/${{ matrix.target }}/index.html \
-            _site/${{ matrix.target }}/index.pdf
-
-      - name: Upload artifact
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: site-${{ matrix.target }}
-          path: _site/${{ matrix.target }}/
-          retention-days: 1
-
-      - name: Upload assets
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: site-assets-${{ matrix.target }}
-          path: _site/assets/
-          if-no-files-found: ignore
-          retention-days: 1
-
-      - name: Upload revealjs libs (slides only)
-        if: steps.check.outputs.should_run == 'true' && matrix.target == 'slides'
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: site-libs-revealjs
-          path: _site/site_libs/revealjs/
-          retention-days: 1
-
-      - name: Upload freeze (blog/zenn)
-        if: steps.check.outputs.should_run == 'true' && (matrix.target == 'blog' || matrix.target == 'zenn')
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: freeze-${{ matrix.target }}
-          path: _freeze/
-          if-no-files-found: ignore
-          retention-days: 1
-
-  render-main:
-    needs: [build, render]
-    if: always()
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      TZ: 'Asia/Tokyo'
-
-    steps:
-      - name: Check if should run
-        id: check
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          CHANGED: ${{ needs.build.outputs.any }}
-        run: |
-          if [ "$EVENT_NAME" != "push" ] || [ "$CHANGED" = "true" ]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Download source
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          name: source
-
-      - name: Download freeze (blog)
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: freeze-blog
-          path: _freeze/
-
-      - name: Download freeze (zenn)
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: freeze-zenn
-          path: _freeze/
-
-      - name: Install mise
-        if: steps.check.outputs.should_run == 'true'
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
-
-      - name: Cache uv dependencies
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: ~/.cache/uv
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: uv-${{ runner.os }}-
-
-      - name: Set up Python dependencies
-        if: steps.check.outputs.should_run == 'true'
-        run: mise exec -- uv sync
-
-      - name: Render main pages
-        if: steps.check.outputs.should_run == 'true'
-        env:
-          CHANGED_FILES: ${{ needs.build.outputs.main_files }}
-          EVENT_NAME: ${{ github.event_name }}
-        run: |
-          if [ "$EVENT_NAME" = "push" ] && [ -n "$CHANGED_FILES" ]; then
-            for f in $CHANGED_FILES; do
-              mise exec -- uv run quarto render "$f"
-            done
-          else
-            for f in index.qmd about.qmd 404.qmd; do
-              mise exec -- uv run quarto render "$f"
-            done
-          fi
-
-      - name: Upload main artifact
-        if: steps.check.outputs.should_run == 'true'
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: site-main
-          path: |
-            _site/index.html
-            _site/about.html
-            _site/404.html
-            _site/site_libs/
-            _site/assets/
-          retention-days: 1
-
-  deploy:
-    needs: [render, render-main]
-    if: always()
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    env:
-      TZ: 'Asia/Tokyo'
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          sparse-checkout: |
-            .github/scripts
-            mise.toml
-            pyproject.toml
-            uv.lock
-          sparse-checkout-cone-mode: false
-          persist-credentials: false
-
-      - name: Checkout gh-pages as base
+      - name: Checkout gh-pages as _site base
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           ref: gh-pages
           path: _site
           persist-credentials: false
 
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
-
-      - name: Download main
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: site-main
-          path: _site/
-
-      - name: Download blog
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: site-blog
-          path: _site/blog/
-
-      - name: Download slides (with PDF)
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: site-slides
-          path: _site/slides/
-
-      - name: Download revealjs libs
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: site-libs-revealjs
-          path: _site/site_libs/revealjs/
-
-      - name: Download resume (with PDF)
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: site-resume
-          path: _site/resume/
-
-      - name: Download zenn
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          name: site-zenn
-          path: _site/zenn/
-
-      - name: Download assets (all targets)
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        continue-on-error: true
-        with:
-          pattern: site-assets-*
-          path: _site/assets/
-          merge-multiple: true
+      - name: Build site
+        env:
+          PARALLEL_JOBS: ${{ env.PARALLEL_JOBS }}
+          EVENT_NAME: ${{ github.event_name }}
+          CHANGED_FILES: ${{ steps.filter.outputs.all_changed_files }}
+        run: |
+          if [ "$EVENT_NAME" = "push" ] && [ -n "$CHANGED_FILES" ]; then
+            # shellcheck disable=SC2086
+            bash .github/scripts/build-site.sh $CHANGED_FILES
+          else
+            # workflow_dispatch: full build
+            bash .github/scripts/build-site.sh
+          fi
 
       - name: Fix image paths and links in GFM files
         run: mise exec -- uv run python .github/scripts/fix-gfm-paths.py _site/
