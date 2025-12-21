@@ -26,7 +26,7 @@ listing:
 
 ::: {.callout-note}
 - All pages: Markdown available at same URL with `.md` extension.
-- Slides & Resume: PDF available at same URL with `.pdf` extension.
+- Slides: PDF available at same URL with `.pdf` extension.
 :::
 
 ::: {.category-buttons}
