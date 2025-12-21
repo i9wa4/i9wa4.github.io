@@ -87,107 +87,108 @@ jobs:
           include-hidden-files: true
           retention-days: 1
 
-  render-blog:
+  render:
     needs: build
-    if: github.event_name != 'push' || needs.build.outputs.blog == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     env:
       TZ: 'Asia/Tokyo'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: blog
+            changed: ${{ needs.build.outputs.blog }}
+            files: ${{ needs.build.outputs.blog_files }}
+            has_index: true
+            pdf_type: none
+          - target: slides
+            changed: ${{ needs.build.outputs.slides }}
+            files: ${{ needs.build.outputs.slides_files }}
+            has_index: true
+            pdf_type: deck2pdf
+          - target: resume
+            changed: ${{ needs.build.outputs.resume }}
+            files: ${{ needs.build.outputs.resume_files }}
+            has_index: false
+            pdf_type: playwright
+          - target: zenn
+            changed: ${{ needs.build.outputs.zenn }}
+            files: ${{ needs.build.outputs.zenn_files }}
+            has_index: true
+            pdf_type: none
 
     steps:
+      - name: Check if should run
+        id: check
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CHANGED: ${{ matrix.changed }}
+        run: |
+          if [ "$EVENT_NAME" != "push" ] || [ "$CHANGED" = "true" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Download source
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: source
 
       - name: Install mise
+        if: steps.check.outputs.should_run == 'true'
         uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
           cache: true
 
       - name: Cache uv dependencies
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
-          path: ~/.cache/uv
+          path: |
+            ~/.cache/uv
+            ~/.cache/ms-playwright
           key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
           restore-keys: uv-${{ runner.os }}-
 
-      - name: Set up Python dependencies
-        run: mise exec -- uv sync
-
       - name: Cache Quarto freeze
+        if: steps.check.outputs.should_run == 'true' && matrix.target == 'blog'
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: _freeze/
           key: quarto-freeze-${{ github.sha }}
           restore-keys: quarto-freeze-
 
-      - name: Render blog
-        env:
-          CHANGED_FILES: ${{ needs.build.outputs.blog_files }}
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            mise exec -- uv run quarto render blog/index.qmd
-            for f in $CHANGED_FILES; do
-              mise exec -- uv run quarto render "$f"
-            done
-          else
-            mise exec -- uv run quarto render blog/
-          fi
-
-      - name: Upload blog
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: site-blog
-          path: _site/blog/
-          retention-days: 1
-
-  render-slides:
-    needs: build
-    if: github.event_name != 'push' || needs.build.outputs.slides == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      TZ: 'Asia/Tokyo'
-
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          name: source
-
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
-
-      - name: Cache uv dependencies
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: ~/.cache/uv
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: uv-${{ runner.os }}-
-
       - name: Set up Python dependencies
+        if: steps.check.outputs.should_run == 'true'
         run: mise exec -- uv sync
 
-      - name: Render slides
+      - name: Install Playwright (resume only)
+        if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'playwright'
+        run: mise exec -- uv run playwright install chromium
+
+      - name: Render
+        if: steps.check.outputs.should_run == 'true'
         env:
-          CHANGED_FILES: ${{ needs.build.outputs.slides_files }}
+          CHANGED_FILES: ${{ matrix.files }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            mise exec -- uv run quarto render slides/index.qmd
+            if [ "${{ matrix.has_index }}" = "true" ]; then
+              mise exec -- uv run quarto render ${{ matrix.target }}/index.qmd
+            fi
             for f in $CHANGED_FILES; do
               mise exec -- uv run quarto render "$f"
             done
           else
-            mise exec -- uv run quarto render slides/
+            mise exec -- uv run quarto render ${{ matrix.target }}/
           fi
 
-      - name: Generate PDF from Reveal.js slides
+      - name: Generate PDF (deck2pdf for slides)
+        if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'deck2pdf'
         run: |
-          for html in _site/slides/*.html; do
+          for html in _site/${{ matrix.target }}/*.html; do
             if [ "$(basename "$html")" = "index.html" ]; then
               continue
             fi
@@ -198,122 +199,23 @@ jobs:
             fi
           done
 
-      - name: Upload slides
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: site-slides
-          path: _site/slides/
-          retention-days: 1
-
-  render-resume:
-    needs: build
-    if: github.event_name != 'push' || needs.build.outputs.resume == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      TZ: 'Asia/Tokyo'
-
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          name: source
-
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
-
-      - name: Cache uv dependencies
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: |
-            ~/.cache/uv
-            ~/.cache/ms-playwright
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: uv-${{ runner.os }}-
-
-      - name: Set up Python dependencies
-        run: |
-          mise exec -- uv sync
-          mise exec -- uv run playwright install chromium
-
-      - name: Render resume
-        env:
-          CHANGED_FILES: ${{ needs.build.outputs.resume_files }}
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            for f in $CHANGED_FILES; do
-              mise exec -- uv run quarto render "$f"
-            done
-          else
-            mise exec -- uv run quarto render resume/
-          fi
-
-      - name: Generate PDF from resume
+      - name: Generate PDF (playwright for resume)
+        if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'playwright'
         run: |
           mise exec -- uv run python .github/scripts/html_to_pdf.py \
-            ${{ github.workspace }}/_site/resume/index.html \
-            _site/resume/index.pdf
+            ${{ github.workspace }}/_site/${{ matrix.target }}/index.html \
+            _site/${{ matrix.target }}/index.pdf
 
-      - name: Upload resume
+      - name: Upload artifact
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: site-resume
-          path: _site/resume/
-          retention-days: 1
-
-  render-zenn:
-    needs: build
-    if: github.event_name != 'push' || needs.build.outputs.zenn == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      TZ: 'Asia/Tokyo'
-
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          name: source
-
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
-
-      - name: Cache uv dependencies
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: ~/.cache/uv
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: uv-${{ runner.os }}-
-
-      - name: Set up Python dependencies
-        run: mise exec -- uv sync
-
-      - name: Render zenn
-        env:
-          CHANGED_FILES: ${{ needs.build.outputs.zenn_files }}
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            mise exec -- uv run quarto render zenn/index.qmd
-            for f in $CHANGED_FILES; do
-              mise exec -- uv run quarto render "$f"
-            done
-          else
-            mise exec -- uv run quarto render zenn/
-          fi
-
-      - name: Upload zenn
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: site-zenn
-          path: _site/zenn/
+          name: site-${{ matrix.target }}
+          path: _site/${{ matrix.target }}/
           retention-days: 1
 
   render-main:
-    needs: [build, render-blog, render-slides, render-resume, render-zenn]
+    needs: [build, render]
     if: |
       always() &&
       (github.event_name != 'push' || needs.build.outputs.main == 'true')
