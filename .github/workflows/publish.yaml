@@ -253,6 +253,15 @@ jobs:
           path: _site/${{ matrix.target }}/
           retention-days: 1
 
+      - name: Upload assets (non-main)
+        if: steps.check.outputs.should_run == 'true' && matrix.target != 'main'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: site-assets-${{ matrix.target }}
+          path: _site/assets/
+          if-no-files-found: ignore
+          retention-days: 1
+
       - name: Upload revealjs libs (slides only)
         if: steps.check.outputs.should_run == 'true' && matrix.target == 'slides'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
@@ -349,6 +358,14 @@ jobs:
         with:
           name: site-zenn
           path: _site/zenn/
+
+      - name: Download assets (all targets)
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        continue-on-error: true
+        with:
+          pattern: site-assets-*
+          path: _site/assets/
+          merge-multiple: true
 
       - name: Fix image paths and links in GFM files
         run: mise exec -- uv run python .github/scripts/fix-gfm-paths.py _site/
