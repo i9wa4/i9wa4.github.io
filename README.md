@@ -4,11 +4,11 @@
 
 <https://i9wa4.github.io>
 
-## 1. How to preview this page
+## How to preview this page
 
-1. Install [uv](https://github.com/astral-sh/uv).
+1. Install mise: <https://mise.jdx.dev/>.
 1. Preview with Quarto.
 
     ```sh
-    uv run quarto preview
+    mise run preview
     ```

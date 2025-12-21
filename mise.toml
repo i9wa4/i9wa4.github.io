@@ -24,6 +24,10 @@ mise exec -- uv run --no-sync python bin/sync-zenn.py
 mise exec -- uv run --no-sync python bin/update-categories.py
 """
 
+[tasks.preview]
+description = "Preview site with Quarto"
+run = "mise exec -- uv run quarto preview"
+
 [tasks.build-site]
 description = "Build site with parallel execution"
 run = "mise exec -- uv run --no-sync python .github/scripts/build-site.py"
