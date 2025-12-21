@@ -253,6 +253,14 @@ jobs:
           path: _site/${{ matrix.target }}/
           retention-days: 1
 
+      - name: Upload revealjs libs (slides only)
+        if: steps.check.outputs.should_run == 'true' && matrix.target == 'slides'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: site-libs-revealjs
+          path: _site/site_libs/revealjs/
+          retention-days: 1
+
       - name: Upload main artifact
         if: steps.check.outputs.should_run == 'true' && matrix.target == 'main'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
@@ -320,6 +328,13 @@ jobs:
         with:
           name: site-slides
           path: _site/slides/
+
+      - name: Download revealjs libs
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        continue-on-error: true
+        with:
+          name: site-libs-revealjs
+          path: _site/site_libs/revealjs/
 
       - name: Download resume (with PDF)
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
