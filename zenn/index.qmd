@@ -23,6 +23,7 @@ listing:
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
 [aws (1)](#category=aws){.btn .btn-outline-primary .btn-sm}
+[bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
 [codexcli (1)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (8)](#category=databricks){.btn .btn-outline-primary .btn-sm}

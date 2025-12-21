@@ -8,9 +8,9 @@ description: |
 categories:
   - "zenn"
   - "databricks"
+  - "devcontainer"
   - "python"
   - "spark"
-  - "devcontainer"
 ---
 
 ## Zenn リンク先

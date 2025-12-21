@@ -9,9 +9,9 @@ categories:
   - "zenn"
   - "databricks"
   - "jupyter"
-  - "uv"
-  - "precommit"
   - "mise"
+  - "precommit"
+  - "uv"
 ---
 
 ## Zenn リンク先

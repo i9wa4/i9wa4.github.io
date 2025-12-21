@@ -9,8 +9,8 @@ categories:
   - "zenn"
   - "databricks"
   - "jupyter"
-  - "python"
   - "oss"
+  - "python"
 ---
 
 ## Zenn リンク先

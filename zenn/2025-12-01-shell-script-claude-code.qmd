@@ -8,8 +8,8 @@ description: |
 categories:
   - "zenn"
   - "claudecode"
-  - "shellscript"
   - "github"
+  - "shellscript"
 ---
 
 ## Zenn リンク先
