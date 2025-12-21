@@ -117,6 +117,11 @@ jobs:
             files: ${{ needs.build.outputs.zenn_files }}
             has_index: true
             pdf_type: none
+          - target: main
+            changed: ${{ needs.build.outputs.main }}
+            files: ${{ needs.build.outputs.main_files }}
+            has_index: false
+            pdf_type: none
 
     steps:
       - name: Check if should run
@@ -173,16 +178,29 @@ jobs:
         if: steps.check.outputs.should_run == 'true'
         env:
           CHANGED_FILES: ${{ matrix.files }}
+          EVENT_NAME: ${{ github.event_name }}
+          TARGET: ${{ matrix.target }}
+          HAS_INDEX: ${{ matrix.has_index }}
         run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            if [ "${{ matrix.has_index }}" = "true" ]; then
-              mise exec -- uv run quarto render ${{ matrix.target }}/index.qmd
+          if [ "$TARGET" = "main" ]; then
+            if [ "$EVENT_NAME" = "push" ]; then
+              for f in $CHANGED_FILES; do
+                mise exec -- uv run quarto render "$f"
+              done
+            else
+              mise exec -- uv run quarto render index.qmd about.qmd 404.qmd
             fi
-            for f in $CHANGED_FILES; do
-              mise exec -- uv run quarto render "$f"
-            done
           else
-            mise exec -- uv run quarto render ${{ matrix.target }}/
+            if [ "$EVENT_NAME" = "push" ]; then
+              if [ "$HAS_INDEX" = "true" ]; then
+                mise exec -- uv run quarto render "$TARGET"/index.qmd
+              fi
+              for f in $CHANGED_FILES; do
+                mise exec -- uv run quarto render "$f"
+              done
+            else
+              mise exec -- uv run quarto render "$TARGET"/
+            fi
           fi
 
       - name: Generate PDF (deck2pdf for slides)
@@ -207,57 +225,15 @@ jobs:
             _site/${{ matrix.target }}/index.pdf
 
       - name: Upload artifact
-        if: steps.check.outputs.should_run == 'true'
+        if: steps.check.outputs.should_run == 'true' && matrix.target != 'main'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: site-${{ matrix.target }}
           path: _site/${{ matrix.target }}/
           retention-days: 1
 
-  render-main:
-    needs: [build, render]
-    if: |
-      always() &&
-      (github.event_name != 'push' || needs.build.outputs.main == 'true')
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      TZ: 'Asia/Tokyo'
-
-    steps:
-      - name: Download source
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          name: source
-
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
-
-      - name: Cache uv dependencies
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: ~/.cache/uv
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: uv-${{ runner.os }}-
-
-      - name: Set up Python dependencies
-        run: mise exec -- uv sync
-
-      - name: Render main pages
-        env:
-          CHANGED_FILES: ${{ needs.build.outputs.main_files }}
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            for f in $CHANGED_FILES; do
-              mise exec -- uv run quarto render "$f"
-            done
-          else
-            mise exec -- uv run quarto render index.qmd about.qmd 404.qmd
-          fi
-
-      - name: Upload main
+      - name: Upload main artifact
+        if: steps.check.outputs.should_run == 'true' && matrix.target == 'main'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: site-main
@@ -270,7 +246,8 @@ jobs:
           retention-days: 1
 
   deploy:
-    needs: render-main
+    needs: render
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
