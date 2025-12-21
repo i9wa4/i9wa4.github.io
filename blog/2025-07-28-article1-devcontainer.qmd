@@ -5,7 +5,6 @@ categories:
   - "blog"
   - "tech"
   - "tech-ai"
-  - "tech-vscode"
 date: 2025-07-28 01:53:53 +0900
 date-modified: last-modified
 description: |

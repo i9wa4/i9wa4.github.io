@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Notionデータベースのリレーションプロパティでリレーション元のプロパティを表示する設定手順を、公式ドキュメントより分かりやすく解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Vim/Neovim での dbt 開発環境の現状を整理し、Vim 向けにモデル定義ジャンプ機能を提供するプラグインを Denops で自作した話を紹介
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

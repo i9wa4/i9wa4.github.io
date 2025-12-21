@@ -174,8 +174,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   {description_yaml}
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

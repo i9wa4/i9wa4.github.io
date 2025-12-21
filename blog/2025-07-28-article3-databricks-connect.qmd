@@ -4,8 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech"
-  - "tech-python"
-  - "tech-databricks"
+  - "tech-data"
 date: 2025-07-28 01:54:03 +0900
 date-modified: last-modified
 description: |

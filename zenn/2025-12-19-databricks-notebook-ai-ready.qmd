@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Databricks Notebook の開発課題を解決する4つの改善策を紹介。AI コーディングアシスタントとの連携を可能にする jupyter-databricks-kernel などのツールや手法について解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

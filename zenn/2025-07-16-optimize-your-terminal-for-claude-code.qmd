@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Claude Code での並行作業を効率化するための tmux/Zsh/ghq 等のターミナル環境設定と worktree 活用法を紹介
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

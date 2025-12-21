@@ -5,7 +5,6 @@ categories:
   - "blog"
   - "tech"
   - "tech-data"
-  - "tech-dbt"
 date: 2025-09-28 21:38:33 +0900
 date-modified: last-modified
 description: |

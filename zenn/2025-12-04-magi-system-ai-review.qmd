@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Vim と tmux を組み合わせて複数の AI エージェント（Claude Code、Codex CLI）に同時にプロンプトを送信し、多数決でコードレビューを行う仕組みの構築方法を紹介
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

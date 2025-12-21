@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Databricks の権限設計について、グループベースの管理、エンタイトルメントの種類、Unity Catalog の権限継承など公式ドキュメントに基づく基礎知識を解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

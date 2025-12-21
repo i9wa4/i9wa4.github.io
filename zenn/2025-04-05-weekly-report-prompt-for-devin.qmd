@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Devin に週報作成を依頼するためのプロンプトテンプレートを提供し、GitHub の issue/PR 情報収集から issue 作成までの手順を解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

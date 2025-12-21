@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Databricks Connect を使用してローカル開発環境から Databricks クラスタに接続する方法と、環境を問わず動作する Spark セッション管理ライブラリの実装について解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

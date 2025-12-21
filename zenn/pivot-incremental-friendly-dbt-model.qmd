@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   dbt の incremental モデルを活用し、全期間のユーザー行動追跡を低コストで実現する設計パターンを解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

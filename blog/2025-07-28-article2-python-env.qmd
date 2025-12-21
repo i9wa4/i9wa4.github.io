@@ -4,8 +4,6 @@ author: uma-chan
 categories:
   - "blog"
   - "tech"
-  - "tech-python"
-  - "tech-vscode"
 date: 2025-07-28 01:53:58 +0900
 date-modified: last-modified
 description: |

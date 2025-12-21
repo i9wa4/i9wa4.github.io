@@ -4,7 +4,6 @@ author: uma-chan
 categories:
   - "blog"
   - "tech"
-  - "tech-python"
 date: 2025-05-06 22:57:36 +0900
 date-modified: last-modified
 description: |

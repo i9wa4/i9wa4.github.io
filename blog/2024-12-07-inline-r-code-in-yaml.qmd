@@ -4,7 +4,6 @@ author: uma-chan
 categories:
   - "blog"
   - "tech"
-  - "tech-quarto"
 date: 2024-12-07 15:30:24 +0900
 date-modified: last-modified
 description: |

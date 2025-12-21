@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   ローカルJupyter環境からDatabricksクラスタでコード実行できるOSSカーネルの開発経緯と、Issue駆動開発やCI/CD自動化などの知見を紹介
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

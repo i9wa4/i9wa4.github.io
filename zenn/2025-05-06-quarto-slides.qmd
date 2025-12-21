@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   Quarto を使用した Markdown ライクなスライド作成方法と GitHub Actions での HTML 出力手順を解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 

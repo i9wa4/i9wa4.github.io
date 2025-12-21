@@ -6,8 +6,6 @@ image: "/assets/common/zenn-logo.png"
 description: |
   mise、pre-commit、Renovateを組み合わせてローカルとCIで統一されたガードレールを構築・自動更新する方法を解説
 categories:
-  - "blog"
-  - "tech"
   - "zenn"
 ---
 
