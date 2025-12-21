@@ -280,7 +280,7 @@ def build_incremental(
 
 def main() -> None:
     log = get_logger("build")
-    parallel_jobs = int(os.environ.get("PARALLEL_JOBS", "4"))
+    parallel_jobs = int(os.environ.get("PARALLEL_JOBS") or "4")
     changed_files = sys.argv[1:]
 
     log.info(f"PARALLEL_JOBS={parallel_jobs}")
