@@ -2,7 +2,7 @@
 title: "Python でありがちな本体バージョンとライブラリバージョンの不整合の例"
 author: uma-chan
 date: 2025-04-16 23:55:05 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   Python 3.13/3.12 と dbt-databricks 旧バージョンの依存関係不整合によるエラー事例と対処法を解説
 categories:

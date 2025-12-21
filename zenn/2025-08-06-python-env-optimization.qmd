@@ -2,7 +2,7 @@
 title: "Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions"
 author: uma-chan
 date: 2025-08-06 19:01:00 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   uv、pre-commit、GitHub Actionsを組み合わせたPython開発環境の構築方法を解説。チーム開発でも個人開発でも活用できる品質管理の設定例を紹介
 categories:

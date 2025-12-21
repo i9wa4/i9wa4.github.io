@@ -2,7 +2,7 @@
 title: "Databricksのノートブック管理方法2選"
 author: uma-chan
 date: 2025-12-10 07:00:00 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   Databricksノートブックの課題（Git diff、テスト困難）を解決するSource形式とSkinny Notebook Wrapperパターンの2つの管理手法を解説
 categories:

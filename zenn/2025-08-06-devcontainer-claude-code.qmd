@@ -2,7 +2,7 @@
 title: "Claude Code 対応 Dev Container 環境構築編 ― VS Code でもそれ以外でも"
 author: uma-chan
 date: 2025-08-06 19:00:00 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   VS Code やその他エディタで Claude Code を使える Dev Container 環境の構築方法を、Anthropic のリファレンス実装をベースに解説
 categories:

@@ -2,7 +2,7 @@
 title: "Databricks Connect 実践編 ― ローカルから Databricks コンピュートを利用"
 author: uma-chan
 date: 2025-08-06 19:02:00 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   Databricks Connect を使用してローカル開発環境から Databricks クラスタに接続する方法と、環境を問わず動作する Spark セッション管理ライブラリの実装について解説
 categories:

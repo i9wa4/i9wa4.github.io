@@ -2,7 +2,7 @@
 title: "Databricks MCP Server を Service Principal 認証対応させた"
 author: uma-chan
 date: 2025-04-29 21:41:36 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   Databricks MCP Server を Service Principal 認証に対応させた fork を公開。Personal Access Token より適切な権限管理が可能で、社内での AI エージェント展開に向けた実装と利用方法を解説
 categories:

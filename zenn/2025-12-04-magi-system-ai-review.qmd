@@ -2,7 +2,7 @@
 title: "Vim x tmux によるレビュー用 MAGI システム (AI多数決レビューシステム)"
 author: uma-chan
 date: 2025-12-04 07:00:00 +0900
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   Vim と tmux を組み合わせて複数の AI エージェント（Claude Code、Codex CLI）に同時にプロンプトを送信し、多数決でコードレビューを行う仕組みの構築方法を紹介
 categories:
