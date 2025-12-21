@@ -4,7 +4,6 @@ local function ensureHtmlDeps()
         version = "1.0.0",
         stylesheets = {
             "social-share.css",
-            "_extensions/quarto-ext/fontawesome/assets/css/all.min.css",
         },
     })
 end
@@ -19,7 +18,23 @@ function Meta(m)
     local share_end = "</div></div>"
     local share_text = share_start
 
-    local share_url = pandoc.utils.stringify(m.share.permalink)
+    -- Auto-generate permalink from site-url if not specified
+    local share_url
+    if m.share and m.share.permalink then
+        share_url = pandoc.utils.stringify(m.share.permalink)
+    else
+        -- Get site-url from share metadata
+        local site_url = ""
+        if m.share and m.share["site-url"] then
+            site_url = pandoc.utils.stringify(m.share["site-url"])
+        end
+        -- Get relative path from project root
+        local input_file = quarto.doc.input_file
+        local project_dir = quarto.project.directory
+        local rel_path = input_file:sub(#project_dir + 2)
+        local html_path = rel_path:gsub("%.qmd$", ".html")
+        share_url = site_url .. "/" .. html_path
+    end
     if m.share.description ~= nil then
         post_title = pandoc.utils.stringify(m.share.description)
     else
@@ -31,7 +46,15 @@ function Meta(m)
             .. share_url
             .. "&text="
             .. post_title
-            .. '" target="_blank" class="twitter"><i class="fab fa-twitter fa-fw fa-lg"></i></a>'
+            .. '" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a>'
+    end
+    if m.share.bsky then
+        share_text = share_text
+            .. '<a href="https://bsky.app/intent/compose?text='
+            .. post_title
+            .. " "
+            .. share_url
+            .. '" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a>'
     end
     if m.share.linkedin then
         share_text = share_text
@@ -39,7 +62,7 @@ function Meta(m)
             .. share_url
             .. "&title="
             .. post_title
-            .. '" target="_blank" class="linkedin"><i class="fa-brands fa-linkedin-in fa-fw fa-lg"></i></a>'
+            .. '" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>'
     end
     if m.share.email then
         share_text = share_text
@@ -53,7 +76,7 @@ function Meta(m)
         share_text = share_text
             .. '<a href="https://www.facebook.com/sharer.php?u='
             .. share_url
-            .. '" target="_blank" class="facebook"><i class="fab fa-facebook-f fa-fw fa-lg"></i></a>'
+            .. '" target="_blank" class="facebook"><i class="fa-brands fa-facebook-f fa-fw fa-lg"></i></a>'
     end
     if m.share.reddit then
         share_text = share_text
@@ -86,14 +109,6 @@ function Meta(m)
             .. " "
             .. share_url
             .. '\'}else{return false;}" target="_blank" class="mastodon"><i class="fa-brands fa-mastodon fa-fw fa-lg"></i></a>'
-    end
-    if m.share.bsky then
-        share_text = share_text
-            .. '<a href="https://bsky.app/intent/compose?text='
-            .. share_url
-            .. " "
-            .. post_title
-            .. '" target="_blank" class="bsky"><i class="fa-brands fa-bluesky"></i></a>'
     end
     share_text = share_text .. share_end
     if m.share.location then

@@ -1,2 +1,11 @@
 # format is inherited from _quarto.yml (html + gfm)
-_placeholder: true
+
+filters:
+  - schochastics/social-share
+
+share:
+  site-url: "https://i9wa4.github.io"
+  location: before-body
+  twitter: true
+  bsky: true
+  linkedin: true

@@ -2,6 +2,14 @@
 title: "uma-chan's page"
 description: |
   All of my thoughts.
+filters:
+  - schochastics/social-share
+share:
+  site-url: "https://i9wa4.github.io"
+  location: before-body
+  twitter: true
+  bsky: true
+  linkedin: true
 listing:
   - id: "all"
     # categories: numbered
