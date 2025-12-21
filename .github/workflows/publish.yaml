@@ -203,6 +203,14 @@ jobs:
                 mise exec -- uv run quarto render "$f"
               done
             fi
+          elif [ "$TARGET" = "slides" ]; then
+            # slides は複数ファイルを1コマンドで渡す (revealjs format を正しく認識させるため)
+            if [ "$EVENT_NAME" = "push" ]; then
+              # shellcheck disable=SC2086
+              mise exec -- uv run quarto render "$TARGET"/index.qmd $CHANGED_FILES
+            else
+              mise exec -- uv run quarto render "$TARGET"/
+            fi
           else
             if [ "$EVENT_NAME" = "push" ]; then
               if [ "$HAS_INDEX" = "true" ]; then
