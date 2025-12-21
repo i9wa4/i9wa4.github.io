@@ -233,7 +233,7 @@ jobs:
       - name: Generate PDF (playwright for resume)
         if: steps.check.outputs.should_run == 'true' && matrix.pdf_type == 'playwright'
         run: |
-          mise exec -- uv run python .github/scripts/html_to_pdf.py \
+          mise exec -- uv run python .github/scripts/html-to-pdf.py \
             ${{ github.workspace }}/_site/${{ matrix.target }}/index.html \
             _site/${{ matrix.target }}/index.pdf
 
@@ -283,6 +283,11 @@ jobs:
           path: _site
           persist-credentials: false
 
+      - name: Install mise
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          cache: true
+
       - name: Download main
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         continue-on-error: true
@@ -319,7 +324,7 @@ jobs:
           path: _site/zenn/
 
       - name: Fix image paths and links in GFM files
-        run: python .github/scripts/fix_gfm_paths.py _site/
+        run: mise exec -- uv run python .github/scripts/fix-gfm-paths.py _site/
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
