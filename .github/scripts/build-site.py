@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import logging
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -171,34 +172,51 @@ def detect_changes(changed_files: list[str]) -> dict[str, bool]:
     return changes
 
 
+def build_slides_with_pdf() -> bool:
+    """Build slides and generate PDFs."""
+    if not render("slides/"):
+        return False
+    # Generate PDFs for all slides
+    slides_dir = Path("_site/slides")
+    if slides_dir.exists():
+        for html in slides_dir.glob("*.html"):
+            if html.name != "index.html":
+                generate_slides_pdf(html)
+    return True
+
+
+def build_resume_with_pdf() -> bool:
+    """Build resume and generate PDF."""
+    if not render("resume/"):
+        return False
+    generate_resume_pdf()
+    return True
+
+
 def build_full(executor: ThreadPoolExecutor) -> None:
     """Full build with parallel directory rendering and PDF generation."""
     log = get_logger("build")
     futures = {}
 
-    # Phase 1: Submit directory renders
+    # Clean _site directory for full build
+    site_dir = Path("_site")
+    if site_dir.exists():
+        log.info("Cleaning _site directory")
+        shutil.rmtree(site_dir)
+    site_dir.mkdir(exist_ok=True)
+
+    # Phase 1: Build all directories (4 parallel tasks)
     log.info("Phase 1: Building directories")
-    for dir_name in ["blog", "slides", "resume", "zenn"]:
-        future = executor.submit(render, f"{dir_name}/")
-        futures[future] = ("render", dir_name)
+    future = executor.submit(build_slides_with_pdf)
+    futures[future] = ("build", "slides+pdf")
+    future = executor.submit(build_resume_with_pdf)
+    futures[future] = ("build", "resume+pdf")
+    future = executor.submit(render, "blog/")
+    futures[future] = ("render", "blog")
+    future = executor.submit(render, "zenn/")
+    futures[future] = ("render", "zenn")
 
-    # Phase 1.5: Submit PDF generation (can run in parallel)
-    # PDFs depend on HTML files which may already exist from gh-pages checkout
-    log.info("Submitting PDF generation (parallel)")
-
-    # Slides PDFs
-    slides_dir = Path("_site/slides")
-    if slides_dir.exists():
-        for html in slides_dir.glob("*.html"):
-            if html.name != "index.html":
-                future = executor.submit(generate_slides_pdf, html)
-                futures[future] = ("pdf", f"slides/{html.name}")
-
-    # Resume PDF
-    future = executor.submit(generate_resume_pdf)
-    futures[future] = ("pdf", "resume")
-
-    # Wait for all Phase 1 tasks
+    # Wait for Phase 1
     for future in as_completed(futures):
         task_type, name = futures[future]
         try:
