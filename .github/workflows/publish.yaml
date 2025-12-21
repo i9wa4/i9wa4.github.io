@@ -3,6 +3,8 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 22 * * *'  # 7:00 JST daily full build
   push:
     branches: main
 
