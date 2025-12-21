@@ -3,7 +3,7 @@ title: "uma-chan's page"
 description: |
   All of my thoughts.
 listing:
-  - id: "list-all"
+  - id: "all"
     categories: numbered
     contents:
       - "blog"
@@ -42,5 +42,5 @@ listing:
 [zenn (26)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 :::
 
-::: {#list-all}
+::: {#all}
 :::
