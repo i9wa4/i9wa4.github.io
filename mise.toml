@@ -19,8 +19,8 @@ shellcheck = "0.11.0"
 
 [tasks.sync-zenn]
 description = "Sync Zenn articles from local repository"
-run = "uv run python bin/sync-zenn.py"
+run = "mise exec -- uv run python bin/sync-zenn.py"
 
 [tasks.update-categories]
 description = "Update category buttons in index.qmd"
-run = "uv run python bin/update-categories.py"
+run = "mise exec -- uv run python bin/update-categories.py"
