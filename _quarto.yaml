@@ -14,7 +14,6 @@ format-links: true
 
 format:
   html:
-    respect-user-color-scheme: true
     code-copy: true
     code-overflow: wrap
     grid:
@@ -26,6 +25,7 @@ format:
       - _includes/anchor-icon-fix.html
     linestretch: 1.4
     page-layout: full
+    respect-user-color-scheme: true
     # https://quarto.org/docs/output-formats/html-themes.html
     theme:
       light:
