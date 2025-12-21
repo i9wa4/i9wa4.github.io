@@ -33,6 +33,7 @@ jobs:
       zenn_files: ${{ steps.filter.outputs.zenn_all_changed_files }}
       main: ${{ steps.filter.outputs.main_any_changed }}
       main_files: ${{ steps.filter.outputs.main_all_changed_files }}
+      any: ${{ steps.filter.outputs.any_any_changed }}
 
     steps:
       - name: Check out repository
@@ -55,6 +56,16 @@ jobs:
             zenn:
               - 'zenn/**'
             main:
+              - 'index.qmd'
+              - 'about.qmd'
+              - '404.qmd'
+              - '_quarto.yaml'
+              - 'assets/**'
+            any:
+              - 'blog/**'
+              - 'slides/**'
+              - 'resume/**'
+              - 'zenn/**'
               - 'index.qmd'
               - 'about.qmd'
               - '404.qmd'
@@ -118,7 +129,7 @@ jobs:
             has_index: true
             pdf_type: none
           - target: main
-            changed: ${{ needs.build.outputs.main }}
+            changed: ${{ needs.build.outputs.any }}
             files: ${{ needs.build.outputs.main_files }}
             has_index: false
             pdf_type: none
