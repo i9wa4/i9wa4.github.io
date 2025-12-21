@@ -84,6 +84,7 @@ jobs:
           path: |
             .
             !.git
+          include-hidden-files: true
           retention-days: 1
 
   render-blog:
