@@ -26,7 +26,6 @@ listing:
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
 [codexcli (1)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (8)](#category=databricks){.btn .btn-outline-primary .btn-sm}
-[dataengineering (1)](#category=dataengineering){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
 [devcontainer (2)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
 [devin (2)](#category=devin){.btn .btn-outline-primary .btn-sm}
@@ -57,7 +56,6 @@ listing:
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
 [zenn (27)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 [zsh (1)](#category=zsh){.btn .btn-outline-primary .btn-sm}
-[データ分析 (1)](#category=データ分析){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#all}

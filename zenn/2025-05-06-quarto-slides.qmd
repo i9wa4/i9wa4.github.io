@@ -7,8 +7,8 @@ description: |
   Quarto を使用した Markdown ライクなスライド作成方法と GitHub Actions での HTML 出力手順を解説
 categories:
   - "zenn"
-  - "quarto"
   - "githubactions"
+  - "quarto"
   - "revealjs"
 ---
 

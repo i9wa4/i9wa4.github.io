@@ -8,8 +8,6 @@ description: |
 categories:
   - "zenn"
   - "dbt"
-  - "dataengineering"
-  - "データ分析"
 ---
 
 ## Zenn リンク先
