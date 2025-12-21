@@ -6,7 +6,7 @@
 
 ## How to preview this page
 
-1. Install mise: <https://mise.jdx.dev/>.
+1. Install mise: <https://mise.jdx.dev/installing-mise.html>.
 1. Preview with Quarto.
 
     ```sh
