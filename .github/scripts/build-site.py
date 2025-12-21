@@ -10,32 +10,72 @@ Environment variables:
 
 from __future__ import annotations
 
+import logging
 import os
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(name)s] %(message)s",
+    datefmt="%H:%M:%S",
+)
 
-def run(cmd: list[str], desc: str = "") -> bool:
+
+def get_logger(name: str) -> logging.Logger:
+    """Get a logger with the given name."""
+    return logging.getLogger(name)
+
+
+def run(cmd: list[str], desc: str = "", prefix: str = "") -> bool:
     """Run a command and return success status."""
+    log = get_logger(prefix or "build")
     if desc:
-        print(f"[START] {desc}")
+        log.info(f"START {desc}")
     try:
-        subprocess.run(cmd, check=True)
+        process = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
+        if process.stdout:
+            for line in process.stdout:
+                line = line.rstrip()
+                if line:
+                    log.debug(line)
+        process.wait()
+        if process.returncode != 0:
+            raise subprocess.CalledProcessError(process.returncode, cmd)
         if desc:
-            print(f"[DONE] {desc}")
+            log.info(f"DONE {desc}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"[ERROR] {desc}: {e}")
+        log.error(f"FAILED {desc}: {e}")
         return False
 
 
-def render(path: str) -> bool:
+def render(path: str, prefix: str = "") -> bool:
     """Render a single file or directory."""
+    # Derive prefix from path if not provided
+    if not prefix:
+        if path.startswith("blog"):
+            prefix = "blog"
+        elif path.startswith("slides"):
+            prefix = "slides"
+        elif path.startswith("resume"):
+            prefix = "resume"
+        elif path.startswith("zenn"):
+            prefix = "zenn"
+        else:
+            prefix = "main"
     return run(
         ["mise", "exec", "--", "uv", "run", "quarto", "render", path],
         f"Render {path}",
+        prefix,
     )
 
 
@@ -45,6 +85,7 @@ def generate_slides_pdf(html_path: Path) -> bool:
     return run(
         ["mise", "exec", "--", "uvx", "deck2pdf@0.9.0", str(html_path), str(pdf_path)],
         f"PDF {html_path.name}",
+        "pdf-slides",
     )
 
 
@@ -52,8 +93,9 @@ def generate_resume_pdf() -> bool:
     """Generate PDF from resume HTML using playwright."""
     html_path = Path("_site/resume/index.html")
     pdf_path = Path("_site/resume/index.pdf")
+    log = get_logger("pdf-resume")
     if not html_path.exists():
-        print("[SKIP] Resume HTML not found")
+        log.info("SKIP Resume HTML not found")
         return True
     return run(
         [
@@ -68,6 +110,7 @@ def generate_resume_pdf() -> bool:
             str(pdf_path),
         ],
         "PDF resume",
+        "pdf-resume",
     )
 
 
@@ -106,17 +149,18 @@ def detect_changes(changed_files: list[str]) -> dict[str, bool]:
 
 def build_full(executor: ThreadPoolExecutor) -> None:
     """Full build with parallel directory rendering and PDF generation."""
+    log = get_logger("build")
     futures = {}
 
     # Phase 1: Submit directory renders
-    print("=== Phase 1: Building directories ===")
+    log.info("Phase 1: Building directories")
     for dir_name in ["blog", "slides", "resume", "zenn"]:
         future = executor.submit(render, f"{dir_name}/")
         futures[future] = ("render", dir_name)
 
     # Phase 1.5: Submit PDF generation (can run in parallel)
     # PDFs depend on HTML files which may already exist from gh-pages checkout
-    print("=== Submitting PDF generation (parallel) ===")
+    log.info("Submitting PDF generation (parallel)")
 
     # Slides PDFs
     slides_dir = Path("_site/slides")
@@ -136,10 +180,10 @@ def build_full(executor: ThreadPoolExecutor) -> None:
         try:
             future.result()
         except Exception as e:
-            print(f"[ERROR] {task_type} {name}: {e}")
+            log.error(f"{task_type} {name}: {e}")
 
     # Phase 2: Top-level pages (after all content is ready)
-    print("=== Phase 2: Building top-level pages ===")
+    log.info("Phase 2: Building top-level pages")
     render("index.qmd")
     render("about.qmd")
     render("404.qmd")
@@ -149,10 +193,11 @@ def build_incremental(
     changed_files: list[str], changes: dict[str, bool], executor: ThreadPoolExecutor
 ) -> None:
     """Incremental build for changed files only."""
+    log = get_logger("build")
     futures = {}
 
     # Phase 1: Render changed files
-    print("=== Phase 1: Building changed files ===")
+    log.info("Phase 1: Building changed files")
     for f in changed_files:
         if f.endswith(".qmd") and not f.endswith("index.qmd") and Path(f).exists():
             future = executor.submit(render, f)
@@ -164,12 +209,12 @@ def build_incremental(
         try:
             future.result()
         except Exception as e:
-            print(f"[ERROR] {task_type} {name}: {e}")
+            log.error(f"{task_type} {name}: {e}")
 
     futures.clear()
 
     # Phase 1.5: Render affected directory indexes + PDF generation
-    print("=== Phase 1.5: Building indexes and PDFs ===")
+    log.info("Phase 1.5: Building indexes and PDFs")
 
     if changes["blog"]:
         future = executor.submit(render, "blog/index.qmd")
@@ -202,10 +247,10 @@ def build_incremental(
         try:
             future.result()
         except Exception as e:
-            print(f"[ERROR] {task_type} {name}: {e}")
+            log.error(f"{task_type} {name}: {e}")
 
     # Phase 2: Top-level pages
-    print("=== Phase 2: Building top-level pages ===")
+    log.info("Phase 2: Building top-level pages")
     if changes["blog"] or changes["zenn"] or changes["main"]:
         render("index.qmd")
     if changes["main"]:
@@ -214,14 +259,15 @@ def build_incremental(
 
 
 def main() -> None:
+    log = get_logger("build")
     parallel_jobs = int(os.environ.get("PARALLEL_JOBS", "4"))
     changed_files = sys.argv[1:]
 
-    print(f"PARALLEL_JOBS={parallel_jobs}")
-    print(f"CHANGED_FILES count: {len(changed_files)}")
+    log.info(f"PARALLEL_JOBS={parallel_jobs}")
+    log.info(f"CHANGED_FILES count: {len(changed_files)}")
 
     changes = detect_changes(changed_files)
-    print(f"Changes detected: {changes}")
+    log.info(f"Changes detected: {changes}")
 
     with ThreadPoolExecutor(max_workers=parallel_jobs) as executor:
         if not changed_files:
@@ -229,7 +275,7 @@ def main() -> None:
         else:
             build_incremental(changed_files, changes, executor)
 
-    print("=== Build complete ===")
+    log.info("Build complete")
 
 
 if __name__ == "__main__":
