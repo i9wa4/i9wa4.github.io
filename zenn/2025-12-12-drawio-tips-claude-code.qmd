@@ -2,9 +2,9 @@
 title: "Claude Code に draw.io の図を描かせるコツ"
 author: uma-chan
 date: 2025-12-12 07:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Claude Code を使って draw.io 形式の図を作成する際のフォント設定、矢印配置、テキスト改行などの罠と解決策を解説。
+  draw.io形式の図をClaude Codeで作成する際の罠（フォント未反映、矢印とラベルの被り等）と解決策を、XML編集の観点から解説
 categories:
   - "blog"
   - "tech"

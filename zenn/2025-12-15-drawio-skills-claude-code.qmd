@@ -2,9 +2,9 @@
 title: "Claude Code で drawio 向け Skills を作成して使ってみた"
 author: uma-chan
 date: 2025-12-16 00:30:35 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  draw.io の描画ルールを Claude Code Skills としてパッケージ化し、自動適用させる方法を解説
+  Claude Code と Skills 機能を使って draw.io 図作成のルールを自動適用する方法を解説。Rules との違いや skill-creator による作成手順を紹介
 categories:
   - "blog"
   - "tech"

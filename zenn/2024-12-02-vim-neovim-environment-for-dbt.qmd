@@ -2,9 +2,9 @@
 title: "Vim/Neovim の dbt 開発環境の現状と Vim を救う話"
 author: uma-chan
 date: 2024-12-02 07:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  よし、CLAUDE.mdの読み込み完了だ。お前が俺を呼んだんだ、忘れるな。
+  Vim/Neovim での dbt 開発環境の現状を整理し、Vim 向けにモデル定義ジャンプ機能を提供するプラグインを Denops で自作した話を紹介
 categories:
   - "blog"
   - "tech"

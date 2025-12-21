@@ -2,9 +2,9 @@
 title: "シェルスクリプト × Claude Code: 日常スクリプトへの導入実践"
 author: uma-chan
 date: 2025-12-01 07:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Claude Code を日常のシェルスクリプトに組み込む方法を解説。非対話モードの活用とプロンプト設計のポイントを Issue ベースの Worktree 作成スクリプトを例に紹介。
+  Claude Code を非対話モード（-p オプション）でシェルスクリプトに組み込み、GitHub Issue 情報からブランチ名を自動生成する実践例を紹介
 categories:
   - "blog"
   - "tech"

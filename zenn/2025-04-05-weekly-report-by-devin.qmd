@@ -2,9 +2,9 @@
 title: "Devin に週報を書いてもらった"
 author: uma-chan
 date: 2025-04-05 17:15:55 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Devin と長文プロンプト（Playbook）を活用し、GitHub の Issue/PR 情報から週報を自動生成する方法とコツを紹介
+  GitHub の issue/PR 情報を基に Devin で週報を自動作成する方法と、LLM の忘れやすさや GitHub CLI 仕様に対応するプロンプト作成のコツを紹介
 categories:
   - "blog"
   - "tech"

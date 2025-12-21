@@ -2,9 +2,9 @@
 title: "データエンジニアが初めてダッシュボードを作成して気づいたこと"
 author: uma-chan
 date: 2024-12-23 07:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  データエンジニアが初めてダッシュボードを作成した経験から、Databricks での Tips やデータ活用への意識変化について共有
+  データエンジニア3年目で初のダッシュボード作成を経験し、Databricksでの実装Tipsや心境の変化、データ基盤との関係性について解説
 categories:
   - "blog"
   - "tech"

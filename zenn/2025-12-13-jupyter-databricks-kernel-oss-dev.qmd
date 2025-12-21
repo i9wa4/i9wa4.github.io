@@ -2,9 +2,9 @@
 title: "jupyter-databricks-kernel を作りました ― OSS 開発の振り返り"
 author: uma-chan
 date: 2025-12-13 07:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  ローカル Jupyter から Databricks クラスタでコードを実行できる Jupyter カーネル「jupyter-databricks-kernel」の OSS 開発を約7週間で振り返り、Issue 駆動開発やガードレール整備の知見を紹介
+  ローカルJupyter環境からDatabricksクラスタでコード実行できるOSSカーネルの開発経緯と、Issue駆動開発やCI/CD自動化などの知見を紹介
 categories:
   - "blog"
   - "tech"

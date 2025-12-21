@@ -2,9 +2,9 @@
 title: "Zenn の記事を GitHub リポジトリで管理する"
 author: uma-chan
 date: 2024-11-20 18:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Zenn CLI と GitHub リポジトリを使った記事管理の手順、スラッグ指定や YAML ヘッダの書き方、Publication 予約投稿の方法を解説
+  Zenn CLIとGitHubリポジトリを連携して記事を管理する方法を解説。スラッグ指定やYAMLヘッダの書き方、予約投稿の設定など実践的なTipsも紹介。
 categories:
   - "blog"
   - "tech"

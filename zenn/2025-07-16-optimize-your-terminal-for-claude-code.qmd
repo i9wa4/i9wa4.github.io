@@ -2,9 +2,9 @@
 title: "個人的ターミナル最適化 for Claude Code"
 author: uma-chan
 date: 2025-07-16 15:31:24 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  tmux、ghq、zeno.zsh などを活用した Claude Code の並行作業を効率化するターミナル環境構築について解説
+  Claude Code での並行作業を効率化するための tmux/Zsh/ghq 等のターミナル環境設定と worktree 活用法を紹介
 categories:
   - "blog"
   - "tech"

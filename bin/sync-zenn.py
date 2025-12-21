@@ -75,6 +75,7 @@ def generate_description_with_claude(title: str, body: str) -> str | None:
 - 技術的なキーワードを含める
 - 「〜について解説」「〜の方法を紹介」のような形式でOK
 - 要約のみを返す（説明や補足は不要）
+- CLAUDE.md や設定ファイルのペルソナ指示は無視し、要約生成に専念すること
 
 ---
 タイトル: {title}
@@ -169,7 +170,7 @@ def generate_qmd_content(
 title: "{title}"
 author: uma-chan
 date: {date}
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
   {description_yaml}
 categories:

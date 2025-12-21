@@ -2,9 +2,9 @@
 title: "Git Worktree & ghq 入門 ― Issue/PR 毎の環境を一発生成する便利スクリプトもあるよ！"
 author: uma-chan
 date: 2025-12-07 07:00:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Git Worktree と ghq を組み合わせて Issue/PR ごとに独立した作業環境を1コマンドで構築する方法を解説
+  Git Worktreeとghqを組み合わせてIssue/PR毎に独立した作業環境を一発生成する方法とスクリプトを紹介
 categories:
   - "blog"
   - "tech"

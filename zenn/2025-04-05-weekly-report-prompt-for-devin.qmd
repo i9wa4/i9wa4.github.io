@@ -2,9 +2,9 @@
 title: "Devin 週報作成用プロンプト"
 author: uma-chan
 date: 2025-04-05 17:15:56 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Devin に週報作成を自動化させるためのプロンプトテンプレートと GitHub issue 形式の具体的な記述ルールを紹介
+  Devin に週報作成を依頼するためのプロンプトテンプレートを提供し、GitHub の issue/PR 情報収集から issue 作成までの手順を解説
 categories:
   - "blog"
   - "tech"

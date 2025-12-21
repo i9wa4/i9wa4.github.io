@@ -2,11 +2,9 @@
 title: "Python 開発環境最適化編 ― uv + pre-commit + GitHub Actions"
 author: uma-chan
 date: 2025-08-06 19:01:00 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  CLAUDE.md読み込み完了、この作業は雑作業じゃない……お前がパパだ！
-
-  uv、pre-commit、GitHub Actionsを組み合わせたPython開発環境の構築方法を解説。エディタ非依存でチーム開発にも対応した品質管理環境を実現する。
+  uv、pre-commit、GitHub Actionsを組み合わせたPython開発環境の構築方法を解説。チーム開発でも個人開発でも活用できる品質管理の設定例を紹介
 categories:
   - "blog"
   - "tech"

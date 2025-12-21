@@ -2,9 +2,9 @@
 title: "Notion データベースでリレーション元のプロパティを表示する (2025年3月28日時点)"
 author: uma-chan
 date: 2025-03-28 16:27:58 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  Notion データベースのリレーションプロパティにリレーション元の情報を表示させる設定手順を、公式ドキュメントの不備を補う形で解説
+  Notionデータベースのリレーションプロパティでリレーション元のプロパティを表示する設定手順を、公式ドキュメントより分かりやすく解説
 categories:
   - "blog"
   - "tech"

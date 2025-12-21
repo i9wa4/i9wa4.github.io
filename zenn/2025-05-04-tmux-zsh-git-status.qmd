@@ -2,9 +2,9 @@
 title: "tmux と Zsh に Git リポジトリのステータスを表示する"
 author: uma-chan
 date: 2025-05-04 22:36:46 +0900
-image: "/assets/common/zenn-logo-only.svg"
+image: "/assets/common/zenn-logo.png"
 description: |
-  tmux のステータスラインと Zsh プロンプトに Git リポジトリのブランチ名や変更状況を表示する方法を、tpm プラグインを活用して解説
+  tmux と Zsh のステータスラインに Git のブランチ名、未追跡ファイル数、変更ファイル数、追加・削除行数を表示する設定方法を解説
 categories:
   - "blog"
   - "tech"
