@@ -27,8 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          ref: gh-summary
 
       - name: github-profile-summary-cards
         uses: vn7n24fzkq/github-profile-summary-cards@c2fa12c268d76d3d84ff952be25c1b101968dba9 # release
@@ -36,7 +34,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
-          BRANCH_NAME: "gh-summary"
           UTC_OFFSET: 9
           EXCLUDE: "JavaScript,HTML,SCSS"
-          AUTO_PUSH: true
+          AUTO_PUSH: false
+
+      - name: Push to gh-summary
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./profile-summary-card-output
+          publish_branch: gh-summary
+          force_orphan: true
