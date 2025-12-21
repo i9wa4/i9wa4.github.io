@@ -5,8 +5,6 @@ on:
   workflow_dispatch:
   push:
     branches: main
-  schedule:
-    - cron: "0 23 * * *"  # 8:00 JST (23:00 UTC)
 
 permissions: {}
 
@@ -19,13 +17,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
+    timeout-minutes: 5
     env:
       TZ: 'Asia/Tokyo'
+    outputs:
+      blog: ${{ steps.filter.outputs.blog_any_changed }}
+      blog_files: ${{ steps.filter.outputs.blog_all_changed_files }}
+      slides: ${{ steps.filter.outputs.slides_any_changed }}
+      slides_files: ${{ steps.filter.outputs.slides_all_changed_files }}
+      resume: ${{ steps.filter.outputs.resume_any_changed }}
+      resume_files: ${{ steps.filter.outputs.resume_all_changed_files }}
+      zenn: ${{ steps.filter.outputs.zenn_any_changed }}
+      zenn_files: ${{ steps.filter.outputs.zenn_all_changed_files }}
+      main: ${{ steps.filter.outputs.main_any_changed }}
+      main_files: ${{ steps.filter.outputs.main_all_changed_files }}
 
     steps:
       - name: Check out repository
@@ -33,6 +40,26 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Detect changes
+        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
+        id: filter
+        with:
+          files_yaml: |
+            blog:
+              - 'blog/**'
+            slides:
+              - 'slides/**'
+            resume:
+              - 'resume/**'
+            zenn:
+              - 'zenn/**'
+            main:
+              - 'index.qmd'
+              - 'about.qmd'
+              - '404.qmd'
+              - '_quarto.yaml'
+              - 'assets/**'
 
       - name: Configure Git
         run: |
@@ -50,6 +77,29 @@ jobs:
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yaml
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yaml
 
+      - name: Upload prepared source
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: source
+          path: |
+            .
+            !.git
+          retention-days: 1
+
+  render-blog:
+    needs: build
+    if: github.event_name != 'push' || needs.build.outputs.blog == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
+
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: source
+
       - name: Install mise
         uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
@@ -58,17 +108,12 @@ jobs:
       - name: Cache uv dependencies
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
-          path: |
-            ~/.cache/uv
-            ~/.cache/ms-playwright
+          path: ~/.cache/uv
           key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-
+          restore-keys: uv-${{ runner.os }}-
 
       - name: Set up Python dependencies
-        run: |
-          mise exec -- uv sync
-          mise exec -- uv run playwright install chromium
+        run: mise exec -- uv sync
 
       - name: Cache Quarto freeze
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
@@ -77,9 +122,63 @@ jobs:
           key: quarto-freeze-${{ github.sha }}
           restore-keys: quarto-freeze-
 
-      - name: Render Quarto Project
+      - name: Render blog
+        env:
+          CHANGED_FILES: ${{ needs.build.outputs.blog_files }}
         run: |
-          mise exec -- uv run quarto render
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # shellcheck disable=SC2086
+            mise exec -- uv run quarto render blog/index.qmd $CHANGED_FILES
+          else
+            mise exec -- uv run quarto render blog/
+          fi
+
+      - name: Upload blog
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-blog
+          path: _site/blog/
+          retention-days: 1
+
+  render-slides:
+    needs: build
+    if: github.event_name != 'push' || needs.build.outputs.slides == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
+
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: source
+
+      - name: Install mise
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          cache: true
+
+      - name: Cache uv dependencies
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: uv-${{ runner.os }}-
+
+      - name: Set up Python dependencies
+        run: mise exec -- uv sync
+
+      - name: Render slides
+        env:
+          CHANGED_FILES: ${{ needs.build.outputs.slides_files }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # shellcheck disable=SC2086
+            mise exec -- uv run quarto render slides/index.qmd $CHANGED_FILES
+          else
+            mise exec -- uv run quarto render slides/
+          fi
 
       - name: Generate PDF from Reveal.js slides
         run: |
@@ -94,39 +193,220 @@ jobs:
             fi
           done
 
+      - name: Upload slides
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-slides
+          path: _site/slides/
+          retention-days: 1
+
+  render-resume:
+    needs: build
+    if: github.event_name != 'push' || needs.build.outputs.resume == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
+
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: source
+
+      - name: Install mise
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          cache: true
+
+      - name: Cache uv dependencies
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: |
+            ~/.cache/uv
+            ~/.cache/ms-playwright
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: uv-${{ runner.os }}-
+
+      - name: Set up Python dependencies
+        run: |
+          mise exec -- uv sync
+          mise exec -- uv run playwright install chromium
+
+      - name: Render resume
+        env:
+          CHANGED_FILES: ${{ needs.build.outputs.resume_files }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # shellcheck disable=SC2086
+            mise exec -- uv run quarto render $CHANGED_FILES
+          else
+            mise exec -- uv run quarto render resume/
+          fi
+
       - name: Generate PDF from resume
         run: |
           mise exec -- uv run python .github/scripts/html_to_pdf.py \
             ${{ github.workspace }}/_site/resume/index.html \
             _site/resume/index.pdf
 
-      - name: Fix image paths and links in GFM files
+      - name: Upload resume
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-resume
+          path: _site/resume/
+          retention-days: 1
+
+  render-zenn:
+    needs: build
+    if: github.event_name != 'push' || needs.build.outputs.zenn == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
+
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: source
+
+      - name: Install mise
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          cache: true
+
+      - name: Cache uv dependencies
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: uv-${{ runner.os }}-
+
+      - name: Set up Python dependencies
+        run: mise exec -- uv sync
+
+      - name: Render zenn
+        env:
+          CHANGED_FILES: ${{ needs.build.outputs.zenn_files }}
         run: |
-          # Convert relative image paths to absolute URLs
-          find _site -name "*.md" -type f -exec sed -i 's|(\.\./assets/|(https://i9wa4.github.io/assets/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|src="\.\./assets/|src="https://i9wa4.github.io/assets/|g' {} \;
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # shellcheck disable=SC2086
+            mise exec -- uv run quarto render zenn/index.qmd $CHANGED_FILES
+          else
+            mise exec -- uv run quarto render zenn/
+          fi
 
-          # Convert absolute image paths to absolute URLs
-          find _site -name "*.md" -type f -exec sed -i 's|](/assets/|](https://i9wa4.github.io/assets/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|src="/assets/|src="https://i9wa4.github.io/assets/|g' {} \;
+      - name: Upload zenn
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-zenn
+          path: _site/zenn/
+          retention-days: 1
 
-          # Convert relative links to absolute URLs (.qmd -> .md)
-          find _site -name "*.md" -type f -exec sed -i 's|(\([^)]*\)\.qmd)|(https://i9wa4.github.io/\1.md)|g' {} \;
+  render-main:
+    needs: [build, render-blog, render-slides, render-resume, render-zenn]
+    if: |
+      always() &&
+      (github.event_name != 'push' || needs.build.outputs.main == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
 
-          # Convert relative paths to absolute URLs (../blog/, ../slides/, ../resume/)
-          find _site -name "*.md" -type f -exec sed -i 's|(../blog/|(https://i9wa4.github.io/blog/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|(../slides/|(https://i9wa4.github.io/slides/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|(../resume/|(https://i9wa4.github.io/resume/|g' {} \;
+    steps:
+      - name: Download source
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: source
 
-          # Convert relative paths to absolute URLs (./blog/, ./slides/, ./resume/)
-          find _site -name "*.md" -type f -exec sed -i 's|(./blog/|(https://i9wa4.github.io/blog/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|(./slides/|(https://i9wa4.github.io/slides/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|(./resume/|(https://i9wa4.github.io/resume/|g' {} \;
+      - name: Install mise
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          cache: true
 
-          # Convert absolute paths to absolute URLs (/blog/, /slides/, /resume/)
-          find _site -name "*.md" -type f -exec sed -i 's|](/blog/|](https://i9wa4.github.io/blog/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|](/slides/|](https://i9wa4.github.io/slides/|g' {} \;
-          find _site -name "*.md" -type f -exec sed -i 's|](/resume/|](https://i9wa4.github.io/resume/|g' {} \;
+      - name: Cache uv dependencies
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: uv-${{ runner.os }}-
+
+      - name: Set up Python dependencies
+        run: mise exec -- uv sync
+
+      - name: Render main pages
+        env:
+          CHANGED_FILES: ${{ needs.build.outputs.main_files }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # shellcheck disable=SC2086
+            mise exec -- uv run quarto render $CHANGED_FILES
+          else
+            mise exec -- uv run quarto render index.qmd about.qmd 404.qmd
+          fi
+
+      - name: Upload main
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-main
+          path: |
+            _site/index.html
+            _site/about.html
+            _site/404.html
+            _site/site_libs/
+            _site/assets/
+          retention-days: 1
+
+  deploy:
+    needs: render-main
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      TZ: 'Asia/Tokyo'
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      - name: Download main
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-main
+          path: _site/
+
+      - name: Download blog
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-blog
+          path: _site/blog/
+
+      - name: Download slides (with PDF)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-slides
+          path: _site/slides/
+
+      - name: Download resume (with PDF)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-resume
+          path: _site/resume/
+
+      - name: Download zenn
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: site-zenn
+          path: _site/zenn/
+
+      - name: Fix image paths and links in GFM files
+        run: python .github/scripts/fix_gfm_paths.py _site/
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
