@@ -110,7 +110,7 @@ def main() -> int:
     targets = [
         {
             "index": project_root / "index.qmd",
-            "sources": [project_root / "blog", project_root / "zenn"],
+            "sources": [project_root / "blog"],
         },
         {
             "index": project_root / "blog" / "index.qmd",
