@@ -7,6 +7,9 @@ description: |
   Claude Code と Skills 機能を使って draw.io 図作成のルールを自動適用する方法を解説。Rules との違いや skill-creator による作成手順を紹介
 categories:
   - "zenn"
+  - "claudecode"
+  - "drawio"
+  - "aws"
 ---
 
 ## Zenn リンク先

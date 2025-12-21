@@ -7,6 +7,9 @@ description: |
   tmux と Zsh のステータスラインに Git のブランチ名、未追跡ファイル数、変更ファイル数、追加・削除行数を表示する設定方法を解説
 categories:
   - "zenn"
+  - "tmux"
+  - "zsh"
+  - "git"
 ---
 
 ## Zenn リンク先

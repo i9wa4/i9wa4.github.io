@@ -7,6 +7,9 @@ description: |
   Claude Code を非対話モード（-p オプション）でシェルスクリプトに組み込み、GitHub Issue 情報からブランチ名を自動生成する実践例を紹介
 categories:
   - "zenn"
+  - "claudecode"
+  - "shellscript"
+  - "github"
 ---
 
 ## Zenn リンク先

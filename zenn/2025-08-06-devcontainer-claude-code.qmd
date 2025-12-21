@@ -7,6 +7,10 @@ description: |
   VS Code やその他エディタで Claude Code を使える Dev Container 環境の構築方法を、Anthropic のリファレンス実装をベースに解説
 categories:
   - "zenn"
+  - "claudecode"
+  - "devcontainer"
+  - "vscode"
+  - "docker"
 ---
 
 ## Zenn リンク先

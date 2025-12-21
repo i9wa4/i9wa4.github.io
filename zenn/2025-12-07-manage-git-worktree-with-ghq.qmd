@@ -7,6 +7,10 @@ description: |
   Git Worktreeとghqを組み合わせてIssue/PR毎に独立した作業環境を一発生成する方法とスクリプトを紹介
 categories:
   - "zenn"
+  - "git"
+  - "gitworktree"
+  - "ghq"
+  - "claudecode"
 ---
 
 ## Zenn リンク先

@@ -7,6 +7,9 @@ description: |
   Databricks 環境で uv を使った Python 依存関係管理の3つの方法を比較し、uv sync --active による効率的な運用方法を紹介
 categories:
   - "zenn"
+  - "databricks"
+  - "python"
+  - "uv"
 ---
 
 ## Zenn リンク先

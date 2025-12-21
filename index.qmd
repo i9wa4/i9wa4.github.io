@@ -7,7 +7,6 @@ listing:
     # categories: numbered
     contents:
       - "blog"
-      - "zenn"
     exclude:
       filename:
         - "index.qmd"
@@ -31,15 +30,50 @@ listing:
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
+[aws (1)](#category=aws){.btn .btn-outline-primary .btn-sm}
 [blog (66)](#category=blog){.btn .btn-outline-primary .btn-sm}
+[claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
+[codexcli (1)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
+[databricks (8)](#category=databricks){.btn .btn-outline-primary .btn-sm}
+[dataengineering (1)](#category=dataengineering){.btn .btn-outline-primary .btn-sm}
+[dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
+[devcontainer (2)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
+[devin (2)](#category=devin){.btn .btn-outline-primary .btn-sm}
 [diary (9)](#category=diary){.btn .btn-outline-primary .btn-sm}
+[docker (1)](#category=docker){.btn .btn-outline-primary .btn-sm}
+[drawio (2)](#category=drawio){.btn .btn-outline-primary .btn-sm}
+[ghq (1)](#category=ghq){.btn .btn-outline-primary .btn-sm}
+[git (2)](#category=git){.btn .btn-outline-primary .btn-sm}
+[github (4)](#category=github){.btn .btn-outline-primary .btn-sm}
+[githubactions (3)](#category=githubactions){.btn .btn-outline-primary .btn-sm}
+[gitworktree (1)](#category=gitworktree){.btn .btn-outline-primary .btn-sm}
+[jupyter (3)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
+[mcp (1)](#category=mcp){.btn .btn-outline-primary .btn-sm}
 [memo (4)](#category=memo){.btn .btn-outline-primary .btn-sm}
+[mise (2)](#category=mise){.btn .btn-outline-primary .btn-sm}
+[neovim (1)](#category=neovim){.btn .btn-outline-primary .btn-sm}
+[notion (1)](#category=notion){.btn .btn-outline-primary .btn-sm}
+[oss (1)](#category=oss){.btn .btn-outline-primary .btn-sm}
+[precommit (3)](#category=precommit){.btn .btn-outline-primary .btn-sm}
+[python (6)](#category=python){.btn .btn-outline-primary .btn-sm}
+[quarto (1)](#category=quarto){.btn .btn-outline-primary .btn-sm}
+[renovate (1)](#category=renovate){.btn .btn-outline-primary .btn-sm}
+[revealjs (1)](#category=revealjs){.btn .btn-outline-primary .btn-sm}
+[ruff (1)](#category=ruff){.btn .btn-outline-primary .btn-sm}
+[shellscript (1)](#category=shellscript){.btn .btn-outline-primary .btn-sm}
+[spark (1)](#category=spark){.btn .btn-outline-primary .btn-sm}
 [tech-ai (10)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 [tech-data (8)](#category=tech-data){.btn .btn-outline-primary .btn-sm}
 [tech-others (28)](#category=tech-others){.btn .btn-outline-primary .btn-sm}
 [tech-vim (12)](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
+[tmux (3)](#category=tmux){.btn .btn-outline-primary .btn-sm}
+[uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
+[vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vim-jp (2)](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
-[zenn (26)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
+[zenn (27)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zsh (1)](#category=zsh){.btn .btn-outline-primary .btn-sm}
+[データ分析 (1)](#category=データ分析){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#all}

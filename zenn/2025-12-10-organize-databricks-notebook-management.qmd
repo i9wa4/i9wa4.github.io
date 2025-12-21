@@ -7,6 +7,10 @@ description: |
   Databricksノートブックの課題（Git diff、テスト困難）を解決するSource形式とSkinny Notebook Wrapperパターンの2つの管理手法を解説
 categories:
   - "zenn"
+  - "databricks"
+  - "jupyter"
+  - "python"
+  - "ruff"
 ---
 
 ## Zenn リンク先

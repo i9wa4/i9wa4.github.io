@@ -7,6 +7,8 @@ description: |
   draw.io形式の図をClaude Codeで作成する際の罠（フォント未反映、矢印とラベルの被り等）と解決策を、XML編集の観点から解説
 categories:
   - "zenn"
+  - "claudecode"
+  - "drawio"
 ---
 
 ## Zenn リンク先

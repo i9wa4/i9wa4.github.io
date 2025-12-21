@@ -7,6 +7,8 @@ description: |
   GitHub の issue/PR 情報を基に Devin で週報を自動作成する方法と、LLM の忘れやすさや GitHub CLI 仕様に対応するプロンプト作成のコツを紹介
 categories:
   - "zenn"
+  - "devin"
+  - "github"
 ---
 
 ## Zenn リンク先

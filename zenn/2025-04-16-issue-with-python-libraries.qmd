@@ -7,6 +7,7 @@ description: |
   Python 3.13/3.12 と dbt-databricks 旧バージョンの依存関係不整合によるエラー事例と対処法を解説
 categories:
   - "zenn"
+  - "python"
 ---
 
 ## Zenn リンク先

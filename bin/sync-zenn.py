@@ -161,10 +161,17 @@ def generate_qmd_content(
     date: str,
     description: str,
     zenn_url: str,
+    topics: list[str] | None = None,
 ) -> str:
     """Generate .qmd file content."""
     description_lines = description.split("\n")
     description_yaml = "\n  ".join(description_lines)
+
+    # Build categories list: "zenn" + topics
+    categories = ["zenn"]
+    if topics:
+        categories.extend(topics)
+    categories_yaml = "\n".join(f'  - "{cat}"' for cat in categories)
 
     return f'''---
 title: "{title}"
@@ -174,7 +181,7 @@ image: "/assets/common/zenn-logo.png"
 description: |
   {description_yaml}
 categories:
-  - "zenn"
+{categories_yaml}
 ---
 
 ## Zenn リンク先
@@ -255,7 +262,8 @@ def sync_articles(
                 description = extract_description(body)
                 print("  (Fallback)")
 
-        qmd_content = generate_qmd_content(title, date, description, zenn_url)
+        topics = front_matter.get("topics", [])
+        qmd_content = generate_qmd_content(title, date, description, zenn_url, topics)
 
         if qmd_file.exists():
             existing_content = qmd_file.read_text(encoding="utf-8")

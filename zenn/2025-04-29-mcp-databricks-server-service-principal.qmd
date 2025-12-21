@@ -7,6 +7,8 @@ description: |
   Databricks MCP Server を Service Principal 認証に対応させた fork を公開。Personal Access Token より適切な権限管理が可能で、社内での AI エージェント展開に向けた実装と利用方法を解説
 categories:
   - "zenn"
+  - "databricks"
+  - "mcp"
 ---
 
 ## Zenn リンク先
