@@ -23,11 +23,6 @@ listing:
     type: default
 ---
 
-::: {.callout-note}
-- All pages: Markdown available at same URL with `.md` extension.
-- Slides: PDF available at same URL with `.pdf` extension.
-:::
-
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
 [blog (66)](#category=blog){.btn .btn-outline-primary .btn-sm}
