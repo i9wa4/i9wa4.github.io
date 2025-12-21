@@ -55,6 +55,9 @@ jobs:
           restore-keys: |
             cache-${{ runner.os }}-${{ runner.arch }}-
 
+      - name: Setup Python environment
+        run: mise exec -- uv sync --only-dev
+
       - name: Run pre-commit
         env:
           SKIP: convert-drawio-to-png

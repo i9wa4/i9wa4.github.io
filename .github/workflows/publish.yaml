@@ -128,11 +128,6 @@ jobs:
             files: ${{ needs.build.outputs.zenn_files }}
             has_index: true
             pdf_type: none
-          - target: main
-            changed: ${{ needs.build.outputs.any }}
-            files: ${{ needs.build.outputs.main_files }}
-            has_index: false
-            pdf_type: none
 
     steps:
       - name: Check if should run
@@ -193,17 +188,7 @@ jobs:
           TARGET: ${{ matrix.target }}
           HAS_INDEX: ${{ matrix.has_index }}
         run: |
-          if [ "$TARGET" = "main" ]; then
-            if [ "$EVENT_NAME" = "push" ]; then
-              for f in $CHANGED_FILES; do
-                mise exec -- uv run quarto render "$f"
-              done
-            else
-              for f in index.qmd about.qmd 404.qmd; do
-                mise exec -- uv run quarto render "$f"
-              done
-            fi
-          elif [ "$TARGET" = "slides" ]; then
+          if [ "$TARGET" = "slides" ]; then
             # slides は複数ファイルを1コマンドで渡す (revealjs format を正しく認識させるため)
             if [ "$EVENT_NAME" = "push" ]; then
               # shellcheck disable=SC2086
@@ -246,15 +231,15 @@ jobs:
             _site/${{ matrix.target }}/index.pdf
 
       - name: Upload artifact
-        if: steps.check.outputs.should_run == 'true' && matrix.target != 'main'
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: site-${{ matrix.target }}
           path: _site/${{ matrix.target }}/
           retention-days: 1
 
-      - name: Upload assets (non-main)
-        if: steps.check.outputs.should_run == 'true' && matrix.target != 'main'
+      - name: Upload assets
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: site-assets-${{ matrix.target }}
@@ -270,8 +255,94 @@ jobs:
           path: _site/site_libs/revealjs/
           retention-days: 1
 
+      - name: Upload freeze (blog/zenn)
+        if: steps.check.outputs.should_run == 'true' && (matrix.target == 'blog' || matrix.target == 'zenn')
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: freeze-${{ matrix.target }}
+          path: _freeze/
+          if-no-files-found: ignore
+          retention-days: 1
+
+  render-main:
+    needs: [build, render]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
+
+    steps:
+      - name: Check if should run
+        id: check
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CHANGED: ${{ needs.build.outputs.any }}
+        run: |
+          if [ "$EVENT_NAME" != "push" ] || [ "$CHANGED" = "true" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download source
+        if: steps.check.outputs.should_run == 'true'
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: source
+
+      - name: Download freeze (blog)
+        if: steps.check.outputs.should_run == 'true'
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        continue-on-error: true
+        with:
+          name: freeze-blog
+          path: _freeze/
+
+      - name: Download freeze (zenn)
+        if: steps.check.outputs.should_run == 'true'
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        continue-on-error: true
+        with:
+          name: freeze-zenn
+          path: _freeze/
+
+      - name: Install mise
+        if: steps.check.outputs.should_run == 'true'
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          cache: true
+
+      - name: Cache uv dependencies
+        if: steps.check.outputs.should_run == 'true'
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          restore-keys: uv-${{ runner.os }}-
+
+      - name: Set up Python dependencies
+        if: steps.check.outputs.should_run == 'true'
+        run: mise exec -- uv sync
+
+      - name: Render main pages
+        if: steps.check.outputs.should_run == 'true'
+        env:
+          CHANGED_FILES: ${{ needs.build.outputs.main_files }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "push" ] && [ -n "$CHANGED_FILES" ]; then
+            for f in $CHANGED_FILES; do
+              mise exec -- uv run quarto render "$f"
+            done
+          else
+            for f in index.qmd about.qmd 404.qmd; do
+              mise exec -- uv run quarto render "$f"
+            done
+          fi
+
       - name: Upload main artifact
-        if: steps.check.outputs.should_run == 'true' && matrix.target == 'main'
+        if: steps.check.outputs.should_run == 'true'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: site-main
@@ -284,7 +355,7 @@ jobs:
           retention-days: 1
 
   deploy:
-    needs: render
+    needs: [render, render-main]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
