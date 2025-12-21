@@ -127,8 +127,10 @@ jobs:
           CHANGED_FILES: ${{ needs.build.outputs.blog_files }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            # shellcheck disable=SC2086
-            mise exec -- uv run quarto render blog/index.qmd $CHANGED_FILES
+            mise exec -- uv run quarto render blog/index.qmd
+            for f in $CHANGED_FILES; do
+              mise exec -- uv run quarto render "$f"
+            done
           else
             mise exec -- uv run quarto render blog/
           fi
@@ -174,8 +176,10 @@ jobs:
           CHANGED_FILES: ${{ needs.build.outputs.slides_files }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            # shellcheck disable=SC2086
-            mise exec -- uv run quarto render slides/index.qmd $CHANGED_FILES
+            mise exec -- uv run quarto render slides/index.qmd
+            for f in $CHANGED_FILES; do
+              mise exec -- uv run quarto render "$f"
+            done
           else
             mise exec -- uv run quarto render slides/
           fi
@@ -238,8 +242,9 @@ jobs:
           CHANGED_FILES: ${{ needs.build.outputs.resume_files }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            # shellcheck disable=SC2086
-            mise exec -- uv run quarto render $CHANGED_FILES
+            for f in $CHANGED_FILES; do
+              mise exec -- uv run quarto render "$f"
+            done
           else
             mise exec -- uv run quarto render resume/
           fi
@@ -291,8 +296,10 @@ jobs:
           CHANGED_FILES: ${{ needs.build.outputs.zenn_files }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            # shellcheck disable=SC2086
-            mise exec -- uv run quarto render zenn/index.qmd $CHANGED_FILES
+            mise exec -- uv run quarto render zenn/index.qmd
+            for f in $CHANGED_FILES; do
+              mise exec -- uv run quarto render "$f"
+            done
           else
             mise exec -- uv run quarto render zenn/
           fi
@@ -340,8 +347,9 @@ jobs:
           CHANGED_FILES: ${{ needs.build.outputs.main_files }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            # shellcheck disable=SC2086
-            mise exec -- uv run quarto render $CHANGED_FILES
+            for f in $CHANGED_FILES; do
+              mise exec -- uv run quarto render "$f"
+            done
           else
             mise exec -- uv run quarto render index.qmd about.qmd 404.qmd
           fi
