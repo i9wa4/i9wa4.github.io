@@ -14,7 +14,9 @@ import logging
 import os
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass
 from pathlib import Path
 
 # Configure logging
@@ -23,6 +25,19 @@ logging.basicConfig(
     format="%(asctime)s [%(name)s] %(message)s",
     datefmt="%H:%M:%S",
 )
+
+
+@dataclass
+class TaskResult:
+    """Result of a task execution."""
+
+    name: str
+    success: bool
+    duration: float
+
+
+# Global list to collect task results
+task_results: list[TaskResult] = []
 
 
 def get_logger(name: str) -> logging.Logger:
@@ -35,6 +50,8 @@ def run(cmd: list[str], desc: str = "", prefix: str = "") -> bool:
     log = get_logger(prefix or "build")
     if desc:
         log.info(f"START {desc}")
+    start_time = time.time()
+    success = False
     try:
         process = subprocess.Popen(
             cmd,
@@ -52,10 +69,17 @@ def run(cmd: list[str], desc: str = "", prefix: str = "") -> bool:
             raise subprocess.CalledProcessError(process.returncode, cmd)
         if desc:
             log.info(f"DONE {desc}")
-        return True
+        success = True
     except subprocess.CalledProcessError as e:
         log.error(f"FAILED {desc}: {e}")
-        return False
+        success = False
+    finally:
+        duration = time.time() - start_time
+        if desc:
+            task_results.append(
+                TaskResult(name=desc, success=success, duration=duration)
+            )
+    return success
 
 
 def render(path: str, prefix: str = "") -> bool:
@@ -258,6 +282,24 @@ def main() -> None:
             build_incremental(changed_files, changes, executor)
 
     log.info("Build complete")
+
+    # Print summary
+    log.info("")
+    log.info("=== Build Summary ===")
+    total_duration = sum(r.duration for r in task_results)
+    succeeded = [r for r in task_results if r.success]
+    failed = [r for r in task_results if not r.success]
+
+    # Sort by duration (longest first)
+    for result in sorted(task_results, key=lambda r: r.duration, reverse=True):
+        status = "OK" if result.success else "FAILED"
+        log.info(f"  {result.duration:6.2f}s [{status:6}] {result.name}")
+
+    log.info("")
+    log.info(
+        f"Total: {len(task_results)} tasks, {len(succeeded)} succeeded, {len(failed)} failed"
+    )
+    log.info(f"Total time: {total_duration:.2f}s")
 
 
 if __name__ == "__main__":
