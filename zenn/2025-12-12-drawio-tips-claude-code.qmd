@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-12-12 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  :::message [2025-12-16 追記] 手っ取り早く手元で使いたい方は「6.1. drawio のインストール」を済ませてこちらの記事をチェック！ @[card](https://zenn.dev/genda_jp/articles/2025-12-15-drawio-skills-claude-code) ::: 株式会社GENDA データエンジニア / MLOps エンジニアの ...
+  Claude Code を使って draw.io 形式の図を作成する際のフォント設定、矢印配置、テキスト改行などの罠と解決策を解説。
 categories:
   - "blog"
   - "tech"

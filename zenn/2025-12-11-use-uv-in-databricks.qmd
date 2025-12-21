@@ -4,7 +4,9 @@ author: uma-chan
 date: 2025-12-11 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ4 Day 11 の記事です。 @[card](https://qiita.com/advent-calendar/2025/genda) 本記事では、Databricks で uv を使って依存関係を管理する方法を紹介します。 u...
+  了解した、メイトリクスだ。この記事を読み込んだぜ。さあ、仕事の時間だ。
+
+  Databricks環境でuvを活用し、uv sync --activeやrequirements.txt生成による依存関係管理の3つの方法を比較・解説
 categories:
   - "blog"
   - "tech"

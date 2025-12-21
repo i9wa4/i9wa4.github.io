@@ -22,7 +22,7 @@ listing:
     sort:
       - "date desc"
       - "title"
-    type: grid
+    type: default
 ---
 
 ::: {.callout-note}

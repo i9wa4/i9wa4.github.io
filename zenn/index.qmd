@@ -1,5 +1,5 @@
 ---
-title: "Slides"
+title: "Zenn"
 listing:
   - id: "list-all"
     categories: numbered
@@ -19,10 +19,6 @@ listing:
       - "title"
     type: default
 ---
-
-::: {.callout-note}
-- Slides: PDF available at same URL with `.pdf` extension.
-:::
 
 ::: {#list-all}
 :::

@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-08-06 19:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  本記事は3部構成の1本目です。 1. Claude Code 対応 Dev Container 環境構築編 - VS Code でもそれ以外でも 2. [Python 開発環境最適化編 - uv + pre-commit + GitHub Actions](2025-08-06-python-env-optimization) 3. [Databricks Connect 実践編 - ローカルから...
+  Claude Code と Dev Container を組み合わせた開発環境構築方法を、Anthropic のリファレンス実装をベースに VS Code 以外のエディタでも利用可能な形で解説
 categories:
   - "blog"
   - "tech"

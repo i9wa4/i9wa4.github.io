@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-04-05 17:15:55 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  こんにちは。データエンジニア / MLOps エンジニアの uma-chan です。 最近 Devin で遊びながら勘所を掴んでいる最中です。 題材として丁度よかったので週報作成を Devin にやらせてみることにしました。 集計期間の GitHub の issue と pull request の情報を基に各メンバーの活動の概要と詳細を issue にまとめてもらいます。 長文プロンプトを用意す...
+  Devin と長文プロンプト（Playbook）を活用し、GitHub の Issue/PR 情報から週報を自動生成する方法とコツを紹介
 categories:
   - "blog"
   - "tech"

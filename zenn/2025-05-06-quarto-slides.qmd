@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-05-06 01:37:58 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  :::message alert **Deprecated**: この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。 https://i9wa4.github.io/blog/2025-12-15-uv-quarto-intro.html ::: 最近 AI にスライドを生成させたいという声をよく聞くようになりましたので、私の好きな Markdown ライクなツールである...
+  Quarto (reveal.js) を使った Markdown ライクなスライド作成と GitHub Actions での HTML 出力方法を紹介
 categories:
   - "blog"
   - "tech"

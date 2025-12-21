@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-10-31 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  [ビジネス映像メディア「PIVOT」](https://pivotmedia.co.jp/app) データエンジニアの uma-chan です。 私はデータエンジニアとして、データ利用を促進できるような基盤を作ることを重要視しています。 今回はそれを念頭に置きつつ全期間のユーザー行動を低コストで追跡できる dbt モデル [^1] を設計した話を紹介します。このモデルを足がかりに、様々な時間軸での...
+  dbt incremental モデルで全期間ユーザー追跡を低コスト化する設計パターンを解説。MERGE 戦略で初回訪問を保持しつつ最終訪問を更新する手法を紹介
 categories:
   - "blog"
   - "tech"

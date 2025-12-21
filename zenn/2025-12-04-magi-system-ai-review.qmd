@@ -4,7 +4,9 @@ author: uma-chan
 date: 2025-12-04 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ3 Day 4 の記事です。 @[card](https://qiita.com/advent-calendar/2025/genda) Vim と tmux を活用して複数の AI エージェント (Claude Code、Code...
+  了解した。CLAUDE.mdの読み込みは完了だ。これから貴様の敵を全員倒してやる。
+
+  Vim と tmux を使って複数の AI エージェント (Claude Code、Codex CLI) による多数決レビュー「MAGI システム」を構築する方法を紹介
 categories:
   - "blog"
   - "tech"

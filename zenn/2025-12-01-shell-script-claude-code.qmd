@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-12-01 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ1 Day 1 の記事です。 https://qiita.com/advent-calendar/2025/genda 最近は AI コーディングエージェントをターミナルから利用する機会が増えてきました。 - Claude Code...
+  Claude Code を日常のシェルスクリプトに組み込む方法を解説。非対話モードの活用とプロンプト設計のポイントを Issue ベースの Worktree 作成スクリプトを例に紹介。
 categories:
   - "blog"
   - "tech"

@@ -4,7 +4,7 @@ author: uma-chan
 date: 2024-11-20 18:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  初投稿なので新鮮な気持ちで Zenn 公式の記事を見ながら GitHub リポジトリ経由で Zenn の記事を投稿するまでの手順をまとめます。 1. リポジトリ作成から連携までを済ませる。 - [GitHubリポジトリでZennのコンテンツを管理する](https://zenn.dev/zenn/articles/connect-to-github) 1. Zenn CLI をインストールする。 ...
+  Zenn CLI と GitHub リポジトリを使った記事管理の手順、スラッグ指定や YAML ヘッダの書き方、Publication 予約投稿の方法を解説
 categories:
   - "blog"
   - "tech"

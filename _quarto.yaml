@@ -89,6 +89,8 @@ website:
         contents:
           - href: "blog/index.qmd"
             text: "Blog"
+          - href: "zenn/index.qmd"
+            text: "Zenn"
           - href: "slides/index.qmd"
             text: "Slides"
           - href: "resume/index.qmd"

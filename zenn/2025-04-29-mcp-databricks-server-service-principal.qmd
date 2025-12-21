@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-04-29 21:41:36 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  https://github.com/RafaelCartenet/mcp-databricks-server 上記の Databricks MCP Server を Service Principal 対応させたものを以下に公開しました。 https://github.com/i9wa4/mcp-databricks-server/ 存在意義と利用方法について説明します。 https://doc...
+  Databricks MCP Server を Service Principal 認証に対応させ、Personal Access Token より安全な権限管理で AI エージェントの社内展開を実現する方法を解説
 categories:
   - "blog"
   - "tech"

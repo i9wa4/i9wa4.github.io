@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-12-14 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ1 Day 14 の記事です。 @[card](https://qiita.com/advent-calendar/2025/genda) ならびに Databricks Advent Calendar 2025 シリーズ2 Day...
+  Databricks の権限設計における基本概念（グループベース管理、エンタイトルメント、Unity Catalog 権限継承）を公式ドキュメントをもとに解説
 categories:
   - "blog"
   - "tech"

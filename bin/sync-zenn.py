@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 from urllib.error import URLError
@@ -48,6 +50,51 @@ def extract_description(body: str, max_length: int = 200) -> str:
     if len(description) > max_length:
         description = description[:max_length] + "..."
     return description
+
+
+def generate_description_with_claude(title: str, body: str) -> str | None:
+    """Generate description using Claude CLI.
+
+    Args:
+        title: Article title
+        body: Article body content
+
+    Returns:
+        Generated description or None if failed
+    """
+    if not shutil.which("claude"):
+        return None
+
+    # Truncate body to avoid too long input
+    body_truncated = body[:3000] if len(body) > 3000 else body
+
+    prompt = f"""以下の Zenn 記事から、50〜80文字程度の簡潔な日本語の要約を生成してください。
+
+ルール:
+- 記事の主題と価値を簡潔に伝える
+- 技術的なキーワードを含める
+- 「〜について解説」「〜の方法を紹介」のような形式でOK
+- 要約のみを返す（説明や補足は不要）
+
+---
+タイトル: {title}
+---
+本文:
+{body_truncated}
+---"""
+
+    try:
+        result = subprocess.run(
+            ["claude", "--print", prompt],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout.strip()
+    except (subprocess.TimeoutExpired, subprocess.SubprocessError) as e:
+        print(f"  Warning: Claude failed: {e}")
+    return None
 
 
 def build_zenn_url(slug: str, publication_name: str | None, username: str) -> str:
@@ -188,10 +235,28 @@ def sync_articles(
                 published_at = web_published_at
 
         date = convert_date(published_at)
-        description = extract_description(body)
+        qmd_file = output_dir / f"{slug}.qmd"
+
+        # Reuse existing description if available
+        description = None
+        if qmd_file.exists():
+            existing_content = qmd_file.read_text(encoding="utf-8")
+            existing_fm, _ = parse_front_matter(existing_content)
+            if existing_fm.get("description"):
+                description = existing_fm["description"].strip()
+                print(f"[{current}/{total}] Reusing description: {slug}")
+
+        # Generate new description if not found
+        if not description:
+            print(f"[{current}/{total}] Generating description: {slug}")
+            description = generate_description_with_claude(title, body)
+            if description:
+                print("  (Claude)")
+            else:
+                description = extract_description(body)
+                print("  (Fallback)")
 
         qmd_content = generate_qmd_content(title, date, description, zenn_url)
-        qmd_file = output_dir / f"{slug}.qmd"
 
         if qmd_file.exists():
             existing_content = qmd_file.read_text(encoding="utf-8")
@@ -203,9 +268,11 @@ def sync_articles(
         print(f"[{current}/{total}] Updated: {qmd_file.name}")
         changes_made = True
 
-    # Delete qmd files that don't exist in Zenn repo
+    # Delete qmd files that don't exist in Zenn repo (except index.qmd)
     for qmd_file in output_dir.glob("*.qmd"):
         slug = qmd_file.stem
+        if slug == "index":
+            continue
         if slug not in zenn_slugs:
             qmd_file.unlink()
             print(f"Deleted: {qmd_file.name}")

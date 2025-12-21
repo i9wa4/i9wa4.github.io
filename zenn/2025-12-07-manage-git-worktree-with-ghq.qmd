@@ -4,7 +4,7 @@ author: uma-chan
 date: 2025-12-07 07:00:00 +0900
 image: "/assets/common/zenn-logo-only.svg"
 description: |
-  株式会社GENDA データエンジニア / MLOps エンジニアの uma-chan です。 この記事は GENDA Advent Calendar 2025 シリーズ3 Day 7 の記事です。 @[card](https://qiita.com/advent-calendar/2025/genda) - 機能開発中に緊急のバグ修正依頼が来た - 複数の PR を同時にレビューしたい - Iss...
+  Git Worktree と ghq を組み合わせて Issue/PR ごとに独立した作業環境を1コマンドで構築する方法を解説
 categories:
   - "blog"
   - "tech"
