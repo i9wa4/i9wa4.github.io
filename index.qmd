@@ -7,7 +7,6 @@ listing:
     categories: numbered
     contents:
       - "blog"
-      - "slides"
       - "zenn"
     exclude:
       filename:
@@ -26,8 +25,8 @@ listing:
 ---
 
 ::: {.callout-note}
-- Slides & Resume: PDF available at same URL with `.pdf` extension.
 - All pages: Markdown available at same URL with `.md` extension.
+- Slides & Resume: PDF available at same URL with `.pdf` extension.
 :::
 
 ::: {#list-all}
