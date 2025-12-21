@@ -38,7 +38,7 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         page.goto(f"file://{html_file.absolute()}")
 
         # Wait for page to be ready
-        page.wait_for_load_state("networkidle")
+        page.wait_for_load_state("load", timeout=60000)
 
         # Rewrite file:// links and relative links to https://i9wa4.github.io/
         page.evaluate(
