@@ -3,7 +3,6 @@ title: "自分用 Minecraft メモ"
 author: uma-chan
 categories:
   - "blog"
-  - "game"
   - "memo"
 date: 2024-07-20 22:39:28 +0900
 date-modified: last-modified
