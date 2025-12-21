@@ -23,6 +23,7 @@ format:
     include-in-header:
       - _includes/hatena-nocomment.html
       - _includes/anchor-icon-fix.html
+      - _includes/auto-color-scheme.html
     linestretch: 1.4
     page-layout: full
     respect-user-color-scheme: true
