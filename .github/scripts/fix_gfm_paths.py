@@ -14,7 +14,7 @@ REPLACEMENTS = [
     (r"\(\.\./assets/", f"({BASE_URL}/assets/"),
     (r'src="\.\./assets/', f'src="{BASE_URL}/assets/'),
     # Absolute image paths: (/assets/ -> absolute URL
-    (r"\](/assets/", f"]({BASE_URL}/assets/"),
+    (r"\]\(/assets/", f"]({BASE_URL}/assets/"),
     (r'src="/assets/', f'src="{BASE_URL}/assets/'),
     # .qmd links -> .md with absolute URL
     (r"\(([^)]*?)\.qmd\)", rf"({BASE_URL}/\1.md)"),
