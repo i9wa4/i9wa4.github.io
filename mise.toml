@@ -18,16 +18,25 @@ shellcheck = "0.11.0"
 "aqua:zizmorcore/zizmor" = "1.19.0"
 
 [tasks.sync-zenn]
-description = "Sync Zenn articles and update category buttons"
+description = "Sync Zenn articles"
 run = """
 mise exec -- uv run --no-sync python bin/sync-zenn.py
+"""
+
+[tasks.update-categories]
+description = "Update category buttons"
+run = """
 mise exec -- uv run --no-sync python bin/update-categories.py
 """
 
 [tasks.preview]
 description = "Preview site with Quarto"
-run = "mise exec -- uv run quarto preview"
+run = """
+mise exec -- uv run quarto preview
+"""
 
 [tasks.build-site]
 description = "Build site with parallel execution"
-run = "mise exec -- uv run --no-sync python .github/scripts/build-site.py"
+run = """
+mise exec -- uv run --no-sync python .github/scripts/build-site.py
+"""
