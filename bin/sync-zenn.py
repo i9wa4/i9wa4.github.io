@@ -177,7 +177,7 @@ def generate_qmd_content(
 title: "{title}"
 author: uma-chan
 date: {date}
-image: "/assets/common/zenn-logo.png"
+image: "/assets/common/zenn-ogp.png"
 description: |
   {description_yaml}
 categories:
