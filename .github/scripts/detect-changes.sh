@@ -31,20 +31,26 @@ for dir in $CONTENT_DIRS; do
 done
 
 for file in "${changed_files[@]}"; do
-  if [[ "$file" == *.qmd ]]; then
-    for dir in $CONTENT_DIRS; do
-      if [[ "$dir" == "root" ]]; then
-        # root: match .qmd files without subdirectory
-        if [[ "$file" != */* ]]; then
-          dir_files[$dir]+="$file "
-          break
-        fi
-      elif [[ "$file" == "$dir/"* ]]; then
+  for dir in $CONTENT_DIRS; do
+    if [[ "$dir" == "root" ]]; then
+      # root: match .qmd files without subdirectory, or assets/
+      if [[ "$file" != */* ]] && [[ "$file" == *.qmd ]]; then
         dir_files[$dir]+="$file "
         break
+      elif [[ "$file" == assets/* ]]; then
+        dir_files[$dir]+="__assets__ "
+        break
       fi
-    done
-  fi
+    elif [[ "$file" == "$dir/"* ]]; then
+      # .qmd for single mode, other files trigger full rebuild
+      if [[ "$file" == *.qmd ]]; then
+        dir_files[$dir]+="$file "
+      else
+        dir_files[$dir]+="__non_qmd__ "
+      fi
+      break
+    fi
+  done
 done
 
 # Build matrix
@@ -56,13 +62,19 @@ if [[ "$full_rebuild" == "true" ]]; then
   done
 else
   for dir in $CONTENT_DIRS; do
-    files=$(echo "${dir_files[$dir]}" | xargs)
+    files="${dir_files[$dir]}"
     if [[ -n "$files" ]]; then
-      file_count=$(echo "$files" | wc -w)
-      if [[ "$file_count" -eq 1 ]]; then
-        matrix_items+=("{\"dir\":\"$dir\",\"mode\":\"single\",\"file\":\"$files\"}")
-      else
+      # Non-.qmd files or assets trigger full rebuild
+      if [[ "$files" == *"__non_qmd__"* ]] || [[ "$files" == *"__assets__"* ]]; then
         matrix_items+=("{\"dir\":\"$dir\",\"mode\":\"full\",\"file\":\"\"}")
+      else
+        qmd_files=$(echo "$files" | xargs)
+        file_count=$(echo "$qmd_files" | wc -w)
+        if [[ "$file_count" -eq 1 ]]; then
+          matrix_items+=("{\"dir\":\"$dir\",\"mode\":\"single\",\"file\":\"$qmd_files\"}")
+        else
+          matrix_items+=("{\"dir\":\"$dir\",\"mode\":\"full\",\"file\":\"\"}")
+        fi
       fi
     fi
   done
