@@ -1,10 +1,26 @@
 local function urlencode(str)
-    if str then
-        str = string.gsub(str, "([^%w%-%.%_%~])", function(c)
-            return string.format("%%%02X", string.byte(c))
-        end)
+    if not str then
+        return str
     end
-    return str
+    local result = {}
+    for i = 1, #str do
+        local byte = string.byte(str, i)
+        -- Unreserved characters: A-Z, a-z, 0-9, -, ., _, ~
+        if
+            (byte >= 48 and byte <= 57) -- 0-9
+            or (byte >= 65 and byte <= 90) -- A-Z
+            or (byte >= 97 and byte <= 122) -- a-z
+            or byte == 45
+            or byte == 46
+            or byte == 95
+            or byte == 126
+        then
+            table.insert(result, string.char(byte))
+        else
+            table.insert(result, string.format("%%%02X", byte))
+        end
+    end
+    return table.concat(result)
 end
 
 local function ensureHtmlDeps()
