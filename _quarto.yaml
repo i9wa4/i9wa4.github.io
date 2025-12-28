@@ -67,6 +67,8 @@ website:
         href: "https://x.com/i9wa4_"
       - icon: linkedin
         href: "https://www.linkedin.com/in/daikm"
+      - icon: bluesky
+        href: "https://bsky.app/profile/i9wa4.bsky.social"
       - icon: rss
         href: "blog/index.xml"
       - text: "Built with"
@@ -81,6 +83,8 @@ website:
         href: "https://x.com/i9wa4_"
       - icon: linkedin
         href: "https://www.linkedin.com/in/daikm"
+      - icon: bluesky
+        href: "https://bsky.app/profile/i9wa4.bsky.social"
       - icon: rss
         href: "blog/index.xml"
     contents:
