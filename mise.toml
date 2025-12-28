@@ -34,7 +34,13 @@ mise exec -- uv run python bin/update-categories.py blog slides
 """
 
 [tasks.preview]
-description = "Preview site with Quarto"
+description = "Quarto preview"
 run = """
 mise exec -- uv run quarto preview
+"""
+
+[tasks.render]
+description = "Quarto render"
+run = """
+mise exec -- uv run quarto render
 """
