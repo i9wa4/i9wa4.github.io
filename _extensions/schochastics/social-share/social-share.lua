@@ -33,18 +33,33 @@ local function ensureHtmlDeps()
     })
 end
 
+-- Store share metadata for use in Pandoc filter
+local share_meta = nil
+
 function Meta(m)
     -- Skip if share is explicitly disabled
     if m.share == false or m.share == nil then
         return
     end
     ensureHtmlDeps()
-    local share_start = '<div class= "page-columns page-rows-contents page-layout-article"><div class="social-share">'
+    share_meta = m
+end
+
+function Pandoc(doc)
+    if share_meta == nil then
+        return
+    end
+
+    local m = share_meta
+    local share_start = '<div class="social-share">'
     if m.share.divclass then
         local divclass = pandoc.utils.stringify(m.share.divclass)
-        share_start = '<div class= "' .. divclass .. '"><div class="social-share">'
+        share_start = '<div class="' .. divclass .. '"><div class="social-share">'
     end
-    local share_end = "</div></div>"
+    local share_end = "</div>"
+    if m.share.divclass then
+        share_end = "</div></div>"
+    end
     local share_text = share_start
 
     -- Auto-generate permalink from site-url if not specified
@@ -64,6 +79,7 @@ function Meta(m)
         local html_path = rel_path:gsub("%.qmd$", ".html")
         share_url = site_url .. "/" .. html_path
     end
+    local post_title
     if m.share.description ~= nil then
         post_title = pandoc.utils.stringify(m.share.description)
     else
@@ -142,9 +158,9 @@ function Meta(m)
             .. '\'}else{return false;}" target="_blank" class="mastodon"><i class="fa-brands fa-mastodon fa-fw fa-lg"></i></a>'
     end
     share_text = share_text .. share_end
-    if m.share.location then
-        quarto.doc.includeText(pandoc.utils.stringify(m.share.location), share_text)
-    else
-        quarto.doc.includeText("after-body", share_text)
-    end
+
+    -- Append to document blocks (before footer)
+    local share_block = pandoc.RawBlock("html", share_text)
+    table.insert(doc.blocks, share_block)
+    return doc
 end

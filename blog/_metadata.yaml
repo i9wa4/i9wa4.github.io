@@ -5,7 +5,6 @@ filters:
 
 share:
   site-url: "https://i9wa4.github.io"
-  location: before-body
   twitter: true
   bsky: true
   linkedin: true

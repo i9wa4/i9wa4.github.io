@@ -22,7 +22,8 @@
 }
 
 .social-share a i {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    vertical-align: middle;
 }
 
 .social-share a.facebook {
