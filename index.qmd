@@ -4,17 +4,17 @@ description: |
   All of my thoughts.
 ---
 
-## Pages
+## 1. Pages
 
 | Page               | Description         |
 | ---                | ---                 |
 | [Blog](blog/)      | Tech blog posts     |
-| [Resume](resume/)  | Professional resume |
-| [Slides](slides/)  | Presentation slides |
 | [Zenn](zenn/)      | Articles on Zenn    |
+| [Slides](slides/)  | Presentation slides |
+| [Resume](resume/)  | Professional resume |
 | [About](about.qmd) | About me            |
 
-## Links
+## 2. Links
 
 - [GitHub](https://github.com/i9wa4)
 - [X](https://x.com/i9wa4_)
