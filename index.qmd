@@ -4,18 +4,6 @@ description: |
   All of my thoughts.
 ---
 
-## 1. Pages
-
-::: {.page-buttons}
-[Blog](blog/){.btn .btn-outline-primary}
-[Zenn](zenn/){.btn .btn-outline-primary}
-[Slides](slides/){.btn .btn-outline-primary}
-[Resume](resume/){.btn .btn-outline-primary}
-[About](about.qmd){.btn .btn-outline-primary}
-:::
-
-## 2. Links
-
 <!--
 Badge generation (style=social):
 
@@ -47,3 +35,11 @@ Badge generation (style=social):
 <a href="https://www.linkedin.com/in/daikm"><img src="https://img.shields.io/badge/LinkedIn-daikm-x.svg?style=social&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiMwQTY2QzIiIGQ9Ik02Ljk0IDVhMiAyIDAgMSAxLTQtLjAwMmEyIDIgMCAwIDEgNCAuMDAyTTcgOC40OEgzVjIxaDR6bTYuMzIgMEg5LjM0VjIxaDMuOTR2LTYuNTdjMC0zLjY2IDQuNzctNCA0Ljc3IDBWMjFIMjJ2LTcuOTNjMC02LjE3LTcuMDYtNS45NC04LjcyLTIuOTF6Ii8+PC9zdmc+Cg==" alt="LinkedIn"></a>
 [![Bluesky](https://img.shields.io/badge/Bluesky-i9wa4-x.svg?style=social&logo=bluesky)](https://bsky.app/profile/i9wa4.bsky.social)
 [![Zenn](https://img.shields.io/badge/Zenn-i9wa4-x.svg?style=social&logo=zenn)](https://zenn.dev/i9wa4)
+
+::: {.page-buttons}
+[Blog](blog/){.btn .btn-outline-primary}
+[Zenn](zenn/){.btn .btn-outline-primary}
+[Slides](slides/){.btn .btn-outline-primary}
+[Resume](resume/){.btn .btn-outline-primary}
+[About](about.qmd){.btn .btn-outline-primary}
+:::
