@@ -52,6 +52,10 @@ def extract_categories(directories: list[Path]) -> Counter[str]:
             content = qmd_file.read_text(encoding="utf-8")
             front_matter = parse_front_matter(content)
 
+            # Skip draft posts
+            if front_matter.get("draft", False):
+                continue
+
             for category in front_matter.get("categories", []):
                 categories[category] += 1
 
