@@ -14,13 +14,9 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     auto-stretch: false
-
-```text
-code-copy: true
-footer: "[2025-12-12 Data+AI World Tour Tokyo After Party](https://www.databricks.com/ja/dataaisummit/daiwt-tokyo-2025-after-party)"
-include-in-header:
-```
-
+    code-copy: true
+    footer: "[2025-12-12 Data+AI World Tour Tokyo After Party](https://www.databricks.com/ja/dataaisummit/daiwt-tokyo-2025-after-party)"
+    include-in-header:
       - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true

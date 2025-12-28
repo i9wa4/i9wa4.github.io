@@ -15,12 +15,8 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     code-copy: true
-
-```text
-footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
-include-in-header:
-```
-
+    footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
+    include-in-header:
       - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true
