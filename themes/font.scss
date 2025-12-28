@@ -19,3 +19,11 @@ code *, pre *, .sourceCode * {
 svg, svg *, foreignObject, foreignObject * {
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
+
+// レスポンシブテーブル（横スクロール可能）
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
