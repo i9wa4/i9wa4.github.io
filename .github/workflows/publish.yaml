@@ -39,15 +39,18 @@ jobs:
         id: filter
         with:
           files: |
+            _extensions/**
+            _includes/**
+            assets/**
             blog/**
-            slides/**
             resume/**
+            slides/**
+            themes/**
             zenn/**
-            index.qmd
-            about.qmd
             404.qmd
             _quarto.yaml
-            assets/**
+            about.qmd
+            index.qmd
 
       - name: Configure Git
         run: |

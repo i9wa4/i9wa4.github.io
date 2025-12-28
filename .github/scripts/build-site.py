@@ -164,8 +164,12 @@ def detect_changes(changed_files: list[str]) -> dict[str, bool]:
             changes["resume"] = True
         elif f.startswith("zenn/"):
             changes["zenn"] = True
-        elif f in ("index.qmd", "about.qmd", "404.qmd", "_quarto.yaml") or f.startswith(
-            "assets/"
+        elif (
+            f in ("index.qmd", "about.qmd", "404.qmd", "_quarto.yaml")
+            or f.startswith("assets/")
+            or f.startswith("themes/")
+            or f.startswith("_extensions/")
+            or f.startswith("_includes/")
         ):
             changes["main"] = True
 
