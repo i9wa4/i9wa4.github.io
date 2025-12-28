@@ -193,6 +193,8 @@ jobs:
           path: _artifacts
 
       - name: Merge artifacts into _site
+        env:
+          FULL_REBUILD: ${{ needs.detect-changes.outputs.full_rebuild }}
         run: |
           mkdir -p _site
           for artifact_dir in _artifacts/site-*; do
@@ -203,8 +205,8 @@ jobs:
               rm -rf _site/site_libs
               mv "$artifact_dir"/site_libs _site/ 2>/dev/null || true
             else
-              rm -rf "_site/${dir_name}"
-              mv "$artifact_dir" "_site/${dir_name}"
+              [ "$FULL_REBUILD" = "true" ] && rm -rf "_site/${dir_name}"
+              cp -r "$artifact_dir" "_site/${dir_name}"
             fi
           done
           rm -rf _artifacts
