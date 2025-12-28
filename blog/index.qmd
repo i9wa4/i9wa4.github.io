@@ -8,6 +8,7 @@ listing:
     exclude:
       filename:
         - "index.qmd"
+    feed: true
     fields:
       - "title"
       - "date"
