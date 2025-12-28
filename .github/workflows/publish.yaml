@@ -149,12 +149,18 @@ jobs:
       - name: Fix image paths and links in GFM files
         run: mise exec -- uv run python .github/scripts/fix-gfm-paths.py _site/
 
-      - name: Prepare artifact (root)
-        if: matrix.dir == 'root'
+      - name: Prepare artifact
+        env:
+          BUILD_DIR: ${{ matrix.dir }}
         run: |
-          mkdir -p _site/root
-          mv _site/*.html _site/root/ 2>/dev/null || true
-          mv _site/site_libs _site/root/ 2>/dev/null || true
+          if [ "$BUILD_DIR" = "root" ]; then
+            mkdir -p _site/root
+            mv _site/*.html _site/root/ 2>/dev/null || true
+          fi
+          # Include site_libs in each artifact for merge
+          if [ -d "_site/site_libs" ]; then
+            cp -r _site/site_libs "_site/${BUILD_DIR}/_site_libs"
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
@@ -200,10 +206,14 @@ jobs:
           for artifact_dir in _artifacts/site-*; do
             [ -d "$artifact_dir" ] || continue
             dir_name="${artifact_dir##*/site-}"
+            # Merge _site_libs from each artifact
+            if [ -d "$artifact_dir/_site_libs" ]; then
+              mkdir -p _site/site_libs
+              cp -r "$artifact_dir/_site_libs/"* _site/site_libs/ 2>/dev/null || true
+              rm -rf "$artifact_dir/_site_libs"
+            fi
             if [ "$dir_name" = "root" ]; then
               mv "$artifact_dir"/*.html _site/ 2>/dev/null || true
-              rm -rf _site/site_libs
-              mv "$artifact_dir"/site_libs _site/ 2>/dev/null || true
             else
               [ "$FULL_REBUILD" = "true" ] && rm -rf "_site/${dir_name}"
               cp -r "$artifact_dir" "_site/${dir_name}"
