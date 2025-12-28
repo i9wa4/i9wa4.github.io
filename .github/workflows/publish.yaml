@@ -147,6 +147,7 @@ jobs:
         run: |
           mkdir -p _site/root
           mv _site/*.html _site/root/ 2>/dev/null || true
+          mv _site/site_libs _site/root/ 2>/dev/null || true
 
       - name: Upload artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -192,6 +193,8 @@ jobs:
             dir_name="${artifact_dir##*/site-}"
             if [ "$dir_name" = "root" ]; then
               mv "$artifact_dir"/*.html _site/ 2>/dev/null || true
+              rm -rf _site/site_libs
+              mv "$artifact_dir"/site_libs _site/ 2>/dev/null || true
             else
               rm -rf "_site/${dir_name}"
               mv "$artifact_dir" "_site/${dir_name}"
