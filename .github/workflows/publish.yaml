@@ -36,10 +36,17 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Get last deployed SHA
+        id: deployed
+        run: |
+          sha=$(git show origin/gh-pages:.deployed-sha 2>/dev/null || echo "")
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
       - name: Detect changed files
         uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
         id: changes
         with:
+          base_sha: ${{ steps.deployed.outputs.sha }}
           files: |
             _extensions/**
             _includes/**
@@ -204,6 +211,8 @@ jobs:
           # Copy assets from source
           rm -rf _site/assets
           cp -r assets _site/assets
+          # Record deployed commit SHA for incremental builds
+          echo "${{ github.sha }}" > _site/.deployed-sha
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
