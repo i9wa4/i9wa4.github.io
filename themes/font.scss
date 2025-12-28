@@ -20,14 +20,15 @@ svg, svg *, foreignObject, foreignObject * {
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
 
-// Responsive table (horizontal scroll + word break)
+// Responsive table (horizontal scroll)
 table {
   display: block;
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
-  td, th {
+  // Break long links/URLs only
+  a {
     word-break: break-all;
     overflow-wrap: anywhere;
   }
