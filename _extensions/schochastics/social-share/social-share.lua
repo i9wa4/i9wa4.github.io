@@ -1,3 +1,12 @@
+local function urlencode(str)
+    if str then
+        str = string.gsub(str, "([^%w%-%.%_%~])", function(c)
+            return string.format("%%%02X", string.byte(c))
+        end)
+    end
+    return str
+end
+
 local function ensureHtmlDeps()
     quarto.doc.addHtmlDependency({
         name = "social-share",
@@ -40,74 +49,76 @@ function Meta(m)
     else
         post_title = pandoc.utils.stringify(m.title)
     end
+    local encoded_title = urlencode(post_title)
+    local encoded_url = urlencode(share_url)
     if m.share.twitter then
         share_text = share_text
             .. '<a href="https://twitter.com/share?url='
-            .. share_url
+            .. encoded_url
             .. "&text="
-            .. post_title
+            .. encoded_title
             .. '" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a>'
     end
     if m.share.bsky then
         share_text = share_text
             .. '<a href="https://bsky.app/intent/compose?text='
-            .. post_title
-            .. " "
-            .. share_url
+            .. encoded_title
+            .. "%20"
+            .. encoded_url
             .. '" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a>'
     end
     if m.share.linkedin then
         share_text = share_text
             .. '<a href="https://www.linkedin.com/shareArticle?url='
-            .. share_url
+            .. encoded_url
             .. "&title="
-            .. post_title
+            .. encoded_title
             .. '" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>'
     end
     if m.share.email then
         share_text = share_text
             .. '  <a href="mailto:?subject='
-            .. post_title
+            .. encoded_title
             .. "&body=Check out this link:"
-            .. share_url
+            .. encoded_url
             .. '" target="_blank" class="email"><i class="fa-solid fa-envelope fa-fw fa-lg"></i></a>'
     end
     if m.share.facebook then
         share_text = share_text
             .. '<a href="https://www.facebook.com/sharer.php?u='
-            .. share_url
+            .. encoded_url
             .. '" target="_blank" class="facebook"><i class="fa-brands fa-facebook-f fa-fw fa-lg"></i></a>'
     end
     if m.share.reddit then
         share_text = share_text
             .. '<a href="https://reddit.com/submit?url='
-            .. share_url
+            .. encoded_url
             .. "&title="
-            .. post_title
+            .. encoded_title
             .. '" target="_blank" class="reddit">   <i class="fa-brands fa-reddit-alien fa-fw fa-lg"></i></a>'
     end
     if m.share.stumble then
         share_text = share_text
             .. '<a href="https://www.stumbleupon.com/submit?url='
-            .. share_url
+            .. encoded_url
             .. "&title="
-            .. post_title
+            .. encoded_title
             .. '" target="_blank" class="stumbleupon"><i class="fa-brands fa-stumbleupon fa-fw fa-lg"></i></a>'
     end
     if m.share.tumblr then
         share_text = share_text
             .. '<a href="https://www.tumblr.com/share/link?url='
-            .. share_url
+            .. encoded_url
             .. "&name="
-            .. post_title
+            .. encoded_title
             .. '" target="_blank" class="tumblr"><i class="fa-brands fa-tumblr fa-fw fa-lg"></i></a>'
     end
     if m.share.mastodon then
         share_text = share_text
             .. "<a href=\"javascript:void(0);\" onclick=\"var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' &amp;&amp; mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text="
-            .. post_title
-            .. " "
-            .. share_url
+            .. encoded_title
+            .. "%20"
+            .. encoded_url
             .. '\'}else{return false;}" target="_blank" class="mastodon"><i class="fa-brands fa-mastodon fa-fw fa-lg"></i></a>'
     end
     share_text = share_text .. share_end
