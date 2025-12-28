@@ -16,16 +16,16 @@ format:
   html:
     code-copy: true
     code-overflow: wrap
-    grid:
-      sidebar-width: 250px
-      body-width: 900px
-      margin-width: 300px
+    # grid:
+    #   sidebar-width: 250px
+    #   body-width: 900px
+    #   margin-width: 300px
     include-in-header:
       - _includes/hatena-nocomment.html
       - _includes/anchor-icon-fix.html
       - _includes/auto-color-scheme.html
     linestretch: 1.4
-    page-layout: full
+    # page-layout: full
     respect-user-color-scheme: true
     # https://quarto.org/docs/output-formats/html-themes.html
     theme:
@@ -42,6 +42,13 @@ format:
 
 website:
   title: "uma-chan's page"
+  body-header: |
+    [Top](/){.btn .btn-outline-secondary}
+    [Blog](/blog/){.btn .btn-outline-primary}
+    [Zenn](/zenn/){.btn .btn-outline-primary}
+    [Slides](/slides/){.btn .btn-outline-primary}
+    [Resume](/resume/){.btn .btn-outline-primary}
+    [About](/about.qmd){.btn .btn-outline-primary}
   bread-crumbs: false
   favicon: "assets/common/icon_hhkb3.png"
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
@@ -72,32 +79,32 @@ website:
       - text: "Built with"
       - text: "Quarto"
         href: "https://quarto.org/"
-  sidebar:
-    style: floating
-    tools:
-      - icon: github
-        href: "https://github.com/i9wa4"
-      - icon: twitter-x
-        href: "https://x.com/i9wa4_"
-      - icon: linkedin
-        href: "https://www.linkedin.com/in/daikm"
-      - icon: bluesky
-        href: "https://bsky.app/profile/i9wa4.bsky.social"
-      - icon: rss
-        href: "blog/index.xml"
-    contents:
-      - href: "index.qmd"
-        text: "Home"
-      - text: "---"
-      - section: "Content"
-        contents:
-          - href: "blog/index.qmd"
-            text: "Blog"
-          - href: "zenn/index.qmd"
-            text: "Zenn"
-          - href: "slides/index.qmd"
-            text: "Slides"
-          - href: "resume/index.qmd"
-            text: "Resume"
-          - href: "about.qmd"
-            text: "About"
+  # sidebar:
+  #   style: floating
+  #   tools:
+  #     - icon: github
+  #       href: "https://github.com/i9wa4"
+  #     - icon: twitter-x
+  #       href: "https://x.com/i9wa4_"
+  #     - icon: linkedin
+  #       href: "https://www.linkedin.com/in/daikm"
+  #     - icon: bluesky
+  #       href: "https://bsky.app/profile/i9wa4.bsky.social"
+  #     - icon: rss
+  #       href: "blog/index.xml"
+  #   contents:
+  #     - href: "index.qmd"
+  #       text: "Home"
+  #     - text: "---"
+  #     - section: "Content"
+  #       contents:
+  #         - href: "blog/index.qmd"
+  #           text: "Blog"
+  #         - href: "zenn/index.qmd"
+  #           text: "Zenn"
+  #         - href: "slides/index.qmd"
+  #           text: "Slides"
+  #         - href: "resume/index.qmd"
+  #           text: "Resume"
+  #         - href: "about.qmd"
+  #           text: "About"
