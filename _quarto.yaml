@@ -42,17 +42,42 @@ format:
 
 website:
   title: "uma-chan's page"
-  body-header: |
-    [Top](/){.btn .btn-outline-secondary}
-    [Blog](/blog/){.btn .btn-outline-primary}
-    [Zenn](/zenn/){.btn .btn-outline-primary}
-    [Slides](/slides/){.btn .btn-outline-primary}
-    [Resume](/resume/){.btn .btn-outline-primary}
-    [About](/about.qmd){.btn .btn-outline-primary}
+  # body-header: |
+  #   [Top](/){.btn .btn-outline-secondary}
+  #   [Blog](/blog/){.btn .btn-outline-primary}
+  #   [Zenn](/zenn/){.btn .btn-outline-primary}
+  #   [Slides](/slides/){.btn .btn-outline-primary}
+  #   [Resume](/resume/){.btn .btn-outline-primary}
+  #   [About](/about.qmd){.btn .btn-outline-primary}
   bread-crumbs: false
   favicon: "assets/common/icon_hhkb3.png"
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
   image: "assets/common/icon_hhkb3_large.jpg"
+  navbar:
+    background: secondary
+    search: true
+    left:
+      - text: "Blog"
+        href: blog/index.qmd
+      - text: "Zenn"
+        href: zenn/index.qmd
+      - text: "Slides"
+        href: slides/index.qmd
+      - text: "Resume"
+        href: resume/index.qmd
+      - text: "About"
+        href: about.qmd
+    right:
+      - icon: github
+        href: "https://github.com/i9wa4"
+      - icon: twitter-x
+        href: "https://x.com/i9wa4_"
+      - icon: linkedin
+        href: "https://www.linkedin.com/in/daikm"
+      - icon: bluesky
+        href: "https://bsky.app/profile/i9wa4.bsky.social"
+      - icon: rss
+        href: "blog/index.xml"
   search: true
   site-url: "https://i9wa4.github.io"
   open-graph:
