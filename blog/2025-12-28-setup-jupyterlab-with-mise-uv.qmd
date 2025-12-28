@@ -78,8 +78,6 @@ $ uv init
 Initialized project `jupyterlab-project`
 ```
 
-私は明示的に `mise exec --` をつけておくのが好きです。
-
 ### 2.5. pyproject.toml 整備
 
 初期化直後の pyproject.toml は以下のようになっています。
