@@ -65,6 +65,8 @@ description = "Start JupyterLab"
 run = "mise exec -- uv run jupyter-lab"
 ```
 
+mise.toml に記述したツールをインストールします。
+
 ```{.bash}
 $ mise install
 ```
