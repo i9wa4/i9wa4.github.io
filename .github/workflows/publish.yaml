@@ -3,12 +3,14 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '0 22 * * *'  # 7:00 JST daily full build
   push:
     branches: main
 
 permissions: {}
+
+env:
+  CONTENT_DIRS: blog resume root slides zenn
+  FULL_REBUILD_TRIGGERS: _extensions/ _includes/ assets/ themes/ _quarto.yaml
 
 defaults:
   run:
@@ -19,13 +21,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  detect-changes:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      TZ: 'Asia/Tokyo'
-    permissions:
-      contents: write
+    timeout-minutes: 2
+    outputs:
+      full_rebuild: ${{ steps.detect.outputs.full_rebuild }}
+      has_builds: ${{ steps.detect.outputs.has_builds }}
+      matrix: ${{ steps.detect.outputs.matrix }}
 
     steps:
       - name: Check out repository
@@ -34,36 +36,51 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Detect changes
+      - name: Detect changed files
         uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v47.0.1
-        id: filter
+        id: changes
         with:
           files: |
             _extensions/**
             _includes/**
+            _quarto.yaml
             assets/**
             blog/**
             resume/**
             slides/**
             themes/**
             zenn/**
-            404.qmd
-            _quarto.yaml
-            about.qmd
-            index.qmd
+            "*.qmd"
 
-      - name: Configure Git
-        run: |
-          git config --global init.defaultBranch main
-          git config --global advice.defaultBranchName false
+      - name: Set build matrix
+        id: detect
+        env:
+          CHANGED_FILES: ${{ steps.changes.outputs.all_changed_files }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: bash .github/scripts/detect-changes.sh "$CHANGED_FILES"
+
+  build-content:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.has_builds == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: 'Asia/Tokyo'
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.detect-changes.outputs.matrix) }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Fix timestamps
-        run: |
-          bash ${{ github.workspace }}/.github/scripts/fix-timestamps.sh
+        run: bash .github/scripts/fix-timestamps.sh
 
       - name: Update Quarto config
-        env:
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
         run: |
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yaml
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yaml
@@ -73,55 +90,118 @@ jobs:
         with:
           cache: true
 
-      - name: Cache uv dependencies
+      - name: Cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: |
             ~/.cache/uv
             ~/.cache/ms-playwright
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: uv-${{ runner.os }}-
-
-      - name: Cache Quarto freeze
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: _freeze/
-          key: quarto-freeze-${{ github.sha }}
-          restore-keys: quarto-freeze-
+          key: |
+            cache-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('uv.lock') }}
+          restore-keys: |
+            cache-${{ runner.os }}-${{ runner.arch }}-
 
       - name: Set up Python dependencies
         run: mise exec -- uv sync
 
       - name: Install Playwright
+        if: matrix.dir == 'resume'
         run: mise exec -- uv run playwright install chromium
 
-      - name: Checkout gh-pages as _site base
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          ref: gh-pages
-          path: _site
-          persist-credentials: false
-
-      - name: Build site
+      - name: Render
         env:
-          PARALLEL_JOBS: ${{ env.PARALLEL_JOBS }}
-          EVENT_NAME: ${{ github.event_name }}
-          CHANGED_FILES: ${{ steps.filter.outputs.all_changed_files }}
+          BUILD_DIR: ${{ matrix.dir }}
+          BUILD_FILE: ${{ matrix.file }}
+          BUILD_MODE: ${{ matrix.mode }}
         run: |
-          if [ "$EVENT_NAME" = "push" ] && [ -n "$CHANGED_FILES" ]; then
-            # shellcheck disable=SC2086
-            mise run build-site $CHANGED_FILES
+          if [ "$BUILD_MODE" = "single" ]; then
+            mise exec -- uv run quarto render "$BUILD_FILE"
+            [ "$BUILD_DIR" != "root" ] && mise exec -- uv run quarto render "$BUILD_DIR/index.qmd"
+          elif [ "$BUILD_DIR" = "root" ]; then
+            for page in *.qmd; do mise exec -- uv run quarto render "$page"; done
           else
-            # workflow_dispatch: full build
-            mise run build-site
+            mise exec -- uv run quarto render "$BUILD_DIR/"
+          fi
+
+      - name: Generate PDF
+        if: matrix.dir == 'slides' || matrix.dir == 'resume'
+        env:
+          BUILD_DIR: ${{ matrix.dir }}
+        run: |
+          if [ "$BUILD_DIR" = "slides" ]; then
+            for html in _site/slides/*.html; do
+              [ "$(basename "$html")" = "index.html" ] && continue
+              mise exec -- uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
+            done
+            wait
+          else
+            mise exec -- uv run python .github/scripts/html-to-pdf.py \
+              _site/resume/index.html _site/resume/index.pdf
           fi
 
       - name: Fix image paths and links in GFM files
         run: mise exec -- uv run python .github/scripts/fix-gfm-paths.py _site/
 
+      - name: Prepare artifact (root)
+        if: matrix.dir == 'root'
+        run: |
+          mkdir -p _site/root
+          mv _site/*.html _site/root/ 2>/dev/null || true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-${{ matrix.dir }}
+          path: _site/${{ matrix.dir }}/
+          retention-days: 1
+
+  deploy:
+    needs: [detect-changes, build-content]
+    if: always() && needs.detect-changes.result == 'success' && needs.build-content.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TZ: 'Asia/Tokyo'
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Checkout gh-pages as _site base (incremental)
+        if: needs.detect-changes.outputs.full_rebuild != 'true'
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          path: _site
+          persist-credentials: false
+          ref: gh-pages
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          path: _artifacts
+
+      - name: Merge artifacts into _site
+        run: |
+          mkdir -p _site
+          for artifact_dir in _artifacts/site-*; do
+            [ -d "$artifact_dir" ] || continue
+            dir_name="${artifact_dir##*/site-}"
+            if [ "$dir_name" = "root" ]; then
+              mv "$artifact_dir"/*.html _site/ 2>/dev/null || true
+            else
+              rm -rf "_site/${dir_name}"
+              mv "$artifact_dir" "_site/${dir_name}"
+            fi
+          done
+          rm -rf _artifacts
+
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
+          force_orphan: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          force_orphan: true

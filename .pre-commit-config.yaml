@@ -86,4 +86,17 @@ repos:
         entry: bash .github/scripts/convert-drawio-to-png.sh
         language: system
         files: assets/.*\.drawio$
-        require_serial: true
+
+      - id: sync-zenn
+        name: Sync Zenn articles
+        entry: mise run sync-zenn
+        language: system
+        files: ^zenn/.*\.qmd$
+        pass_filenames: false
+
+      - id: update-categories
+        name: Update category buttons
+        entry: mise run update-categories
+        language: system
+        files: ^(blog|slides)/.*\.qmd$
+        pass_filenames: false

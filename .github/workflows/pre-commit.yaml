@@ -57,7 +57,7 @@ jobs:
 
       - name: Run pre-commit
         env:
-          SKIP: convert-drawio-to-png
+          SKIP: convert-drawio-to-png,sync-zenn,update-categories
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             mise exec -- pre-commit run --verbose --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.sha }}

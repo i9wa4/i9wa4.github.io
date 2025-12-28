@@ -2,38 +2,22 @@
 title: "uma-chan's page"
 description: |
   All of my thoughts.
-listing:
-  - id: "all"
-    # categories: numbered
-    contents:
-      - "blog"
-    exclude:
-      filename:
-        - "index.qmd"
-    feed: true
-    fields:
-      - "title"
-      - "date"
-      - "image"
-      - "categories"
-      - "description"
-    sort:
-      - "date desc"
-      - "title"
-    type: default
 ---
 
-::: {.category-buttons}
-[All](.){.btn .btn-outline-secondary .btn-sm}
-[blog (66)](#category=blog){.btn .btn-outline-primary .btn-sm}
-[diary (9)](#category=diary){.btn .btn-outline-primary .btn-sm}
-[memo (4)](#category=memo){.btn .btn-outline-primary .btn-sm}
-[tech-ai (10)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
-[tech-data (8)](#category=tech-data){.btn .btn-outline-primary .btn-sm}
-[tech-others (28)](#category=tech-others){.btn .btn-outline-primary .btn-sm}
-[tech-vim (12)](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
-[vim-jp (2)](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
-:::
+## Pages
 
-::: {#all}
-:::
+| Page               | Description         |
+| ---                | ---                 |
+| [Blog](blog/)      | Tech blog posts     |
+| [Resume](resume/)  | Professional resume |
+| [Slides](slides/)  | Presentation slides |
+| [Zenn](zenn/)      | Articles on Zenn    |
+| [About](about.qmd) | About me            |
+
+## Links
+
+- [GitHub](https://github.com/i9wa4)
+- [X](https://x.com/i9wa4_)
+- [LinkedIn](https://www.linkedin.com/in/daikm)
+- [Bluesky](https://bsky.app/profile/i9wa4.bsky.social)
+- [Zenn](https://zenn.dev/i9wa4)

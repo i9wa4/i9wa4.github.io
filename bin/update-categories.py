@@ -106,25 +106,28 @@ def main() -> int:
     script_dir = Path(__file__).parent.resolve()
     project_root = script_dir.parent
 
-    # Define index files and their source directories
-    targets = [
-        {
-            "index": project_root / "index.qmd",
-            "sources": [project_root / "blog"],
-        },
-        {
+    # Define all available targets
+    all_targets = {
+        "blog": {
             "index": project_root / "blog" / "index.qmd",
             "sources": [project_root / "blog"],
         },
-        {
+        "zenn": {
             "index": project_root / "zenn" / "index.qmd",
             "sources": [project_root / "zenn"],
         },
-        {
+        "slides": {
             "index": project_root / "slides" / "index.qmd",
             "sources": [project_root / "slides"],
         },
-    ]
+    }
+
+    # Filter targets based on command line arguments
+    if len(sys.argv) > 1:
+        target_names = sys.argv[1:]
+        targets = [all_targets[name] for name in target_names if name in all_targets]
+    else:
+        targets = list(all_targets.values())
 
     modified_files = []
 
