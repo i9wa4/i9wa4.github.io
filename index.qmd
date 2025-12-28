@@ -37,11 +37,7 @@ Badge generation (style=social):
 [![Zenn](https://img.shields.io/badge/Zenn-i9wa4-x.svg?style=social&logo=zenn)](https://zenn.dev/i9wa4)
 
 [Blog](blog/){.btn .btn-primary}
-
 [Zenn](zenn/){.btn .btn-primary}
-
 [Slides](slides/){.btn .btn-primary}
-
 [Resume](resume/){.btn .btn-primary}
-
 [About](about.qmd){.btn .btn-primary}
