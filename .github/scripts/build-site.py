@@ -53,6 +53,7 @@ def run(cmd: list[str], desc: str = "", prefix: str = "") -> bool:
         log.info(f"START {desc}")
     start_time = time.time()
     success = False
+    output_lines: list[str] = []
     try:
         process = subprocess.Popen(
             cmd,
@@ -65,6 +66,7 @@ def run(cmd: list[str], desc: str = "", prefix: str = "") -> bool:
                 line = line.rstrip()
                 if line:
                     log.debug(line)
+                    output_lines.append(line)
         process.wait()
         if process.returncode != 0:
             raise subprocess.CalledProcessError(process.returncode, cmd)
@@ -73,6 +75,12 @@ def run(cmd: list[str], desc: str = "", prefix: str = "") -> bool:
         success = True
     except subprocess.CalledProcessError as e:
         log.error(f"FAILED {desc}: {e}")
+        # Show last 50 lines of output on error
+        if output_lines:
+            log.error("--- Last 50 lines of output ---")
+            for line in output_lines[-50:]:
+                log.error(f"  {line}")
+            log.error("--- End of output ---")
         success = False
     finally:
         duration = time.time() - start_time
