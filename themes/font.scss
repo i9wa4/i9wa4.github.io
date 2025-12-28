@@ -12,6 +12,7 @@
 code, pre, .monospace,
 code *, pre *, .sourceCode * {
   font-family: "JetBrains Mono", "Consolas", "Menlo", monospace !important;
+  font-variant-ligatures: none;
 }
 
 // SVG内のテキストにも日本語フォントを適用
