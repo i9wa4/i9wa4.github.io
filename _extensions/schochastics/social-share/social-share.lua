@@ -84,6 +84,10 @@ function Pandoc(doc)
         post_title = pandoc.utils.stringify(m.share.description)
     else
         post_title = pandoc.utils.stringify(m.title)
+        -- Append site title if available
+        if m.share["site-title"] then
+            post_title = post_title .. " – " .. pandoc.utils.stringify(m.share["site-title"])
+        end
     end
     local encoded_title = urlencode(post_title)
     local encoded_url = urlencode(share_url)
