@@ -10,6 +10,7 @@ permissions: {}
 
 env:
   CONTENT_DIRS: blog resume root slides zenn
+  FEED_DIRS: blog
   FULL_REBUILD_TRIGGERS: _extensions/ _includes/ themes/ _quarto.yaml
 
 defaults:
@@ -63,6 +64,7 @@ jobs:
         id: detect
         env:
           CHANGED_FILES: ${{ steps.changes.outputs.all_changed_files }}
+          ADDED_FILES: ${{ steps.changes.outputs.added_files }}
           EVENT_NAME: ${{ github.event_name }}
         run: bash .github/scripts/detect-changes.sh "$CHANGED_FILES"
 
