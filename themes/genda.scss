@@ -1,15 +1,15 @@
 /*-- scss:defaults --*/
 
-// 1. 基本設定・全体スタイル
+// 1. Base settings
 
-// フォント読み込み (Google Fontsを使用する場合)
+// Load fonts (Google Fonts)
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
-// 基本フォント設定
+// Base font settings
 $font-family-sans-serif: "Noto Sans JP", sans-serif;
 $font-weight-base: 400; // Regular
 
-// 2. カラーパレット定義
+// 2. Color palette
 $dark-navy: #001722;
 $light-gray: #f3f4f4;
 $gold: #c0a171;
@@ -23,11 +23,11 @@ $light-tone-2: #d1d6d9;
 $light-tone-3: #e0d1d9;
 $light-tone-4: #d4d6cb;
 
-// デフォルトの背景色と文字色
+// Default background and text colors
 $body-bg: $light-gray;
 $body-color: $dark-navy;
 
-// カラーパレットを Quarto/Reveal.js 変数に適用
+// Apply color palette to Quarto/Reveal.js variables
 $link-color: $gold;
 $link-color-hover: lighten($link-color, 15%);
 $selection-bg: $gold;
@@ -36,12 +36,12 @@ $text-muted: $gray-tone-1;
 $border-color: $gray-tone-1;
 $primary: $gold;
 
-// 3. タイポグラフィ
+// 3. Typography
 
-// 基本の行間 (本文)
+// Base line height (body)
 $presentation-line-height: 1.5;
 
-// 見出し (h1, h2)
+// Headings (h1, h2)
 $presentation-heading-font-weight: 700; // Bold
 $presentation-heading-color: $dark-navy;
 $presentation-heading-line-height: 1.15;
@@ -50,21 +50,21 @@ $presentation-heading-line-height: 1.15;
 $presentation-h1-font-size: 42pt;
 $presentation-h2-font-size: 42pt;
 
-// 概要 / サブ見出し (h3-h6)
-// h3, h4 はデフォルトで presentation-heading-* を継承するので、サイズのみ指定
+// Subheadings (h3-h6)
+// h3, h4 inherit presentation-heading-* by default, only size specified
 // $presentation-h3-font-size: 18pt;
 // $presentation-h4-font-size: 18pt;
 $presentation-h3-font-size: 27pt;
 $presentation-h4-font-size: 27pt;
-// h5, h6 は必要であれば別途スタイルを追加
+// h5, h6 can be styled separately if needed
 
-// 本文 (p)
+// Body text (p)
 // $presentation-font-size-root: 16pt;
 $presentation-font-size-root: 24pt;
 
-// 5. その他要素・レイアウト
+// 5. Other elements
 
-// コードブロック
+// Code blocks
 $code-block-bg: $light-tone-2;
 $code-block-border-color: $gray-tone-1;
 $code-block-color: $dark-navy;
@@ -73,13 +73,13 @@ $code-color: $accent-purple;
 // $code-block-font-size: $code-font-size * 0.55 !default;
 // $code-inline-font-size: $code-font-size * 0.875 !default;
 
-// テーブル
+// Tables
 $table-border-color: $gray-tone-1;
 
 
 /*-- scss:rules --*/
 
-// 3. タイポグラフィ (続き)
+// 3. Typography (continued)
 .title-slide {
   background-color: $gold !important;
   color: $light-gray !important;

@@ -1,6 +1,6 @@
 /*-- scss:defaults --*/
 
-// フォント読み込み (Google Fontsを使用)
+// Load fonts (Google Fonts)
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /*-- scss:rules --*/
@@ -15,12 +15,12 @@ code *, pre *, .sourceCode * {
   font-variant-ligatures: none;
 }
 
-// SVG内のテキストにも日本語フォントを適用
+// Apply Japanese font to SVG text
 svg, svg *, foreignObject, foreignObject * {
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
 
-// レスポンシブテーブル（横スクロール可能）
+// Responsive table (horizontal scroll)
 table {
   display: block;
   width: 100%;
