@@ -380,12 +380,12 @@ MWAA (Airflow) + EKS + Kubernetes + Papermill な Python 実行環境が構築�
 ### 5.2. データ分析業務担当者育成
 
 1. 育成用プログラム進捗管理 (2023/06 - 2023/12)
-    - 利用教材：[データサイエンス100本ノック](https://github.com/The-Japan-DataScientist-Society/100knocks-preprocess)
-    - 育成対象者：7名 (2023年度)
-    - 業務：環境構築手順作成・質疑応答対応・作業進捗管理 (すべて私1名で対応)
+   - 利用教材：[データサイエンス100本ノック](https://github.com/The-Japan-DataScientist-Society/100knocks-preprocess)
+   - 育成対象者：7名 (2023年度)
+   - 業務：環境構築手順作成・質疑応答対応・作業進捗管理 (すべて私1名で対応)
 1. ローカル上の環境構築手順の共有 (随時)
-    - 社内 Wiki にて記事作成
-    - 具体例
+   - 社内 Wiki にて記事作成
+   - 具体例
         - Amazon Linux (EC2) + Anaconda + PyStan 環境構築
         - Windows + Anaconda + PyStan 環境構築
         - Ubuntu (WSL2) + Docker (Dockerfile) + CPython + venv 環境構築
@@ -393,4 +393,4 @@ MWAA (Airflow) + EKS + Kubernetes + Papermill な Python 実行環境が構築�
         - Amazon Linux (Cloud9) + pyenv 環境構築
         - VSCode と Vim での Linter Formatter 導入方法
 1. データ分析関連技術情報共有 (随時)
-    - ニュースサイト・技術ブログ・技術コミュニティにて情報収集し、社内チャットにて随時共有
+   - ニュースサイト・技術ブログ・技術コミュニティにて情報収集し、社内チャットにて随時共有

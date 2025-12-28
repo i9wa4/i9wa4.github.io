@@ -27,9 +27,9 @@ Markdown で管理しているので流用しやすくて便利！
 ### 2.1. 前準備
 
 1. リポジトリ作成から連携までを済ませる。
-    - [GitHubリポジトリでZennのコンテンツを管理する](https://zenn.dev/zenn/articles/connect-to-github)
+   - [GitHubリポジトリでZennのコンテンツを管理する](https://zenn.dev/zenn/articles/connect-to-github)
 1. Zenn CLI をインストールする。
-    - [Zenn CLIをインストールする](https://zenn.dev/zenn/articles/install-zenn-cli)
+   - [Zenn CLIをインストールする](https://zenn.dev/zenn/articles/install-zenn-cli)
 1. リポジトリ内に作成されたファイルをコミットしておく。
 
 ### 2.2. 記事の作成

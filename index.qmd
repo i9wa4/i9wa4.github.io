@@ -30,8 +30,18 @@ Badge generation (style=social):
    Iconify icon search: https://icon-sets.iconify.design
 -->
 
+[![GitHub](https://img.shields.io/badge/GitHub-i9wa4-x.svg?style=social&logo=github)](https://github.com/i9wa4)
+[![X](https://img.shields.io/badge/X-i9wa4__-x.svg?style=social&logo=x)](https://x.com/i9wa4_)
+<a href="https://www.linkedin.com/in/daikm"><img src="https://img.shields.io/badge/LinkedIn-daikm-x.svg?style=social&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiMwQTY2QzIiIGQ9Ik02Ljk0IDVhMiAyIDAgMSAxLTQtLjAwMmEyIDIgMCAwIDEgNCAuMDAyTTcgOC40OEgzVjIxaDR6bTYuMzIgMEg5LjM0VjIxaDMuOTR2LTYuNTdjMC0zLjY2IDQuNzctNCA0Ljc3IDBWMjFIMjJ2LTcuOTNjMC02LjE3LTcuMDYtNS45NC04LjcyLTIuOTF6Ii8+PC9zdmc+Cg==" alt="LinkedIn"></a>
+[![Bluesky](https://img.shields.io/badge/Bluesky-i9wa4-x.svg?style=social&logo=bluesky)](https://bsky.app/profile/i9wa4.bsky.social)
+[![Zenn](https://img.shields.io/badge/Zenn-i9wa4-x.svg?style=social&logo=zenn)](https://zenn.dev/i9wa4)
+
 [Blog](blog/){.btn .btn-primary}
+
 [Zenn](zenn/){.btn .btn-primary}
+
 [Slides](slides/){.btn .btn-primary}
+
 [Resume](resume/){.btn .btn-primary}
+
 [About](about.qmd){.btn .btn-primary}

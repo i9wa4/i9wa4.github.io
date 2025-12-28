@@ -12,6 +12,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ::: {.callout-warning}
+
 ## Deprecated
 
 この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。

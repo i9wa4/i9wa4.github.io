@@ -18,6 +18,6 @@ Cursor でもいいかと思いましたが Vim やコマンドラインでも�
 ## 1. 手順
 
 1. Google AI Studio の API Plan Billing から Gemini AI 向けの Google Cloud プロジェクトの支払い情報に飛ぶ
-    - <https://aistudio.google.com/plan_information>
+   - <https://aistudio.google.com/plan_information>
 1. Gemini AI プロジェクトに対して請求先アカウントをリンクさせる
 1. 請求課金アカウントで予算とアラートを設定して課金額に敏感にしておく

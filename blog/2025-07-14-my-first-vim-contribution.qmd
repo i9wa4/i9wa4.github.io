@@ -110,4 +110,4 @@ Netrw.vim はメンテナ不在でバグも放置されていると言われて�
 
 vim-jp における #dev チャンネルとはもちろん Vim 本体開発の話題を扱うチャンネルですよ！
 
-![](/assets/2025-07-14-my-first-vim-contribution/vim-jp-igyo.png){width=50%}
+![Vim Jp Igyo image](/assets/2025-07-14-my-first-vim-contribution/vim-jp-igyo.png){width=50%}

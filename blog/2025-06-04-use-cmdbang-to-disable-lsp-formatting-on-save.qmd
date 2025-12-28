@@ -61,7 +61,6 @@ augroup END
 
 `vim.v.cmdbang` を使っています。
 
-
 ```{.toml}
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'

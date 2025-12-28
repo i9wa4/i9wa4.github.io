@@ -22,7 +22,7 @@ description: |
 1. [MCP入門](https://zenn.dev/mkj/articles/0ed4d02ef3439c)
 1. [MCP (Model Context Protocol) の仕組みを知りたい！ #Python - Qiita](https://qiita.com/megmogmog1965/items/79ec6a47d9c223e8cffc)
 1. [SiteMCP: 任意のサイトを丸ごとMCPサーバー化](https://zenn.dev/ryoppippi/articles/1eb7fbe9042a88)
-    - Databricks 公式ドキュメントを投げつける用途で使いたい
+   - Databricks 公式ドキュメントを投げつける用途で使いたい
 1. [CursorにおけるDatabricks MCPサーバーの活用 #cursor - Qiita](https://qiita.com/taka_yayoi/items/eea79a88bd638847beb8)
 1. [CursorでDatabricks Connect(とMCPサーバー)を使ってみる #cursor - Qiita](https://qiita.com/taka_yayoi/items/dae7053118c7f60e980d)
 
@@ -70,4 +70,4 @@ npx sitemcp
 
 MCPサーバ設定をこのように記載して Cursor の Agent でサイトのインデックス取得を命令していくことで内容に関する質問ができるようになりました。
 
-![](/assets/2025-04-11-mcp-hands-on/cursor-sitemcp.png)
+![Cursor Sitemcp image](/assets/2025-04-11-mcp-hands-on/cursor-sitemcp.png)

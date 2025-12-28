@@ -382,5 +382,4 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 * 2025/01/20
     * [datatech-jp Casual Talks #6](https://datatech-jp.connpass.com/event/337374/)
 
-
 [LAPRASポートフォリオはこちらから](https://lapras.com/ "LAPRASポートフォリオはこちらから")

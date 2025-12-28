@@ -17,6 +17,9 @@ shellcheck = "0.11.0"
 "aqua:suzuki-shunsuke/pinact" = "3.7.2"
 "aqua:zizmorcore/zizmor" = "1.19.0"
 
+# GitHub Tools
+"github:rvben/rumdl" = "0.0.204"
+
 [tasks.sync-zenn]
 description = "Sync Zenn articles and update categories"
 run = """

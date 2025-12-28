@@ -81,6 +81,18 @@ repos:
         language: system
         files: \.lua$
 
+      - id: rumdl-check
+        name: rumdl-check
+        entry: mise exec -- rumdl check
+        language: system
+        files: \.(md|qmd)$
+
+      - id: rumdl-fix
+        name: rumdl-fix
+        entry: mise exec -- rumdl check --fix
+        language: system
+        files: \.(md|qmd)$
+
       - id: convert-drawio-to-png
         name: Convert .drawio to .drawio.png
         entry: bash .github/scripts/convert-drawio-to-png.sh

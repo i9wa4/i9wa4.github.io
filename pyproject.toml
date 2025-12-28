@@ -16,3 +16,23 @@ dev = [
   "pyyaml",
   "ruff",
 ]
+
+[tool.rumdl]
+disable = [
+  "MD013",  # Line length: allow long lines
+  "MD024",  # Duplicate heading: intentional in slides
+  "MD033",  # Inline HTML: intentional use of <br> etc.
+  "MD036",  # Emphasis instead of heading: intentional in slides
+  "MD046",  # Code block style: breaks YAML frontmatter
+  "MD051",  # Link fragments: false positive with Quarto category filters
+]
+include = ["**/*.md", "**/*.qmd"]
+exclude = [".git", ".github", "node_modules", "_site", ".venv"]
+respect-gitignore = true
+
+[tool.rumdl.MD007]
+indent = 4
+
+[tool.rumdl.MD013]
+code-blocks = false
+tables = false

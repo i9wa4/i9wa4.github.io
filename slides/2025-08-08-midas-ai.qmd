@@ -56,7 +56,7 @@ subtitle: "ミダス企業群生成AI横断勉強会"
 :::
 
 ::: {.column width="30%"}
-![](/assets/2025-05-22-midas-cursor-tips/IMG20240922183711-trimmed.jpg){fig-align="left" width="100%"}
+![IMG20240922183711 Trimmed image](/assets/2025-05-22-midas-cursor-tips/IMG20240922183711-trimmed.jpg){fig-align="left" width="100%"}
 :::
 
 ::::
@@ -118,7 +118,7 @@ Dev Container (VS Code) でノートブックを Databricks 上の計算リソ�
 
 ### 3.3. Vibe Data Science のお題目
 
-```
+```text
 簡単な機械学習をやってください
 
 job/ の既存ファイルを参考にして job/ に追加してください
@@ -131,7 +131,7 @@ job/ の既存ファイルを参考にして job/ に追加してください
 3. データを利用して機械学習を行う
 ```
 
-```
+```text
 ## 参考リポジトリ
 
 私のローカル環境に存在するリポジトリ

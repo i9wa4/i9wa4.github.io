@@ -15,8 +15,12 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     code-copy: true
-    footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
-    include-in-header:
+
+```text
+footer: "2025-05-22 AIネイティブ開発 Tips 1000本ノック"
+include-in-header:
+```
+
       - ../_includes/hatena-nocomment.html
     incremental: false
     scrollable: true
@@ -60,7 +64,7 @@ format:
 :::
 
 ::: {.column width="50%"}
-![](/assets/2025-05-22-midas-cursor-tips/IMG20240922183711-trimmed.jpg){fig-align="left" width="50%"}
+![IMG20240922183711 Trimmed image](/assets/2025-05-22-midas-cursor-tips/IMG20240922183711-trimmed.jpg){fig-align="left" width="50%"}
 :::
 
 ::::
@@ -91,6 +95,7 @@ Cursor の用途を説明するために簡単に業務を紹介します
 :::
 
 ::: {.column width="70%"}
+
 ```{mermaid}
 C4Context
   title データ整備の全体像
@@ -109,6 +114,7 @@ C4Context
   Rel(int, marts, "SELECT ... FROM int.sql")
   Rel(marts, dashboard, "可視化・分析")
 ```
+
 :::
 
 ::::
@@ -135,7 +141,7 @@ AI エージェント実行アプリとして使いやすくなるグローバ�
 :::
 
 ::: {.column width="50%"}
-![](/assets/2025-05-22-midas-cursor-tips/extensions-blocked.png)
+![Extensions Blocked image](/assets/2025-05-22-midas-cursor-tips/extensions-blocked.png)
 
 Sad News😢
 
@@ -154,7 +160,7 @@ VS Code に存在する左端のバーを表示させる
 
 使いやすくなりますが自己責任で
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-activitybar.png)
+![Cursor Settings Activitybar image](/assets/2025-05-22-midas-cursor-tips/cursor-settings-activitybar.png)
 
 ### 2.3. settings.json に反映される設定 (2)
 
@@ -167,7 +173,7 @@ F1 > Preferences: Open Settings
 
 チャット欄が Cursor の本体なのでデカくしましょう
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-chat-msg-size.png)
+![Cursor Settings Chat Msg Size image](/assets/2025-05-22-midas-cursor-tips/cursor-settings-chat-msg-size.png)
 :::
 
 ::: {.column width="45%"}
@@ -175,7 +181,7 @@ F1 > Preferences: Open Settings
 
 ポストの内容通り右上歯車からも設定できる
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-chat-msg-size-x.png)
+![Cursor Settings Chat Msg Size X image](/assets/2025-05-22-midas-cursor-tips/cursor-settings-chat-msg-size-x.png)
 
 <https://x.com/tetsuro_b/status/1922679755863970196>
 :::
@@ -202,7 +208,7 @@ auto-run mode は自分の用途や権限に合った範囲内で最大限許容
 :::
 
 ::: {.column width="50%"}
-![](/assets/2025-05-22-midas-cursor-tips/cursor-settings-up-right-features.png)
+![Cursor Settings Up Right Features image](/assets/2025-05-22-midas-cursor-tips/cursor-settings-up-right-features.png)
 :::
 
 ::::
@@ -226,7 +232,7 @@ auto-run mode は自分の用途や権限に合った範囲内で最大限許容
 :::
 
 ::: {.column width="50%"}
-![](/assets/2025-05-22-midas-cursor-tips/gitignore-x.png)
+![Gitignore X image](/assets/2025-05-22-midas-cursor-tips/gitignore-x.png)
 
 ポスト内容と用途が違うが Cursor に文脈を与えたりアウトプットさせるのに便利であった
 
@@ -263,12 +269,13 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
     }
 }
 ```
+
 :::
 
 ::: {.column width="40%"}
 実行の様子
 
-![](/assets/2025-05-22-midas-cursor-tips/cursor-mcp-databricks-query.png){width=150%}
+![Cursor Mcp Databricks Query image](/assets/2025-05-22-midas-cursor-tips/cursor-mcp-databricks-query.png){width=150%}
 :::
 
 ::::
@@ -280,9 +287,9 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
 **非公式 MCP サーバーとの向き合い方**
 
 1. 実装を理解した上でコミットハッシュ指定して使う
-    - コード量は少なめだし DeepWiki を使えば壁打ちもできる
+   - コード量は少なめだし DeepWiki を使えば壁打ちもできる
 1. 自分で作る
-    - 私は Fork して機能追加してます
+   - 私は Fork して機能追加してます
         - [Databricks MCP Server を Service Principal 認証対応させた](https://zenn.dev/genda_jp/articles/2025-04-29-mcp-databricks-server-service-principal)
 
 **心得**
@@ -319,6 +326,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
   }
 }
 ```
+
 :::
 
 ::: {.column width="50%"}
@@ -343,6 +351,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
   }
 }
 ```
+
 :::
 
 ::::
@@ -356,7 +365,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
 ::: {.column width="50%"}
 プロジェクトに対してルールを設定できると便利
 
-```
+```text
 project/
   .cursor/rules/        # Project-wide rules
   backend/
@@ -406,6 +415,7 @@ Devin 向けにも別途ルールを整備する必要があり躊躇してい�
 | MCP          | DWH の MCP Server を利用する               |
 | プロジェクト | dbt プロジェクトを作業場とする             |
 | その他設定   | gitignore で個人作業ディレクトリを用意する |
+
 :::
 
 ::: {.column width="30%"}

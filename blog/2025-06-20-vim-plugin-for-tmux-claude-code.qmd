@@ -22,7 +22,7 @@ Claude Code 入力欄に Vim からテキストを送信したかったので Cl
 
 こちらが作成した Vim プラグインです。
 
-[![](/assets/2025-06-20-vim-plugin-for-tmux-claude-code/vim-tmux-send-to-claude-code.jpeg)](https://github.com/i9wa4/vim-tmux-send-to-claude-code)
+[![Vim Tmux Send To Claude Code image](/assets/2025-06-20-vim-plugin-for-tmux-claude-code/vim-tmux-send-to-claude-code.jpeg)](https://github.com/i9wa4/vim-tmux-send-to-claude-code)
 
 <https://github.com/i9wa4/vim-tmux-send-to-claude-code>
 

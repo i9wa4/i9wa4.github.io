@@ -300,7 +300,7 @@ def create_spark_session():
 
 Spark config で以下を設定します。
 
-```
+```text
 spark.databricks.service.server.enabled true
 ```
 
@@ -376,7 +376,6 @@ uv add 'databricks-connect~=14.3.0'  # この場合は DBR 14.3 に対応
 ### 9.2. 接続エラー
 
 設定ファイルが存在せずマウントされていない場合が考えられるので、devcontainer.json の `mounts` 設定を確認してください。
-
 
 ## 10. おわりに
 

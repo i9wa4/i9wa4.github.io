@@ -19,7 +19,6 @@ descriptin: |
     - Markdown の見出し番号を付ける or 更新するプラグインです。
     - Deno と Denops に依存しています。
 
-
 ## 2. プラグインを作ることになったきっかけ
 
 [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)

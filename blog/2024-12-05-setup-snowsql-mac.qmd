@@ -33,7 +33,6 @@ PC を新調するとセットアップがつきものですね。
 
 ## 2. `~/.snowsql/config` 作成
 
-
 [SnowSQL を介した接続 | Snowflake Documentation](https://docs.snowflake.com/ja/user-guide/snowsql-start#using-named-connections)
 
 1. `snowsql` コマンドを実行します。
@@ -67,5 +66,5 @@ PC を新調するとセットアップがつきものですね。
     ```
 
 1. 接続後は SQL 文を直接実行できます。
-    - 必要に応じて `USE ROLE xxxxxx;` で権限を切り替えることができます。
+   - 必要に応じて `USE ROLE xxxxxx;` で権限を切り替えることができます。
 1. 各種コマンドは `!help` で参照できます。

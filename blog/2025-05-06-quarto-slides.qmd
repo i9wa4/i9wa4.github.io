@@ -12,6 +12,7 @@ description: |
 ---
 
 ::: {.callout-warning}
+
 ## Deprecated
 
 この記事の内容は古くなっています。最新の情報は以下の記事を参照してください。
@@ -41,7 +42,7 @@ Organization のプライベートリポジトリでも気軽に使えるよう�
 GitHub Pages でブログ・スライド・Wikiを公開することも非常に簡単にできます。私は個人ページを Quarto で作成しています。
 GitHub Pages での公開方法が気になる方は以下の記事を参考にしてください。
 
-[Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する](2025-08-25-publishing-github-pages-with-quarto.qmd)
+[Markdown ライクな Quarto でブログやスライドを作って GitHub Pages で公開する](2024-08-25-publishing-github-pages-with-quarto.qmd)
 
 ## 4. この記事でやること
 
@@ -377,11 +378,11 @@ reveal.js 形式の HTML ファイルとなります。
 
 HTML ファイルを Web ブラウザで開くと以下のような表示になります。左下のハンバーガーメニューをクリックします。
 
-![](/assets/2025-05-06-quarto-slides/01-quarto.png)
+![01 Quarto image](/assets/2025-05-06-quarto-slides/01-quarto.png)
 
 複数のモードが選択できます。PDF Export Mode を選択すると PDF 印刷できる状態になります。
 
-![](/assets/2025-05-06-quarto-slides/02-quarto.png)
+![02 Quarto image](/assets/2025-05-06-quarto-slides/02-quarto.png)
 
 その他詳細は下記ページを参照してください。
 

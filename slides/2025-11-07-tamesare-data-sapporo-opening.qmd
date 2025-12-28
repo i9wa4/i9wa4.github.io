@@ -39,7 +39,7 @@ subtitle: 北海道に縁のある人たちがデータやAIを中心にワイ�
 :::: {.columns}
 
 ::: {.column width="50%"}
-![](/assets/2025-11-07-tamesare-data-sapporo-opening/tamesare-data-logo.png){width="100%"}
+![Tamesare Data Logo image](/assets/2025-11-07-tamesare-data-sapporo-opening/tamesare-data-logo.png){width="100%"}
 :::
 
 ::: {.column width="50%"}
@@ -69,7 +69,7 @@ subtitle: 北海道に縁のある人たちがデータやAIを中心にワイ�
 | 会場         | クラスメソッド札幌オフィス                                         |
 | 住所         | 北海道札幌市中央区北３条西１丁目１−１ 札幌ブリックキューブ 10階   |
 | 参加者       | 46名 / 50名                                                        |
-| connpass     | https://tamesaredatahokkaido.connpass.com/event/369741/            |
+| connpass     | <https://tamesaredatahokkaido.connpass.com/event/369741/>            |
 
 :::
 

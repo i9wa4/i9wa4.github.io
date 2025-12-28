@@ -48,7 +48,7 @@ LLM 専用にアカウントを作るのがあまり好きではないので Goo
 1. プライバシーポリシーに同意する
 1. <https://aistudio.google.com/apikey> から API キーを取得する
 1. <https://console.cloud.google.com/billing/projects> で当該プロジェクトの請求先アカウントを確認する
-    - NOTE: 取り急ぎ私は課金したくないので請求が無効であることを確認しました
+   - NOTE: 取り急ぎ私は課金したくないので請求が無効であることを確認しました
 
 ### 3.2. Gemini の設定
 
