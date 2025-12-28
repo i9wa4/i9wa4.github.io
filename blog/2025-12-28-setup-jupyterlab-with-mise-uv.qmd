@@ -30,7 +30,7 @@ mise をインストールしておきます。
 まずディレクトリもしくは Git リポジトリを作成します。
 
 ```{.bash}
-$ mkdir jupyterlab-project
+mkdir jupyterlab-project
 ```
 
 ### 2.3. mise セットアップ
@@ -38,20 +38,17 @@ $ mkdir jupyterlab-project
 mise.toml ファイルを作成します。
 
 ```{.bash}
-$ cd jupyterlab-project
+cd jupyterlab-project
+```
 
-$ touch mise.toml
-mise ERROR error parsing config file: ~/jupyterlab-project/mise.toml
-mise ERROR Config files in ~/jupyterlab-project/mise.toml are not trusted.
-Trust them with `mise trust`. See https://mise.jdx.dev/cli/trust.html for more information.
-mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+```{.bash}
+touch mise.toml
 ```
 
 mise.toml を作成するとエラーが出るので `mise trust` しておきます。
 
 ```{.bash}
-$ mise trust
-mise trusted /Users/uma/jupyterlab-project
+mise trust
 ```
 
 mise.toml の内容は以下にしておきます。
@@ -68,7 +65,7 @@ run = "mise exec -- uv run jupyter-lab"
 mise.toml に記述したツールをインストールします。
 
 ```{.bash}
-$ mise install
+mise install
 ```
 
 ### 2.4. uv セットアップ
@@ -76,36 +73,13 @@ $ mise install
 以下のように uv プロジェクトを初期化します。
 
 ```{.bash}
-$ uv init
-Initialized project `jupyterlab-project`
+uv init
 ```
 
-### 2.5. pyproject.toml 整備
+### 2.5. JupyterLab 追加
 
-初期化直後の pyproject.toml は以下のようになっています。
-
-```{.toml filename="pyproject.toml"}
-[project]
-name = "jupyterlab-project"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.14"
-dependencies = []
-```
-
-dependencies に JupyterLab を追加します。
-
-```{.toml filename="pyproject.toml"}
-[project]
-name = "jupyterlab-project"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.14"
-dependencies = [
-  "jupyterlab",
-]
+```{.bash}
+uv add jupyterlab
 ```
 
 ### 2.6. JupyterLab 起動
@@ -113,13 +87,7 @@ dependencies = [
 以下のコマンドで JupyterLab を起動します。
 
 ```{.bash}
-$ mise run jupyter
-[jupyter] $ mise exec -- uv run jupyter-lab
-Using CPython 3.14.0
-Creating virtual environment at: .venv
-Installed 92 packages in 197ms
-
-...
+mise run jupyter
 ```
 
 ブラウザが自動的に開いて JupyterLab が起動しているはず！
@@ -127,20 +95,7 @@ Installed 92 packages in 197ms
 ### 2.7. ライブラリを追加したい場合
 
 ```{.bash}
-$ uv add numpy pandas matplotlib
-Resolved 105 packages in 201ms
-Prepared 2 packages in 616ms
-Installed 10 packages in 97ms
- + contourpy==1.3.3
- + cycler==0.12.1
- + fonttools==4.61.1
- + kiwisolver==1.4.9
- + matplotlib==3.10.8
- + numpy==2.4.0
- + pandas==2.3.3
- + pillow==12.0.0
- + pyparsing==3.3.1
- + pytz==2025.2
+uv add numpy pandas matplotlib
 ```
 
 ## 3. おまけ
@@ -152,7 +107,7 @@ Installed 10 packages in 97ms
 [Python プロジェクト管理したくて uv に触れてみたメモ #初心者 - Qiita](https://qiita.com/0xmks/items/f5a4fcac81714ac2f803)
 
 ```{.bash}
-$ uv init --lib
+uv init --lib
 ```
 
 これでいけますね！次からちゃんと活用していきます。
