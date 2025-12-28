@@ -34,6 +34,10 @@ local function ensureHtmlDeps()
 end
 
 function Meta(m)
+    -- Skip if share is explicitly disabled
+    if m.share == false or m.share == nil then
+        return
+    end
     ensureHtmlDeps()
     local share_start = '<div class= "page-columns page-rows-contents page-layout-article"><div class="social-share">'
     if m.share.divclass then

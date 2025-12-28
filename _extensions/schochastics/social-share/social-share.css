@@ -21,6 +21,10 @@
     display: none;
 }
 
+.social-share a i {
+    font-size: 1.25rem;
+}
+
 .social-share a.facebook {
     border-color: #4267B2;
     color: #4267B2;

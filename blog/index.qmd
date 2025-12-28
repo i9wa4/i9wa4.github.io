@@ -18,6 +18,7 @@ listing:
       - "date desc"
       - "title"
     type: default
+share: false
 ---
 
 ::: {.category-buttons}
