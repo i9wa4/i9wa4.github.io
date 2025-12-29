@@ -6,10 +6,10 @@ about:
   image-shape: round
 date-modified: last-modified
 description: |
-  [Blog](/blog/){.btn .btn-primary}
-  [Zenn](/zenn/){.btn .btn-primary}
-  [Slides](/slides/){.btn .btn-primary}
-  [Resume](/resume/){.btn .btn-primary}
+  [Blog](/blog/){.btn .btn-outline-primary}
+  [Zenn](/zenn/){.btn .btn-outline-primary}
+  [Slides](/slides/){.btn .btn-outline-primary}
+  [Resume](/resume/){.btn .btn-outline-primary}
 image: "https://github.com/i9wa4.png"
 toc: false
 ---
