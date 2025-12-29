@@ -61,7 +61,7 @@ Period: "2025/06 - 現在"
     - MERGE 戦略と is_incremental() による集計期間制御
     - 初回訪問・最終訪問の冪等性を活かした設計
 - パフォーマンス改善
-    - whs_action__action_master の実行時間短縮
+    - 主要モデルの実行時間短縮
     - unique_key の最適化による MERGE 処理効率化
 - 開発プロセス改善
     - CODEOWNERS 導入によるレビュー体制整備
