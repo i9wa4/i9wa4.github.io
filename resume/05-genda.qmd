@@ -64,6 +64,12 @@ Period: "2024/11 - 現在"
     - あるいは直接受領したファイルを Snowflake へ手動追加する
 - dbt によるデータマート構築
     - Databricks で dbt Core ジョブを実行し Databricks 上にデータマートを構築する
+    - intermediate 層の構築により複数の mart 層から共通ロジックを切り出し保守性を向上
+    - クーポン使用履歴×会計データ結合マートの構築
+    - IPコラボ分析用データマートの構築
+    - 年代別×時間帯別売上分析マートの構築
+- データ品質監視
+    - 日次自動連携データの欠損を検知し Slack 通知する仕組みを構築
 - ダッシュボード作成
     - Databricks のダッシュボード機能を利用する
 
@@ -106,6 +112,9 @@ Period: "2024/11 - 現在"
     - 事業会社側の担当者から追跡したいデータに関する要望が出てくるようになり、データドリブンな意思決定をできる体質に一歩近付きました。
 - データ基盤
     - マーケティング施策の効果検証に利用するデータを揃えることで効果的なマーケティング施策立案に貢献しました。
+- データマート
+    - intermediate 層の活用により dbt モデルの保守性が向上し、チームメンバーによる改修が容易になりました。
+    - IPコラボ分析用データマートの提供により、コラボ施策の効果検証が可能になりました。
 
 ### 1.10. 担当フェーズ
 
@@ -224,11 +233,14 @@ Period: "2024/11 - 現在"
 ### 3.4. 担当業務
 
 - 機械学習関連の改善策立案・設計・実装
+- データチーム全体の CI/CD 改善
 
 ### 3.5. 機能開発・実装詳細
 
 - リポジトリへの CI/CD 導入
     - Linter/Formatter を導入し Python/SQL/Terraform のコード品質を確保する
+    - black, isort, flake8 から Ruff への移行によりツールを統合し CI 実行時間を短縮
+    - mise による開発ツールのバージョン管理を導入し環境構築を簡素化
     - Staging/Production へのデプロイを GitHub Actions の手動実行で行えるようにする
 - デプロイ手順改善
     - Production 環境へのデプロイ実行はレビューを伴う形へと改善する
@@ -259,6 +271,11 @@ Period: "2024/11 - 現在"
 ### 3.9. 成果
 
 - データサイエンスチームで最も注力しているオンラインクレーン事業の景品レコメンドシステムに関して CI/CD 導入・デプロイ手順改善を行いインターン生のコントリビューション難易度を下げることに成功しています。
+- Ruff への移行により複数の Linter/Formatter を統合し、CI パイプラインの実行時間を短縮しました。
+- Databricks 上での機械学習環境構築の知見を社外登壇で共有しました。
+    - [試されDATA SAPPORO #1](https://tamesaredatahokkaido.connpass.com/event/369741/): GENDA の機械学習環境を AWS から Databricks に移行してみた
+    - [Databricks Data + AI World Tour Tokyo After Party](https://events.databricks.com/daiwt-tokyo-after-party/registration-closed): Databricks 向け Jupyter Kernel でデータサイエンティストの開発環境を AI-Ready にする
+- Databricks 向け Jupyter Kernel ([jupyter-databricks-kernel](https://github.com/nicholashm/jupyter-databricks-kernel)) の OSS 開発に貢献しました。
 
 ### 3.10. 担当フェーズ
 
@@ -274,45 +291,84 @@ Period: "2024/11 - 現在"
     - S3
 - Databricks
 - dbt Core
+- Ruff
+- mise
 
-## 4. [その他] 開発環境等へのAI導入推進
+## 4. [その他] 開発環境の AI-Ready 化推進
 
-### 4.1. 役割
+### 4.1. 概要
 
-- チーム内へのAI導入は私が主導して進めています。
+- AI コーディングツールを活用した開発生産性向上の推進
+- データサイエンティスト向け開発環境の AI-Ready 化
 
-### 4.2. 所感
+### 4.2. 期間
 
-- データエンジニアチームのコーディング作業では単調なカラム修正などが多いことから導入メリットが大きいです。
-- データサイエンスチームのコーディング作業ではコアとなる機械学習の実装に関して AI がまだあまり役に立たないことから一般的な Python コーディングの支援の観点で導入を進めています。
-- データ分析支援に MCP を活用できるか検討中です。感触は良いです。
+- 2024/11 - 現在
 
-### 4.3. 各種ツールの検討状況 (2025年4月時点)
+### 4.3. 規模・役割
 
-- GitHub Copilot
-    - コード補完は有用なので継続利用していきたい
-- GitHub Copilot Chat
-    - 後続の AI エージェントに比べて優位性がない
-- Devin
-    - 初回の環境構築・スタートアップスクリプトの作成を実施
-    - PR作成に限らない用途での利用例を見せてチーム内で更なる活用を促進
-        - 執筆記事：[Devin に週報を書いてもらった - Zenn](https://zenn.dev/genda_jp/articles/2025-04-05-weekly-report-by-devin)
-- Aider
-    - 任意の開発環境で利用できる CLI ベースの AI エージェントとして Aider の調査を実施
-        - 執筆記事：[Aider を使ってみる – uma-chan’s page](https://i9wa4.github.io/blog/2025-04-01-try-aider.html)
-    - 任意の環境で AI エージェントを利用できるという観点で有用
-        - LLM の API 利用が必要で後述の Cursor を利用する場合2重課金になってしまうためあくまでも最終手段
-- Cursor
-    - 社内で利用可能であったため検討を実施
-    - VS Code の fork であり VS Code の資源が活用できる点と既存コードを加味したコーディングが最もスムーズな点からローカル開発環境として最良の選択肢と考えています
-    - データサイエンスチームでは Cursor + VS Code の Databricks 拡張の利用を検討しています
-- GitHub Copilot Agent Mode (VS Code)
-    - Cursor に比べて既存コードを考慮しない挙動になり Cursor の次点となる印象
-- MCP
-    - Databricks MCP サーバー
-        - LLM に実際に試行錯誤させながらデータ分析用の SQL を書かせることができる感触を得たのでビジネスサイドで SQL が書けない方にもデータ分析に参入してもらうための MCP 利用推進策を検討中です。
-    - Cursor の活用
-        - 公式ドキュメント・社内ドキュメント・他のリポジトリなどコンテキストの理解に各種サーバーを利用できるため Cursor を MCP クライアントに据えた開発環境改善方法を検討中です。
+- 役割：推進者
+- 規模：私1名 (チーム全体への展開)
+
+### 4.4. 担当業務
+
+- AI コーディングツールの調査・導入・活用推進
+- データサイエンティスト開発環境の AI-Ready 化設計・実装
+- チームメンバーへの知見共有・啓蒙
+
+### 4.5. 取り組み内容
+
+- AI コーディングツールの導入
+    - Claude Code / Codex CLI をメインツールとして採用
+    - Dev Container 環境を Claude Code 対応に整備
+    - Skills / Hooks / Rules を活用したルール最適化
+- データサイエンティスト開発環境の AI-Ready 化
+    - Databricks Notebook 開発環境を AI エージェントが扱いやすい構成に刷新
+    - jupyter-databricks-kernel の導入によりローカル Jupyter から Databricks クラスタに接続可能に
+    - mise + pre-commit + uv による開発ツールチェーンの標準化
+    - Ruff による Notebook のコード品質担保
+- MCP (Model Context Protocol) の活用
+    - Databricks MCP Server の改良 (Service Principal 認証対応、機能追加)
+    - AI エージェントが Databricks 上でデータ分析を実行できる環境を整備
+- AI レビューシステムの構築
+    - Claude Code のサブエージェントを活用することで手元でコードレビューを実施する仕組みを共有
+
+### 4.6. 目的・背景
+
+- データサイエンティストの開発環境は Databricks Notebook が中心だが、AI コーディングツールとの相性が悪く生産性向上の恩恵を受けにくい状況があった
+- AI エージェントが効果的に動作するには、コードの構造化・Linter/Formatter の整備・ローカル実行環境の確保が必要
+
+### 4.7. 課題
+
+- Databricks Notebook は Web UI 中心で AI コーディングツールが直接操作しづらい
+- Notebook 形式 (.ipynb) は AI エージェントにとって扱いづらいフォーマット
+- チームメンバーの開発環境がバラバラで標準化されていなかった
+
+### 4.8. 工夫した点
+
+- AI エージェントが扱いやすい開発環境とは何かを言語化し、必要な要素を整理した上で段階的に導入した
+- 自分自身が率先して AI ツールを活用し、その知見をテックブログや社内共有で発信することで導入のハードルを下げた
+
+### 4.9. 成果
+
+- データサイエンティストが AI コーディングツールを活用できる開発環境を整備
+- Databricks MCP Server や jupyter-databricks-kernel の開発により OSS コミュニティに貢献
+- 社外登壇・テックブログ執筆を通じて知見を適宜発信
+    - [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html) (グループ会社向け勉強会)
+    - [Databricks Notebook 開発環境を AI-Ready にする - Zenn](https://zenn.dev/genda_jp/articles/2025-12-19-databricks-notebook-ai-ready)
+
+### 4.10. 利用ツール
+
+- AI コーディングツール
+    - Claude Code
+    - Codex CLI
+    - GitHub Copilot (コード補完, レビュー)
+- 開発環境
+    - tmux + Vim/Neovim
+    - mise + pre-commit + uv
+- Databricks 連携
+    - jupyter-databricks-kernel
+    - Databricks MCP Server
 
 ## 5. [その他] 開発業務以外の活動
 
@@ -322,7 +378,16 @@ Period: "2024/11 - 現在"
 
 [通常業務以外の活動 | 職務経歴書](index.qmd#通常業務以外の活動)
 
-### 5.2. 採用活動
+### 5.2. チーム育成
+
+- メンバーへの技術指導
+    - Issue を作成し AWS / Terraform の技術指導を実施
+    - デイリー MTG で進捗状況を把握しながら適宜技術的なアドバイスを提供
+    - コードレビューを通じた品質向上と技術力向上の支援
+- 1on1 の実施
+    - 定期的な 1on1 を通じてメンバーの課題や成長目標を把握し支援
+
+### 5.3. 採用活動
 
 - カジュアル面談実施
     - SNS にてカジュアル面談を実施している旨宣伝を行い面談に繋げました。
