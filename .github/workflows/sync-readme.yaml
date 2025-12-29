@@ -25,7 +25,7 @@ jobs:
       - name: Fetch README from gh-pages
         run: |
           curl -fsSL -o README.md \
-            "https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-pages/about.md" || {
+            "https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-pages/index.md" || {
             echo "::error::Failed to fetch README from gh-pages"
             exit 1
           }

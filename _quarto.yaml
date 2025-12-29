@@ -42,14 +42,8 @@ format:
 
 website:
   title: "uma-chan's page"
-  # body-header: |
-  #   [Top](/){.btn .btn-outline-secondary}
-  #   [Blog](/blog/){.btn .btn-outline-primary}
-  #   [Zenn](/zenn/){.btn .btn-outline-primary}
-  #   [Slides](/slides/){.btn .btn-outline-primary}
-  #   [Resume](/resume/){.btn .btn-outline-primary}
-  #   [About](/about.qmd){.btn .btn-outline-primary}
   bread-crumbs: true
+  description: "All of my thoughts."
   favicon: "assets/common/icon_hhkb3.png"
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
   image: "assets/common/icon_hhkb3_large.jpg"
@@ -65,8 +59,6 @@ website:
         href: slides/index.qmd
       - text: "Resume"
         href: resume/index.qmd
-      - text: "About"
-        href: about.qmd
     right:
       - icon: github
         href: "https://github.com/i9wa4"
@@ -104,32 +96,3 @@ website:
       - text: "Built with"
       - text: "Quarto"
         href: "https://quarto.org/"
-  # sidebar:
-  #   style: floating
-  #   tools:
-  #     - icon: github
-  #       href: "https://github.com/i9wa4"
-  #     - icon: twitter-x
-  #       href: "https://x.com/i9wa4_"
-  #     - icon: linkedin
-  #       href: "https://www.linkedin.com/in/daikm"
-  #     - icon: bluesky
-  #       href: "https://bsky.app/profile/i9wa4.bsky.social"
-  #     - icon: rss
-  #       href: "blog/index.xml"
-  #   contents:
-  #     - href: "index.qmd"
-  #       text: "Home"
-  #     - text: "---"
-  #     - section: "Content"
-  #       contents:
-  #         - href: "blog/index.qmd"
-  #           text: "Blog"
-  #         - href: "zenn/index.qmd"
-  #           text: "Zenn"
-  #         - href: "slides/index.qmd"
-  #           text: "Slides"
-  #         - href: "resume/index.qmd"
-  #           text: "Resume"
-  #         - href: "about.qmd"
-  #           text: "About"
