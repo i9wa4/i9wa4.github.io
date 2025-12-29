@@ -60,11 +60,10 @@ Period: "2025/06 - 現在"
     - GA4 の user_pseudo_id と user_id を統一し匿名訪問からログイン後まで同一ユーザーとして追跡
     - MERGE 戦略と is_incremental() による集計期間制御
     - 初回訪問・最終訪問の冪等性を活かした設計
-- パフォーマンス改善
-    - 主要モデルの実行時間短縮
+- パフォーマンス改善 (9月)
+    - 主要モデルの実行時間短縮 (51〜90分 → 数分)
     - unique_key の最適化による MERGE 処理効率化
-- 開発プロセス改善
-    - CODEOWNERS 導入によるレビュー体制整備
+    - パーティション・クラスタリング設定追加
 
 ### 1.6. 成果
 
@@ -75,7 +74,6 @@ Period: "2025/06 - 現在"
     - OOM エラーを解消し安定稼働を実現
     - 流入元別のユーザー行動追跡基盤を構築
 - パフォーマンス
-    - データスキャン量を約 1/50 に削減 (24.6 GiB → 約 500 MiB)
     - BigQuery のコスト最適化に貢献
 - テックブログ執筆
     - [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化 - Zenn](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
@@ -83,6 +81,5 @@ Period: "2025/06 - 現在"
 ### 1.7. 開発環境
 
 - BigQuery
-- dbt Core
-- GitHub Actions
+- dbt Cloud
 - GA4 / ULIZA (データソース)
