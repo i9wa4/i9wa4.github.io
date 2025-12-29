@@ -83,10 +83,8 @@ cf. <https://github.com/i9wa4/dotfiles>
                 - デスクトップ2へ切り替え Alt + 2
                 - デスクトップ3へ切り替え Alt + 3
         - アプリのショートカット
-            - ウィンドウ->移動とサイズ変更->上 Alt + Shift + Up
-            - ウィンドウ->移動とサイズ変更->下 Alt + Shift + Down
-            - ウィンドウ->移動とサイズ変更->右 Alt + Shift + Right
-            - ウィンドウ->移動とサイズ変更->左 Alt + Shift + Left
+            - ウィンドウ->移動とサイズ変更->右 Ctrl + Cmd + L
+            - ウィンドウ->移動とサイズ変更->左 Ctrl + Cmd + H
         - 修飾キー
             - 内蔵キーボード
                 - Caps Lock -> Control
@@ -119,9 +117,6 @@ cf. <https://github.com/i9wa4/dotfiles>
     - Settings
         - General
             - [ ] Start Docker Desktop when you sign in to your computer
-- Rectangle
-    - ログイン時に起動 ON
-    - アップデートを自動的に確認 ON
 
 ## 4. (おまけ) ショートカット集
 
@@ -129,5 +124,5 @@ cf. <https://github.com/i9wa4/dotfiles>
 | ---            | ---                | ---                            |
 | ウインドウ操作 | Command + Tab      | アプリケーション切り替え       |
 | ウインドウ操作 | Command + @        | 同一アプリケーションの切り替え |
-| その他         | Commad  + Q        | Finder 終了                    |
+| その他         | Command + Q        | Finder 終了                    |
 | その他         | Command + Ctrl + Q | ロック                         |
