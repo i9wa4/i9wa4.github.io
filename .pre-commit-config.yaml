@@ -77,7 +77,7 @@ repos:
 
       - id: stylua
         name: stylua
-        entry: mise exec -- stylua
+        entry: mise exec -- stylua --indent-type Spaces --indent-width 2
         language: system
         files: \.lua$
 
