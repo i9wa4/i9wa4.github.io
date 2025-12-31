@@ -50,7 +50,7 @@ dotfilesへのコミットが1,307回 (yabai)。
 | ブログ記事     | 40   |
 | スライド       | 7    |
 | Zenn記事       | 21   |
-| テックブログ   | 3    |
+| 寄稿           | 3    |
 
 合計71本の記事を書きました。週1本以上のペースです。
 
@@ -109,18 +109,23 @@ Claude CodeやCursorなどのAIコーディングアシスタントをDatabricks
 
 [Databricks Notebook 開発環境を AI-Ready にする](https://zenn.dev/genda_jp/articles/2025-12-19-databricks-notebook-ai-ready)
 
+もしくは
+
+<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/58be33da57d84a5eb9914aa8a8c903ec" title="Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする / Data+AI World Tour Tokyo After Party" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
+
 を読んでください！
 
 ### 3.5. データエンジニアリング実務
 
-仕事ではdbt、Databricks、BigQueryを使ったデータ基盤開発に取り組みました。
+仕事ではdbt、Databricks、BigQuery、Terraformを使ったデータ基盤開発に取り組みました。
 
-主な成果
+ここは大きな成果というよりも継続的な取り組みですね。
 
-- Devcontainer環境の構築による開発環境の標準化
-- dbt incremental モデルの最適化とベストプラクティスの確立
+権限整理についてはチームで取り組んだ内容を登壇資料にまとめています。
 
-6月からはPIVOT株式会社での業務委託も開始しました。BigQuery x dbt Coreのデータマート構築を担当し、リファラ分析モデルの新規構築やincrementalモデル設計によるパフォーマンス最適化に取り組みました。
+<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/477b4da9eb5e4fdeb8164a3ccaae9a75" title="M&amp;Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 / AEON TECH HUB #22" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
+
+6月からはPIVOT株式会社での業務委託も開始しました。BigQuery x dbt Coreのデータマート構築を担当し、リファラ分析モデルの新規構築やincrementalモデル設計によるパフォーマンス最適化は記事にまとめています (次節参照)。
 
 ### 3.6. 寄稿
 
