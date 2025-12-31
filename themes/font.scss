@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
 // Load fonts (Google Fonts)
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=BIZ+UDGothic:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /*-- scss:rules --*/
 
@@ -11,7 +11,7 @@
 
 code, pre, .monospace,
 code *, pre *, .sourceCode * {
-  font-family: "JetBrains Mono", "Consolas", "Menlo", monospace !important;
+  font-family: "JetBrains Mono", "BIZ UDGothic", "Consolas", "Menlo", monospace !important;
   font-variant-ligatures: none;
 }
 
