@@ -123,10 +123,12 @@ jobs:
           BUILD_FILE: ${{ matrix.file }}
           BUILD_MODE: ${{ matrix.mode }}
         run: |
-          if [ "$BUILD_MODE" = "single" ]; then
-            mise exec -- uv run quarto render "$BUILD_FILE"
-            [ "$BUILD_DIR" != "root" ] && mise exec -- uv run quarto render "$BUILD_DIR/index.qmd"
-          elif [ "$BUILD_DIR" = "root" ]; then
+          # NOTE: single mode disabled for deployment stability - always do full directory build
+          # if [ "$BUILD_MODE" = "single" ]; then
+          #   mise exec -- uv run quarto render "$BUILD_FILE"
+          #   [ "$BUILD_DIR" != "root" ] && mise exec -- uv run quarto render "$BUILD_DIR/index.qmd"
+          # fi
+          if [ "$BUILD_DIR" = "root" ]; then
             for page in *.qmd; do mise exec -- uv run quarto render "$page"; done
           else
             mise exec -- uv run quarto render "$BUILD_DIR/"
