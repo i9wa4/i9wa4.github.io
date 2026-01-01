@@ -39,7 +39,7 @@ listing:
 [gitworktree (1)](#category=gitworktree){.btn .btn-outline-primary .btn-sm}
 [jupyter (3)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
 [mcp (2)](#category=mcp){.btn .btn-outline-primary .btn-sm}
-[mise (2)](#category=mise){.btn .btn-outline-primary .btn-sm}
+[mise (3)](#category=mise){.btn .btn-outline-primary .btn-sm}
 [neovim (1)](#category=neovim){.btn .btn-outline-primary .btn-sm}
 [notion (1)](#category=notion){.btn .btn-outline-primary .btn-sm}
 [oss (1)](#category=oss){.btn .btn-outline-primary .btn-sm}
@@ -55,8 +55,9 @@ listing:
 [uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
 [vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
-[zenn (28)](#category=zenn){.btn .btn-outline-primary .btn-sm}
-[zsh (1)](#category=zsh){.btn .btn-outline-primary .btn-sm}
+[zenn (30)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zinit (1)](#category=zinit){.btn .btn-outline-primary .btn-sm}
+[zsh (3)](#category=zsh){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#all}

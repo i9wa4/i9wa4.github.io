@@ -1,0 +1,17 @@
+---
+title: "Zsh compinit の仕組みを理解して起動時間を短縮する"
+author: uma-chan
+date: 2026-01-01 23:12:42 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  Zsh の compinit と zcompdump キャッシュの仕組みを解説し、-C オプションや 24 時間キャッシュパターンによる起動時間短縮方法を紹介
+categories:
+  - "zenn"
+  - "zsh"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Zsh compinit の仕組みを理解して起動時間を短縮する](https://zenn.dev/i9wa4/articles/2026-01-01-zsh-startup-optimization-compinit)
