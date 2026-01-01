@@ -1,5 +1,5 @@
 ---
-title: "Top"
+title: "About me"
 about:
   template: marquee
   image-width: 9em

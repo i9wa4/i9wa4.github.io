@@ -2,9 +2,12 @@ name: Sync README to i9wa4/i9wa4
 run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
 
 on:
-  # schedule:
-  #   - cron: "0 0 1 * *"
   workflow_dispatch:
+  push:
+    branches:
+      - gh-pages
+    paths:
+      - index.md
 
 permissions: {}
 
@@ -19,7 +22,7 @@ concurrency:
 jobs:
   sync-readme:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - name: Fetch README from gh-pages
@@ -75,4 +78,5 @@ jobs:
             --title "sync: update README from i9wa4.github.io" \
             --body "Auto-generated PR to sync README.md from [i9wa4.github.io](https://i9wa4.github.io/about.html)." \
             --head "$BRANCH" \
-            --base main
+            --base main \
+            --assignee i9wa4
