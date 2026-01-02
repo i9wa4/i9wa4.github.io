@@ -23,6 +23,8 @@ listing:
 ::: {.callout-note}
 
 - Slides: PDF available at same URL with `.pdf` extension.
+- 本ページ以外で公開しているスライドはこちら
+    - [登壇実績](/resume/index.qmd#登壇)
 :::
 
 ::: {.category-buttons}
