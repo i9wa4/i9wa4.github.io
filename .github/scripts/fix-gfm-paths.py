@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Fix image paths and links in GFM (GitHub Flavored Markdown) files."""
 
 from __future__ import annotations

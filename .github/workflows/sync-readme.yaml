@@ -3,11 +3,6 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - gh-pages
-    paths:
-      - index.md
 
 permissions: {}
 

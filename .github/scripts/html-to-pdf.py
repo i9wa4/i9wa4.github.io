@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 HTML to PDF converter using Playwright
 """
