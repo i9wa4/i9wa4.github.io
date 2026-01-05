@@ -220,7 +220,8 @@ jobs:
               mv "$artifact_dir"/*.html "$artifact_dir"/*.md _site/ 2>/dev/null || true
             else
               [ "$FULL_REBUILD" = "true" ] && rm -rf "_site/${dir_name}"
-              cp -r "$artifact_dir" "_site/${dir_name}"
+              mkdir -p "_site/${dir_name}"
+              cp -r "$artifact_dir"/* "_site/${dir_name}/"
             fi
           done
           rm -rf _artifacts
