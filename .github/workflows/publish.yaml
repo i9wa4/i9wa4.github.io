@@ -58,7 +58,7 @@ jobs:
             slides/**
             themes/**
             zenn/**
-            "*.qmd"
+            '*.qmd'
 
       - name: Set build matrix
         id: detect
