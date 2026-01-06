@@ -43,15 +43,7 @@ Tool result: [TextContent(type='text', text='Hello, MCP!', annotations=None)]
 
 ちょこっと理解が深まった
 
-## 5. SiteMCP
-
-### 5.1. インストール
-
-```{.sh}
-npx sitemcp
-```
-
-## 6. Cursor を MCP クライアントとして使う
+## 5. Cursor を MCP クライアントとして使う (SiteMCP)
 
 ```{.json}
 {
