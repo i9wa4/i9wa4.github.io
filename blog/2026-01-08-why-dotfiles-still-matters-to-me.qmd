@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
-date: 2026-01-07 22:15:00 +0900
+date: 2026-01-08 01:24:41 +0900
 date-modified: last-modified
 description: |
   Claude Code の進化を見るに機能はいずれ収斂して全員の手元に渡る。残るのは「自分の開発環境を構築できる力」。
