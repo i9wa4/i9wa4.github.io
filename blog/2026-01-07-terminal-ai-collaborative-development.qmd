@@ -68,7 +68,7 @@ Claude Code の VS Code拡張もターミナル版と同じ設定ファイルを
 最近みなさん熱心に育成中と思しき以下の設定群ですね。
 
 ```text
-~/.config/claude/
+.claude/
 ├── CLAUDE.md
 ├── rules/
 ├── skills/
