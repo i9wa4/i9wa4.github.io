@@ -167,6 +167,7 @@ dotfiles は「自分がどう働きたいか」の具体化です。
 
 dotfiles を愛する者の間では割と常識になっていた設定についての会話です。
 設定なんてものは dotfiles を使っている人以外にはなかなか広まらないんです。
+情報格差、感じますよね。
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ryoppippiからclaude codeの設定を学ぶといいので、みんなryoppippiのdotfilesも見ような<a href="https://t.co/RduDuxgLml">https://t.co/RduDuxgLml</a> <a href="https://t.co/NJMD3hNyFP">https://t.co/NJMD3hNyFP</a></p>&mdash; yasunori🫖@loglass🐳 (@YKirin0418) <a href="https://twitter.com/YKirin0418/status/1977585870787301738?ref_src=twsrc%5Etfw">October 13, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -196,11 +197,11 @@ dotfiles/
 
 Claude Code 設定は「点」、dotfiles 全体は「面」ですね。
 
-周辺ツールとの統合によってAIは開発フロー全体に溶け込みます。
+周辺ツールとの連携によってAIは開発フロー全体に溶け込みます。
 
 ## 5. 始め方
 
-dotfiles の始め方については、以下の記事がわかりやすいです。
+dotfiles の始め方については、以下の記事が親しみがあってわかりやすいと思いました。
 
 - [ようこそdotfilesの世界へ - Qiita](https://qiita.com/yutkat/items/c6c7584d9795799ee164)
 - [ゆるりとはじめる dotfiles 入門 - Zenn](https://zenn.dev/timetree/articles/904126d3570345)
