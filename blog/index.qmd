@@ -24,10 +24,10 @@ share: false
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[blog (69)](#category=blog){.btn .btn-outline-primary .btn-sm}
+[blog (70)](#category=blog){.btn .btn-outline-primary .btn-sm}
 [diary (10)](#category=diary){.btn .btn-outline-primary .btn-sm}
 [memo (4)](#category=memo){.btn .btn-outline-primary .btn-sm}
-[tech-ai (10)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
+[tech-ai (11)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 [tech-data (8)](#category=tech-data){.btn .btn-outline-primary .btn-sm}
 [tech-others (30)](#category=tech-others){.btn .btn-outline-primary .btn-sm}
 [tech-vim (12)](#category=tech-vim){.btn .btn-outline-primary .btn-sm}
