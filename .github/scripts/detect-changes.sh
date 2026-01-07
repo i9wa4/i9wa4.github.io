@@ -23,13 +23,10 @@ has_added_file_in_dir() {
 
 full_rebuild_triggers="$FULL_REBUILD_TRIGGERS"
 
-full_rebuild=false
+# Always do full rebuild for deployment stability
+# (incremental deploy has file sync issues)
+full_rebuild=true
 changed_files=("$@")
-
-# workflow_dispatch triggers full rebuild
-if [[ ${EVENT_NAME:-} == "workflow_dispatch" ]]; then
-  full_rebuild=true
-fi
 
 # Check for full rebuild triggers
 for file in "${changed_files[@]}"; do
