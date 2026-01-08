@@ -66,3 +66,4 @@ jobs:
           else
             mise exec -- pre-commit run --verbose --all-files
           fi
+          mise exec -- pre-commit run gitleaks-history --all-files --hook-stage manual
