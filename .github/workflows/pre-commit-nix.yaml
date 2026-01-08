@@ -1,4 +1,4 @@
-name: pre-commit
+name: pre-commit (Nix)
 run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
 
 on:
@@ -27,7 +27,7 @@ concurrency:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: read
 
@@ -38,10 +38,21 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+      - name: Install Nix
+        uses: cachix/install-nix-action@4e002c8ec80594ecd40e759629461e26c8abed15 # v31.9.0
         with:
-          cache: true
+          github_access_token: ${{ github.token }}
+
+      - name: Cache Nix store
+        uses: nix-community/cache-nix-action@b426b118b6dc86d6952988d396aa7c6b09776d08 # v7.0.0
+        with:
+          primary-key: nix-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/*.nix', 'flake.lock') }}
+
+      - name: Load Nix environment
+        run: nix develop --command true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
 
       - name: Cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
@@ -51,19 +62,19 @@ jobs:
             ~/.cache/uv
             .venv
           key: |
-            cache-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.pre-commit-config.yaml', 'uv.lock') }}
+            pre-commit-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('flake.lock', '.pre-commit-config.yaml', 'uv.lock') }}
           restore-keys: |
-            cache-${{ runner.os }}-${{ runner.arch }}-
+            pre-commit-${{ runner.os }}-${{ runner.arch }}-
 
       - name: Run pre-commit
         env:
           SKIP: convert-drawio-to-png,sync-zenn,update-categories
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            mise exec -- pre-commit run --verbose --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.sha }}
+            nix develop --command pre-commit run --verbose --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.sha }}
           elif [ "${{ github.event_name }}" = "push" ] && [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            mise exec -- pre-commit run --verbose --from-ref ${{ github.event.before }} --to-ref ${{ github.sha }}
+            nix develop --command pre-commit run --verbose --from-ref ${{ github.event.before }} --to-ref ${{ github.sha }}
           else
-            mise exec -- pre-commit run --verbose --all-files
+            nix develop --command pre-commit run --verbose --all-files
           fi
-          mise exec -- pre-commit run gitleaks-history --all-files --hook-stage manual
+          nix develop --command pre-commit run gitleaks-history --all-files --verbose --hook-stage manual

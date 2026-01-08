@@ -94,16 +94,13 @@ jobs:
           sed -i "s/GOOGLE_ANALYTICS_PLACEHOLDER/${{ secrets.GOOGLE_ANALYTICS_ID }}/g" _quarto.yaml
           sed -i "s/YEAR_PLACEHOLDER/$(TZ='Asia/Tokyo' date +%Y)/g" _quarto.yaml
 
-      - name: Install mise
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          cache: true
+      - name: Install uv
+        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
 
       - name: Cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
           path: |
-            ~/.cache/uv
             ~/.cache/ms-playwright
           key: |
             cache-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('uv.lock') }}
@@ -111,11 +108,11 @@ jobs:
             cache-${{ runner.os }}-${{ runner.arch }}-
 
       - name: Set up Python dependencies
-        run: mise exec -- uv sync
+        run: uv sync
 
       - name: Install Playwright
         if: matrix.dir == 'resume'
-        run: mise exec -- uv run playwright install chromium
+        run: uv run playwright install chromium
 
       - name: Render
         env:
@@ -125,13 +122,13 @@ jobs:
         run: |
           # NOTE: single mode disabled for deployment stability - always do full directory build
           # if [ "$BUILD_MODE" = "single" ]; then
-          #   mise exec -- uv run quarto render "$BUILD_FILE"
-          #   [ "$BUILD_DIR" != "root" ] && mise exec -- uv run quarto render "$BUILD_DIR/index.qmd"
+          #   uv run quarto render "$BUILD_FILE"
+          #   [ "$BUILD_DIR" != "root" ] && uv run quarto render "$BUILD_DIR/index.qmd"
           # fi
           if [ "$BUILD_DIR" = "root" ]; then
-            for page in *.qmd; do mise exec -- uv run quarto render "$page"; done
+            for page in *.qmd; do uv run quarto render "$page"; done
           else
-            mise exec -- uv run quarto render "$BUILD_DIR/"
+            uv run quarto render "$BUILD_DIR/"
           fi
 
       - name: Generate PDF
@@ -142,16 +139,16 @@ jobs:
           if [ "$BUILD_DIR" = "slides" ]; then
             for html in _site/slides/*.html; do
               [ "$(basename "$html")" = "index.html" ] && continue
-              mise exec -- uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
+              uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
             done
             wait
           else
-            mise exec -- uv run python .github/scripts/html-to-pdf.py \
+            uv run python .github/scripts/html-to-pdf.py \
               _site/resume/index.html _site/resume/index.pdf
           fi
 
       - name: Fix image paths and links in GFM files
-        run: mise exec -- uv run python .github/scripts/fix-gfm-paths.py _site/
+        run: uv run python .github/scripts/fix-gfm-paths.py _site/
 
       - name: Prepare artifact
         env:

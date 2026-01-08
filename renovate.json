@@ -4,7 +4,11 @@
     "config:recommended",
     ":enablePreCommit"
   ],
+  "nix": {
+    "enabled": true
+  },
   "lockFileMaintenance": {
     "enabled": true
-  }
+  },
+  "minimumReleaseAge": "7 days"
 }
