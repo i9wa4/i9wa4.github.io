@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: github-profile-summary-cards
-        uses: vn7n24fzkq/github-profile-summary-cards@c2fa12c268d76d3d84ff952be25c1b101968dba9 # release
+        uses: vn7n24fzkq/github-profile-summary-cards@32f6b1fb808c9db9b3a373c7c4586b3eaf8e14ad # release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
