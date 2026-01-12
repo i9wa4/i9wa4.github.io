@@ -14,8 +14,6 @@ image: "https://github.com/i9wa4.png"
 toc: false
 ---
 
-## 1. Hi, I'm uma-chan! 👋
-
 <!--
 Badge generation (style=social):
 
@@ -45,7 +43,6 @@ Badge generation (style=social):
 [![GitHub](https://img.shields.io/badge/GitHub-i9wa4-x.svg?style=social&logo=github)](https://github.com/i9wa4)
 [![X](https://img.shields.io/badge/X-i9wa4__-x.svg?style=social&logo=x)](https://x.com/i9wa4_)
 <a href="https://www.linkedin.com/in/daikm"><img src="https://img.shields.io/badge/LinkedIn-daikm-x.svg?style=social&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiMwQTY2QzIiIGQ9Ik02Ljk0IDVhMiAyIDAgMSAxLTQtLjAwMmEyIDIgMCAwIDEgNCAuMDAyTTcgOC40OEgzVjIxaDR6bTYuMzIgMEg5LjM0VjIxaDMuOTR2LTYuNTdjMC0zLjY2IDQuNzctNCA0Ljc3IDBWMjFIMjJ2LTcuOTNjMC02LjE3LTcuMDYtNS45NC04LjcyLTIuOTF6Ii8+PC9zdmc+Cg==" alt="LinkedIn"></a>
-[![Zenn](https://img.shields.io/badge/Zenn-i9wa4-x.svg?style=social&logo=zenn)](https://zenn.dev/i9wa4)
 
 ```{.yaml}
 profile:
@@ -63,20 +60,13 @@ profile:
 
   passions:
     - Vim
-    - tmux
+    - Databricks
 ```
 
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=aws,gcp,docker,terraform,github,githubactions,nix,apple,linux,windows,postgres,mysql,py,ts,c,neovim,vim,vscode&perline=10" alt="skillicons"></a>
-
-<img height="48px" src="https://cdn.simpleicons.org/databricks/FF3621"><img height="48px" src="https://cdn.simpleicons.org/snowflake/29B5E8"><img height="48px" src="https://cdn.simpleicons.org/googlebigquery/669DF6"><img height="48px" src="https://cdn.simpleicons.org/claude/D97757">
-
-## 2. GitHub Stats
+[![3-stats](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards) [![2-most-commit-language](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/2-most-commit-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
 
 <div align="left">
   <a href="https://github.com/antonkomarev/github-profile-views-counter">
     <img src="https://komarev.com/ghpvc/?username=i9wa4&label=GitHub_Profile_Views"/>
   </a>
 </div>
-
-[![0-profile-details](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/0-profile-details.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
-[![3-stats](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards) [![2-most-commit-language](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/2-most-commit-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
