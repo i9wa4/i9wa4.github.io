@@ -48,15 +48,15 @@ website:
         href: "slides/index.qmd"
       - text: "Resume"
         href: "resume/index.qmd"
-    right:
-      - icon: github
-        href: "https://github.com/i9wa4"
-      - icon: twitter-x
-        href: "https://x.com/i9wa4_"
-      - icon: linkedin
-        href: "https://www.linkedin.com/in/daikm"
-      - icon: rss
-        href: "blog/index.xml"
+    # right:
+    #   - icon: github
+    #     href: "https://github.com/i9wa4"
+    #   - icon: twitter-x
+    #     href: "https://x.com/i9wa4_"
+    #   - icon: linkedin
+    #     href: "https://www.linkedin.com/in/daikm"
+    #   - icon: rss
+    #     href: "blog/index.xml"
   open-graph:
     locale: "ja_JP"
     site-name: "uma-chan's page"
