@@ -1,0 +1,105 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+
+        <!-- Center Developer Icon -->
+        <mxCell id="dev-icon" value="😰" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=120" vertex="1" parent="1">
+          <mxGeometry x="860" y="420" width="200" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-label" value="困っている開発者" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="810" y="600" width="300" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 1: Build/Deploy Time -->
+        <mxCell id="challenge1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="420" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge1-icon" value="⏱️" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="240" y="260" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge1-title" value="課題1: デプロイに時間" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="270" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge1-desc" value="ビルド + プッシュ + デプロイ&lt;br&gt;= 10分以上かかる" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#dc3545;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="220" y="350" width="380" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 2: Log Checking -->
+        <mxCell id="challenge2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="200" y="720" width="420" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge2-icon" value="📋" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="240" y="740" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge2-title" value="課題2: ログ確認が面倒" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="750" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge2-desc" value="CloudWatchで探す&lt;br&gt;デバッグに時間がかかる" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#dc3545;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="220" y="830" width="380" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 3: IAM Configuration -->
+        <mxCell id="challenge3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1300" y="240" width="420" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge3-icon" value="🔐" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="1340" y="260" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge3-title" value="課題3: 権限設定が複雑" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1460" y="270" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge3-desc" value="IAM Role/ポリシー設定&lt;br&gt;学習コストが高い" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#dc3545;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1320" y="350" width="380" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Challenge 4: Infrastructure Knowledge -->
+        <mxCell id="challenge4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1300" y="720" width="420" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge4-icon" value="🐳" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60" vertex="1" parent="1">
+          <mxGeometry x="1340" y="740" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge4-title" value="課題4: インフラ知識必須" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1460" y="750" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="challenge4-desc" value="Docker/ECS/Fargateを&lt;br&gt;すべて理解する必要がある" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#dc3545;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1320" y="830" width="380" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows from challenges to developer -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#d79b00;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="340" as="sourcePoint"/>
+            <mxPoint x="860" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#d79b00;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="820" as="sourcePoint"/>
+            <mxPoint x="860" y="540" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#d79b00;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="340" as="sourcePoint"/>
+            <mxPoint x="1060" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=4;strokeColor=#d79b00;dashed=1" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="820" as="sourcePoint"/>
+            <mxPoint x="1060" y="540" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
