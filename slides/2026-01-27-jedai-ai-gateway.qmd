@@ -149,7 +149,7 @@ Mosaic AI Gatewayが提供するもの
 要素:
   - Mosaic AI Gateway: 統一エンドポイント、Pay-per-token
   - endpoint_usage: system.servingの使用量テーブル（自動記録）
-  - SQL Alert: 15分毎に予算超過を検知
+  - 監視Job: 15分毎に予算超過を検知
   - Databricks Job: Rate Limit設定、自動遮断処理
   - Service Principal: インフラ管理、Rate Limit制御
   - 予算テーブル: ユーザー別上限設定（Delta Table）
