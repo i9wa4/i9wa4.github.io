@@ -51,20 +51,24 @@ Mosaic AI Gatewayを活用してAIコーディングエージェントを組織�
 - Token発行だけで渡せる仕組み
 - ヘビーユーザー以外には有効なアプローチ
 
-## 課題
+## こういう場面ありませんか?
 
-### AIコーディングエージェントを配りたいけど...
+### AIコーディングエージェントを配りたいけど
 
 - 一時的に作業してくれる方にAIコーディング環境を用意したい
 - エンジニアではないメンバーもAIコーディングエージェントを活用したい
 
-### 契約調整の手間
+### 対象ユーザー
+
+![対象ユーザー](/assets/2026-01-27-jedai-ai-gateway/target-users.drawio.png)
+
+### その他の課題
+
+契約調整の手間
 
 - 新規サービスを使うには契約調整が必要
 - OpenAI、Anthropicなど個別に契約すると管理が煩雑
 - 「来週から使いたい」に間に合わないことも
-
-### その他の課題
 
 人の増減への対応
 
@@ -75,6 +79,12 @@ Mosaic AI Gatewayを活用してAIコーディングエージェントを組織�
 
 - 従量課金で上限なし → 月末に請求書で心臓止まる
 - かといって自前でProxy構築は工数がかかる
+
+## Before/After
+
+### 比較
+
+![Before/After](/assets/2026-01-27-jedai-ai-gateway/before-after.drawio.png)
 
 ## Databricks完結という選択
 
@@ -98,6 +108,8 @@ Mosaic AI Gatewayが提供するもの
 - 渡すのはEndpoint URLとTokenだけ
 - 5分でAIコーディング環境が渡せる
 
+![Token発行フロー](/assets/2026-01-27-jedai-ai-gateway/token-issuance-flow.drawio.png)
+
 ### 請求集約
 
 - データ基盤の請求に集約
@@ -105,13 +117,19 @@ Mosaic AI Gatewayが提供するもの
 
 ## 採用した構成
 
+### Databricks内で完結
+
+![基盤構成](/assets/2026-01-27-jedai-ai-gateway/databricks-infrastructure.drawio.png)
+
 ### 全体アーキテクチャ
 
 ![全体アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/overall-architecture.drawio.png)
 
-### 3案比較
+### 設計の考え方
 
-![3案比較](/assets/2026-01-27-jedai-ai-gateway/three-options-comparison.drawio.png)
+Databricks完結を最優先に選定
+
+![設計の考え方](/assets/2026-01-27-jedai-ai-gateway/three-options-comparison.drawio.png)
 
 ### なぜ案Cを選んだか
 
@@ -145,6 +163,8 @@ KPI実績
 - Dev Containerに1行追加するだけ
 - 構成がシンプルなので組み込みやすい
 
+![開発環境統合](/assets/2026-01-27-jedai-ai-gateway/dev-environment.drawio.png)
+
 ## コーディングエージェントとの相性
 
 ### Goose
@@ -164,12 +184,6 @@ KPI実績
 - Aider: OpenAI互換APIに対応
 - Claude Code: Anthropic APIに対応
 - AI Gatewayが複数モデルを統一エンドポイントで提供
-
-## Before/After
-
-### 比較
-
-![Before/After](/assets/2026-01-27-jedai-ai-gateway/before-after.drawio.png)
 
 ## まとめ
 
