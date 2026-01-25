@@ -57,7 +57,7 @@
         <mxCell id="optionC-name" value="AI Gateway&lt;br&gt;+ SQL Alert + Job" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#0D47A1;align=center;" vertex="1" parent="1">
           <mxGeometry x="660" y="135" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="optionC-timing" value="15分遅延" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
+        <mxCell id="optionC-timing" value="例: 15分遅延" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
           <mxGeometry x="660" y="185" width="280" height="30" as="geometry" />
         </mxCell>
         <mxCell id="optionC-db" value="Databricks完結: ◎" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#4CAF50;align=center;" vertex="1" parent="1">
@@ -71,7 +71,7 @@
         <mxCell id="reason-title" value="採用理由" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
           <mxGeometry x="80" y="300" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="reason-text" value="ライトユーザー向けなら15分遅延で十分。実装工数最低。必要時に案A/Bへ移行可能。" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#5D4037;" vertex="1" parent="1">
+        <mxCell id="reason-text" value="ライトユーザー向けなら短い間隔の遅延で十分。実装工数最低。必要時に案A/Bへ移行可能。" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#5D4037;" vertex="1" parent="1">
           <mxGeometry x="80" y="330" width="840" height="30" as="geometry" />
         </mxCell>
 

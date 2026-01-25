@@ -99,7 +99,7 @@
         <mxCell id="note-title" value="ポイント" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;" vertex="1" parent="1">
           <mxGeometry x="540" y="320" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="note-text" value="15分遅延で予算超過を検知。&lt;br&gt;ライトユーザーが15分で予算を&lt;br&gt;使い切ることはほぼない。" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#5D4037;align=left;" vertex="1" parent="1">
+        <mxCell id="note-text" value="指定した間隔で予算超過を検知。&lt;br&gt;例えば15分間隔なら&lt;br&gt;ライトユーザーが使い切ることはほぼない。" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#5D4037;align=left;" vertex="1" parent="1">
           <mxGeometry x="540" y="350" width="380" height="60" as="geometry" />
         </mxCell>
 
