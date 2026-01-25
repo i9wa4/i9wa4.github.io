@@ -218,8 +218,8 @@ Databricks完結を最優先に選定
 説明: Dev ContainerとAI Gatewayの統合構成図
 要素:
   - Dev Container: 環境変数（GOOSE_PROVIDER）と~/.databrickscfg設定
-  - コーディングエージェント: Goose（推奨）、Aider、Claude Code
-  - 注釈: Aider: PAT、Claude Code: LiteLLM経由
+  - コーディングエージェント: Goose（推奨）、Aider
+  - 注釈: Aider: PAT必須
   - Mosaic AI Gateway: 認証、ルーティング、使用量記録
   - LLMs: Claude、GPT-4、Llama、Gemini
   - ポイント: U2M OAuth認証でToken管理不要、環境変数1つとdatabricks auth loginだけで完成
