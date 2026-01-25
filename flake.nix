@@ -29,7 +29,7 @@
           # nixpkgs
           pkgs.actionlint
           pkgs.gitleaks
-          pkgs.pre-commit
+          # NOTE: pre-commit is managed via `uv run pre-commit` to avoid Swift build dependency
           pkgs.shellcheck
           pkgs.shfmt
           pkgs.stylua

@@ -73,8 +73,8 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             nix develop --command pre-commit run --verbose --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.sha }}
           elif [ "${{ github.event_name }}" = "push" ] && [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            nix develop --command pre-commit run --verbose --from-ref ${{ github.event.before }} --to-ref ${{ github.sha }}
+            nix develop --command uv run pre-commit run --verbose --from-ref ${{ github.event.before }} --to-ref ${{ github.sha }}
           else
-            nix develop --command pre-commit run --verbose --all-files
+            nix develop --command uv run pre-commit run --verbose --all-files
           fi
-          nix develop --command pre-commit run gitleaks-history --all-files --verbose --hook-stage manual
+          nix develop --command uv run pre-commit run gitleaks-history --all-files --verbose --hook-stage manual
