@@ -212,12 +212,12 @@ Databricks完結を最優先に選定
 図: dev-environment.drawio.png
 説明: Dev ContainerとAI Gatewayの統合構成図
 要素:
-  - Dev Container: 環境変数（DATABRICKS_HOST、GOOSE_PROVIDER）とdatabricks auth login
+  - Dev Container: 環境変数（GOOSE_PROVIDER）と~/.databrickscfg設定
   - コーディングエージェント: Goose（推奨）、Aider、Claude Code
   - 注釈: Aider: PAT、Claude Code: LiteLLM経由
   - Mosaic AI Gateway: 認証、ルーティング、使用量記録
   - LLMs: Claude、GPT-4、Llama、Gemini
-  - ポイント: U2M OAuth認証でToken管理不要
+  - ポイント: U2M OAuth認証でToken管理不要、環境変数1つとdatabricks auth loginだけで完成
 -->
 ![開発環境統合](/assets/2026-01-27-jedai-ai-gateway/dev-environment.drawio.png)
 
