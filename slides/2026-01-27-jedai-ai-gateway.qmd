@@ -132,6 +132,11 @@ Mosaic AI Gatewayが提供するもの
   - Step 3: コーディングエージェントがAI Gatewayに接続
   - ポイント: Token管理不要、環境変数とコマンド1つで完結
 -->
+<!--
+TODO: DATABRICKS_HOSTが必要かどうか要検証
+- Gooseが~/.databrickscfgからhostを読めるなら不要
+- 環境変数が必須なら現状のままでOK
+-->
 ![認証フロー](/assets/2026-01-27-jedai-ai-gateway/auth-flow.drawio.png)
 
 ### 請求集約
