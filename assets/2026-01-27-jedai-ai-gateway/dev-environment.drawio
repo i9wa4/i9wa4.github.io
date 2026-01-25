@@ -50,8 +50,8 @@
         <mxCell id="agent3" value="Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#9E9E9E;fontSize=14;fontFamily=Noto Sans JP;fontColor=#616161;" vertex="1" parent="1">
           <mxGeometry x="285" y="305" width="100" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="agent-note" value="※ Aider/Claude CodeはPAT必須" style="text;html=1;fontSize=11;fontFamily=Noto Sans JP;fontColor=#757575;align=left;" vertex="1" parent="1">
-          <mxGeometry x="95" y="350" width="200" height="20" as="geometry" />
+        <mxCell id="agent-note" value="※ Aider: PAT、Claude Code: LiteLLM経由" style="text;html=1;fontSize=11;fontFamily=Noto Sans JP;fontColor=#757575;align=left;" vertex="1" parent="1">
+          <mxGeometry x="95" y="350" width="220" height="20" as="geometry" />
         </mxCell>
 
         <!-- Arrow to AI Gateway -->
