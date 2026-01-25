@@ -1,0 +1,188 @@
+---
+title: Mosaic AI Gateway でコーディングエージェントを配るための運用Tips
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+  - "genda"
+date: 2026-01-27
+date-modified: last-modified
+description: |
+  [登壇資料] 2026-01-27 JEDAI 2026 新春 Meetup
+draft: true
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: "[2026-01-27 JEDAI 2026 新春 Meetup](https://jedai.connpass.com/event/379174/)"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+subtitle: ""
+---
+
+## 自己紹介
+
+uma-chan
+
+株式会社GENDA IT戦略部 データチーム
+
+データエンジニア / MLOpsエンジニア
+
+### 今日話すこと
+
+Mosaic AI Gatewayを活用してAIコーディングエージェントを組織内に展開した話
+
+- データ基盤の費用に集約しながらAIコーディングエージェントを配る
+- Token発行だけで渡せる仕組み
+- ヘビーユーザー以外には有効なアプローチ
+
+## 課題
+
+### AIコーディングエージェントを配りたいけど...
+
+- 一時的に作業してくれる方にAIコーディング環境を用意したい
+- エンジニアではないメンバーもAIコーディングエージェントを活用したい
+
+### 契約調整の手間
+
+- 新規サービスを使うには契約調整が必要
+- OpenAI、Anthropicなど個別に契約すると管理が煩雑
+- 「来週から使いたい」に間に合わないことも
+
+### その他の課題
+
+人の増減への対応
+
+- 一時メンバーが入るたびに契約調整
+- 終了時のアカウント停止も手間
+
+野放しは怖い
+
+- 従量課金で上限なし → 月末に請求書で心臓止まる
+- かといって自前でProxy構築は工数がかかる
+
+## Databricks完結という選択
+
+### 外部サービス不要
+
+- Databricksだけで完結できる
+- 外部DB、外部Proxy、外部認証サービス不要
+- 既存のDatabricks環境にそのまま乗せられる
+
+### AI Gatewayの機能
+
+Mosaic AI Gatewayが提供するもの
+
+- 複数LLMへの統一エンドポイント (Claude, GPT, Llama等)
+- Pay-per-token の従量課金
+- system.serving.endpoint_usage による使用量追跡
+
+### Token発行ですぐ渡せる
+
+- サービスプリンシパルでToken発行
+- 渡すのはEndpoint URLとTokenだけ
+- 5分でAIコーディング環境が渡せる
+
+### 請求集約
+
+- データ基盤の請求に集約
+- 経費管理がシンプルに
+
+## 採用した構成
+
+### 全体アーキテクチャ
+
+![全体アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/overall-architecture.drawio.png)
+
+### 3案比較
+
+![3案比較](/assets/2026-01-27-jedai-ai-gateway/three-options-comparison.drawio.png)
+
+### なぜ案Cを選んだか
+
+- 対象: 同時数名程度、ライトユーザー向け
+- ライトユーザーが15分で予算を使い切ることはない
+- 実装工数最低: SQLとJobだけ
+- 必要になったら案A/Bに移行できる設計
+
+## 運用の割り切り
+
+### 予算上限の設計
+
+- ユーザーごとに月額上限を自由に設定できる
+- 上限に達したらTokenを自動無効化
+- 「野放しにしない」安心感
+
+### 15分遅延の許容
+
+- リアルタイム遮断は本当に必要か?
+- ライトユーザーが15分で予算を使い切ることはない
+- 過剰設計をやめたら構成がシンプルになった
+
+KPI実績
+
+- 予算超過検知遅延: 15分以内
+- Token無効化成功率: 100%
+
+### Dev Container統合
+
+- 環境変数でEndpoint URL設定
+- Dev Containerに1行追加するだけ
+- 構成がシンプルなので組み込みやすい
+
+## コーディングエージェントとの相性
+
+### Goose
+
+- Block社製のOSSコーディングエージェント
+- Databricks Providerをネイティブサポート
+- AI Gatewayとの接続がスムーズ
+
+### jupyter-databricks-kernel
+
+- JupyterからDatabricksクラスタに接続
+- ローカルのNotebook環境からDatabricksのLLMを利用可能
+- 開発体験を損なわずにDatabricks完結
+
+### その他のエージェント
+
+- Aider: OpenAI互換APIに対応
+- Claude Code: Anthropic APIに対応
+- AI Gatewayが複数モデルを統一エンドポイントで提供
+
+## Before/After
+
+### 比較
+
+![Before/After](/assets/2026-01-27-jedai-ai-gateway/before-after.drawio.png)
+
+## まとめ
+
+### 今日のポイント
+
+1. Token発行だけでAIコーディング環境が渡せる
+2. Databricks完結、外部サービス不要
+3. ヘビーユーザー以外には15分遅延で十分
+
+### 行動喚起
+
+Databricksを使っているなら、すぐ始められます
+
+- まずAI Gatewayでエンドポイントを作成
+- Token発行して渡すだけ
+- 案Cで始めて、必要になったら案A/Bに移行
