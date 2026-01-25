@@ -20,7 +20,7 @@
 
         <!-- Before Section -->
         <mxCell id="before-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#F44336;strokeWidth=3;" vertex="1" parent="1">
-          <mxGeometry x="60" y="80" width="380" height="300" as="geometry" />
+          <mxGeometry x="60" y="80" width="380" height="320" as="geometry" />
         </mxCell>
         <mxCell id="before-title" value="Before" style="text;html=1;fontSize=24;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#C62828;align=center;" vertex="1" parent="1">
           <mxGeometry x="60" y="100" width="380" height="40" as="geometry" />
@@ -56,7 +56,7 @@
 
         <!-- After Section -->
         <mxCell id="after-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=3;" vertex="1" parent="1">
-          <mxGeometry x="560" y="80" width="380" height="300" as="geometry" />
+          <mxGeometry x="560" y="80" width="380" height="320" as="geometry" />
         </mxCell>
         <mxCell id="after-title" value="After" style="text;html=1;fontSize=24;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#2E7D32;align=center;" vertex="1" parent="1">
           <mxGeometry x="560" y="100" width="380" height="40" as="geometry" />
