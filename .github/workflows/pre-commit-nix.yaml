@@ -71,7 +71,7 @@ jobs:
           SKIP: convert-drawio-to-png,sync-zenn,update-categories
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            nix develop --command pre-commit run --verbose --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.sha }}
+            nix develop --command uv run pre-commit run --verbose --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.sha }}
           elif [ "${{ github.event_name }}" = "push" ] && [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
             nix develop --command uv run pre-commit run --verbose --from-ref ${{ github.event.before }} --to-ref ${{ github.sha }}
           else
