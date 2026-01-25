@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.7.17">
+  <diagram name="Page-1" id="auth-flow">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="認証フロー（U2M OAuth）" style="text;html=1;fontSize=24;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#333333;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Step 1: Set env -->
+        <mxCell id="step1-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-num" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=18;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="140" y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-title" value="環境変数設定" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="125" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-desc" value="DATABRICKS_HOST&lt;br&gt;GOOSE_PROVIDER" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="155" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 1-2 -->
+        <mxCell id="arr1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2196F3;endArrow=classic;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="160" as="sourcePoint" />
+            <mxPoint x="320" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 2: OAuth Login -->
+        <mxCell id="step2-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-num" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=2;fontSize=18;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-title" value="OAuth認証" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#2E7D32;align=center;" vertex="1" parent="1">
+          <mxGeometry x="320" y="125" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-desc" value="databricks auth login&lt;br&gt;ブラウザで認証" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=center;" vertex="1" parent="1">
+          <mxGeometry x="320" y="155" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow 2-3 -->
+        <mxCell id="arr2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#4CAF50;endArrow=classic;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="160" as="sourcePoint" />
+            <mxPoint x="580" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Step 3: Ready -->
+        <mxCell id="step3-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="580" y="100" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-num" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;strokeWidth=2;fontSize=18;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="660" y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-title" value="すぐ利用開始" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#7B1FA2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="580" y="125" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-desc" value="Token自動管理&lt;br&gt;AI Gateway経由でLLM" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#7B1FA2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="580" y="155" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Detail box -->
+        <mxCell id="detail-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="720" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="detail-title" value="必要な設定" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#455A64;" vertex="1" parent="1">
+          <mxGeometry x="80" y="275" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="detail-code" value="export DATABRICKS_HOST=https://xxx.databricks.com&lt;br&gt;export GOOSE_PROVIDER=databricks&lt;br&gt;databricks auth login" style="text;html=1;fontSize=14;fontFamily=monospace;fontColor=#37474F;align=left;fillColor=#FFFFFF;rounded=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="305" width="680" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Point box -->
+        <mxCell id="point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="720" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="point-text" value="Token管理不要。OAuth認証でセキュアかつシンプル" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="390" width="720" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

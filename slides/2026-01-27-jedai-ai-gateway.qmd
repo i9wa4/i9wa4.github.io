@@ -102,13 +102,13 @@ Mosaic AI Gatewayが提供するもの
 - Pay-per-token の従量課金
 - system.serving.endpoint_usage による使用量追跡
 
-### Token発行ですぐ渡せる
+### 認証設定ですぐ渡せる
 
-- サービスプリンシパルでToken発行
-- 渡すのはEndpoint URLとTokenだけ
+- databricks auth loginでOAuth認証
+- 環境変数とコマンド1つだけ
 - 5分でAIコーディング環境が渡せる
 
-![Token発行フロー](/assets/2026-01-27-jedai-ai-gateway/token-issuance-flow.drawio.png)
+![認証フロー](/assets/2026-01-27-jedai-ai-gateway/auth-flow.drawio.png)
 
 ### 請求集約
 
