@@ -38,17 +38,20 @@
         </mxCell>
 
         <!-- Agent items -->
-        <mxCell id="agent1" value="Goose" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#81C784;fontSize=14;fontFamily=Noto Sans JP;fontColor=#2E7D32;" vertex="1" parent="1">
+        <mxCell id="agent1" value="Goose" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#4CAF50;strokeWidth=2;fontSize=14;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1B5E20;" vertex="1" parent="1">
           <mxGeometry x="95" y="305" width="85" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="agent2" value="Aider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#81C784;fontSize=14;fontFamily=Noto Sans JP;fontColor=#2E7D32;" vertex="1" parent="1">
+        <mxCell id="agent1-badge" value="推奨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontSize=10;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="150" y="295" width="35" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2" value="Aider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#9E9E9E;fontSize=14;fontFamily=Noto Sans JP;fontColor=#616161;" vertex="1" parent="1">
           <mxGeometry x="190" y="305" width="85" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="agent3" value="Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#81C784;fontSize=14;fontFamily=Noto Sans JP;fontColor=#2E7D32;" vertex="1" parent="1">
+        <mxCell id="agent3" value="Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#9E9E9E;fontSize=14;fontFamily=Noto Sans JP;fontColor=#616161;" vertex="1" parent="1">
           <mxGeometry x="285" y="305" width="100" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="agent-etc" value="..." style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#757575;align=center;" vertex="1" parent="1">
-          <mxGeometry x="350" y="350" width="30" height="25" as="geometry" />
+        <mxCell id="agent-note" value="※ Aider/Claude CodeはPAT必須" style="text;html=1;fontSize=11;fontFamily=Noto Sans JP;fontColor=#757575;align=left;" vertex="1" parent="1">
+          <mxGeometry x="95" y="350" width="200" height="20" as="geometry" />
         </mxCell>
 
         <!-- Arrow to AI Gateway -->
