@@ -88,11 +88,11 @@
           <mxGeometry x="770" y="210" width="160" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Token無効化Job -->
+        <!-- Rate Limit Job -->
         <mxCell id="job-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#F44336;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="770" y="340" width="160" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="job" value="Token無効化&lt;br&gt;Job&lt;br&gt;(自動停止)" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#C62828;align=center;verticalAlign=middle;" vertex="1" parent="1">
+        <mxCell id="job" value="Rate Limit&lt;br&gt;Job&lt;br&gt;(自動遮断)" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#C62828;align=center;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="770" y="350" width="160" height="80" as="geometry" />
         </mxCell>
 
@@ -109,7 +109,7 @@
         <mxCell id="label-trigger" value="トリガー" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#F44336;align=center;" vertex="1" parent="1">
           <mxGeometry x="860" y="300" width="70" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="label-revoke" value="Token無効化" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#F44336;align=center;" vertex="1" parent="1">
+        <mxCell id="label-revoke" value="Rate Limit設定" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#F44336;align=center;" vertex="1" parent="1">
           <mxGeometry x="480" y="360" width="100" height="25" as="geometry" />
         </mxCell>
 
