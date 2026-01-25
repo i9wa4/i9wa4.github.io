@@ -36,7 +36,7 @@
         <mxCell id="good2-icon" value="&#x1F4BC;" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="90" y="215" width="50" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="good2-text" value="非エンジニア（データアナリスト等）" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=left;verticalAlign=middle;" vertex="1" parent="1">
+        <mxCell id="good2-text" value="技術部門以外（データアナリスト等）" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=left;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="145" y="220" width="300" height="40" as="geometry" />
         </mxCell>
 
