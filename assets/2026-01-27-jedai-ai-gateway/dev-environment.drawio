@@ -16,7 +16,7 @@
                 <mxCell id="env-title" value="環境変数（devcontainer.json）" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=left;" parent="1" vertex="1">
                     <mxGeometry x="95" y="155" width="290" height="25" as="geometry"/>
                 </mxCell>
-                <mxCell id="env-code" value="GOOSE_PROVIDER=databricks&lt;br&gt;# databricks auth loginで認証" style="text;html=1;fontSize=13;fontFamily=monospace;fontColor=#0D47A1;align=left;fillColor=#ECEFF1;rounded=1;spacing=6;" parent="1" vertex="1">
+                <mxCell id="env-code" value="DATABRIKCS_HOST=your-host&lt;br&gt;GOOSE_PROVIDER=databricks&lt;div&gt;&lt;span style=&quot;color: rgb(13, 71, 161);&quot;&gt;GOOSE_MODEL=your-model&lt;/span&gt;&lt;/div&gt;" style="text;html=1;fontSize=13;fontFamily=monospace;fontColor=#0D47A1;align=left;fillColor=#ECEFF1;rounded=1;spacing=6;" parent="1" vertex="1">
                     <mxGeometry x="95" y="180" width="290" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="agents-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;" parent="1" vertex="1">
@@ -82,7 +82,7 @@
                 <mxCell id="point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="60" y="420" width="900" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="point-text" value="U2M OAuth認証でToken管理不要。環境変数1つとdatabricks auth loginだけで完成" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                <mxCell id="point-text" value="OAuth U2M認証でToken管理不要。環境変数とdatabricks auth loginだけで完成" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="60" y="430" width="900" height="30" as="geometry"/>
                 </mxCell>
             </root>
