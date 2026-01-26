@@ -20,8 +20,8 @@
         <mxCell id="step1-title" value="環境変数設定" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;" vertex="1" parent="1">
           <mxGeometry x="60" y="125" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="step1-desc" value="DATABRICKS_HOST&lt;br&gt;GOOSE_PROVIDER" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
-          <mxGeometry x="60" y="155" width="200" height="50" as="geometry" />
+        <mxCell id="step1-desc" value="GOOSE_PROVIDER&lt;br&gt;GOOSE_MODEL&lt;br&gt;DATABRICKS_HOST" style="text;html=1;fontSize=12;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
+          <mxGeometry x="60" y="155" width="200" height="60" as="geometry" />
         </mxCell>
 
         <!-- Arrow 1-2 -->
@@ -70,21 +70,21 @@
 
         <!-- Detail box -->
         <mxCell id="detail-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="60" y="260" width="720" height="100" as="geometry" />
+          <mxGeometry x="60" y="260" width="720" height="110" as="geometry" />
         </mxCell>
         <mxCell id="detail-title" value="必要な設定" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#455A64;" vertex="1" parent="1">
           <mxGeometry x="80" y="275" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="detail-code" value="export DATABRICKS_HOST=https://xxx.databricks.com&lt;br&gt;export GOOSE_PROVIDER=databricks&lt;br&gt;databricks auth login" style="text;html=1;fontSize=14;fontFamily=monospace;fontColor=#37474F;align=left;fillColor=#FFFFFF;rounded=1;spacing=8;" vertex="1" parent="1">
-          <mxGeometry x="80" y="305" width="680" height="45" as="geometry" />
+        <mxCell id="detail-code" value="export GOOSE_PROVIDER=databricks&lt;br&gt;export GOOSE_MODEL=databricks-claude-sonnet-4&lt;br&gt;export DATABRICKS_HOST=https://xxx.databricks.com&lt;br&gt;databricks auth login" style="text;html=1;fontSize=14;fontFamily=monospace;fontColor=#37474F;align=left;fillColor=#FFFFFF;rounded=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="305" width="680" height="55" as="geometry" />
         </mxCell>
 
         <!-- Point box -->
         <mxCell id="point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="60" y="380" width="720" height="50" as="geometry" />
+          <mxGeometry x="60" y="400" width="720" height="50" as="geometry" />
         </mxCell>
         <mxCell id="point-text" value="Token管理不要。OAuth認証でセキュアかつシンプル" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="60" y="390" width="720" height="30" as="geometry" />
+          <mxGeometry x="60" y="410" width="720" height="30" as="geometry" />
         </mxCell>
 
       </root>
