@@ -54,7 +54,7 @@
         <mxCell id="optionC-title" value="案C" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;" vertex="1" parent="1">
           <mxGeometry x="660" y="95" width="280" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="optionC-name" value="AI Gateway&lt;br&gt;+ SQL Alert + Job" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#0D47A1;align=center;" vertex="1" parent="1">
+        <mxCell id="optionC-name" value="AI Gateway&lt;br&gt;+ 監視Job" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#0D47A1;align=center;" vertex="1" parent="1">
           <mxGeometry x="660" y="135" width="280" height="50" as="geometry" />
         </mxCell>
         <mxCell id="optionC-timing" value="例: 15分遅延" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">

@@ -172,7 +172,7 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
   - コーディングエージェント: Goose、Aider、Claude Code等
   - Mosaic AI Gateway: 統一エンドポイント（認証、ルーティング、使用量記録）
   - LLMs: Claude、GPT-4、Llama、Gemini等
-  - 監視・遮断: SQL Alert、Databricks Job、Rate Limit API
+  - 監視・遮断: 監視Job、Rate Limit API
 -->
 ![全体アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/overall-architecture.drawio.png)
 

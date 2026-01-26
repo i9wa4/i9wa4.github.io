@@ -84,7 +84,7 @@
         <mxCell id="alert-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="770" y="200" width="160" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="alert" value="SQL Alert&lt;br&gt;(予算超過検知)" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#E65100;align=center;verticalAlign=middle;" vertex="1" parent="1">
+        <mxCell id="alert" value="監視Job&lt;br&gt;(予算超過検知)" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#E65100;align=center;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="770" y="210" width="160" height="60" as="geometry" />
         </mxCell>
 
