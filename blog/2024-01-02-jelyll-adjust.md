@@ -1,0 +1,56 @@
+# GitHub Pages (Jekyll) blog のタグ追加対応
+uma-chan
+2024-01-02
+
+\[2024-07-15 追記\] ブログは Jekyll から Quarto
+に切り替えたため下記内容はブログに反映されなくなっています。
+
+ブログを作ったので少しだけ機能と見た目を手入れしてみました。
+
+## 1. 調整前
+
+- 現在 Jekyll (GitHub Pages) の Minima ([jekyll/minima: Minima is a
+  one-size-fits-all Jekyll theme for
+  writers.](https://github.com/jekyll/minima)) が適用されている状態
+  - HTML ファイルが必要になったらここから持ってくる！
+
+## 2. やりたいこと
+
+- タグ対応
+  - タグ毎の一覧ページの追加
+  - トップページに各タグの一覧ページへのリンク追加
+  - 各記事にて付与したタグの一覧ページリンクの追加
+- リポジトリルートの Markdown
+  ファイルへのリンクがヘッダに追加されてしまうためヘッダの記述の簡素化
+
+## 3. タグ対応
+
+- syudead さんの記事とリポジトリを参考に実装しました。私は HTML ではなく
+  Markdown 中心の構成としたかったのであくまで参考という感じです。
+  - [Jekyllのブログでタグ機能を実装する](https://rainyflow.net/2016/03/13/jekyll-tags.html)
+    - 各記事へのタグ付け方法
+    - 一覧ページの html 記述
+  - [syudead/syudead.github.io](https://github.com/syudead/syudead.github.io)
+    - ページ一覧の作成方法
+      - `./_inclides/tag.html` を `./blog.html` などの一覧ページ内にて
+        include する
+    - 各記述でのタグ一覧ページリンク表示
+      - `./_layouts/post.html` 参照
+- トップページに各タグの一覧ページへのリンクを追加する対応については
+  `./index.md` に地道にリンクを追加する方法を取ることとしました。
+
+## 4. ヘッダ簡素化
+
+- Minima の HTML ファイル ([minima/\_includes/header.html at master ·
+  jekyll/minima](https://github.com/jekyll/minima/blob/master/_includes/header.html))
+  をリポジトリに追加して対象箇所を削除すれば OK。
+  - (2024/01/28 追記)
+    スマホ版のハンバーガーメニューが寂しかったのでヘッダ簡素化は取りやめました。
+
+## 5. 感想
+
+- 必要最低限の機能は実装できたので割と満足です。
+- 見た目をちゃんと調整しようとすると HTML や CSS
+  の調整が必要になってきますが、あんまりやりたくないので当面このままでいきます。
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-01-02-jelyll-adjust.html&text=GitHub%20Pages%20%28Jekyll%29%20blog%20%E3%81%AE%E3%82%BF%E3%82%B0%E8%BF%BD%E5%8A%A0%E5%AF%BE%E5%BF%9C%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=GitHub%20Pages%20%28Jekyll%29%20blog%20%E3%81%AE%E3%82%BF%E3%82%B0%E8%BF%BD%E5%8A%A0%E5%AF%BE%E5%BF%9C%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-01-02-jelyll-adjust.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-01-02-jelyll-adjust.html&title=GitHub%20Pages%20%28Jekyll%29%20blog%20%E3%81%AE%E3%82%BF%E3%82%B0%E8%BF%BD%E5%8A%A0%E5%AF%BE%E5%BF%9C%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>

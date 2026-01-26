@@ -1,0 +1,81 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+
+        <!-- Card 1: Deploy Time -->
+        <mxCell id="card1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="480" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="card1-icon" value="⚡" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=100" vertex="1" parent="1">
+          <mxGeometry x="340" y="280" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="card1-title" value="デプロイ時間" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="420" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card1-before" value="Before: 10分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontColor=#c62828;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="520" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card1-arrow" value="↓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="390" y="600" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card1-after" value="After: 数秒" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontColor=#2e7d32;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="680" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card1-improvement" value="約100倍改善!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="240" y="780" width="400" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Card 2: Log Check -->
+        <mxCell id="card2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="720" y="240" width="480" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2-icon" value="📋" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=100" vertex="1" parent="1">
+          <mxGeometry x="860" y="280" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2-title" value="ログ確認" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="760" y="420" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2-before" value="Before: 3分" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontColor=#c62828;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="760" y="520" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2-arrow" value="↓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="910" y="600" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2-after" value="After: 即座" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=27;fontColor=#2e7d32;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="760" y="680" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card2-improvement" value="リアルタイム!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="760" y="780" width="400" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Card 3: Learning Cost -->
+        <mxCell id="card3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=3" vertex="1" parent="1">
+          <mxGeometry x="1240" y="240" width="480" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3-icon" value="📚" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=100" vertex="1" parent="1">
+          <mxGeometry x="1380" y="280" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3-title" value="学習コスト" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=33;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="420" width="400" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3-before" value="Before: 8技術&lt;br&gt;(Docker/ECS/CloudWatch/IAM/CI/&lt;br&gt;Python/SQL/機械学習)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontColor=#c62828;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="490" width="400" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3-arrow" value="↓" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1430" y="600" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3-after" value="After: 3技術&lt;br&gt;(Python/SQL/機械学習)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#2e7d32;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1280" y="680" width="400" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="card3-improvement" value="5技術削減!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1bee7;strokeColor=#4a148c;fontSize=30;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1280" y="780" width="400" height="80" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
