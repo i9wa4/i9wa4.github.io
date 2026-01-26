@@ -146,22 +146,6 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
 
 ## 採用した構成
 
-### Databricks内で完結
-
-<!--
-図: databricks-infrastructure.drawio.png
-説明: Databricks内で完結する予算管理・遮断の構成図
-要素:
-  - Mosaic AI Gateway: 統一エンドポイント、Pay-per-token
-  - endpoint_usage: system.servingの使用量テーブル（自動記録）
-  - 監視Job: 指定間隔で予算超過を検知
-  - Databricks Job: Rate Limit設定、自動遮断処理
-  - Service Principal: インフラ管理、Rate Limit制御
-  - 予算テーブル: ユーザー別上限設定（Delta Table）
-  - ポイント: 外部DB、外部Proxy、外部認証サービス一切不要
--->
-![基盤構成](/assets/2026-01-27-jedai-ai-gateway/databricks-infrastructure.drawio.png)
-
 ### 全体アーキテクチャ
 
 <!--
@@ -176,17 +160,10 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
 -->
 ![全体アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/overall-architecture.drawio.png)
 
-### 設計の考え方
+### 検討事項
 
-Databricks完結を最優先に選定
-
-![設計の考え方](/assets/2026-01-27-jedai-ai-gateway/three-options-comparison.drawio.png)
-
-### なぜ案Cを選んだか
-
-- 対象: 同時数名程度、ライトユーザー向け
-- 実装工数最低: SQLとJobだけ
-- 必要になったら案A/Bに移行できる設計
+- LiteLLM + 外部DB構成も検討したがDatabricks完結を優先
+- リアルタイム遮断より実装工数最小化を選択
 
 ## 運用の割り切り
 
