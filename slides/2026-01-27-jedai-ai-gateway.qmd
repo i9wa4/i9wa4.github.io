@@ -35,30 +35,56 @@ format:
 subtitle: ""
 ---
 
-## 自己紹介
+## 1. はじめに
 
-uma-chan
+### 1.1. 自己紹介
 
-株式会社GENDA IT戦略部 データチーム
+馬渡 大樹 (Mawatari Daiki) / uma-chan
+
+株式会社GENDA
+
+IT戦略部 データチーム
 
 データエンジニア / MLOpsエンジニア
 
-### 今日話すこと
+Databricksを使った開発環境を改善するのが好き
 
-Mosaic AI Gatewayを活用してAIコーディングエージェントを組織内に展開した話
+### 1.2. 今日話すこと
+
+Mosaic AI Gatewayを活用してAIコーディングエージェントを組織内に展開しやすくした構成を紹介
 
 - データ基盤の費用に集約しながらAIコーディングエージェントを配る
-- 認証設定だけで渡せる仕組み
-- ヘビーユーザー以外には有効なアプローチ
+- Databricksの認証設定だけでAIコーディングエージェントを渡す仕組み
 
-## こういう場面ありませんか?
+## 2. AIコーディングエージェントの普及にまつわる課題
 
-### AIコーディングエージェントを配りたいけど
+### 2.1. AIコーディングエージェントを配りたいけど
 
-- 一時的に作業してくれる方にAIコーディング環境を用意したい
-- 技術に詳しくない部門のメンバーもAIコーディングエージェントを活用したい
+- 一時的に作業してくれる方にAIコーディング環境を用意したいがすぐに提供できない場合がある
+- 技術部門以外のメンバーに使ってもらいたい場合があるが、技術部門と同等の環境を直ちに用意するのが難しい場合がある
+    - 予算面・セキュリティ考慮・習熟度の差異などによるもの
+- 従量課金での利用の場合は比較的ハードルが低いものの利用量の監視問題が発生する
 
-### 対象ユーザー
+このあたりの課題感を今回解決してみたい
+
+## 3. 基礎事項の確認
+
+### 3.1. Mosaic AI Gatewayとは
+
+Mosaic AI Gateway は、組織内の生成AI モデルとエージェントの使用と管理を効率化するように設計されています。 これは、ガバナンス、モニタリング、および本番運用の準備をモデルサービングエンドポイントにもたらす一元化されたサービスです。 また、AI トラフィックを実行、保護、管理して、組織の AI 導入を民主化し、加速することもできます。
+
+すべてのデータは 、Unity Catalog の Delta テーブルに記録されます。
+
+<https://docs.databricks.com/aws/ja/ai-gateway/>
+
+要点
+
+- 従量課金のLLM API Endpointが提供されている
+- systemテーブルでコストのモニタリングができる
+
+以降ではLLM API Endpointやsystemテーブルを個別で指すようにします
+
+### 3.2. 対象ユーザーについて（構成上の制約）
 
 <!--
 図: target-users.drawio.png
@@ -70,181 +96,89 @@ Mosaic AI Gatewayを活用してAIコーディングエージェントを組織�
 -->
 ![対象ユーザー](/assets/2026-01-27-jedai-ai-gateway/target-users.drawio.png)
 
-### その他の課題
+## 4. Databricks完結のアーキテクチャ紹介
 
-契約調整の手間
-
-- 新規サービスを使うには契約調整が必要
-- OpenAI、Anthropicなど個別に契約すると管理が煩雑
-- 「来週から使いたい」に間に合わないことも
-
-人の増減への対応
-
-- 一時メンバーが入るたびに契約調整
-- 終了時のアカウント停止も手間
-
-野放しは怖い
-
-- 従量課金で上限なし → 月末に請求書で心臓止まる
-- かといって自前でProxy構築は工数がかかる
-
-## Before/After
-
-### 比較
-
-<!--
-図: before-after.drawio.png
-説明: AI Gateway導入前後の運用負荷を比較した図
-要素:
-  - Before: 導入まで（新規契約の稟議待ち）、人の増減（都度契約調整）、請求管理（外部サービスごとに分散）、利用料管理（制限なし or 自前で構築）
-  - After: 導入まで（認証設定ですぐ）、人の増減（認証設定とRate Limitだけ）、請求管理（Databricksに一本化）、利用料管理（監視JobとRate Limit API）
--->
-![Before/After](/assets/2026-01-27-jedai-ai-gateway/before-after.drawio.png)
-
-## Databricks完結という選択
-
-### 外部サービス不要
-
-- Databricksだけで完結できる
-- 外部DB、外部Proxy、外部認証サービス不要
-- 既存のDatabricks環境にそのまま乗せられる
-
-### AI Gatewayの機能
-
-Mosaic AI Gatewayが提供するもの
-
-- 複数LLMへの統一エンドポイント (Claude, GPT, Llama等)
-- Pay-per-token の従量課金
-- system.serving.endpoint_usage による使用量追跡
-
-### 認証設定ですぐ渡せる
-
-- databricks auth loginでOAuth認証
-- 環境変数とコマンド1つだけ
-- 5分でAIコーディング環境が渡せる
-
-<!--
-図: auth-flow.drawio.png
-説明: U2M OAuth認証によるAI Gateway接続フロー
-要素:
-  - Step 1: databricks auth loginでブラウザ認証
-  - Step 2: 自動的にトークンが取得・更新される
-  - Step 3: コーディングエージェントがAI Gatewayに接続
-  - ポイント: Token管理不要、環境変数とコマンド1つで完結
--->
-<!--
-TODO: DATABRICKS_HOSTが必要かどうか要検証
-- Gooseが~/.databrickscfgからhostを読めるなら不要
-- 環境変数が必須なら現状のままでOK
--->
-![認証フロー](/assets/2026-01-27-jedai-ai-gateway/auth-flow.drawio.png)
-
-### 請求集約
-
-- データ基盤の請求に集約
-- 経費管理がシンプルに
-
-## 採用した構成
-
-### 全体アーキテクチャ
+### 4.1. Databricks側アーキテクチャの概要
 
 <!--
 図: overall-architecture.drawio.png
 説明: システム全体の構成を示すアーキテクチャ図
 要素:
   - ユーザー: コーディングエージェント利用者
-  - コーディングエージェント: Goose等
-  - Mosaic AI Gateway: 統一エンドポイント（認証、ルーティング、使用量記録）
-  - LLMs: Claude、GPT-4、Llama、Gemini等
-  - 監視・遮断: 監視Job、Rate Limit API
+  - LLM API Endpoint: 統一エンドポイント
+  - LLM: Claude、GPT等
+  - endpoint_usage: 使用量テーブル
+  - 監視Job: 予算超過検知
+  - Rate Limit Job: 自動遮断
 -->
-![全体アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/overall-architecture.drawio.png)
+![Databricks側アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/overall-architecture.drawio.png)
 
-### 検討事項
+### 4.2. Databricks側アーキテクチャの特徴
 
-- LiteLLM + 外部DB構成も検討したがDatabricks完結を優先
-- リアルタイム遮断より実装工数最小化を選択
+ローカル環境以外がDatabricksで完結しているのが最大の特徴
 
-## 運用の割り切り
+- ローカルでの認証はOAuth U2M認証（ユーザーマシン間認証）だけで済むので難しくない
+    - Personal Access Tokenによる認証の辛い面をOAuth U2Mが解決してくれる
+- 監視ジョブはDatabricks Jobなので慣れた方法で設定・管理できる
+    - 使用量に関するデータendpoint_usageテーブルを監視して柔軟にPythonでRate Limit APIによる遮断処理を記述できる
+    - Databricks Jobとしてジョブが存在するので基盤管理者が見失いにくい
+- 複数のLLM API Endpointが提供されていて簡単に利用切り替えができる
+    - コストや性能に応じて手元で調整しやすい
+- コストを対象ワークスペースに集約できる
 
-### 予算上限の設計
-
-- ユーザーごとに月額上限を自由に設定できる
-- 上限に達したらRate Limitでアクセス遮断
-- 「野放しにしない」安心感
-
-### 遅延の許容
-
-- リアルタイム遮断は本当に必要か?
-- 例えば15分間隔なら、ライトユーザーが予算を使い切ることはない
-- 過剰設計をやめたら構成がシンプルになった
-
-#### KPI実績
-
-- 予算超過検知遅延: 設定間隔以内（例: 15分）
-- アクセス遮断成功率: 100%
-
-### Dev Container統合
-
-- 環境変数でEndpoint URL設定
-- Dev Containerに1行追加するだけ
-- 構成がシンプルなので組み込みやすい
+### 4.3. ローカル側アーキテクチャの概要
 
 <!--
 図: dev-environment.drawio.png
 説明: Dev ContainerとAI Gatewayの統合構成図
 要素:
-  - Dev Container: 環境変数（GOOSE_PROVIDER）と~/.databrickscfg設定
+  - Dev Container: 環境変数（GOOSE_PROVIDER等）と~/.databrickscfg設定
   - コーディングエージェント: Goose（推奨）
   - Mosaic AI Gateway: 認証、ルーティング、使用量記録
-  - LLMs: Claude、GPT-4、Llama、Gemini
-  - ポイント: U2M OAuth認証でToken管理不要、環境変数1つとdatabricks auth loginだけで完成
+  - LLMs: Claude、GPT、Llama、Gemini
+  - ポイント: U2M OAuth認証でToken管理不要、環境変数とdatabricks auth loginだけで完成
 -->
-![開発環境統合](/assets/2026-01-27-jedai-ai-gateway/dev-environment.drawio.png)
+![ローカル側アーキテクチャ](/assets/2026-01-27-jedai-ai-gateway/dev-environment.drawio.png)
 
-## コーディングエージェントとの相性
+### 4.4. Gooseとは
 
-### エージェント接続図
+Block社が開発するAIコーディングエージェント
 
-<!--
-図: agent-connection.drawio.png
-説明: 各コーディングエージェントとAI Gatewayの接続方法を示す図
-要素:
-  - Goose: Databricks Providerをネイティブサポート、推奨
-  - jupyter-databricks-kernel: JupyterからDatabricksクラスタに接続
-  - Mosaic AI Gateway: 全エージェントの統一接続先
--->
-![エージェント接続](/assets/2026-01-27-jedai-ai-gateway/agent-connection.drawio.png)
+複数のLLM APIに対応していてDatabricksをネイティブサポートしている（OAuth U2M認証OK）
 
-### Goose
+<https://block.github.io/goose/docs/getting-started/providers/>
 
-- Block社製のOSSコーディングエージェント
-- Databricks Providerをネイティブサポート
-- AI Gatewayとの接続がスムーズ
+Gooseでできること
 
-### jupyter-databricks-kernel
+- コマンド実行（つまりjupyter-databricks-kernelでノートブック実行ができる）
+- ノートブック読み取り・編集
 
-- JupyterからDatabricksクラスタに接続
-- ローカルのNotebook環境からDatabricksのLLMを利用可能
-- 開発体験を損なわずにDatabricks完結
+ノートブックの編集や実行を任せられるので利用体験はなかなか悪くない
 
-### その他のエージェント
+### 4.5. jupyter-databricks-kernelとは
 
-- Aider等のOpenAI互換エージェントにも対応可能（注: AiderはPAT必須）
-- AI Gatewayが複数モデルを統一エンドポイントで提供
+- <https://github.com/i9wa4/jupyter-databricks-kernel>
+    - 拙作。完全リモート実行を可能にするJupyter向けカーネル
+- [Databricks Notebook 開発環境を AI-Ready にする](https://zenn.dev/i9wa4/articles/20250526-databricks-notebook-ai-ready)（紹介記事）
+    - 今回メリットが活かせてGooseとうまく接続できた
 
-## まとめ
+### 4.6. ローカル側アーキテクチャの特徴
 
-### 今日のポイント
+- Gooseが意外と有用
+    - 個人的に普段からClaude CodeやCodex CLIを使い倒しているのでその目線では物足りない部分は正直ありますがノートブックにまつわる操作を一任できるので優秀
+- OAuth U2M認証で簡単に認証できることやjupyter-databricks-kernelでノートブック実行はローカル完結できることから提供する開発環境をDev Container化しやすい
+    - Dev ContainerをセットアップするタイミングでOAuth U2M認証させるスクリプトを書いておけばほぼ自動で開発環境構築が終わってしまう
+- AIコーディングエージェント付きのDatabricksへのクエリ実行環境として配ることもできる
+    - MCPサーバー利用もしくはAgent Skills利用で対話的にクエリを作成しやすくなる
 
-1. 認証設定だけでAIコーディング環境が渡せる
-2. Databricks完結、外部サービス不要
-3. ヘビーユーザー以外には短い間隔の遅延で十分
+## 5. まとめ
 
-### 行動喚起
+### 5.1. Mosaic AI Gatewayを活用してAIコーディングエージェントを配ろう
 
-Databricksを使っているなら、すぐ始められます
+- ローカルでノートブックを書きたい人やクエリを対話的に実行してみたい方を念頭に置いて一連の構成を紹介した
+- 組織の課題解決にうまくハマると思った場合
+    - Dev Container化を真面目に頑張って利用手順書を整備することで理論上は誰でも使える環境として提供できる（実際はDev Containerもちょっと難しさはありますが）
 
-- まずAI Gatewayでエンドポイントを作成
-- 認証設定して渡すだけ
-- 案Cで始めて、必要になったら案A/Bに移行
+### 5.2. Thank you
+
+Thank you!
