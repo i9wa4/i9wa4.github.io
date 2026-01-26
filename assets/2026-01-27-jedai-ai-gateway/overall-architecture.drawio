@@ -115,10 +115,10 @@
 
         <!-- Databricks Frame -->
         <mxCell id="db-frame" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#607D8B;strokeWidth=2;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="180" width="890" height="280" as="geometry" />
+          <mxGeometry x="60" y="160" width="890" height="310" as="geometry" />
         </mxCell>
         <mxCell id="db-label" value="Databricks" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#607D8B;" vertex="1" parent="1">
-          <mxGeometry x="70" y="185" width="100" height="25" as="geometry" />
+          <mxGeometry x="70" y="165" width="100" height="25" as="geometry" />
         </mxCell>
 
       </root>

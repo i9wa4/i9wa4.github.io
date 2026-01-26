@@ -52,7 +52,7 @@
             <mxPoint x="520" y="240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="arr-label" value="OpenAI互換API" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
+        <mxCell id="arr-label" value="LLM API" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" vertex="1" parent="1">
           <mxGeometry x="420" y="200" width="110" height="25" as="geometry" />
         </mxCell>
 
