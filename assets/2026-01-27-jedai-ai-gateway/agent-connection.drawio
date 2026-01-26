@@ -1,116 +1,91 @@
-<mxfile host="app.diagrams.net" agent="Claude" version="24.7.17">
-  <diagram name="Page-1" id="agent-connection">
-    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-
-        <!-- Title -->
-        <mxCell id="title" value="エージェントとLLMの接続" style="text;html=1;fontSize=24;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#333333;align=center;" vertex="1" parent="1">
-          <mxGeometry x="300" y="20" width="400" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Arrows from Agents to Gateway -->
-        <mxCell id="arr-goose-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2196F3;endArrow=classic;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="220" y="130" as="sourcePoint" />
-            <mxPoint x="380" y="200" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="300" y="130" />
-              <mxPoint x="300" y="200" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Arrows from Gateway to LLMs -->
-        <mxCell id="arr-gw-claude" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="620" y="200" as="sourcePoint" />
-            <mxPoint x="780" y="130" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="700" y="200" />
-              <mxPoint x="700" y="130" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="arr-gw-gpt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="620" y="210" as="sourcePoint" />
-            <mxPoint x="780" y="210" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="arr-gw-llama" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="620" y="220" as="sourcePoint" />
-            <mxPoint x="780" y="290" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="700" y="220" />
-              <mxPoint x="700" y="290" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Agents (Left) -->
-        <mxCell id="agent-goose-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="60" y="100" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="agent-goose" value="Goose" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="60" y="110" width="160" height="40" as="geometry" />
-        </mxCell>
-
-
-        <!-- Label for Agents -->
-        <mxCell id="label-agents" value="コーディングエージェント" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#757575;align=center;" vertex="1" parent="1">
-          <mxGeometry x="60" y="70" width="160" height="25" as="geometry" />
-        </mxCell>
-
-        <!-- AI Gateway (Center) -->
-        <mxCell id="gw-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=4;" vertex="1" parent="1">
-          <mxGeometry x="380" y="120" width="240" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="gw-title" value="Mosaic AI&lt;br&gt;Gateway" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#E65100;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="380" y="150" width="240" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="gw-desc" value="統一エンドポイント&lt;br&gt;認証・ルーティング" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#E65100;align=center;" vertex="1" parent="1">
-          <mxGeometry x="380" y="220" width="240" height="50" as="geometry" />
-        </mxCell>
-
-        <!-- LLMs (Right) -->
-        <mxCell id="llm-claude-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#E91E63;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="780" y="100" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="llm-claude" value="Claude" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#C2185B;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="780" y="110" width="160" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="llm-gpt-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#3F51B5;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="780" y="180" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="llm-gpt" value="GPT-4" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#283593;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="780" y="190" width="160" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="llm-llama-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="780" y="260" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="llm-llama" value="Llama" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#455A64;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="780" y="270" width="160" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Label for LLMs -->
-        <mxCell id="label-llms" value="LLMs" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#757575;align=center;" vertex="1" parent="1">
-          <mxGeometry x="780" y="70" width="160" height="25" as="geometry" />
-        </mxCell>
-
-        <!-- Point box -->
-        <mxCell id="point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="60" y="350" width="880" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="point-text" value="どのエージェントからも統一エンドポイントでアクセス可能" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="60" y="360" width="880" height="30" as="geometry" />
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="agent-connection">
+        <mxGraphModel dx="989" dy="755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="arr-goose-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2196F3;endArrow=classic;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="130" as="sourcePoint"/>
+                        <mxPoint x="380" y="200" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="300" y="130"/>
+                            <mxPoint x="300" y="200"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr-gw-claude" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="620" y="200" as="sourcePoint"/>
+                        <mxPoint x="780" y="130" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="700" y="200"/>
+                            <mxPoint x="700" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr-gw-gpt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="620" y="210" as="sourcePoint"/>
+                        <mxPoint x="780" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr-gw-llama" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="620" y="220" as="sourcePoint"/>
+                        <mxPoint x="780" y="290" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="700" y="220"/>
+                            <mxPoint x="700" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="agent-goose-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="100" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-goose" value="Goose" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="110" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="label-agents" value="コーディングエージェント" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#757575;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="70" width="160" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=4;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="120" width="240" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-title" value="Mosaic AI&lt;br&gt;Gateway" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#E65100;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="150" width="240" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-desc" value="統一エンドポイント&lt;br&gt;認証・ルーティング" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#E65100;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="220" width="240" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-claude-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#E91E63;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="100" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-claude" value="Claude" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#C2185B;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="110" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-gpt-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#3F51B5;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="180" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-gpt" value="GPT-4" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#283593;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="190" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-llama-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#607D8B;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="260" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-llama" value="Llama" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#455A64;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="270" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="label-llms" value="LLMs" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#757575;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="70" width="160" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="350" width="880" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="point-text" value="どのエージェントからも統一エンドポイントでアクセス可能" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="360" width="880" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>

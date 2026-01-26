@@ -4,9 +4,6 @@
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="title" value="Mosaic AI Gateway 予算管理構成" style="text;html=1;fontSize=24;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#333333;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="250" y="20" width="500" height="40" as="geometry"/>
-                </mxCell>
                 <mxCell id="arr-user-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#2196F3;endArrow=classic;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="200" y="140" as="sourcePoint"/>
@@ -94,7 +91,7 @@
                 <mxCell id="label-revoke" value="Rate Limit設定" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#F44336;align=center;" parent="1" vertex="1">
                     <mxGeometry x="480" y="360" width="100" height="25" as="geometry"/>
                 </mxCell>
-                <mxCell id="db-frame" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#607D8B;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+                <mxCell id="db-frame" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#607D8B;strokeWidth=2;dashed=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
                     <mxGeometry x="60" y="160" width="890" height="310" as="geometry"/>
                 </mxCell>
                 <mxCell id="db-label" value="Databricks" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#607D8B;" parent="1" vertex="1">
