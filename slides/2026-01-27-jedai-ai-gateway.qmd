@@ -153,7 +153,7 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
 説明: システム全体の構成を示すアーキテクチャ図
 要素:
   - ユーザー: コーディングエージェント利用者
-  - コーディングエージェント: Goose、Aider、Claude Code等
+  - コーディングエージェント: Goose等
   - Mosaic AI Gateway: 統一エンドポイント（認証、ルーティング、使用量記録）
   - LLMs: Claude、GPT-4、Llama、Gemini等
   - 監視・遮断: 監視Job、Rate Limit API
@@ -195,8 +195,7 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
 説明: Dev ContainerとAI Gatewayの統合構成図
 要素:
   - Dev Container: 環境変数（GOOSE_PROVIDER）と~/.databrickscfg設定
-  - コーディングエージェント: Goose（推奨）、Aider
-  - 注釈: Aider: PAT必須
+  - コーディングエージェント: Goose（推奨）
   - Mosaic AI Gateway: 認証、ルーティング、使用量記録
   - LLMs: Claude、GPT-4、Llama、Gemini
   - ポイント: U2M OAuth認証でToken管理不要、環境変数1つとdatabricks auth loginだけで完成
@@ -212,8 +211,6 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
 説明: 各コーディングエージェントとAI Gatewayの接続方法を示す図
 要素:
   - Goose: Databricks Providerをネイティブサポート、推奨
-  - Aider: OpenAI互換API経由で接続
-  - Claude Code: LiteLLM経由で接続
   - jupyter-databricks-kernel: JupyterからDatabricksクラスタに接続
   - Mosaic AI Gateway: 全エージェントの統一接続先
 -->
@@ -233,8 +230,7 @@ TODO: DATABRICKS_HOSTが必要かどうか要検証
 
 ### その他のエージェント
 
-- Aider: OpenAI互換APIに対応
-- Claude Code: Anthropic APIに対応
+- Aider等のOpenAI互換エージェントにも対応可能（注: AiderはPAT必須）
 - AI Gatewayが複数モデルを統一エンドポイントで提供
 
 ## まとめ

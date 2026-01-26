@@ -21,22 +21,6 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="arr-aider-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#4CAF50;endArrow=classic;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="220" y="210" as="sourcePoint" />
-            <mxPoint x="380" y="210" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="arr-claude-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#9C27B0;endArrow=classic;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="220" y="290" as="sourcePoint" />
-            <mxPoint x="380" y="220" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="300" y="290" />
-              <mxPoint x="300" y="220" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
 
         <!-- Arrows from Gateway to LLMs -->
         <mxCell id="arr-gw-claude" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#FF9800;endArrow=classic;" edge="1" parent="1">
@@ -74,19 +58,6 @@
           <mxGeometry x="60" y="110" width="160" height="40" as="geometry" />
         </mxCell>
 
-        <mxCell id="agent-aider-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="60" y="180" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="agent-aider" value="Aider" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#2E7D32;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="60" y="190" width="160" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="agent-claude-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="60" y="260" width="160" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="agent-claude" value="Claude Code" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#7B1FA2;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="60" y="270" width="160" height="40" as="geometry" />
-        </mxCell>
 
         <!-- Label for Agents -->
         <mxCell id="label-agents" value="コーディングエージェント" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#757575;align=center;" vertex="1" parent="1">

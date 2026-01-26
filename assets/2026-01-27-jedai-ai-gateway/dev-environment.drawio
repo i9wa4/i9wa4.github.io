@@ -44,12 +44,6 @@
         <mxCell id="agent1-badge" value="推奨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontSize=10;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry x="150" y="295" width="35" height="16" as="geometry" />
         </mxCell>
-        <mxCell id="agent2" value="Aider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0E0E0;strokeColor=#9E9E9E;fontSize=14;fontFamily=Noto Sans JP;fontColor=#616161;" vertex="1" parent="1">
-          <mxGeometry x="190" y="305" width="85" height="35" as="geometry" />
-        </mxCell>
-        <mxCell id="agent-note" value="※ Aider: PAT必須" style="text;html=1;fontSize=11;fontFamily=Noto Sans JP;fontColor=#757575;align=left;" vertex="1" parent="1">
-          <mxGeometry x="95" y="350" width="120" height="20" as="geometry" />
-        </mxCell>
 
         <!-- Arrow to AI Gateway -->
         <mxCell id="arr-to-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#2196F3;endArrow=classic;endSize=12;" edge="1" parent="1">
