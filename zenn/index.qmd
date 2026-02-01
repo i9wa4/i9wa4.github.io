@@ -26,9 +26,9 @@ listing:
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
 [codexcli (1)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
-[databricks (9)](#category=databricks){.btn .btn-outline-primary .btn-sm}
+[databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
-[devcontainer (2)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
+[devcontainer (3)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
 [devin (2)](#category=devin){.btn .btn-outline-primary .btn-sm}
 [docker (1)](#category=docker){.btn .btn-outline-primary .btn-sm}
 [drawio (2)](#category=drawio){.btn .btn-outline-primary .btn-sm}
@@ -37,8 +37,9 @@ listing:
 [github (4)](#category=github){.btn .btn-outline-primary .btn-sm}
 [githubactions (3)](#category=githubactions){.btn .btn-outline-primary .btn-sm}
 [gitworktree (1)](#category=gitworktree){.btn .btn-outline-primary .btn-sm}
-[jupyter (3)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
-[mcp (2)](#category=mcp){.btn .btn-outline-primary .btn-sm}
+[goose (1)](#category=goose){.btn .btn-outline-primary .btn-sm}
+[jupyter (4)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
+[mcp (3)](#category=mcp){.btn .btn-outline-primary .btn-sm}
 [mise (3)](#category=mise){.btn .btn-outline-primary .btn-sm}
 [neovim (1)](#category=neovim){.btn .btn-outline-primary .btn-sm}
 [notion (1)](#category=notion){.btn .btn-outline-primary .btn-sm}
@@ -55,7 +56,7 @@ listing:
 [uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
 [vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
-[zenn (30)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zenn (31)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 [zinit (1)](#category=zinit){.btn .btn-outline-primary .btn-sm}
 [zsh (3)](#category=zsh){.btn .btn-outline-primary .btn-sm}
 :::

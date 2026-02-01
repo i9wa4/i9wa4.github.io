@@ -1,0 +1,21 @@
+---
+title: "全部 Databricks に集約して誰でもローカルから操作できる環境 ― エージェント・SQL・Notebook"
+author: uma-chan
+date: 2026-01-27 07:30:00 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  Databricks上でAIエージェント(Goose)・Notebook・SQLをDev Containerから統一操作できるOSSテンプレートの機能と使い方を紹介。OAuth U2M認証により非技術者でも簡単に利用開始できる構成を解説
+categories:
+  - "zenn"
+  - "databricks"
+  - "devcontainer"
+  - "goose"
+  - "jupyter"
+  - "mcp"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[全部 Databricks に集約して誰でもローカルから操作できる環境 ― エージェント・SQL・Notebook](https://zenn.dev/genda_jp/articles/2026-01-27-databricks-goose-starter)
