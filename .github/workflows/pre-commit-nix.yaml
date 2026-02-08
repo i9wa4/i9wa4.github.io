@@ -77,4 +77,6 @@ jobs:
           else
             nix develop --command uv run pre-commit run --verbose --all-files
           fi
-          nix develop --command uv run pre-commit run gitleaks-history --all-files --verbose --hook-stage manual
+
+      - name: Run gitleaks history scan
+        run: nix develop --command gitleaks detect --verbose --redact
