@@ -47,14 +47,28 @@
         pkgs,
         ...
       }: {
-        devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.uv
-          ];
-          shellHook = ''
-            uv sync --frozen
-            ${config.pre-commit.installationScript}
-          '';
+        devShells = {
+          # Local development (includes pre-commit hooks)
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.uv
+            ];
+            shellHook = ''
+              uv sync --frozen
+              ${config.pre-commit.installationScript}
+            '';
+          };
+
+          # CI environment (includes gitleaks for history scan)
+          ci = pkgs.mkShell {
+            packages = [
+              pkgs.gitleaks
+              pkgs.uv
+            ];
+            shellHook = ''
+              uv sync --frozen
+            '';
+          };
         };
       };
     };

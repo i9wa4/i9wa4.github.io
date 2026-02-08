@@ -79,4 +79,4 @@ jobs:
           fi
 
       - name: Run gitleaks history scan
-        run: nix develop --command gitleaks detect --verbose --redact
+        run: nix develop .#ci --command gitleaks detect --verbose --redact
