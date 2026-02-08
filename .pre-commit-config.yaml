@@ -110,7 +110,7 @@ repos:
         name: Sync Zenn articles
         entry: bash -c 'uv run python bin/sync-zenn.py && uv run python bin/update-categories.py zenn'
         language: system
-        files: ^zenn/.*\.qmd$
+        files: ^zenn/raw/articles/.*\.md$
         pass_filenames: false
 
       - id: update-categories

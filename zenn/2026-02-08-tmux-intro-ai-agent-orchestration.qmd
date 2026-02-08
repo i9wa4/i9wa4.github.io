@@ -1,0 +1,21 @@
+---
+title: "AI エージェント時代の波に乗るための tmux 入門 — マルチエージェントオーケストレーションの相棒"
+author: uma-chan
+date: 2026-02-08 18:30:00 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  AI コーディングエージェントの並行作業を効率化するための tmux の基本概念・操作方法・マルチエージェントオーケストレーション向け設定を紹介
+categories:
+  - "zenn"
+  - "tmux"
+  - "cli"
+  - "terminal"
+  - "dotfiles"
+  - "aiagent"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[AI エージェント時代の波に乗るための tmux 入門 — マルチエージェントオーケストレーションの相棒](https://zenn.dev/i9wa4/articles/2026-02-08-tmux-intro-ai-agent-orchestration)

@@ -292,7 +292,7 @@ def main() -> int:
     """Main function."""
     script_dir = Path(__file__).parent.resolve()
     project_root = script_dir.parent
-    zenn_repo_path = project_root.parent / "zenn"
+    zenn_repo_path = project_root / "zenn" / "raw"
     output_dir = project_root / "zenn"
     username = "i9wa4"
 
