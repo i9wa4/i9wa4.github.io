@@ -22,15 +22,18 @@ listing:
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
+[aiagent (1)](#category=aiagent){.btn .btn-outline-primary .btn-sm}
 [aws (1)](#category=aws){.btn .btn-outline-primary .btn-sm}
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
+[cli (1)](#category=cli){.btn .btn-outline-primary .btn-sm}
 [codexcli (1)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
 [devcontainer (3)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
 [devin (2)](#category=devin){.btn .btn-outline-primary .btn-sm}
 [docker (1)](#category=docker){.btn .btn-outline-primary .btn-sm}
+[dotfiles (1)](#category=dotfiles){.btn .btn-outline-primary .btn-sm}
 [drawio (2)](#category=drawio){.btn .btn-outline-primary .btn-sm}
 [ghq (1)](#category=ghq){.btn .btn-outline-primary .btn-sm}
 [git (2)](#category=git){.btn .btn-outline-primary .btn-sm}
@@ -52,11 +55,12 @@ listing:
 [ruff (1)](#category=ruff){.btn .btn-outline-primary .btn-sm}
 [shellscript (1)](#category=shellscript){.btn .btn-outline-primary .btn-sm}
 [spark (1)](#category=spark){.btn .btn-outline-primary .btn-sm}
-[tmux (3)](#category=tmux){.btn .btn-outline-primary .btn-sm}
+[terminal (1)](#category=terminal){.btn .btn-outline-primary .btn-sm}
+[tmux (4)](#category=tmux){.btn .btn-outline-primary .btn-sm}
 [uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
 [vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
-[zenn (31)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zenn (32)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 [zinit (1)](#category=zinit){.btn .btn-outline-primary .btn-sm}
 [zsh (3)](#category=zsh){.btn .btn-outline-primary .btn-sm}
 :::
