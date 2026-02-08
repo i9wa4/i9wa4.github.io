@@ -4,7 +4,7 @@ run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.acto
 on:
   workflow_dispatch:
   schedule:
-    - cron: "20 14 * * *"  # 23:20 JST (14:20 UTC)
+    - cron: "20 14 * * *" # 23:20 JST (14:20 UTC)
 
 permissions: {}
 

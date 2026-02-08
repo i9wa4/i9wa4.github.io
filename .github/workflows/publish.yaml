@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      TZ: 'Asia/Tokyo'
+      TZ: "Asia/Tokyo"
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.detect-changes.outputs.matrix) }}
@@ -176,7 +176,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      TZ: 'Asia/Tokyo'
+      TZ: "Asia/Tokyo"
     permissions:
       contents: write
 

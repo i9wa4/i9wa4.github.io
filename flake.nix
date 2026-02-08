@@ -3,37 +3,59 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    # Common pre-commit/treefmt modules from dotfiles
+    dotfiles = {
+      url = "github:i9wa4/dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "dotfiles/nixpkgs";
+    };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "dotfiles/nixpkgs";
+    };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: let
-    systems = ["aarch64-darwin" "x86_64-linux" "aarch64-linux"];
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
-    # nix fmt
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+  outputs = inputs @ {
+    flake-parts,
+    git-hooks,
+    treefmt-nix,
+    ...
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["aarch64-darwin" "x86_64-linux" "aarch64-linux"];
 
-    devShells = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      default = pkgs.mkShell {
-        packages = [
-          pkgs.actionlint
-          pkgs.ghalint
-          pkgs.ghatm
-          pkgs.gitleaks
-          pkgs.pinact
-          pkgs.rumdl
-          # NOTE: pre-commit is managed via `uv run pre-commit` to avoid Swift build dependency
-          pkgs.shellcheck
-          pkgs.shfmt
-          pkgs.stylua
-          pkgs.uv
-          pkgs.zizmor
-        ];
+      imports = [
+        git-hooks.flakeModule
+        treefmt-nix.flakeModule
+        # Common modules from dotfiles
+        inputs.dotfiles.flakeModules.pre-commit-base
+        inputs.dotfiles.flakeModules.treefmt-base
+        # Repository-specific configuration
+        ./nix/pre-commit.nix
+        ./nix/treefmt.nix
+      ];
+
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          packages = [
+            pkgs.uv
+          ];
+          shellHook = ''
+            uv sync --frozen
+            ${config.pre-commit.installationScript}
+          '';
+        };
       };
-    });
-  };
+    };
 }
