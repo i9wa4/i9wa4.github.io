@@ -1,6 +1,13 @@
 project:
   type: website
   output-dir: "_site"
+  render:
+    - "*.qmd"
+    - "blog/"
+    - "resume/"
+    - "slides/"
+    - "zenn/*.qmd"
+    - "!zenn/raw/"
 
 date-format: iso
 
