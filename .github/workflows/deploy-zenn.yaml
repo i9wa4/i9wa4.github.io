@@ -1,0 +1,72 @@
+name: Deploy to Zenn branch
+run-name: ${{ github.event_name }} on ${{ github.ref_name }} by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+    paths:
+      - 'zenn/raw/**'
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Prepare zenn branch content
+        run: |
+          # Create temporary directory for zenn branch content
+          mkdir -p /tmp/zenn-deploy
+
+          # Copy articles, books, and images to root level
+          cp -r zenn/raw/articles /tmp/zenn-deploy/
+          cp -r zenn/raw/books /tmp/zenn-deploy/
+          cp -r zenn/raw/images /tmp/zenn-deploy/
+
+          # Create README for zenn branch
+          cat > /tmp/zenn-deploy/README.md << 'EOF'
+          # Zenn Content
+
+          This branch is automatically deployed from the `main` branch by GitHub Actions.
+
+          Source: `zenn/raw/` in the `main` branch
+
+          ## Preview
+
+          ```bash
+          npx zenn-cli preview
+          ```
+
+          ## Links
+
+          - [Blog Repository](https://github.com/i9wa4/i9wa4.github.io)
+          - [Zenn Profile](https://zenn.dev/i9wa4)
+          EOF
+
+      - name: Deploy to zenn branch
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: zenn
+          publish_dir: /tmp/zenn-deploy
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
