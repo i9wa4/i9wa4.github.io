@@ -6,3 +6,4 @@
 **/*.quarto_ipynb
 
 **/*.bkp
+.pre-commit-config.yaml
