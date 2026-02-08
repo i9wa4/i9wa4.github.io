@@ -116,6 +116,7 @@
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-darwin": "nix-darwin",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -123,11 +124,11 @@
         "vim-overlay": "vim-overlay"
       },
       "locked": {
-        "lastModified": 1770569050,
-        "narHash": "sha256-aMhWmVCg0A9APvr0maV4gssQzUwtH3EH9doLRxBqwyw=",
+        "lastModified": 1770572029,
+        "narHash": "sha256-KuC9rSOUI8se6HLwXfE6vUre3wPTUyYMYHre83oeJRw=",
         "owner": "i9wa4",
         "repo": "dotfiles",
-        "rev": "e15eec2cce46ab747fee85b0c9a19cc57836d36c",
+        "rev": "faba994e37c44e82105510eb4a85e92acaef9ca5",
         "type": "github"
       },
       "original": {
@@ -448,6 +449,27 @@
         "owner": "nix-darwin",
         "ref": "master",
         "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "dotfiles",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770315571,
+        "narHash": "sha256-hy0gcAgAcxrnSWKGuNO+Ob0x6jQ2xkR6hoaR0qJBHYs=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "2684bb8080a6f2ca5f9d494de5ef875bc1c4ecdb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-index-database",
         "type": "github"
       }
     },
