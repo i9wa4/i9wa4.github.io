@@ -81,7 +81,7 @@ The solution is jupyter-databricks-kernel. It enables one-command notebook execu
 
 ## 4. Demo Environment
 
-**[databricks-ai-starter](https://github.com/i9wa4/databricks-ai-starter)** on GitHub Codespaces
+**My Project [https://github.com/i9wa4/databricks-ai-starter](https://github.com/i9wa4/databricks-ai-starter)** on GitHub Codespaces
 
 **Prompt:**
 > Compare trip patterns between weekdays and weekends in the NYC taxi dataset. Create and execute a notebook with compelling visualizations.
@@ -156,6 +156,6 @@ Development runs on Databricks compute, matching production runtime. Notebooks c
 
 ## 10. Get Started
 
-GitHub: [github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
+My Project [https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
 
 Thank you.
