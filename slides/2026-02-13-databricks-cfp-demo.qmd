@@ -66,7 +66,7 @@ To unlock full AI automation with Databricks notebooks, we need a CLI-first appr
 
 ## 3. The Solution
 
-**jupyter-databricks-kernel**
+My Project: [https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
 
 - CLI notebook execution
 - Remote execution on Databricks
@@ -81,10 +81,10 @@ The solution is jupyter-databricks-kernel. It enables one-command notebook execu
 
 ## 4. Demo Environment
 
-**My Project [https://github.com/i9wa4/databricks-ai-starter](https://github.com/i9wa4/databricks-ai-starter)** on GitHub Codespaces
+My Project: [https://github.com/i9wa4/databricks-ai-starter](https://github.com/i9wa4/databricks-ai-starter) on GitHub Codespaces
 
 **Prompt:**
-> Compare trip patterns between weekdays and weekends in the NYC taxi dataset. Create and execute a notebook with compelling visualizations.
+> Describe the schema of samples.nyctaxi.trips, then create and execute a notebook with one histogram of trip distances.
 
 ::: {.notes}
 For this demo, I'm using the databricks-ai-starter repository running on GitHub Codespaces. I'll give Claude Code this prompt: "Compare trip patterns between weekdays and weekends in the NYC taxi dataset. Create and execute a notebook with compelling visualizations." Claude Code will write and execute notebooks autonomously, demonstrating the agentic workflow in action.
@@ -156,6 +156,6 @@ Development runs on Databricks compute, matching production runtime. Notebooks c
 
 ## 10. Get Started
 
-My Project [https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
+My Project: [https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
 
 Thank you.
