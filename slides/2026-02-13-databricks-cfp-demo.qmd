@@ -87,7 +87,7 @@ My Project: [https://github.com/i9wa4/databricks-ai-starter](https://github.com/
 > Describe the schema of samples.nyctaxi.trips, then create and execute a notebook with one histogram of trip distances.
 
 ::: {.notes}
-For this demo, I'm using the databricks-ai-starter repository running on GitHub Codespaces. I'll give Claude Code this prompt: "Compare trip patterns between weekdays and weekends in the NYC taxi dataset. Create and execute a notebook with compelling visualizations." Claude Code will write and execute notebooks autonomously, demonstrating the agentic workflow in action.
+For this demo, I'm using the databricks-ai-starter repository running on GitHub Codespaces. I'll give Claude Code this prompt: "Describe the schema of samples.nyctaxi.trips, then create and execute a notebook with one histogram of trip distances." Claude Code will write and execute notebooks autonomously, demonstrating the agentic workflow in action.
 :::
 
 ---
@@ -96,12 +96,10 @@ For this demo, I'm using the databricks-ai-starter repository running on GitHub 
 
 **For example:**
 
-```bash
-jupyter execute demo_nyctaxi.ipynb --kernel_name=databricks
-```
+$ jupyter execute demo_nyctaxi.ipynb --kernel_name=databricks
 
 ::: {.notes}
-Let me show you an example of how this works. The text is small, so let me read this for you. Here's the command: "jupyter execute", then the notebook name "demo_nyctaxi.ipynb", and the kernel specification "--kernel_name=databricks". Claude Code can execute notebooks via CLI - you don't need to type anything manually during execution. So basically, it uploads your local files to the compute, executes the notebook on Databricks, and brings back the results. No UI clicks, no manual copying - just this one command and you're done.
+Let me show you an example of how this works. Here's the command: "jupyter execute", then the notebook name "demo_nyctaxi.ipynb", and the kernel specification "--kernel_name=databricks". Claude Code can execute notebooks via CLI - you don't need to type anything manually during execution. So basically, it uploads your local files to the compute, executes the notebook on Databricks, and brings back the results. No UI clicks, no manual copying - just this one command and you're done.
 :::
 
 ---
