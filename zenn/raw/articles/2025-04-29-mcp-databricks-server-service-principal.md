@@ -9,6 +9,12 @@ published: true
 publication_name: "genda_jp"
 ---
 
+:::message
+[2026-02-12 追記] 以下の内容は古くなっています。こちらの記事もご参照ください。
+
+@[card](https://zenn.dev/genda_jp/articles/2025-12-24-mcp-databricks-server-v2)
+:::
+
 ## 1. はじめに
 
 @[card](https://github.com/RafaelCartenet/mcp-databricks-server)
