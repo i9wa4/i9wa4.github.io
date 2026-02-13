@@ -40,94 +40,121 @@ format:
 
 ## 1. Introduction
 
-Hello, I'm Daiki Mawatari from GENDA.
+**Daiki Mawatari, GENDA**
 
-Today I'll demonstrate how AI agents can autonomously execute Databricks notebooks via CLI, enabling agentic development on Databricks.
+AI agents × Databricks notebooks
+
+::: {.notes}
+Hello, I'm Daiki Mawatari from GENDA. Today I'll demonstrate how AI agents can autonomously execute Databricks notebooks via CLI, enabling agentic development on Databricks.
+:::
 
 ---
 
 ## 2. The Vision
 
-To unlock full AI automation with Databricks notebooks, we need a CLI-first approach that enables agents to execute code, receive results, and iterate independently.
-
 **What you'll take away:**
 
-- How to enable AI agents to execute Databricks notebooks from command line
-- Practical patterns from GENDA's production data platform
-- An open source tool you can use today
+- AI agents executing Databricks notebooks from CLI
+- Practical patterns from production
+- Open source tool available today
+
+::: {.notes}
+To unlock full AI automation with Databricks notebooks, we need a CLI-first approach that enables agents to execute code, receive results, and iterate independently. Today you'll learn how to enable AI agents to execute Databricks notebooks from command line, practical patterns from GENDA's production data platform, and an open source tool you can use today.
+:::
 
 ---
 
 ## 3. The Solution
 
-**jupyter-databricks-kernel enables:**
+**jupyter-databricks-kernel**
 
-- One-command notebook execution via CLI
-- Complete remote execution on Databricks compute
-- Seamless integration with AI coding assistants
-- Natural workflow for autonomous iteration
+- CLI notebook execution
+- Remote execution on Databricks
+- AI assistant integration
+- Autonomous iteration
+
+::: {.notes}
+The solution is jupyter-databricks-kernel. It enables one-command notebook execution via CLI, complete remote execution on Databricks compute, seamless integration with AI coding assistants, and a natural workflow for autonomous iteration.
+:::
 
 ---
 
 ## 4. Demo Environment
 
-For this demo, I'm using the [databricks-ai-starter](https://github.com/i9wa4/databricks-ai-starter) repository running on GitHub Codespaces.
+**[databricks-ai-starter](https://github.com/i9wa4/databricks-ai-starter)** on GitHub Codespaces
 
-**Sample prompt to AI agent:**
-
+**Prompt:**
 > Compare trip patterns between weekdays and weekends in the NYC taxi dataset. Create and execute a notebook with compelling visualizations.
 
-Claude Code will write and execute notebooks autonomously, demonstrating the agentic workflow in action.
+::: {.notes}
+For this demo, I'm using the databricks-ai-starter repository running on GitHub Codespaces. I'll give Claude Code this prompt: "Compare trip patterns between weekdays and weekends in the NYC taxi dataset. Create and execute a notebook with compelling visualizations." Claude Code will write and execute notebooks autonomously, demonstrating the agentic workflow in action.
+:::
 
 ---
 
-## 5. Demo: CLI Execution
+## 5. CLI Execution Example
 
-Let me show you with NYC taxi data analysis. I'll execute a notebook that queries trip trends and generates a visualization - all remotely on Databricks.
-
-**CLI Execution:**
+**For example:**
 
 ```bash
-jupyter execute demo_nyctaxi.ipynb --kernel_name=databricks --inplace
+jupyter execute demo_nyctaxi.ipynb --kernel_name=databricks
 ```
 
-It syncs local files to Databricks, executes on Databricks compute, and returns results immediately. No UI operations. No manual copying. Just one command.
+::: {.notes}
+Let me show you an example of how this works. The text is small, so let me read this for you. Here's the command: "jupyter execute", then the notebook name "demo_nyctaxi.ipynb", and the kernel specification "--kernel_name=databricks". Claude Code can execute notebooks via CLI - you don't need to type anything manually during execution. So basically, it uploads your local files to the compute, executes the notebook on Databricks, and brings back the results. No UI clicks, no manual copying - just this one command and you're done.
+:::
 
 ---
 
 ## 6. Complete Remote Execution
 
-The output shows a daily trip trend chart for January 2016. Execution occurs on Databricks compute using Databricks Runtime libraries.
+**All code runs on Databricks, not locally**
 
-**The key differentiator:** All code runs on Databricks, not locally. You can use any library pre-installed in Databricks Runtime without local environment setup.
+- Databricks Runtime libraries available
+- No local environment setup
+- Independent agent iteration
 
-Agents can iterate independently with kernel support. Minimal human intervention required.
-
----
-
-## 7. Why This Matters
-
-**Why credible:**
-
-We've been using this in production at GENDA. Real-world proof, not just a demo.
-
-**Why useful:**
-
-It's open source. You can try it today. Reproducible workflow for your own projects.
-
-**Why now:**
-
-This enables agents to execute notebooks autonomously, aligning with the AI Agents track theme.
+::: {.notes}
+The notebook is generating trip trend analysis and visualizations. Execution runs on Databricks compute using Databricks Runtime libraries. The key differentiator: All code runs on Databricks, not locally. You can use any library pre-installed in Databricks Runtime without local environment setup. Agents can iterate independently with kernel support. Minimal human intervention required.
+:::
 
 ---
 
-## 8. Production Ready
+## 7. Reviewing Results
 
-Development with jupyter-databricks-kernel runs on Databricks compute, matching production runtime. Verified notebooks deploy via Databricks Asset Bundles. AI agents can automate the deployment process.
+Notebook execution completes with visualizations and analysis outputs.
+
+::: {.notes}
+The notebook completes with trip trend visualizations and analysis results. You can open the generated notebook to review outputs, verify data quality, and iterate on the analysis. This immediate feedback loop enables rapid development - agents can execute, review, and refine notebooks autonomously.
+:::
 
 ---
 
-## 9. Get Started
+## 8. Why This Matters
+
+- **Credible:** Production use at GENDA
+- **Useful:** Open source, available today
+- **Timely:** Autonomous AI agents
+
+::: {.notes}
+Why credible: We use this for development at GENDA. Why useful: It's open source. You can try it today. Reproducible workflow for your own projects. Why now: This enables agents to execute notebooks autonomously, aligning with the AI Agents track theme.
+:::
+
+---
+
+## 9. Development Workflow
+
+**Dev = Production runtime**
+
+Deploy via Databricks Asset Bundles
+
+::: {.notes}
+Development runs on Databricks compute, matching production runtime. Notebooks can be deployed via Databricks Asset Bundles.
+:::
+
+---
+
+## 10. Get Started
 
 GitHub: [github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
 
