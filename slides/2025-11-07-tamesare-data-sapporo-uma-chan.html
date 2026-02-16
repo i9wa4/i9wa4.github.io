@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="uma-chan">
+  <meta name="dcterms.date" content="2025-11-07">
+  <title>GENDA の機械学習環境を AWS から Databricks に移行してみた</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-fec845bc3a479bbcdf4c385313f68737.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+  </script>
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="Hatena::Bookmark" content="nocomment">
+<meta property="og:title" content="GENDA の機械学習環境を AWS から Databricks に移行してみた – uma-chan’s page">
+<meta property="og:description" content="[登壇資料] 2025-11-07 試されDATA SAPPORO #1">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan's page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="GENDA の機械学習環境を AWS から Databricks に移行してみた – uma-chan’s page">
+<meta name="twitter:description" content="[登壇資料] 2025-11-07 試されDATA SAPPORO #1">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">GENDA の機械学習環境を AWS から Databricks に移行してみた</h1>
+  <p class="subtitle">Databricks on AWS はいいぞ</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+uma-chan 
+</div>
+</div>
+</div>
+
+  <p class="date">2025-11-07</p>
+</section>
+<section>
+<section id="はじめに" class="title-slide slide level2 center">
+<h2>1. はじめに</h2>
+
+</section>
+<section id="自己紹介" class="slide level3">
+<h3>1.1. 自己紹介</h3>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 2em;">
+<div style="text-align: left;">
+<p>uma-chan (馬渡 大樹 / Mawatari Daiki)</p>
+</div>
+<div style="text-align: left;">
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>Data Engineer/MLOps Engineer</td>
+<td><a href="https://genda.jp/">株式会社GENDA</a></td>
+</tr>
+</tbody>
+</table>
+<!-- | Data Engineer | [PIVOT株式会社](https://pivot.inc/) | -->
+</div>
+<div style="text-align: center;">
+<p>好きなものたち</p>
+<p><a href="https://www.vim.org/"><img data-src="https://img.shields.io/badge/Vim-019733.svg?logo=vim&amp;logoColor=white" style="vertical-align: middle;;height:1.5em" alt="Vim"></a> <a href="https://neovim.io/"><img data-src="https://img.shields.io/badge/Neovim-57A143.svg?logo=neovim&amp;logoColor=white" style="vertical-align: middle;;height:1.5em" alt="Neovim"></a> <a href="https://github.com/tmux/tmux"><img data-src="https://img.shields.io/badge/tmux-1BB91F.svg?logo=tmux&amp;logoColor=white" style="vertical-align: middle;;height:1.5em" alt="tmux"></a> <a href="https://alacritty.org/"><img data-src="https://img.shields.io/badge/Alacritty-F46D01.svg?logo=alacritty&amp;logoColor=white" style="vertical-align: middle;;height:1.5em" alt="Alacritty"></a></p>
+</div>
+<div style="text-align: center;">
+<p><a href="https://github.com/i9wa4"><img data-src="https://img.shields.io/badge/@i9wa4-181717.svg?logo=github&amp;logoColor=white" style="vertical-align: middle;;height:1.5em" alt="GitHub"></a> <a href="https://x.com/i9wa4_"><img data-src="https://img.shields.io/badge/@i9wa4__-000000.svg?logo=x&amp;logoColor=white" style="vertical-align: middle;;height:1.5em" alt="X"></a> <a href="https://i9wa4.github.io"><img data-src="https://img.shields.io/badge/🔗_i9wa4.github.io-4285F4.svg?logoColor=white" style="vertical-align: middle;;height:1.5em" alt="Website"></a></p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="入社時のaws機械学習環境" class="title-slide slide level2 center">
+<h2>2. 入社時のAWS機械学習環境</h2>
+
+</section>
+<section id="入社時のaws機械学習環境-ecs中心の構成" class="slide level3">
+<h3>2.1. 入社時のAWS機械学習環境: ECS中心の構成</h3>
+<!-- 図の構成案:
+- 左側: データサイエンティスト (開発者)
+- 右側: AWS構成
+  - GitHub Actions: Dockerイメージビルド (5分)
+  - Amazon ECR: コンテナレジストリ
+  - Amazon ECS: 機械学習コンテナ実行 (30-60分)
+  - Amazon RDS: 推論結果保存
+  - Amazon S3: データ保存
+  - Snowflake: 共通データソース
+  - CloudWatch Logs: ログ監視
+- フロー: コード作成 → GitHub push → GitHub Actions → ECR → ECS → RDS
+- 課題を赤文字で表示 (.pyファイル実行でREPLなし、ビルド5分、CloudWatch確認が大変)
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-ml-architecture.drawio.png"></p>
+<figcaption>Aws Ml Architecture image</figcaption>
+</figure>
+</div>
+</section>
+<section id="開発で感じた課題" class="slide level3">
+<h3>2.2. 開発で感じた課題</h3>
+<!-- 図の構成案:
+
+- 3つの課題を吹き出しで表現
+  - (1) .pyファイル実行でREPL環境なし (変数確認が困難)
+  - (2) ビルド5分 + ECS実行30-60分 = 構文エラーでも15分以上待機
+  - (3) CloudWatch Logsでログ確認が面倒
+  - (4) インターン生がDocker/ECR/ECS/CloudWatch Logs理解に時間を費やす
+- 中央に困っている開発者のアイコン
+- 「1日10回の試行錯誤で2.5時間が無駄」を強調
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-ml-challenges.drawio.png"></p>
+<figcaption>Aws Ml Challenges image</figcaption>
+</figure>
+</div>
+</section></section>
+<section>
+<section id="databricksへの移行" class="title-slide slide level2 center">
+<h2>3. Databricksへの移行</h2>
+
+</section>
+<section id="移行後-databricks-環境の構成" class="slide level3">
+<h3>3.1. 移行後: Databricks 環境の構成</h3>
+<!-- 図の構成案:
+- 左側: データサイエンティスト (開発者)
+- 右側: Databricks on AWS構成
+  - Databricks Workspace: Notebook環境 (セル単位で即座実行)
+  - Databricks Compute: 計算リソース (自動起動/停止)
+  - Databricks Repos: GitHub連携
+  - Amazon S3: データ保存 (そのまま)
+  - Amazon ECS: 本番デプロイ (S3ファイル出力後)
+  - Snowflake: 共通データソース (そのまま)
+- フロー: Notebook作成 → セル実行 → キリの良いところでGitHub push → リリース前にECS統合テスト
+- 改善点を青文字で表示 (セル単位実行、変数状態保持、結果可視化、気軽にジョブ化)
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/databricks-architecture.drawio.png"></p>
+<figcaption>Databricks Architecture image</figcaption>
+</figure>
+</div>
+</section>
+<section id="awsサービスとの対応" class="slide level3">
+<h3>3.2. AWSサービスとの対応</h3>
+<!-- 図の構成案:
+- 2列の対応表形式
+  左列: 移行前 → 移行後
+  - .pyファイル実行 → Databricks Notebook (セル単位実行)
+  - Amazon ECS → Databricks Compute (開発) + Amazon ECS (本番)
+  - CloudWatch Logs → Notebook内リアルタイムログ
+  - IAM Role → Instance Profile
+  - Amazon S3 → Amazon S3 (そのまま)
+  - Snowflake → Snowflake (そのまま)
+  右列: 改善ポイント
+  - REPL環境で変数確認・結果可視化
+  - 自動起動/停止でコスト削減
+  - セル実行結果が即座に表示
+  - 既存データソースそのまま利用可能
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/aws-databricks-mapping.drawio.png"></p>
+<figcaption>Aws Databricks Mapping image</figcaption>
+</figure>
+</div>
+</section></section>
+<section>
+<section id="導入効果" class="title-slide slide level2 center">
+<h2>4. 導入効果</h2>
+
+</section>
+<section id="開発サイクルの変化" class="slide level3">
+<h3>4.1. 開発サイクルの変化</h3>
+<!-- 図の構成案:
+- Before/After比較
+- Before (ECS):
+  - コード作成 → GitHub push → GitHub Actionsビルド(5分) → ECSタスク手動実行(30-60分) → CloudWatch Logs確認
+  - 構文エラー程度の修正でも15分以上待機
+- After (Databricks):
+  - Notebook作成 → セル実行(数秒) → 結果即座表示
+  - キリの良いところでGitHub push、リリース前にECS統合テスト
+- タイムラインで時間の差を視覚化 (15分+ vs 数秒)
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/development-cycle-comparison.drawio.png"></p>
+<figcaption>Development Cycle Comparison image</figcaption>
+</figure>
+</div>
+</section>
+<section id="インターン生でもすぐ活躍" class="slide level3">
+<h3>4.2. インターン生でもすぐ活躍</h3>
+<!-- 図の構成案:
+- インターン生のアイコン
+- 移行前: 学習が必要だった知識
+  - Docker、Amazon ECR、Amazon ECS、CloudWatch Logs理解に時間を費やす
+  - 「統計モデリング」に着手する前の準備が長い
+- 移行後: 学習コスト実質ゼロ
+  - コンテナ・IAM・CloudWatch Logs理解が不要に
+  - 早期に本質的業務 (統計モデリング、機械学習アルゴリズム設計) に着手可能
+- 左→右の矢印で「AWSの学習コストが実質ゼロに」を強調
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/intern-productivity.drawio.png"></p>
+<figcaption>Intern Productivity image</figcaption>
+</figure>
+</div>
+</section>
+<section id="定量的な改善効果" class="slide level3">
+<h3>4.3. 定量的な改善効果</h3>
+<!-- 図の構成案:
+
+- 3つの改善ポイントをカード形式で表示
+  - (1) 開発体験の大幅向上
+    - セル単位実行、変数状態保持、結果可視化
+  - (2) AWSの学習コスト実質ゼロ
+    - コンテナ・IAM・CloudWatch Logs理解が不要
+  - (3) 気軽にジョブ化
+    - 本番運用への移行がスムーズ
+- 中央に下向き矢印で「学習コストが実質ゼロに」を強調
+- 矢印は「移行前 (Docker/ECR/ECS/CloudWatch Logs)」から「移行後 (不要)」に向ける
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/quantitative-improvement.drawio.png"></p>
+<figcaption>Quantitative Improvement image</figcaption>
+</figure>
+</div>
+</section>
+<section id="ほぼゼロコストで本番運用" class="slide level3">
+<h3>4.4. ほぼゼロコストで本番運用</h3>
+<!-- 図の構成案:
+- 左側: 開発フロー
+  - Notebook でセル実行
+  - デバッグ・調整
+  - 完成
+- 中央: ワンクリック変換の矢印
+  - 「ワンクリックでジョブ化!」を強調
+- 右側: 本番運用フロー
+  - Databricks Jobs として自動実行
+  - スケジュール実行
+  - エラー通知
+- ポイント:
+  - 開発と運用が全く同じコード
+  - デプロイ作業不要
+  - 運用コストほぼゼロ
+-->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/job-migration.drawio.png"></p>
+<figcaption>Job Migration image</figcaption>
+</figure>
+</div>
+</section></section>
+<section>
+<section id="まとめ" class="title-slide slide level2 center">
+<h2>5. まとめ</h2>
+
+</section>
+<section id="databricks-on-aws-では-aws-の知見がそのまま活きる" class="slide level3">
+<h3>5.1. Databricks on AWS では AWS の知見がそのまま活きる</h3>
+<ul>
+<li>S3 / EC2 / IAM Role など、既存の AWS 知識が活用できる</li>
+<li>AWS 構成からの移行がスムーズ</li>
+<li>インフラは AWS のまま、開発体験が劇的に向上
+<ul>
+<li>AWS 分かる人が1人でもいれば大体何とかなる</li>
+</ul></li>
+</ul>
+</section>
+<section id="併せてこちらもご確認ください" class="slide level3">
+<h3>5.2. 併せてこちらもご確認ください</h3>
+<div style="display: flex; align-items: center; gap: 3em; margin-top: 2em;">
+<div style="flex: 1;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://zenn.dev/genda_jp/articles/724a597e8f18ff"><img data-src="../assets/2025-11-07-tamesare-data-sapporo-uma-chan/zenn-twitter-card.jpeg" style="width:100.0%"></a></p>
+<figcaption>Zenn Twitter Card image</figcaption>
+</figure>
+</div>
+</div>
+<div style="flex: 1; text-align: left;">
+<p><strong>GENDAのデータサイエンティスト開発体験向上の取り組み紹介</strong></p>
+<p>AWS ECSからDatabricksへの移行</p>
+<p><a href="https://zenn.dev/genda_jp/articles/724a597e8f18ff">https://zenn.dev/genda_jp/articles/724a597e8f18ff</a></p>
+</div>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="https://tamesaredatahokkaido.connpass.com/event/369741/">2025-11-07 試されDATA SAPPORO #1</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
