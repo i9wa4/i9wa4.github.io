@@ -1,0 +1,85 @@
+---
+title: "GENDAデータチームの登壇まとめ (2025-2026)"
+author: uma-chan
+categories:
+  - "blog"
+  - "databricks"
+  - "genda"
+date: 2026-02-20
+date-modified: last-modified
+description: |
+  2025年から2026年にかけてのGENDAデータチームの登壇活動をまとめます
+image: "/assets/common/icon_hhkb3_large.jpg"
+draft: true
+---
+
+## 1. はじめに
+
+GENDAデータチームで2025年から2026年にかけて登壇した内容をまとめます。
+
+## 2. 登壇一覧
+
+| 日付       | イベント                                  | タイトル                                                                              | 資料                                                           |
+| ---------- | ----------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| 2025-05-22 | AIネイティブ開発 Tips 1000本ノック        | Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法                                 | [スライド](/slides/2025-05-22-midas-cursor-tips.qmd)           |
+| 2025-08-08 | ミダスグループ生成AI勉強会                | Claude Code データ業務活用                                                            | [スライド](/slides/2025-08-08-midas-ai.qmd)                    |
+| 2025-11-07 | 試されDATA SAPPORO #1                     | GENDAの機械学習環境をAWSからDatabricksに移行してみた                                  | [スライド](/slides/2025-11-07-tamesare-data-sapporo-uma-chan.qmd) |
+| 2025-12-12 | Databricks Data+AI World Tour After Party | Databricks向けJupyter KernelでデータサイエンティストをAI-Readyにする                  | [スライド](/slides/2025-12-12-databricks-notebook-ai-ready.qmd) |
+| 2025-12-22 | AEON TECH HUB #22                         | M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理                      | [スライド](/slides/2025-12-22-aeon-tech-hub-databricks.qmd)    |
+| 2026-01-27 | JEDAI 2026 新春 Meetup!                   | Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips                        | [スライド](/slides/2026-01-27-jedai-ai-gateway.qmd)            |
+
+## 3. 各登壇の概要
+
+### 3.1. Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法 (2025-05-22)
+
+- Cursorを自律エージェントとして使うための設定
+- AIエージェントに任せやすいdbtプロジェクトのSQL設定
+- MCP (Model Context Protocol) を活用したDatabricks連携
+- Privacy mode / auto-run mode などの推奨設定
+
+### 3.2. Claude Code データ業務活用 (2025-08-08)
+
+- Vibe Data Scienceのコンセプトと環境構築
+- Dev Container + Databricks Connect によるローカルAI開発
+- データサイエンティストの課題（クラウド依存・長い待機時間）の解決
+- AIエージェントによる機械学習デモの自動生成
+
+### 3.3. GENDAの機械学習環境をAWSからDatabricksに移行してみた (2025-11-07)
+
+- AWS ECS環境の課題（REPL非対応・15分以上の待機・CloudWatch Logsの難しさ）
+- Databricks移行のメリット（セル単位実行・変数状態保持・コスト削減）
+- インターンのオンボーディングコストが大幅に低下
+- 開発サイクル — 15分以上 → 秒単位
+
+### 3.4. Databricks向けJupyter KernelでデータサイエンティストをAI-Readyにする (2025-12-12)
+
+- jupyter-databricks-kernel でローカルVS CodeからDatabricksに接続
+- Skinny Notebook Wrapper + Pure Pythonパターン
+- uvによる依存関係管理
+- mise + pre-commit + Renovateによるガードレール
+- CLIでの実行例 — `jupyter execute notebook.ipynb`
+
+### 3.5. M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 (2025-12-22)
+
+- M&A対応のDatabricksマルチワークスペース設計
+- ワークスペースレベル + Unity Catalogの2層権限構造
+- グループベースのアクセス管理（DE / MLE / DA / ビジネスメンバー）
+- Service Principalで本番安定性確保・人間による直接アクセス排除
+- 新規M&A企業への迅速オンボーディング
+
+### 3.6. Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips (2026-01-27)
+
+- インターン・非エンジニア・予算制限チームへのAIコーディング環境配布
+- Mosaic AI Gateway — 統合LLM APIエンドポイント + コスト監視
+- OAuth U2M認証でPersonal Access Token不要
+- Goose AIエージェントのDatabricksネイティブサポート活用
+- Dev Container + 環境変数によるローカル環境セットアップ
+
+## 4. まとめ
+
+登壇全体を通じて共通するテーマは次の通りです。
+
+- Databricksを中心とした開発環境の整備
+- AIエージェントが動きやすい環境づくり（AI-Ready化）
+- データエンジニア・データサイエンティストの開発体験向上
+- M&A対応のスケーラブルな権限・環境設計
