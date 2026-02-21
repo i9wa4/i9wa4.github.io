@@ -1,8 +1,11 @@
 # Treefmt configuration (i9wa4.github.io-specific formatters)
-# Base configuration is inherited from dotfiles
+# Run: nix fmt
 {
   perSystem = {pkgs, ...}: {
     treefmt = {
+      # Required: identifies project root
+      projectRootFile = "flake.nix";
+
       programs = {
         # Nix (minimal - only used in flake.nix)
         alejandra.enable = true;
@@ -36,8 +39,10 @@
         };
       };
 
-      # Repository-specific excludes
       settings.global.excludes = [
+        ".direnv"
+        ".git"
+        "*.lock"
         "zenn/raw/*" # Zenn articles (synced from external source)
       ];
     };
