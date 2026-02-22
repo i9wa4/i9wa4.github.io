@@ -1,0 +1,43 @@
+---
+title: "Tech Trends (JA) - 2026-02-22"
+author: uma-chan
+categories:
+  - "auto"
+  - "tech-trends"
+  - "ja"
+date: 2026-02-22
+date-modified: last-modified
+description: |
+  技術トレンドダイジェスト - Zenn, Qiita, Hacker News, GitHub Trending
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. Discover
+
+- [ ] **Chrome CSS Zero-Day CVE-2026-2441** - ChromeのCSS処理エンジンにuse-after-free脆弱性が発見され、悪意のあるHTMLページ経由で任意コード実行が可能だった。Chrome 145.0.7632.75/76で修正済み。全Chromiumベースブラウザが影響を受けた。 [security, web-development]
+
+- [ ] **Karpathyが「Claws」を提唱 -- LLMエージェントの新レイヤー** - Andrej KarpathyがLLMエージェントの上位に位置する「Claws」という概念を提案。HNで778コメントを集め、エージェントアーキテクチャの将来について活発な議論が展開された。 [ai, machine-learning]
+
+- [ ] **TypeScript 7.0 Goコンパイラが10倍高速化を実現** - MicrosoftのProject CorsaによりTypeScriptコンパイラがGoで書き直され、VS Codeの150万行のコードベースが89秒から8.7秒でコンパイル可能に。TypeScript 6.0がJS版最終リリースとなる。 [typescript, go]
+
+- [ ] **Agentic Codingの要点 (2026年2月)** - Zennで注目されたAgentic Codingの解説記事。Claude Code、GitHub Copilot、Cursorなどのコーディングエージェントが本格的な開発ワークフローに組み込まれつつある現状がまとめられている。 [ai, devops]
+
+- [ ] **OpenClaw脆弱性 CVE-2026-25253** - ZennでOpenClawの脆弱性が詳細に解説された。GitHubスター数が2月初旬の14.5万から15日時点で19.6万に急成長する中、$500,000以上の暗号資産窃取の可能性が指摘されている。 [security, ai]
+
+- [ ] **2026年システムアーキテクチャトレンド俯瞰** - QiitaでAIエージェント連携を前提としたシステム設計へのシフトが解説された。従来のモノリス/マイクロサービス論に加え、マルチエージェントシステム対応のアーキテクチャが主流になりつつある。 [architecture, ai]
+
+- [ ] **2026年UIトレンド調査** - Qiitaでネオグラスモーフィズム、ニューモーフィズム2.0、動的タイポグラフィ、レトロフューチャースタイルなど、2026年のUIデザイントレンドがまとめられた。 [web-development, design]
+
+- [ ] **Tailscale Peer RelaysがGA** - 厳格なNAT環境でtailnetデバイスを高スループットリレーサーバーとして利用可能に。スループット改善、静的エンドポイント対応、Prometheus互換メトリクスが追加された。 [devops, networking]
+
+- [ ] **週刊AI駆動開発 -- Claude Opus 4.6とGPT-5.3-Codex** - ZennでClaude Opus 4.6がHNで2,318ポイントを集めた話題や、GPT-5.3-Codexの新機能「Steering」、Claude Codeエコシステムの9,000以上のプラグインについてまとめられた。 [ai, machine-learning]
+
+- [ ] **2026年WEB開発の基本的変化** - ZennでNext.jsやNuxtなどのメタフレームワークが標準出発点として定着し、TypeScriptが基本ベースラインとなり、純粋なJavaScriptがレガシーとして認識される時代に入ったと解説された。 [web-development, typescript]
+
+## 2. Highlights
+
+**CSS Zero-Dayがブラウザセキュリティに衝撃を与えた。** CVE-2026-2441はCSSという無効化不可能なWeb技術がuse-after-freeバグを通じて武器化できることを示した。MozillaがFirefoxのCSSエンジンをRustで書いた判断が改めて評価される一方、GoogleのChromiumへのRust統合は数年規模のプロジェクトとなっている。
+
+**TypeScriptのGo移行は言語エコシステムの転換点。** TypeScript 7.0のGoコンパイラ書き換えは、コンパイル速度10倍、メモリ使用量57%削減、Node.jsランタイム依存の排除という根本的な変化をもたらした。GCとの互換性からRustではなくGoを選択した判断は実用的だった。
+
+**AIエージェントアーキテクチャが成熟期に突入。** Karpathyの「Claws」概念、ZennでのAgentic Coding特集、Qiitaでのマルチエージェント対応アーキテクチャ記事と、日英両方のコミュニティでAIエージェントの構造化と本番運用に向けた議論が活発化している。

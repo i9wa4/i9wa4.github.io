@@ -82,8 +82,8 @@
 
         update-categories = {
           enable = true;
-          entry = "bash -c 'if [ -z \"$NIX_BUILD_TOP\" ]; then uv run python bin/update-categories.py blog slides; fi'";
-          files = "^(blog|slides)/.*\\.qmd$";
+          entry = "bash -c 'if [ -z \"$NIX_BUILD_TOP\" ]; then uv run python bin/update-categories.py auto blog slides; fi'";
+          files = "^(auto|blog|slides)/.*\\.qmd$";
           pass_filenames = false;
         };
       };

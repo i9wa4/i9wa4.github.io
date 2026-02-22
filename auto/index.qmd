@@ -1,0 +1,32 @@
+---
+title: "Tech Trends"
+listing:
+  - id: "all"
+    contents:
+      - "."
+    exclude:
+      filename:
+        - "index.qmd"
+    fields:
+      - "title"
+      - "date"
+      - "image"
+      - "categories"
+      - "description"
+    sort:
+      - "date desc"
+      - "title"
+    type: default
+share: false
+---
+
+::: {.category-buttons}
+[All](.){.btn .btn-outline-secondary .btn-sm}
+[auto (2)](#category=auto){.btn .btn-outline-primary .btn-sm}
+[en (1)](#category=en){.btn .btn-outline-primary .btn-sm}
+[ja (1)](#category=ja){.btn .btn-outline-primary .btn-sm}
+[tech-trends (2)](#category=tech-trends){.btn .btn-outline-primary .btn-sm}
+:::
+
+::: {#all}
+:::

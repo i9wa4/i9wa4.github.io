@@ -112,6 +112,10 @@ def main() -> int:
 
     # Define all available targets
     all_targets = {
+        "auto": {
+            "index": project_root / "auto" / "index.qmd",
+            "sources": [project_root / "auto"],
+        },
         "blog": {
             "index": project_root / "blog" / "index.qmd",
             "sources": [project_root / "blog"],
