@@ -1,4 +1,10 @@
 # Auto-generated tech trend preferences
 # Updated by bin/parse-feedback.py from [x] checkboxes in articles
-topics: {}
-last_updated: ""
+topics:
+  databricks: 3
+  dbt: 3
+  bigquery: 2
+  data-engineering: 2
+  databases: 2
+  etl: 2
+last_updated: "2026-02-23"

@@ -54,10 +54,10 @@ website:
         href: "zenn/index.qmd"
       - text: "Slides"
         href: "slides/index.qmd"
-      - text: "Trends"
-        href: "auto/index.qmd"
       - text: "Resume"
         href: "resume/index.qmd"
+      - text: "Trends"
+        href: "auto/index.qmd"
     # right:
     #   - icon: github
     #     href: "https://github.com/i9wa4"
