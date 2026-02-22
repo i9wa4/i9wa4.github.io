@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2025-04-16">
+<meta name="description" content="Python のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます">
+
+<title>Python でありがちな本体バージョンとライブラリバージョンの不整合の例 – uma-chan’s page</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dbdb046a7ec9e254797ddf04f353f8ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fd4c8565daa8157ce7a5f87a5581cd80.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dbdb046a7ec9e254797ddf04f353f8ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/social-share-1.0.0/social-share.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+
+
+<meta property="og:title" content="Python でありがちな本体バージョンとライブラリバージョンの不整合の例 – uma-chan’s page">
+<meta property="og:description" content="Python のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan's page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="Python でありがちな本体バージョンとライブラリバージョンの不整合の例 – uma-chan’s page">
+<meta name="twitter:description" content="Python のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">uma-chan’s page</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../zenn/index.html"> 
+<span class="menu-text">Zenn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/index.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resume/index.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../auto/index.html"> 
+<span class="menu-text">Trends</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">1. はじめに</a></li>
+  <li><a href="#背景" id="toc-背景" class="nav-link" data-scroll-target="#背景">2. 背景</a></li>
+  <li><a href="#python-3.13.3-との相性" id="toc-python-3.13.3-との相性" class="nav-link" data-scroll-target="#python-3.13.3-との相性">3. Python 3.13.3 との相性</a></li>
+  <li><a href="#python-3.12.10-との相性" id="toc-python-3.12.10-との相性" class="nav-link" data-scroll-target="#python-3.12.10-との相性">4. Python 3.12.10 との相性</a></li>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">5. まとめ</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Python でありがちな本体バージョンとライブラリバージョンの不整合の例</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-others</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Python のバージョンとライブラリのバージョンの不整合で発生したエラーの例を記録に残しておきます</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025-04-16</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2025-12-21</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="はじめに" class="level2">
+<h2 class="anchored" data-anchor-id="はじめに">1. はじめに</h2>
+<p>ライブラリのバージョンを固定した上で最新のバージョンの Python を使おうとすると色々とエラーが発生しがちです。</p>
+<p>直近遭遇したエラーを記録に残しておきます。</p>
+</section>
+<section id="背景" class="level2">
+<h2 class="anchored" data-anchor-id="背景">2. 背景</h2>
+<p>dbt-databricks==1.7.17 のインストールを試みました。</p>
+<p>本来は最新バージョンをインストールすべきで、執筆時点では 1.10.0 です。 このコマンドを知らなかったのでメモ代わりに残しておきます。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip index versions dbt-databricks</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">WARNING:</span> pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dbt-databricks</span> <span class="er">(</span><span class="ex">1.10.0</span><span class="kw">)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Available</span> versions: 1.10.0, 1.9.7, 1.9.6, 1.9.5, 1.9.4, 1.9.2, 1.9.1, 1.9.0, 1.8.7, 1.8.6, 1.8.5, 1.8.4, 1.8.3, 1.8.2, 1.8.1, 1.8.0, 1.7.17, 1.7.16, 1.7.15, 1.7.14, 1.7.13, 1.7.11, 1.7.10, 1.7.9, 1.7.8, 1.7.7, 1.7.3, 1.7.2, 1.7.1, 1.7.0, 1.6.9, 1.6.8, 1.6.7, 1.6.6, 1.6.5, 1.6.4, 1.6.3, 1.6.2, 1.6.1, 1.6.0, 1.5.7, 1.5.6, 1.5.5, 1.5.4, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.2, 1.3.1, 1.3.0, 1.2.5, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.1.0, 1.0.3, 1.0.2, 1.0.1, 1.0.0, 0.21.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>以下では Python 3.13 と 3.12 の両方で試してみます。</p>
+</section>
+<section id="python-3.13.3-との相性" class="level2">
+<h2 class="anchored" data-anchor-id="python-3.13.3-との相性">3. Python 3.13.3 との相性</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>3.1. details エラーログ詳細
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">--version</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.13.3</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">-m</span> venv my-venv-3.13.3</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source my-venv-3.13.3/bin/activate</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">my-venv-3.13.3</span><span class="kw">)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install dbt-databricks==1.7.17</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-databricks==1.7.17</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached dbt_databricks-1.7.17-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">5.6</span> kB<span class="kw">)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-spark~=1.7.1 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached dbt_spark-1.7.1-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">5.3</span> kB<span class="kw">)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached databricks_sql_connector-2.9.6-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">4.3</span> kB<span class="kw">)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> databricks-sdk==0.17.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached databricks_sdk-0.17.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">34</span> kB<span class="kw">)</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> keyring<span class="op">&gt;</span>=23.13.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached keyring-25.6.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">20</span> kB<span class="kw">)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pandas<span class="op">&lt;</span>2.2.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pandas-2.1.4.tar.gz <span class="er">(</span><span class="ex">4.3</span> MB<span class="kw">)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Installing</span> build dependencies ... done</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Getting</span> requirements to build wheel ... done</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Preparing</span> metadata <span class="er">(</span><span class="ex">pyproject.toml</span><span class="kw">)</span> <span class="ex">...</span> error</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="ex">error:</span> subprocess-exited-with-error</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="ex">×</span> Preparing metadata <span class="er">(</span><span class="ex">pyproject.toml</span><span class="kw">)</span> <span class="ex">did</span> not run successfully.</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">│</span> exit code: 1</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">╰─</span><span class="op">&gt;</span> [115 lines of output]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      <span class="ex">+</span> meson setup /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88 /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/.mesonpy-iz9fcfer/build <span class="at">-Dbuildtype</span><span class="op">=</span>release <span class="at">-Db_ndebug</span><span class="op">=</span>if-release <span class="at">-Db_vscrt</span><span class="op">=</span>md <span class="at">--vsenv</span> <span class="at">--native-file</span><span class="op">=</span>/private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/.mesonpy-iz9fcfer/build/meson-python-native-file.ini</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="ex">The</span> Meson build system</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Version:</span> 1.2.1</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Source</span> dir: /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Build</span> dir: /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/.mesonpy-iz9fcfer/build</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Build</span> type: native build</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Project</span> name: pandas</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Project</span> version: 2.1.4</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="ex">C</span> compiler for the host machine: cc <span class="er">(</span><span class="fu">clang</span> 17.0.0 <span class="st">"Apple clang version 17.0.0 (clang-1700.0.13.3)"</span><span class="kw">)</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      <span class="ex">C</span> linker for the host machine: cc ld64 1167.4.1</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="ex">C++</span> compiler for the host machine: c++ <span class="er">(</span><span class="fu">clang</span> 17.0.0 <span class="st">"Apple clang version 17.0.0 (clang-1700.0.13.3)"</span><span class="kw">)</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      <span class="ex">C++</span> linker for the host machine: c++ ld64 1167.4.1</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Cython</span> compiler for the host machine: cython <span class="er">(</span><span class="ex">cython</span> 0.29.37<span class="kw">)</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Host</span> machine cpu family: aarch64</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Host</span> machine cpu: aarch64</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Program</span> python found: YES <span class="er">(</span><span class="ex">/Users/uma-chan/.venv/my-venv-3.13.3/bin/python</span><span class="kw">)</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Did</span> not find pkg-config by name <span class="st">'pkg-config'</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Found</span> Pkg-config: NO</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Run-time</span> dependency python found: YES 3.13</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Build</span> targets in project: 53</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="ex">pandas</span> 2.1.4</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        <span class="ex">User</span> defined options</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>          <span class="ex">Native</span> files: /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/.mesonpy-iz9fcfer/build/meson-python-native-file.ini</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>          <span class="ex">buildtype</span>   : release</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>          <span class="ex">vsenv</span>       : True</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>          <span class="ex">b_ndebug</span>    : if-release</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>          <span class="ex">b_vscrt</span>     : md</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Found</span> ninja-1.12.1 at /opt/homebrew/bin/ninja</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Visual</span> Studio environment is needed to run Ninja. It is recommended to use Meson wrapper:</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="ex">/private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-build-env-i26gzs0z/overlay/bin/meson</span> compile <span class="at">-C</span> .</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="ex">+</span> /opt/homebrew/bin/ninja</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[1/151]</span> Generating pandas/_libs/index_class_helper_pxi with a custom command</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[2/151]</span> Generating pandas/_libs/hashtable_class_helper_pxi with a custom command</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[3/151]</span> Generating pandas/_libs/algos_common_helper_pxi with a custom command</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[4/151]</span> Generating pandas/_libs/algos_take_helper_pxi with a custom command</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[5/151]</span> Generating pandas/_libs/intervaltree_helper_pxi with a custom command</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[6/151]</span> Generating pandas/_libs/hashtable_func_helper_pxi with a custom command</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[7/151]</span> Generating pandas/_libs/khash_primitive_helper_pxi with a custom command</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[8/151]</span> Generating pandas/_libs/sparse_op_helper_pxi with a custom command</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[9/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/base.pyx</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[10/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/ccalendar.pyx</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[11/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/dtypes.pyx</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[12/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/np_datetime.pyx</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[13/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/nattype.pyx</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[14/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/conversion.pyx</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[15/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/strptime.pyx</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[16/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/fields.pyx</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[17/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/parsing.pyx</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[18/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/offsets.pyx</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[19/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/timezones.pyx</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[20/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/timedeltas.pyx</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[21/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/period.pyx</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[22/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/vectorized.pyx</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[23/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/tzconversion.pyx</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[24/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/indexing.pyx</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[25/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/arrays.pyx</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[26/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslibs/timestamps.pyx</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[27/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/missing.pyx</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[28/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/hashing.pyx</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[29/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/ops_dispatch.pyx</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[30/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/properties.pyx</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[31/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/ops.pyx</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[32/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/internals.pyx</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[33/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/byteswap.pyx</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[34/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/parsers.pyx</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[35/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/index.pyx</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[36/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/sas.pyx</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[37/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/lib.pyx</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[38/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/reshape.pyx</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[39/151]</span> Compiling C object pandas/_libs/tslibs/base.cpython-313-darwin.so.p/meson-generated_pandas__libs_tslibs_base.pyx.c.o</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>      <span class="ex">FAILED:</span> pandas/_libs/tslibs/base.cpython-313-darwin.so.p/meson-generated_pandas__libs_tslibs_base.pyx.c.o</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cc</span> <span class="at">-Ipandas</span>/_libs/tslibs/base.cpython-313-darwin.so.p <span class="at">-Ipandas</span>/_libs/tslibs <span class="at">-I..</span>/../pandas/_libs/tslibs <span class="at">-I..</span>/../../../pip-build-env-i26gzs0z/overlay/lib/python3.13/site-packages/numpy/core/include <span class="at">-I..</span>/../pandas/_libs/include <span class="at">-I</span>/Users/uma-chan/.pyenv/versions/3.13.3/include/python3.13 <span class="at">-fvisibility</span><span class="op">=</span>hidden <span class="at">-fcolor-diagnostics</span> <span class="at">-DNDEBUG</span> <span class="at">-w</span> <span class="at">-std</span><span class="op">=</span>c99 <span class="at">-O3</span> <span class="at">-DNPY_NO_DEPRECATED_API</span><span class="op">=</span>0 <span class="at">-DNPY_TARGET_VERSION</span><span class="op">=</span>NPY_1_21_API_VERSION <span class="at">-MD</span> <span class="at">-MQ</span> pandas/_libs/tslibs/base.cpython-313-darwin.so.p/meson-generated_pandas__libs_tslibs_base.pyx.c.o <span class="at">-MF</span> pandas/_libs/tslibs/base.cpython-313-darwin.so.p/meson-generated_pandas__libs_tslibs_base.pyx.c.o.d <span class="at">-o</span> pandas/_libs/tslibs/base.cpython-313-darwin.so.p/meson-generated_pandas__libs_tslibs_base.pyx.c.o <span class="at">-c</span> pandas/_libs/tslibs/base.cpython-313-darwin.so.p/pandas/_libs/tslibs/base.pyx.c</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>      <span class="ex">pandas/_libs/tslibs/base.cpython-313-darwin.so.p/pandas/_libs/tslibs/base.pyx.c:5399:70:</span> error: too few arguments to function call, expected 6, have 5</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5397</span> <span class="kw">|</span>                 <span class="ex">int</span> ret = _PyLong_AsByteArray<span class="er">(</span><span class="kw">(</span><span class="ex">PyLongObject</span> <span class="pp">*</span><span class="kw">)</span><span class="ex">v,</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                           <span class="ex">~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5398</span> <span class="kw">|</span>                                               <span class="ex">bytes,</span> sizeof<span class="er">(</span><span class="ex">val</span><span class="kw">)</span><span class="ex">,</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5399</span> <span class="kw">|</span>                                               <span class="ex">is_little,</span> !is_unsigned<span class="kw">);</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                                                                      <span class="ex">^</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>      <span class="ex">/Users/uma-chan/.pyenv/versions/3.13.3/include/python3.13/cpython/longobject.h:111:17:</span> note: <span class="st">'_PyLong_AsByteArray'</span> declared here</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>        <span class="ex">111</span> <span class="kw">|</span> <span class="ex">PyAPI_FUNC</span><span class="er">(</span><span class="ex">int</span><span class="kw">)</span> <span class="ex">_PyLong_AsByteArray</span><span class="er">(</span><span class="ex">PyLongObject*</span> v,</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                 <span class="ex">^</span>                   ~~~~~~~~~~~~~~~~</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>        <span class="ex">112</span> <span class="kw">|</span>     <span class="ex">unsigned</span> char<span class="pp">*</span> bytes, size_t n,</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>     <span class="ex">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>        <span class="ex">113</span> <span class="kw">|</span>     <span class="ex">int</span> little_endian, int is_signed, int with_exceptions<span class="kw">);</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>     <span class="ex">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>      <span class="ex">pandas/_libs/tslibs/base.cpython-313-darwin.so.p/pandas/_libs/tslibs/base.pyx.c:5633:70:</span> error: too few arguments to function call, expected 6, have 5</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5631</span> <span class="kw">|</span>                 <span class="ex">int</span> ret = _PyLong_AsByteArray<span class="er">(</span><span class="kw">(</span><span class="ex">PyLongObject</span> <span class="pp">*</span><span class="kw">)</span><span class="ex">v,</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                           <span class="ex">~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5632</span> <span class="kw">|</span>                                               <span class="ex">bytes,</span> sizeof<span class="er">(</span><span class="ex">val</span><span class="kw">)</span><span class="ex">,</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5633</span> <span class="kw">|</span>                                               <span class="ex">is_little,</span> !is_unsigned<span class="kw">);</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                                                                      <span class="ex">^</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>      <span class="ex">/Users/uma-chan/.pyenv/versions/3.13.3/include/python3.13/cpython/longobject.h:111:17:</span> note: <span class="st">'_PyLong_AsByteArray'</span> declared here</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>        <span class="ex">111</span> <span class="kw">|</span> <span class="ex">PyAPI_FUNC</span><span class="er">(</span><span class="ex">int</span><span class="kw">)</span> <span class="ex">_PyLong_AsByteArray</span><span class="er">(</span><span class="ex">PyLongObject*</span> v,</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                 <span class="ex">^</span>                   ~~~~~~~~~~~~~~~~</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>        <span class="ex">112</span> <span class="kw">|</span>     <span class="ex">unsigned</span> char<span class="pp">*</span> bytes, size_t n,</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>     <span class="ex">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>        <span class="ex">113</span> <span class="kw">|</span>     <span class="ex">int</span> little_endian, int is_signed, int with_exceptions<span class="kw">);</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>     <span class="ex">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>      <span class="ex">2</span> errors generated.</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[40/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/testing.pyx</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[41/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/tslib.pyx</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[42/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/interval.pyx</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[43/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/writers.pyx</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[44/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/window/indexers.pyx</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[45/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/window/aggregations.pyx</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[46/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/algos.pyx</span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[47/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/hashtable.pyx</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[48/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/sparse.pyx</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[49/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/join.pyx</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[50/151]</span> Compiling Cython source /private/var/folders/xc/_1gjnwkd25j8hynw16xskg3r0000gn/T/pip-install-glb02n1x/pandas_d6eab0be3ccb474ba209bf6b5865cf88/pandas/_libs/groupby.pyx</span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>      <span class="ex">ninja:</span> build stopped: subcommand failed.</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>      <span class="ex">[end</span> of output]</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="ex">note:</span> This error originates from a subprocess, and is likely not a problem with pip.</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="ex">error:</span> metadata-generation-failed</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="ex">×</span> Encountered error while generating package metadata.</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="ex">╰─</span><span class="op">&gt;</span> See above for output.</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="ex">note:</span> This is an issue with the package mentioned above, not pip.</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> See above for details.</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">my-venv-3.13.3</span><span class="kw">)</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<section id="エラー原因追跡" class="level3">
+<h3 class="anchored" data-anchor-id="エラー原因追跡">3.2. エラー原因追跡</h3>
+<p>執筆時点では Pandas の最新バージョンは 2.2.3 なのですが dbt-databricks のバージョンを固定したことで 2.2.0 未満をインストールするようになっています。 そして 2.1.4 をインストールすることになります。</p>
+<blockquote class="blockquote">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pandas<span class="op">&lt;</span>2.2.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+<p>Pandas 2.2.3 では Python 3.13 用の wheel が用意されているのですが 2.1.4 時点では用意されておらず Pandas をソースコードからビルドしようとします。</p>
+<p>しかし Pandas 2.1.4 のビルドに利用している関数が Python 3.13.0 では削除されてしまったためビルドに失敗します。</p>
+<blockquote class="blockquote">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">pandas/_libs/tslibs/base.cpython-313-darwin.so.p/pandas/_libs/tslibs/base.pyx.c:5399:70:</span> error: too few arguments to function call, expected 6, have 5</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5397</span> <span class="kw">|</span>                 <span class="ex">int</span> ret = _PyLong_AsByteArray<span class="er">(</span><span class="kw">(</span><span class="ex">PyLongObject</span> <span class="pp">*</span><span class="kw">)</span><span class="ex">v,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                           <span class="ex">~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5398</span> <span class="kw">|</span>                                               <span class="ex">bytes,</span> sizeof<span class="er">(</span><span class="ex">val</span><span class="kw">)</span><span class="ex">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="ex">5399</span> <span class="kw">|</span>                                               <span class="ex">is_little,</span> !is_unsigned<span class="kw">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">|</span>                                                                      <span class="ex">^</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+<p>Pandas 側の Issue: <a href="https://github.com/pandas-dev/pandas/issues/58734" class="uri">https://github.com/pandas-dev/pandas/issues/58734</a></p>
+<p>CPython 側の Pull Request: <a href="https://github.com/python/cpython/pull/108429" class="uri">https://github.com/python/cpython/pull/108429</a></p>
+<p>というわけで dbt-databricks==1.7.17 と Python 3.13 は相性が悪いということになります。</p>
+</section>
+</section>
+<section id="python-3.12.10-との相性" class="level2">
+<h2 class="anchored" data-anchor-id="python-3.12.10-との相性">4. Python 3.12.10 との相性</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>4.1. Python 3.12.10 のエラーログ詳細
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">--version</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.12.10</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python <span class="at">-m</span> venv my-venv-3.12.10</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source my-venv-3.12.10/bin/activate</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">((</span><span class="ex">my-venv-3.12.10</span><span class="kw">)</span> <span class="kw">)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install dbt-databricks==1.7.17</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-databricks==1.7.17</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached dbt_databricks-1.7.17-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">5.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-spark~=1.7.1 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached dbt_spark-1.7.1-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">5.3</span> kB<span class="kw">)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached databricks_sql_connector-2.9.6-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">4.3</span> kB<span class="kw">)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> databricks-sdk==0.17.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached databricks_sdk-0.17.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">34</span> kB<span class="kw">)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> keyring<span class="op">&gt;</span>=23.13.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached keyring-25.6.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">20</span> kB<span class="kw">)</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pandas<span class="op">&lt;</span>2.2.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pandas-2.1.4-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">18</span> kB<span class="kw">)</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> protobuf<span class="op">&lt;</span>5.0.0 <span class="er">(</span><span class="ex">from</span> dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached protobuf-4.25.6-cp37-abi3-macosx_10_9_universal2.whl.metadata <span class="er">(</span><span class="ex">541</span> bytes<span class="kw">)</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> google-auth~=2.0 <span class="er">(</span><span class="ex">from</span> databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached google_auth-2.39.0-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">6.2</span> kB<span class="kw">)</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> requests<span class="op">&lt;</span>3,<span class="op">&gt;</span>=2.28.1 <span class="er">(</span><span class="ex">from</span> databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached requests-2.32.3-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">4.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> alembic<span class="op">&lt;</span>2.0.0,<span class="op">&gt;</span>=1.0.11 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached alembic-1.15.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">7.3</span> kB<span class="kw">)</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> lz4<span class="op">&lt;</span>5.0.0,<span class="op">&gt;</span>=4.0.2 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached lz4-4.4.4-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">3.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> numpy<span class="op">&gt;</span>=1.23.4 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached numpy-2.2.4-cp312-cp312-macosx_14_0_arm64.whl.metadata <span class="er">(</span><span class="ex">62</span> kB<span class="kw">)</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> oauthlib<span class="op">&lt;</span>4.0.0,<span class="op">&gt;</span>=3.1.0 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached oauthlib-3.2.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">7.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> openpyxl<span class="op">&lt;</span>4.0.0,<span class="op">&gt;</span>=3.0.10 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached openpyxl-3.1.5-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pyarrow<span class="op">&gt;</span>=10.0.1 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pyarrow-19.0.1-cp312-cp312-macosx_12_0_arm64.whl.metadata <span class="er">(</span><span class="ex">3.3</span> kB<span class="kw">)</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> sqlalchemy<span class="op">&lt;</span>2.0.0,<span class="op">&gt;</span>=1.3.24 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached SQLAlchemy-1.4.54-cp312-cp312-macosx_10_9_universal2.whl.metadata <span class="er">(</span><span class="ex">10</span> kB<span class="kw">)</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> thrift<span class="op">&lt;</span>0.17.0,<span class="op">&gt;</span>=0.16.0 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached thrift-0.16.0-cp312-cp312-macosx_15_0_arm64.whl</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> urllib3<span class="op">&gt;</span>=1.0 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached urllib3-2.4.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">6.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-core~=1.7.0 <span class="er">(</span><span class="ex">from</span> dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Downloading</span> dbt_core-1.7.19-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> sqlparams<span class="op">&gt;</span>=3.0.0 <span class="er">(</span><span class="ex">from</span> dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached sqlparams-6.2.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">8.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> jaraco.classes <span class="er">(</span><span class="ex">from</span> keyring<span class="op">&gt;</span>=23.13.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached jaraco.classes-3.4.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> jaraco.functools <span class="er">(</span><span class="ex">from</span> keyring<span class="op">&gt;</span>=23.13.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached jaraco.functools-4.1.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> jaraco.context <span class="er">(</span><span class="ex">from</span> keyring<span class="op">&gt;</span>=23.13.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached jaraco.context-6.0.1-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">4.1</span> kB<span class="kw">)</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> numpy<span class="op">&gt;</span>=1.23.4 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached numpy-1.26.4-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">61</span> kB<span class="kw">)</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> python-dateutil<span class="op">&gt;</span>=2.8.2 <span class="er">(</span><span class="ex">from</span> pandas<span class="op">&lt;</span>2.2.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">8.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pytz<span class="op">&gt;</span>=2020.1 <span class="er">(</span><span class="ex">from</span> pandas<span class="op">&lt;</span>2.2.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pytz-2025.2-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">22</span> kB<span class="kw">)</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> tzdata<span class="op">&gt;</span>=2022.1 <span class="er">(</span><span class="ex">from</span> pandas<span class="op">&lt;</span>2.2.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached tzdata-2025.2-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">1.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> Mako <span class="er">(</span><span class="ex">from</span> alembic<span class="op">&lt;</span>2.0.0,<span class="op">&gt;</span>=1.0.11-<span class="op">&gt;</span>databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached mako-1.3.10-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> typing-extensions<span class="op">&gt;</span>=4.12 <span class="er">(</span><span class="ex">from</span> alembic<span class="op">&lt;</span>2.0.0,<span class="op">&gt;</span>=1.0.11-<span class="op">&gt;</span>databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached typing_extensions-4.13.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.0</span> kB<span class="kw">)</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> agate~=1.7.0 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached agate-1.7.1-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.1</span> kB<span class="kw">)</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> Jinja2<span class="op">&lt;</span>4,<span class="op">&gt;</span>=3.1.3 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached jinja2-3.1.6-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> mashumaro<span class="op">&lt;</span>3.15,<span class="op">&gt;</span>=3.9 <span class="er">(</span><span class="ex">from</span> mashumaro<span class="pp">[</span><span class="ss">msgpack</span><span class="pp">]</span><span class="op">&lt;</span>3.15,<span class="op">&gt;</span>=3.9-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Downloading</span> mashumaro-3.14-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">114</span> kB<span class="kw">)</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> logbook<span class="op">&lt;</span>1.6,<span class="op">&gt;</span>=1.5 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached logbook-1.5.3-cp312-cp312-macosx_15_0_arm64.whl</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> click<span class="op">&lt;</span>9,<span class="op">&gt;</span>=8.0.2 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached click-8.1.8-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.3</span> kB<span class="kw">)</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> networkx<span class="op">&lt;</span>4,<span class="op">&gt;</span>=2.3 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached networkx-3.4.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">6.3</span> kB<span class="kw">)</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> colorama<span class="op">&lt;</span>0.5,<span class="op">&gt;</span>=0.3.9 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached colorama-0.4.6-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">17</span> kB<span class="kw">)</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pathspec<span class="op">&lt;</span>0.12,<span class="op">&gt;</span>=0.9 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pathspec-0.11.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">19</span> kB<span class="kw">)</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> isodate<span class="op">&lt;</span>0.7,<span class="op">&gt;</span>=0.6 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached isodate-0.6.1-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">9.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> sqlparse<span class="op">&lt;</span>0.6.0,<span class="op">&gt;</span>=0.5.0 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Downloading</span> sqlparse-0.5.3-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-extractor~=0.5.0 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached dbt_extractor-0.5.1-cp38-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl.metadata <span class="er">(</span><span class="ex">4.2</span> kB<span class="kw">)</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> minimal-snowplow-tracker~=0.0.2 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached minimal_snowplow_tracker-0.0.2-py3-none-any.whl</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> dbt-semantic-interfaces~=0.4.2 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached dbt_semantic_interfaces-0.4.4-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> jsonschema<span class="op">&gt;</span>=3.0 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached jsonschema-4.23.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">7.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> packaging<span class="op">&gt;</span>20.9 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached packaging-24.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.2</span> kB<span class="kw">)</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pyyaml<span class="op">&gt;</span>=6.0 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached PyYAML-6.0.2-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">2.1</span> kB<span class="kw">)</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> cffi<span class="op">&lt;</span>2.0.0,<span class="op">&gt;</span>=1.9 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached cffi-1.17.1-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">1.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> idna<span class="op">&lt;</span>4,<span class="op">&gt;</span>=2.5 <span class="er">(</span><span class="ex">from</span> dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached idna-3.10-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">10</span> kB<span class="kw">)</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> urllib3<span class="op">&gt;</span>=1.0 <span class="er">(</span><span class="ex">from</span> databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached urllib3-1.26.20-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">50</span> kB<span class="kw">)</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> cachetools<span class="op">&lt;</span>6.0,<span class="op">&gt;</span>=2.0.0 <span class="er">(</span><span class="ex">from</span> google-auth~=2.0-<span class="op">&gt;</span>databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached cachetools-5.5.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">5.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pyasn1-modules<span class="op">&gt;</span>=0.2.1 <span class="er">(</span><span class="ex">from</span> google-auth~=2.0-<span class="op">&gt;</span>databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pyasn1_modules-0.4.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> rsa<span class="op">&lt;</span>5,<span class="op">&gt;</span>=3.1.4 <span class="er">(</span><span class="ex">from</span> google-auth~=2.0-<span class="op">&gt;</span>databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Downloading</span> rsa-4.9.1-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">5.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> et-xmlfile <span class="er">(</span><span class="ex">from</span> openpyxl<span class="op">&lt;</span>4.0.0,<span class="op">&gt;</span>=3.0.10-<span class="op">&gt;</span>databricks-sql-connector<span class="op">&lt;</span>3.0.0,<span class="op">&gt;</span>=2.9.3-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached et_xmlfile-2.0.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.7</span> kB<span class="kw">)</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> six<span class="op">&gt;</span>=1.5 <span class="er">(</span><span class="ex">from</span> python-dateutil<span class="op">&gt;</span>=2.8.2-<span class="op">&gt;</span>pandas<span class="op">&lt;</span>2.2.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached six-1.17.0-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">1.7</span> kB<span class="kw">)</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> charset-normalizer<span class="op">&lt;</span>4,<span class="op">&gt;</span>=2 <span class="er">(</span><span class="ex">from</span> requests<span class="op">&lt;</span>3,<span class="op">&gt;</span>=2.28.1-<span class="op">&gt;</span>databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached charset_normalizer-3.4.1-cp312-cp312-macosx_10_13_universal2.whl.metadata <span class="er">(</span><span class="ex">35</span> kB<span class="kw">)</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> certifi<span class="op">&gt;</span>=2017.4.17 <span class="er">(</span><span class="ex">from</span> requests<span class="op">&lt;</span>3,<span class="op">&gt;</span>=2.28.1-<span class="op">&gt;</span>databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached certifi-2025.1.31-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> more-itertools <span class="er">(</span><span class="ex">from</span> jaraco.classes-<span class="op">&gt;</span>keyring<span class="op">&gt;</span>=23.13.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached more_itertools-10.6.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">37</span> kB<span class="kw">)</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> Babel<span class="op">&gt;</span>=2.0 <span class="er">(</span><span class="ex">from</span> agate~=1.7.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached babel-2.17.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.0</span> kB<span class="kw">)</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> leather<span class="op">&gt;</span>=0.3.2 <span class="er">(</span><span class="ex">from</span> agate~=1.7.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached leather-0.4.0-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> parsedatetime!=2.5,<span class="op">&gt;</span>=2.1 <span class="er">(</span><span class="ex">from</span> agate~=1.7.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached parsedatetime-2.6-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">4.7</span> kB<span class="kw">)</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> python-slugify<span class="op">&gt;</span>=1.2.1 <span class="er">(</span><span class="ex">from</span> agate~=1.7.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached python_slugify-8.0.4-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">8.5</span> kB<span class="kw">)</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pytimeparse<span class="op">&gt;</span>=1.1.5 <span class="er">(</span><span class="ex">from</span> agate~=1.7.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pytimeparse-1.1.8-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pycparser <span class="er">(</span><span class="ex">from</span> cffi<span class="op">&lt;</span>2.0.0,<span class="op">&gt;</span>=1.9-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pycparser-2.22-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">943</span> bytes<span class="kw">)</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> importlib-metadata~=6.0 <span class="er">(</span><span class="ex">from</span> dbt-semantic-interfaces~=0.4.2-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached importlib_metadata-6.11.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">4.9</span> kB<span class="kw">)</span></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pydantic<span class="op">&lt;</span>3,<span class="op">&gt;</span>=1.10 <span class="er">(</span><span class="ex">from</span> dbt-semantic-interfaces~=0.4.2-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pydantic-2.11.3-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">65</span> kB<span class="kw">)</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> MarkupSafe<span class="op">&gt;</span>=2.0 <span class="er">(</span><span class="ex">from</span> Jinja2<span class="op">&lt;</span>4,<span class="op">&gt;</span>=3.1.3-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached MarkupSafe-3.0.2-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">4.0</span> kB<span class="kw">)</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> attrs<span class="op">&gt;</span>=22.2.0 <span class="er">(</span><span class="ex">from</span> jsonschema<span class="op">&gt;</span>=3.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached attrs-25.3.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">10</span> kB<span class="kw">)</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> jsonschema-specifications<span class="op">&gt;</span>=2023.03.6 <span class="er">(</span><span class="ex">from</span> jsonschema<span class="op">&gt;</span>=3.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.0</span> kB<span class="kw">)</span></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> referencing<span class="op">&gt;</span>=0.28.4 <span class="er">(</span><span class="ex">from</span> jsonschema<span class="op">&gt;</span>=3.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached referencing-0.36.2-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> rpds-py<span class="op">&gt;</span>=0.7.1 <span class="er">(</span><span class="ex">from</span> jsonschema<span class="op">&gt;</span>=3.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached rpds_py-0.24.0-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">4.1</span> kB<span class="kw">)</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> msgpack<span class="op">&gt;</span>=0.5.6 <span class="er">(</span><span class="ex">from</span> mashumaro<span class="pp">[</span><span class="ss">msgpack</span><span class="pp">]</span><span class="op">&lt;</span>3.15,<span class="op">&gt;</span>=3.9-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached msgpack-1.1.0-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">8.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pyasn1<span class="op">&lt;</span>0.7.0,<span class="op">&gt;</span>=0.6.1 <span class="er">(</span><span class="ex">from</span> pyasn1-modules<span class="op">&gt;</span>=0.2.1-<span class="op">&gt;</span>google-auth~=2.0-<span class="op">&gt;</span>databricks-sdk==0.17.0-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pyasn1-0.6.1-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">8.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> zipp<span class="op">&gt;</span>=0.5 <span class="er">(</span><span class="ex">from</span> importlib-metadata~=6.0-<span class="op">&gt;</span>dbt-semantic-interfaces~=0.4.2-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached zipp-3.21.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">3.7</span> kB<span class="kw">)</span></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> annotated-types<span class="op">&gt;</span>=0.6.0 <span class="er">(</span><span class="ex">from</span> pydantic<span class="op">&lt;</span>3,<span class="op">&gt;</span>=1.10-<span class="op">&gt;</span>dbt-semantic-interfaces~=0.4.2-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached annotated_types-0.7.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">15</span> kB<span class="kw">)</span></span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> pydantic-core==2.33.1 <span class="er">(</span><span class="ex">from</span> pydantic<span class="op">&lt;</span>3,<span class="op">&gt;</span>=1.10-<span class="op">&gt;</span>dbt-semantic-interfaces~=0.4.2-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached pydantic_core-2.33.1-cp312-cp312-macosx_11_0_arm64.whl.metadata <span class="er">(</span><span class="ex">6.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> typing-inspection<span class="op">&gt;</span>=0.4.0 <span class="er">(</span><span class="ex">from</span> pydantic<span class="op">&lt;</span>3,<span class="op">&gt;</span>=1.10-<span class="op">&gt;</span>dbt-semantic-interfaces~=0.4.2-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached typing_inspection-0.4.0-py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> text-unidecode<span class="op">&gt;</span>=1.3 <span class="er">(</span><span class="ex">from</span> python-slugify<span class="op">&gt;</span>=1.2.1-<span class="op">&gt;</span>agate~=1.7.0-<span class="op">&gt;</span>dbt-core~=1.7.0-<span class="op">&gt;</span>dbt-spark~=1.7.1-<span class="op">&gt;</span>dbt-databricks==1.7.17<span class="kw">)</span></span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Using</span> cached text_unidecode-1.3-py2.py3-none-any.whl.metadata <span class="er">(</span><span class="ex">2.4</span> kB<span class="kw">)</span></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached dbt_databricks-1.7.17-py3-none-any.whl <span class="er">(</span><span class="ex">68</span> kB<span class="kw">)</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached databricks_sdk-0.17.0-py3-none-any.whl <span class="er">(</span><span class="ex">429</span> kB<span class="kw">)</span></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached databricks_sql_connector-2.9.6-py3-none-any.whl <span class="er">(</span><span class="ex">298</span> kB<span class="kw">)</span></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached dbt_spark-1.7.1-py3-none-any.whl <span class="er">(</span><span class="ex">44</span> kB<span class="kw">)</span></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached keyring-25.6.0-py3-none-any.whl <span class="er">(</span><span class="ex">39</span> kB<span class="kw">)</span></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pandas-2.1.4-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">10.6</span> MB<span class="kw">)</span></span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached protobuf-4.25.6-cp37-abi3-macosx_10_9_universal2.whl <span class="er">(</span><span class="ex">394</span> kB<span class="kw">)</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached alembic-1.15.2-py3-none-any.whl <span class="er">(</span><span class="ex">231</span> kB<span class="kw">)</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="ex">Downloading</span> dbt_core-1.7.19-py3-none-any.whl <span class="er">(</span><span class="ex">1.0</span> MB<span class="kw">)</span></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>   <span class="ex">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> 1.0/1.0 MB 14.6 MB/s eta 0:00:00</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached google_auth-2.39.0-py2.py3-none-any.whl <span class="er">(</span><span class="ex">212</span> kB<span class="kw">)</span></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached lz4-4.4.4-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">189</span> kB<span class="kw">)</span></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached numpy-1.26.4-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">13.7</span> MB<span class="kw">)</span></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached oauthlib-3.2.2-py3-none-any.whl <span class="er">(</span><span class="ex">151</span> kB<span class="kw">)</span></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached openpyxl-3.1.5-py2.py3-none-any.whl <span class="er">(</span><span class="ex">250</span> kB<span class="kw">)</span></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pyarrow-19.0.1-cp312-cp312-macosx_12_0_arm64.whl <span class="er">(</span><span class="ex">30.7</span> MB<span class="kw">)</span></span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl <span class="er">(</span><span class="ex">229</span> kB<span class="kw">)</span></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pytz-2025.2-py2.py3-none-any.whl <span class="er">(</span><span class="ex">509</span> kB<span class="kw">)</span></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached requests-2.32.3-py3-none-any.whl <span class="er">(</span><span class="ex">64</span> kB<span class="kw">)</span></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached SQLAlchemy-1.4.54-cp312-cp312-macosx_10_9_universal2.whl <span class="er">(</span><span class="ex">1.6</span> MB<span class="kw">)</span></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached sqlparams-6.2.0-py3-none-any.whl <span class="er">(</span><span class="ex">17</span> kB<span class="kw">)</span></span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached tzdata-2025.2-py2.py3-none-any.whl <span class="er">(</span><span class="ex">347</span> kB<span class="kw">)</span></span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached urllib3-1.26.20-py2.py3-none-any.whl <span class="er">(</span><span class="ex">144</span> kB<span class="kw">)</span></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached jaraco.classes-3.4.0-py3-none-any.whl <span class="er">(</span><span class="ex">6.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached jaraco.context-6.0.1-py3-none-any.whl <span class="er">(</span><span class="ex">6.8</span> kB<span class="kw">)</span></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached jaraco.functools-4.1.0-py3-none-any.whl <span class="er">(</span><span class="ex">10</span> kB<span class="kw">)</span></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached agate-1.7.1-py2.py3-none-any.whl <span class="er">(</span><span class="ex">97</span> kB<span class="kw">)</span></span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached cachetools-5.5.2-py3-none-any.whl <span class="er">(</span><span class="ex">10</span> kB<span class="kw">)</span></span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached certifi-2025.1.31-py3-none-any.whl <span class="er">(</span><span class="ex">166</span> kB<span class="kw">)</span></span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached cffi-1.17.1-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">178</span> kB<span class="kw">)</span></span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached charset_normalizer-3.4.1-cp312-cp312-macosx_10_13_universal2.whl <span class="er">(</span><span class="ex">196</span> kB<span class="kw">)</span></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached click-8.1.8-py3-none-any.whl <span class="er">(</span><span class="ex">98</span> kB<span class="kw">)</span></span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached colorama-0.4.6-py2.py3-none-any.whl <span class="er">(</span><span class="ex">25</span> kB<span class="kw">)</span></span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached dbt_extractor-0.5.1-cp38-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl <span class="er">(</span><span class="ex">865</span> kB<span class="kw">)</span></span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached dbt_semantic_interfaces-0.4.4-py3-none-any.whl <span class="er">(</span><span class="ex">118</span> kB<span class="kw">)</span></span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached idna-3.10-py3-none-any.whl <span class="er">(</span><span class="ex">70</span> kB<span class="kw">)</span></span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached isodate-0.6.1-py2.py3-none-any.whl <span class="er">(</span><span class="ex">41</span> kB<span class="kw">)</span></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached jinja2-3.1.6-py3-none-any.whl <span class="er">(</span><span class="ex">134</span> kB<span class="kw">)</span></span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached jsonschema-4.23.0-py3-none-any.whl <span class="er">(</span><span class="ex">88</span> kB<span class="kw">)</span></span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a><span class="ex">Downloading</span> mashumaro-3.14-py3-none-any.whl <span class="er">(</span><span class="ex">92</span> kB<span class="kw">)</span></span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached more_itertools-10.6.0-py3-none-any.whl <span class="er">(</span><span class="ex">63</span> kB<span class="kw">)</span></span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached networkx-3.4.2-py3-none-any.whl <span class="er">(</span><span class="ex">1.7</span> MB<span class="kw">)</span></span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached packaging-24.2-py3-none-any.whl <span class="er">(</span><span class="ex">65</span> kB<span class="kw">)</span></span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pathspec-0.11.2-py3-none-any.whl <span class="er">(</span><span class="ex">29</span> kB<span class="kw">)</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pyasn1_modules-0.4.2-py3-none-any.whl <span class="er">(</span><span class="ex">181</span> kB<span class="kw">)</span></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached PyYAML-6.0.2-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">173</span> kB<span class="kw">)</span></span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a><span class="ex">Downloading</span> rsa-4.9.1-py3-none-any.whl <span class="er">(</span><span class="ex">34</span> kB<span class="kw">)</span></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached six-1.17.0-py2.py3-none-any.whl <span class="er">(</span><span class="ex">11</span> kB<span class="kw">)</span></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a><span class="ex">Downloading</span> sqlparse-0.5.3-py3-none-any.whl <span class="er">(</span><span class="ex">44</span> kB<span class="kw">)</span></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached typing_extensions-4.13.2-py3-none-any.whl <span class="er">(</span><span class="ex">45</span> kB<span class="kw">)</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached et_xmlfile-2.0.0-py3-none-any.whl <span class="er">(</span><span class="ex">18</span> kB<span class="kw">)</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached mako-1.3.10-py3-none-any.whl <span class="er">(</span><span class="ex">78</span> kB<span class="kw">)</span></span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached attrs-25.3.0-py3-none-any.whl <span class="er">(</span><span class="ex">63</span> kB<span class="kw">)</span></span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached babel-2.17.0-py3-none-any.whl <span class="er">(</span><span class="ex">10.2</span> MB<span class="kw">)</span></span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached importlib_metadata-6.11.0-py3-none-any.whl <span class="er">(</span><span class="ex">23</span> kB<span class="kw">)</span></span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached jsonschema_specifications-2024.10.1-py3-none-any.whl <span class="er">(</span><span class="ex">18</span> kB<span class="kw">)</span></span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached leather-0.4.0-py2.py3-none-any.whl <span class="er">(</span><span class="ex">30</span> kB<span class="kw">)</span></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached MarkupSafe-3.0.2-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">12</span> kB<span class="kw">)</span></span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached msgpack-1.1.0-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">82</span> kB<span class="kw">)</span></span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached parsedatetime-2.6-py3-none-any.whl <span class="er">(</span><span class="ex">42</span> kB<span class="kw">)</span></span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pyasn1-0.6.1-py3-none-any.whl <span class="er">(</span><span class="ex">83</span> kB<span class="kw">)</span></span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pydantic-2.11.3-py3-none-any.whl <span class="er">(</span><span class="ex">443</span> kB<span class="kw">)</span></span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pydantic_core-2.33.1-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">1.9</span> MB<span class="kw">)</span></span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached python_slugify-8.0.4-py2.py3-none-any.whl <span class="er">(</span><span class="ex">10</span> kB<span class="kw">)</span></span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pytimeparse-1.1.8-py2.py3-none-any.whl <span class="er">(</span><span class="ex">10.0</span> kB<span class="kw">)</span></span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached referencing-0.36.2-py3-none-any.whl <span class="er">(</span><span class="ex">26</span> kB<span class="kw">)</span></span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached rpds_py-0.24.0-cp312-cp312-macosx_11_0_arm64.whl <span class="er">(</span><span class="ex">351</span> kB<span class="kw">)</span></span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached pycparser-2.22-py3-none-any.whl <span class="er">(</span><span class="ex">117</span> kB<span class="kw">)</span></span>
+<span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached annotated_types-0.7.0-py3-none-any.whl <span class="er">(</span><span class="ex">13</span> kB<span class="kw">)</span></span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached text_unidecode-1.3-py2.py3-none-any.whl <span class="er">(</span><span class="ex">78</span> kB<span class="kw">)</span></span>
+<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached typing_inspection-0.4.0-py3-none-any.whl <span class="er">(</span><span class="ex">14</span> kB<span class="kw">)</span></span>
+<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a><span class="ex">Using</span> cached zipp-3.21.0-py3-none-any.whl <span class="er">(</span><span class="ex">9.6</span> kB<span class="kw">)</span></span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a><span class="ex">Installing</span> collected packages: text-unidecode, pytz, pytimeparse, parsedatetime, logbook, leather, zipp, urllib3, tzdata, typing-extensions, sqlparse, sqlparams, sqlalchemy, six, rpds-py, pyyaml, python-slugify, pycparser, pyasn1, pyarrow, protobuf, pathspec, packaging, oauthlib, numpy, networkx, msgpack, more-itertools, MarkupSafe, lz4, jaraco.context, idna, et-xmlfile, dbt-extractor, colorama, click, charset-normalizer, certifi, cachetools, Babel, attrs, annotated-types, typing-inspection, thrift, rsa, requests, referencing, python-dateutil, pydantic-core, pyasn1-modules, openpyxl, mashumaro, Mako, Jinja2, jaraco.functools, jaraco.classes, isodate, importlib-metadata, cffi, pydantic, pandas, minimal-snowplow-tracker, keyring, jsonschema-specifications, google-auth, alembic, agate, jsonschema, databricks-sql-connector, databricks-sdk, dbt-semantic-interfaces, dbt-core, dbt-spark, dbt-databricks</span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> installed Babel-2.17.0 Jinja2-3.1.6 Mako-1.3.10 MarkupSafe-3.0.2 agate-1.7.1 alembic-1.15.2 annotated-types-0.7.0 attrs-25.3.0 cachetools-5.5.2 certifi-2025.1.31 cffi-1.17.1 charset-normalizer-3.4.1 click-8.1.8 colorama-0.4.6 databricks-sdk-0.17.0 databricks-sql-connector-2.9.6 dbt-core-1.7.19 dbt-databricks-1.7.17 dbt-extractor-0.5.1 dbt-semantic-interfaces-0.4.4 dbt-spark-1.7.1 et-xmlfile-2.0.0 google-auth-2.39.0 idna-3.10 importlib-metadata-6.11.0 isodate-0.6.1 jaraco.classes-3.4.0 jaraco.context-6.0.1 jaraco.functools-4.1.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 keyring-25.6.0 leather-0.4.0 logbook-1.5.3 lz4-4.4.4 mashumaro-3.14 minimal-snowplow-tracker-0.0.2 more-itertools-10.6.0 msgpack-1.1.0 networkx-3.4.2 numpy-1.26.4 oauthlib-3.2.2 openpyxl-3.1.5 packaging-24.2 pandas-2.1.4 parsedatetime-2.6 pathspec-0.11.2 protobuf-4.25.6 pyarrow-19.0.1 pyasn1-0.6.1 pyasn1-modules-0.4.2 pycparser-2.22 pydantic-2.11.3 pydantic-core-2.33.1 python-dateutil-2.9.0.post0 python-slugify-8.0.4 pytimeparse-1.1.8 pytz-2025.2 pyyaml-6.0.2 referencing-0.36.2 requests-2.32.3 rpds-py-0.24.0 rsa-4.9.1 six-1.17.0 sqlalchemy-1.4.54 sqlparams-6.2.0 sqlparse-0.5.3 text-unidecode-1.3 thrift-0.16.0 typing-extensions-4.13.2 typing-inspection-0.4.0 tzdata-2025.2 urllib3-1.26.20 zipp-3.21.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<section id="python-3.12.10-でのインストール結果" class="level3">
+<h3 class="anchored" data-anchor-id="python-3.12.10-でのインストール結果">4.2. Python 3.12.10 でのインストール結果</h3>
+<p>dbt-databricks==1.7.17 のインストールに成功しました。</p>
+<p>ただし以下のようにプロンプト部分の括弧が2重になってしまうのがとても気になりますね。</p>
+<blockquote class="blockquote">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> source my-venv-3.12.10/bin/activate</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">((</span><span class="ex">my-venv-3.12.10</span><span class="kw">)</span> <span class="kw">)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install dbt-databricks==1.7.17</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+<p>対応する Issue はこちらなのですが Python 3.12 ではもうバグ修正をしないようなのでこの2重括弧と共に生きていくしかないです。 メンテナーの方も仰っていますが目立つバグなのでどうしても気になってしまいます。</p>
+<p><a href="https://github.com/python/cpython/issues/132361" class="uri">https://github.com/python/cpython/issues/132361</a></p>
+</section>
+</section>
+<section id="まとめ" class="level2">
+<h2 class="anchored" data-anchor-id="まとめ">5. まとめ</h2>
+<p>ライブラリのバージョンを固定した後色々と帳尻合わせしようとすると大変なことが起きがちですね。</p>
+
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2025-04-16-issue-with-python-libraries.html&amp;text=Python%20%E3%81%A7%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A1%E3%81%AA%E6%9C%AC%E4%BD%93%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%A8%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E4%B8%8D%E6%95%B4%E5%90%88%E3%81%AE%E4%BE%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Python%20%E3%81%A7%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A1%E3%81%AA%E6%9C%AC%E4%BD%93%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%A8%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E4%B8%8D%E6%95%B4%E5%90%88%E3%81%AE%E4%BE%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2025-04-16-issue-with-python-libraries.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2025-04-16-issue-with-python-libraries.html&amp;title=Python%20%E3%81%A7%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A1%E3%81%AA%E6%9C%AC%E4%BD%93%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%A8%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E4%B8%8D%E6%95%B4%E5%90%88%E3%81%AE%E4%BE%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/i9wa4">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/i9wa4_">
+      <i class="bi bi-twitter-x" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/daikm">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

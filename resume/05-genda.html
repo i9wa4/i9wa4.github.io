@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="データエンジニア・MLOps エンジニアとして以下に従事  - データパイプライン構築・データマート整備・ダッシュボード作成  - CI/CD 導入など機械学習基盤の整備  - データサイエンティスト開発環境の AI-Ready 化推進  - データエンジニアチームの育成・採用活動">
+
+<title>株式会社GENDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dbdb046a7ec9e254797ddf04f353f8ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fd4c8565daa8157ce7a5f87a5581cd80.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dbdb046a7ec9e254797ddf04f353f8ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+
+
+<meta property="og:title" content="株式会社GENDA – uma-chan’s page">
+<meta property="og:description" content="データエンジニア・MLOps エンジニアとして以下に従事 - データパイプライン構築・データマート整備・ダッシュボード作成 - CI/CD 導入など機械学習基盤の整備 - データサイエンティスト開発環境の AI-Ready 化推進 - データエンジニアチームの育成・採用活動">
+<meta property="og:image" content="https://i9wa4.github.io/resume/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan's page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="株式会社GENDA – uma-chan’s page">
+<meta name="twitter:description" content="データエンジニア・MLOps エンジニアとして以下に従事 - データパイプライン構築・データマート整備・ダッシュボード作成 - CI/CD 導入など機械学習基盤の整備 - データサイエンティスト開発環境の AI-Ready 化推進 - データエンジニアチームの育成・採用活動">
+<meta name="twitter:image" content="https://i9wa4.github.io/resume/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">uma-chan’s page</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../zenn/index.html"> 
+<span class="menu-text">Zenn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/index.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resume/index.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../auto/index.html"> 
+<span class="menu-text">Trends</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#データ-カラオケ事業会社のデータ利活用推進" id="toc-データ-カラオケ事業会社のデータ利活用推進" class="nav-link active" data-scroll-target="#データ-カラオケ事業会社のデータ利活用推進">1. [データ] カラオケ事業会社のデータ利活用推進</a></li>
+  <li><a href="#データ-ゲームセンター事業会社のipマスターデータ作成支援" id="toc-データ-ゲームセンター事業会社のipマスターデータ作成支援" class="nav-link" data-scroll-target="#データ-ゲームセンター事業会社のipマスターデータ作成支援">2. [データ] ゲームセンター事業会社のIPマスターデータ作成支援</a></li>
+  <li><a href="#mlops-機械学習開発運用環境の改善" id="toc-mlops-機械学習開発運用環境の改善" class="nav-link" data-scroll-target="#mlops-機械学習開発運用環境の改善">3. [MLOps] 機械学習開発運用環境の改善</a></li>
+  <li><a href="#その他-開発環境の-ai-ready-化推進" id="toc-その他-開発環境の-ai-ready-化推進" class="nav-link" data-scroll-target="#その他-開発環境の-ai-ready-化推進">4. [その他] 開発環境の AI-Ready 化推進</a></li>
+  <li><a href="#その他-開発業務以外の活動" id="toc-その他-開発業務以外の活動" class="nav-link" data-scroll-target="#その他-開発業務以外の活動">5. [その他] 開発業務以外の活動</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">株式会社GENDA</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">正社員</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>データエンジニア・MLOps エンジニアとして以下に従事<br> - データパイプライン構築・データマート整備・ダッシュボード作成<br> - CI/CD 導入など機械学習基盤の整備<br> - データサイエンティスト開発環境の AI-Ready 化推進<br> - データエンジニアチームの育成・採用活動</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2025-12-30</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="tbl-company" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20,80]">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-company-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: 会社概要・雇用形態 (2024年時点)
+</figcaption>
+<div aria-describedby="tbl-company-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">事業内容</td>
+<td style="text-align: left;">グループ各社の事業成長の支援および経営管理</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">資本金</td>
+<td style="text-align: left;">197億6,465万円（資本剰余金含む）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">売上高</td>
+<td style="text-align: left;">連結：556億円（2024年1月期）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">従業員数</td>
+<td style="text-align: left;">連結：12,056名（2024年8月31日時点）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">上場／非上場</td>
+<td style="text-align: left;">上場</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">雇用形態</td>
+<td style="text-align: left;">正社員</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">勤務地</td>
+<td style="text-align: left;">東京都港区 (フルリモート・月1出社)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">所属</td>
+<td style="text-align: left;">[2024/11 - 現在] IT戦略部 データチーム</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="データ-カラオケ事業会社のデータ利活用推進" class="level2">
+<h2 class="anchored" data-anchor-id="データ-カラオケ事業会社のデータ利活用推進">1. [データ] カラオケ事業会社のデータ利活用推進</h2>
+<section id="概要" class="level3">
+<h3 class="anchored" data-anchor-id="概要">1.1. 概要</h3>
+<ul>
+<li>様々な意思決定をデータに基づいて行うために必要なデータ基盤の構築運用とデータ活用方法の提案</li>
+</ul>
+</section>
+<section id="期間" class="level3">
+<h3 class="anchored" data-anchor-id="期間">1.2. 期間</h3>
+<ul>
+<li>2024/11 - 現在</li>
+</ul>
+</section>
+<section id="規模役割" class="level3">
+<h3 class="anchored" data-anchor-id="規模役割">1.3. 規模・役割</h3>
+<ul>
+<li>役割：リーダー</li>
+<li>規模：4名
+<ul>
+<li>データエンジニアリング全般：2名 (自分含む)
+<ul>
+<li>内訳
+<ul>
+<li>データパイプライン構築：メンバー1名</li>
+<li>dbt によるデータマート構築：私1名</li>
+<li>ダッシュボード作成：私1名</li>
+</ul></li>
+</ul></li>
+<li>事業会社側役員との折衝等担当 (BizDev)：1名</li>
+<li>事業会社側経理担当：1名</li>
+</ul></li>
+</ul>
+</section>
+<section id="担当業務" class="level3">
+<h3 class="anchored" data-anchor-id="担当業務">1.4. 担当業務</h3>
+<ul>
+<li>POS データやアプリDBのデータを Snowflake に集約するデータパイプライン構築・運用
+<ul>
+<li>補足：Snowflake に転送後 Databricks からテーブルを参照しています</li>
+</ul></li>
+<li>用途に応じた dbt によるデータマート構築</li>
+<li>データ基盤上のデータを利用したダッシュボード作成・運用</li>
+<li>データ基盤 (Databricks) やデータ利活用方法の啓蒙</li>
+</ul>
+</section>
+<section id="機能開発実装詳細" class="level3">
+<h3 class="anchored" data-anchor-id="機能開発実装詳細">1.5. 機能開発・実装詳細</h3>
+<ul>
+<li>データパイプライン構築
+<ul>
+<li>MWAA を用いて事業会社側の SFTP サーバ上の CSV ファイルをダウンロードし Snowflake のテーブルへデータを追加する</li>
+<li>データパイプライン全体を Terraform で管理している</li>
+<li>あるいは直接受領したファイルを Snowflake へ手動追加する</li>
+</ul></li>
+<li>dbt によるデータマート構築
+<ul>
+<li>Databricks で dbt Core ジョブを実行し Databricks 上にデータマートを構築する</li>
+<li>intermediate 層の構築により複数の mart 層から共通ロジックを切り出し保守性を向上</li>
+<li>クーポン使用履歴×会計データ結合マートの構築</li>
+<li>IPコラボ分析用データマートの構築</li>
+<li>年代別×時間帯別売上分析マートの構築</li>
+</ul></li>
+<li>データ品質監視
+<ul>
+<li>日次自動連携データの欠損を検知し Slack 通知する仕組みを構築</li>
+</ul></li>
+<li>ダッシュボード作成
+<ul>
+<li>Databricks のダッシュボード機能を利用する</li>
+</ul></li>
+</ul>
+</section>
+<section id="目的背景" class="level3">
+<h3 class="anchored" data-anchor-id="目的背景">1.6. 目的・背景</h3>
+<ul>
+<li>開発が生じる要因
+<ul>
+<li>データパイプライン構築
+<ul>
+<li>M&amp;A によりグループインした企業の POS データを新たに取り込む</li>
+<li>目標数値など連携対象が増加した際に適宜取り込む</li>
+<li>IPコラボの情報などのマスターデータを営業サイドから受領する</li>
+</ul></li>
+<li>dbt によるデータマート構築
+<ul>
+<li>ダッシュボード作成に必要なデータ集計処理時間の短縮のために dbt によるバッチ処理に切り出す</li>
+</ul></li>
+<li>ダッシュボード作成
+<ul>
+<li>料金体系の変更など施策の効果を監視するために可視化したいデータの要望を受ける</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="課題" class="level3">
+<h3 class="anchored" data-anchor-id="課題">1.7. 課題</h3>
+<ul>
+<li>人員不足による開発遅延
+<ul>
+<li>私がデータ転送部分の開発・改修を自分の手で直接実施はせず他メンバーに任せるという業務分担状況で、なおかつグループインする企業が増え続けている都合でデータ転送部分を担うデータエンジニアの手が回りづらい状況が続いていました。</li>
+<li>経営目線で求められるダッシュボードを作成する上で必要なデータへの知見や技術をもった人間が私しかいないため私がボトルネックになっています。</li>
+</ul></li>
+</ul>
+</section>
+<section id="工夫した点" class="level3">
+<h3 class="anchored" data-anchor-id="工夫した点">1.8. 工夫した点</h3>
+<blockquote class="blockquote">
+<ul>
+<li>私がデータ転送部分の開発・改修に深くコミットしていないという業務分担状況で、なおかつグループインする企業が増え続けている都合でデータ転送部分を担うデータエンジニアの手が回りづらい状況が続いている</li>
+</ul>
+</blockquote>
+<p>後段の開発作業の工数を削減する目的で、現状の実装から最小限の変更で対応できる要件となるよう事業会社側と交渉をまとめました。 実装作業こそ自分で実施しないものの、実装内容を100%理解できているため業務の切り出しを最適な形で行うことができました。</p>
+<blockquote class="blockquote">
+<ul>
+<li>経営目線で求められるダッシュボードを作成する上で必要なデータへの知見や技術をもった人間が私しかいないため私がボトルネックになっています。</li>
+</ul>
+</blockquote>
+<p>現状も続いている課題であって大きな成果はまだ出せていません。 現在事業会社側では全社的にトップダウンな意思決定を伴いつつDX推進中になるため、事業会社側のメンバーの工数の確保をトップダウンで実施してもらい、その時間を活用して私の手で人材育成を行う流れを検討しています。 生成AIを補助に利用する方法などを提示しつつできる形で関与できるメンバーを増やしていければと思います。</p>
+</section>
+<section id="成果" class="level3">
+<h3 class="anchored" data-anchor-id="成果">1.9. 成果</h3>
+<ul>
+<li>ダッシュボード
+<ul>
+<li>事業会社側の経理部門により Excel で毎日作成されていた売上速報をダッシュボードにより完全自動化できました。</li>
+<li>週次で実施している全国のエリア統括者と役員の参加する営業会議向けに作成していた週報の作成をほぼ自動化できました。</li>
+<li>事業会社側の担当者から追跡したいデータに関する要望が出てくるようになり、データドリブンな意思決定をできる体質に一歩近付きました。</li>
+</ul></li>
+<li>データ基盤
+<ul>
+<li>マーケティング施策の効果検証に利用するデータを揃えることで効果的なマーケティング施策立案に貢献しました。</li>
+</ul></li>
+<li>データマート
+<ul>
+<li>intermediate 層の活用により dbt モデルの保守性が向上し、チームメンバーによる改修が容易になりました。</li>
+<li>IPコラボ分析用データマートの提供により、コラボ施策の効果検証が可能になりました。</li>
+</ul></li>
+</ul>
+</section>
+<section id="担当フェーズ" class="level3">
+<h3 class="anchored" data-anchor-id="担当フェーズ">1.10. 担当フェーズ</h3>
+<ul>
+<li>ヒアリングや提案による以下の要件整理
+<ul>
+<li>データパイプライン改修</li>
+<li>ダッシュボード新規作成・項目追加</li>
+</ul></li>
+<li>開発指揮
+<ul>
+<li>データパイプライン改修</li>
+</ul></li>
+<li>開発作業
+<ul>
+<li>dbt によるデータマート構築</li>
+<li>ダッシュボード新規作成・項目追加</li>
+</ul></li>
+<li>運用作業
+<ul>
+<li>データパイプライン不通時の原因調査</li>
+<li>データマートやダッシュボードの障害解消</li>
+</ul></li>
+</ul>
+</section>
+<section id="開発環境" class="level3">
+<h3 class="anchored" data-anchor-id="開発環境">1.11. 開発環境</h3>
+<ul>
+<li>GitHub</li>
+<li>AWS
+<ul>
+<li>MWAA</li>
+</ul></li>
+<li>Snowflake</li>
+<li>Databricks</li>
+<li>dbt Core</li>
+<li>Terraform</li>
+</ul>
+</section>
+</section>
+<section id="データ-ゲームセンター事業会社のipマスターデータ作成支援" class="level2">
+<h2 class="anchored" data-anchor-id="データ-ゲームセンター事業会社のipマスターデータ作成支援">2. [データ] ゲームセンター事業会社のIPマスターデータ作成支援</h2>
+<p>※IP：知的財産 (Intellectual Property)。ゲームやアニメのタイトルなどを指しています。</p>
+<section id="概要-1" class="level3">
+<h3 class="anchored" data-anchor-id="概要-1">2.1. 概要</h3>
+<ul>
+<li>IP名、IP・キャラクターの関係性、景品・IP・キャラクターの関係性を整理したマスターデータを作成する</li>
+</ul>
+</section>
+<section id="期間-1" class="level3">
+<h3 class="anchored" data-anchor-id="期間-1">2.2. 期間</h3>
+<ul>
+<li>2025/04 - 2025/05</li>
+</ul>
+</section>
+<section id="規模役割-1" class="level3">
+<h3 class="anchored" data-anchor-id="規模役割-1">2.3. 規模・役割</h3>
+<ul>
+<li>役割：リーダー</li>
+<li>規模：4名
+<ul>
+<li>マスターデータ設計・システム設計：私1名</li>
+<li>kintone アプリ PoC 担当：1名</li>
+<li>事業会社側メンバーとの調整担当兼 kintone アプリ実装担当：1名</li>
+<li>データパイプライン構築：1名</li>
+</ul></li>
+</ul>
+</section>
+<section id="担当業務-1" class="level3">
+<h3 class="anchored" data-anchor-id="担当業務-1">2.4. 担当業務</h3>
+<ul>
+<li>データ入力用の kintone アプリ設計</li>
+<li>kintone アプリからデータ基盤への連携に必要なデータパイプライン設計</li>
+<li>kintone アプリの運用方法検討</li>
+</ul>
+</section>
+<section id="機能開発実装詳細-1" class="level3">
+<h3 class="anchored" data-anchor-id="機能開発実装詳細-1">2.5. 機能開発・実装詳細</h3>
+<ul>
+<li>kintone アプリ
+<ul>
+<li>IP名、IP・キャラクターの関係性、景品・IP・キャラクターの関係性を表すマスターデータへのデータ追加・修正を行う</li>
+</ul></li>
+<li>データパイプライン
+<ul>
+<li>kintone アプリから Snowflake へのデータ転送を行う</li>
+<li>データパイプライン全体を Terraform で管理する</li>
+</ul></li>
+</ul>
+</section>
+<section id="目的背景-1" class="level3">
+<h3 class="anchored" data-anchor-id="目的背景-1">2.6. 目的・背景</h3>
+<ul>
+<li>IPやキャラクターを包括的に管理する仕組みが社内外ともに存在せず、景品選定も担当者の経験則に依存しており改善が求められる状況でした。</li>
+<li>景品の売上実績やIPの流行に関する情報をデータとして蓄積していき更に景品選定に活用するサイクルを作っていきたい狙いがあります。</li>
+</ul>
+</section>
+<section id="課題-1" class="level3">
+<h3 class="anchored" data-anchor-id="課題-1">2.7. 課題</h3>
+<ul>
+<li>以下の要求があり、入力からデータ基盤への連携までどのようなシステムが最適か検討する必要がありました。
+<ul>
+<li>景品を卸す業者に一次情報を入力してもらう kintone アプリの導入が進められている最中であった</li>
+<li>責任分掌の観点からデータの修正や管理を調達部門に自律的に実施してもらう必要がある</li>
+<li>毎日数十件のデータ入力が必要でありデータ入力担当者の負担を極力軽減させたい</li>
+</ul></li>
+<li>当初利便性を考慮して Notion によるデータ入力を検討していました。Notion では誤入力が起こりやすいという欠点があるため Notion 上の仮のマスターデータと、データ基盤上に別途真のマスターデータを用意しておき、レビューを行った後に両者を同期するという運用を検討しました。
+<ul>
+<li>この構成の場合レビュー工程が都度入ることで入力担当者の負担が大きくなることが予想されました。</li>
+</ul></li>
+</ul>
+</section>
+<section id="工夫した点-1" class="level3">
+<h3 class="anchored" data-anchor-id="工夫した点-1">2.8. 工夫した点</h3>
+<ul>
+<li>kintone アプリの仕様を調査していくうちに入力データへのバリデーションを設定でき誤入力を防げることが分かりました。これにより当初考慮していなかったマスターデータ管理用社内 kintone アプリの導入を決めました。
+<ul>
+<li>この方向転換によって課題をほぼ全て解消できました。</li>
+</ul></li>
+</ul>
+</section>
+<section id="成果-1" class="level3">
+<h3 class="anchored" data-anchor-id="成果-1">2.9. 成果</h3>
+<ul>
+<li>開発中</li>
+</ul>
+</section>
+<section id="担当フェーズ-1" class="level3">
+<h3 class="anchored" data-anchor-id="担当フェーズ-1">2.10. 担当フェーズ</h3>
+<ul>
+<li>マスターデータの設計</li>
+<li>システム全体の要件定義・設計</li>
+</ul>
+</section>
+<section id="開発環境-1" class="level3">
+<h3 class="anchored" data-anchor-id="開発環境-1">2.11. 開発環境</h3>
+<ul>
+<li>データ入力アプリ
+<ul>
+<li>kintone</li>
+</ul></li>
+<li>データ基盤
+<ul>
+<li>GitHub</li>
+<li>AWS
+<ul>
+<li>MWAA</li>
+</ul></li>
+<li>Snowflake</li>
+<li>Terraform</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="mlops-機械学習開発運用環境の改善" class="level2">
+<h2 class="anchored" data-anchor-id="mlops-機械学習開発運用環境の改善">3. [MLOps] 機械学習開発運用環境の改善</h2>
+<section id="概要-2" class="level3">
+<h3 class="anchored" data-anchor-id="概要-2">3.1. 概要</h3>
+<ul>
+<li>社内で運用されている機械学習モデルの開発・運用ともに継続改善を行う</li>
+</ul>
+</section>
+<section id="期間-2" class="level3">
+<h3 class="anchored" data-anchor-id="期間-2">3.2. 期間</h3>
+<ul>
+<li>2024/11</li>
+<li>2025/03 - 2025/07</li>
+</ul>
+</section>
+<section id="規模役割-2" class="level3">
+<h3 class="anchored" data-anchor-id="規模役割-2">3.3. 規模・役割</h3>
+<ul>
+<li>役割：リーダー</li>
+<li>規模：私1名</li>
+</ul>
+</section>
+<section id="担当業務-2" class="level3">
+<h3 class="anchored" data-anchor-id="担当業務-2">3.4. 担当業務</h3>
+<ul>
+<li>機械学習関連の改善策立案・設計・実装</li>
+<li>データチーム全体の CI/CD 改善</li>
+</ul>
+</section>
+<section id="機能開発実装詳細-2" class="level3">
+<h3 class="anchored" data-anchor-id="機能開発実装詳細-2">3.5. 機能開発・実装詳細</h3>
+<ul>
+<li>リポジトリへの CI/CD 導入
+<ul>
+<li>Linter/Formatter を導入し Python/SQL/Terraform のコード品質を確保する</li>
+<li>black, isort, flake8 から Ruff への移行によりツールを統合し CI 実行時間を短縮</li>
+<li>mise による開発ツールのバージョン管理を導入し環境構築を簡素化</li>
+<li>Staging/Production へのデプロイを GitHub Actions の手動実行で行えるようにする</li>
+</ul></li>
+<li>デプロイ手順改善
+<ul>
+<li>Production 環境へのデプロイ実行はレビューを伴う形へと改善する</li>
+<li>リリースタグを用いた標準的なリリース管理を行う運用手順を整備する</li>
+</ul></li>
+<li>スコアリング結果のプロダクトへの連携システム構成の変更
+<ul>
+<li>スコアリングをプロダクトアプリと同じ AWS アカウント内の ECS で実施していた構成から、より開発をしやすくスケーラビリティの確保が容易な Databricks でのスコアリング実施に変更する</li>
+</ul></li>
+<li>[検討中] 機械学習に利用するデータのデータマート化</li>
+<li>[検討中] プロダクトへのデータ反映確認の自動化</li>
+<li>[検討中] 学習データの増加に対応できるような処理改善</li>
+<li>[検討中] 機械学習モデルの精度を継続監視する仕組みの導入</li>
+<li>[検討中] テストの導入</li>
+<li>[検討中] モノレポ化</li>
+</ul>
+</section>
+<section id="目的背景-2" class="level3">
+<h3 class="anchored" data-anchor-id="目的背景-2">3.6. 目的・背景</h3>
+<ul>
+<li>取り扱う事業の増加・学習データの増加に対応していくために開発・運用を改善が求められている</li>
+</ul>
+</section>
+<section id="課題-2" class="level3">
+<h3 class="anchored" data-anchor-id="課題-2">3.7. 課題</h3>
+<ul>
+<li>数名のインターン生にロジック部分の開発に集中してもらうことで成果を出そうとしている中で、開発・運用に手作業が多く含まれることからコントリビューションの難易度が高くなってしまっている</li>
+<li>対象事業のアクティブユーザー数が増加することで学習データが増加しシステムのスケールが必要となる</li>
+<li>対象事業が増加する際の工数増加を懸念して新たな機械学習活用を提案しづらい状況にある</li>
+</ul>
+</section>
+<section id="工夫した点-2" class="level3">
+<h3 class="anchored" data-anchor-id="工夫した点-2">3.8. 工夫した点</h3>
+<ul>
+<li>まずできる所から改善を進めていき1年かけてゴールを目指すというマイルストーンを立て、恩恵を実感してもらいつつ協力を得ながら進める方針を取った点</li>
+</ul>
+</section>
+<section id="成果-2" class="level3">
+<h3 class="anchored" data-anchor-id="成果-2">3.9. 成果</h3>
+<ul>
+<li>データサイエンスチームで最も注力しているオンラインクレーン事業の景品レコメンドシステムに関して CI/CD 導入・デプロイ手順改善を行いインターン生のコントリビューション難易度を下げることに成功しています。</li>
+<li>Ruff への移行により複数の Linter/Formatter を統合し、CI パイプラインの実行時間を短縮しました。</li>
+<li>Databricks 上での機械学習環境構築の知見を社外登壇で共有しました。
+<ul>
+<li><a href="https://tamesaredatahokkaido.connpass.com/event/369741/">試されDATA SAPPORO #1</a>: GENDA の機械学習環境を AWS から Databricks に移行してみた</li>
+<li><a href="https://events.databricks.com/daiwt-tokyo-after-party/registration-closed">Databricks Data + AI World Tour Tokyo After Party</a>: Databricks 向け Jupyter Kernel でデータサイエンティストの開発環境を AI-Ready にする</li>
+</ul></li>
+<li>Databricks 向け Jupyter Kernel (<a href="https://github.com/nicholashm/jupyter-databricks-kernel">jupyter-databricks-kernel</a>) の OSS 開発に貢献しました。</li>
+</ul>
+</section>
+<section id="担当フェーズ-2" class="level3">
+<h3 class="anchored" data-anchor-id="担当フェーズ-2">3.10. 担当フェーズ</h3>
+<ul>
+<li>機械学習関連の改善策立案・設計・実装</li>
+</ul>
+</section>
+<section id="開発環境-2" class="level3">
+<h3 class="anchored" data-anchor-id="開発環境-2">3.11. 開発環境</h3>
+<ul>
+<li>GitHub</li>
+<li>GitHub Actions</li>
+<li>AWS
+<ul>
+<li>ECS</li>
+<li>RDS</li>
+<li>S3</li>
+</ul></li>
+<li>Databricks</li>
+<li>dbt Core</li>
+<li>Ruff</li>
+<li>mise</li>
+</ul>
+</section>
+</section>
+<section id="その他-開発環境の-ai-ready-化推進" class="level2">
+<h2 class="anchored" data-anchor-id="その他-開発環境の-ai-ready-化推進">4. [その他] 開発環境の AI-Ready 化推進</h2>
+<section id="概要-3" class="level3">
+<h3 class="anchored" data-anchor-id="概要-3">4.1. 概要</h3>
+<ul>
+<li>AI コーディングツールを活用した開発生産性向上の推進</li>
+<li>データサイエンティスト向け開発環境の AI-Ready 化</li>
+</ul>
+</section>
+<section id="期間-3" class="level3">
+<h3 class="anchored" data-anchor-id="期間-3">4.2. 期間</h3>
+<ul>
+<li>2024/11 - 現在</li>
+</ul>
+</section>
+<section id="規模役割-3" class="level3">
+<h3 class="anchored" data-anchor-id="規模役割-3">4.3. 規模・役割</h3>
+<ul>
+<li>役割：推進者</li>
+<li>規模：私1名 (チーム全体への展開)</li>
+</ul>
+</section>
+<section id="担当業務-3" class="level3">
+<h3 class="anchored" data-anchor-id="担当業務-3">4.4. 担当業務</h3>
+<ul>
+<li>AI コーディングツールの調査・導入・活用推進</li>
+<li>データサイエンティスト開発環境の AI-Ready 化設計・実装</li>
+<li>チームメンバーへの知見共有・啓蒙</li>
+</ul>
+</section>
+<section id="取り組み内容" class="level3">
+<h3 class="anchored" data-anchor-id="取り組み内容">4.5. 取り組み内容</h3>
+<ul>
+<li>AI コーディングツールの導入
+<ul>
+<li>Claude Code / Codex CLI をメインツールとして採用</li>
+<li>Dev Container 環境を Claude Code 対応に整備</li>
+<li>Skills / Hooks / Rules を活用したルール最適化</li>
+</ul></li>
+<li>データサイエンティスト開発環境の AI-Ready 化
+<ul>
+<li>Databricks Notebook 開発環境を AI エージェントが扱いやすい構成に刷新</li>
+<li>jupyter-databricks-kernel の導入によりローカル Jupyter から Databricks クラスタに接続可能に</li>
+<li>mise + pre-commit + uv による開発ツールチェーンの標準化</li>
+<li>Ruff による Notebook のコード品質担保</li>
+</ul></li>
+<li>MCP (Model Context Protocol) の活用
+<ul>
+<li>Databricks MCP Server の改良 (Service Principal 認証対応、機能追加)</li>
+<li>AI エージェントが Databricks 上でデータ分析を実行できる環境を整備</li>
+</ul></li>
+<li>AI レビューシステムの構築
+<ul>
+<li>Claude Code のサブエージェントを活用することで手元でコードレビューを実施する仕組みを共有</li>
+</ul></li>
+</ul>
+</section>
+<section id="目的背景-3" class="level3">
+<h3 class="anchored" data-anchor-id="目的背景-3">4.6. 目的・背景</h3>
+<ul>
+<li>データサイエンティストの開発環境は Databricks Notebook が中心だが、AI コーディングツールとの相性が悪く生産性向上の恩恵を受けにくい状況があった</li>
+<li>AI エージェントが効果的に動作するには、コードの構造化・Linter/Formatter の整備・ローカル実行環境の確保が必要</li>
+</ul>
+</section>
+<section id="課題-3" class="level3">
+<h3 class="anchored" data-anchor-id="課題-3">4.7. 課題</h3>
+<ul>
+<li>Databricks Notebook は Web UI 中心で AI コーディングツールが直接操作しづらい</li>
+<li>Notebook 形式 (.ipynb) は AI エージェントにとって扱いづらいフォーマット</li>
+<li>チームメンバーの開発環境がバラバラで標準化されていなかった</li>
+</ul>
+</section>
+<section id="工夫した点-3" class="level3">
+<h3 class="anchored" data-anchor-id="工夫した点-3">4.8. 工夫した点</h3>
+<ul>
+<li>AI エージェントが扱いやすい開発環境とは何かを言語化し、必要な要素を整理した上で段階的に導入した</li>
+<li>自分自身が率先して AI ツールを活用し、その知見をテックブログや社内共有で発信することで導入のハードルを下げた</li>
+</ul>
+</section>
+<section id="成果-3" class="level3">
+<h3 class="anchored" data-anchor-id="成果-3">4.9. 成果</h3>
+<ul>
+<li>データサイエンティストが AI コーディングツールを活用できる開発環境を整備</li>
+<li>Databricks MCP Server や jupyter-databricks-kernel の開発により OSS コミュニティに貢献</li>
+<li>社外登壇・テックブログ執筆を通じて知見を適宜発信
+<ul>
+<li><a href="https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html">Cursorのおすすめ設定 &amp; Cursorにデータ分析を任せる方法</a> (グループ会社向け勉強会)</li>
+<li><a href="https://zenn.dev/genda_jp/articles/2025-12-19-databricks-notebook-ai-ready">Databricks Notebook 開発環境を AI-Ready にする - Zenn</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="利用ツール" class="level3">
+<h3 class="anchored" data-anchor-id="利用ツール">4.10. 利用ツール</h3>
+<ul>
+<li>AI コーディングツール
+<ul>
+<li>Claude Code</li>
+<li>Codex CLI</li>
+<li>GitHub Copilot (コード補完, レビュー)</li>
+</ul></li>
+<li>開発環境
+<ul>
+<li>tmux + Vim/Neovim</li>
+<li>mise + pre-commit + uv</li>
+</ul></li>
+<li>Databricks 連携
+<ul>
+<li>jupyter-databricks-kernel</li>
+<li>Databricks MCP Server</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="その他-開発業務以外の活動" class="level2">
+<h2 class="anchored" data-anchor-id="その他-開発業務以外の活動">5. [その他] 開発業務以外の活動</h2>
+<section id="記事執筆登壇等" class="level3">
+<h3 class="anchored" data-anchor-id="記事執筆登壇等">5.1. 記事執筆・登壇等</h3>
+<p>下記ページをご確認ください。</p>
+<p><a href="../resume/index.html#通常業務以外の活動">通常業務以外の活動 | 職務経歴書</a></p>
+</section>
+<section id="チーム育成" class="level3">
+<h3 class="anchored" data-anchor-id="チーム育成">5.2. チーム育成</h3>
+<ul>
+<li>対象：データエンジニア 2名</li>
+<li>指導方法
+<ul>
+<li>学習用 Issue を作成し段階的に技術習得を支援</li>
+<li>デイリー MTG で進捗状況を把握しながら適宜技術的なアドバイスを提供</li>
+<li>コードレビューを通じた品質向上と技術力向上の支援</li>
+<li>1on1 を通じてメンバーの課題や成長目標を把握し支援</li>
+<li>AI コーディングツールの活用方法を指導</li>
+</ul></li>
+<li>成長実績
+<ul>
+<li>メンバーA：AWS 入門・Terraform 入門 Issue を経て Lambda / API Gateway / S3 を用いたシステム構築を独力で実装</li>
+<li>メンバーA：dbt 習得後、テスト修正から始まり intermediate 層作成、dbt Core CI 導入まで担当範囲を拡大</li>
+<li>メンバーB：AWS DMS (Database Migration Service) の設計・構築を STG/PROD 環境で完遂</li>
+</ul></li>
+</ul>
+</section>
+<section id="採用活動" class="level3">
+<h3 class="anchored" data-anchor-id="採用活動">5.3. 採用活動</h3>
+<ul>
+<li>カジュアル面談実施
+<ul>
+<li>SNS にてカジュアル面談を実施している旨宣伝を行い面談に繋げました。</li>
+</ul></li>
+<li>転職媒体での候補者選定
+<ul>
+<li>自主的に採用業務への関与を申し出て以降、現在まで継続的に候補者選定業務を担当しております。</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/i9wa4">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/i9wa4_">
+      <i class="bi bi-twitter-x" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/daikm">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,91 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="dev-env">
+        <mxGraphModel dx="989" dy="755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="devcon-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=3;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="80" width="360" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="devcon-title" value="Dev Container" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="95" width="360" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="env-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#64B5F6;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="145" width="320" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="env-title" value="環境変数（devcontainer.json）" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="95" y="155" width="290" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="env-code" value="DATABRIKCS_HOST=your-host&lt;br&gt;GOOSE_PROVIDER=databricks&lt;div&gt;&lt;span style=&quot;color: rgb(13, 71, 161);&quot;&gt;GOOSE_MODEL=your-model&lt;/span&gt;&lt;/div&gt;" style="text;html=1;fontSize=13;fontFamily=monospace;fontColor=#0D47A1;align=left;fillColor=#ECEFF1;rounded=1;spacing=6;" parent="1" vertex="1">
+                    <mxGeometry x="95" y="180" width="290" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="agents-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="260" width="320" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="agents-title" value="コーディングエージェント" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#2E7D32;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="270" width="320" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent1" value="Goose" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#4CAF50;strokeWidth=2;fontSize=14;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1B5E20;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="310" width="85" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent1-badge" value="推奨" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;fontSize=10;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="245" y="300" width="35" height="16" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr-to-gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#2196F3;endArrow=classic;endSize=12;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420" y="240" as="sourcePoint"/>
+                        <mxPoint x="520" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr-label" value="LLM API" style="text;html=1;fontSize=14;fontFamily=Noto Sans JP;fontColor=#1565C0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="197.5" width="110" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=3;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="80" width="200" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-title" value="Mosaic AI&lt;br&gt;Gateway" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#E65100;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="120" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-feature1" value="認証" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFB74D;fontSize=16;fontFamily=Noto Sans JP;fontColor=#E65100;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="190" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-feature2" value="ルーティング" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFB74D;fontSize=16;fontFamily=Noto Sans JP;fontColor=#E65100;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="245" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="gw-feature3" value="使用量記録" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFB74D;fontSize=16;fontFamily=Noto Sans JP;fontColor=#E65100;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="300" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr-to-llm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=4;strokeColor=#FF9800;endArrow=classic;endSize=12;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="720" y="240" as="sourcePoint"/>
+                        <mxPoint x="800" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="llm-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#9C27B0;strokeWidth=3;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="80" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-title" value="LLMs" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#7B1FA2;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="100" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm1" value="Claude" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#CE93D8;fontSize=16;fontFamily=Noto Sans JP;fontColor=#7B1FA2;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="150" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm2" value="GPT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#CE93D8;fontSize=16;fontFamily=Noto Sans JP;fontColor=#7B1FA2;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="205" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm3" value="Llama" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#CE93D8;fontSize=16;fontFamily=Noto Sans JP;fontColor=#7B1FA2;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="260" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm4" value="Gemini" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#CE93D8;fontSize=16;fontFamily=Noto Sans JP;fontColor=#7B1FA2;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="315" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="point-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="420" width="900" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="point-text" value="OAuth U2M認証でToken管理不要。環境変数とdatabricks auth loginだけで完成" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="430" width="900" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

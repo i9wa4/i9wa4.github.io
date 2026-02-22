@@ -1,0 +1,242 @@
+# Tech Trends (JA) - 2026-02-23
+uma-chan
+2026-02-23
+
+## 1. AI & Machine Learning
+
+- [x]
+  **[AIのやりすぎで頭がおかしくなっている](https://uiuret.hatenablog.com/entry/2026/02/22/024509)** -
+  AI活用の過剰な没頭がもたらす精神的な影響について率直に語った記事。はてブ901件と本日最も注目を集めた。AIとの付き合い方を見直すきっかけになる内容。
+  \[ai, mental-health, essay\]
+
+- [ ] **[Anthropic社内のマーケティングチームがClaude
+  Codeをガチ運用してた話](https://izanami.dev/post/b56cafbc-4d8d-477a-8629-b5ef70282f2b)** -
+  Anthropic社内でマーケティングチームがClaude
+  Codeを実務にどう活用しているかを詳細に紹介。非エンジニア職でのAI活用の実例。はてブ371件。
+  \[ai, claude-code, marketing\]
+
+- [ ] **[Claude Code
+  Securityが発表され、セキュリティ株が暴落。AIが数十年見逃されたバグ500件を発見した](https://qiita.com/emi_ndk/items/fb529b2ede94661e5287)** -
+  Claude Code
+  Securityの発表とその影響を解説。AIが過去数十年間見逃されてきた脆弱性500件を発見したことの技術的・市場的インパクト。はてブ338件。
+  \[ai, security, claude-code\]
+
+- [ ]
+  **[PRのレビューが追いつかない！もう人間がボトルネックなので、仕組みで少しずつなんとかしていく](https://zenn.dev/pepabo/articles/ai-pr-review-bottleneck)** -
+  PRレビューの人的ボトルネックに対して、AIを活用した仕組みで段階的に改善していくアプローチを解説。Zenn最多の152いいね。
+  \[ai, code-review, devops\]
+
+- [x] **[AIエージェント x
+  knipで無駄コードを簡単に掃除](https://zenn.dev/knowledgework/articles/knip-with-ai-agent)** -
+  未使用コード検出ツールknipとAIエージェントを組み合わせてデッドコードを効率的にクリーンアップする手法。Zenn
+  132いいね。 \[ai, developer-tools, code-quality\]
+
+- [ ] **[Qwen3-Swallow &
+  GPT-OSS-Swallow](https://zenn.dev/tokyotech_lm/articles/fa56f10e51fd7d)** -
+  東工大のSwallowチームによるQwen3-SwallowとGPT-OSS-Swallowの紹介。日本語に特化したオープンソースLLMの最新動向。Zenn
+  113いいね。 \[ai, llm, open-source, japanese-nlp\]
+
+- [ ]
+  **[SaaSは死なない、ただし「人間がUIを触る前提の設計」は終わる](https://qiita.com/nogataka/items/e04d1f6f417eec2bab54)** -
+  AIエージェント時代におけるSaaSの再設計論。人間がUIを操作する前提から、AIエージェントがAPIを叩く前提への転換を論じている。はてブ117件。
+  \[ai, saas, architecture\]
+
+- [ ] **[“世界変わる” – 非エンジニアでもできる、Claude
+  Codeによるn8nワークフロー開発](https://zenn.dev/ubie_dev/articles/6b23a74187766b)** -
+  非エンジニアがClaude
+  Codeを使ってn8nのワークフロー自動化を構築した体験記。ノーコード/ローコード開発の新しい形。Zenn
+  81いいね。 \[ai, claude-code, automation, no-code\]
+
+- [ ] **[ごく個人的なClaude
+  Codeプラクティス集](https://zenn.dev/hawkymisc/articles/2cace1f599cc06)** -
+  Claude
+  Codeの個人的なベストプラクティスをまとめた記事。効率的なワークフロー構築のための実践的なTips。Zenn
+  71いいね。 \[ai, claude-code, developer-tools\]
+
+- [ ] **[Claude Code
+  で、広告バナー200本を15分で作るえぐい手順](https://izanami.dev/post/33bc0c0f-4210-4f5e-90e5-4ee8efe9ac66)** -
+  Claude
+  Codeを活用して広告バナー200本を15分で大量生成する手順を公開。AIによるクリエイティブ制作の自動化事例。はてブ40件。
+  \[ai, claude-code, design, automation\]
+
+- [ ] **[ローカルLLMの検索ツールとしてGemini 2.5
+  Flash-Liteを試す](https://note.com/npaka/n/ne2bd91159e32)** -
+  ローカルLLMの情報検索ツールとしてGemini 2.5
+  Flash-Liteの性能を検証した記事。軽量モデルの実用性を探る。はてブ42件。
+  \[ai, llm, google, local-llm\]
+
+- [ ]
+  **[数兆パラメータの時代に、無料GPU環境で3Bモデルを動かしたら想像以上だった](https://zenn.dev/kozoka_ai/articles/4041c910f6280e)** -
+  無料のGPU環境で3Bパラメータのモデルを動かし、小規模モデルの実力を検証。巨大モデル全盛の時代に小さなモデルの可能性を示す。はてブ37件。
+  \[ai, llm, edge-computing\]
+
+- [ ] **[数十行の箇条書きから49枚の提案スライドへ – Claude Opus 4.6 x
+  Slidev](https://qiita.com/ntaka329/items/a2b936b3796ed1ba7373)** -
+  Claude Opus
+  4.6とSlidevを使って箇条書きから49枚のプレゼンスライドを自動生成した事例。プロンプト全文も公開。Qiita
+  20いいね。 \[ai, presentation, slidev\]
+
+- [ ] **[モデル評価をClaude Code x Agent
+  Skillsを使って完全自動運転した話](https://zenn.dev/sakasegawa/articles/374e19d1fabb06)** -
+  Claude CodeのAgent
+  Skills機能を活用してLLMモデル評価を完全に自動化した事例。Zenn
+  19いいね。 \[ai, claude-code, mlops\]
+
+- [ ] **[Claude Codeの「サブエージェント」と「Agent
+  Teams」は何が違うのか](https://qiita.com/nogataka/items/df6c43496b2da9d41311)** -
+  Claude Codeのサブエージェント機能とAgent
+  Teamsの設計レイヤーの違いを整理した解説記事。使い分けの判断基準を提示。Qiita
+  8いいね。 \[ai, claude-code, multi-agent\]
+
+- [ ]
+  **[Anthropic公式「マルチエージェントリサーチシステムの作り方」を読み解く](https://qiita.com/nogataka/items/c1d382dab8454d434d7e)** -
+  Anthropic公式ドキュメントのマルチエージェントリサーチシステム構築ガイドを解説。プロトタイプから本番までの教訓をまとめている。Qiita
+  11いいね。 \[ai, multi-agent, mcp\]
+
+- [ ] **[確定申告を自動化するAgent Skill “shinkoku”
+  をOSSにした](https://zenn.dev/kazukinagata/articles/83fe82191db01b)** -
+  確定申告の作業をClaude CodeのAgent
+  Skillとして自動化しOSS公開。実生活の手続きをAIで効率化するユニークな取り組み。Zenn
+  18いいね。 \[ai, claude-code, open-source, automation\]
+
+- [ ]
+  **[AIエージェントにVRMキャラクターをつけてモーションを制御する](https://zenn.dev/yokomachi/articles/202602_vrm-motion-control-on-web)** -
+  AIエージェントにVRMキャラクターを紐づけ、Webブラウザ上でモーションを制御する実装を紹介。Zenn
+  18いいね。 \[ai, vrm, web-development\]
+
+## 2. Development & Tools
+
+- [ ]
+  **[新デザインツールPencilはなぜエンジニアに刺さるのか](https://zenn.dev/aria3/articles/pencil-dev-why-engineers-love-it)** -
+  新しいデザインツールPencilがエンジニアに支持される理由を分析。コードとの親和性やワークフローへの統合のしやすさが人気の要因。Zenn
+  116いいね。 \[design, developer-tools\]
+
+- [ ]
+  **[プログラミング言語オタクとして改めてC#を語りたい](https://zenn.dev/nuskey/articles/why-i-use-csharp)** -
+  プログラミング言語を広く知る著者がC#の魅力を多角的に解説。型システム、LINQ、パターンマッチングなどの機能を他言語と比較。はてブ146件。
+  \[csharp, programming-languages\]
+
+- [ ] **[async/awaitはなぜ生まれたのか 〜 非同期処理の歴史を辿る
+  〜](https://qiita.com/MoriP-K/items/c9590934c7e72638107b)** -
+  コールバック地獄からPromise、そしてasync/awaitへと至る非同期処理の歴史を丁寧にたどる解説記事。Qiita
+  19いいね。 \[javascript, async, fundamentals\]
+
+- [ ] **[Rustコンパイラで使われる新しいハッシュ関数「rustc-hash
+  2」について調べてみた](https://zenn.dev/hatoo/articles/ad3d4a079e884b)** -
+  Rustコンパイラで採用された新しいハッシュ関数rustc-hash
+  2の内部実装と性能特性を詳細に調査した記事。Zenn 19いいね。 \[rust,
+  compilers, algorithms\]
+
+- [ ] **[【React】Strategyパターン実践編
+  〜マルチテナント対応を例に〜](https://zenn.dev/sakisakiika/articles/f41abf4e0160a7)** -
+  ReactでStrategyパターンをマルチテナント対応に適用する実践的な解説。設計パターンの具体的な活用例。Zenn
+  12いいね。 \[react, design-patterns, typescript\]
+
+- [ ] **[【Go】Map複合キー「構造体キー vs 文字列キー」~ 検証レポート
+  ~](https://qiita.com/umekikazuya/items/4a1210e7606cb2c0c35d)** -
+  GoのMapで複合キーを使う際の構造体キーと文字列キーのパフォーマンス比較検証。Qiita
+  8いいね。 \[go, performance, algorithms\]
+
+- [ ] **[Webサイトの認証をPlaywright
+  MCPに突破させ、認証情報を保持する](https://zenn.dev/curry_battle/articles/9aa9ce2d1a18ec)** -
+  Playwright MCPを使ってWebサイトの認証を自動化し、Storage
+  Stateで認証情報を保持する手法を解説。Zenn 9いいね。 \[playwright,
+  testing, mcp\]
+
+- [x] **[Ghostty + Claude Code
+  で快適なターミナル開発環境を構築する](https://zenn.dev/sprix_it/articles/a25ddd0ca4d175)** -
+  GhosttyターミナルとClaude
+  Codeを組み合わせた開発環境の構築方法を紹介。Zenn 18いいね。
+  \[terminal, claude-code, developer-tools\]
+
+- [x] **[Claude Code の worktree と tmux
+  連携](https://zenn.dev/ikawaha/articles/20260220-4de2d0090e2a69)** -
+  Claude
+  Codeのworktree機能とtmuxを連携させた並列開発ワークフローの構築方法。Zenn
+  8いいね。 \[claude-code, git, tmux\]
+
+## 3. Infrastructure & Security
+
+- [ ] **[Obsidian Web Clipper x Claude
+  Codeで技術記事の自動整理をしてみた](https://dev.classmethod.jp/articles/obsidian-claude-clip/)** -
+  Obsidian Web ClipperとClaude
+  Codeを組み合わせて技術記事を自動的に整理・分類するワークフローを構築した事例。はてブ168件。
+  \[ai, obsidian, productivity\]
+
+- [ ] **[「にゃんこ大戦争」インフラ”大引っ越し”の理由 なぜAWSからGoogle
+  Cloudに？](https://techtarget.itmedia.co.jp/tt/news/2602/21/news01.html)** -
+  人気ゲーム「にゃんこ大戦争」のインフラをAWSからGoogle
+  Cloudに移行した理由と経緯を解説。大規模クラウド移行事例。はてブ147件。
+  \[aws, gcp, infrastructure, gaming\]
+
+- [ ]
+  **[Cloudflare無料プランだけで個人サイトのセキュリティが完結した話](https://zenn.dev/yostos/articles/cloudflare-benefits)** -
+  Cloudflareの無料プランだけで個人サイトのセキュリティ対策を完結させた事例。DDoS対策、WAF、SSL等の設定方法を紹介。Zenn
+  89いいね。 \[cloudflare, security, web-development\]
+
+- [ ]
+  **[ブラウザがGPUメモリを使いすぎるので、サブGPUのRTX3050を使わせる](https://nowokay.hatenablog.com/entry/2026/02/21/175505)** -
+  ブラウザのGPUメモリ消費問題に対して、サブGPUにRTX3050を割り当てて対処する方法を解説。はてブ107件。
+  \[gpu, browser, hardware\]
+
+- [ ] **[Playwright + Amazon
+  ECSでE2Eテストが秒で廃墟になる問題を解決する](https://zenn.dev/explaza/articles/bfccdc141e3cfb)** -
+  PlaywrightとAmazon
+  ECSを組み合わせたE2Eテスト環境の不安定性問題とその解決策。Zenn
+  42いいね。 \[testing, aws, playwright, devops\]
+
+- [ ]
+  **[【完全無料・広告なし】AWS認定の学習支援サイトを公開しました](https://qiita.com/kenken38/items/8082c999a78137c7cc10)** -
+  AWS認定試験向けの無料学習支援サイトを個人開発で公開。実務に活かせる知識の定着を重視した設計。Qiita
+  78いいね。 \[aws, certification, learning\]
+
+- [ ]
+  **[AWSネットワーク関連サービスの外部接続リスク分類](https://qiita.com/fsitlab/items/f917292498925c99fe8b)** -
+  AWSネットワークサービスの外部接続リスクを体系的に分類・整理。意図しない外部通信を防ぐための実用的な参考資料。Qiita
+  2いいね。 \[aws, security, networking\]
+
+- [ ] **[現地訪問必須だったRaspberryPiの管理地獄に終止符 - AWS
+  Greengrass](https://zenn.dev/masaru0208/articles/09b8fbbb3371f2)** -
+  現地訪問が必要だったRaspberry Piの管理をAWS
+  Greengrassで遠隔管理に移行した事例。IoTデバイス管理の効率化。Zenn
+  6いいね。 \[aws, iot, raspberry-pi\]
+
+## 4. Others
+
+- [ ]
+  **[10年前に予測されていた「なくなるとされた仕事」について、一次ソースを用いて深掘りしてみる](https://note.com/hatankokka/n/nb21e45b658b4)** -
+  10年前の「消える仕事」予測を一次ソースに立ち返って検証。予測の精度と現実のギャップを分析。はてブ92件。
+  \[career, ai, essay\]
+
+- [ ] **[The Software Development Lifecycle Is
+  Dead](https://boristane.com/blog/the-software-development-lifecycle-is-dead/)** -
+  AIエージェント時代における従来のSDLCの終焉を論じた記事。はてブ86件で日本のエンジニアコミュニティでも注目。
+  \[ai, software-engineering, essay\]
+
+- [ ]
+  **[米Orbic、日本市場から事実上の撤退か](https://www.itmedia.co.jp/mobile/articles/2602/22/news011.html)** -
+  米国スマートフォンメーカーOrbicがオービックとの商標訴訟に敗訴し、日本市場から事実上撤退する見通し。はてブ176件。
+  \[mobile, business, legal\]
+
+- [ ]
+  **[プログラミングを15年やって、一番大事なのはプログラミングじゃないと気づいた](https://qiita.com/hetare001/items/1c992f5e2a2d661900e2)** -
+  15年のプログラミング経験から、技術よりもコミュニケーションや問題定義の重要性に気づいた話。Qiita
+  21いいね。 \[career, essay, programming\]
+
+- [ ]
+  **[ログインシェルをPowerShellにして.NETを消したらSSHが死んだ話](https://qiita.com/noobow/items/eaba05326aa795d9d7ea)** -
+  LinuxのログインシェルをPowerShellに変更し.NETを削除したらSSHが使えなくなったトラブル事例と復旧手順。Qiita
+  9いいね。 \[linux, powershell, troubleshooting\]
+
+## 5. Highlights
+
+**AI活用の光と影** -
+はてブ901件を集めた「AIのやりすぎで頭がおかしくなっている」は、AI活用の負の側面を率直に語った記事。一方でClaude
+Code
+Security、knip連携、PRレビュー自動化など実践的活用事例も多数登場しており、適切な距離感でAIと向き合うことの重要性が浮き彫りになっている。
+
+**日本語LLMの進化** -
+東工大SwallowチームによるQwen3-SwallowとGPT-OSS-Swallowは、日本語特化オープンソースLLMの最新成果。商用モデルに頼らない日本語AI基盤の構築が着実に進んでいることを示している。
+
+**大規模クラウド移行の実態** - 「にゃんこ大戦争」のAWSからGoogle
+Cloudへの移行事例は、ゲーム業界における大規模インフラ移行のリアルな判断基準と実行プロセスを知る貴重な記事。コスト、パフォーマンス、運用性の観点からクラウド選定を見直す参考になる。

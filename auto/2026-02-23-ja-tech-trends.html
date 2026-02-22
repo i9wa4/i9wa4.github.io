@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2026-02-23">
+<meta name="description" content="Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark">
+
+<title>Tech Trends (JA) - 2026-02-23 – uma-chan’s page</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dbdb046a7ec9e254797ddf04f353f8ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fd4c8565daa8157ce7a5f87a5581cd80.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dbdb046a7ec9e254797ddf04f353f8ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+
+
+<meta property="og:title" content="Tech Trends (JA) - 2026-02-23 – uma-chan’s page">
+<meta property="og:description" content="Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan's page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="Tech Trends (JA) - 2026-02-23 – uma-chan’s page">
+<meta name="twitter:description" content="Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">uma-chan’s page</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../zenn/index.html"> 
+<span class="menu-text">Zenn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides/index.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resume/index.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../auto/index.html"> 
+<span class="menu-text">Trends</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#ai-machine-learning" id="toc-ai-machine-learning" class="nav-link active" data-scroll-target="#ai-machine-learning">1. AI &amp; Machine Learning</a></li>
+  <li><a href="#development-tools" id="toc-development-tools" class="nav-link" data-scroll-target="#development-tools">2. Development &amp; Tools</a></li>
+  <li><a href="#infrastructure-security" id="toc-infrastructure-security" class="nav-link" data-scroll-target="#infrastructure-security">3. Infrastructure &amp; Security</a></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">4. Others</a></li>
+  <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">5. Highlights</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tech Trends (JA) - 2026-02-23</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">auto</div>
+    <div class="quarto-category">tech-trends</div>
+    <div class="quarto-category">ja</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-02-23</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-02-23</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="ai-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="ai-machine-learning">1. AI &amp; Machine Learning</h2>
+<ul class="task-list">
+<li><p><label><input type="checkbox" checked=""><strong><a href="https://uiuret.hatenablog.com/entry/2026/02/22/024509">AIのやりすぎで頭がおかしくなっている</a></strong> - AI活用の過剰な没頭がもたらす精神的な影響について率直に語った記事。はてブ901件と本日最も注目を集めた。AIとの付き合い方を見直すきっかけになる内容。 [ai, mental-health, essay]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://izanami.dev/post/b56cafbc-4d8d-477a-8629-b5ef70282f2b">Anthropic社内のマーケティングチームがClaude Codeをガチ運用してた話</a></strong> - Anthropic社内でマーケティングチームがClaude Codeを実務にどう活用しているかを詳細に紹介。非エンジニア職でのAI活用の実例。はてブ371件。 [ai, claude-code, marketing]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/emi_ndk/items/fb529b2ede94661e5287">Claude Code Securityが発表され、セキュリティ株が暴落。AIが数十年見逃されたバグ500件を発見した</a></strong> - Claude Code Securityの発表とその影響を解説。AIが過去数十年間見逃されてきた脆弱性500件を発見したことの技術的・市場的インパクト。はてブ338件。 [ai, security, claude-code]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/pepabo/articles/ai-pr-review-bottleneck">PRのレビューが追いつかない！もう人間がボトルネックなので、仕組みで少しずつなんとかしていく</a></strong> - PRレビューの人的ボトルネックに対して、AIを活用した仕組みで段階的に改善していくアプローチを解説。Zenn最多の152いいね。 [ai, code-review, devops]</label></p></li>
+<li><p><label><input type="checkbox" checked=""><strong><a href="https://zenn.dev/knowledgework/articles/knip-with-ai-agent">AIエージェント x knipで無駄コードを簡単に掃除</a></strong> - 未使用コード検出ツールknipとAIエージェントを組み合わせてデッドコードを効率的にクリーンアップする手法。Zenn 132いいね。 [ai, developer-tools, code-quality]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/tokyotech_lm/articles/fa56f10e51fd7d">Qwen3-Swallow &amp; GPT-OSS-Swallow</a></strong> - 東工大のSwallowチームによるQwen3-SwallowとGPT-OSS-Swallowの紹介。日本語に特化したオープンソースLLMの最新動向。Zenn 113いいね。 [ai, llm, open-source, japanese-nlp]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/nogataka/items/e04d1f6f417eec2bab54">SaaSは死なない、ただし「人間がUIを触る前提の設計」は終わる</a></strong> - AIエージェント時代におけるSaaSの再設計論。人間がUIを操作する前提から、AIエージェントがAPIを叩く前提への転換を論じている。はてブ117件。 [ai, saas, architecture]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/ubie_dev/articles/6b23a74187766b">“世界変わる” – 非エンジニアでもできる、Claude Codeによるn8nワークフロー開発</a></strong> - 非エンジニアがClaude Codeを使ってn8nのワークフロー自動化を構築した体験記。ノーコード/ローコード開発の新しい形。Zenn 81いいね。 [ai, claude-code, automation, no-code]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/hawkymisc/articles/2cace1f599cc06">ごく個人的なClaude Codeプラクティス集</a></strong> - Claude Codeの個人的なベストプラクティスをまとめた記事。効率的なワークフロー構築のための実践的なTips。Zenn 71いいね。 [ai, claude-code, developer-tools]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://izanami.dev/post/33bc0c0f-4210-4f5e-90e5-4ee8efe9ac66">Claude Code で、広告バナー200本を15分で作るえぐい手順</a></strong> - Claude Codeを活用して広告バナー200本を15分で大量生成する手順を公開。AIによるクリエイティブ制作の自動化事例。はてブ40件。 [ai, claude-code, design, automation]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://note.com/npaka/n/ne2bd91159e32">ローカルLLMの検索ツールとしてGemini 2.5 Flash-Liteを試す</a></strong> - ローカルLLMの情報検索ツールとしてGemini 2.5 Flash-Liteの性能を検証した記事。軽量モデルの実用性を探る。はてブ42件。 [ai, llm, google, local-llm]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/kozoka_ai/articles/4041c910f6280e">数兆パラメータの時代に、無料GPU環境で3Bモデルを動かしたら想像以上だった</a></strong> - 無料のGPU環境で3Bパラメータのモデルを動かし、小規模モデルの実力を検証。巨大モデル全盛の時代に小さなモデルの可能性を示す。はてブ37件。 [ai, llm, edge-computing]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/ntaka329/items/a2b936b3796ed1ba7373">数十行の箇条書きから49枚の提案スライドへ – Claude Opus 4.6 x Slidev</a></strong> - Claude Opus 4.6とSlidevを使って箇条書きから49枚のプレゼンスライドを自動生成した事例。プロンプト全文も公開。Qiita 20いいね。 [ai, presentation, slidev]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/sakasegawa/articles/374e19d1fabb06">モデル評価をClaude Code x Agent Skillsを使って完全自動運転した話</a></strong> - Claude CodeのAgent Skills機能を活用してLLMモデル評価を完全に自動化した事例。Zenn 19いいね。 [ai, claude-code, mlops]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/nogataka/items/df6c43496b2da9d41311">Claude Codeの「サブエージェント」と「Agent Teams」は何が違うのか</a></strong> - Claude Codeのサブエージェント機能とAgent Teamsの設計レイヤーの違いを整理した解説記事。使い分けの判断基準を提示。Qiita 8いいね。 [ai, claude-code, multi-agent]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/nogataka/items/c1d382dab8454d434d7e">Anthropic公式「マルチエージェントリサーチシステムの作り方」を読み解く</a></strong> - Anthropic公式ドキュメントのマルチエージェントリサーチシステム構築ガイドを解説。プロトタイプから本番までの教訓をまとめている。Qiita 11いいね。 [ai, multi-agent, mcp]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/kazukinagata/articles/83fe82191db01b">確定申告を自動化するAgent Skill “shinkoku” をOSSにした</a></strong> - 確定申告の作業をClaude CodeのAgent Skillとして自動化しOSS公開。実生活の手続きをAIで効率化するユニークな取り組み。Zenn 18いいね。 [ai, claude-code, open-source, automation]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/yokomachi/articles/202602_vrm-motion-control-on-web">AIエージェントにVRMキャラクターをつけてモーションを制御する</a></strong> - AIエージェントにVRMキャラクターを紐づけ、Webブラウザ上でモーションを制御する実装を紹介。Zenn 18いいね。 [ai, vrm, web-development]</label></p></li>
+</ul>
+</section>
+<section id="development-tools" class="level2">
+<h2 class="anchored" data-anchor-id="development-tools">2. Development &amp; Tools</h2>
+<ul class="task-list">
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/aria3/articles/pencil-dev-why-engineers-love-it">新デザインツールPencilはなぜエンジニアに刺さるのか</a></strong> - 新しいデザインツールPencilがエンジニアに支持される理由を分析。コードとの親和性やワークフローへの統合のしやすさが人気の要因。Zenn 116いいね。 [design, developer-tools]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/nuskey/articles/why-i-use-csharp">プログラミング言語オタクとして改めてC#を語りたい</a></strong> - プログラミング言語を広く知る著者がC#の魅力を多角的に解説。型システム、LINQ、パターンマッチングなどの機能を他言語と比較。はてブ146件。 [csharp, programming-languages]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/MoriP-K/items/c9590934c7e72638107b">async/awaitはなぜ生まれたのか 〜 非同期処理の歴史を辿る 〜</a></strong> - コールバック地獄からPromise、そしてasync/awaitへと至る非同期処理の歴史を丁寧にたどる解説記事。Qiita 19いいね。 [javascript, async, fundamentals]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/hatoo/articles/ad3d4a079e884b">Rustコンパイラで使われる新しいハッシュ関数「rustc-hash 2」について調べてみた</a></strong> - Rustコンパイラで採用された新しいハッシュ関数rustc-hash 2の内部実装と性能特性を詳細に調査した記事。Zenn 19いいね。 [rust, compilers, algorithms]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/sakisakiika/articles/f41abf4e0160a7">【React】Strategyパターン実践編 〜マルチテナント対応を例に〜</a></strong> - ReactでStrategyパターンをマルチテナント対応に適用する実践的な解説。設計パターンの具体的な活用例。Zenn 12いいね。 [react, design-patterns, typescript]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/umekikazuya/items/4a1210e7606cb2c0c35d">【Go】Map複合キー「構造体キー vs 文字列キー」~ 検証レポート ~</a></strong> - GoのMapで複合キーを使う際の構造体キーと文字列キーのパフォーマンス比較検証。Qiita 8いいね。 [go, performance, algorithms]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/curry_battle/articles/9aa9ce2d1a18ec">Webサイトの認証をPlaywright MCPに突破させ、認証情報を保持する</a></strong> - Playwright MCPを使ってWebサイトの認証を自動化し、Storage Stateで認証情報を保持する手法を解説。Zenn 9いいね。 [playwright, testing, mcp]</label></p></li>
+<li><p><label><input type="checkbox" checked=""><strong><a href="https://zenn.dev/sprix_it/articles/a25ddd0ca4d175">Ghostty + Claude Code で快適なターミナル開発環境を構築する</a></strong> - GhosttyターミナルとClaude Codeを組み合わせた開発環境の構築方法を紹介。Zenn 18いいね。 [terminal, claude-code, developer-tools]</label></p></li>
+<li><p><label><input type="checkbox" checked=""><strong><a href="https://zenn.dev/ikawaha/articles/20260220-4de2d0090e2a69">Claude Code の worktree と tmux 連携</a></strong> - Claude Codeのworktree機能とtmuxを連携させた並列開発ワークフローの構築方法。Zenn 8いいね。 [claude-code, git, tmux]</label></p></li>
+</ul>
+</section>
+<section id="infrastructure-security" class="level2">
+<h2 class="anchored" data-anchor-id="infrastructure-security">3. Infrastructure &amp; Security</h2>
+<ul class="task-list">
+<li><p><label><input type="checkbox"><strong><a href="https://dev.classmethod.jp/articles/obsidian-claude-clip/">Obsidian Web Clipper x Claude Codeで技術記事の自動整理をしてみた</a></strong> - Obsidian Web ClipperとClaude Codeを組み合わせて技術記事を自動的に整理・分類するワークフローを構築した事例。はてブ168件。 [ai, obsidian, productivity]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://techtarget.itmedia.co.jp/tt/news/2602/21/news01.html">「にゃんこ大戦争」インフラ”大引っ越し”の理由 なぜAWSからGoogle Cloudに？</a></strong> - 人気ゲーム「にゃんこ大戦争」のインフラをAWSからGoogle Cloudに移行した理由と経緯を解説。大規模クラウド移行事例。はてブ147件。 [aws, gcp, infrastructure, gaming]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/yostos/articles/cloudflare-benefits">Cloudflare無料プランだけで個人サイトのセキュリティが完結した話</a></strong> - Cloudflareの無料プランだけで個人サイトのセキュリティ対策を完結させた事例。DDoS対策、WAF、SSL等の設定方法を紹介。Zenn 89いいね。 [cloudflare, security, web-development]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://nowokay.hatenablog.com/entry/2026/02/21/175505">ブラウザがGPUメモリを使いすぎるので、サブGPUのRTX3050を使わせる</a></strong> - ブラウザのGPUメモリ消費問題に対して、サブGPUにRTX3050を割り当てて対処する方法を解説。はてブ107件。 [gpu, browser, hardware]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/explaza/articles/bfccdc141e3cfb">Playwright + Amazon ECSでE2Eテストが秒で廃墟になる問題を解決する</a></strong> - PlaywrightとAmazon ECSを組み合わせたE2Eテスト環境の不安定性問題とその解決策。Zenn 42いいね。 [testing, aws, playwright, devops]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/kenken38/items/8082c999a78137c7cc10">【完全無料・広告なし】AWS認定の学習支援サイトを公開しました</a></strong> - AWS認定試験向けの無料学習支援サイトを個人開発で公開。実務に活かせる知識の定着を重視した設計。Qiita 78いいね。 [aws, certification, learning]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/fsitlab/items/f917292498925c99fe8b">AWSネットワーク関連サービスの外部接続リスク分類</a></strong> - AWSネットワークサービスの外部接続リスクを体系的に分類・整理。意図しない外部通信を防ぐための実用的な参考資料。Qiita 2いいね。 [aws, security, networking]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://zenn.dev/masaru0208/articles/09b8fbbb3371f2">現地訪問必須だったRaspberryPiの管理地獄に終止符 - AWS Greengrass</a></strong> - 現地訪問が必要だったRaspberry Piの管理をAWS Greengrassで遠隔管理に移行した事例。IoTデバイス管理の効率化。Zenn 6いいね。 [aws, iot, raspberry-pi]</label></p></li>
+</ul>
+</section>
+<section id="others" class="level2">
+<h2 class="anchored" data-anchor-id="others">4. Others</h2>
+<ul class="task-list">
+<li><p><label><input type="checkbox"><strong><a href="https://note.com/hatankokka/n/nb21e45b658b4">10年前に予測されていた「なくなるとされた仕事」について、一次ソースを用いて深掘りしてみる</a></strong> - 10年前の「消える仕事」予測を一次ソースに立ち返って検証。予測の精度と現実のギャップを分析。はてブ92件。 [career, ai, essay]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://boristane.com/blog/the-software-development-lifecycle-is-dead/">The Software Development Lifecycle Is Dead</a></strong> - AIエージェント時代における従来のSDLCの終焉を論じた記事。はてブ86件で日本のエンジニアコミュニティでも注目。 [ai, software-engineering, essay]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://www.itmedia.co.jp/mobile/articles/2602/22/news011.html">米Orbic、日本市場から事実上の撤退か</a></strong> - 米国スマートフォンメーカーOrbicがオービックとの商標訴訟に敗訴し、日本市場から事実上撤退する見通し。はてブ176件。 [mobile, business, legal]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/hetare001/items/1c992f5e2a2d661900e2">プログラミングを15年やって、一番大事なのはプログラミングじゃないと気づいた</a></strong> - 15年のプログラミング経験から、技術よりもコミュニケーションや問題定義の重要性に気づいた話。Qiita 21いいね。 [career, essay, programming]</label></p></li>
+<li><p><label><input type="checkbox"><strong><a href="https://qiita.com/noobow/items/eaba05326aa795d9d7ea">ログインシェルをPowerShellにして.NETを消したらSSHが死んだ話</a></strong> - LinuxのログインシェルをPowerShellに変更し.NETを削除したらSSHが使えなくなったトラブル事例と復旧手順。Qiita 9いいね。 [linux, powershell, troubleshooting]</label></p></li>
+</ul>
+</section>
+<section id="highlights" class="level2">
+<h2 class="anchored" data-anchor-id="highlights">5. Highlights</h2>
+<p><strong>AI活用の光と影</strong> - はてブ901件を集めた「AIのやりすぎで頭がおかしくなっている」は、AI活用の負の側面を率直に語った記事。一方でClaude Code Security、knip連携、PRレビュー自動化など実践的活用事例も多数登場しており、適切な距離感でAIと向き合うことの重要性が浮き彫りになっている。</p>
+<p><strong>日本語LLMの進化</strong> - 東工大SwallowチームによるQwen3-SwallowとGPT-OSS-Swallowは、日本語特化オープンソースLLMの最新成果。商用モデルに頼らない日本語AI基盤の構築が着実に進んでいることを示している。</p>
+<p><strong>大規模クラウド移行の実態</strong> - 「にゃんこ大戦争」のAWSからGoogle Cloudへの移行事例は、ゲーム業界における大規模インフラ移行のリアルな判断基準と実行プロセスを知る貴重な記事。コスト、パフォーマンス、運用性の観点からクラウド選定を見直す参考になる。</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/i9wa4">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/i9wa4_">
+      <i class="bi bi-twitter-x" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/daikm">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

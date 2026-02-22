@@ -1,0 +1,135 @@
+# 職務経歴書
+
+
+- [職務経歴書 (Web ページ)](https://i9wa4.github.io/resume/index.html)
+- [職務経歴書 (pdf)](https://i9wa4.github.io/resume/index.pdf)
+
+## 1. 職務要約
+
+北海道大学理学部数学科を卒業後、Windowsアプリエンジニアや組込エンジニアを6年間経験し、2022年以降はデータエンジニアとMLOpsエンジニアとして勤務しております。
+
+**◆データエンジニアとしての経験：**<br>
+データ基盤の管理者・データ基盤の構築運用・データ基盤のIaC化・dbtによるデータマート構築運用・ダッシュボード作成運用のようにデータエンジニアリング全般に一気通貫で携わってきました。
+
+**◆MLOpsエンジニアとしての経験：**<br>
+二値分類による顧客の行動予測モデルの作成～ワークフロー構築運用保守・機械学習基盤のCI/CD整備・データサイエンティスト開発環境のAI-Ready化推進・OSS開発などに取り組んできました。
+
+**◆チームの中での役割：**<br>
+シイエヌエス北海道にてプロジェクトのリーダーやサブリーダーを任されておりました。hacomonoでは一人データエンジニアとしてデータ基盤管理者・データ基盤や利活用に関するタスクの社内調整・データ基盤部の目標管理といったリーダー相当の業務を担当しておりました。現職GENDAではあるグループ企業のデータ利活用の窓口兼主担当として関係者との仕様調整やデータエンジニアリング全般を任されております。また複数名のメンバーの業務進捗管理やコードレビューなどデータエンジニアチームのリーダー業務を2025年4月から徐々に受け持っております。
+
+**◆採用活動への関与：**<br>
+チームを成長させることに対する興味関心が強く、採用活動に積極的に参加しております。新卒採用選考・面接官・カジュアル面談者の募集と面談実施・リファラル採用・転職媒体での候補者選定・ジョブディスクリプションの修正・求人の宣伝を行ってきました。
+
+## 2. 自己PR
+
+**◆性格面：**<br>
+周囲の社員に貢献できるような地道な業務にモチベーション高く取り組むことができます。具体的には
+CI/CD
+整備・ドキュメント整備・勉強会開催・情報共有・採用活動などです。現在主に担当しているデータ利活用に向けた業務は、中長期的に周囲の社員に貢献できるものと信じて取り組めるため自分にマッチした業務であると感じています。
+
+**◆アウトプット：**<br>
+社外登壇やテックブログ執筆を通じて技術知見を積極的に発信しています。詳細は「通常業務以外の活動」セクションをご参照ください。
+
+## 3. 職務経歴
+
+> [!NOTE]
+>
+> 詳細は社名リンク先をご確認ください。
+
+### 3.1. 正社員
+
+<div id="list-details-full-time">
+
+</div>
+
+### 3.2. 業務委託
+
+<div id="list-details-part-time">
+
+</div>
+
+### 3.3. 最も苦労したプロジェクト
+
+現職の株式会社GENDAにて取り組んでいる以下です。
+データ基盤の改修・データマート構築・ダッシュボード作成・全体の運用・データ分析支援といったデータに関すること全てを私が対応しており、プロジェクト進行上人員不足の面での課題に向き合い解消に向かっている最中です。
+
+[\[データ\] カラオケ事業会社のデータ利活用推進 \|
+株式会社GENDA](05-genda.qmd#データ-カラオケ事業会社のデータ利活用推進)
+
+## 4. 今後取り組みたいこと
+
+**◆役割面：**<br> 直近：リーダー経験・マネジメント経験を積む<br>
+3-5年後：データ組織でリーダーシップを発揮し横断的にコミュニケーションを取りながらビジネス上の課題解決を目指す
+
+**◆技術面：**<br> データ基盤管理者として各種サービスの知見を深める<br>
+データ活用に繋がる分野 (BIツール・データカタログ・データマート作成など)
+へ積極関与する<br>
+特徴量作成・データマート改善のようにデータの観点から機械学習に貢献する<br>
+AIを活用して開発環境改善やデータ分析の簡易化 (民主化) に貢献する
+
+## 5. スキルレベル
+
+業務経験のある技術スタックのみ記載しています。
+
+| 項目 | 種類 | 使用期間 | レベル |
+|:---|:---|:---|:---|
+| IaC | CloudFormation | 0.5年 | 既存テンプレートの修正が可能 |
+| IaC | Docker | 4年 | Dockerfile や Docker Compose の記述・実行が可能 |
+| IaC | GitHub / CodeCommit | 5年 | Git flow や GitHub flow に則った開発利用やレビューが可能 |
+| IaC | GitHub Actions | 2年 | 既存ワークフロー改修 / CI/CD 向けのワークフロー作成 / GitHub Pages 関連のワークフロー作成が可能 |
+| IaC | Terraform | 2年 | AWS / Google Cloud (特に BigQuery) / Snowflake を用いた基盤の修正作業や IaC 化が可能 |
+| Data | BigQuery | 1年 | 管理者業務や IaC 化作業が可能 |
+| Data | Embulk | 0.5年 | 転送元 DB や 利用するインスタンス性能に応じたパフォーマンス改善が可能 |
+| Data | TROCCO | 0.5年 | ジョブ作成・運用が可能 |
+| Data | dbt Cloud | 1.5年 | ジョブ作成・運用が可能 |
+| Data | dbt Core | 2年 | プロジェクト新規作成から運用まで可能 |
+| Data / ML | Databricks | 1.5年 | 管理者業務や dbt Core との連携によるデータマート構築・ダッシュボード作成・機械学習環境整備が可能 |
+| Data / ML | Snowflake | 3.5年 | データマート作成 / SQL パフォーマンス改善 / Snowpark ML 利用 / パラメータ管理が可能 |
+| ML | DataRobot | 2年 | オートパイロットや blueprint 固定でのモデルデプロイ・運用、API を利用した各種評価指標の取得の実装が可能 |
+| OS | Amazon Linux / Ubuntu | 4年 | 要件に応じた環境構築や開発環境利用が可能 |
+| OS | Windows | 9年 | 開発利用が可能 |
+| OS | macOS | 2年 | 開発利用が可能 |
+| 言語 | C | 4年 | 一人称で作業可能 |
+| 言語 | Python | 5年 | 一人称で作業可能 |
+| 言語 | SQL | 4年 | 一人称で作業可能 |
+| 言語 | Shell Script | 5年 | 一人称で作業可能 |
+| Cloud | AWS | 4年 | EC2 / ECS / RDS / StepFunctions / SageMaker / Cloud9 / MWAA (Airflow) 等を含む環境構築や作業が可能 |
+| Cloud | Google Cloud | 1年 | BigQuery 中心としたプロジェクトの管理者業務や Compute Engine / Cloud Functions / Datastream / BigQuery (後述) 等を含む環境構築や作業が可能 |
+| DB | MySQL | 1年 | パフォーマンス調整のために必要なパラメータ調整の指示やデータ閲覧が可能 |
+| DB | PostgreSQL | 0.5年 | ローカル環境でのデータベース作成・データ閲覧が可能 |
+
+## 6. 資格
+
+- \[2023/04\] 統計検定2級
+- \[2015/03\] TOEIC スコア 805
+  <!-- - [2012/11] 普通自動車第一種運転免許 -->
+
+## 7. 通常業務以外の活動
+
+### 7.1. 登壇
+
+| 日付 | 所属 | 登壇先 | 資料 |
+|:---|:---|:---|:---|
+| 2026/01/26 | 株式会社GENDA | [JEDAI 2026 新春 Meetup! AIコーディング特集 - connpass](https://jedai.connpass.com/event/379174/) | [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips / JEDAI 2026 新春 Meetup! AIコーディング特集 - Speaker Deck](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari) |
+| 2025/12/23 | 株式会社GENDA | [モダンデータ基盤の最前線：現場から学ぶ実践と挑戦 - connpass](https://aeon.connpass.com/event/375097/) | [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 / AEON TECH HUB \#22 - Speaker Deck](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari) |
+| 2025/12/12 | 株式会社GENDA | [Databricks Data + AI World Tour Tokyo After Party](https://events.databricks.com/daiwt-tokyo-after-party/registration-closed) | [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする / Data+AI World Tour Tokyo After Party - Speaker Deck](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari) |
+| 2025/11/07 | 株式会社GENDA | [試されDATA SAPPORO \#1 - connpass](https://tamesaredatahokkaido.connpass.com/event/369741/) | [GENDA の機械学習環境を AWS から Databricks に移行してみた](https://i9wa4.github.io/../slides/2025-11-07-tamesare-data-sapporo-uma-chan.md) |
+| 2025/05/22 | 株式会社GENDA | AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会) | [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](https://i9wa4.github.io/../slides/2025-05-22-midas-cursor-tips.md) |
+
+### 7.2. 記事執筆・掲載
+
+| 日付 | 所属 | 概要 | リンク |
+|:---|:---|:---|:---|
+| 2025/10/31 | PIVOT株式会社 | テックブログ執筆 | [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model) |
+| 2025/09/01 | 株式会社GENDA | テックブログ執筆 | [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff) |
+| 2025/06/25 | 株式会社GENDA | note 掲載 | [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47) |
+| 2024/10/08 | 株式会社hacomono | Findy Tools 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28) |
+| 2024/08/21 | 株式会社hacomono | Findy Tools レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231) |
+| 2024/07/02 | 株式会社hacomono | テックブログ執筆 | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100) |
+
+### 7.3. その他技術記事
+
+- [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)
+- [uma-chan’s page](https://i9wa4.github.io)
+
+<!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->

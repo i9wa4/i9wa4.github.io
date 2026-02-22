@@ -1,0 +1,42 @@
+# 購入したガジェットの紹介
+uma-chan
+2024-06-17
+
+詳細まで書くかは決めていませんが、これまで購入したガジェット・小型家電の一覧を作っておきます。
+
+<div id="tbl-gadgets">
+
+Table 1: 購入ガジェット一覧
+
+| 購入日 | メーカー | 製品名 |
+|:---|:---|:---|
+| 2019-07-01 | Logicool | [Pebble M350](https://www.yodobashi.com/product/100000001004464218/) |
+| 2020-09-12 | 象印 | [スチーム式加湿器 EE-RN35-WA](https://www.amazon.co.jp/dp/B07G9RKNJP) |
+| 2020-07-19 | PFU | [HHKB Professional HYBRID Type-S 英語配列／墨](https://www.pfu.ricoh.com/direct/hhkb/detail_pd-kb800bs.html) |
+| 2022-03-12 | Logicool | [ERGO M575](https://www.logicool.co.jp/ja-jp/products/mice/m575-ergo-wireless-trackball.910-005876.html) |
+| 2022-12-05 | Kensington | [スリムブレードトラックボール](https://www.kensington.com/ja-jp/p/製品/コントロール/トラックボール/スリムブレードトラックボール/) |
+| 2023-03-05 | Google | [Pixel 6a](https://www.amazon.co.jp/dp/B0CJ39LD8D) |
+| 2023-03-12 | SONY | [WF-1000XM4](https://www.sony.jp/headphone/products/WF-1000XM4/) |
+| 2023-08-05 | Beelink | [Beelink SEi10 Mini PC](https://www.amazon.co.jp/dp/B0CB4FFVYY) |
+| 2024-02-28 | Anker | [Anker PowerExpand 6-in-1 USB-C PD イーサネット ハブ](https://www.ankerjapan.com/products/a8365) |
+| 2024-03-02 | Lenovo | [ThinkPad T14s Gen 4 (AMD) メモリ32GB ストレージ512GB](https://www.lenovo.com/jp/ja/p/laptops/thinkpad/thinkpad-t-series/thinkpad-t14s-gen-4-(14-inch-amd)/len101t0080) |
+| 2024-04-05 | Shokz | [OpenRun Pro Mini](https://jp.shokz.com/products/openrun-pro) |
+| 2024-05-06 | Fitbit | [Fitbit Charge 6](https://www.fitbit.com/global/jp/products/trackers/charge6) |
+| 2024-06-03 | Dell | [Dell 27 USB-C モニター - S2722DC](https://www.dell.com/ja-jp/shop/dell-27-usb-c-モニター-s2722dc/apd/210-bcde/モニター-モニターアクセサリー) |
+| 2024-06-07 | Logicool | [C270n HDウェブカメラ](https://www.logicool.co.jp/ja-jp/products/webcams/hd-webcam-c270n.960-001265.html) |
+| 2024-07-07 | Panasonic | [ラムダッシュ パームイン ES-PV3A](https://panasonic.jp/shaver/products/ES-PV3A.html) |
+| 2024-08-18 | OMRON | [体重体組成計 HBF-702T カラダスキャン](https://www.healthcare.omron.co.jp/product/hbf/hbf-702t.html) |
+| 2024-10-05 | Apple | [iPhone 16 256GB](https://www.yodobashi.com/product/100000001008724159/) |
+| 2024-10-05 | Apple | [Apple Watch Series 10](https://www.yodobashi.com/product/100000001008724031/) |
+| 2024-12-13 | final | [ZE500 for ASMR -Patra Black-](https://final-inc.com/products/ze500-patra) |
+| 2024-12-15 | 象印 | [スチーム式加湿器 EE-RT50-WA](https://www.yodobashi.com/product/100000001008633000/) |
+| 2025-02-12 | ProtoArc | [ProtoArc EM01](https://www.amazon.co.jp/dp/B0D3QJDBHW) |
+| 2025-03-23 | Apple | [MacBook Air M4 13インチ 10コアCPU 10コアGPU メモリ32GB](https://www.yodobashi.com/product/100000001008981683/) |
+| 2025-11-17 | Buffalo | [WEX-3000AX4EA](https://www.buffalo.jp/product/detail/wex-3000ax4ea.html) |
+| 2025-11-18 | THREEUP | [CH-T2517 WOOD STYLE 節電/室温センサー付セラミックヒーター](https://shop.three-up.co.jp/c/item/aw/aw_h/aw_h_ceramic/cht2517) |
+| 2025-11-20 | Cable Matters | [20 Gbps USB-C Switch for Sharing a USB-C / Thunderbolt 4 Monitor or Thunderbolt 4 Docking Station](https://www.cablematters.com/pc-1622-127-20gbps-usb-c-switch-for-2-computers-support-8k30hz-4k144hz-for-sharing-usb-cthunderbolt-monitors-and-docks.aspx?srsltid=AfmBOor06LHVVyjS5mVfR_yjArMJEJB-B7D0srquTt8TpYxx3DRNkJJj) |
+| 2025-11-30 | Shokz | [OpenRun Pro 2 Mini](https://jp.shokz.com/products/openrun-pro2) |
+
+</div>
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-06-17-purchased-gadgets.html&text=%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%81%AE%E7%B4%B9%E4%BB%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%81%AE%E7%B4%B9%E4%BB%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-06-17-purchased-gadgets.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-06-17-purchased-gadgets.html&title=%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%81%AE%E7%B4%B9%E4%BB%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
