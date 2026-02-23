@@ -1,10 +1,18 @@
 # Auto-generated tech trend preferences
-# Updated by bin/parse-feedback.py from [x] checkboxes in articles
+# Updated by parse-feedback.py from [x] checkboxes in articles
+last_updated: '2026-02-23'
 topics:
-  databricks: 3
-  dbt: 3
-  bigquery: 2
-  data-engineering: 2
-  databases: 2
-  etl: 2
-last_updated: "2026-02-23"
+  ai: 5
+  claude-code: 2
+  code-quality: 1
+  developer-tools: 4
+  essay: 1
+  git: 1
+  infrastructure: 1
+  mcp: 1
+  mental-health: 1
+  open-source: 1
+  terminal: 1
+  tmux: 1
+  workflow: 1
+  zig: 1

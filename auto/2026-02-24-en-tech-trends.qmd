@@ -1,0 +1,91 @@
+---
+title: "Tech Trends (EN) - 2026-02-24"
+author: uma-chan
+categories:
+  - "auto"
+  - "tech-trends"
+  - "en"
+date: 2026-02-24
+date-modified: last-modified
+description: |
+  Daily tech trend digest (EN) - Hacker News, GitHub Trending, Reddit
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. Picks For You
+
+- [ ] **[I Let AI Rewrite 40% of My Codebase. Here's What Actually Happened.](https://dev.to/techstratos/i-let-ai-rewrite-40-of-my-codebase-heres-what-actually-happened-1jd6)** - A developer documents the experience of letting AI tools rewrite nearly half their TypeScript codebase, covering what worked, what broke, and the places where human judgment remained essential. A grounded look at the real limits of AI-assisted refactoring in production code. [ai, developer-tools, typescript]
+
+- [ ] **[Mother CLAUDE: Custom Agents, or How We Accidentally Built a Team](https://dev.to/dorothyjb/mother-claude-custom-agents-or-how-we-accidentally-built-a-team-1opl)** - A team describes how building a system of custom Claude agents evolved organically into something resembling a collaborative multi-agent team structure. Explores how agentic coordination can emerge from individual automation tasks without explicit orchestration design. [ai, claude-code, automation]
+
+- [ ] **[Building a 24/7 Claude Code Wrapper? Here's Why Each Subprocess Burns 50K Tokens](https://dev.to/jungjaehoon/why-claude-code-subagents-waste-50k-tokens-per-turn-and-how-to-fix-it-41ma)** - An analysis of why Claude Code subagents consume approximately 50,000 tokens per turn when wrapped in persistent subprocess loops, with proposed architectural fixes to reduce token waste in long-running agentic workflows. [ai, claude-code, developer-tools]
+
+- [ ] **[Everything I've learned so far about .cursorrules after mass testing them](https://dev.to/nedcodes/everything-i-learned-about-cursorrules-after-mass-testing-them-for-2-months-31km)** - Two months of systematic testing of .cursorrules configurations yield practical findings on which patterns actually improve AI-assisted coding and which are cargo-culted noise. Useful guidance for anyone tuning their AI coding assistant setup. [ai, developer-tools, workflow]
+
+- [ ] **[A Quick Recovery Guide for AI-Dependent Coders](https://dev.to/canro91/a-quick-recovery-guide-for-ai-dependent-coders-4112)** - A guide for developers who have become over-reliant on AI tools, with exercises to rebuild foundational coding skills and mental models. Covers debugging without autocomplete, reading documentation critically, and maintaining code ownership. [ai, workflow, essay]
+
+- [ ] **[The time bomb in your codebase (and mine too)](https://dev.to/andrey_andrade_7a534cfc95/the-time-bomb-in-your-codebase-and-mine-too-2hj4)** - An essay arguing that AI-generated code introduces long-term maintenance risks invisible at commit time, including subtle intent mismatches and gradual pattern divergence. A call for more deliberate review practices when integrating AI output. [ai, developer-tools, essay]
+
+- [ ] **[taste-skill: gives your AI good taste, stops the AI from generating boring slop](https://github.com/Leonxlnx/taste-skill)** - A high-agency frontend skill providing AI coding assistants with aesthetic principles to prevent generating generic, repetitive UI code. Configures the assistant with design sensibility to produce more distinctive and purposeful frontend output. 819 GitHub stars. [ai, developer-tools, frontend-design]
+
+- [ ] **[ApplyPilot: AI agent that applies to jobs for you. Any site. Any form.](https://github.com/Pickle-Pixel/ApplyPilot)** - An open-source AI agent capable of navigating any job application form on any website and submitting applications autonomously. Demonstrates how browser-use agents handle complex, site-specific form structures at scale. 398 GitHub stars. [ai, automation]
+
+## 2. AI & Machine Learning
+
+- [ ] **[picolm: Run a 1-billion parameter LLM on a $10 board with 256MB RAM](https://github.com/RightNow-AI/picolm)** - A C implementation making it possible to run a 1B parameter language model on extremely resource-constrained hardware through aggressive quantization and memory-mapped weight loading. Shows how far embedded inference has come. 705 GitHub stars. [ai, machine-learning, embedded]
+
+- [ ] **[OpenAlice: File-driven AI trading agent engine for crypto and securities markets](https://github.com/TraderAlice/OpenAlice)** - An open-source trading agent framework where strategy logic is defined in plain files rather than code, making algorithmic trading experiments accessible to non-programmers. Built in TypeScript. 554 GitHub stars. [ai, trading, typescript]
+
+- [ ] **[Kalshi-Polymarket-AI-bot](https://github.com/CraftyGeezer/Kalshi-Polymarket-Ai-bot)** - A Python bot for automated trading on prediction markets (Kalshi and Polymarket), integrating AI-based probability estimation to identify and act on arbitrage opportunities across platforms. 710 GitHub stars. [ai, trading, python]
+
+- [ ] **[How to Reduce Stress for Free (Mega Bazooka with React Three Fiber + AI)](https://dev.to/webdeveloperhyper/how-to-reduce-stress-for-free-mega-bazooka-with-react-three-fiber-ai-4n50)** - A creative project combining React Three Fiber for 3D browser rendering with AI-generated assets to build a stress-relief bazooka simulation in the browser. Demonstrates interactive 3D web development as both a technical and therapeutic exercise. [ai, webdev, react]
+
+## 3. Development & Tools
+
+- [ ] **[Ladybird Browser adopts Rust](https://ladybird.org/posts/adopting-rust/)** - The independent Ladybird browser project announces integration of Rust for memory-safe systems components, a significant architectural decision for a browser being built from scratch outside the Blink/Gecko ecosystem. 620 HN score, 321 comments. [rust, browser, open-source]
+
+- [ ] **[Pipelined Relational Query Language (PRQL), Pronounced "Prequel"](https://prql-lang.org/)** - PRQL is a modern alternative to SQL using a pipeline-based syntax that makes complex multi-step transformations more readable. The language compiles to standard SQL and is gaining traction in data engineering toolchains. [databases, query-language]
+
+- [ ] **[femtolisp: A lightweight, robust, scheme-like Lisp implementation](https://github.com/JeffBezanson/femtolisp)** - A minimal Lisp dialect written in C, originally created by Julia co-founder Jeff Bezanson, designed for embedding in other projects. Notable as the bootstrap language for the Julia compiler itself. [programming-languages, lisp]
+
+- [ ] **[vercel-labs/visual-json: The Visual JSON Editor. Schema-aware, embeddable, extensible.](https://github.com/vercel-labs/visual-json)** - An open-source, schema-aware JSON editor from Vercel Labs designed to be embedded in web applications. Provides a tree-based editing interface with schema validation and extensible field renderers. 416 GitHub stars. [typescript, developer-tools]
+
+- [ ] **[Building a Production-Ready Task Management API with FastAPI: Complete Architecture Guide](https://dev.to/ravigupta97/building-a-production-ready-task-management-api-with-fastapi-complete-architecture-guide-25a)** - A comprehensive architecture guide covering async handlers, SQLAlchemy ORM, dependency injection patterns, and deployment configurations for a production FastAPI task management API. [python, fastapi, api]
+
+- [ ] **[C99 implementation of new O(m log^(2/3) n) shortest path algorithm](https://github.com/danalec/DMMSY-SSSP)** - A C99 implementation of a recently published single-source shortest-path algorithm with a sub-linear log factor, improving on classic Dijkstra-based approaches for certain dense graph types. [algorithms, c]
+
+- [ ] **[Emulating Goto in Scheme with Continuations](https://terezi.pyrope.net/ccgoto/)** - A technical deep-dive showing how first-class continuations in Scheme can implement goto-style control flow. Demonstrates call/cc as a general control-flow primitive capable of expressing nearly any flow pattern. [programming-languages, scheme]
+
+- [ ] **[I built a CLI to see my real GitHub language stats](https://dev.to/maxfriedmann/i-built-a-cli-to-see-my-real-github-language-stats-does-something-like-this-already-exist-1n18)** - A command-line tool that queries GitHub's API to compute accurate per-language statistics across all repositories including private ones, rather than relying on the incomplete public profile summary. [github, developer-tools, cli]
+
+## 4. Infrastructure & Security
+
+- [ ] **[The Age Verification Trap: Verifying age undermines everyone's data protection](https://spectrum.ieee.org/age-verification)** - An IEEE Spectrum analysis arguing that current age verification proposals force users to submit identity documents, creating privacy and security risks that exceed the harms they aim to prevent. 357 HN score, 279 comments. [security, privacy, policy]
+
+- [ ] **[Sub-$200 Lidar could reshuffle auto sensor economics](https://spectrum.ieee.org/solid-state-lidar-microvision-adas)** - Microvision's solid-state lidar module priced under $200 could make the technology viable for mass-market consumer automotive ADAS, potentially disrupting the current high-cost sensor landscape. 258 HN score. [hardware, automotive, sensors]
+
+- [ ] **[I built Timeframe, our family e-paper dashboard](https://hawksley.org/2026/02/17/timeframe.html)** - A detailed maker build log for a wall-mounted e-paper display showing family calendar events, weather, and reminders. Covers hardware selection, software stack, power management, and real-world lessons from daily use. 1,358 HN score, top post of the day. [hardware, iot, raspberry-pi]
+
+- [ ] **[apple-silicon-accelerometer: reading undocumented MEMS accelerometer + gyroscope on Apple Silicon via IOKit HID](https://github.com/olvvier/apple-silicon-accelerometer)** - A Python project that reads the undocumented accelerometer and gyroscope built into Apple Silicon MacBooks by reverse-engineering the IOKit HID interface, with no official API support. 636 GitHub stars. [hardware, macos]
+
+- [ ] **[A Fix for Time Machine Always Making Full Backups](https://dev.to/pauljlucas/a-fix-for-time-machine-always-making-full-backups-44cj)** - A macOS diagnostic and fix for a common issue where Time Machine treats incremental backups as full backups, leading to excessive storage consumption. Traces the root cause to extended attribute changes on the volume. [macos]
+
+## 5. Others
+
+- [ ] **[Elsevier shuts down its finance journal citation cartel](https://www.chrisbrunet.com/p/elsevier-shuts-down-its-finance-journal)** - Elsevier has closed a network of finance journals that systematically inflated their impact factors through coordinated self-citation rings. A rare case of publisher accountability in academic publishing. 359 HN score, 64 comments. [academia, open-access]
+
+- [ ] **[Magical Mushroom: Europe's first industrial-scale mycelium packaging producer](https://magicalmushroom.com/index)** - Magical Mushroom Company has scaled up production of mycelium-based packaging as a biodegradable alternative to polystyrene, operating Europe's first industrial facility of this type. 193 HN score. [sustainability, biotech]
+
+- [ ] **[The peculiar case of Japanese web design (2022)](https://sabrinas.space)** - An analysis of why Japanese websites still follow design patterns that diverged from Western trends decades ago, exploring cultural, historical, and technical reasons including desktop-first design and dense information layouts. 111 HN score. [design, culture]
+
+- [ ] **[0 A.D. Release 28: Boiorix](https://play0ad.com/new-release-0-a-d-release-28-boiorix/)** - The open-source historical real-time strategy game 0 A.D. releases its 28th alpha, Boiorix, with new civilizations, improved AI opponents, and engine performance improvements. 239 HN score. [gaming, open-source]
+
+- [ ] **[A simple web we own](https://rsdoiel.github.io/blog/2026/02/21/a_simple_web_we_own.html)** - An essay advocating for returning to self-hosted, user-controlled web infrastructure as an alternative to platform dependency, making the case for simplicity and digital ownership over convenience. [web, essay]
+
+## 6. Highlights
+
+**Family e-paper dashboard tops HN** - The Timeframe project earned the highest HN score of the day (1,358 points) for its thorough build log of a wall-mounted family dashboard. What makes it stand out is not the hardware complexity but the level of care in documenting real-world tradeoffs: power consumption, readability in different light conditions, and what content actually gets used day-to-day. It reflects a broader appetite for purposeful, low-power home devices.
+
+**Ladybird adopts Rust** - The Ladybird browser project's decision to integrate Rust is significant for an independent browser built entirely from scratch. Unlike Firefox's gradual Rust adoption or Chrome's experiments, Ladybird has no legacy C++ codebase constraints to work around. If successful, it will be one of the first browsers with Rust as a first-class systems language from early in its history, and could influence how future browser projects approach memory safety.
+
+**1B parameter LLM on a $10 board** - picolm's achievement of running a billion-parameter model on 256MB RAM ($10 hardware) through C-based quantization shows how dramatically the resource floor for local inference has dropped. A year ago this would have been considered implausible outside research labs. The project points toward a future where edge inference is truly ubiquitous, not just "runs on a phone" but "runs on a microcontroller."
