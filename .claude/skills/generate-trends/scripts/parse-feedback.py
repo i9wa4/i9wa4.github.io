@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Parse [x] feedback from auto-generated trend articles and update preferences.
 
 Scans all auto/*.qmd files for checked checkbox items (- [x]) and extracts
@@ -53,7 +52,7 @@ def write_preferences(prefs_path: Path, topics: Counter[str]) -> None:
 
     lines = [
         "# Auto-generated tech trend preferences",
-        "# Updated by bin/parse-feedback.py from [x] checkboxes in articles",
+        "# Updated by parse-feedback.py from [x] checkboxes in articles",
     ]
     lines.append(yaml.dump(data, default_flow_style=False, allow_unicode=True).rstrip())
     prefs_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -61,7 +60,7 @@ def write_preferences(prefs_path: Path, topics: Counter[str]) -> None:
 
 def main() -> int:
     """Main function."""
-    project_root = Path(__file__).parent.resolve().parent
+    project_root = Path.cwd()
     auto_dir = project_root / "auto"
     prefs_path = auto_dir / ".preferences.yaml"
 

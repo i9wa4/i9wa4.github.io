@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Sync Zenn articles from local repository to generate .qmd files."""
 
 from __future__ import annotations

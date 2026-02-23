@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Fetch trending tech articles from multiple sources via public APIs.
 
 EN sources: Hacker News, dev.to, GitHub trending repos

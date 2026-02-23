@@ -15,8 +15,8 @@ Execute these steps in order:
 
 ### 1.1. Step 1: Update preferences from feedback
 
-Run `uv run python bin/parse-feedback.py` to scan existing articles for checked
-items and update `auto/.preferences.yaml`.
+Run `uv run python .claude/skills/generate-trends/scripts/parse-feedback.py` to
+scan existing articles for checked items and update `auto/.preferences.yaml`.
 
 ### 1.2. Step 2: Read preferences
 
@@ -25,8 +25,8 @@ empty, skip personalization entirely -- generate 100% diverse content.
 
 ### 1.3. Step 3: Fetch trending data
 
-Run `uv run python bin/fetch-trends.py > /tmp/trends.json` to fetch real
-articles from public APIs. Then read `/tmp/trends.json`.
+Run `uv run python .claude/skills/generate-trends/scripts/fetch-trends.py > /tmp/trends.json`
+to fetch real articles from public APIs. Then read `/tmp/trends.json`.
 
 The JSON has this structure:
 

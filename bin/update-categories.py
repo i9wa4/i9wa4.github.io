@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Extract categories from posts and update index.qmd files.
 
 Category buttons use Pandoc attributes + Bootstrap CSS classes.
