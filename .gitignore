@@ -7,3 +7,5 @@
 
 **/*.bkp
 .pre-commit-config.yaml
+
+.envrc
