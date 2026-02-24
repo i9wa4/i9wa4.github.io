@@ -75,7 +75,12 @@ function Pandoc(doc)
     -- Get relative path from project root
     local input_file = quarto.doc.input_file
     local project_dir = quarto.project.directory
-    local rel_path = input_file:sub(#project_dir + 2)
+    local rel_path
+    if project_dir then
+      rel_path = input_file:sub(#project_dir + 2)
+    else
+      rel_path = input_file:match("([^/]+)$") or input_file
+    end
     local html_path = rel_path:gsub("%.qmd$", ".html")
     share_url = site_url .. "/" .. html_path
   end
