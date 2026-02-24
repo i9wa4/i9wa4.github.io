@@ -5,87 +5,103 @@ categories:
   - "auto"
   - "tech-trends"
   - "ja"
-date: 2026-02-24
+date: "2026-02-24 12:53:03 +0900"
 date-modified: last-modified
 description: |
   Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
-## 1. Picks For You
+## Picks For You
 
-- [ ] **[ごく個人的なClaude Codeプラクティス集](https://zenn.dev/hawkymisc/articles/2cace1f599cc06)** - 著者が実際の開発で培ったClaude Code活用のノウハウを集めた記事。タスク分割の粒度、プロンプトの書き方、承認フローなど実践的な知見が詰まっており、Claude Codeを日常的に使う開発者には特に参考になる内容。[claude-code, workflow, developer-tools]
+- [ ] **[Figma MCP × Claude Codeで1ページ8時間の作業が20分になった話](https://zenn.dev/kimmaru/articles/6c0f67f6003b94)** - DesignツールFigmaとClaude CodeをMCPで連携させることで、1ページあたり8時間かかっていた作業を20分に短縮した実践事例。Zennで41いいね、Hatenaで295ブックマークを獲得し、デザイン×AI開発の現場での効果を具体的な数字で示している。[claude-code, mcp, developer-tools]
 
-- [ ] **[コードを理解する超軽量MCPを作った — トークン70%削減、1分でセットアップ](https://zenn.dev/badmonster/articles/92338955317115)** - コードベースの構造を事前に解析しておくことで、AI補助コーディング時のトークン消費を70%削減するMCP実装の紹介。1分でセットアップ可能なシンプルな設計で、実用性を重視した作りになっている。139 likes、197 Hatenaブックマーク。[mcp, developer-tools, ai]
+- [ ] **[ごく個人的なClaude Codeプラクティス集](https://zenn.dev/hawkymisc/articles/2cace1f599cc06)** - 著者が日常の開発で蓄積してきたClaude Code活用のノウハウをまとめた記事。タスク粒度の設計、プロンプトの書き方、承認フローの設計まで実践的な知見が詰まっており、Claude Codeを継続利用する開発者に有用な内容。126いいね。[claude-code, workflow]
 
-- [ ] **[Figma MCP × Claude Codeで1ページ8時間の作業が20分になった話](https://zenn.dev/kimmaru/articles/6c0f67f6003b94)** - Figmaのデザインデータを直接Claude Codeに渡すMCP連携を構築した結果、1ページあたり8時間かかっていたUI実装が20分になったという事例報告。具体的な構成とワークフローを解説している。65 Hatenaブックマーク。[mcp, claude-code, developer-tools]
+- [ ] **[コードを理解する超軽量MCPを作った — トークン70%削減、1分でセットアップ](https://zenn.dev/badmonster/articles/92338955317115)** - コードベースの構造を事前解析することでAI補助コーディング時のトークン消費を70%削減するMCP実装の紹介。1分でセットアップ可能な軽量設計で、実用性を重視した作り。182いいね、Hatenaでも197ブックマーク。[mcp, developer-tools, ai]
 
-- [ ] **[Ghostty + Claude Codeで快適なターミナル開発環境を構築する](https://zenn.dev/sprix_it/articles/a25ddd0ca4d175)** - ターミナルエミュレータGhosttyとClaude Codeを組み合わせた開発環境の構築手順を解説。シェル統合、カラー設定、キーバインド、ワークフロー最適化など具体的な設定例を紹介している。[terminal, claude-code, developer-tools]
+- [ ] **["世界変わる"——非エンジニアでもできる、Claude CodeによるN8Nワークフロー開発](https://zenn.dev/ubie_dev/articles/6b23a74187766b)** - プログラミング知識のない担当者がClaude Codeを使ってN8Nワークフローを構築した事例。AIエージェントがノーコードツールの設計まで担える可能性を示す先進的な取り組みで、96いいね。[claude-code, workflow, ai]
 
-- [ ] **["世界変わる" — 非エンジニアでもできる、Claude Codeによるn8nワークフロー開発](https://zenn.dev/ubie_dev/articles/6b23a74187766b)** - プログラミング経験のない非エンジニアがClaude Codeを使ってn8nのワークフローを自律的に開発した体験記。コードの意味は理解できなくても開発できるという事実が示す、AIコーディングの民主化について考察している。92 likes。[claude-code, workflow, ai]
+- [ ] **[支援先のQAチームにClaude Codeを導入してテストケース生成を自動化した話](https://zenn.dev/neurostack_0001/articles/claude-code-qa-sprint-testcase-generation)** - 外部支援先のQAチームにClaude Codeを導入し、スプリント単位でテストケース生成を自動化した実績レポート。導入コスト・品質変化・チームへの影響を率直に報告している。45いいね。[claude-code, ai, developer-tools]
 
-- [ ] **[AIエージェント × knipで無駄コードを簡単に掃除](https://zenn.dev/knowledgework/articles/knip-with-ai-agent)** - JavaScriptプロジェクトの未使用コード検出ツールknipとAIエージェントを組み合わせ、デッドコードの自動削除ワークフローを構築した事例。コードベースの継続的なクリーンアップに有効なアプローチ。147 likes。[ai, developer-tools, open-source]
+- [ ] **[Claude Code on the Web でスマホだけでアプリを開発しリリースしてみた](https://zenn.dev/ruwatana/articles/claude-code-on-the-web-for-app-development)** - ブラウザ版Claude Codeを使ってスマートフォンのみでアプリを開発し実際にリリースするまでを記録した記事。PCなし開発の可能性と現実的な制約を両方レポートしている。29いいね。[claude-code, developer-tools]
 
-- [ ] **[支援先のQAチームにClaude Codeを導入してテストケース生成を自動化した話](https://zenn.dev/neurostack_0001/articles/claude-code-qa-sprint-testcase-generation)** - 外部のQAチームにClaude Codeを導入し、テストケース生成を自動化した支援事例。導入時の課題、プロンプト設計、品質管理方法まで実際のプロセスを詳述している。[claude-code, developer-tools]
+- [ ] **[Claude CodeのSkillsを作成例から徹底理解する](https://zenn.dev/acntechjp/articles/554765e5a0d0be)** - Claude Codeのスキル機能をゼロから理解するための解説記事。実際の作成例をもとに、スキルの構造・呼び出し方法・ユースケースを網羅している。10いいね。[claude-code, developer-tools]
 
-- [ ] **[Claude Code Securityが発表され、セキュリティ株が暴落。AIが数十年見逃されたバグ500件を発見した](https://qiita.com/emi_ndk/items/fb529b2ede94661e5287)** - AnthropicがClaude Code Securityを発表し、AIが長年見逃されていたバグを大量発見したことでセキュリティ企業の株価に影響が出たという話題を解説。AIセキュリティ診断の実力と業界への影響を考察している。105 likes。[claude-code, security, ai]
+- [ ] **[確定申告を自動化するAgent Skill "shinkoku"をOSSにした](https://zenn.dev/kazukinagata/articles/83fe82191db01b)** - 確定申告の複雑な入力プロセスをAIエージェントで自動化するSkillをオープンソース公開。官公庁系の実務タスクへのAIエージェント適用例として注目が集まり、197いいね。[ai, open-source, developer-tools]
 
-## 2. AI & Machine Learning
+- [ ] **[【AI駆動開発】Cursorに設計から考えさせたら、コードの品質が別次元になった話](https://qiita.com/YushiYamamoto/items/0aea29339d073829cb26)** - AIツールに実装だけでなく設計フェーズから関与させることでコード品質が大幅改善した体験談。プロンプトテンプレート付きで、AI駆動開発の上流工程への拡張を実践的に解説。Hatenaで109ブックマーク。[ai, developer-tools, workflow]
 
-- [ ] **[確定申告を自動化するAgent Skill "shinkoku" を OSSにした](https://zenn.dev/kazukinagata/articles/83fe82191db01b)** - 日本の確定申告プロセスをAIエージェントで自動化するAgent Skillをオープンソース公開した記事。税務フォームの複雑な入力ロジックをエージェント化するアーキテクチャと実装の詳細を解説している。117 likes、290 Hatenaブックマーク。[ai, open-source, automation]
+- [ ] **[プログラミングを15年やって、一番大事なのはプログラミングじゃないと気づいた](https://qiita.com/hetare001/items/1c992f5e2a2d661900e2)** - 15年のキャリアを経て気づいた「技術より大切なもの」を書いたエッセイ。AI時代のプログラマーの価値観の変化にも触れており、Qiitaで141いいね・69ストックと幅広い共感を得ている。[essay, ai]
 
-- [ ] **[Qwen3-Swallow & GPT-OSS-Swallow](https://zenn.dev/tokyotech_lm/articles/fa56f10e51fd7d)** - 東京工業大学のグループが開発した日本語特化LLMの新バージョン「Qwen3-Swallow」と「GPT-OSS-Swallow」の詳細報告。ベースモデルの違いと日本語ベンチマークにおける性能評価を紹介している。125 likes。[ai, machine-learning, llm]
+## AI & Machine Learning
 
-- [ ] **[数兆パラメータの時代に、無料GPU環境で3Bモデルを動かしたら想像以上だった](https://zenn.dev/kozoka_ai/articles/4041c910f6280e)** - Google Colabなどの無料GPU環境で3Bパラメータのモデルを動かした実験報告。大規模モデルが話題になる中、中規模モデルの実用性が思いのほか高いという知見を具体的なベンチマーク結果とともに示している。46 likes。[ai, machine-learning]
+- [ ] **[Claude Opus 4.6で作る、PowerPointでそのまま編集できる高品質スライド](https://note.com/it_navi/n/ne26d4d078386)** - Claude Opus 4.6を使ってPowerPointで直接編集可能なスライドを自動生成する方法を解説。デザインクオリティと実務での使い勝手を両立した手法として、Hatenaで477ブックマークと高い注目を集めている。[ai, claude-code]
 
-- [ ] **[Claude Opus 4.6で作る、PowerPointでそのまま編集できる高品質スライド](https://note.com/it_navi/n/ne26d4d078386)** - Claude Opus 4.6を使って、PowerPointで直接編集可能なpptxファイルを生成するワークフローの紹介。プレゼン資料作成の効率化において、単なる画像出力ではなく編集可能な形式で受け取れる実用性を示している。158 Hatenaブックマーク。[ai, claude-code, developer-tools]
+- [ ] **[Claude Code Securityが発表され、セキュリティ株が暴落。AIが数十年見逃されたバグ500件を発見した](https://qiita.com/emi_ndk/items/fb529b2ede94661e5287)** - AnthropicのClaude Code Securityが従来の静的解析では見逃してきた複雑な脆弱性を500件以上発見したことで、セキュリティ企業の株価が急落した経緯を解説。Qiitaで132いいね・93ストック。[ai, security, claude-code]
 
-- [ ] **[最近のAIに関する所感](https://sizu.me/catatsuy/posts/6hcooh41ni4c)** - エンジニアの視点から、最近のAIの進化について感じていることを率直につづったエッセイ。ツールとしての実用性と、過剰な期待と現実のギャップについて冷静に考察している。198 Hatenaブックマーク。[ai, essay]
+- [ ] **[Anthropic、ルールベースではなくコード分析により複雑な脆弱性も発見できる新機能「Claude Code Security」を提供開始](https://www.publickey1.jp/blog/26/anthropicclaude_code_security.html)** - Claude Code Securityの技術的な概要と従来ツールとの差異を解説したPublickey記事。コードの意味論を理解した脆弱性検出という新アプローチの意義をまとめている。Hatenaで55ブックマーク。[ai, security, claude-code]
 
-## 3. Development & Tools
+- [ ] **[Qwen3-Swallow & GPT-OSS-Swallow](https://zenn.dev/tokyotech_lm/articles/fa56f10e51fd7d)** - 東工大の言語モデルチームによるQwen3とGPTオープンモデルの日本語特化版リリース報告。ベンチマーク比較と学習の工夫を含む技術詳細を開示している。129いいね。[ai, machine-learning]
 
-- [ ] **[新デザインツールPencilはなぜエンジニアに刺さるのか](https://zenn.dev/aria3/articles/pencil-dev-why-engineers-love-it)** - 新しいデザインツールPencilがエンジニアから支持される理由を分析した記事。Figmaとの違い、コンポーネント管理のアプローチ、開発ワークフローとの親和性について詳しく解説している。155 likes。[developer-tools, design]
+- [ ] **[NIST「AI Agent Standards Initiative」発表。相互運用可能かつ安全なイノベーションのために](https://www.publickey1.jp/blog/26/nistaiai_agent_standards_initiative.html)** - 米国国立標準技術研究所がAIエージェントの技術標準策定イニシアチブを発表。ベンダー横断での相互運用性と安全性を担保する枠組み作りを目指す。Hatenaで37ブックマーク。[ai, standards]
 
-- [ ] **[devcontainer + git worktreeで並列開発するぞ！](https://zenn.dev/kenfdev/articles/222fe622d42f0d)** - devcontainerとgit worktreeを組み合わせて複数のフィーチャーブランチを並列開発する手法の解説。コンテナ隔離と作業ツリー分離を活用して、ブランチ切り替えなしに複数タスクを同時進行させる実践的なワークフロー。[workflow, developer-tools, git]
+- [ ] **[Anthropic公式Cookbookを全解剖 — Claude APIの実践レシピ65本を徹底解説](https://qiita.com/nogataka/items/c5c6a0eb93ae6bc6b791)** - AnthropicのCookbookリポジトリに収録された65本のサンプルを日本語で体系的に解説した記事。APIの使い方を幅広くカバーしており、実装リファレンスとして有用。8いいね・6ストック。[ai, claude-code, python]
 
-- [ ] **[async/awaitはなぜ生まれたのか — 非同期処理の歴史を辿る](https://qiita.com/MoriP-K/items/c9590934c7e72638107b)** - コールバック地獄からPromise、そしてasync/awaitへと至るJavaScriptの非同期処理の進化を歴史的に辿った解説記事。各段階での問題点と解決策を丁寧に説明しており、非同期処理の本質的な理解に役立つ。44 likes。[javascript, programming-languages]
+- [ ] **[Claude Agent SDKとは何か — 初心者向け完全ガイド](https://qiita.com/nogataka/items/07c0b334a419c944cbf0)** - Python/TypeScript両対応のClaude Agent SDKの概要・セットアップ・基本的な実装パターンを網羅した入門記事。エージェント開発の出発点として整理されている。6いいね・6ストック。[ai, claude-code]
 
-- [ ] **[プログラミングを15年やって、一番大事なのはプログラミングじゃないと気づいた](https://qiita.com/hetare001/items/1c992f5e2a2d661900e2)** - 15年のキャリアを振り返り、技術的なスキルよりも課題発見や問題定義能力の方が重要だという気づきをまとめたエッセイ。AI時代におけるエンジニアの価値について示唆に富む内容。96 likes。[essay, career]
+- [ ] **[NVIDIA-Nemotron-Nano-9B-v2-Japanese からEmbeddingモデルを作る](https://zenn.dev/yner/articles/nemotron_nano_embedding)** - NVIDIAの日本語対応9Bモデルからfine-tuningなしでEmbeddingモデルを生成する手法の実験レポート。日本語テキストの意味検索や分類タスクへの応用を検証している。5いいね。[ai, machine-learning]
 
-- [ ] **[Playwright + Amazon ECSでE2Eテストが秒で廃墟になる問題を解決する](https://zenn.dev/explaza/articles/bfccdc141e3cfb)** - PlaywrightのE2EテストをAmazon ECS上で実行する際に起きるコンテナの頻繁な破棄と再起動によるテスト不安定化問題を解決した事例。インフラ設計とテスト戦略の両面から解決策を提示している。48 likes。[testing, aws, devops]
+## Development & Tools
 
-- [ ] **[Claude Code on the WebでスマホだけでアプリをリリースしてみたClaude Code on the Webでスマホだけでアプリを開発しリリースしてみた](https://zenn.dev/ruwatana/articles/claude-code-on-the-web-for-app-development)** - PCなしにスマートフォンのブラウザだけでClaude Code on the Webを使ってアプリを開発・リリースした実験記。モバイルだけで完結する開発環境の可能性と現実的な制約を報告している。21 likes。[claude-code, developer-tools]
+- [ ] **[OpenClawチートシート｜これだけ覚えればOKなコマンド・設定・ワークフロー集](https://qiita.com/akira_papa_AI/items/f3d52c314329127b3bba)** - OpenClawの実務利用に必要なコマンド・設定・ワークフローを1枚のチートシートにまとめた記事。素早く参照できる構成で、導入直後のユーザーに役立つ。10いいね・6ストック。[developer-tools]
 
-- [ ] **[ハッカソンでClean Architecture — 4人対戦ババ抜きWebSocketサーバーの設計と7つのこだわり](https://zenn.dev/teba_eleven/articles/1765035114d00b)** - ハッカソンでClean Architectureを採用してWebSocketベースの4人対戦カードゲームサーバーを構築した際の設計判断と7つのこだわりポイントを解説。短期間開発でもアーキテクチャを妥協しない事例として参考になる。21 likes。[architecture, websocket, backend]
+- [ ] **[bit + bit-relay でP2PでのコラボレーションREAL開発を実現する](https://zenn.dev/mizchi/articles/decentrized-git-for-agents)** - GitをP2P化するbit/bit-relayを組み合わせることで、中央サーバなしで複数エージェントが協調開発できる環境を構築する試みを解説。AIエージェントの分散開発への応用に焦点を当てている。30いいね。[git, developer-tools, ai]
 
-## 4. Infrastructure & Security
+- [ ] **[React.FCを使うべきではない理由](https://zenn.dev/k_ing/articles/7782f50658b666)** - React.FCの型定義が持つ暗黙の問題点（childrenの扱い、ジェネリクスとの相性など）を整理した解説記事。TypeScript + Reactの型設計のベストプラクティスを議論している。31いいね。[web-development, typescript]
 
-- [ ] **[Cloudflare無料プランだけで個人サイトのセキュリティが完結した話](https://zenn.dev/yostos/articles/cloudflare-benefits)** - Cloudflareの無料プランのみを使って個人サイトのDDoS対策、WAF、ボット対策を実装した事例。有料サービスなしでエンタープライズ相当のセキュリティを実現できる具体的な設定方法を紹介している。105 likes。[infrastructure, security, cloudflare]
+- [ ] **[FastAPIのJSONレスポンスに型を書くだけでレスポンスが速くなるらしい](https://zenn.dev/maguro_alterna/articles/ee730afa94f52e)** - FastAPIでresponse_modelを明示的に指定することでPydanticのシリアライズ処理が最適化されレスポンス速度が向上する仕組みを実験で検証した記事。3いいね。[python, developer-tools]
 
-- [ ] **[現地訪問必須だったRaspberryPiの管理地獄に終止符 — AWS Greengrass](https://zenn.dev/masaru0208/articles/09b8fbbb3371f2)** - オンプレミス環境のRaspberry Piを管理するために現地訪問が必要だった問題を、AWS Greengrassを使ったリモート管理基盤の構築で解決した事例。エッジデバイス管理の実践的なアーキテクチャを解説している。21 likes。[aws, infrastructure, iot]
+- [ ] **[ゼロから理解する「MongoDB」とは？](https://qiita.com/yushibats/items/6a8f5048b6ea61ee5800)** - MongoDBの基本概念・RDBとの違い・ユースケースを初心者向けにまとめた入門記事。ドキュメント指向DBの考え方を図解を交えてわかりやすく説明している。4いいね・6ストック。[databases]
 
-- [ ] **[AWSネットワーク関連サービスの外部接続リスク分類: 意図しない外部通信を防ぐための体系整理](https://qiita.com/fsitlab/items/f917292498925c99fe8b)** - AWSの各ネットワークサービスが意図せず外部通信を発生させるリスクを体系的に分類した解説記事。VPC、NAT Gateway、IGWなど各コンポーネントのイングレス・エグレスリスクを整理している。135 Hatenaブックマーク。[aws, security, networking]
+- [ ] **[AIのテストコードは信用するな](https://zenn.dev/tko_kasai/articles/3f5863e3407891)** - AIが生成したテストコードが実際には正しい検証をしていないケースを複数紹介し、人間によるレビューの必要性を訴える記事。AI補助テスト導入時の注意点として参考になる。18いいね。[ai, testing]
 
-- [ ] **[AmazonでAIツールが原因と見られるAWS障害が発生、2025年12月にはKiro AIが原因で13時間に及ぶサービス停止](https://gigazine.net/news/20260223-aws-ai-outage/)** - AWSでAIツールに起因する障害が発生し、2025年12月のKiro AI起因の13時間障害に続く事例として注目されている。AIツールの内部展開がクラウドインフラの安定性に与えるリスクについて考察する記事。20 Hatenaブックマーク。[aws, infrastructure, ai]
+- [ ] **[【ハッカソンでClean Architecture】4人対戦ババ抜きWebSocketサーバーの設計と7つのこだわり](https://zenn.dev/teba_eleven/articles/1765035114d00b)** - ハッカソンで実装した4人対戦カードゲームサーバーにClean Architectureを適用した設計記録。WebSocketと複雑なゲームロジックをクリーンに管理するための判断を7つのポイントで解説。29いいね。[software-architecture, websocket]
 
-- [ ] **[5分でわかるファイアウォール設定ミスの防ぎ方](https://qiita.com/handson-lab/items/07661b914aad38800286)** - ファイアウォール設定の典型的なミスパターンとその防ぎ方をコンパクトにまとめた入門記事。Linuxのiptablesとクラウドセキュリティグループの双方をカバーし、インフラエンジニアの基礎知識として有用。[security, linux, infrastructure]
+## Infrastructure & Security
 
-- [ ] **[読書メモ: 再考・ログ設計 — 障害に強いアプリケーションのログ出力・管理の極意（Software Design 2026年3月号）](https://qiita.com/hatahatahata/items/b2cec428c1d3c7cced5d)** - Software Design 2026年3月号のログ設計特集の読書メモ。障害対応を前提としたログ設計の原則、構造化ログの活用、AWS CloudWatchとの連携など実践的な知見をまとめている。[infrastructure, observability, aws]
+- [ ] **[Cloudflare無料プランだけで個人サイトのセキュリティが完結した話](https://zenn.dev/yostos/articles/cloudflare-benefits)** - CloudflareのFreeプランで利用可能なWAF・DDoS緩和・Botブロック・HTTPS自動化などの機能を組み合わせることで、個人サイトのセキュリティを無料で実現した構成を紹介。118いいね。[infrastructure, security, cloudflare]
 
-## 5. Others
+- [ ] **[マルチクラウド環境での生成AIのセキュリティとガバナンス — Vertex AI（Gemini）における「多層防御」の設計と実装](https://tech.techtouch.jp/entry/multi-cloud-gemini-security-governance)** - GCPのVertex AIを軸にしたマルチクラウド生成AI環境における多層防御の設計手法を解説。ネットワーク分離・認証・監査ログを含む実装例を提示している。Hatenaで23ブックマーク。[infrastructure, security, ai]
 
-- [ ] **[最近15年ほどの世界的な出生率低下傾向について](https://note.com/junya_tsutsui/n/n601cdf7e72eb)** - 社会学者・筒井淳也による、過去15年間の世界的な出生率低下傾向の分析。国ごとの違いや背景にある社会経済的要因、政策介入の限界について学術的な視点から平易に解説している。354 Hatenaブックマーク。[essay, society]
+- [ ] **[現地訪問必須だったRaspberryPiの管理地獄に終止符 — AWS Greengrass](https://zenn.dev/masaru0208/articles/09b8fbbb3371f2)** - オンプレミス環境のRaspberry Piを管理するために現地訪問が必要だった問題を、AWS Greengrassを使ったリモート管理基盤の構築で解決した事例。23いいね。[infrastructure, aws]
 
-- [ ] **[この先生きのこるには](https://zenn.dev/kaiware0x/articles/to-be-or-not-to-be)** - AI時代にエンジニアとして生き残るためのキャリア戦略について考察したエッセイ。技術力だけでなく、何を作るかを選ぶ判断力と学習の方向性について率直な見解を述べている。261 Hatenaブックマーク。[essay, career, ai]
+- [ ] **[5分でわかるファイアウォール設定ミスの防ぎ方【セキュリティインシデント防止】](https://qiita.com/handson-lab/items/07661b914aad38800286)** - ファイアウォール設定でよくある誤りを整理し、インシデントにつながる前に防ぐチェックリストを提供する実用記事。14いいね・15ストック。[security, infrastructure]
 
-- [ ] **[定例ミーティングのなくし方](https://iwashi.co/2026/02/23/how-to-stop-recurring-meetings)** - 定例ミーティングを削減・廃止するための具体的なアプローチと交渉術をまとめた記事。会議の目的の再定義、非同期コミュニケーションへの移行方法、組織文化の変え方について実践的に解説している。110 Hatenaブックマーク。[workflow, essay]
+- [ ] **[世界屈指の「ランサムウェアに金を払わない国」なはずの日本にサイバー攻撃が増えている理由](https://levtech.jp/media/article/focus/detail_809/)** - 身代金支払い率が低い日本がランサムウェアの標的になり続ける理由を構造的に分析した記事。侵入経路・産業構造・対策コストの観点から国内のサイバーセキュリティの現状を解説。Hatenaで37ブックマーク。[security]
 
-- [ ] **[技術力は高いけど小さい会社の社長が「大手企業の購買部が会社を潰す」とおっしゃっていた話](https://posfie.com/@taimport/p/IgKIfG8)** - 中小製造業の社長が語る、大企業の購買部門による極端なコスト圧縮が技術力の高い中小企業の経営を圧迫し、ひいては日本のものづくり基盤を弱体化させるという問題提起。237 Hatenaブックマーク。[essay, business]
+- [ ] **[ログ設計 障害に強いアプリケーションのログ出力・管理の極意（Software Design 2026年3月号）](https://qiita.com/hatahatahata/items/b2cec428c1d3c7cced5d)** - Software Design最新号の特集記事の読書メモ。障害時に役立つログ粒度・フォーマット・保存設計のベストプラクティスをまとめている。17いいね・17ストック。[infrastructure, devops]
 
-## 6. Highlights
+## Others
 
-**超軽量MCPがZennとHatena双方でトップ** - 「コードを理解する超軽量MCP」はZennで139 likes、Hatenaブックマークで197件と、2つのプラットフォームで高い注目を集めた。トークン削減という具体的な数値目標と1分セットアップという低い導入障壁が支持される理由であり、MCP活用が単なる話題から実用段階に移行していることを示している。
+- [ ] **[最近15年ほどの世界的な出生率低下傾向について](https://note.com/junya_tsutsui/n/n601cdf7e72eb)** - 社会学者の筒井淳也氏が15年間のグローバルな少子化トレンドをデータで整理したノート記事。Hatenaで570ブックマークという異例の注目を集めており、社会課題への関心の高さがうかがえる。[essay, society]
 
-**確定申告自動化エージェントのOSS化** - 税務という複雑なドメイン知識が必要な作業をAIエージェントでOSS化した事例は、Hatenaブックマーク290件という高い注目を集めた。「日本の確定申告」という極めてローカルな課題に対して、エージェント技術を具体的に適用した点が評価されており、業務自動化の次のフロンティアとして参考になる。
+- [ ] **[定例ミーティングのなくし方](https://iwashi.co/2026/02/23/how-to-stop-recurring-meetings)** - 定例会議の弊害と、段階的に廃止するための具体的な手順を解説した実践記事。非同期コミュニケーション文化への移行を検討しているチームに参考になる内容。Hatenaで307ブックマーク。[workflow, productivity]
 
-**出生率低下の学術的考察がバイラル** - テック系コミュニティにおいて社会学の論考が354ブックマークを集めたことは、技術以外の問題への関心の高さを示している。少子化は開発者コミュニティにも直接関わる社会課題であり、データに基づく冷静な分析記事が幅広い読者に届いた事例といえる。
+- [ ] **[開業1年目に心がけた100箇条](https://yuzutas0.hatenablog.com/entry/2026/02/23/100000)** - フリーランスや独立起業1年目での気づき・反省・心得を100項目にわたってまとめたエッセイ。組織に依存しない働き方を模索するエンジニアへのヒントが詰まっている。Hatenaで127ブックマーク。[essay, career]
+
+- [ ] **[米IBM株13%急落　アンソロピックAIが「COBOL」事業の脅威に](https://www.nikkei.com/article/DGXZQOGN2404D0U6A220C2000000/)** - Claude Code SecurityがCOBOLコードの脆弱性検出に優れた性能を示したことで、IBMのCOBOL保守事業への打撃が懸念され株価が急落した経緯を日経が報道。AIの既存ITサービス産業への影響が現実化した象徴的なニュース。Hatenaで95ブックマーク。[ai, business]
+
+- [ ] **[LANケーブルの"ややこしい"話　「カテゴリー8」ってどうなの？](https://internet.watch.impress.co.jp/docs/column/shimizu/2086089.html)** - Cat8ケーブルの仕様・実用上の注意点・Cat6Aとの使い分けを平易に解説したImpress Watch連載記事。ホームネットワーク整備での素朴な疑問に答える実用的な内容。Hatenaで53ブックマーク。[networking, hardware]
+
+- [ ] **[オープンソースのクロスプラットフォーム監視ツール「Glances」](https://gigazine.net/news/20260223-glances/)** - CPU・メモリ・ディスク・ネットワーク使用量をターミナルとWebサーバーモード双方で監視できるOSSツール「Glances」の紹介。導入の簡便さとリモート監視対応が評価されHatenaで54ブックマーク。[developer-tools, open-source]
+
+- [ ] **[Entire.ioのコンセプトは正しい。でも今はまだ早い（2026-02-23時点）](https://zenn.dev/aromarious/articles/20260223-entire-io-review)** - AIエージェントによる全自動コード管理を目指すEntire.ioを実際に試した評価記事。方向性は正しいが現時点での成熟度と実用性の限界を率直にレポートしている。4いいね。[ai, developer-tools]
+
+## Highlights
+
+**Figma MCP × Claude Codeで8時間の作業を20分に短縮**した事例は、デザイン業務におけるMCP連携の実用性を具体的な数字で示した点で際立っている。ZennのいいねとHatenaのブックマーク数が同時に跳ね上がっており、エンジニアとデザイナー双方の関心を引いていることがわかる。MCPがAI開発の「のりしろ」として機能し始めた現れともいえる。
+
+**確定申告を自動化するAgent Skill "shinkoku"のOSS公開**（197いいね）は、官公庁フォームという複雑で厄介な実務タスクにAIエージェントを適用した先進事例として注目に値する。Claude Codeのスキル機構を活用した実装であり、AIエージェントの活用領域が業務の"面倒な端っこ"まで広がり始めていることを示している。
+
+**Claude Code SecurityによるCOBOL脆弱性発見でIBM株が急落**したニュースは、AIが産業構造に直接的な経済的影響を与え始めたことを示す象徴的な出来事だ。Qiitaで132いいね・93ストックと高評価を受けており、セキュリティエンジニアだけでなく幅広い層が注目している。AIによるセキュリティ分析の精度向上が、従来のSIer型保守ビジネスを代替しうることを市場が認識し始めた瞬間といえる。
