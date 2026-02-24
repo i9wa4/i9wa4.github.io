@@ -18,7 +18,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 - [ ] **[ごく個人的なClaude Codeプラクティス集](https://zenn.dev/hawkymisc/articles/2cace1f599cc06)** - 著者が日常の開発で蓄積してきたClaude Code活用のノウハウをまとめた記事。タスク粒度の設計、プロンプトの書き方、承認フローの設計まで実践的な知見が詰まっており、Claude Codeを継続利用する開発者に有用な内容。126いいね。[claude-code, workflow]
 
-- [ ] **[コードを理解する超軽量MCPを作った — トークン70%削減、1分でセットアップ](https://zenn.dev/badmonster/articles/92338955317115)** - コードベースの構造を事前解析することでAI補助コーディング時のトークン消費を70%削減するMCP実装の紹介。1分でセットアップ可能な軽量設計で、実用性を重視した作り。182いいね、Hatenaでも197ブックマーク。[mcp, developer-tools, ai]
+- [x] **[コードを理解する超軽量MCPを作った — トークン70%削減、1分でセットアップ](https://zenn.dev/badmonster/articles/92338955317115)** - コードベースの構造を事前解析することでAI補助コーディング時のトークン消費を70%削減するMCP実装の紹介。1分でセットアップ可能な軽量設計で、実用性を重視した作り。182いいね、Hatenaでも197ブックマーク。[mcp, developer-tools, ai]
 
 - [ ] **["世界変わる"——非エンジニアでもできる、Claude CodeによるN8Nワークフロー開発](https://zenn.dev/ubie_dev/articles/6b23a74187766b)** - プログラミング知識のない担当者がClaude Codeを使ってN8Nワークフローを構築した事例。AIエージェントがノーコードツールの設計まで担える可能性を示す先進的な取り組みで、96いいね。[claude-code, workflow, ai]
 
@@ -36,7 +36,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## AI & Machine Learning
 
-- [ ] **[Claude Opus 4.6で作る、PowerPointでそのまま編集できる高品質スライド](https://note.com/it_navi/n/ne26d4d078386)** - Claude Opus 4.6を使ってPowerPointで直接編集可能なスライドを自動生成する方法を解説。デザインクオリティと実務での使い勝手を両立した手法として、Hatenaで477ブックマークと高い注目を集めている。[ai, claude-code]
+- [x] **[Claude Opus 4.6で作る、PowerPointでそのまま編集できる高品質スライド](https://note.com/it_navi/n/ne26d4d078386)** - Claude Opus 4.6を使ってPowerPointで直接編集可能なスライドを自動生成する方法を解説。デザインクオリティと実務での使い勝手を両立した手法として、Hatenaで477ブックマークと高い注目を集めている。[ai, claude-code]
 
 - [ ] **[Claude Code Securityが発表され、セキュリティ株が暴落。AIが数十年見逃されたバグ500件を発見した](https://qiita.com/emi_ndk/items/fb529b2ede94661e5287)** - AnthropicのClaude Code Securityが従来の静的解析では見逃してきた複雑な脆弱性を500件以上発見したことで、セキュリティ企業の株価が急落した経緯を解説。Qiitaで132いいね・93ストック。[ai, security, claude-code]
 
@@ -48,7 +48,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 - [ ] **[Anthropic公式Cookbookを全解剖 — Claude APIの実践レシピ65本を徹底解説](https://qiita.com/nogataka/items/c5c6a0eb93ae6bc6b791)** - AnthropicのCookbookリポジトリに収録された65本のサンプルを日本語で体系的に解説した記事。APIの使い方を幅広くカバーしており、実装リファレンスとして有用。8いいね・6ストック。[ai, claude-code, python]
 
-- [ ] **[Claude Agent SDKとは何か — 初心者向け完全ガイド](https://qiita.com/nogataka/items/07c0b334a419c944cbf0)** - Python/TypeScript両対応のClaude Agent SDKの概要・セットアップ・基本的な実装パターンを網羅した入門記事。エージェント開発の出発点として整理されている。6いいね・6ストック。[ai, claude-code]
+- [x] **[Claude Agent SDKとは何か — 初心者向け完全ガイド](https://qiita.com/nogataka/items/07c0b334a419c944cbf0)** - Python/TypeScript両対応のClaude Agent SDKの概要・セットアップ・基本的な実装パターンを網羅した入門記事。エージェント開発の出発点として整理されている。6いいね・6ストック。[ai, claude-code]
 
 - [ ] **[NVIDIA-Nemotron-Nano-9B-v2-Japanese からEmbeddingモデルを作る](https://zenn.dev/yner/articles/nemotron_nano_embedding)** - NVIDIAの日本語対応9Bモデルからfine-tuningなしでEmbeddingモデルを生成する手法の実験レポート。日本語テキストの意味検索や分類タスクへの応用を検証している。5いいね。[ai, machine-learning]
 
@@ -86,7 +86,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 - [ ] **[最近15年ほどの世界的な出生率低下傾向について](https://note.com/junya_tsutsui/n/n601cdf7e72eb)** - 社会学者の筒井淳也氏が15年間のグローバルな少子化トレンドをデータで整理したノート記事。Hatenaで570ブックマークという異例の注目を集めており、社会課題への関心の高さがうかがえる。[essay, society]
 
-- [ ] **[定例ミーティングのなくし方](https://iwashi.co/2026/02/23/how-to-stop-recurring-meetings)** - 定例会議の弊害と、段階的に廃止するための具体的な手順を解説した実践記事。非同期コミュニケーション文化への移行を検討しているチームに参考になる内容。Hatenaで307ブックマーク。[workflow, productivity]
+- [x] **[定例ミーティングのなくし方](https://iwashi.co/2026/02/23/how-to-stop-recurring-meetings)** - 定例会議の弊害と、段階的に廃止するための具体的な手順を解説した実践記事。非同期コミュニケーション文化への移行を検討しているチームに参考になる内容。Hatenaで307ブックマーク。[workflow, productivity]
 
 - [ ] **[開業1年目に心がけた100箇条](https://yuzutas0.hatenablog.com/entry/2026/02/23/100000)** - フリーランスや独立起業1年目での気づき・反省・心得を100項目にわたってまとめたエッセイ。組織に依存しない働き方を模索するエンジニアへのヒントが詰まっている。Hatenaで127ブックマーク。[essay, career]
 

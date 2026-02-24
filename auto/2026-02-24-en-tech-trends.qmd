@@ -24,7 +24,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 - [ ] **[I Ran a Honeypot MCP Server. Here's What AI Agents Actually Did.](https://dev.to/kai_security_ai/i-ran-a-honeypot-mcp-server-heres-what-ai-agents-actually-did-4d8o)** - A researcher deployed a deliberately vulnerable MCP server to observe how AI agents behave when encountering unguarded tool surfaces. Results highlight that agents frequently probe beyond intended scope, raising practical MCP security design concerns. [mcp, ai, security]
 
-- [ ] **[Authentication in MCP: What 518 Production Servers Actually Do](https://dev.to/kai_security_ai/authentication-in-mcp-what-518-production-servers-actually-do-2a63)** - Analysis of real-world MCP deployments reveals widespread weak authentication practices across production servers. Points to a systemic gap between MCP's security model and how it is implemented in practice. [mcp, security, ai]
+- [x] **[Authentication in MCP: What 518 Production Servers Actually Do](https://dev.to/kai_security_ai/authentication-in-mcp-what-518-production-servers-actually-do-2a63)** - Analysis of real-world MCP deployments reveals widespread weak authentication practices across production servers. Points to a systemic gap between MCP's security model and how it is implemented in practice. [mcp, security, ai]
 
 - [ ] **[Structured Output for AI Coding Agents: Why I Built Pare](https://dev.to/dave_london_d0728737f5d67/structured-output-for-ai-coding-agents-why-i-built-pare-2k5f)** - A developer explains the pain of inconsistent LLM output formats in coding agent pipelines, and introduces Pare, an MCP-compatible tool for enforcing structured outputs. Addresses a practical gap in agent tooling. [ai, developer-tools, mcp, open-source]
 
@@ -84,7 +84,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 - [ ] **[I Said Yes to Everything for a Year. Here's What It Cost Me.](https://dev.to/chandravijayagr/i-said-yes-to-everything-for-a-year-heres-what-it-cost-me-35ib)** - A developer reflects on a year of agreeing to every request—meetings, side projects, reviews—and the burnout and loss of focus that resulted. A cautionary essay on boundary-setting. [personal, essay]
 
-- [ ] **[I Built a Tool to Convert Invoice PDFs into Excel](https://dev.to/chris_wakefieldchris_4/i-built-a-tool-to-convert-invoice-pdfs-into-excel-heres-what-surprised-me-134d)** - A developer documents building and shipping a PDF-to-Excel invoice extractor, covering the unexpected complexity of real-world document parsing. Covers layout detection, table extraction, and edge cases. [webdev, saas]
+- [x] **[I Built a Tool to Convert Invoice PDFs into Excel](https://dev.to/chris_wakefieldchris_4/i-built-a-tool-to-convert-invoice-pdfs-into-excel-heres-what-surprised-me-134d)** - A developer documents building and shipping a PDF-to-Excel invoice extractor, covering the unexpected complexity of real-world document parsing. Covers layout detection, table extraction, and edge cases. [webdev, saas]
 
 - [ ] **[Blood Test Boosts Alzheimer's Diagnosis Accuracy to 94.5%](https://medicalxpress.com/news/2026-02-blood-boosts-alzheimer-diagnosis-accuracy.html)** - A clinical study demonstrates a blood-based biomarker test achieving 94.5% accuracy for Alzheimer's diagnosis, potentially replacing expensive and invasive imaging. A landmark result for accessible early detection. [science, healthcare]
 
