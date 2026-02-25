@@ -1,0 +1,66 @@
+---
+title: "Tech Trends (JA) - 2026-02-25"
+author: uma-chan
+categories:
+  - "auto"
+  - "tech-trends"
+  - "ja"
+date: 2026-02-25
+date-modified: last-modified
+description: |
+  Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## Picks For You
+
+- [ ] **[確定申告を自動化する Agent Skill "shinkoku" を OSS にした](https://zenn.dev/kazukinagata/articles/83fe82191db01b)** - 確定申告の書類作成をエージェントスキルとして実装し、OSSとして公開した事例。Zennで337いいねと高い反響を得ており、AIによる業務自動化の具体的な実践例として注目されている。[ai, developer-tools, open-source]
+- [ ] **[コードを理解する超軽量MCPを作った — トークン70%削減、1分でセットアップ](https://zenn.dev/badmonster/articles/92338955317115)** - コードベースの理解に特化した軽量MCPサーバーを自作し、トークン消費量を70%削減することに成功した技術解説。Claude Codeとの統合で即座に効果を発揮するとして239いいね。[mcp, claude-code, developer-tools]
+- [ ] **[Claude CodeのSkillsを作成例から徹底理解する](https://zenn.dev/acntechjp/articles/554765e5a0d0be)** - Claude Code Skillsの仕組みを実際の作成例を交えながら解説した記事。Zennで38いいね、はてなブックマークで256ブックマークと幅広い層に読まれている。[claude-code, developer-tools]
+- [ ] **[コードレビューはCLAUDE.md/skillsに書け。同じ指摘を繰り返すな。](https://speakerdeck.com/totsukash/skillsnishu-ke-tong-zizhi-zhai-wozao-rifan-suna)** - レビューで繰り返す同じ指摘をCLAUDE.mdやSkillsに落とし込むことで、AIに継続的に学習させる運用方法を解説したスライド。はてなで109ブックマーク。[claude-code, workflow, developer-tools]
+- [ ] **[Figma MCP × Claude Codeで1ページ8時間の作業が20分になった話](https://zenn.dev/kimmaru/articles/6c0f67f6003b94)** - Figma MCPをClaude Codeと組み合わせることで、デザインからコード生成までのワークフローを大幅短縮した実践報告。70いいねを獲得。[mcp, claude-code, workflow]
+- [ ] **[Boris Cherny氏がシェアした、CLAUDE.mdを理解する](https://qiita.com/uno_ha07/items/5820d195510861b5be71)** - AnthropicのエンジニアであるBoris Cherny氏のCLAUDE.md解説を日本語で噛み砕いた記事。CLAUDE.mdの設計思想と効果的な書き方を整理している。[claude-code, ai]
+- [ ] **[Claude Codeでトークン制限に悩む開発者のための実践ガイド](https://zenn.dev/okamyuji/articles/claude-code-token-limit-survival-guide)** - MCPツール導入からスペック駆動開発まで、Claude Codeのトークン上限問題を実務レベルで回避するためのノウハウをまとめた実践ガイド。[claude-code, developer-tools]
+- [ ] **[Claude Codeからシークレットが漏れる前に守る——sensitive-canary](https://zenn.dev/chataclaw/articles/dcb866d5d10d02)** - Claude Codeのコンテキストに機密情報が混入するリスクを検知するためのsensitive-canaryツールを紹介した記事。セキュリティ意識の高い運用のために必読。[claude-code, security]
+- [ ] **[@vercel/agent-evalでCLAUDE.mdの効果を検証する](https://zenn.dev/edash_tech_blog/articles/84f0cd8567646b)** - Vercelのエージェント評価フレームワークを使い、CLAUDE.mdの記述がエージェントの行動に与える影響を定量的に検証した技術記事。[claude-code, ai, developer-tools]
+- [ ] **[Claude Code on the Web でスマホだけでアプリを開発しリリースしてみた](https://zenn.dev/ruwatana/articles/claude-code-on-the-web-for-app-development)** - PCなしでスマートフォンのブラウザ上のClaude Code（Web版）だけを使い、アプリを開発からリリースまで完結させた実験レポート。はてなで92ブックマーク。[claude-code, ai]
+
+## AI & Machine Learning
+
+- [ ] **[GPUなしで動作する軽量なAI OCRツール「NDLOCR-Lite」](https://forest.watch.impress.co.jp/docs/news/2088188.html)** - 国会図書館のラボが無償公開したGPU不要のAI OCRツール。コマンドライン版に加え、Windows/Mac/Linux対応のデスクトップ版も提供。はてなで843ブックマークとダントツの注目度。[ai, open-source]
+- [ ] **[AIのやりすぎで頭がおかしくなることにすら慣れた](https://syu-m-5151.hatenablog.com/entry/2026/02/24/150909)** - 「AIのやりすぎで頭がおかしくなっている」という書籍の読書感想文を通じて、AI活用の過熱がもたらす認知・精神的影響を考察したエッセイ。162ブックマーク。[ai, mental-health, essay]
+- [ ] **[AIのテストコードは信用するな](https://zenn.dev/tko_kasai/articles/3f5863e3407891)** - AIが生成したテストコードがテストとして機能していないケースを具体例で解説し、AI生成テストのレビュー観点を整理した記事。Zennで80いいね。[ai, developer-tools]
+- [ ] **[仏教対話できる生成AIロボット「ブッダロイド」](https://mainichi.jp/articles/20260224/k00/00m/040/020000c)** - 京都大学教授らが発表した、仏教的な対話ができる生成AIロボット。哲学・倫理的な対話AIの研究事例として注目。はてなで133ブックマーク。[ai]
+- [ ] **[NVIDIA-Nemotron-Nano-9B-v2-Japanese からEmbeddingモデルを作る](https://zenn.dev/yner/articles/nemotron_nano_embedding)** - NVIDIAの日本語特化モデルをベースにEmbeddingモデルへとファインチューニングする手順をまとめた技術記事。[ai, machine-learning]
+
+## Development & Tools
+
+- [ ] **[生成AIでJavaScript/TypeScriptを扱うときに設定しておきたい ESLintルール](https://blog.inorinrinrin.com/entry/2026/02/24/194907)** - AIがTypeScript/JavaScriptコードを生成する際に問題になりやすいパターンに対応したESLintルールの設定例。はてなで109ブックマーク。[typescript, developer-tools, ai]
+- [ ] **[How we rebuilt Next.js with AI in one week](https://blog.cloudflare.com/vinext/)** - CloudflareがAIを活用して1週間でNext.jsのAPI互換Viteプラグイン「Vinext」を構築した開発記。はてなで27ブックマーク。[web-development, ai]
+- [ ] **[React.FCを使うべきではない理由](https://zenn.dev/k_ing/articles/7782f50658b666)** - `React.FC`型注釈が引き起こす型推論の問題を詳細に解説し、代替パターンを提示した記事。Zennで49いいね。[typescript, web-development]
+- [ ] **[JavaScriptのasync/awaitはどこから来たのか？](https://qiita.com/Maki-Daisuke/items/1da25e18c1bcb68880a3)** - C#、F#、Haskellを経て1958年のContinuationまで、async/awaitの起源を歴史的に辿った深掘り記事。Qiitaで48いいね。[javascript, history]
+- [ ] **[bit + bit-relay で P2P でのコラボレーション開発を実現する](https://zenn.dev/mizchi/articles/decentrized-git-for-agents)** - 中央集権的なGitホスティングなしにP2Pでコード共有・コラボレーションを実現する分散開発プロトコルの実験的実装。Zennで50いいね。[git, open-source]
+- [ ] **[FastAPIのJSONレスポンスに型を書くだけでレスポンスが速くなるらしい](https://zenn.dev/maguro_alterna/articles/ee730afa94f52e)** - FastAPIのレスポンスモデルに型アノテーションを付与するだけでJSONシリアライズが高速化される仕組みを実測付きで解説。[python, web-development]
+- [ ] **[Next.jsはもう要らない？次世代フレームワークTanstack Startに入門してみた](https://zenn.dev/ashunar0/articles/8c6cbedde44a89)** - Cloudflare等どこにでもデプロイできるTanStack Startを試し、Next.jsとの比較をまとめた入門記事。[web-development, typescript]
+- [ ] **[Dockerの名前付きボリュームの落とし穴](https://qiita.com/kuma_3838/items/a116aa00af0884675b25)** - Docker Composeの名前付きボリュームが意図せずキャッシュを保持し続ける問題とトラブルシューティング手順を解説。[docker, devops]
+
+## Infrastructure & Security
+
+- [ ] **[前橋赤十字病院、「ランサムウェアは防げない」前提の"医療を止めない"データ復旧を整備](https://atmarkit.itmedia.co.jp/ait/articles/2602/24/news050.html)** - ランサムウェア侵害を前提としたレジリエンス設計を医療機関が整備した事例。感染を防ぐより継続性を確保するアプローチが注目されている。[security, infrastructure]
+- [ ] **[AIをいつでもどこでも動かそうとしたら、気づけば自宅インフラ沼にはまっていた話](https://qiita.com/endo-ly/items/167c80b277b4850c4869)** - Proxmox + Tailscale + Syncthing構成でミニPCにローカルAI環境を構築していく過程を記録したホームラボ構築日誌。Qiitaで27いいね。[infrastructure, ai]
+- [ ] **[Webサーバー自らバラす情報たちぃ](https://zenn.dev/min58/articles/21d64967a25e0e)** - WebサーバーのHTTPヘッダーやエラーレスポンスが意図せず漏洩するサーバー情報の種類と対策を整理した記事。[security, web-development]
+- [ ] **[OpenAI独走崩壊か…アンソロピック4.6兆円・グーグル3兆円調達で業界再編へ](https://biz-journal.jp/company/post_393567.html)** - AnthropicとGoogleの大規模資金調達を受けた生成AI業界の競争構造変化を分析した記事。はてなで97ブックマーク。[ai]
+
+## Others
+
+- [ ] **[米国防総省高官、アンソロピック従わぬなら「法律で強制」 AI軍事利用](https://www.nikkei.com/article/DGXZQOGN2507D0V20C26A2000000/)** - 米国防総省がAnthropicに対しAI軍事利用への協力を法的に強制する可能性を示唆した報道。AI企業のガバナンスと国家安全保障の緊張が表面化している。[ai, essay]
+- [ ] **[iPhoneで「ダイヤグラム時刻表」、ナビタイムが新機能](https://japan.cnet.com/article/35244242/)** - ナビタイムがiPhoneアプリにダイヤグラム形式の時刻表表示機能を追加。電車ファンや乗り換え研究者に刺さるニッチな新機能。[mobile]
+- [ ] **[「今日はなんだか頭が冴えない」は仕方なかった？ 脳にある"コンディションの波"](https://www.itmedia.co.jp/news/articles/2602/25/news035.html)** - 1日の中での認知パフォーマンスの変動が神経科学的に説明できることを紹介した記事。目標達成の戦略立案に活かせる知見。[mental-health, essay]
+
+## Highlights
+
+**確定申告エージェントスキル「shinkoku」のOSS化**（Zenn 337いいね）は、AI自動化の波が税務処理という高度に構造化された実務領域にまで到達したことを示す象徴的な事例だ。単なる実験ではなくOSSとして公開されており、日本の税務事情に特化したエージェント実装として今後の発展が期待される。
+
+**NDLOCR-Lite**（はてな843ブックマーク）は国会図書館発のGPU不要AI OCRツールで、これほどの注目度を集めたのはアクセシビリティの高さによる。デスクトップ版まで提供することで、専門知識のないユーザーでも古文書・スキャン文書のデジタル化に使えるツールとして実用価値が高い。
+
+**MCPセキュリティ問題の加速**が日本語圏でも認識され始めた。「eval()エピデミック（英語記事）」に加え、「Claude Codeからシークレットが漏れる前に守る——sensitive-canary」など、MCPエコシステムのセキュリティを主題にした日本語記事が増加傾向にある。MCPを導入済みの開発チームは、セキュリティレビューを後回しにすべきではない。
