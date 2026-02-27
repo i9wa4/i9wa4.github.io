@@ -1,11 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":enablePreCommit"],
+  "extends": [
+    "config:recommended",
+    ":enablePreCommit"
+  ],
   "nix": {
     "enabled": true
   },
   "lockFileMaintenance": {
     "enabled": true
   },
-  "minimumReleaseAge": "7 days"
+  "minimumReleaseAge": "7 days",
+  "internalChecksFilter": "strict"
 }
