@@ -22,10 +22,10 @@ share: false
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[auto (6)](#category=auto){.btn .btn-outline-primary .btn-sm}
-[en (3)](#category=en){.btn .btn-outline-primary .btn-sm}
-[ja (3)](#category=ja){.btn .btn-outline-primary .btn-sm}
-[tech-trends (6)](#category=tech-trends){.btn .btn-outline-primary .btn-sm}
+[auto (8)](#category=auto){.btn .btn-outline-primary .btn-sm}
+[en (4)](#category=en){.btn .btn-outline-primary .btn-sm}
+[ja (4)](#category=ja){.btn .btn-outline-primary .btn-sm}
+[tech-trends (8)](#category=tech-trends){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#all}
