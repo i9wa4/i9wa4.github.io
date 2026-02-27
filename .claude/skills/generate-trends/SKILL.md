@@ -35,12 +35,14 @@ The JSON has this structure:
   "en": {
     "hackernews": [{"title": "...", "url": "...", "score": 193}],
     "devto": [{"title": "...", "url": "...", "reactions": 367, "tags": [...]}],
-    "github": [{"title": "owner/repo", "url": "...", "description": "...", "stars": 5000}]
+    "github": [{"title": "owner/repo", "url": "...", "description": "...", "stars": 5000}],
+    "dataplatform": [{"title": "...", "url": "...", "platform": "dbt|snowflake|bigquery|databricks", "score": 42, "source": "hackernews|devto|github|medium"}]
   },
   "ja": {
     "zenn": [{"title": "...", "url": "...", "likes": 114}],
     "qiita": [{"title": "...", "url": "...", "likes": 39, "tags": [...]}],
-    "hatena": [{"title": "...", "url": "...", "bookmarks": 889}]
+    "hatena": [{"title": "...", "url": "...", "bookmarks": 889}],
+    "dataplatform": [{"title": "...", "url": "...", "platform": "dbt|snowflake|bigquery|databricks", "likes": 12, "source": "zenn|qiita"}]
   }
 }
 ```
@@ -49,6 +51,9 @@ Use this data as the sole source for article items. Do NOT use WebSearch.
 
 **EN sources:** Hacker News, dev.to, GitHub Trending
 **JA sources:** Zenn, Qiita, Hatena Bookmark
+**Data platform sources (EN):** `en.dataplatform` key — HN Algolia, dev.to, GitHub, and Medium RSS, all filtered by keyword (Snowflake, BigQuery, Databricks, dbt) since last generation.
+**Data platform sources (JA):** `ja.dataplatform` key — Zenn (trending by tag) and Qiita (since last generation by tag).
+Each item has a `"platform"` field indicating which tool it covers.
 
 ### 1.4. Step 4: Get today's date
 
@@ -92,6 +97,14 @@ Skip this section entirely if preferences are empty.)
 
 - [ ] **[Title](https://example.com/article)** - 2-3 sentence summary [tag1, tag2]
 
+## Data Platform
+
+(Items from en.dataplatform — Snowflake, BigQuery, Databricks, dbt.
+Each item has a "platform" field. Include items that are genuinely about that platform.
+Skip items whose title/description is clearly unrelated to the platform field.)
+
+- [ ] **[Title](https://example.com/article)** - 2-3 sentence summary [tag1, tag2]
+
 ## Infrastructure & Security
 
 (Group cloud, devops, security items here)
@@ -117,7 +130,8 @@ Create `auto/YYYY-MM-DD-ja-tech-trends.qmd` with the same structure but:
 - Category: `"ja"` instead of `"en"`
 - Description: `Daily tech trend digest (JA) - Zenn, Qiita, Hatena Bookmark`
 - Article body in Japanese
-- Use JA sources only (Zenn, Qiita, Hatena Bookmark)
+- Use JA sources (Zenn, Qiita, Hatena Bookmark) plus `ja.dataplatform`
+- The "Data Platform" section uses `ja.dataplatform` items, written in Japanese
 
 ### 1.7. Step 7: Update category buttons
 
@@ -125,10 +139,15 @@ Run `uv run python bin/update-categories.py auto`.
 
 ## 2. Content Rules
 
-- Target ~30 items per article (use all fetched data)
+- Target ~30 items for general sections (AI & ML, Development & Tools,
+  Infrastructure & Security, Others) per article
+- **Data Platform section is uncapped**: include ALL fetched `dataplatform`
+  items that are genuinely on-topic. This is the user's primary domain of
+  interest. Do not trim or limit this section.
 - Group items loosely by category: AI & ML, Development & Tools,
-  Infrastructure & Security, Others
-- If preferences exist: max 50% personalized, min 50% diverse
+  Infrastructure & Security, Data Platform, Others
+- If preferences exist: max 50% personalized (across general sections only),
+  min 50% diverse. Do NOT apply the 50% cap to the Data Platform section.
 - If preferences empty: 100% diverse (grouped by category)
 - Every item MUST come from the fetched trends JSON data
 - Every item MUST link to the actual source URL from the JSON data
@@ -146,4 +165,5 @@ Use consistent tag names across articles:
 - Languages: `rust`, `python`, `go`, `typescript`, `java`
 - Domains: `ai`, `machine-learning`, `web-development`, `devops`, `databases`
 - Tools: `kubernetes`, `docker`, `terraform`, `neovim`, `git`
-- Platforms: `github`, `aws`, `gcp`, `azure`, `databricks`
+- Platforms: `github`, `aws`, `gcp`, `azure`, `databricks`, `snowflake`, `bigquery`
+- Data platform tools: `dbt`, `dbt-core`, `dbt-cloud`, `snowflake`, `bigquery`, `databricks`, `spark`

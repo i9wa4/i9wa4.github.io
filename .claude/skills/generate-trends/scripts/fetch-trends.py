@@ -2,19 +2,29 @@
 
 EN sources: Hacker News, dev.to, GitHub trending repos
 JA sources: Zenn, Qiita, Hatena Bookmark
+Data platform sources (EN+JA): Snowflake, BigQuery, Databricks, dbt
 
 Outputs JSON to stdout with structured data for each source.
 """
 
 from __future__ import annotations
 
+import glob
 import json
+import re
 import sys
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from typing import Any
+
+DATA_PLATFORM_KEYWORDS = ["dbt", "snowflake", "bigquery", "databricks"]
+
+# Canonical tag names per platform per service
+_ZENN_TAGS = {"dbt": "dbt", "snowflake": "snowflake", "bigquery": "bigquery", "databricks": "databricks"}
+_QIITA_TAGS = {"dbt": "dbt", "snowflake": "Snowflake", "bigquery": "BigQuery", "databricks": "Databricks"}
 
 
 def fetch_json(url: str, headers: dict[str, str] | None = None) -> Any:
@@ -74,9 +84,11 @@ def fetch_hackernews(limit: int = 15) -> list[dict[str, Any]]:
     return items
 
 
-def fetch_devto(limit: int = 15) -> list[dict[str, Any]]:
-    """Fetch top articles from dev.to (last 1 day)."""
-    data = fetch_json(f"https://dev.to/api/articles?top=1&per_page={limit}")
+def fetch_devto(since_date: str, limit: int = 15) -> list[dict[str, Any]]:
+    """Fetch top articles from dev.to since last generation."""
+    since = datetime.strptime(since_date, "%Y-%m-%d").date()
+    days = max(1, (datetime.now(tz=timezone.utc).date() - since).days + 1)
+    data = fetch_json(f"https://dev.to/api/articles?top={days}&per_page={limit}")
     items = []
     for article in data:
         items.append(
@@ -91,12 +103,11 @@ def fetch_devto(limit: int = 15) -> list[dict[str, Any]]:
     return items
 
 
-def fetch_github_trending(limit: int = 10) -> list[dict[str, Any]]:
-    """Fetch trending repos from GitHub Search API (created in last 7 days)."""
-    week_ago = (datetime.now(tz=timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
+def fetch_github_trending(since_date: str, limit: int = 10) -> list[dict[str, Any]]:
+    """Fetch trending repos from GitHub Search API since last generation."""
     url = (
         f"https://api.github.com/search/repositories"
-        f"?q=created:>{week_ago}+stars:>50&sort=stars&order=desc&per_page={limit}"
+        f"?q=created:>{since_date}+stars:>50&sort=stars&order=desc&per_page={limit}"
     )
     data = fetch_json(url, headers={"Accept": "application/vnd.github+json"})
     items = []
@@ -135,10 +146,9 @@ def fetch_zenn(limit: int = 20) -> list[dict[str, Any]]:
     return items
 
 
-def fetch_qiita(limit: int = 20) -> list[dict[str, Any]]:
-    """Fetch popular articles from Qiita (last 3 days, stocks > 5)."""
-    days_ago = (datetime.now(tz=timezone.utc) - timedelta(days=3)).strftime("%Y-%m-%d")
-    query = f"stocks:>5 created:>{days_ago}"
+def fetch_qiita(since_date: str, limit: int = 20) -> list[dict[str, Any]]:
+    """Fetch popular articles from Qiita since last generation."""
+    query = f"stocks:>5 created:>{since_date}"
     url = f"https://qiita.com/api/v2/items?query={urllib.parse.quote(query)}&per_page={limit}"
     data = fetch_json(url)
     items = []
@@ -184,6 +194,244 @@ def fetch_hatena(limit: int = 15) -> list[dict[str, Any]]:
     return items
 
 
+# --- Data Platform Sources ---
+
+
+def get_since_date(fallback_days: int = 7) -> str:
+    """Return the date of the last generated trend article as YYYY-MM-DD.
+
+    Scans auto/ directory for the most recent *-en-tech-trends.qmd file.
+    Falls back to fallback_days ago if no files are found.
+    """
+    files = glob.glob("auto/*-en-tech-trends.qmd")
+    dates = [
+        m.group(1)
+        for f in files
+        if (m := re.search(r"(\d{4}-\d{2}-\d{2})", f))
+    ]
+    if dates:
+        return max(dates)
+    return (datetime.now(tz=timezone.utc) - timedelta(days=fallback_days)).strftime("%Y-%m-%d")
+
+
+def _pop(item: dict[str, Any]) -> int:
+    """Extract a comparable popularity score from any item regardless of source."""
+    return item.get("score", item.get("reactions", item.get("stars", item.get("likes", 0))))
+
+
+def fetch_hn_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+    """Fetch HN stories about data platform tools via Algolia search API."""
+    seen: set[str] = set()
+    items: list[dict[str, Any]] = []
+    since_ts = int(datetime.strptime(since_date, "%Y-%m-%d").replace(tzinfo=timezone.utc).timestamp())
+
+    for keyword in DATA_PLATFORM_KEYWORDS:
+        url = (
+            f"https://hn.algolia.com/api/v1/search"
+            f"?query={urllib.parse.quote(keyword)}&tags=story"
+            f"&hitsPerPage={per_keyword}"
+            f"&numericFilters=created_at_i%3E{since_ts}"
+        )
+        try:
+            data = fetch_json(url)
+            for hit in data.get("hits", []):
+                article_url = hit.get("url") or ""
+                if not article_url or article_url in seen:
+                    continue
+                seen.add(article_url)
+                items.append({
+                    "title": hit.get("title", ""),
+                    "url": article_url,
+                    "score": hit.get("points", 0),
+                    "platform": keyword,
+                    "source": "hackernews",
+                })
+        except Exception:
+            pass
+
+    items.sort(key=_pop, reverse=True)
+    return items
+
+
+def fetch_devto_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+    """Fetch dev.to articles tagged with data platform tools since last generation."""
+    seen: set[str] = set()
+    items: list[dict[str, Any]] = []
+    since = datetime.strptime(since_date, "%Y-%m-%d").date()
+    days = max(1, (datetime.now(tz=timezone.utc).date() - since).days + 1)
+
+    for keyword in DATA_PLATFORM_KEYWORDS:
+        try:
+            data = fetch_json(
+                f"https://dev.to/api/articles?tag={keyword}&per_page={per_keyword}&top={days}"
+            )
+            for article in data:
+                url = article["url"]
+                if url in seen:
+                    continue
+                seen.add(url)
+                items.append({
+                    "title": article["title"],
+                    "url": url,
+                    "reactions": article.get("positive_reactions_count", 0),
+                    "tags": article.get("tag_list", []),
+                    "platform": keyword,
+                    "source": "devto",
+                })
+        except Exception:
+            pass
+
+    items.sort(key=_pop, reverse=True)
+    return items
+
+
+def fetch_github_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+    """Fetch GitHub repos related to data platform tools pushed since last generation."""
+    seen: set[str] = set()
+    items: list[dict[str, Any]] = []
+    month_ago = since_date
+
+    for keyword in DATA_PLATFORM_KEYWORDS:
+        url = (
+            f"https://api.github.com/search/repositories"
+            f"?q=topic:{keyword}+pushed:>{month_ago}+stars:>50"
+            f"&sort=stars&order=desc&per_page={per_keyword}"
+        )
+        try:
+            data = fetch_json(url, headers={"Accept": "application/vnd.github+json"})
+            for repo in data.get("items", []):
+                repo_url = repo["html_url"]
+                if repo_url in seen:
+                    continue
+                seen.add(repo_url)
+                items.append({
+                    "title": repo["full_name"],
+                    "url": repo_url,
+                    "description": repo.get("description", ""),
+                    "stars": repo.get("stargazers_count", 0),
+                    "language": repo.get("language", ""),
+                    "platform": keyword,
+                    "source": "github",
+                })
+        except Exception:
+            pass
+
+    items.sort(key=_pop, reverse=True)
+    return items
+
+
+def fetch_medium_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+    """Fetch Medium articles tagged with data platform tools via RSS, since last generation."""
+    seen: set[str] = set()
+    items: list[dict[str, Any]] = []
+    since_dt = datetime.strptime(since_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+
+    for keyword in DATA_PLATFORM_KEYWORDS:
+        try:
+            rss_text = fetch_text(f"https://medium.com/feed/tag/{keyword}")
+            root = ET.fromstring(rss_text)
+            channel = root.find("channel")
+            if channel is None:
+                continue
+            count = 0
+            for item in channel.findall("item"):
+                link_el = item.find("link")
+                title_el = item.find("title")
+                pub_el = item.find("pubDate")
+                if link_el is None or title_el is None:
+                    continue
+                article_url = (link_el.text or "").strip()
+                if not article_url or article_url in seen:
+                    continue
+                if pub_el is not None and pub_el.text:
+                    try:
+                        from email.utils import parsedate_to_datetime
+                        pub_dt = parsedate_to_datetime(pub_el.text)
+                        if pub_dt.tzinfo is None:
+                            pub_dt = pub_dt.replace(tzinfo=timezone.utc)
+                        if pub_dt < since_dt:
+                            continue
+                    except Exception:
+                        pass
+                seen.add(article_url)
+                items.append({
+                    "title": (title_el.text or "").strip(),
+                    "url": article_url,
+                    "platform": keyword,
+                    "source": "medium",
+                })
+                count += 1
+                if count >= per_keyword:
+                    break
+        except Exception:
+            pass
+
+    items.sort(key=_pop, reverse=True)
+    return items
+
+
+def fetch_zenn_dataplatform(per_keyword: int = 50) -> list[dict[str, Any]]:
+    """Fetch Zenn trending articles tagged with data platform tools."""
+    seen: set[str] = set()
+    items: list[dict[str, Any]] = []
+
+    for keyword, tag in _ZENN_TAGS.items():
+        try:
+            data = fetch_json(
+                f"https://zenn.dev/api/articles"
+                f"?order=trending&count={per_keyword}&article_type=tech&tag_name={tag}"
+            )
+            for article in data.get("articles", []):
+                url = f"https://zenn.dev{article['path']}"
+                if url in seen:
+                    continue
+                seen.add(url)
+                items.append({
+                    "title": article["title"],
+                    "url": url,
+                    "likes": article.get("liked_count", 0),
+                    "platform": keyword,
+                    "source": "zenn",
+                })
+        except Exception:
+            pass
+
+    items.sort(key=_pop, reverse=True)
+    return items
+
+
+def fetch_qiita_dataplatform(since_date: str, per_keyword: int = 100) -> list[dict[str, Any]]:
+    """Fetch Qiita articles tagged with data platform tools since last generation."""
+    seen: set[str] = set()
+    items: list[dict[str, Any]] = []
+    month_ago = since_date
+
+    for keyword, tag in _QIITA_TAGS.items():
+        query = f"tag:{tag} created:>{month_ago}"
+        url = f"https://qiita.com/api/v2/items?query={urllib.parse.quote(query)}&per_page={per_keyword}"
+        try:
+            data = fetch_json(url)
+            for article in data:
+                article_url = article["url"]
+                if article_url in seen:
+                    continue
+                seen.add(article_url)
+                items.append({
+                    "title": article["title"],
+                    "url": article_url,
+                    "likes": article.get("likes_count", 0),
+                    "stocks": article.get("stocks_count", 0),
+                    "tags": [t["name"] for t in article.get("tags", [])],
+                    "platform": keyword,
+                    "source": "qiita",
+                })
+        except Exception:
+            pass
+
+    items.sort(key=_pop, reverse=True)
+    return items
+
+
 # --- Main ---
 
 
@@ -198,17 +446,60 @@ def fetch_source(name: str, func: Any) -> tuple[str, list[dict[str, Any]]]:
 
 def main() -> int:
     """Fetch all sources and output JSON."""
+    since_date = get_since_date()
+
+    def _fetch_en_dataplatform() -> list[dict[str, Any]]:
+        seen: set[str] = set()
+        items: list[dict[str, Any]] = []
+        with ThreadPoolExecutor(max_workers=4) as p:
+            futs = [
+                p.submit(fetch_hn_dataplatform, since_date),
+                p.submit(fetch_devto_dataplatform, since_date),
+                p.submit(fetch_github_dataplatform, since_date),
+                p.submit(fetch_medium_dataplatform, since_date),
+            ]
+            for f in as_completed(futs):
+                try:
+                    for item in f.result():
+                        if item["url"] not in seen:
+                            seen.add(item["url"])
+                            items.append(item)
+                except Exception:
+                    pass
+        items.sort(key=_pop, reverse=True)
+        return items
+
+    def _fetch_ja_dataplatform() -> list[dict[str, Any]]:
+        seen: set[str] = set()
+        items: list[dict[str, Any]] = []
+        with ThreadPoolExecutor(max_workers=2) as p:
+            futs = [
+                p.submit(fetch_zenn_dataplatform),
+                p.submit(fetch_qiita_dataplatform, since_date),
+            ]
+            for f in as_completed(futs):
+                try:
+                    for item in f.result():
+                        if item["url"] not in seen:
+                            seen.add(item["url"])
+                            items.append(item)
+                except Exception:
+                    pass
+        items.sort(key=_pop, reverse=True)
+        return items
 
     sources = {
         "en": [
             ("hackernews", fetch_hackernews),
-            ("devto", fetch_devto),
-            ("github", fetch_github_trending),
+            ("devto", lambda: fetch_devto(since_date)),
+            ("github", lambda: fetch_github_trending(since_date)),
+            ("dataplatform", _fetch_en_dataplatform),
         ],
         "ja": [
             ("zenn", fetch_zenn),
-            ("qiita", fetch_qiita),
+            ("qiita", lambda: fetch_qiita(since_date)),
             ("hatena", fetch_hatena),
+            ("dataplatform", _fetch_ja_dataplatform),
         ],
     }
 
