@@ -28,6 +28,12 @@ empty, skip personalization entirely -- generate 100% diverse content.
 Run `uv run python .claude/skills/generate-trends/scripts/fetch-trends.py > /tmp/trends.json`
 to fetch real articles from public APIs. Then read `/tmp/trends.json`.
 
+### 1.3.5. Step 3.5: Extract already-covered URLs
+
+Run `uv run python .claude/skills/generate-trends/scripts/extract-covered-urls.py > /tmp/covered-urls.json`
+to collect URLs that appeared in articles from the last 7 days.
+Then read `/tmp/covered-urls.json` and store the `urls` array as the skip-list.
+
 The JSON has this structure:
 
 ```json
@@ -151,6 +157,8 @@ Run `uv run python bin/update-categories.py auto`.
 - If preferences empty: 100% diverse (grouped by category)
 - Every item MUST come from the fetched trends JSON data
 - Every item MUST link to the actual source URL from the JSON data
+- **Skip any item whose URL appears in the covered-urls skip-list** (already featured in the last 7 days).
+  Exception: items with very high engagement (top score of the day) may be included if there is clearly new context (e.g., a major follow-up story). In that case, note "(follow-up)" at the end of the summary.
 - Format: `**[Article Title](https://actual-url-to-the-article)**`
 - Each item MUST end with tags in square brackets: `[tag1, tag2]`
 - Tags: lowercase, hyphenated (e.g., `machine-learning`, `web-development`)
