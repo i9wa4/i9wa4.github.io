@@ -23,8 +23,18 @@ from typing import Any
 DATA_PLATFORM_KEYWORDS = ["dbt", "snowflake", "bigquery", "databricks"]
 
 # Canonical tag names per platform per service
-_ZENN_TAGS = {"dbt": "dbt", "snowflake": "snowflake", "bigquery": "bigquery", "databricks": "databricks"}
-_QIITA_TAGS = {"dbt": "dbt", "snowflake": "Snowflake", "bigquery": "BigQuery", "databricks": "Databricks"}
+_ZENN_TAGS = {
+    "dbt": "dbt",
+    "snowflake": "snowflake",
+    "bigquery": "bigquery",
+    "databricks": "databricks",
+}
+_QIITA_TAGS = {
+    "dbt": "dbt",
+    "snowflake": "Snowflake",
+    "bigquery": "BigQuery",
+    "databricks": "Databricks",
+}
 
 
 def fetch_json(url: str, headers: dict[str, str] | None = None) -> Any:
@@ -204,26 +214,32 @@ def get_since_date(fallback_days: int = 7) -> str:
     Falls back to fallback_days ago if no files are found.
     """
     files = glob.glob("auto/*-en-tech-trends.qmd")
-    dates = [
-        m.group(1)
-        for f in files
-        if (m := re.search(r"(\d{4}-\d{2}-\d{2})", f))
-    ]
+    dates = [m.group(1) for f in files if (m := re.search(r"(\d{4}-\d{2}-\d{2})", f))]
     if dates:
         return max(dates)
-    return (datetime.now(tz=timezone.utc) - timedelta(days=fallback_days)).strftime("%Y-%m-%d")
+    return (datetime.now(tz=timezone.utc) - timedelta(days=fallback_days)).strftime(
+        "%Y-%m-%d"
+    )
 
 
 def _pop(item: dict[str, Any]) -> int:
     """Extract a comparable popularity score from any item regardless of source."""
-    return item.get("score", item.get("reactions", item.get("stars", item.get("likes", 0))))
+    return item.get(
+        "score", item.get("reactions", item.get("stars", item.get("likes", 0)))
+    )
 
 
-def fetch_hn_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+def fetch_hn_dataplatform(
+    since_date: str, per_keyword: int = 50
+) -> list[dict[str, Any]]:
     """Fetch HN stories about data platform tools via Algolia search API."""
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
-    since_ts = int(datetime.strptime(since_date, "%Y-%m-%d").replace(tzinfo=timezone.utc).timestamp())
+    since_ts = int(
+        datetime.strptime(since_date, "%Y-%m-%d")
+        .replace(tzinfo=timezone.utc)
+        .timestamp()
+    )
 
     for keyword in DATA_PLATFORM_KEYWORDS:
         url = (
@@ -239,13 +255,15 @@ def fetch_hn_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[s
                 if not article_url or article_url in seen:
                     continue
                 seen.add(article_url)
-                items.append({
-                    "title": hit.get("title", ""),
-                    "url": article_url,
-                    "score": hit.get("points", 0),
-                    "platform": keyword,
-                    "source": "hackernews",
-                })
+                items.append(
+                    {
+                        "title": hit.get("title", ""),
+                        "url": article_url,
+                        "score": hit.get("points", 0),
+                        "platform": keyword,
+                        "source": "hackernews",
+                    }
+                )
         except Exception:
             pass
 
@@ -253,7 +271,9 @@ def fetch_hn_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[s
     return items
 
 
-def fetch_devto_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+def fetch_devto_dataplatform(
+    since_date: str, per_keyword: int = 50
+) -> list[dict[str, Any]]:
     """Fetch dev.to articles tagged with data platform tools since last generation."""
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
@@ -270,14 +290,16 @@ def fetch_devto_dataplatform(since_date: str, per_keyword: int = 50) -> list[dic
                 if url in seen:
                     continue
                 seen.add(url)
-                items.append({
-                    "title": article["title"],
-                    "url": url,
-                    "reactions": article.get("positive_reactions_count", 0),
-                    "tags": article.get("tag_list", []),
-                    "platform": keyword,
-                    "source": "devto",
-                })
+                items.append(
+                    {
+                        "title": article["title"],
+                        "url": url,
+                        "reactions": article.get("positive_reactions_count", 0),
+                        "tags": article.get("tag_list", []),
+                        "platform": keyword,
+                        "source": "devto",
+                    }
+                )
         except Exception:
             pass
 
@@ -285,7 +307,9 @@ def fetch_devto_dataplatform(since_date: str, per_keyword: int = 50) -> list[dic
     return items
 
 
-def fetch_github_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+def fetch_github_dataplatform(
+    since_date: str, per_keyword: int = 50
+) -> list[dict[str, Any]]:
     """Fetch GitHub repos related to data platform tools pushed since last generation."""
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
@@ -304,15 +328,17 @@ def fetch_github_dataplatform(since_date: str, per_keyword: int = 50) -> list[di
                 if repo_url in seen:
                     continue
                 seen.add(repo_url)
-                items.append({
-                    "title": repo["full_name"],
-                    "url": repo_url,
-                    "description": repo.get("description", ""),
-                    "stars": repo.get("stargazers_count", 0),
-                    "language": repo.get("language", ""),
-                    "platform": keyword,
-                    "source": "github",
-                })
+                items.append(
+                    {
+                        "title": repo["full_name"],
+                        "url": repo_url,
+                        "description": repo.get("description", ""),
+                        "stars": repo.get("stargazers_count", 0),
+                        "language": repo.get("language", ""),
+                        "platform": keyword,
+                        "source": "github",
+                    }
+                )
         except Exception:
             pass
 
@@ -320,7 +346,9 @@ def fetch_github_dataplatform(since_date: str, per_keyword: int = 50) -> list[di
     return items
 
 
-def fetch_medium_dataplatform(since_date: str, per_keyword: int = 50) -> list[dict[str, Any]]:
+def fetch_medium_dataplatform(
+    since_date: str, per_keyword: int = 50
+) -> list[dict[str, Any]]:
     """Fetch Medium articles tagged with data platform tools via RSS, since last generation."""
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
@@ -346,6 +374,7 @@ def fetch_medium_dataplatform(since_date: str, per_keyword: int = 50) -> list[di
                 if pub_el is not None and pub_el.text:
                     try:
                         from email.utils import parsedate_to_datetime
+
                         pub_dt = parsedate_to_datetime(pub_el.text)
                         if pub_dt.tzinfo is None:
                             pub_dt = pub_dt.replace(tzinfo=timezone.utc)
@@ -354,12 +383,14 @@ def fetch_medium_dataplatform(since_date: str, per_keyword: int = 50) -> list[di
                     except Exception:
                         pass
                 seen.add(article_url)
-                items.append({
-                    "title": (title_el.text or "").strip(),
-                    "url": article_url,
-                    "platform": keyword,
-                    "source": "medium",
-                })
+                items.append(
+                    {
+                        "title": (title_el.text or "").strip(),
+                        "url": article_url,
+                        "platform": keyword,
+                        "source": "medium",
+                    }
+                )
                 count += 1
                 if count >= per_keyword:
                     break
@@ -386,13 +417,15 @@ def fetch_zenn_dataplatform(per_keyword: int = 50) -> list[dict[str, Any]]:
                 if url in seen:
                     continue
                 seen.add(url)
-                items.append({
-                    "title": article["title"],
-                    "url": url,
-                    "likes": article.get("liked_count", 0),
-                    "platform": keyword,
-                    "source": "zenn",
-                })
+                items.append(
+                    {
+                        "title": article["title"],
+                        "url": url,
+                        "likes": article.get("liked_count", 0),
+                        "platform": keyword,
+                        "source": "zenn",
+                    }
+                )
         except Exception:
             pass
 
@@ -400,7 +433,9 @@ def fetch_zenn_dataplatform(per_keyword: int = 50) -> list[dict[str, Any]]:
     return items
 
 
-def fetch_qiita_dataplatform(since_date: str, per_keyword: int = 100) -> list[dict[str, Any]]:
+def fetch_qiita_dataplatform(
+    since_date: str, per_keyword: int = 100
+) -> list[dict[str, Any]]:
     """Fetch Qiita articles tagged with data platform tools since last generation."""
     seen: set[str] = set()
     items: list[dict[str, Any]] = []
@@ -416,15 +451,17 @@ def fetch_qiita_dataplatform(since_date: str, per_keyword: int = 100) -> list[di
                 if article_url in seen:
                     continue
                 seen.add(article_url)
-                items.append({
-                    "title": article["title"],
-                    "url": article_url,
-                    "likes": article.get("likes_count", 0),
-                    "stocks": article.get("stocks_count", 0),
-                    "tags": [t["name"] for t in article.get("tags", [])],
-                    "platform": keyword,
-                    "source": "qiita",
-                })
+                items.append(
+                    {
+                        "title": article["title"],
+                        "url": article_url,
+                        "likes": article.get("likes_count", 0),
+                        "stocks": article.get("stocks_count", 0),
+                        "tags": [t["name"] for t in article.get("tags", [])],
+                        "platform": keyword,
+                        "source": "qiita",
+                    }
+                )
         except Exception:
             pass
 
