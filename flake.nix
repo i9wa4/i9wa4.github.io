@@ -58,15 +58,11 @@
               '';
             };
 
-            # CI environment (includes gitleaks for history scan)
+            # CI environment (gitleaks history scan only)
             ci = pkgs.mkShell {
               packages = [
                 pkgs.gitleaks
-                pkgs.uv
               ];
-              shellHook = ''
-                uv sync --frozen
-              '';
             };
           };
 
