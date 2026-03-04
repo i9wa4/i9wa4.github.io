@@ -72,26 +72,22 @@ A Jupyter kernel for complete remote execution on Databricks clusters.
 - kenro.py 第1回 (2025-11-15) で「堅牢なコードを書く」というテーマの話を聞いた
 - 「Databricks でもローカル開発・テストしたい」という課題意識が高まった
 - → jupyter-databricks-kernel を作り始めた (first commit: 2025-11-30)
-- 今日は 第2回 kenro.py でその成果を発表する
-
-cf. [ノートブックで pytest を実行できない (Qiita)](https://qiita.com/taka_yayoi/items/af0981c552a824cc41e2)
 
 ### 2.3. Jupyterカーネルとは
 
-- Jupyter protocol: `execute_request` on shell channel → kernel → responses on iopub
-- 標準実装: `ipykernel.kernelbase.Kernel` — ZeroMQ routing, `send_response()`, message IDs
-- jupyter-databricks-kernel: `Kernel` を継承し `do_execute()` と `do_shutdown()` **だけ**オーバーライド
-  - kernel.py:25 class, kernel.py:412 `do_execute`, kernel.py:648 `do_shutdown`
-- stdin / complete_request / inspect_request: 未実装 (base class が no-op で処理)
+Jupyter カーネルとは、Notebook UI からのコード実行リクエストを受け取り、
+結果を返すプロセスのこと。
+
+- Jupyter protocol: `execute_request` (ZeroMQ shell channel) → kernel → iopub
+- 標準実装: `ipykernel.kernelbase.Kernel` — ZeroMQ routing, `send_response()`
+- jupyter-databricks-kernel: `Kernel` を継承して `do_execute()` をオーバーライド
+  - `do_complete` など他のメソッドは基底クラスのデフォルト応答 (追加実装なし)
 
 ```
 [Notebook UI] ←── ZeroMQ ──→ [DatabricksKernel] ──→ [Remote Compute (HTTP/SDK)]
 ```
 
 ### 2.4. アーキテクチャ
-
-- Databricks: クラウド上の Spark/Python ランタイム (クラスタ = リモート VM)
-- Command Execution API: REST API ベースのリモート REPL
 
 ![](/assets/jupyter-databricks-kernel-architecture.png)
 
@@ -109,7 +105,7 @@ spark.version          # → クラスタのSparkバージョン (例: 3.5.5)
 spark.catalog.listDatabases()  # → ワークスペースのカタログ
 ```
 
-セル実行の7ステップ:
+### セル実行のステップ
 
 1. ユーザーがセルを実行 → Jupyter クライアントが `execute_request` 送信
 2. ZeroMQ `shell` channel → `DatabricksKernel.do_execute()` 呼び出し
@@ -130,13 +126,6 @@ pip install jupyter-databricks-kernel
 python -m jupyter_databricks_kernel.install
 ```
 
-```sh
-$ jupyter kernelspec list
-Available kernels:
-  databricks    /usr/local/share/jupyter/kernels/databricks
-  python3       /usr/local/share/jupyter/kernels/python3
-```
-
 Step 2: 認証設定
 
 ```sh
@@ -155,58 +144,32 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 
 - Claude Code / Codex CLIからDatabricksコードを**自律的に実行・反復**できる
 - CI/CDパイプラインへの組み込みも可能
-- ファイル同期: 実行前にローカルファイルをクラスタへ自動アップロード (`.gitignore`対応)
+- ファイル同期: 実行前にローカルファイルをクラスタへ自動アップロード (`.gitignore` 対応、ディレクトリ構造を保持)
 
-### 2.8. 既存手法との比較
+### 2.8. これで堅牢な Python が書けるようになる理由
 
-| 観点 | VS Code拡張 (Databricks Connect) | jupyter-databricks-kernel |
-| ---- | ---- | ---- |
-| 実行場所 | ローカル + リモート (DataFrameのみ) | Databricksクラスタ上 |
-| AIツールからの実行 | × | ○ |
-| プリインストールライブラリ | ローカルにも要インストール | そのまま利用可能 |
+- **pytest ローカル実行**: クラスタコードをローカルでテスト → CI に組み込める
+- **CI/CD 組み込み**: `jupyter execute notebook.ipynb --kernel_name=databricks` がそのままパイプラインで動く
+- **AI ツール自律実行**: Claude Code / Codex CLI がノートブックを実行・検証・修正できる
+- **ローカルと本番で同じコード**: リモート VM 上で動くので、環境差異がない
 
-### 2.9. 実装の難しさ
+ローカル開発環境が整ってはじめて、テスト・CI・AI の全ての品質管理ツールが使える。
 
-| 課題                   | 内容                                                        |
-| ---------------------- | ----------------------------------------------------------- |
-| 非同期ポーリング       | APIポーリング(1秒) と 表示更新(0.1秒) の二重ループ         |
-| インプレーススピナー   | `update_display_data` で同一IDを上書きしてアニメーション    |
-| コンテキスト失効       | クラスタセッション切れ → 自動再接続 + `sys.path` 復元      |
-| ファイル転送           | Base64チャンク(1MB)でCommand API経由 (クラウドストレージAPI不使用) |
+### 2.9. 他プラットフォームで真似する人へ
 
-```python
-# スピナーアニメーション (簡略版)
-display_id = str(uuid.uuid4())
-self.send_response(self.iopub_socket, "display_data", {
-    "data": {"text/plain": "⠋ running..."},
-    "transient": {"display_id": display_id},
-})
-# ... ポーリング中 ...
-self.send_response(self.iopub_socket, "update_display_data", {
-    "data": {"text/plain": "⠙ running..."},
-    "transient": {"display_id": display_id},
-})
-```
+必要な API は2つだけ:
 
-### 2.10. 開発の軌跡
+| API                | 役割                                       | 例                         |
+| ------------------ | --------------------------------------------------------- | -------------------------- |
+| コード実行 API     | コードを文字列で渡してリモートで動かす     | Command Execution API 相当 |
+| ファイル同期 API   | ローカルファイルをリモートに送る (ディレクトリ構造を保持) | Workspace Files API 相当   |
 
-| 項目     | 数値                                     |
-| -------- | ---------------------------------------- |
-| 開発期間 | 約7週間 (2025-10-23 - 2025-12-12)        |
-| Issue    | 50件                                     |
-| PR       | 54件                                     |
-| リリース | 13回 (v0.1.0 → v1.2.5)                  |
+この2つが揃っていれば `do_execute` を override するだけで同じカーネルが作れる。
 
-| 時期   | 内容                                      |
-| ------ | ----------------------------------------- |
-| 11/30  | 最小限カーネル実装、PyPI公開準備          |
-| 12/04  | セッション管理・自動再接続                |
-| 12/07  | ハッシュベースファイル同期                |
-| 12/08  | v1.0.0 PyPI公開、クラスタ自動起動         |
-| 12/12  | リアルタイム進捗表示 (v1.1.4)            |
-| 2026   | Service Principal対応 (v1.2.x)            |
+- Modal — SDK あり (コンテナ実行)
+- 社内 Kubernetes + FastAPI — 自前で作ればある
 
-ハマったバグ: ファイル変更をmtime(更新時刻)で検知していたが、同秒に複数ファイルを保存すると検知漏れ。MD5ハッシュ方式に切り替えて解決。
+作るのは難しくない。API があればいい。
 
 ## 3. エコシステム
 
