@@ -15,7 +15,7 @@ format:
   revealjs:
     auto-stretch: false
     code-copy: true
-    footer: "第2回 堅牢.py"
+    footer: "2026-03-06 堅牢.py #2"
     include-in-header:
       - ../_includes/hatena-nocomment.html
     incremental: false
@@ -39,40 +39,50 @@ subtitle: ""
 
 ::: {style="font-size: 1.3em;"}
 
-uma-chan
 
-株式会社GENDA
-データエンジニア / MLOpsエンジニア
-
-Nix / コーディングエージェント / Databricks が最近気になっている
+- 名前：uma-chan
+- 所属：株式会社GENDA
+- 職種：データエンジニア / MLOpsエンジニア
+- 最近気になるもの
+    - Nix
+    - コーディングエージェント
+    - Databricks
 
 :::
 
 ## 2. jupyter-databricks-kernel
 
-### 2.1. jupyter-databricks-kernel とは
+### 2.1. Databricks とは
 
-ローカルの Jupyter/VS Code から、Databricks クラスタで直接コードを実行したい。
+- AWS / Azure / GCP 上で動くマネージド Python/Spark 実行環境
+- Jupyter Notebook でコードを書いてクラスタ上で実行する
+- クラスタ = 裏側はクラウド計算リソース (弊社は AWS)
+- データ処理・ML 用途が多い
+- 今日の話: このクラスタをローカルから自在に叩く、という話
 
-![jupyter-databricks-kernel](/assets/jupyter-databricks-kernel-2026-03-05.jpeg){width=70%}
+### 2.2. jupyter-databricks-kernel とは
 
-A Jupyter kernel for complete remote execution on Databricks clusters.
+ローカルの Jupyter Notebook を Databricks クラスタで直接を実行させるためのツールを作りました
 
-[github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
+[![](/assets/jupyter-databricks-kernel-2026-03-05.jpeg)](https://github.com/i9wa4/jupyter-databricks-kernel)
 
-### 2.2. 背景: なぜ作ったか
+[https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
 
-| 課題 | 詳細 |
-| ---- | ---- |
-| ローカル開発との乖離 | VS Codeが使いにくい、Git連携が煩雑 |
-| AIツールからの実行困難 | Claude CodeなどがDatabricksコードを自律実行できない |
-| VS Code拡張の制約 | DataFrameのみリモート — プリインストールライブラリがローカルで使えない |
+### 2.3. 背景: なぜ作ったか
 
-- kenro.py 第1回 (2025-11-15) で「堅牢なコードを書く」というテーマの話を聞いた
-- 「Databricks でもローカル開発・テストしたい」という課題意識が高まった
-- → jupyter-databricks-kernel を作り始めた (first commit: 2025-11-30)
+| 課題                   | 詳細                                                                    |
+| ----                   | ----                                                                    |
+| ローカル開発との乖離   | VS Codeが使いにくい、Git連携が煩雑                                      |
+| AIツールからの実行困難 | Claude CodeなどがDatabricksコードを自律実行できない                     |
+| VS Code拡張の制約      | DataFrameのみリモート — プリインストールライブラリがローカルで使えない |
 
-### 2.3. Jupyterカーネルとは
+時系列：
+
+1. 堅牢.py #1 (2025-11-15) で「堅牢なコードを書く」というテーマの話をたくさん聞いた
+1. 「Databricks でもローカル開発・テストしたい」という課題意識が高まった
+1. jupyter-databricks-kernel を作り始めた
+
+### 2.4. Jupyterカーネルとは
 
 Jupyter カーネルとは、Notebook UI からのコード実行リクエストを受け取り、
 結果を返すプロセスのこと。
@@ -86,11 +96,11 @@ Jupyter カーネルとは、Notebook UI からのコード実行リクエスト
 [Notebook UI] ←── ZeroMQ ──→ [DatabricksKernel] ──→ [Remote Compute (HTTP/SDK)]
 ```
 
-### 2.4. アーキテクチャ
+### 2.5. アーキテクチャ
 
 ![](/assets/jupyter-databricks-kernel-architecture.png)
 
-### 2.5. 完全リモート実行とは
+### 2.6. 完全リモート実行とは
 
 - VS Code拡張 (Databricks Connect): DataFrame操作だけリモート、通常のPythonはローカルで動く
 - jupyter-databricks-kernel: **コードはすべてDatabricksクラスタ上で実行される**
@@ -104,7 +114,7 @@ spark.version          # → クラスタのSparkバージョン (例: 3.5.5)
 spark.catalog.listDatabases()  # → ワークスペースのカタログ
 ```
 
-### 2.6. セル実行のステップ
+### 2.7. セル実行のステップ
 
 1. ユーザーがセルを実行 → Jupyter クライアントが `execute_request` 送信
 2. ZeroMQ `shell` channel → `DatabricksKernel.do_execute()` 呼び出し
@@ -116,7 +126,7 @@ spark.catalog.listDatabases()  # → ワークスペースのカタログ
 
 SDK: **Databricks Python SDK** (`WorkspaceClient`) / API: **Command Execution API** (`client.command_execution.*`)
 
-### 2.7. 使い方
+### 2.8. 使い方
 
 Step 1: インストール
 
@@ -133,7 +143,7 @@ databricks auth login --configure-cluster
 
 Step 3: VS CodeでJupyter拡張を開き、カーネルに "Databricks" を選択
 
-### 2.8. AIツールとの連携
+### 2.9. AIツールとの連携
 
 - CLI実行でAIによる自律実行が可能:
 
@@ -145,7 +155,7 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 - CI/CDパイプラインへの組み込みも可能
 - ファイル同期: 実行前にローカルファイルをクラスタへ自動アップロード (`.gitignore` 対応、ディレクトリ構造を保持)
 
-### 2.9. これで堅牢な Python が書けるようになる理由
+### 2.10. これで堅牢な Python が書けるようになる理由
 
 - **pytest ローカル実行**: クラスタコードをローカルでテスト → CI に組み込める
 - **CI/CD 組み込み**: `jupyter execute notebook.ipynb --kernel_name=databricks` がそのままパイプラインで動く
@@ -154,7 +164,7 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 
 ローカル開発環境が整ってはじめて、テスト・CI・AI の全ての品質管理ツールが使える。
 
-### 2.10. 他プラットフォームで真似する人へ
+### 2.11. 他プラットフォームで真似する人へ
 
 必要な API は2つだけ:
 
@@ -163,35 +173,28 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 | コード実行 API     | コードを文字列で渡してリモートで動かす     | Command Execution API 相当 |
 | ファイル同期 API   | ローカルファイルをリモートに送る (ディレクトリ構造を保持) | Workspace Files API 相当   |
 
-この2つが揃っていれば `do_execute` を override するだけで同じカーネルが作れる。
-
-- Modal — SDK あり (コンテナ実行)
-- 社内 Kubernetes + FastAPI — 自前で作ればある
-
-作るのは難しくない。API があればいい。
+この2つが揃っていれば `do_execute` を override すると完全リモート実行カーネルが作れる！
 
 ## 3. エコシステム
 
 ### 3.1. 開発品質を支えるエコシステム
 
-| ツール | 役割 | ポイント |
-| ------ | ---- | -------- |
-| Skinny Notebook Wrapper + Pure Python | テスタビリティ | ロジックを`.py`に切り出し、`pytest`で単体テスト |
-| uv | 依存関係管理 | `uv sync --active` でDatabricks環境に直接インストール |
-| mise + pre-commit + Renovate | ガードレール | コミット時Lint / 依存更新の自動化 |
+| ツール                                | 役割           | ポイント                                              |
+| ------                                | ----           | --------                                              |
+| Skinny Notebook Wrapper + Pure Python | テスタビリティ | ロジックを`.py`に切り出し、`pytest`で単体テスト       |
+| uv                                    | 依存関係管理   | `uv sync --active` でDatabricks環境に直接インストール |
+| mise + pre-commit + Renovate          | ガードレール   | コミット時Lint / 依存更新の自動化                     |
 
 ## 4. まとめ
 
 ### 4.1. まとめ
 
-| 課題 | 解決 |
-| ---- | ---- |
-| ローカル開発との乖離 | jupyter-databricks-kernel で完全リモート実行 |
-| AIツールからの自律実行 | jupyter-databricks-kernel でClaude Codeが実行 |
-| コード品質・テスタビリティ | Skinny Notebook + uv + ガードレール |
+| 課題                       | 解決                                          |
+| ----                       | ----                                          |
+| ローカル開発との乖離       | jupyter-databricks-kernel で完全リモート実行  |
+| AIツールからの自律実行     | jupyter-databricks-kernel でClaude Codeが実行 |
+| コード品質・テスタビリティ | Skinny Notebook + uv + ガードレール           |
 
 - **堅牢さの中心**: jupyter-databricks-kernel がローカル開発を可能にし、品質向上への道を開く
 
 ローカル開発環境が整ってはじめて、品質管理の選択肢が広がる。
-
-[github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
