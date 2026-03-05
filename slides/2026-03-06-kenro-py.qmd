@@ -39,11 +39,9 @@ subtitle: ""
 
 ::: {style="font-size: 1.3em;"}
 
-
 - 名前：uma-chan
-- 所属：株式会社GENDA
 - 職種：データエンジニア / MLOpsエンジニア
-- 最近気になるもの
+- 最近気になるもの：
     - Nix
     - コーディングエージェント
     - Databricks
@@ -74,7 +72,7 @@ subtitle: ""
 | ----                   | ----                                                                    |
 | ローカル開発との乖離   | VS Codeが使いにくい、Git連携が煩雑                                      |
 | AIツールからの実行困難 | Claude CodeなどがDatabricksコードを自律実行できない                     |
-| VS Code拡張の制約      | DataFrameのみリモート — プリインストールライブラリがローカルで使えない |
+| VS Code拡張の制約      | Spark操作はリモート — プリインストールライブラリがローカルで使えない    |
 
 時系列：
 
@@ -96,16 +94,16 @@ subtitle: ""
 
 ### 2.6. 完全リモート実行とは
 
-- VS Code拡張 (Databricks Connect): DataFrame操作だけリモート、通常のPythonはローカルで動く
+- VS Code拡張 (Databricks Connect): Spark操作はリモート、通常のPython/DataFrameはローカルで動く
 - jupyter-databricks-kernel: **コードはすべてDatabricksクラスタ上で実行される**
   - `spark.version` → ローカルでなくクラスタのSparkバージョンが返る
   - プリインストールライブラリ → インストール不要でそのまま使える
   - Sparkクラスタの全リソース → メモリ/CPUもクラスタのものが使える
 
 ```python
-# このコードがクラスタ上で実行される
-spark.version          # → クラスタのSparkバージョン (例: 3.5.5)
-spark.catalog.listDatabases()  # → ワークスペースのカタログ
+import socket
+print(socket.gethostname())  # → "ip-10-0-1-42" (クラスタのEC2ノード名)
+spark.version                # → "3.5.5" (クラスタのSparkバージョン)
 ```
 
 ### 2.7. セル実行のステップ
