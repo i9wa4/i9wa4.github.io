@@ -16,20 +16,20 @@
         </mxCell>
 
 
-        <!-- File sync arrow: Kernel → Remote at y=440 -->
+        <!-- File sync arrow: Kernel → Remote at y=260 (above file-dest-box to avoid overlap) -->
         <mxCell id="arrow-sync" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171;endFill=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="950" y="440" as="sourcePoint"/>
-            <mxPoint x="1010" y="440" as="targetPoint"/>
+            <mxPoint x="950" y="260" as="sourcePoint"/>
+            <mxPoint x="1010" y="260" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
 
 
-        <!-- Code execution arrow: Kernel → Remote at y=640 -->
+        <!-- Code execution arrow: Kernel → Remote at y=658 (gap between context-box and cmd-exec-box) -->
         <mxCell id="arrow-exec" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b;endFill=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="950" y="640" as="sourcePoint"/>
-            <mxPoint x="1010" y="640" as="targetPoint"/>
+            <mxPoint x="950" y="658" as="sourcePoint"/>
+            <mxPoint x="1010" y="658" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
 
@@ -238,10 +238,10 @@
           <mxGeometry x="405" y="260" width="145" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="label-sync" value="Command API&lt;br&gt;(Base64 chunks, 1MB)" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#c0a171;fontFamily=Zen Kaku Gothic New;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="955" y="395" width="195" height="40" as="geometry"/>
+          <mxGeometry x="955" y="220" width="195" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="label-exec" value="HTTPS / Databricks SDK" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722;fontFamily=Zen Kaku Gothic New;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="955" y="610" width="210" height="30" as="geometry"/>
+          <mxGeometry x="955" y="638" width="210" height="30" as="geometry"/>
         </mxCell>
 
       </root>

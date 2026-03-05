@@ -1,7 +1,7 @@
 ---
 title: Databricksで堅牢なコードを書く上での課題とその解決
 author:
-  - name: Mawatari Daiki
+  - name: uma-chan
 categories:
   - "slides"
   - "kenro-py"
@@ -39,13 +39,12 @@ subtitle: ""
 
 ::: {style="font-size: 1.3em;"}
 
-Mawatari Daiki / uma-chan
+uma-chan
 
 株式会社GENDA
-
-IT戦略部 データチーム
-
 データエンジニア / MLOpsエンジニア
+
+Nix / コーディングエージェント / Databricks が最近気になっている
 
 :::
 
@@ -105,7 +104,7 @@ spark.version          # → クラスタのSparkバージョン (例: 3.5.5)
 spark.catalog.listDatabases()  # → ワークスペースのカタログ
 ```
 
-### セル実行のステップ
+### 2.6. セル実行のステップ
 
 1. ユーザーがセルを実行 → Jupyter クライアントが `execute_request` 送信
 2. ZeroMQ `shell` channel → `DatabricksKernel.do_execute()` 呼び出し
@@ -117,7 +116,7 @@ spark.catalog.listDatabases()  # → ワークスペースのカタログ
 
 SDK: **Databricks Python SDK** (`WorkspaceClient`) / API: **Command Execution API** (`client.command_execution.*`)
 
-### 2.6. 使い方
+### 2.7. 使い方
 
 Step 1: インストール
 
@@ -134,7 +133,7 @@ databricks auth login --configure-cluster
 
 Step 3: VS CodeでJupyter拡張を開き、カーネルに "Databricks" を選択
 
-### 2.7. AIツールとの連携
+### 2.8. AIツールとの連携
 
 - CLI実行でAIによる自律実行が可能:
 
@@ -146,7 +145,7 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 - CI/CDパイプラインへの組み込みも可能
 - ファイル同期: 実行前にローカルファイルをクラスタへ自動アップロード (`.gitignore` 対応、ディレクトリ構造を保持)
 
-### 2.8. これで堅牢な Python が書けるようになる理由
+### 2.9. これで堅牢な Python が書けるようになる理由
 
 - **pytest ローカル実行**: クラスタコードをローカルでテスト → CI に組み込める
 - **CI/CD 組み込み**: `jupyter execute notebook.ipynb --kernel_name=databricks` がそのままパイプラインで動く
@@ -155,7 +154,7 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 
 ローカル開発環境が整ってはじめて、テスト・CI・AI の全ての品質管理ツールが使える。
 
-### 2.9. 他プラットフォームで真似する人へ
+### 2.10. 他プラットフォームで真似する人へ
 
 必要な API は2つだけ:
 
