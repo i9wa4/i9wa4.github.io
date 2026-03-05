@@ -84,17 +84,11 @@ subtitle: ""
 
 ### 2.4. Jupyterカーネルとは
 
-Jupyter カーネルとは、Notebook UI からのコード実行リクエストを受け取り、
-結果を返すプロセスのこと。
-
-- Jupyter protocol: `execute_request` (ZeroMQ shell channel) → kernel → iopub
-- 標準実装: `ipykernel.kernelbase.Kernel` — ZeroMQ routing, `send_response()`
-- jupyter-databricks-kernel: `Kernel` を継承して `do_execute()` をオーバーライド
-  - `do_complete` など他のメソッドは基底クラスのデフォルト応答 (追加実装なし)
-
-```
-[Notebook UI] ←── ZeroMQ ──→ [DatabricksKernel] ──→ [Remote Compute (HTTP/SDK)]
-```
+- Jupyter カーネル = セルを実行するプロセス
+- VS Code や JupyterLab からセルを実行すると、裏側でカーネルプロセスが動いている
+- 普段は Python (ipykernel) が動いている
+- カーネルは差し替え可能 — jupyter-databricks-kernel はその「差し替え」
+- セル実行を横取りして、Databricks クラスタに投げる
 
 ### 2.5. アーキテクチャ
 
