@@ -9,7 +9,7 @@ date: 2026-03-05
 date-modified: last-modified
 description: |
   [登壇資料] GENDA 社内勉強会 2026-03-05
-draft: true
+draft: false
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
