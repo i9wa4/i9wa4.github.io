@@ -170,7 +170,7 @@ MetaGPT の SOP（エージェント間の役割・手順を構造化）と、20
 | 会話型 | AutoGen | エージェント間対話で調整 |
 | ロール型 | CrewAI, Agency Swarm | 役割分担でスコープを限定 |
 | SOP（Standard Operating Procedures）型 | MetaGPT | 標準手順書でハルシネーション抑制 |
-| ファイル型 | tmux ベース, Agent Teams | 各エージェントが自分の inbox のみ参照 |
+| ファイル型 | Agent Teams | 各エージェントが自分の受けるプロンプトのみ参照 |
 
 ### 3.3. 各アプローチの特徴と適所
 
