@@ -122,11 +122,15 @@ pie title 2025年11月以降のコミット数比
 
 ### 2.6. 完全リモート実行とは
 
+**Databricks Connect との違い**
+
 | 項目               | Databricks Connect           | jupyter-databricks-kernel    |
 | ------------------ | ---------------------------- | ---------------------------- |
 | Spark 計算         | クラスター                   | クラスター                   |
 | `.toPandas()` 結果 | ローカルメモリに collect     | クラスターのメモリ上に存在   |
 | 通常の Python 変数 | ローカル                     | クラスター上                 |
+
+**例: 大量データをローカルに取り込む場合**
 
 ```python
 # 100万行のSparkDataFrameをpandasに変換
@@ -230,12 +234,12 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 
 ### 4.1. まとめ
 
+**やったこと**
+
 | 課題                       | 解決                                          |
 | ----                       | ----                                          |
 | ローカル開発との乖離       | jupyter-databricks-kernel で完全リモート実行  |
 | AIツールからの自律実行     | jupyter-databricks-kernel でClaude Codeが実行 |
 | コード品質・テスタビリティ | `.py` 切り出し + uv + ガードレール            |
 
-- **堅牢さの中心**: jupyter-databricks-kernel がローカル開発を可能にし、品質向上への道を開く
-
-ローカル開発環境が整ってはじめて、品質管理の選択肢が広がる。
+**jupyter-databricks-kernel がローカル開発を可能にし、堅牢な開発体制を整備することができるようになった！**
