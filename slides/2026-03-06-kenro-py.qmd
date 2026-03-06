@@ -89,7 +89,7 @@ pie title 2025年11月以降のコミット数比
 
 ローカルの Jupyter Notebook を Databricks クラスターで直接を実行させるためのツールを作りました
 
-[![](/assets/jupyter-databricks-kernel-2026-03-05.jpeg)](https://github.com/i9wa4/jupyter-databricks-kernel)
+[![jupyter-databricks-kernel README](/assets/jupyter-databricks-kernel-2026-03-05.jpeg)](https://github.com/i9wa4/jupyter-databricks-kernel)
 
 [https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
 
@@ -118,7 +118,7 @@ pie title 2025年11月以降のコミット数比
 
 ### 2.5. アーキテクチャ
 
-![](/assets/jupyter-databricks-kernel-architecture.png)
+![jupyter-databricks-kernel architecture](/assets/jupyter-databricks-kernel-architecture.png)
 
 ### 2.6. 完全リモート実行とは
 
