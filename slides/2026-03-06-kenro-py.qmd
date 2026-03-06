@@ -77,9 +77,13 @@ pie title 2025年11月以降のコミット数比
 
 ### 1.1. 登壇までの経緯
 
-1. 堅牢.py #1 (2025-11-15) で「堅牢なコードを書く」というテーマの話をたくさん聞いた
-1. 「Databricks でもローカル開発・テストしたい」という課題意識が高まった
-1. jupyter-databricks-kernel を作った → 今日はこの話をします
+堅牢.py #1 (2025-11-15) で「堅牢な Python を書く」話を聞いているときの脆弱な私
+
+::: {style="display: flex; justify-content: center; transform: scale(1.5); transform-origin: top center; margin-bottom: 5em;"}
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Jupyter Notebook 運用ですすみません<br> <a href="https://twitter.com/hashtag/kenro_py?src=hash&amp;ref_src=twsrc%5Etfw">#kenro_py</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://twitter.com/i9wa4_/status/1991452556334362679?ref_src=twsrc%5Etfw">November 20, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+:::
+
+堅牢.pyのおかげで **「Databricks でもローカル開発やテストをちゃんとしたい」** という課題意識が高まって jupyter-databricks-kernel を作ったので今日はその話をします！
 
 ## 2. jupyter-databricks-kernel
 
