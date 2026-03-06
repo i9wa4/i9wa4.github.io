@@ -18,6 +18,17 @@ format:
     footer: "2026-03-06 堅牢.py #2"
     include-in-header:
       - ../_includes/hatena-nocomment.html
+      - text: |
+          <style>
+          :root {
+            --mermaid-edge-color: #000000 !important;
+            --mermaid-label-fg-color: #000000 !important;
+            --mermaid-node-fg-color: #000000 !important;
+          }
+          rect.actor { fill: #dbeafe !important; }
+          .loopLine { fill: #fef3c7 !important; }
+          .labelBox { fill: #e0e7ff !important; }
+          </style>
     incremental: false
     scrollable: true
     slide-level: 3
@@ -133,7 +144,7 @@ df = spark.sql("SELECT * FROM large_table LIMIT 1000000").toPandas()
 ### 2.7. セル実行のステップ
 
 ```{mermaid}
-%%{init: {'theme': 'base', 'themeVariables': {'textColor': '#000000', 'noteBkgColor': '#ffffff', 'noteTextColor': '#000000', 'actorTextColor': '#000000'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'textColor': '#000000', 'actorTextColor': '#000000', 'actorBkg': '#ffffff', 'actorBorder': '#000000', 'labelTextColor': '#000000', 'loopTextColor': '#000000', 'noteTextColor': '#000000', 'noteBkgColor': '#ffffff', 'signalColor': '#000000', 'signalTextColor': '#000000', 'activationBkgColor': '#eeeeee', 'activationBorderColor': '#000000'}, 'sequence': {'mirrorActors': false}}}%%
 sequenceDiagram
     participant JC as Jupyter Client
     participant K  as jupyter-databricks-kernel
@@ -141,10 +152,8 @@ sequenceDiagram
     JC->>K: execute_request (ZeroMQ)
     K->>K: do_execute()
     alt 初回実行
-        K->>K: _initialize() — DatabricksExecutor 生成
         K->>K: _sync_files() → needs_sync()=True
         K->>DC: POST /api/1.2/contexts/create
-        DC-->>K: contextId（セッション中保持）
         K->>DC: ZIP（Base64）→ /tmp/ 展開
     else 2回目以降（ファイル変更なし）
         K->>K: _sync_files() → needs_sync()=False → スキップ
