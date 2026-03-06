@@ -15,7 +15,7 @@ format:
   revealjs:
     auto-stretch: false
     code-copy: true
-    footer: "2026-03-06 堅牢.py #2"
+    footer: "[2026-03-06 堅牢.py #2](https://kenro.connpass.com/event/383266/)"
     include-in-header:
       - ../_includes/hatena-nocomment.html
       - text: |
