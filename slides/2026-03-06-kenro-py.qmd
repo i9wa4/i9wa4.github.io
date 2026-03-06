@@ -37,16 +37,32 @@ subtitle: ""
 
 ## 1. 自己紹介
 
-::: {style="font-size: 1.3em;"}
+:::: {.columns}
+::: {.column width="55%"}
+::: {style="font-size: 1.2em;"}
 
 - 名前：uma-chan
 - 職種：データエンジニア / MLOpsエンジニア
-- 最近気になるもの：
-    - Nix
+- 最近気になるもの
     - コーディングエージェント
+    - Nix
     - Databricks
 
 :::
+:::
+::: {.column width="45%"}
+
+```{mermaid}
+%%{init: {'theme': 'base', 'themeVariables': {'textColor': '#000000'}}}%%
+pie title 2025年11月以降のコミット数比
+    "コーディングエージェント" : 70
+    "Nix" : 12
+    "Databricks" : 15
+    "その他" : 3
+```
+
+:::
+::::
 
 ## 2. jupyter-databricks-kernel
 
