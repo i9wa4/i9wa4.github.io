@@ -75,11 +75,11 @@ pie title 2025年11月以降のコミット数比
 :::
 ::::
 
-### 1.1. きっかけ
+### 1.1. 登壇までの経緯
 
 1. 堅牢.py #1 (2025-11-15) で「堅牢なコードを書く」というテーマの話をたくさん聞いた
 1. 「Databricks でもローカル開発・テストしたい」という課題意識が高まった
-1. jupyter-databricks-kernel を作り始めた
+1. jupyter-databricks-kernel を作った → 今日はこの話をします
 
 ## 2. jupyter-databricks-kernel
 
@@ -89,23 +89,24 @@ pie title 2025年11月以降のコミット数比
 - Jupyter Notebook でコードを書いてクラスター上で実行する
 - クラスター = 裏側はクラウド計算リソース (弊社は AWS)
 - データ処理・ML 用途が多い
-- 今日の話: このクラスターをローカルから自在に叩く、という話
 
-### 2.2. jupyter-databricks-kernel とは
+### 2.2. 解決したい課題
+
+Databricks で堅牢なコードを書くにはローカル開発環境が必要。しかし...
+
+| 課題                   | 詳細                                                                  |
+| ----                   | ----                                                                  |
+| ローカル開発との乖離   | VS Codeが使いにくい、Git連携が煩雑                                    |
+| AIツールからの実行困難 | Claude CodeなどがDatabricksコードを自律実行できない                   |
+| VS Code拡張の制約      | Spark操作はリモート — プリインストールライブラリがローカルで使えない |
+
+### 2.3. jupyter-databricks-kernel とは
 
 ローカルの Jupyter Notebook を Databricks クラスターで直接を実行させるためのツールを作りました
 
 [![jupyter-databricks-kernel README](/assets/jupyter-databricks-kernel-2026-03-05.jpeg)](https://github.com/i9wa4/jupyter-databricks-kernel)
 
 [https://github.com/i9wa4/jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
-
-### 2.3. 背景: なぜ作ったか
-
-| 課題                   | 詳細                                                                    |
-| ----                   | ----                                                                    |
-| ローカル開発との乖離   | VS Codeが使いにくい、Git連携が煩雑                                      |
-| AIツールからの実行困難 | Claude CodeなどがDatabricksコードを自律実行できない                     |
-| VS Code拡張の制約      | Spark操作はリモート — プリインストールライブラリがローカルで使えない    |
 
 ### 2.4. Jupyterカーネルとは
 
