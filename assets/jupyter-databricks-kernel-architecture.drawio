@@ -1,247 +1,157 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="1">
-    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
         <!-- Horizontal arrows (back layer) -->
 
-        <!-- ZeroMQ arrow: Local → Kernel at y=305 -->
-        <mxCell id="arrow-zeromq" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b;endFill=1;" edge="1" parent="1">
+        <!-- ZeroMQ: Local → Kernel at y=490 -->
+        <mxCell id="arrow-zeromq" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#333333;endFill=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="400" y="305" as="sourcePoint"/>
-            <mxPoint x="450" y="305" as="targetPoint"/>
+            <mxPoint x="400" y="490" as="sourcePoint"/>
+            <mxPoint x="450" y="490" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
 
-
-        <!-- File sync arrow: Kernel → Remote at y=260 (above file-dest-box to avoid overlap) -->
-        <mxCell id="arrow-sync" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171;endFill=1;" edge="1" parent="1">
+        <!-- ファイル同期: Kernel → Databricks at y=390 -->
+        <mxCell id="arrow-sync" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#333333;endFill=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="950" y="260" as="sourcePoint"/>
-            <mxPoint x="1010" y="260" as="targetPoint"/>
+            <mxPoint x="950" y="390" as="sourcePoint"/>
+            <mxPoint x="1010" y="390" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
 
-
-        <!-- Code execution arrow: Kernel → Remote at y=658 (gap between context-box and cmd-exec-box) -->
-        <mxCell id="arrow-exec" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b;endFill=1;" edge="1" parent="1">
+        <!-- コード実行: Kernel → Databricks at y=620 -->
+        <mxCell id="arrow-exec" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#333333;endFill=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="950" y="658" as="sourcePoint"/>
-            <mxPoint x="1010" y="658" as="targetPoint"/>
+            <mxPoint x="950" y="620" as="sourcePoint"/>
+            <mxPoint x="1010" y="620" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
 
-
-        <!-- Column 1: Local Environment -->
-        <mxCell id="col1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+        <!-- ================== COLUMN 1: ローカル環境 ================== -->
+        <mxCell id="col1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FD;strokeColor=#2196F3;strokeWidth=4" vertex="1" parent="1">
           <mxGeometry x="40" y="40" width="360" height="890" as="geometry"/>
         </mxCell>
-        <mxCell id="col1-title" value="ローカル環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+        <mxCell id="col1-title" value="ローカル環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
           <mxGeometry x="50" y="55" width="340" height="45" as="geometry"/>
         </mxCell>
 
         <!-- VS Code box -->
-        <mxCell id="vscode-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
+        <mxCell id="vscode-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#2196F3;strokeWidth=2" vertex="1" parent="1">
           <mxGeometry x="65" y="130" width="310" height="150" as="geometry"/>
         </mxCell>
         <mxCell id="vscode-icon" value="💻" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40;" vertex="1" parent="1">
           <mxGeometry x="75" y="145" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="vscode-label" value="VS Code&lt;br&gt;+ Jupyter 拡張" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+        <mxCell id="vscode-label" value="VS Code&lt;br&gt;+ Jupyter 拡張" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
           <mxGeometry x="145" y="150" width="220" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="vscode-sub" value="Notebook UI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#82919b;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+        <mxCell id="vscode-sub" value="Notebook UI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#1565C0;fontFamily=Noto Sans JP;" vertex="1" parent="1">
           <mxGeometry x="75" y="228" width="290" height="30" as="geometry"/>
         </mxCell>
 
         <!-- Claude Code box -->
-        <mxCell id="claude-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="65" y="310" width="310" height="150" as="geometry"/>
+        <mxCell id="claude-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#2196F3;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="65" y="300" width="310" height="150" as="geometry"/>
         </mxCell>
         <mxCell id="claude-icon" value="🤖" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=40;" vertex="1" parent="1">
-          <mxGeometry x="75" y="325" width="60" height="60" as="geometry"/>
+          <mxGeometry x="75" y="315" width="60" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="claude-label" value="Claude Code" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="145" y="335" width="220" height="40" as="geometry"/>
+        <mxCell id="claude-label" value="Claude Code" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="145" y="320" width="220" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="claude-sub" value="jupyter execute ..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#82919b;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="75" y="408" width="290" height="30" as="geometry"/>
-        </mxCell>
-
-        <!-- Return label at bottom of col1 -->
-        <mxCell id="col1-return" value="⬅ ZeroMQ iopub&lt;br&gt;(結果 / エラー)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#82919b;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="55" y="840" width="330" height="60" as="geometry"/>
+        <mxCell id="claude-sub" value="jupyter execute ..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#1565C0;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="75" y="393" width="290" height="30" as="geometry"/>
         </mxCell>
 
-        <!-- Column 2: jupyter-databricks-kernel process -->
-        <mxCell id="col2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=4" vertex="1" parent="1">
+        <!-- ================== COLUMN 2: jupyter-databricks-kernel ================== -->
+        <mxCell id="col2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FF8F00;strokeWidth=4" vertex="1" parent="1">
           <mxGeometry x="450" y="40" width="500" height="890" as="geometry"/>
         </mxCell>
-        <mxCell id="col2-title" value="jupyter-databricks-kernel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+        <mxCell id="col2-title" value="jupyter-databricks-kernel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
           <mxGeometry x="460" y="55" width="480" height="40" as="geometry"/>
         </mxCell>
 
-        <!-- DatabricksKernel class -->
-        <mxCell id="kernel-class-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="470" y="115" width="460" height="70" as="geometry"/>
+        <!-- Kernel overview card -->
+        <mxCell id="kernel-card-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#FF8F00;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="470" y="130" width="460" height="130" as="geometry"/>
         </mxCell>
-        <mxCell id="kernel-class-label" value="DatabricksKernel(Kernel) — kernel.py:25" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="475" y="120" width="450" height="60" as="geometry"/>
+        <mxCell id="kernel-card-title" value="ipykernel 拡張" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="475" y="140" width="450" height="40" as="geometry"/>
         </mxCell>
-
-        <!-- Arrow: class → do_execute -->
-        <mxCell id="arrow-int1" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#c0a171;endFill=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="700" y="185" as="sourcePoint"/>
-            <mxPoint x="700" y="220" as="targetPoint"/>
-          </mxGeometry>
+        <mxCell id="kernel-card-sub" value="セル実行を Databricks クラスタにルーティング" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#E65100;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="475" y="183" width="450" height="65" as="geometry"/>
         </mxCell>
 
-        <!-- do_execute box -->
-        <mxCell id="do-execute-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="470" y="220" width="460" height="80" as="geometry"/>
+        <!-- File sync marker (col2) — aligned with arrow-sync at y=390 -->
+        <mxCell id="sync-marker" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF8F00;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="470" y="350" width="460" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="do-execute-label" value="do_execute() (async)&lt;br&gt;&lt;font color=&quot;#82919b&quot;&gt;kernel.py:412&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="475" y="225" width="450" height="70" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow: do_execute → sync -->
-        <mxCell id="arrow-int2" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#c0a171;endFill=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="700" y="300" as="sourcePoint"/>
-            <mxPoint x="700" y="340" as="targetPoint"/>
-          </mxGeometry>
+        <mxCell id="sync-marker-label" value="📤 ファイル同期" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="475" y="360" width="450" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- _sync_files box -->
-        <mxCell id="sync-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="470" y="340" width="460" height="200" as="geometry"/>
+        <!-- Code execution marker (col2) — aligned with arrow-exec at y=620 -->
+        <mxCell id="exec-marker" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF8F00;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="470" y="580" width="460" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="sync-title" value="_sync_files() — kernel.py:174" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="475" y="350" width="450" height="35" as="geometry"/>
-        </mxCell>
-        <mxCell id="sync-detail" value="① MD5変更検知 (sync.py:220)&lt;br&gt;② ZIP圧縮 → Base64エンコード&lt;br&gt;③ 1 MB/chunk で Command API 経由転送" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="485" y="393" width="435" height="135" as="geometry"/>
+        <mxCell id="exec-marker-label" value="▶ コード実行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="475" y="590" width="450" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Arrow: sync → executor -->
-        <mxCell id="arrow-int3" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#c0a171;endFill=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="700" y="540" as="sourcePoint"/>
-            <mxPoint x="700" y="580" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- executor.execute box -->
-        <mxCell id="exec-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#c0a171;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="470" y="580" width="460" height="130" as="geometry"/>
-        </mxCell>
-        <mxCell id="exec-title" value="executor.execute() — executor.py:200" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="475" y="590" width="450" height="35" as="geometry"/>
-        </mxCell>
-        <mxCell id="exec-detail" value="WorkspaceClient — command_execution.*&lt;br&gt;&lt;font color=&quot;#82919b&quot;&gt;executor.py:371&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="485" y="633" width="435" height="65" as="geometry"/>
-        </mxCell>
-
-        <!-- Spinner note -->
-        <mxCell id="spinner-note" value="💡 update_display_data でスピナーをインプレース更新 (0.1s)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#82919b;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="460" y="730" width="480" height="40" as="geometry"/>
-        </mxCell>
-
-        <!-- Column 3: Remote Compute (Databricks) -->
-        <mxCell id="col3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+        <!-- ================== COLUMN 3: Databricks クラスター ================== -->
+        <mxCell id="col3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#388E3C;strokeWidth=4" vertex="1" parent="1">
           <mxGeometry x="1010" y="40" width="870" height="890" as="geometry"/>
         </mxCell>
-        <mxCell id="col3-title" value="Remote Compute (Databricks)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+        <mxCell id="col3-title" value="Databricks クラスター" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
           <mxGeometry x="1020" y="55" width="850" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="col3-sub" value="🖥️ ≈ AWS EC2 上の Python ランタイム (クラスタ = リモート VM)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontColor=#82919b;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1020" y="95" width="850" height="30" as="geometry"/>
+        <mxCell id="col3-sub" value="🖥️  リモート Python 実行環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#2E7D32;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="100" width="850" height="30" as="geometry"/>
         </mxCell>
 
-        <!-- Command Execution API explanation -->
-        <mxCell id="api-note" value="Command Execution API: REST API ベースのリモート REPL" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontColor=#82919b;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1020" y="128" width="850" height="30" as="geometry"/>
+        <!-- File sync destination box (col3) — aligned with arrow-sync at y=390 -->
+        <mxCell id="file-dest-simple-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#388E3C;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1035" y="350" width="830" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="file-dest-simple-title" value="📂 ファイル同期先" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="358" width="820" height="37" as="geometry"/>
+        </mxCell>
+        <mxCell id="file-dest-simple-sub" value="ローカルコードを ZIP 展開 → クラスタ上のファイルシステム" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#1B5E20;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="393" width="820" height="30" as="geometry"/>
         </mxCell>
 
-        <!-- File Sync Destination box -->
-        <mxCell id="file-dest-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1035" y="340" width="830" height="160" as="geometry"/>
+        <!-- Python execution environment box (col3) — aligned with arrow-exec at y=620 -->
+        <mxCell id="runtime-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#388E3C;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1035" y="580" width="830" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="file-dest-title" value="📂 ファイル同期先" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="350" width="820" height="35" as="geometry"/>
+        <mxCell id="runtime-title" value="🐍 Python 実行環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#001722;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="588" width="820" height="37" as="geometry"/>
         </mxCell>
-        <mxCell id="file-dest-detail" value="/tmp/jupyter_databricks_kernel_{session_id}/  (sync.py:808)&lt;br&gt;→ 展開先: /Workspace/Users/{user}/jupyter_databricks_kernel/{session_id}/  (sync.py:1011)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1045" y="393" width="815" height="95" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow: file-dest → context -->
-        <mxCell id="arrow-dest-ctx" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82919b;endFill=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1450" y="500" as="sourcePoint"/>
-            <mxPoint x="1450" y="545" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Python Execution Context box -->
-        <mxCell id="context-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1035" y="545" width="830" height="90" as="geometry"/>
-        </mxCell>
-        <mxCell id="context-label" value="Python 実行コンテキスト&lt;br&gt;&lt;font color=&quot;#82919b&quot;&gt;create_context() — executor.py:144&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="550" width="820" height="80" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow: context → cmd execute -->
-        <mxCell id="arrow-ctx-cmd" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82919b;endFill=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1450" y="635" as="sourcePoint"/>
-            <mxPoint x="1450" y="675" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- command_execution.execute() box -->
-        <mxCell id="cmd-exec-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1035" y="675" width="830" height="100" as="geometry"/>
-        </mxCell>
-        <mxCell id="cmd-exec-label" value="command_execution.execute()  [非同期]&lt;br&gt;&lt;font color=&quot;#82919b&quot;&gt;POST /api/1.2/commands/execute — executor.py:371&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="680" width="820" height="90" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow: cmd execute → polling -->
-        <mxCell id="arrow-cmd-poll" value="" style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#82919b;endFill=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1450" y="775" as="sourcePoint"/>
-            <mxPoint x="1450" y="815" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Polling box -->
-        <mxCell id="polling-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#82919b;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1035" y="815" width="830" height="100" as="geometry"/>
-        </mxCell>
-        <mxCell id="polling-label" value="command_execution.command_status()  ポーリング 1秒/回&lt;br&gt;&lt;font color=&quot;#82919b&quot;&gt;GET /api/1.2/commands/status — executor.py:414&lt;/font&gt;  →  TEXT / IMAGE / TABLE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
-          <mxGeometry x="1040" y="820" width="820" height="90" as="geometry"/>
+        <mxCell id="runtime-sub" value="コードを実行して結果を返す (TEXT / IMAGE / TABLE)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#1B5E20;fontFamily=Noto Sans JP;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="623" width="820" height="30" as="geometry"/>
         </mxCell>
 
         <!-- Takeaway bar -->
         <mxCell id="takeaway-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#001722;strokeColor=#001722;strokeWidth=2" vertex="1" parent="1">
           <mxGeometry x="40" y="960" width="1840" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="takeaway-label" value="ローカルのJupyterクライアントから Databricks クラスタで完全リモート実行 — コードはすべてクラスタ上で動く" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#ffffff;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+        <mxCell id="takeaway-label" value="ローカルの Jupyter クライアントから Databricks クラスタで完全リモート実行 — コードはすべてクラスタ上で動く" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#ffffff;fontFamily=Noto Sans JP;" vertex="1" parent="1">
           <mxGeometry x="50" y="965" width="1820" height="60" as="geometry"/>
         </mxCell>
 
         <!-- Arrow labels (top layer — must be last in root for correct z-order) -->
-        <mxCell id="label-zeromq" value="ZeroMQ&lt;br&gt;(execute_request)" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722;fontFamily=Zen Kaku Gothic New;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="405" y="260" width="145" height="40" as="geometry"/>
+        <mxCell id="label-zeromq" value="ZeroMQ（メッセージキュー）" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722;fontFamily=Noto Sans JP;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="355" y="455" width="240" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="label-sync" value="Command API&lt;br&gt;(Base64 chunks, 1MB)" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#c0a171;fontFamily=Zen Kaku Gothic New;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="955" y="220" width="195" height="40" as="geometry"/>
+        <mxCell id="label-sync" value="ファイル同期" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722;fontFamily=Noto Sans JP;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="955" y="315" width="140" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="label-exec" value="HTTPS / Databricks SDK" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722;fontFamily=Zen Kaku Gothic New;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="955" y="638" width="210" height="30" as="geometry"/>
+        <mxCell id="label-exec" value="コード実行" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#001722;fontFamily=Noto Sans JP;labelBackgroundColor=#ffffff;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="955" y="545" width="140" height="30" as="geometry"/>
         </mxCell>
 
       </root>
