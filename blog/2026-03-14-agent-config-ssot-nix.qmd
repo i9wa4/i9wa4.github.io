@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
-date: 2026-03-13 15:30:00 +0900
+date: 2026-03-14 00:34:01 +0900
 date-modified: last-modified
 description: |
   禁止コマンドリスト・MCPサーバー・Agent Skills の3つを Nix home-manager で一元管理する方法。
@@ -230,7 +230,7 @@ ${pkgs.fd}/bin/fd --type d --hidden --no-ignore "^\.git$" "${ghqRoot}" --max-dep
 
 `agent-skills.nix` には、ドキュメントを読んだだけでは意図が分かりにくい部分がいくつかあります。
 
-#### filter.nameRegex の直感に反する挙動
+#### 3.3.1. filter.nameRegex の直感に反する挙動
 
 `filter.nameRegex` は「このパターンに一致するスキルだけを含める」という allowlist フィルタです。
 
@@ -261,7 +261,7 @@ drawio-mcp = {
 
 このソースから読み込みたいスキルは後述の `skills.explicit` で個別に指定するため、自動探索は不要というわけです。
 
-#### skills.explicit でリネームして重複を解決する
+#### 3.3.2. skills.explicit でリネームして重複を解決する
 
 `skills.explicit` は `enableAll = true` と組み合わせて使えます。
 自動探索では読み込まれないスキルを個別に指定したり、名前を変えてロードしたりするための仕組みです。
@@ -288,7 +288,7 @@ auto-discovery を `"DISABLED"` で止めておいて、必要なパスだけ ex
 `ai-dev-kit` 側にも `databricks-jobs` という名前のスキルが存在するため、そのまま読み込むと衝突します。
 `rename` を使って名前を変えることで両方を共存させています。
 
-#### excludePatterns = ["/.system"] の重要性
+#### 3.3.3. excludePatterns = ["/.system"] の重要性
 
 `agent-skills-nix` の activation スクリプトは rsync で各ターゲットディレクトリを更新します。
 
