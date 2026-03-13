@@ -1,0 +1,324 @@
+---
+title: "Claude Code と Codex CLI の設定を Nix で SSOT 化する"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-03-13 15:30:00 +0900
+date-modified: last-modified
+description: |
+  禁止コマンドリスト・MCPサーバー・Agent Skills の3つを Nix home-manager で一元管理する方法。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. 背景
+
+最近、私の開発環境には Claude Code と Codex CLI が同居しています。
+
+2つのエージェントが動くようになってから困ったのが設定の二重管理です。
+「git push を禁止する」「context7 MCP サーバーを使う」といったルールを、両方のツール用に別々のファイルへ書いていると、片方を更新したときにもう片方へのバックポートを忘れます。
+実際に忘れました。
+
+そこで Nix home-manager を使って3つの設定要素を SSOT (Single Source of Truth) 化しました。
+設定は `nix/home-manager/agents/` ディレクトリ以下にまとめています。
+
+| ファイル                     | 役割                                               |
+| ---------------------------- | -------------------------------------------------- |
+| prohibited-bash-commands.nix | 禁止コマンドリスト (Claude Code + Codex CLI)       |
+| mcp-servers.nix              | 共有 MCP サーバー定義                              |
+| agent-skills.nix             | Agent Skills の宣言的管理                          |
+| claude-code.nix              | Claude Code の home-manager モジュール             |
+| codex-cli.nix                | Codex CLI の home-manager モジュール               |
+
+## 2. SSOT 化した3つの要素
+
+### 2.1. 禁止コマンドリスト
+
+`prohibited-bash-commands.nix` は私が最もシンプルで分かりやすいと思っている SSOT の例です。
+
+Nix のリストとして禁止コマンドを定義し、2つの異なるエンジン向けの設定を自動生成します。
+
+```nix
+# prohibited-bash-commands.nix (抜粋)
+[
+  {
+    claudeGlob = "git push*";
+    argv = [
+      "git"
+      "push"
+    ];
+    justification = "pushing is prohibited";
+  }
+  {
+    claudeGlob = "rm *";
+    argv = [ "rm" ];
+    justification = "rm is prohibited; use mv /tmp/ instead";
+  }
+  # ... 合計10エントリ
+]
+```
+
+各エントリは3つのフィールドを持ちます。
+
+| フィールド    | 用途                                                   |
+| ------------- | ------------------------------------------------------ |
+| claudeGlob    | Claude Code の permissions.deny 用 glob パターン       |
+| argv          | Codex CLI の prefix_rule 用トークン配列                |
+| justification | Codex CLI が拒否時に表示するメッセージ                 |
+
+これをコンシューマ側がそれぞれ読み取ります。
+
+Claude Code 側 (`claude-code.nix`) では、
+
+```nix
+permissions = {
+  deny = (map (cmd: "Bash(${cmd.claudeGlob})") prohibitedBash) ++ [
+    "Read(**/*key*)"
+    "Read(.env*)"
+    # ...
+  ];
+};
+```
+
+Codex CLI 側 (`codex-cli.nix`) では、
+
+```nix
+mkPrefixRule = cmd:
+  ''
+    prefix_rule(
+        pattern = [${patternItems}],
+        decision = "forbidden",
+        justification = "${cmd.justification}",
+    )
+  '';
+```
+
+というように、同一ソースから2つの異なるフォーマットへ変換しています。
+
+`home-manager switch` を1回実行するだけで、Claude Code の `settings.json` と Codex CLI の `~/.codex/rules/default.rules` の両方に同じルールが反映されます。
+
+### 2.2. MCP サーバー設定
+
+`mcp-servers.nix` は Claude Code と Codex CLI が共有する MCP サーバー定義を返す関数です。
+
+```nix
+# mcp-servers.nix (全文)
+{
+  pkgs,
+  inputs,
+}:
+let
+  # mcp-servers-nix で管理されているサーバー (Nix でバージョン固定)
+  nixServers =
+    (inputs.mcp-servers-nix.lib.evalModule pkgs {
+      programs = {
+        context7.enable = true;
+      };
+    }).config.settings.servers;
+
+  # mcp-servers-nix 未収録のサーバー (uvx/npx で実行時取得)
+  manualServers = {
+    awslabs-aws-documentation-mcp-server = {
+      command = "uvx";
+      args = [ "awslabs.aws-documentation-mcp-server@latest" ];
+    };
+    drawio = {
+      command = "npx";
+      args = [
+        "-y"
+        "@drawio/mcp"
+      ];
+    };
+  };
+in
+nixServers // manualServers
+```
+
+2層構造になっています。
+
+- `nixServers` は `mcp-servers-nix` flake input を使って Nix 管理下に置いたサーバー群
+- `manualServers` はまだ `mcp-servers-nix` に収録されていない、実行時に `uvx` や `npx` で取得するサーバー群
+
+`nixServers // manualServers` で合成した attrset を `claude-code.nix` と `codex-cli.nix` の両方が `import ./mcp-servers.nix` で読み込みます。
+1箇所に追加するだけで両エージェントに配布されます。
+
+### 2.3. Agent Skills
+
+`agent-skills.nix` は `agent-skills-nix` home-manager モジュールを使った宣言的なスキル管理です。
+
+```nix
+# agent-skills.nix (抜粋)
+programs.agent-skills = {
+  enable = true;
+
+  sources = {
+    local        = { path = inputs.self; subdir = "agents/skills"; };
+    anthropic    = { path = inputs.anthropic-skills; subdir = "skills"; };
+    streamlit    = { path = inputs.streamlit-skills; subdir = "developing-with-streamlit/skills"; };
+    databricks   = { path = inputs.databricks-agent-skills; subdir = "databricks-skills"; };
+    # ... 合計13ソース
+  };
+
+  skills.enableAll = true;
+
+  targets = {
+    claude-home = { dest = "${homeDir}/.claude/skills"; structure = "symlink-tree"; };
+    codex       = { dest = "${homeDir}/.codex/skills";  structure = "symlink-tree"; };
+  };
+
+  excludePatterns = [ "/.system" ];
+};
+```
+
+ポイントは `targets` に複数の宛先を書けることです。
+`~/.claude/skills` と `~/.codex/skills` の両方が同一ソースからシンボリックツリーとして展開されます。
+
+`enableAll = true` で全スキルを有効にしつつ、重複する名前のスキルは `filter.nameRegex` や `rename` で解決しています。
+
+`excludePatterns = [ "/.system" ]` は、エージェントが実行時に `skills/` 配下に書き込む `.system/` ディレクトリを rsync 対象から除外するための設定です。
+これがないと `home-manager switch` のたびに実行時状態が消えます。
+
+## 3. 実装のはまりポイント
+
+### 3.1. settings.json はシンボリックリンクにできない
+
+`claude-code.nix` の実装で一点注意が必要な箇所があります。
+
+`settings.json` の配置です。
+
+他の設定ファイル (`CLAUDE.md`, `rules/`, `agents/`) は Nix ストアへのシンボリックリンクとして配置できます。
+読み取り専用で構いません。
+
+しかし `settings.json` だけは違います。
+
+Claude Code は MCP サーバーの接続状態などのランタイム状態を `settings.json` に書き込みます。
+Nix ストアのシンボリックリンクは読み取り専用なので、Claude Code が書き込もうとして失敗します。
+
+そのため `home-manager` の activation スクリプトで `install -Dm644` を使い、書き込み可能なファイルとしてコピーしています。
+
+```nix
+# claude-code.nix (activation スクリプト部分)
+claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  install -Dm644 ${settingsFile} "$HOME/.claude/settings.json"
+'';
+```
+
+`home-manager switch` を実行するたびに最新の設定で上書きコピーされます。
+ランタイム状態はこのコピー先に書き込まれ、次の `switch` で上書きされます。
+
+MCP サーバーの登録は別の activation スクリプト (`claudeMcpServers`) で `~/.claude/.claude.json` を `jq` で直接書き換えており、こちらも同様の理由でシンボリックリンクではなく実ファイルを対象にしています。
+
+### 3.2. Codex CLI の trusted projects は動的生成
+
+`codex-cli.nix` の activation スクリプトは `fd` で `~/ghq` 以下の全 git リポジトリを検索し、`config.toml` に `trust_level = "trusted"` エントリを追記します。
+
+```nix
+${pkgs.fd}/bin/fd --type d --hidden --no-ignore "^\.git$" "${ghqRoot}" --max-depth 4 2>/dev/null |
+  sort |
+  while read -r gitdir; do
+    repo=$(dirname "$gitdir")
+    echo ""
+    echo "[projects.\"$repo/\"]"
+    echo "trust_level = \"trusted\""
+  done >> "$_output"
+```
+
+新しいリポジトリを `ghq get` で取得したあと `home-manager switch` を1回実行するだけで、そのリポジトリも自動的に trusted になります。
+手動で `config.toml` を編集する必要はありません。
+
+### 3.3. agent-skills.nix の込み入った設定
+
+`agent-skills.nix` には、ドキュメントを読んだだけでは意図が分かりにくい部分がいくつかあります。
+
+#### filter.nameRegex の直感に反する挙動
+
+`filter.nameRegex` は「このパターンに一致するスキルだけを含める」という allowlist フィルタです。
+
+`databricks-official` ソースの例を見ると、
+
+```nix
+databricks-official = {
+  path = inputs.databricks-official-skills;
+  subdir = "skills";
+  filter.nameRegex = "databricks(-apps|-pipelines)?"; # exclude databricks-jobs (duplicate)
+};
+```
+
+`databricks`、`databricks-apps`、`databricks-pipelines` にマッチするスキルだけを含め、`databricks-jobs` は除外するという意味です。
+コメントにある通り、ai-dev-kit 側に同名スキルが存在するための回避策です。
+
+一方、`drawio-mcp` ソースでは全く逆の目的で使っています。
+
+```nix
+drawio-mcp = {
+  path = inputs.drawio-mcp;
+  filter.nameRegex = "DISABLED"; # prevent auto-discovery; use skills.explicit
+};
+```
+
+`"DISABLED"` という文字列はいずれのスキル名にも一致しません。
+つまり意図的にマッチするものが存在しない正規表現を指定することで、auto-discovery を完全に無効化しています。
+
+このソースから読み込みたいスキルは後述の `skills.explicit` で個別に指定するため、自動探索は不要というわけです。
+
+#### skills.explicit でリネームして重複を解決する
+
+`skills.explicit` は `enableAll = true` と組み合わせて使えます。
+自動探索では読み込まれないスキルを個別に指定したり、名前を変えてロードしたりするための仕組みです。
+
+```nix
+skills = {
+  enableAll = true;
+  explicit.drawio-skills = {
+    from = "drawio-mcp";
+    path = "skill-cli/drawio";
+  };
+  explicit.databricks-jobs-bundles = {
+    from = "databricks-official";
+    path = "databricks-jobs";
+    rename = "databricks-jobs-bundles"; # avoid duplicate with ai-dev-kit
+  };
+};
+```
+
+`drawio-skills` は `drawio-mcp` ソースの `skill-cli/drawio` サブディレクトリを明示的にロードしています。
+auto-discovery を `"DISABLED"` で止めておいて、必要なパスだけ explicit で取り出すという構成です。
+
+`databricks-jobs-bundles` は `databricks-official` ソースの `databricks-jobs` スキルを `databricks-jobs-bundles` という別名でロードしています。
+`ai-dev-kit` 側にも `databricks-jobs` という名前のスキルが存在するため、そのまま読み込むと衝突します。
+`rename` を使って名前を変えることで両方を共存させています。
+
+#### excludePatterns = ["/.system"] の重要性
+
+`agent-skills-nix` の activation スクリプトは rsync で各ターゲットディレクトリを更新します。
+
+エージェントは実行中に `~/.claude/skills/.system/` 配下へ実行時状態を書き込みます。
+`excludePatterns` の指定がないと、`home-manager switch` のたびに rsync がこのディレクトリを削除してしまいます。
+
+```nix
+excludePatterns = [ "/.system" ];
+```
+
+この1行は「Nix 管理外のランタイム状態を守るための穴」です。
+Nix で厳密に管理された環境の中に、エージェントが自由に書き込めるスペースを意図的に残しています。
+
+## 4. まとめ
+
+### 4.1. SSOT 化した3要素
+
+| 要素              | ファイル                     | 消費者                             |
+| ----------------- | ---------------------------- | ---------------------------------- |
+| 禁止コマンド      | prohibited-bash-commands.nix | claude-code.nix, codex-cli.nix     |
+| MCP サーバー      | mcp-servers.nix              | claude-code.nix, codex-cli.nix     |
+| Agent Skills      | agent-skills.nix             | ~/.claude/skills, ~/.codex/skills  |
+
+### 4.2. やってみて
+
+設定の二重管理から解放されたのが一番大きいです。
+
+「Claude Code に追加したけど Codex CLI に忘れた」が構造的に起きなくなりました。
+
+Nix で管理するとビルドエラーで設定ミスが事前に検出できるのも地味に助かっています。
+JSON や TOML を手書きしていたときは起動してみて初めてエラーに気づいていたので。
+
+`agent-skills-nix` を使ったマルチソースのスキル管理はまだ日本語の情報が少ないので、参考になれば幸いです。
