@@ -123,11 +123,7 @@ let
       args = [ "awslabs.aws-documentation-mcp-server@latest" ];
     };
     drawio = {
-      command = "npx";
-      args = [
-        "-y"
-        "@drawio/mcp"
-      ];
+      command = "drawio-mcp";
     };
   };
 in
@@ -156,7 +152,7 @@ programs.agent-skills = {
     anthropic    = { path = inputs.anthropic-skills; subdir = "skills"; };
     streamlit    = { path = inputs.streamlit-skills; subdir = "developing-with-streamlit/skills"; };
     databricks   = { path = inputs.databricks-agent-skills; subdir = "databricks-skills"; };
-    # ... 合計13ソース
+    # ... 合計14ソース
   };
 
   skills.enableAll = true;
@@ -191,8 +187,10 @@ programs.agent-skills = {
 
 しかし `settings.json` だけは違います。
 
-Claude Code は MCP サーバーの接続状態などのランタイム状態を `settings.json` に書き込みます。
-Nix ストアのシンボリックリンクは読み取り専用なので、Claude Code が書き込もうとして失敗します。
+Claude Code のインタラクティブな `/config` エディタがユーザーの設定変更を `settings.json` に書き戻します。
+Nix ストアのシンボリックリンクは読み取り専用なので、書き込みに失敗してしまいます。
+
+なお、MCP サーバーの接続状態などのランタイム状態が実際に書き込まれるのは `~/.claude/.claude.json` の方です。
 
 そのため `home-manager` の activation スクリプトで `install -Dm644` を使い、書き込み可能なファイルとしてコピーしています。
 
@@ -204,7 +202,7 @@ claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
 ```
 
 `home-manager switch` を実行するたびに最新の設定で上書きコピーされます。
-ランタイム状態はこのコピー先に書き込まれ、次の `switch` で上書きされます。
+`/config` エディタで加えた変更はこのコピー先に書き込まれ、次の `switch` で上書きされます。
 
 MCP サーバーの登録は別の activation スクリプト (`claudeMcpServers`) で `~/.claude/.claude.json` を `jq` で直接書き換えており、こちらも同様の理由でシンボリックリンクではなく実ファイルを対象にしています。
 
