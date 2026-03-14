@@ -23,7 +23,6 @@ programs.lazygit.settings.customCommands = [
     key = "<c-g>";
     context = "files";
     output = "terminal";
-    loadingText = "Generating commit message with AI...";
     command = ''
       MSG=$(git diff --cached | claude --no-session-persistence --print --model haiku \
         'Generate ONLY a one-line Git commit message following Conventional Commits format \
