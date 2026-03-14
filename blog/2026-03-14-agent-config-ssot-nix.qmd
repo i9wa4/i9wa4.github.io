@@ -133,7 +133,7 @@ nixServers // manualServers
 2層構造になっています。
 
 - `nixServers` は `mcp-servers-nix` flake input を使って Nix 管理下に置いたサーバー群
-- `manualServers` はまだ `mcp-servers-nix` に収録されていない、実行時に `uvx` や `npx` で取得するサーバー群
+- `manualServers` はまだ `mcp-servers-nix` に収録されていないサーバー群 (呼び出し方はサーバーごとに異なる)
 
 `nixServers // manualServers` で合成した attrset を `claude-code.nix` と `codex-cli.nix` の両方が `import ./mcp-servers.nix` で読み込みます。
 1箇所に追加するだけで両エージェントに配布されます。
