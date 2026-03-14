@@ -116,7 +116,7 @@ let
       };
     }).config.settings.servers;
 
-  # mcp-servers-nix 未収録のサーバー (uvx/npx で実行時取得)
+  # mcp-servers-nix 未収録のサーバー (uvx またはインストール済みバイナリで実行)
   manualServers = {
     awslabs-aws-documentation-mcp-server = {
       command = "uvx";
