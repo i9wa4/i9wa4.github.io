@@ -39,129 +39,94 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
 ```{.nix filename="denied-bash-commands.nix"}
 [
   {
-    claudeGlob = "git -C *";
-    hookRegex = "git -C";
-    argv = [
-      "git"
-      "-C"
-    ];
+    argv = [ "git" "-C" ];
     justification = "cross-directory git operations are denied";
   }
   {
-    claudeGlob = "git push*";
-    hookRegex = "git push";
-    argv = [
-      "git"
-      "push"
-    ];
+    argv = [ "git" "push" ];
     justification = "pushing is denied";
   }
   {
-    claudeGlob = "git rebase*";
-    hookRegex = "git rebase";
-    argv = [
-      "git"
-      "rebase"
-    ];
+    argv = [ "git" "rebase" ];
     justification = "rebase is denied";
   }
   {
-    claudeGlob = "git reset*";
-    hookRegex = "git reset";
-    argv = [
-      "git"
-      "reset"
-    ];
+    argv = [ "git" "reset" ];
     justification = "reset is denied";
   }
   {
-    claudeGlob = "git commit --amend*";
-    hookRegex = "git commit.*--amend";
-    argv = [
-      "git"
-      "commit"
-      "--amend"
-    ];
+    argv = [ "git" "commit" "--amend" ];
     justification = "amend is denied (causes force push requirement)";
   }
   {
-    claudeGlob = "git merge*";
-    hookRegex = "git merge";
-    argv = [
-      "git"
-      "merge"
-    ];
+    argv = [ "git" "merge" ];
     justification = "merge is denied";
   }
   {
-    claudeGlob = "git branch -d*";
-    hookRegex = "git branch -d";
-    argv = [
-      "git"
-      "branch"
-      "-d"
-    ];
+    argv = [ "git" "branch" "-d" ];
     justification = "branch deletion is denied";
   }
   {
-    claudeGlob = "git branch -D*";
-    hookRegex = "git branch -D";
-    argv = [
-      "git"
-      "branch"
-      "-D"
-    ];
+    argv = [ "git" "branch" "-D" ];
     justification = "branch force-deletion is denied";
   }
   {
     claudeGlob = "rm *";
-    hookRegex = "\\brm\\b";
     argv = [ "rm" ];
     justification = "rm is denied; use mv /tmp/ instead";
   }
   {
     claudeGlob = "sudo *";
-    hookRegex = "\\bsudo\\b";
     argv = [ "sudo" ];
     justification = "sudo is denied";
   }
 ]
 ```
 
-各エントリは4つのフィールドを持ちます。
+各エントリの必須フィールドは `argv` と `justification` の2つだけです。
 
-| フィールド    | 用途                                                           |
-| ------------- | -------------------------------------------------------------- |
-| claudeGlob    | Claude Code の permissions.deny 用 glob パターン (事前抑止)    |
-| hookRegex     | Claude Code の PreToolUse hook 用正規表現 (実行時検査)         |
-| argv          | Codex CLI の prefix_rule 用トークン配列                        |
-| justification | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通) |
+| フィールド    | 必須 | 用途                                                             |
+| ------------- | ---- | ---------------------------------------------------------------- |
+| argv          | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)         |
+| justification | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)   |
+| claudeGlob    | No   | 設定すると permissions.deny にも追加 (事前抑止が必要な危険コマンド用) |
 
-Claude Code では2層の防御として機能します。
+`claudeGlob` を省略すると hook のみで拒否します。拒否時に `justification` のメッセージが表示されるため、Claude は代替手段を理解できます。
+`rm` や `sudo` のように絶対に実行させたくないコマンドには `claudeGlob` を設定し、Claude が計画段階で試行しないようにします。
 
-`claudeGlob` は事前抑止層です。`permissions.deny` に変換され、Claude がコマンドを計画する時点で「試行しない」と判断します。
+Claude Code の hook 用正規表現 (hookRegex) は `argv` から自動導出されます。
 
 ```{.nix filename="claude-code.nix"}
-permissions = {
-  deny = (map (cmd: "Bash(${cmd.claudeGlob})") deniedBash) ++ [
-    "Read(**/*key*)"
-    "Read(.env*)"
-    # ...
-  ];
-};
+# 1 token → \btoken\b (word boundary), 2+ tokens → joined with spaces
+mkHookRegex = cmd:
+  if builtins.length cmd.argv == 1
+  then "\\b${builtins.head cmd.argv}\\b"
+  else builtins.concatStringsSep " " cmd.argv;
 ```
 
-`hookRegex` と `justification` は実行時検査層です。`home-manager switch` で `~/.claude/bash-deny-patterns.sh` として生成され、PreToolUse hook が source して使います。
+これにより `home-manager switch` で `~/.claude/bash-deny-patterns.sh` が生成され、PreToolUse hook が source して使います。
 
 ```{.nix filename="claude-code.nix"}
 bashDenyPatterns = pkgs.writeText "bash-deny-patterns.sh" ''
   DENY_PATTERNS=(
-  ${builtins.concatStringsSep "\n" (map (cmd: "  '${cmd.hookRegex}'") deniedBash)}
+  ${builtins.concatStringsSep "\n" (map (cmd: "  '${mkHookRegex cmd}'") deniedBash)}
   )
   DENY_JUSTIFICATIONS=(
   ${builtins.concatStringsSep "\n" (map (cmd: "  '${cmd.justification}'") deniedBash)}
   )
 '';
+```
+
+`claudeGlob` を持つエントリだけが `permissions.deny` にも追加されます。
+
+```{.nix filename="claude-code.nix"}
+permissions = {
+  deny = (map (cmd: "Bash(${cmd.claudeGlob})") (builtins.filter (cmd: cmd ? claudeGlob) deniedBash)) ++ [
+    "Read(**/*key*)"
+    "Read(.env*)"
+    # ...
+  ];
+};
 ```
 
 Codex CLI 側 (`codex-cli.nix`) では、`argv` と `justification` を読み取ります。
@@ -177,8 +142,8 @@ mkPrefixRule = cmd:
   '';
 ```
 
-同一ソースから3つの異なるフォーマットへ変換しています。
-`home-manager switch` を1回実行するだけで、Claude Code の `settings.json`・`bash-deny-patterns.sh` と Codex CLI の `~/.codex/rules/default.rules` の3箇所に同じルールが反映されます。
+同一ソースから複数の異なるフォーマットへ変換しています。
+`home-manager switch` を1回実行するだけで、Claude Code の `bash-deny-patterns.sh` (+ `claudeGlob` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に同じルールが反映されます。
 
 ### 2.2. MCP サーバー設定
 
