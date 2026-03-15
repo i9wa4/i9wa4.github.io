@@ -26,7 +26,7 @@ listing:
 [aws (1)](#category=aws){.btn .btn-outline-primary .btn-sm}
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
-[cli (1)](#category=cli){.btn .btn-outline-primary .btn-sm}
+[cli (2)](#category=cli){.btn .btn-outline-primary .btn-sm}
 [codexcli (1)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
@@ -44,7 +44,7 @@ listing:
 [jupyter (4)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
 [mcp (3)](#category=mcp){.btn .btn-outline-primary .btn-sm}
 [mise (3)](#category=mise){.btn .btn-outline-primary .btn-sm}
-[neovim (1)](#category=neovim){.btn .btn-outline-primary .btn-sm}
+[neovim (2)](#category=neovim){.btn .btn-outline-primary .btn-sm}
 [notion (1)](#category=notion){.btn .btn-outline-primary .btn-sm}
 [oss (1)](#category=oss){.btn .btn-outline-primary .btn-sm}
 [precommit (3)](#category=precommit){.btn .btn-outline-primary .btn-sm}
@@ -55,12 +55,12 @@ listing:
 [ruff (1)](#category=ruff){.btn .btn-outline-primary .btn-sm}
 [shellscript (1)](#category=shellscript){.btn .btn-outline-primary .btn-sm}
 [spark (1)](#category=spark){.btn .btn-outline-primary .btn-sm}
-[terminal (1)](#category=terminal){.btn .btn-outline-primary .btn-sm}
+[terminal (2)](#category=terminal){.btn .btn-outline-primary .btn-sm}
 [tmux (4)](#category=tmux){.btn .btn-outline-primary .btn-sm}
 [uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
 [vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
-[zenn (32)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zenn (33)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 [zinit (1)](#category=zinit){.btn .btn-outline-primary .btn-sm}
 [zsh (3)](#category=zsh){.btn .btn-outline-primary .btn-sm}
 :::
