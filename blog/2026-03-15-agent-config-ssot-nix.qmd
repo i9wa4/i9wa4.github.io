@@ -151,6 +151,41 @@ rulesContent = deniedBash.codexCli.rulesContent;
 変換ロジックが `denied-bash-commands.nix` に集約されているため、新しいエントリの追加はデータを1行追加するだけです。
 `home-manager switch` を1回実行すれば、Claude Code の `bash-deny-patterns.sh` (+ `claudeSettingsJson = true` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
 
+#### 生成結果の具体例
+
+エントリを1つ追加したとき、各ファイルに何が生成されるかを示します。
+
+hook のみのエントリの場合:
+
+```{.nix filename="denied-bash-commands.nix (追加するエントリ)"}
+{ argv = [ "git" "push" ]; justification = "pushing is denied"; }
+```
+
+| 生成先                               | 生成内容                                              |
+| ------------------------------------ | ----------------------------------------------------- |
+| `~/.claude/bash-deny-patterns.sh`    | DENY_PATTERNS に `'git.*push'`、DENY_JUSTIFICATIONS に `'pushing is denied'` を追加 |
+| `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["git", "push"], decision = "forbidden", justification = "pushing is denied")` を追加 |
+| `~/.claude/settings.json`            | 変更なし                                              |
+
+`claudeSettingsJson = true` を付けた場合:
+
+```{.nix filename="denied-bash-commands.nix (追加するエントリ)"}
+{ argv = [ "rm" ]; justification = "rm is denied; use mv /tmp/ instead"; claudeSettingsJson = true; }
+```
+
+| 生成先                               | 生成内容                                              |
+| ------------------------------------ | ----------------------------------------------------- |
+| `~/.claude/bash-deny-patterns.sh`    | DENY_PATTERNS に `'\brm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
+| `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["rm"], decision = "forbidden", justification = "rm is denied; use mv /tmp/ instead")` を追加 |
+| `~/.claude/settings.json`            | permissions.deny に `Bash(rm *)` を追加               |
+
+`argv` の長さによって hookRegex と claudeGlob の導出ルールが変わります。
+
+| argv の長さ | hookRegex の導出      | claudeGlob の導出 (claudeSettingsJson 時) |
+| ----------- | --------------------- | ----------------------------------------- |
+| 1 token     | `\btoken\b`           | `token *`                                 |
+| 2+ tokens   | tokens を `.*` で結合 | tokens をスペースで結合 + `*`             |
+
 ### 2.2. MCP サーバー設定
 
 `mcp-servers.nix` は Claude Code と Codex CLI が共有する MCP サーバー定義を返す関数です。
