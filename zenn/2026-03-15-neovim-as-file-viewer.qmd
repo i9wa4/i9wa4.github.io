@@ -1,0 +1,19 @@
+---
+title: "ターミナル上でのファイルビューアーとしてサクっと Neovim を使ってみる"
+author: uma-chan
+date: 2026-03-15 15:30:00 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  Neovim と oil.nvim を最小設定でターミナル上のファイルビューアーとして使う方法を紹介
+categories:
+  - "zenn"
+  - "neovim"
+  - "cli"
+  - "terminal"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[ターミナル上でのファイルビューアーとしてサクっと Neovim を使ってみる](https://zenn.dev/i9wa4/articles/2026-03-15-neovim-as-file-viewer)
