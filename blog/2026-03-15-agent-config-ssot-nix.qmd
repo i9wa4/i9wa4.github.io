@@ -94,56 +94,62 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
 `claudeGlob` を省略すると hook のみで拒否します。拒否時に `justification` のメッセージが表示されるため、Claude は代替手段を理解できます。
 `rm` や `sudo` のように絶対に実行させたくないコマンドには `claudeGlob` を設定し、Claude が計画段階で試行しないようにします。
 
-Claude Code の hook 用正規表現 (hookRegex) は `argv` から自動導出されます。
+`denied-bash-commands.nix` はデータだけでなく変換ロジックも内包するモジュールです。
+`{ pkgs }` を受け取り、各ツール向けの出力を事前に計算して返します。
 
-```{.nix filename="claude-code.nix"}
-# 1 token → \btoken\b (word boundary), 2+ tokens → joined with spaces
-mkHookRegex = cmd:
-  if builtins.length cmd.argv == 1
-  then "\\b${builtins.head cmd.argv}\\b"
-  else builtins.concatStringsSep " " cmd.argv;
-```
+```{.nix filename="denied-bash-commands.nix (モジュール部分)"}
+{ pkgs }:
+let
+  entries = [ ... ]; # 上記のエントリリスト
 
-これにより `home-manager switch` で `~/.claude/bash-deny-patterns.sh` が生成され、PreToolUse hook が source して使います。
+  # hookRegex を argv から自動導出
+  # 1 token → \btoken\b (word boundary), 2+ tokens → joined with spaces
+  mkHookRegex = cmd:
+    if builtins.length cmd.argv == 1
+    then "\\b${builtins.head cmd.argv}\\b"
+    else builtins.concatStringsSep " " cmd.argv;
 
-```{.nix filename="claude-code.nix"}
-bashDenyPatterns = pkgs.writeText "bash-deny-patterns.sh" ''
-  DENY_PATTERNS=(
-  ${builtins.concatStringsSep "\n" (map (cmd: "  '${mkHookRegex cmd}'") deniedBash)}
-  )
-  DENY_JUSTIFICATIONS=(
-  ${builtins.concatStringsSep "\n" (map (cmd: "  '${cmd.justification}'") deniedBash)}
-  )
-'';
-```
-
-`claudeGlob` を持つエントリだけが `permissions.deny` にも追加されます。
-
-```{.nix filename="claude-code.nix"}
-permissions = {
-  deny = (map (cmd: "Bash(${cmd.claudeGlob})") (builtins.filter (cmd: cmd ? claudeGlob) deniedBash)) ++ [
-    "Read(**/*key*)"
-    "Read(.env*)"
-    # ...
-  ];
-};
-```
-
-Codex CLI 側 (`codex-cli.nix`) では、`argv` と `justification` を読み取ります。
-
-```{.nix filename="codex-cli.nix"}
-mkPrefixRule = cmd:
-  ''
+  mkPrefixRule = cmd: ''
     prefix_rule(
         pattern = [${patternItems}],
         decision = "forbidden",
         justification = "${cmd.justification}",
     )
   '';
+in
+{
+  inherit entries;
+  claudeCode = {
+    denyPermissions = ...; # claudeGlob を持つエントリのみ
+    patternsFile = ...;    # 全エントリの hookRegex + justification
+  };
+  codexCli = {
+    rulesContent = ...;    # 全エントリの prefix_rule
+  };
+}
 ```
 
-同一ソースから複数の異なるフォーマットへ変換しています。
-`home-manager switch` を1回実行するだけで、Claude Code の `bash-deny-patterns.sh` (+ `claudeGlob` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に同じルールが反映されます。
+これにより、`claude-code.nix` と `codex-cli.nix` のコードは出力を使うだけになります。
+
+```{.nix filename="claude-code.nix"}
+deniedBash = import ./denied-bash-commands.nix { inherit pkgs; };
+
+# permissions.deny (claudeGlob を持つエントリのみ)
+permissions.deny = deniedBash.claudeCode.denyPermissions ++ [ ... ];
+
+# PreToolUse hook 用パターンファイル (全エントリ)
+home.file.".claude/bash-deny-patterns.sh".source = deniedBash.claudeCode.patternsFile;
+```
+
+```{.nix filename="codex-cli.nix"}
+deniedBash = import ./denied-bash-commands.nix { inherit pkgs; };
+
+# default.rules (全エントリ)
+rulesContent = deniedBash.codexCli.rulesContent;
+```
+
+変換ロジックが `denied-bash-commands.nix` に集約されているため、新しいエントリの追加はデータを1行追加するだけです。
+`home-manager switch` を1回実行すれば、Claude Code の `bash-deny-patterns.sh` (+ `claudeGlob` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
 
 ### 2.2. MCP サーバー設定
 
