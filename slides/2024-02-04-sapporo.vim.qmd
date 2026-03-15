@@ -32,9 +32,9 @@ format:
 - **【札幌在住歴】** 9年
 - **【仕事】** 直近1.5年は AWS 機械学習基盤の業務
 - **【最近の Vim 活】**
-    - プラグインマネージャー dein.vim から dpp.vim へ移行
-    - vim-lsp 導入
-    - efm-langserver 導入
+  - プラグインマネージャー dein.vim から dpp.vim へ移行
+  - vim-lsp 導入
+  - efm-langserver 導入
 
 ## 2. 本日のタスク
 

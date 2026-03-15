@@ -270,22 +270,22 @@ $ diff -u ../../anthropics/claude-code/.devcontainer/Dockerfile .devcontainer/Do
 Anthropic のリファレンス実装 ([33e37bd](https://github.com/anthropics/claude-code/blob/55219b8b4e612b5fc6a85f7dc4eb4382ec4134eb/.devcontainer/devcontainer.json)) と比較すると以下のような変更を行っています。
 
 - VS Code 向け拡張機能を追加
-    - `editorconfig.editorconfig`
-        - テキストエディタ間での設定を統一する
-    - `elagil.pre-commit-helper`
-        - pre-commit を使いやすくする
+  - `editorconfig.editorconfig`
+    - テキストエディタ間での設定を統一する
+  - `elagil.pre-commit-helper`
+    - pre-commit を使いやすくする
 - VS Code 向け Formatter 設定を削除
 - `mounts` に設定ファイル群を追加
-    - 以下のツールの設定ファイルをマウントして利用します
-        - Claude Code
-        - GitHub CLI
-        - Git
-        - ssh
+  - 以下のツールの設定ファイルをマウントして利用します
+    - Claude Code
+    - GitHub CLI
+    - Git
+    - ssh
 - `mounts` の Claude Code 設定分離部分を削除
-    - ユーザー設定をマウントして利用したかったので削除しました
+  - ユーザー設定をマウントして利用したかったので削除しました
 - `remoteEnv` に以下の環境変数を追加
-    - `CLAUDE_CONFIG_DIR`
-        - Claude Code の設定参照箇所の安定化を図る
+  - `CLAUDE_CONFIG_DIR`
+    - Claude Code の設定参照箇所の安定化を図る
 
 :::
 

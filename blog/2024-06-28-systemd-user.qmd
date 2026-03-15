@@ -16,10 +16,10 @@ systemd がユーザー権限でも設定できると知ったので記事にし
 ## 1. 基本的な情報まとめ
 
 - 設定ファイル格納先
-    - `~/.config/systemd/user/`
+  - `~/.config/systemd/user/`
 - コマンド
-    - `systemd --user`
-    - user オプションを付けて通常の systemd と同様に使用する
+  - `systemd --user`
+  - user オプションを付けて通常の systemd と同様に使用する
 
 ## 2. timer 設定手順
 

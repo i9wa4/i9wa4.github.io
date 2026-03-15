@@ -62,16 +62,16 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 いずれも特に Databricks 特有のものではありませんが、使ってみて良いなと思った機能を一応メモしておきます。
 
 - パラメータ
-    - ドロップダウンリストで選択した値やフォームに入力した値をパラメータ経由でクエリに組み込むことができます。
-        - [Work with dashboard parameters | Databricks on AWS](https://docs.databricks.com/en/dashboards/parameters.html)
+  - ドロップダウンリストで選択した値やフォームに入力した値をパラメータ経由でクエリに組み込むことができます。
+    - [Work with dashboard parameters | Databricks on AWS](https://docs.databricks.com/en/dashboards/parameters.html)
 - ピボットテーブル
-    - サクッと集計テーブルを作成できます。Excel やスプレッドシートで活用してたので特に抵抗なく使えました。
-        - [Dashboard visualizations types | Databricks on AWS](https://docs.databricks.com/en/dashboards/visualizations/types.html#pivot-visualization)
+  - サクッと集計テーブルを作成できます。Excel やスプレッドシートで活用してたので特に抵抗なく使えました。
+    - [Dashboard visualizations types | Databricks on AWS](https://docs.databricks.com/en/dashboards/visualizations/types.html#pivot-visualization)
 - SQL フォーマット
-    - 残念ながらダッシュボード内では利用できませんが Databricks で SQL フォーマットが利用できるので時々利用しています。
-        - [Write queries and explore data in the SQL editor | Databricks on AWS](https://docs.databricks.com/en/sql/user/sql-editor/index.html#query-options)
-    - ノートブックのセルでも利用できます。私は使い捨てのクエリをノートブックで管理してるので助かります。
-    - ちょっとクセの強いフォーマットをしてくるので賛否両論あると思います。
+  - 残念ながらダッシュボード内では利用できませんが Databricks で SQL フォーマットが利用できるので時々利用しています。
+    - [Write queries and explore data in the SQL editor | Databricks on AWS](https://docs.databricks.com/en/sql/user/sql-editor/index.html#query-options)
+  - ノートブックのセルでも利用できます。私は使い捨てのクエリをノートブックで管理してるので助かります。
+  - ちょっとクセの強いフォーマットをしてくるので賛否両論あると思います。
 
 ### 4.2. 弊社におけるダッシュボード作成の感想
 

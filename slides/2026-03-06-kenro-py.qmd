@@ -55,9 +55,9 @@ subtitle: ""
 - 名前：uma-chan
 - 職種：データエンジニア / MLOpsエンジニア
 - 最近気になるもの
-    - コーディングエージェント
-    - Nix
-    - Databricks
+  - コーディングエージェント
+  - Nix
+  - Databricks
 
 :::
 :::

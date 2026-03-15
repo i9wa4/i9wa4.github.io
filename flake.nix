@@ -4,12 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     flake-parts.url = "github:hercules-ci/flake-parts";
-
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,12 +15,7 @@
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      git-hooks,
-      treefmt-nix,
-      ...
-    }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "aarch64-darwin"
@@ -31,8 +24,8 @@
       ];
 
       imports = [
-        git-hooks.flakeModule
-        treefmt-nix.flakeModule
+        inputs.git-hooks.flakeModule
+        inputs.treefmt-nix.flakeModule
       ];
 
       perSystem =
@@ -43,11 +36,14 @@
         }:
         let
           ghWorkflowFiles = "^\\.github/workflows/.*\\.(yml|yaml)$";
+          rumdlConfig = pkgs.writeText "rumdl.toml" ''
+            [global]
+            disable = ["MD013", "MD024", "MD033", "MD036", "MD051"]
+          '';
         in
         {
-          # === Dev shells ===
+          # nix develop
           devShells = {
-            # Local development (includes pre-commit hooks)
             default = pkgs.mkShell {
               packages = [
                 pkgs.uv
@@ -57,8 +53,6 @@
                 ${config.pre-commit.installationScript}
               '';
             };
-
-            # CI environment (gitleaks history scan only)
             ci = pkgs.mkShell {
               packages = [
                 pkgs.gitleaks
@@ -66,30 +60,25 @@
             };
           };
 
-          # === Treefmt (nix fmt) ===
+          # nix fmt
           treefmt = {
             projectRootFile = "flake.nix";
-
             programs = {
               # Nix
               nixfmt.enable = true;
-
               # Shell
               shfmt = {
                 enable = true;
                 indent_size = 2;
               };
-
               # Python
               ruff = {
                 enable = true;
                 format = true;
               };
-
               # Lua
               stylua.enable = true;
             };
-
             settings = {
               formatter = {
                 stylua.options = [
@@ -100,21 +89,37 @@
                   "--quote-style=AutoPreferDouble"
                   "--call-parentheses=Always"
                 ];
+                # Markdown
+                rumdl = {
+                  command = "${pkgs.rumdl}/bin/rumdl";
+                  options = [
+                    "fmt"
+                    "--config"
+                    "${rumdlConfig}"
+                  ];
+                  includes = [ "*.md" ];
+                };
+                # JSON
+                jq = {
+                  command = "${pkgs.jq}/bin/jq";
+                  options = [ "." ];
+                  includes = [ "*.json" ];
+                };
               };
               global.excludes = [
                 ".direnv"
                 ".git"
                 "*.lock"
-                "zenn/raw/*" # Zenn articles (synced from external source)
+                "zenn/raw/*"
               ];
             };
           };
 
-          # === Pre-commit hooks ===
+          # nix flake check (pre-commit hooks)
           pre-commit = {
             check.enable = true;
             settings.hooks = {
-              # General file checks
+              # === General file checks ===
               end-of-file-fixer.enable = true;
               trim-trailing-whitespace.enable = true;
               check-added-large-files.enable = true;
@@ -123,14 +128,14 @@
               check-json.enable = true;
               check-yaml.enable = true;
 
-              # Secrets detection
+              # === Secrets detection ===
               gitleaks = {
                 enable = true;
                 entry = "${pkgs.gitleaks}/bin/gitleaks protect --verbose --redact --staged";
                 pass_filenames = false;
               };
 
-              # GitHub Actions linters
+              # === GitHub Actions linters ===
               actionlint.enable = true;
 
               ghalint = {
@@ -151,29 +156,48 @@
                 files = ghWorkflowFiles;
               };
 
-              # Shell
+              # === Nix linter ===
+              statix = {
+                enable = true;
+                entry = "${pkgs.bash}/bin/bash -c '${pkgs.statix}/bin/statix check flake.nix'";
+                pass_filenames = false;
+              };
+
+              # === Markdown linter ===
+              rumdl-check = {
+                enable = true;
+                entry = "${pkgs.rumdl}/bin/rumdl check --config ${rumdlConfig}";
+                files = "\\.(md|qmd)$";
+              };
+
+              # === Shell ===
               shellcheck.enable = true;
 
-              # Project-specific
+              # === Unified formatter ===
+              # Skip in sandbox (treefmt-nix already runs treefmt-check separately)
+              treefmt = {
+                enable = true;
+                entry = "${pkgs.bash}/bin/bash -c 'test -n \"$NIX_BUILD_TOP\" || ${pkgs.nix}/bin/nix fmt'";
+                pass_filenames = false;
+                always_run = true;
+              };
+
+              # === Language-specific linters ===
+              # Python (lint only - formatting is handled by treefmt)
               ruff-check = {
                 enable = true;
                 entry = "${pkgs.ruff}/bin/ruff check --fix";
                 types = [ "python" ];
               };
 
-              rumdl-check = {
-                enable = true;
-                entry = "${pkgs.rumdl}/bin/rumdl check";
-                files = "\\.(md|qmd)$";
-              };
-
+              # === Project-specific hooks ===
               convert-drawio-to-png = {
                 enable = true;
                 entry = "bash .github/scripts/convert-drawio-to-png.sh";
                 files = "assets/.*\\.drawio$";
               };
 
-              # NOTE: uv-dependent hooks - local only (skip in CI)
+              # NOTE: uv-dependent hooks — local only (skip in CI)
               sync-zenn = {
                 enable = true;
                 entry = "bash -c 'if [ -z \"$NIX_BUILD_TOP\" ]; then uv run python bin/sync-zenn.py && uv run python bin/update-categories.py zenn; fi'";

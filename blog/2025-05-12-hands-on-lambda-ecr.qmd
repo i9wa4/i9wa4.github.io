@@ -60,9 +60,9 @@ $ tree -a -I ".git/|hands-on-import|hands-on-sfn|.terraform" -A
 ## 4. 大変だった点
 
 - ECR Image URI の取得周り
-    - ECR タグを Immutable にしたせい
+  - ECR タグを Immutable にしたせい
 - GitHub Actions 内の OIDC 認証
-    - 初めてやると慣れてなくて手間取った
+  - 初めてやると慣れてなくて手間取った
 
 ## 5. 課題
 

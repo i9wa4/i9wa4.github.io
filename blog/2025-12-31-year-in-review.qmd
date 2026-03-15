@@ -80,20 +80,20 @@ Claude Code と Codex CLIを中心に据えた Vim + tmux + Alacritty + Zsh + AI
 2本のVimプラグインを開発・更新しました。
 
 - [vim-tmux-send-to-ai-cli](https://github.com/i9wa4/vim-tmux-send-to-ai-cli)
-    - Vimからtmux経由でAI CLIにプロンプトを送信するプラグイン
+  - Vimからtmux経由でAI CLIにプロンプトを送信するプラグイン
 - [ddc-source-slash-commands](https://github.com/i9wa4/ddc-source-slash-commands)
-    - カスタムスラッシュコマンド補完用の ddc.vim ソースプラグイン
+  - カスタムスラッシュコマンド補完用の ddc.vim ソースプラグイン
 
 6月にはVim本体へ初めてコントリビューションできたのでまだ当面喜んでいようと思います。
 
 ### 3.3. OSS 開発
 
 - [jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
-    - Databricks をバックエンドにした Jupyter Kernel (自信作)
+  - Databricks をバックエンドにした Jupyter Kernel (自信作)
 - [databricks-marimo-executor](https://github.com/i9wa4/databricks-marimo-executor)
-    - Databricks をバックエンドにした Marimo Executor (飽きてまだ実装できてない)
+  - Databricks をバックエンドにした Marimo Executor (飽きてまだ実装できてない)
 - [mcp-databricks-server](https://github.com/i9wa4/mcp-databricks-server)
-    - Databricks でクエリを実行するための MCP Server (ちょっと自信作)
+  - Databricks でクエリを実行するための MCP Server (ちょっと自信作)
 
 jupyter-databricks-kernel は12月の登壇でも紹介していて、データサイエンティストの開発環境をAI-Readyにするための取り組みとして発表しました。
 

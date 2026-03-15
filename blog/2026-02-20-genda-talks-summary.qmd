@@ -24,11 +24,11 @@ draft: true
 ## 2. 登壇一覧
 
 - 2025/12/12 Databricks Data + AI World Tour Tokyo After Party
-    - [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする / Data+AI World Tour Tokyo After Party - Speaker Deck](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+  - [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする / Data+AI World Tour Tokyo After Party - Speaker Deck](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
 - 2025/12/22 [モダンデータ基盤の最前線：現場から学ぶ実践と挑戦 - connpass](https://aeon.connpass.com/event/375097/)
-    - [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 / AEON TECH HUB #22 - Speaker Deck](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+  - [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 / AEON TECH HUB #22 - Speaker Deck](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
 - 2026/01/27 [JEDAI 2026 新春 Meetup! AIコーディング特集 - connpass](https://jedai.connpass.com/event/379174/)
-    - [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips / JEDAI 2026 新春 Meetup! AIコーディング特集 - Speaker Deck](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+  - [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips / JEDAI 2026 新春 Meetup! AIコーディング特集 - Speaker Deck](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
 
 ## 3. 各登壇の詳細
 

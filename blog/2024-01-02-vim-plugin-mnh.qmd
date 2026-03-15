@@ -16,8 +16,8 @@ descriptin: |
 ## 1. プラグイン概要
 
 - <https://github.com/i9wa4/markdown-number-header.vim>
-    - Markdown の見出し番号を付ける or 更新するプラグインです。
-    - Deno と Denops に依存しています。
+  - Markdown の見出し番号を付ける or 更新するプラグインです。
+  - Deno と Denops に依存しています。
 
 ## 2. プラグインを作ることになったきっかけ
 
@@ -36,8 +36,8 @@ descriptin: |
 まず以下のドキュメントに従ってチュートリアルを終えて、あとは先人の Denops プラグインのリポジトリを覗いてお作法を学びつつプラグインを完成させました。
 
 - 参考ページ:
-    - [Deno で Vim/Neovim のプラグインを書く (denops.vim) \| Zenn](https://zenn.dev/lambdalisue/articles/b4a31fba0b1ce95104c9)
-    - [Introduction - Denops Documentation](https://vim-denops.github.io/denops-documentation/) (英語版)
+  - [Deno で Vim/Neovim のプラグインを書く (denops.vim) \| Zenn](https://zenn.dev/lambdalisue/articles/b4a31fba0b1ce95104c9)
+  - [Introduction - Denops Documentation](https://vim-denops.github.io/denops-documentation/) (英語版)
 
 ## 5. 感想
 

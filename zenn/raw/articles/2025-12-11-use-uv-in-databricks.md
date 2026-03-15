@@ -79,11 +79,11 @@ Databricks ノートブック環境では、既に `/local_disk0/` 上に
 #### 3.1.1. 注意点
 
 - Python バージョンの整合性
-    - `requires-python` を DBR の Python バージョンに合わせる
-    - 例: DBR 17.3 LTS は Python 3.12.3
+  - `requires-python` を DBR の Python バージョンに合わせる
+  - 例: DBR 17.3 LTS は Python 3.12.3
 - DBR プリインストールパッケージとの競合
-    - `dependencies` には DBR にないパッケージのみ記載する
-    - pandas, numpy 等は DBR にプリインストール済み
+  - `dependencies` には DBR にないパッケージのみ記載する
+  - pandas, numpy 等は DBR にプリインストール済み
 
 ### 3.2. requirements.txt 事前生成
 
@@ -188,9 +188,9 @@ dev = [
 
 - `dependencies`: Databricks にインストールするパッケージ (Databricks Runtime にないもの)
 - `[project.optional-dependencies]`: Databricks Runtime プリインストール済みパッケージ
-    - `uv sync` ではインストールされない (依存解決のみに使用)
-    - Databricks Runtime との互換性を確保するためにバージョンを固定
-    - Databricks 側から requirements.txt が提供されてなさそうなのでリリースノートから情報を取得しました
+  - `uv sync` ではインストールされない (依存解決のみに使用)
+  - Databricks Runtime との互換性を確保するためにバージョンを固定
+  - Databricks 側から requirements.txt が提供されてなさそうなのでリリースノートから情報を取得しました
 - `dev`: ローカル開発ツール
 
 ## 5. Renovate で Databricks Runtime パッケージを更新対象から除外

@@ -297,8 +297,8 @@ $ quarto render
 もっと色々といじっていきたい方は以下を参考にしてみるとよいでしょう。
 
 - Quarto 公式
-    - ページ <https://quarto.org>
-    - リポジトリ <https://github.com/quarto-dev/quarto-web>
+  - ページ <https://quarto.org>
+  - リポジトリ <https://github.com/quarto-dev/quarto-web>
 - i9wa4 の GitHub Pages
-    - ページ <https://i9wa4.github.io>
-    - リポジトリ <https://github.com/i9wa4/i9wa4.github.io>
+  - ページ <https://i9wa4.github.io>
+  - リポジトリ <https://github.com/i9wa4/i9wa4.github.io>

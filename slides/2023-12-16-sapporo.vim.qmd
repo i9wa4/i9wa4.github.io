@@ -32,8 +32,8 @@ format:
 - **[札幌在住歴]** 9年
 - **[仕事]** 直近1.5年は AWS データ分析基盤業務 (MLOps)
 - **[最近の Vim 活]**
-    - Linter 利用構成変更 "mason.nvim + null-ls.nvim" -> "makeprg"
-    - Markdown Formatter (Denops プラグイン) 作成
+  - Linter 利用構成変更 "mason.nvim + null-ls.nvim" -> "makeprg"
+  - Markdown Formatter (Denops プラグイン) 作成
 
 ## 2. 本日のタスク
 
