@@ -85,11 +85,13 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
 
 各エントリの必須フィールドは `argv` と `justification` の2つだけです。
 
-| フィールド    | 必須 | 用途                                                             |
-| ------------- | ---- | ---------------------------------------------------------------- |
-| argv          | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)         |
-| justification | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)   |
-| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加 |
+| フィールド         | 必須 | 用途                                                                       |
+| ------------------ | ---- | -------------------------------------------------------------------------- |
+| argv               | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)                   |
+| justification      | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)             |
+| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加             |
+| anchored           | No   | false → hookRegex に `^` を付けない (wrapper prefix bypass 対策)           |
+| hookRegex          | No   | 指定すると argv からの自動導出を上書きし、そのまま使用する                 |
 
 `claudeSettingsJson` を省略すると hook のみで拒否します。拒否時に `justification` のメッセージが表示されるため、Claude は代替手段を理解できます。
 `rm` や `sudo` のように絶対に実行させたくないコマンドには `claudeSettingsJson = true` を設定し、Claude が計画段階で試行しないようにします。
@@ -103,19 +105,29 @@ let
   entries = [ ... ]; # 上記のエントリリスト
 
   # hookRegex を argv から自動導出
-  # 1 token → \btoken\b (word boundary), 2+ tokens → .* で結合
+  # 1 token → ^token\b, 2+ tokens → ^token1.*token2 (末尾 \b なし)
   mkHookRegex = cmd:
-    if builtins.length cmd.argv == 1
-    then "\\b${builtins.head cmd.argv}\\b"
-    else builtins.concatStringsSep ".*" cmd.argv;
+    cmd.hookRegex or (
+      let
+        anchored = cmd.anchored or true;
+        prefix = if anchored then "^" else "";
+      in
+      if builtins.length cmd.argv == 1
+      then "${prefix}${builtins.head cmd.argv}\\b"
+      else prefix + builtins.concatStringsSep ".*" cmd.argv
+    );
 
-  mkPrefixRule = cmd: ''
-    prefix_rule(
-        pattern = [${patternItems}],
-        decision = "forbidden",
-        justification = "${cmd.justification}",
-    )
-  '';
+  mkPrefixRule = cmd:
+    let
+      escapedJustification = builtins.replaceStrings [ "\\" "\"" ] [ "\\\\" "\\\"" ] cmd.justification;
+    in
+    ''
+      prefix_rule(
+          pattern = [${patternItems}],
+          decision = "forbidden",
+          justification = "${escapedJustification}",
+      )
+    '';
 in
 {
   inherit entries;
@@ -137,8 +149,8 @@ deniedBash = import ./denied-bash-commands.nix { inherit pkgs; };
 # permissions.deny (claudeSettingsJson = true のエントリのみ)
 permissions.deny = deniedBash.claudeCode.denyPermissions ++ [ ... ];
 
-# PreToolUse hook 用パターンファイル (全エントリ)
-home.file.".claude/bash-deny-patterns.sh".source = deniedBash.claudeCode.patternsFile;
+# PreToolUse hook 用パターンファイルを含む scripts ディレクトリ (全エントリ)
+home.file.".claude/scripts".source = scriptsDir;
 ```
 
 ```{.nix filename="codex-cli.nix"}
@@ -149,7 +161,7 @@ rulesContent = deniedBash.codexCli.rulesContent;
 ```
 
 変換ロジックが `denied-bash-commands.nix` に集約されているため、新しいエントリの追加はデータを1行追加するだけです。
-`home-manager switch` を1回実行すれば、Claude Code の `bash-deny-patterns.sh` (+ `claudeSettingsJson = true` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
+`home-manager switch` を1回実行すれば、Claude Code の `deny-bash-patterns.sh` (+ `claudeSettingsJson = true` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
 
 #### 生成結果の具体例
 
@@ -158,13 +170,13 @@ rulesContent = deniedBash.codexCli.rulesContent;
 hook のみのエントリの場合:
 
 ```{.nix filename="denied-bash-commands.nix (追加するエントリ)"}
-{ argv = [ "git" "push" ]; justification = "pushing is denied"; }
+{ argv = [ "git" "merge" ]; anchored = false; justification = "merge is denied"; }
 ```
 
 | 生成先                               | 生成内容                                              |
 | ------------------------------------ | ----------------------------------------------------- |
-| `~/.claude/scripts/bash-deny-patterns.sh`    | DENY_PATTERNS に `'git.*push'`、DENY_JUSTIFICATIONS に `'pushing is denied'` を追加 |
-| `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["git", "push"], decision = "forbidden", justification = "pushing is denied")` を追加 |
+| `~/.claude/scripts/deny-bash-patterns.sh`    | DENY_PATTERNS に `'git.*merge'`、DENY_JUSTIFICATIONS に `'merge is denied'` を追加 |
+| `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["git", "merge"], decision = "forbidden", justification = "merge is denied")` を追加 |
 | `~/.claude/settings.json`            | 変更なし                                              |
 
 `claudeSettingsJson = true` を付けた場合:
@@ -175,7 +187,7 @@ hook のみのエントリの場合:
 
 | 生成先                               | 生成内容                                              |
 | ------------------------------------ | ----------------------------------------------------- |
-| `~/.claude/scripts/bash-deny-patterns.sh`    | DENY_PATTERNS に `'\brm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
+| `~/.claude/scripts/deny-bash-patterns.sh`    | DENY_PATTERNS に `'^rm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
 | `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["rm"], decision = "forbidden", justification = "rm is denied; use mv /tmp/ instead")` を追加 |
 | `~/.claude/settings.json`            | permissions.deny に `Bash(rm *)` を追加               |
 
@@ -183,67 +195,71 @@ hook のみのエントリの場合:
 
 | argv の長さ | hookRegex の導出      | claudeGlob の導出 (claudeSettingsJson 時) |
 | ----------- | --------------------- | ----------------------------------------- |
-| 1 token     | `\btoken\b`           | `token *`                                 |
-| 2+ tokens   | tokens を `.*` で結合 | tokens をスペースで結合 + `*`             |
+| 1 token     | `^token\b`            | `token *`                                 |
+| 2+ tokens   | `^token1.*token2`     | tokens をスペースで結合 + `*`             |
 
 #### PreToolUse hook スクリプト
 
 Claude Code は `settings.json` の `hooks.PreToolUse` で Bash コマンド実行前にスクリプトを呼び出します。
-このスクリプトが `bash-deny-patterns.sh` を source し、コマンドをパターンマッチで検査します。
+このスクリプトが `deny-bash-patterns.sh` を source し、コマンドをパターンマッチで検査します。
 
-```{.bash filename="claude-pretooluse-bash-deny.sh"}
+```{.bash filename="claude-pretooluse-deny-bash.sh"}
 #!/usr/bin/env bash
 set -o errexit
 set -o nounset
 set -o pipefail
 set -o posix
 
+# claude-pretooluse-deny-bash.sh - Bash command deny hook
+# Hook: PreToolUse | Matcher: Bash
+# Patterns: deny-bash-patterns.sh (generated from denied-bash-commands.nix)
+
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-PATTERNS_FILE="$SCRIPT_DIR/bash-deny-patterns.sh"
+PATTERNS_FILE="$SCRIPT_DIR/deny-bash-patterns.sh"
 [[ ! -f $PATTERNS_FILE ]] && exit 0
 
 # shellcheck source=/dev/null
 source "$PATTERNS_FILE"
 
-COMMAND=$(cat | jq -r '.tool_input.command // empty' 2>/dev/null)
+COMMAND=$(jq -r '.tool_input.command // empty' 2>/dev/null) || true
 [[ -z $COMMAND ]] && exit 0
 
-IFS=$';&|' read -ra FRAGMENTS <<<"$COMMAND"
-
-for fragment in "${FRAGMENTS[@]}"; do
-  fragment="${fragment#"${fragment%%[![:space:]]*}"}"
-  fragment="${fragment%"${fragment##*[![:space:]]}"}"
-
-  for i in "${!DENY_PATTERNS[@]}"; do
-    if echo "$fragment" | grep -qE "${DENY_PATTERNS[$i]}"; then
-      jq -n --arg reason "Command denied: ${DENY_JUSTIFICATIONS[$i]}" \
-        '{ hookSpecificOutput: { hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: $reason } }'
-      exit 0
-    fi
+while IFS=$';&|' read -ra line_fragments; do
+  for fragment in "${line_fragments[@]}"; do
+    fragment="${fragment#"${fragment%%[![:space:]]*}"}"
+    fragment="${fragment%"${fragment##*[![:space:]]}"}"
+    [[ -z $fragment ]] && continue
+    for i in "${!DENY_PATTERNS[@]}"; do
+      if [[ $fragment =~ ${DENY_PATTERNS[$i]} ]]; then
+        jq -n --arg reason "Command denied: ${DENY_JUSTIFICATIONS[$i]}"$'\n'"Fragment: $fragment" \
+          '{ hookSpecificOutput: { hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: $reason } }'
+        exit 0
+      fi
+    done
   done
-done
+done <<<"$COMMAND"
 
 exit 0
 ```
 
-スクリプトは `dirname $0` で自身のディレクトリを解決し、同じディレクトリにある `bash-deny-patterns.sh` を source します。
+スクリプトは `dirname $0` で自身のディレクトリを解決し、同じディレクトリにある `deny-bash-patterns.sh` を source します。
 引数でパスを渡す必要はありません。
 
 `claude-code.nix` では、リポジトリのスクリプトと生成ファイルを1つの Nix store ディレクトリに合成しています。
 
 ```{.nix filename="claude-code.nix"}
-bashDenyPatternsName = "bash-deny-patterns.sh";
+bashDenyPatternsName = "deny-bash-patterns.sh";
 
 scriptsDir = pkgs.runCommand "claude-scripts" { } ''
   mkdir -p $out
-  for f in ${../../../agents/scripts}/*; do
+  for f in ${./scripts}/*; do
     ln -s "$f" "$out/$(basename "$f")"
   done
   ln -s ${deniedBash.claudeCode.patternsFile} $out/${bashDenyPatternsName}
 '';
 
 # hooks.PreToolUse
-command = "$CLAUDE_CONFIG_DIR/scripts/claude-pretooluse-bash-deny.sh";
+command = "$CLAUDE_CONFIG_DIR/scripts/claude-pretooluse-deny-bash.sh";
 
 # home.file
 ".claude/scripts".source = scriptsDir;
