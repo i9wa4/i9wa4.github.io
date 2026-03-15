@@ -1,0 +1,752 @@
+# Claude Code と Codex CLI の設定を Nix で SSOT 化する
+uma-chan
+2026-03-15
+
+## 1. 背景
+
+最近、私の開発環境には Claude Code と Codex CLI が同居しています。
+
+2つのエージェントが動くようになってから困ったのが設定の二重管理です。
+「git push を禁止する」「context7 MCP
+サーバーを使う」といったルールを、両方のツール用に別々のファイルへ書いていると、片方を更新したときにもう片方へのバックポートを忘れます。
+実際に忘れました。
+
+そこで Nix home-manager を使って3つの設定要素を SSOT (Single Source of
+Truth) 化しました。 設定は `nix/home-manager/agents/`
+ディレクトリ以下にまとめています。
+
+| ファイル                 | 役割                                         |
+|--------------------------|----------------------------------------------|
+| denied-bash-commands.nix | 拒否コマンドリスト (Claude Code + Codex CLI) |
+| mcp-servers.nix          | 共有 MCP サーバー定義                        |
+| agent-skills.nix         | Agent Skills の宣言的管理                    |
+| claude-code.nix          | Claude Code の home-manager モジュール       |
+| codex-cli.nix            | Codex CLI の home-manager モジュール         |
+
+## 2. SSOT 化した3つの要素
+
+### 2.1. 拒否コマンドリスト
+
+Nix
+のリストとして拒否コマンドを定義し、2つの異なるツール向けの設定を自動生成します。
+
+<div class="code-with-filename">
+
+**denied-bash-commands.nix**
+
+``` nix
+[
+  {
+    argv = [ "git" "-C" ];
+    justification = "cross-directory git operations are denied";
+  }
+  {
+    argv = [ "git" "push" ];
+    justification = "pushing is denied";
+  }
+  {
+    argv = [ "git" "rebase" ];
+    justification = "rebase is denied";
+  }
+  {
+    argv = [ "git" "reset" ];
+    justification = "reset is denied";
+  }
+  {
+    argv = [ "git" "commit" "--amend" ];
+    justification = "amend is denied (causes force push requirement)";
+  }
+  {
+    argv = [ "git" "merge" ];
+    justification = "merge is denied";
+  }
+  {
+    argv = [ "git" "branch" "-d" ];
+    justification = "branch deletion is denied";
+  }
+  {
+    argv = [ "git" "branch" "-D" ];
+    justification = "branch force-deletion is denied";
+  }
+  {
+    argv = [ "rm" ];
+    justification = "rm is denied; use mv /tmp/ instead";
+    claudeSettingsJson = true;
+  }
+  {
+    argv = [ "sudo" ];
+    justification = "sudo is denied";
+    claudeSettingsJson = true;
+  }
+]
+```
+
+</div>
+
+各エントリの必須フィールドは `argv` と `justification` の2つだけです。
+
+| フィールド | 必須 | 用途 |
+|----|----|----|
+| argv | Yes | トークン配列 (Codex CLI + Claude Code hook の両方で使用) |
+| justification | Yes | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通) |
+| claudeSettingsJson | No | true → `~/.claude/settings.json` の permissions.deny にも追加 |
+| anchored | No | false → hookRegex に `^` を付けない (wrapper prefix bypass 対策) |
+| hookRegex | No | 指定すると argv からの自動導出を上書きし、そのまま使用する |
+
+`claudeSettingsJson` を省略すると hook のみで拒否します。拒否時に
+`justification` のメッセージが表示されるため、Claude
+は代替手段を理解できます。 `rm` や `sudo`
+のように絶対に実行させたくないコマンドには `claudeSettingsJson = true`
+を設定し、Claude が計画段階で試行しないようにします。
+
+`denied-bash-commands.nix`
+はデータだけでなく変換ロジックも内包するモジュールです。 `{ pkgs }`
+を受け取り、各ツール向けの出力を事前に計算して返します。
+
+<div class="code-with-filename">
+
+**denied-bash-commands.nix (モジュール部分)**
+
+``` nix
+{ pkgs }:
+let
+  entries = [ ... ]; # 上記のエントリリスト
+
+  # hookRegex を argv から自動導出
+  # 1 token → ^token\b, 2+ tokens → ^token1.*token2 (末尾 \b なし)
+  mkHookRegex = cmd:
+    cmd.hookRegex or (
+      let
+        anchored = cmd.anchored or true;
+        prefix = if anchored then "^" else "";
+      in
+      if builtins.length cmd.argv == 1
+      then "${prefix}${builtins.head cmd.argv}\\b"
+      else prefix + builtins.concatStringsSep ".*" cmd.argv
+    );
+
+  mkPrefixRule = cmd:
+    let
+      escapedJustification = builtins.replaceStrings [ "\\" "\"" ] [ "\\\\" "\\\"" ] cmd.justification;
+    in
+    ''
+      prefix_rule(
+          pattern = [${patternItems}],
+          decision = "forbidden",
+          justification = "${escapedJustification}",
+      )
+    '';
+in
+{
+  inherit entries;
+  claudeCode = {
+    denyPermissions = ...; # claudeSettingsJson = true のエントリのみ
+    patternsFile = ...;    # 全エントリの hookRegex + justification
+  };
+  codexCli = {
+    rulesContent = ...;    # 全エントリの prefix_rule
+  };
+}
+```
+
+</div>
+
+これにより、`claude-code.nix` と `codex-cli.nix`
+のコードは出力を使うだけになります。
+
+<div class="code-with-filename">
+
+**claude-code.nix**
+
+``` nix
+deniedBash = import ./denied-bash-commands.nix { inherit pkgs; };
+
+# permissions.deny (claudeSettingsJson = true のエントリのみ)
+permissions.deny = deniedBash.claudeCode.denyPermissions ++ [ ... ];
+
+# PreToolUse hook 用パターンファイルを含む scripts ディレクトリ (全エントリ)
+home.file.".claude/scripts".source = scriptsDir;
+```
+
+</div>
+
+<div class="code-with-filename">
+
+**codex-cli.nix**
+
+``` nix
+deniedBash = import ./denied-bash-commands.nix { inherit pkgs; };
+
+# default.rules (全エントリ)
+rulesContent = deniedBash.codexCli.rulesContent;
+```
+
+</div>
+
+変換ロジックが `denied-bash-commands.nix`
+に集約されているため、新しいエントリの追加はデータを1行追加するだけです。
+`home-manager switch` を1回実行すれば、Claude Code の
+`deny-bash-patterns.sh` (+ `claudeSettingsJson = true` があれば
+`settings.json`) と Codex CLI の `~/.codex/rules/default.rules`
+に反映されます。
+
+#### 2.1.1. 生成結果の具体例
+
+エントリを1つ追加したとき、各ファイルに何が生成されるかを示します。
+
+hook のみのエントリの場合:
+
+<div class="code-with-filename">
+
+**denied-bash-commands.nix (追加するエントリ)**
+
+``` nix
+{ argv = [ "git" "merge" ]; anchored = false; justification = "merge is denied"; }
+```
+
+</div>
+
+| 生成先 | 生成内容 |
+|----|----|
+| `~/.claude/scripts/deny-bash-patterns.sh` | DENY_PATTERNS に `'git.*merge'`、DENY_JUSTIFICATIONS に `'merge is denied'` を追加 |
+| `~/.codex/rules/default.rules` | `prefix_rule(pattern = ["git", "merge"], decision = "forbidden", justification = "merge is denied")` を追加 |
+| `~/.claude/settings.json` | 変更なし |
+
+`claudeSettingsJson = true` を付けた場合:
+
+<div class="code-with-filename">
+
+**denied-bash-commands.nix (追加するエントリ)**
+
+``` nix
+{ argv = [ "rm" ]; justification = "rm is denied; use mv /tmp/ instead"; claudeSettingsJson = true; }
+```
+
+</div>
+
+| 生成先 | 生成内容 |
+|----|----|
+| `~/.claude/scripts/deny-bash-patterns.sh` | DENY_PATTERNS に `'^rm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
+| `~/.codex/rules/default.rules` | `prefix_rule(pattern = ["rm"], decision = "forbidden", justification = "rm is denied; use mv /tmp/ instead")` を追加 |
+| `~/.claude/settings.json` | permissions.deny に `Bash(rm *)` を追加 |
+
+`argv` の長さによって hookRegex と claudeGlob の導出ルールが変わります。
+
+| argv の長さ | hookRegex の導出  | claudeGlob の導出 (claudeSettingsJson 時) |
+|-------------|-------------------|-------------------------------------------|
+| 1 token     | `^token\b`        | `token *`                                 |
+| 2+ tokens   | `^token1.*token2` | tokens をスペースで結合 + `*`             |
+
+#### 2.1.2. PreToolUse hook スクリプト
+
+Claude Code は `settings.json` の `hooks.PreToolUse` で Bash
+コマンド実行前にスクリプトを呼び出します。 このスクリプトが
+`deny-bash-patterns.sh` を source
+し、コマンドをパターンマッチで検査します。
+
+<div class="code-with-filename">
+
+**claude-pretooluse-deny-bash.sh**
+
+``` bash
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+# claude-pretooluse-deny-bash.sh - Bash command deny hook
+# Hook: PreToolUse | Matcher: Bash
+# Patterns: deny-bash-patterns.sh (generated from denied-bash-commands.nix)
+
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+PATTERNS_FILE="$SCRIPT_DIR/deny-bash-patterns.sh"
+[[ ! -f $PATTERNS_FILE ]] && exit 0
+
+# shellcheck source=/dev/null
+source "$PATTERNS_FILE"
+
+COMMAND=$(jq -r '.tool_input.command // empty' 2>/dev/null) || true
+[[ -z $COMMAND ]] && exit 0
+
+while IFS=$';&|' read -ra line_fragments; do
+  for fragment in "${line_fragments[@]}"; do
+    fragment="${fragment#"${fragment%%[![:space:]]*}"}"
+    fragment="${fragment%"${fragment##*[![:space:]]}"}"
+    [[ -z $fragment ]] && continue
+    for i in "${!DENY_PATTERNS[@]}"; do
+      if [[ $fragment =~ ${DENY_PATTERNS[$i]} ]]; then
+        jq -n --arg reason "Command denied: ${DENY_JUSTIFICATIONS[$i]}"$'\n'"Fragment: $fragment" \
+          '{ hookSpecificOutput: { hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: $reason } }'
+        exit 0
+      fi
+    done
+  done
+done <<<"$COMMAND"
+
+exit 0
+```
+
+</div>
+
+スクリプトは `dirname $0`
+で自身のディレクトリを解決し、同じディレクトリにある
+`deny-bash-patterns.sh` を source します。
+引数でパスを渡す必要はありません。
+
+`claude-code.nix` では、リポジトリのスクリプトと生成ファイルを1つの Nix
+store ディレクトリに合成しています。
+
+<div class="code-with-filename">
+
+**claude-code.nix**
+
+``` nix
+bashDenyPatternsName = "deny-bash-patterns.sh";
+
+scriptsDir = pkgs.runCommand "claude-scripts" { } ''
+  mkdir -p $out
+  for f in ${./scripts}/*; do
+    ln -s "$f" "$out/$(basename "$f")"
+  done
+  ln -s ${deniedBash.claudeCode.patternsFile} $out/${bashDenyPatternsName}
+'';
+
+# hooks.PreToolUse
+command = "$CLAUDE_CONFIG_DIR/scripts/claude-pretooluse-deny-bash.sh";
+
+# home.file
+".claude/scripts".source = scriptsDir;
+```
+
+</div>
+
+`$CLAUDE_CONFIG_DIR` は Claude Code が設定する環境変数で、通常は
+`~/.claude` を指します。 `bashDenyPatternsName`
+を変更すれば生成ファイル名を変えられますが、スクリプト側の修正は不要です。
+
+### 2.2. MCP サーバー設定
+
+`mcp-servers.nix` は Claude Code と Codex CLI が共有する MCP
+サーバー定義を返す関数です。
+
+<div class="code-with-filename">
+
+**mcp-servers.nix**
+
+``` nix
+{
+  pkgs,
+  inputs,
+}:
+let
+  # mcp-servers-nix で管理されているサーバー (Nix でバージョン固定)
+  nixServers =
+    (inputs.mcp-servers-nix.lib.evalModule pkgs {
+      programs = {
+        context7.enable = true;
+      };
+    }).config.settings.servers;
+
+  # mcp-servers-nix 未収録のサーバー (uvx またはインストール済みバイナリで実行)
+  manualServers = {
+    awslabs-aws-documentation-mcp-server = {
+      command = "uvx";
+      args = [ "awslabs.aws-documentation-mcp-server@latest" ];
+    };
+    drawio = {
+      command = "drawio-mcp";
+    };
+  };
+in
+nixServers // manualServers
+```
+
+</div>
+
+2層構造になっています。
+
+- `nixServers` は `mcp-servers-nix` flake input を使って Nix
+  管理下に置いたサーバー群
+- `manualServers` はまだ `mcp-servers-nix` に収録されていないサーバー群
+  (呼び出し方はサーバーごとに異なる)
+
+`nixServers // manualServers` で合成した attrset を `claude-code.nix` と
+`codex-cli.nix` の両方が `import ./mcp-servers.nix` で読み込みます。
+1箇所に追加するだけで両エージェントに配布されます。
+
+### 2.3. Agent Skills
+
+`agent-skills.nix` は `agent-skills-nix` home-manager
+モジュールを使った宣言的なスキル管理です。
+
+<div class="code-with-filename">
+
+**agent-skills.nix**
+
+``` nix
+# Agent skills declarative management via agent-skills-nix
+# cf. https://github.com/Kyure-A/agent-skills-nix
+{
+  inputs,
+  config,
+  ...
+}:
+let
+  homeDir = config.home.homeDirectory;
+in
+{
+  imports = [
+    inputs.agent-skills.homeManagerModules.default
+  ];
+
+  programs.agent-skills = {
+    enable = true;
+
+    # Skill sources
+    sources = {
+      # Local skills from this dotfiles repository
+      local = {
+        path = inputs.self;
+        subdir = "agents/skills";
+      };
+      # tmux-a2a-postman skills
+      tmux-a2a-postman = {
+        path = inputs.tmux-a2a-postman;
+        subdir = "skills";
+      };
+      # dbt-labs official agent skills (split by skill group)
+      dbt = {
+        path = inputs.dbt-agent-skills;
+        subdir = "skills/dbt/skills";
+      };
+      dbt-migration = {
+        path = inputs.dbt-agent-skills;
+        subdir = "skills/dbt-migration/skills";
+      };
+      # Anthropic official agent skills
+      anthropic = {
+        path = inputs.anthropic-skills;
+        subdir = "skills";
+      };
+      # Streamlit official agent skills
+      streamlit = {
+        path = inputs.streamlit-skills;
+        subdir = "developing-with-streamlit/skills";
+      };
+      # Databricks official agent skills (ai-dev-kit)
+      # cf. https://github.com/databricks-solutions/ai-dev-kit/tree/main/databricks-skills
+      databricks = {
+        path = inputs.databricks-agent-skills;
+        subdir = "databricks-skills";
+      };
+      # cf. https://github.com/databricks-solutions/ai-dev-kit/tree/main/.claude/skills
+      databricks-claude = {
+        path = inputs.databricks-agent-skills;
+        subdir = ".claude/skills";
+        filter.nameRegex = "python-dev"; # exclude databricks-python-sdk (duplicate)
+      };
+      # Databricks official agent skills (databricks org)
+      # cf. https://github.com/databricks/databricks-agent-skills
+      databricks-official = {
+        path = inputs.databricks-official-skills;
+        subdir = "skills";
+        filter.nameRegex = "databricks(-apps|-pipelines)?"; # exclude databricks-jobs (duplicate)
+      };
+      # draw.io skill (jgraph/drawio-mcp)
+      # cf. https://github.com/jgraph/drawio-mcp
+      drawio-mcp = {
+        path = inputs.drawio-mcp;
+        subdir = "skill-cli";
+      };
+      # freee MCP skills
+      # cf. https://github.com/freee/freee-mcp
+      freee = {
+        path = inputs.freee-mcp;
+        subdir = "skills";
+      };
+      # HashiCorp agent skills (split by plugin)
+      # cf. https://github.com/hashicorp/agent-skills
+      hashicorp-terraform-codegen = {
+        path = inputs.hashicorp-agent-skills;
+        subdir = "terraform/code-generation/skills";
+      };
+      hashicorp-terraform-module = {
+        path = inputs.hashicorp-agent-skills;
+        subdir = "terraform/module-generation/skills";
+      };
+      hashicorp-terraform-provider = {
+        path = inputs.hashicorp-agent-skills;
+        subdir = "terraform/provider-development/skills";
+      };
+    };
+
+    # Enable all skills from all sources
+    skills = {
+      enableAll = true;
+      # Explicit skill definitions (for rename or custom config)
+      explicit.databricks-jobs-bundles = {
+        from = "databricks-official";
+        path = "databricks-jobs";
+        rename = "databricks-jobs-bundles"; # avoid duplicate with ai-dev-kit
+      };
+    };
+
+    # Target destinations (symlink-tree uses activation rsync)
+    targets = {
+      # Claude Code: ~/.claude/skills
+      claude-home = {
+        dest = "${homeDir}/.claude/skills";
+        structure = "symlink-tree";
+      };
+      # Codex CLI: ~/.codex/skills
+      codex = {
+        dest = "${homeDir}/.codex/skills";
+        structure = "symlink-tree";
+      };
+    };
+
+    # Preserve .system directory (created by agents at runtime)
+    excludePatterns = [ "/.system" ];
+  };
+}
+```
+
+</div>
+
+ポイントは `targets` に複数の宛先を書けることです。 `~/.claude/skills`
+と `~/.codex/skills`
+の両方が同一ソースからシンボリックツリーとして展開されます。
+
+`enableAll = true` で全スキルを有効にしつつ、重複する名前のスキルは
+`filter.nameRegex` や `rename` で解決しています。
+
+`excludePatterns = [ "/.system" ]` は、エージェントが実行時に `skills/`
+配下に書き込む `.system/` ディレクトリを rsync
+対象から除外するための設定です。 これがないと `home-manager switch`
+のたびに実行時状態が消えます。
+
+## 3. 実装のはまりポイント
+
+### 3.1. settings.json はシンボリックリンクにできない
+
+`claude-code.nix` の実装で一点注意が必要な箇所があります。
+
+`settings.json` の配置です。
+
+他の設定ファイル (`CLAUDE.md`, `rules/`, `agents/`) は Nix
+ストアへのシンボリックリンクとして配置できます。
+読み取り専用で構いません。
+
+しかし `settings.json` だけは違います。
+
+Claude Code のインタラクティブな `/config`
+エディタがユーザーの設定変更を `settings.json` に書き戻します。 Nix
+ストアのシンボリックリンクは読み取り専用なので、書き込みに失敗してしまいます。
+
+なお、MCP サーバーの接続状態などのランタイム状態が実際に書き込まれるのは
+`~/.claude/.claude.json` の方です。
+
+そのため `home-manager` の activation スクリプトで `install -Dm644`
+を使い、書き込み可能なファイルとしてコピーしています。
+
+<div class="code-with-filename">
+
+**claude-code.nix**
+
+``` nix
+claudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  install -Dm644 ${settingsFile} "$HOME/.claude/settings.json"
+'';
+```
+
+</div>
+
+`home-manager switch` を実行するたびに最新の設定で上書きコピーされます。
+`/config` エディタで加えた変更はこのコピー先に書き込まれ、次の `switch`
+で上書きされます。
+
+MCP サーバーの登録は別の activation スクリプト (`claudeMcpServers`) で
+`~/.claude/.claude.json` を `jq`
+で直接書き換えており、こちらも同様の理由でシンボリックリンクではなく実ファイルを対象にしています。
+
+### 3.2. Codex CLI の trusted projects は動的生成
+
+`codex-cli.nix` の activation スクリプトは `fd` で `~/ghq` 以下の全 git
+リポジトリを検索し、`config.toml` に `trust_level = "trusted"`
+エントリを追記します。
+
+<div class="code-with-filename">
+
+**codex-cli.nix**
+
+``` nix
+${pkgs.fd}/bin/fd --type d --hidden --no-ignore "^\.git$" "${ghqRoot}" --max-depth 4 2>/dev/null |
+  sort |
+  while read -r gitdir; do
+    repo=$(dirname "$gitdir")
+    echo ""
+    echo "[projects.\"$repo/\"]"
+    echo "trust_level = \"trusted\""
+  done >> "$_output"
+```
+
+</div>
+
+新しいリポジトリを `ghq get` で取得したあと `home-manager switch`
+を1回実行するだけで、そのリポジトリも自動的に trusted になります。
+手動で `config.toml` を編集する必要はありません。
+
+### 3.3. agent-skills.nix の込み入った設定
+
+`agent-skills.nix`
+には、ドキュメントを読んだだけでは意図が分かりにくい部分がいくつかあります。
+
+#### 3.3.1. subdir で auto-discovery の対象を絞る
+
+スキルリポジトリのルート直下に `SKILL.md` がない場合、`subdir` で
+discovery の起点を指定します。
+
+`drawio-mcp` リポジトリの例では、`SKILL.md` は
+`skill-cli/drawio/SKILL.md` にあります。 `subdir = "skill-cli"`
+を指定すると、auto-discovery が `skill-cli/` 以下を探索して `drawio`
+スキルを発見します。
+
+<div class="code-with-filename">
+
+**agent-skills.nix**
+
+``` nix
+drawio-mcp = {
+  path = inputs.drawio-mcp;
+  subdir = "skill-cli";
+};
+```
+
+</div>
+
+#### 3.3.2. 重複するスキル名への対処
+
+複数のソースに同名のスキルが存在する場合、2つの方法で対処できます。
+
+1つ目は `filter.nameRegex` による allowlist フィルタです。
+指定した正規表現に一致するスキルだけが auto-discovery の対象になります。
+
+<div class="code-with-filename">
+
+**agent-skills.nix**
+
+``` nix
+databricks-official = {
+  path = inputs.databricks-official-skills;
+  subdir = "skills";
+  filter.nameRegex = "databricks(-apps|-pipelines)?"; # exclude databricks-jobs (duplicate)
+};
+```
+
+</div>
+
+`databricks`、`databricks-apps`、`databricks-pipelines`
+だけを含め、`databricks-jobs` は除外しています。 ai-dev-kit
+側に同名のスキルが存在するための回避策です。
+
+2つ目は `skills.explicit` と `rename` の組み合わせです。
+除外した側のスキルを別名でロードすることで、両方を共存させられます。
+
+<div class="code-with-filename">
+
+**agent-skills.nix**
+
+``` nix
+skills = {
+  enableAll = true;
+  explicit.databricks-jobs-bundles = {
+    from = "databricks-official";
+    path = "databricks-jobs";
+    rename = "databricks-jobs-bundles"; # avoid duplicate with ai-dev-kit
+  };
+};
+```
+
+</div>
+
+`databricks-official` ソースの `databricks-jobs` を
+`databricks-jobs-bundles` という別名でロードしています。
+
+#### 3.3.3. excludePatterns で Codex CLI のシステムスキルを守る
+
+`agent-skills-nix` の activation スクリプトは `rsync --delete`
+で各ターゲットディレクトリを同期します。 `--delete`
+はソース側に存在しないファイルをターゲットから削除するオプションです。
+
+Codex CLI はバイナリにシステムスキル (`skill-creator`, `skill-installer`
+等) を埋め込んでいます
+([ソースコード](https://github.com/openai/codex/blob/main/codex-rs/skills/src/lib.rs))。
+起動時に `~/.codex/skills/.system/`
+へ展開し、`.codex-system-skills.marker`
+にフィンガープリントを書き込みます。
+次回以降はフィンガープリントが一致すれば展開をスキップし、Codex
+のバージョンが変わると再展開します。
+
+<div class="code-with-filename">
+
+**~/.codex/skills/.system/**
+
+``` text
+.codex-system-skills.marker
+skill-creator/
+skill-installer/
+```
+
+</div>
+
+この `.system/` は Nix の管理するスキルバンドルには存在しません。
+`home-manager switch` で `rsync --delete` が走ると `.system/`
+ごと削除されてしまいます。 削除されても次回の Codex
+起動時に再展開されますが、毎回フルコピーが走るのは無駄です。
+
+<div class="code-with-filename">
+
+**agent-skills.nix**
+
+``` nix
+excludePatterns = [ "/.system" ];
+```
+
+</div>
+
+先頭の `/` は rsync の exclude
+パターン構文で「ターゲットディレクトリ直下のみ」を意味します。
+`/.system` はルート直下の `.system/` だけを除外し、個別スキル内部の
+`.system/` には影響しません。
+
+なお `agent-skills-nix` のデフォルト値も `[ "/.system" ]` です。
+明示的に書いているのは、この除外が Codex CLI
+の動作に必要であることを設定ファイル上で明確にするためです。
+
+## 4. まとめ
+
+### 4.1. SSOT 化した3要素
+
+| 要素         | ファイル                 | 読み込み先                        |
+|--------------|--------------------------|-----------------------------------|
+| 拒否コマンド | denied-bash-commands.nix | claude-code.nix, codex-cli.nix    |
+| MCP サーバー | mcp-servers.nix          | claude-code.nix, codex-cli.nix    |
+| Agent Skills | agent-skills.nix         | ~/.claude/skills, ~/.codex/skills |
+
+### 4.2. やってみて
+
+設定の二重管理から解放されたのが一番大きいです。
+
+「Claude Code に追加したけど Codex CLI
+に忘れた」が構造的に起きなくなりました。
+
+Nix
+で管理するとビルドエラーで設定ミスが事前に検出できるのも地味に助かっています。
+JSON や TOML
+を手書きしていたときは起動してみて初めてエラーに気づいていたので。
+
+`agent-skills-nix`
+を使ったマルチソースのスキル管理はまだ日本語の情報が少ないので、参考になれば幸いです。
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-03-15-agent-config-ssot-nix.html&text=Claude%20Code%20%E3%81%A8%20Codex%20CLI%20%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%20Nix%20%E3%81%A7%20SSOT%20%E5%8C%96%E3%81%99%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Claude%20Code%20%E3%81%A8%20Codex%20CLI%20%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%20Nix%20%E3%81%A7%20SSOT%20%E5%8C%96%E3%81%99%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-03-15-agent-config-ssot-nix.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-03-15-agent-config-ssot-nix.html&title=Claude%20Code%20%E3%81%A8%20Codex%20CLI%20%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%20Nix%20%E3%81%A7%20SSOT%20%E5%8C%96%E3%81%99%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
