@@ -163,7 +163,7 @@ rulesContent = deniedBash.codexCli.rulesContent;
 変換ロジックが `denied-bash-commands.nix` に集約されているため、新しいエントリの追加はデータを1行追加するだけです。
 `home-manager switch` を1回実行すれば、Claude Code の `deny-bash-patterns.sh` (+ `claudeSettingsJson = true` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
 
-#### 生成結果の具体例
+#### 2.1.1. 生成結果の具体例
 
 エントリを1つ追加したとき、各ファイルに何が生成されるかを示します。
 
@@ -198,7 +198,7 @@ hook のみのエントリの場合:
 | 1 token     | `^token\b`            | `token *`                                 |
 | 2+ tokens   | `^token1.*token2`     | tokens をスペースで結合 + `*`             |
 
-#### PreToolUse hook スクリプト
+#### 2.1.2. PreToolUse hook スクリプト
 
 Claude Code は `settings.json` の `hooks.PreToolUse` で Bash コマンド実行前にスクリプトを呼び出します。
 このスクリプトが `deny-bash-patterns.sh` を source し、コマンドをパターンマッチで検査します。
