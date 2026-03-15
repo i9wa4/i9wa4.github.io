@@ -73,12 +73,12 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
   {
     argv = [ "rm" ];
     justification = "rm is denied; use mv /tmp/ instead";
-    deny = true;
+    claudeSettingsJson = true;
   }
   {
     argv = [ "sudo" ];
     justification = "sudo is denied";
-    deny = true;
+    claudeSettingsJson = true;
   }
 ]
 ```
@@ -89,10 +89,10 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
 | ------------- | ---- | ---------------------------------------------------------------- |
 | argv          | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)         |
 | justification | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)   |
-| deny          | No   | true にすると permissions.deny にも追加 (glob は argv から自動導出) |
+| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加 |
 
-`deny` を省略すると hook のみで拒否します。拒否時に `justification` のメッセージが表示されるため、Claude は代替手段を理解できます。
-`rm` や `sudo` のように絶対に実行させたくないコマンドには `deny = true` を設定し、Claude が計画段階で試行しないようにします。
+`claudeSettingsJson` を省略すると hook のみで拒否します。拒否時に `justification` のメッセージが表示されるため、Claude は代替手段を理解できます。
+`rm` や `sudo` のように絶対に実行させたくないコマンドには `claudeSettingsJson = true` を設定し、Claude が計画段階で試行しないようにします。
 
 `denied-bash-commands.nix` はデータだけでなく変換ロジックも内包するモジュールです。
 `{ pkgs }` を受け取り、各ツール向けの出力を事前に計算して返します。
@@ -120,7 +120,7 @@ in
 {
   inherit entries;
   claudeCode = {
-    denyPermissions = ...; # deny = true のエントリのみ (glob は argv から自動導出)
+    denyPermissions = ...; # claudeSettingsJson = true のエントリのみ
     patternsFile = ...;    # 全エントリの hookRegex + justification
   };
   codexCli = {
@@ -134,7 +134,7 @@ in
 ```{.nix filename="claude-code.nix"}
 deniedBash = import ./denied-bash-commands.nix { inherit pkgs; };
 
-# permissions.deny (deny = true のエントリのみ)
+# permissions.deny (claudeSettingsJson = true のエントリのみ)
 permissions.deny = deniedBash.claudeCode.denyPermissions ++ [ ... ];
 
 # PreToolUse hook 用パターンファイル (全エントリ)
@@ -149,7 +149,7 @@ rulesContent = deniedBash.codexCli.rulesContent;
 ```
 
 変換ロジックが `denied-bash-commands.nix` に集約されているため、新しいエントリの追加はデータを1行追加するだけです。
-`home-manager switch` を1回実行すれば、Claude Code の `bash-deny-patterns.sh` (+ `deny = true` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
+`home-manager switch` を1回実行すれば、Claude Code の `bash-deny-patterns.sh` (+ `claudeSettingsJson = true` があれば `settings.json`) と Codex CLI の `~/.codex/rules/default.rules` に反映されます。
 
 ### 2.2. MCP サーバー設定
 
