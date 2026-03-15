@@ -7,7 +7,7 @@ categories:
 date: 2026-03-15 16:21:50 +0900
 date-modified: last-modified
 description: |
-  禁止コマンドリスト・MCPサーバー・Agent Skills の3つを Nix home-manager で一元管理する方法。
+  拒否コマンドリスト・MCPサーバー・Agent Skills の3つを Nix home-manager で一元管理する方法。
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -22,56 +22,128 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 そこで Nix home-manager を使って3つの設定要素を SSOT (Single Source of Truth) 化しました。
 設定は `nix/home-manager/agents/` ディレクトリ以下にまとめています。
 
-| ファイル                     | 役割                                               |
-| ---------------------------- | -------------------------------------------------- |
-| prohibited-bash-commands.nix | 禁止コマンドリスト (Claude Code + Codex CLI)       |
-| mcp-servers.nix              | 共有 MCP サーバー定義                              |
-| agent-skills.nix             | Agent Skills の宣言的管理                          |
-| claude-code.nix              | Claude Code の home-manager モジュール             |
-| codex-cli.nix                | Codex CLI の home-manager モジュール               |
+| ファイル                 | 役割                                           |
+| ------------------------ | ---------------------------------------------- |
+| denied-bash-commands.nix | 拒否コマンドリスト (Claude Code + Codex CLI)   |
+| mcp-servers.nix          | 共有 MCP サーバー定義                          |
+| agent-skills.nix         | Agent Skills の宣言的管理                      |
+| claude-code.nix          | Claude Code の home-manager モジュール         |
+| codex-cli.nix            | Codex CLI の home-manager モジュール           |
 
 ## 2. SSOT 化した3つの要素
 
-### 2.1. 禁止コマンドリスト
+### 2.1. 拒否コマンドリスト
 
-`prohibited-bash-commands.nix` は私が最もシンプルで分かりやすいと思っている SSOT の例です。
+Nix のリストとして拒否コマンドを定義し、2つの異なるツール向けの設定を自動生成します。
 
-Nix のリストとして禁止コマンドを定義し、2つの異なるエンジン向けの設定を自動生成します。
-
-```{.nix filename="prohibited-bash-commands.nix (抜粋)"}
+```{.nix filename="denied-bash-commands.nix"}
 [
   {
+    claudeGlob = "git -C *";
+    hookRegex = "git -C";
+    argv = [
+      "git"
+      "-C"
+    ];
+    justification = "cross-directory git operations are denied";
+  }
+  {
     claudeGlob = "git push*";
+    hookRegex = "git push";
     argv = [
       "git"
       "push"
     ];
-    justification = "pushing is prohibited";
+    justification = "pushing is denied";
+  }
+  {
+    claudeGlob = "git rebase*";
+    hookRegex = "git rebase";
+    argv = [
+      "git"
+      "rebase"
+    ];
+    justification = "rebase is denied";
+  }
+  {
+    claudeGlob = "git reset*";
+    hookRegex = "git reset";
+    argv = [
+      "git"
+      "reset"
+    ];
+    justification = "reset is denied";
+  }
+  {
+    claudeGlob = "git commit --amend*";
+    hookRegex = "git commit.*--amend";
+    argv = [
+      "git"
+      "commit"
+      "--amend"
+    ];
+    justification = "amend is denied (causes force push requirement)";
+  }
+  {
+    claudeGlob = "git merge*";
+    hookRegex = "git merge";
+    argv = [
+      "git"
+      "merge"
+    ];
+    justification = "merge is denied";
+  }
+  {
+    claudeGlob = "git branch -d*";
+    hookRegex = "git branch -d";
+    argv = [
+      "git"
+      "branch"
+      "-d"
+    ];
+    justification = "branch deletion is denied";
+  }
+  {
+    claudeGlob = "git branch -D*";
+    hookRegex = "git branch -D";
+    argv = [
+      "git"
+      "branch"
+      "-D"
+    ];
+    justification = "branch force-deletion is denied";
   }
   {
     claudeGlob = "rm *";
+    hookRegex = "\\brm\\b";
     argv = [ "rm" ];
-    justification = "rm is prohibited; use mv /tmp/ instead";
+    justification = "rm is denied; use mv /tmp/ instead";
   }
-  # ... 合計10エントリ
+  {
+    claudeGlob = "sudo *";
+    hookRegex = "\\bsudo\\b";
+    argv = [ "sudo" ];
+    justification = "sudo is denied";
+  }
 ]
 ```
 
-各エントリは3つのフィールドを持ちます。
+各エントリは4つのフィールドを持ちます。
 
-| フィールド    | 用途                                                   |
-| ------------- | ------------------------------------------------------ |
-| claudeGlob    | Claude Code の permissions.deny 用 glob パターン       |
-| argv          | Codex CLI の prefix_rule 用トークン配列                |
-| justification | Codex CLI が拒否時に表示するメッセージ                 |
+| フィールド    | 用途                                                           |
+| ------------- | -------------------------------------------------------------- |
+| claudeGlob    | Claude Code の permissions.deny 用 glob パターン (事前抑止)    |
+| hookRegex     | Claude Code の PreToolUse hook 用正規表現 (実行時検査)         |
+| argv          | Codex CLI の prefix_rule 用トークン配列                        |
+| justification | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通) |
 
-これをツール設定側でそれぞれ読み取ります。
+Claude Code では2層の防御として機能します。
 
-Claude Code 側 (`claude-code.nix`) では、
+`claudeGlob` は事前抑止層です。`permissions.deny` に変換され、Claude がコマンドを計画する時点で「試行しない」と判断します。
 
 ```{.nix filename="claude-code.nix"}
 permissions = {
-  deny = (map (cmd: "Bash(${cmd.claudeGlob})") prohibitedBash) ++ [
+  deny = (map (cmd: "Bash(${cmd.claudeGlob})") deniedBash) ++ [
     "Read(**/*key*)"
     "Read(.env*)"
     # ...
@@ -79,7 +151,20 @@ permissions = {
 };
 ```
 
-Codex CLI 側 (`codex-cli.nix`) では、
+`hookRegex` と `justification` は実行時検査層です。`home-manager switch` で `~/.claude/bash-deny-patterns.sh` として生成され、PreToolUse hook が source して使います。
+
+```{.nix filename="claude-code.nix"}
+bashDenyPatterns = pkgs.writeText "bash-deny-patterns.sh" ''
+  DENY_PATTERNS=(
+  ${builtins.concatStringsSep "\n" (map (cmd: "  '${cmd.hookRegex}'") deniedBash)}
+  )
+  DENY_JUSTIFICATIONS=(
+  ${builtins.concatStringsSep "\n" (map (cmd: "  '${cmd.justification}'") deniedBash)}
+  )
+'';
+```
+
+Codex CLI 側 (`codex-cli.nix`) では、`argv` と `justification` を読み取ります。
 
 ```{.nix filename="codex-cli.nix"}
 mkPrefixRule = cmd:
@@ -92,15 +177,14 @@ mkPrefixRule = cmd:
   '';
 ```
 
-というように、同一ソースから2つの異なるフォーマットへ変換しています。
-
-`home-manager switch` を1回実行するだけで、Claude Code の `settings.json` と Codex CLI の `~/.codex/rules/default.rules` の両方に同じルールが反映されます。
+同一ソースから3つの異なるフォーマットへ変換しています。
+`home-manager switch` を1回実行するだけで、Claude Code の `settings.json`・`bash-deny-patterns.sh` と Codex CLI の `~/.codex/rules/default.rules` の3箇所に同じルールが反映されます。
 
 ### 2.2. MCP サーバー設定
 
 `mcp-servers.nix` は Claude Code と Codex CLI が共有する MCP サーバー定義を返す関数です。
 
-```{.nix filename="mcp-servers.nix (全文)"}
+```{.nix filename="mcp-servers.nix"}
 {
   pkgs,
   inputs,
@@ -140,27 +224,132 @@ nixServers // manualServers
 
 `agent-skills.nix` は `agent-skills-nix` home-manager モジュールを使った宣言的なスキル管理です。
 
-```{.nix filename="agent-skills.nix (抜粋)"}
-programs.agent-skills = {
-  enable = true;
+```{.nix filename="agent-skills.nix"}
+# Agent skills declarative management via agent-skills-nix
+# cf. https://github.com/Kyure-A/agent-skills-nix
+{
+  inputs,
+  config,
+  ...
+}:
+let
+  homeDir = config.home.homeDirectory;
+in
+{
+  imports = [
+    inputs.agent-skills.homeManagerModules.default
+  ];
 
-  sources = {
-    local        = { path = inputs.self; subdir = "agents/skills"; };
-    anthropic    = { path = inputs.anthropic-skills; subdir = "skills"; };
-    streamlit    = { path = inputs.streamlit-skills; subdir = "developing-with-streamlit/skills"; };
-    databricks   = { path = inputs.databricks-agent-skills; subdir = "databricks-skills"; };
-    # ... 合計14ソース
+  programs.agent-skills = {
+    enable = true;
+
+    # Skill sources
+    sources = {
+      # Local skills from this dotfiles repository
+      local = {
+        path = inputs.self;
+        subdir = "agents/skills";
+      };
+      # tmux-a2a-postman skills
+      tmux-a2a-postman = {
+        path = inputs.tmux-a2a-postman;
+        subdir = "skills";
+      };
+      # dbt-labs official agent skills (split by skill group)
+      dbt = {
+        path = inputs.dbt-agent-skills;
+        subdir = "skills/dbt/skills";
+      };
+      dbt-migration = {
+        path = inputs.dbt-agent-skills;
+        subdir = "skills/dbt-migration/skills";
+      };
+      # Anthropic official agent skills
+      anthropic = {
+        path = inputs.anthropic-skills;
+        subdir = "skills";
+      };
+      # Streamlit official agent skills
+      streamlit = {
+        path = inputs.streamlit-skills;
+        subdir = "developing-with-streamlit/skills";
+      };
+      # Databricks official agent skills (ai-dev-kit)
+      # cf. https://github.com/databricks-solutions/ai-dev-kit/tree/main/databricks-skills
+      databricks = {
+        path = inputs.databricks-agent-skills;
+        subdir = "databricks-skills";
+      };
+      # cf. https://github.com/databricks-solutions/ai-dev-kit/tree/main/.claude/skills
+      databricks-claude = {
+        path = inputs.databricks-agent-skills;
+        subdir = ".claude/skills";
+        filter.nameRegex = "python-dev"; # exclude databricks-python-sdk (duplicate)
+      };
+      # Databricks official agent skills (databricks org)
+      # cf. https://github.com/databricks/databricks-agent-skills
+      databricks-official = {
+        path = inputs.databricks-official-skills;
+        subdir = "skills";
+        filter.nameRegex = "databricks(-apps|-pipelines)?"; # exclude databricks-jobs (duplicate)
+      };
+      # draw.io skill (jgraph/drawio-mcp)
+      # cf. https://github.com/jgraph/drawio-mcp
+      drawio-mcp = {
+        path = inputs.drawio-mcp;
+        subdir = "skill-cli";
+      };
+      # freee MCP skills
+      # cf. https://github.com/freee/freee-mcp
+      freee = {
+        path = inputs.freee-mcp;
+        subdir = "skills";
+      };
+      # HashiCorp agent skills (split by plugin)
+      # cf. https://github.com/hashicorp/agent-skills
+      hashicorp-terraform-codegen = {
+        path = inputs.hashicorp-agent-skills;
+        subdir = "terraform/code-generation/skills";
+      };
+      hashicorp-terraform-module = {
+        path = inputs.hashicorp-agent-skills;
+        subdir = "terraform/module-generation/skills";
+      };
+      hashicorp-terraform-provider = {
+        path = inputs.hashicorp-agent-skills;
+        subdir = "terraform/provider-development/skills";
+      };
+    };
+
+    # Enable all skills from all sources
+    skills = {
+      enableAll = true;
+      # Explicit skill definitions (for rename or custom config)
+      explicit.databricks-jobs-bundles = {
+        from = "databricks-official";
+        path = "databricks-jobs";
+        rename = "databricks-jobs-bundles"; # avoid duplicate with ai-dev-kit
+      };
+    };
+
+    # Target destinations (symlink-tree uses activation rsync)
+    targets = {
+      # Claude Code: ~/.claude/skills
+      claude-home = {
+        dest = "${homeDir}/.claude/skills";
+        structure = "symlink-tree";
+      };
+      # Codex CLI: ~/.codex/skills
+      codex = {
+        dest = "${homeDir}/.codex/skills";
+        structure = "symlink-tree";
+      };
+    };
+
+    # Preserve .system directory (created by agents at runtime)
+    excludePatterns = [ "/.system" ];
   };
-
-  skills.enableAll = true;
-
-  targets = {
-    claude-home = { dest = "${homeDir}/.claude/skills"; structure = "symlink-tree"; };
-    codex       = { dest = "${homeDir}/.codex/skills";  structure = "symlink-tree"; };
-  };
-
-  excludePatterns = [ "/.system" ];
-};
+}
 ```
 
 ポイントは `targets` に複数の宛先を書けることです。
@@ -305,11 +494,11 @@ excludePatterns = [ "/.system" ];
 
 ### 4.1. SSOT 化した3要素
 
-| 要素              | ファイル                     | 読み込み先                         |
-| ----------------- | ---------------------------- | ---------------------------------- |
-| 禁止コマンド      | prohibited-bash-commands.nix | claude-code.nix, codex-cli.nix     |
-| MCP サーバー      | mcp-servers.nix              | claude-code.nix, codex-cli.nix     |
-| Agent Skills      | agent-skills.nix             | ~/.claude/skills, ~/.codex/skills  |
+| 要素           | ファイル                 | 読み込み先                        |
+| -------------- | ------------------------ | --------------------------------- |
+| 拒否コマンド   | denied-bash-commands.nix | claude-code.nix, codex-cli.nix    |
+| MCP サーバー   | mcp-servers.nix          | claude-code.nix, codex-cli.nix    |
+| Agent Skills   | agent-skills.nix         | ~/.claude/skills, ~/.codex/skills |
 
 ### 4.2. やってみて
 
