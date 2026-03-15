@@ -186,6 +186,61 @@ hook のみのエントリの場合:
 | 1 token     | `\btoken\b`           | `token *`                                 |
 | 2+ tokens   | tokens を `.*` で結合 | tokens をスペースで結合 + `*`             |
 
+#### PreToolUse hook スクリプト
+
+Claude Code は `settings.json` の `hooks.PreToolUse` で Bash コマンド実行前にスクリプトを呼び出します。
+このスクリプトが `bash-deny-patterns.sh` を source し、コマンドをパターンマッチで検査します。
+
+```{.bash filename="claude-pretooluse-bash-deny.sh"}
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+# Usage: claude-pretooluse-bash-deny.sh <patterns-file>
+
+PATTERNS_FILE="${1:-}"
+[[ -z $PATTERNS_FILE || ! -f $PATTERNS_FILE ]] && exit 0
+
+# shellcheck source=/dev/null
+source "$PATTERNS_FILE"
+
+COMMAND=$(cat | jq -r '.tool_input.command // empty' 2>/dev/null)
+[[ -z $COMMAND ]] && exit 0
+
+IFS=$';&|' read -ra FRAGMENTS <<<"$COMMAND"
+
+for fragment in "${FRAGMENTS[@]}"; do
+  fragment="${fragment#"${fragment%%[![:space:]]*}"}"
+  fragment="${fragment%"${fragment##*[![:space:]]}"}"
+
+  for i in "${!DENY_PATTERNS[@]}"; do
+    if echo "$fragment" | grep -qE "${DENY_PATTERNS[$i]}"; then
+      jq -n --arg reason "Command denied: ${DENY_JUSTIFICATIONS[$i]}" \
+        '{ hookSpecificOutput: { hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: $reason } }'
+      exit 0
+    fi
+  done
+done
+
+exit 0
+```
+
+パターンファイルのパスは `claude-code.nix` から引数として渡されます。
+
+```{.nix filename="claude-code.nix"}
+bashDenyPatternsRelPath = ".claude/bash-deny-patterns.sh";
+
+# hooks.PreToolUse
+command = "~/.claude/scripts/claude-pretooluse-bash-deny.sh ~/${bashDenyPatternsRelPath}";
+
+# home.file (Nix store symlink)
+"${bashDenyPatternsRelPath}".source = deniedBash.claudeCode.patternsFile;
+```
+
+パスを1箇所で定義しているため、生成先を変更してもスクリプトの修正は不要です。
+
 ### 2.2. MCP サーバー設定
 
 `mcp-servers.nix` は Claude Code と Codex CLI が共有する MCP サーバー定義を返す関数です。
