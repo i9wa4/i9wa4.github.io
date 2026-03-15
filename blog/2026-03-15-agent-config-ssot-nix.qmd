@@ -198,10 +198,9 @@ set -o nounset
 set -o pipefail
 set -o posix
 
-# Usage: claude-pretooluse-bash-deny.sh <patterns-file>
-
-PATTERNS_FILE="${1:-}"
-[[ -z $PATTERNS_FILE || ! -f $PATTERNS_FILE ]] && exit 0
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+PATTERNS_FILE="$SCRIPT_DIR/bash-deny-patterns.sh"
+[[ ! -f $PATTERNS_FILE ]] && exit 0
 
 # shellcheck source=/dev/null
 source "$PATTERNS_FILE"
@@ -227,27 +226,31 @@ done
 exit 0
 ```
 
-パターンファイルのパスは `claude-code.nix` から引数として渡されます。
+スクリプトは `dirname $0` で自身のディレクトリを解決し、同じディレクトリにある `bash-deny-patterns.sh` を source します。
+引数でパスを渡す必要はありません。
+
+`claude-code.nix` では、リポジトリのスクリプトと生成ファイルを1つの Nix store ディレクトリに合成しています。
 
 ```{.nix filename="claude-code.nix"}
-# repo scripts + generated patterns file を1つの Nix store ディレクトリに合成
+bashDenyPatternsName = "bash-deny-patterns.sh";
+
 scriptsDir = pkgs.runCommand "claude-scripts" { } ''
   mkdir -p $out
   for f in ${../../../agents/scripts}/*; do
     ln -s "$f" "$out/$(basename "$f")"
   done
-  ln -s ${deniedBash.claudeCode.patternsFile} $out/bash-deny-patterns.sh
+  ln -s ${deniedBash.claudeCode.patternsFile} $out/${bashDenyPatternsName}
 '';
 
 # hooks.PreToolUse
-command = "$CLAUDE_CONFIG_DIR/scripts/claude-pretooluse-bash-deny.sh $CLAUDE_CONFIG_DIR/scripts/bash-deny-patterns.sh";
+command = "$CLAUDE_CONFIG_DIR/scripts/claude-pretooluse-bash-deny.sh";
 
-# home.file (Nix store symlink)
+# home.file
 ".claude/scripts".source = scriptsDir;
 ```
 
-スクリプトと生成ファイルが同じディレクトリに配置されるため、パスの管理がシンプルになります。
 `$CLAUDE_CONFIG_DIR` は Claude Code が設定する環境変数で、通常は `~/.claude` を指します。
+`bashDenyPatternsName` を変更すれば生成ファイル名を変えられますが、スクリプト側の修正は不要です。
 
 ### 2.2. MCP サーバー設定
 
