@@ -103,11 +103,11 @@ let
   entries = [ ... ]; # 上記のエントリリスト
 
   # hookRegex を argv から自動導出
-  # 1 token → \btoken\b (word boundary), 2+ tokens → joined with spaces
+  # 1 token → \btoken\b (word boundary), 2+ tokens → .* で結合
   mkHookRegex = cmd:
     if builtins.length cmd.argv == 1
     then "\\b${builtins.head cmd.argv}\\b"
-    else builtins.concatStringsSep " " cmd.argv;
+    else builtins.concatStringsSep ".*" cmd.argv;
 
   mkPrefixRule = cmd: ''
     prefix_rule(
