@@ -224,11 +224,26 @@ ${pkgs.fd}/bin/fd --type d --hidden --no-ignore "^\.git$" "${ghqRoot}" --max-dep
 
 `agent-skills.nix` には、ドキュメントを読んだだけでは意図が分かりにくい部分がいくつかあります。
 
-#### 3.3.1. filter.nameRegex を allowlist として使う
+#### 3.3.1. subdir で auto-discovery の対象を絞る
 
-`filter.nameRegex` は「このパターンに一致するスキルだけを含める」という allowlist フィルタです。
+スキルリポジトリのルート直下に `SKILL.md` がない場合、`subdir` で discovery の起点を指定します。
 
-`databricks-official` ソースの例を見ると、
+`drawio-mcp` リポジトリの例では、`SKILL.md` は `skill-cli/drawio/SKILL.md` にあります。
+`subdir = "skill-cli"` を指定すると、auto-discovery が `skill-cli/` 以下を探索して `drawio` スキルを発見します。
+
+```{.nix filename="agent-skills.nix"}
+drawio-mcp = {
+  path = inputs.drawio-mcp;
+  subdir = "skill-cli";
+};
+```
+
+#### 3.3.2. 重複するスキル名への対処
+
+複数のソースに同名のスキルが存在する場合、2つの方法で対処できます。
+
+1つ目は `filter.nameRegex` による allowlist フィルタです。
+指定した正規表現に一致するスキルだけが auto-discovery の対象になります。
 
 ```{.nix filename="agent-skills.nix"}
 databricks-official = {
@@ -238,35 +253,15 @@ databricks-official = {
 };
 ```
 
-`databricks`、`databricks-apps`、`databricks-pipelines` にマッチするスキルだけを含め、`databricks-jobs` は除外するという意味です。
-コメントにある通り、ai-dev-kit 側に同名スキルが存在するための回避策です。
+`databricks`、`databricks-apps`、`databricks-pipelines` だけを含め、`databricks-jobs` は除外しています。
+ai-dev-kit 側に同名のスキルが存在するための回避策です。
 
-一方、`drawio-mcp` ソースでは全く逆の目的で使っています。
-
-```{.nix filename="agent-skills.nix"}
-drawio-mcp = {
-  path = inputs.drawio-mcp;
-  filter.nameRegex = "DISABLED"; # prevent auto-discovery; use skills.explicit
-};
-```
-
-`"DISABLED"` という文字列はいずれのスキル名にも一致しません。
-つまり意図的にマッチするものが存在しない正規表現を指定することで、auto-discovery を完全に無効化しています。
-
-このソースから読み込みたいスキルは後述の `skills.explicit` で個別に指定するため、自動探索は不要というわけです。
-
-#### 3.3.2. skills.explicit でリネームして重複を解決する
-
-`skills.explicit` は `enableAll = true` と組み合わせて使えます。
-自動探索では読み込まれないスキルを個別に指定したり、名前を変えてロードしたりするための仕組みです。
+2つ目は `skills.explicit` と `rename` の組み合わせです。
+除外した側のスキルを別名でロードすることで、両方を共存させられます。
 
 ```{.nix filename="agent-skills.nix"}
 skills = {
   enableAll = true;
-  explicit.drawio-skills = {
-    from = "drawio-mcp";
-    path = "skill-cli/drawio";
-  };
   explicit.databricks-jobs-bundles = {
     from = "databricks-official";
     path = "databricks-jobs";
@@ -275,12 +270,7 @@ skills = {
 };
 ```
 
-`drawio-skills` は `drawio-mcp` ソースの `skill-cli/drawio` サブディレクトリを明示的にロードしています。
-auto-discovery を `"DISABLED"` で止めておいて、必要なパスだけ explicit で取り出すという構成です。
-
-`databricks-jobs-bundles` は `databricks-official` ソースの `databricks-jobs` スキルを `databricks-jobs-bundles` という別名でロードしています。
-`ai-dev-kit` 側にも `databricks-jobs` という名前のスキルが存在するため、そのまま読み込むと衝突します。
-`rename` を使って名前を変えることで両方を共存させています。
+`databricks-official` ソースの `databricks-jobs` を `databricks-jobs-bundles` という別名でロードしています。
 
 #### 3.3.3. excludePatterns で Codex CLI のシステムスキルを守る
 
