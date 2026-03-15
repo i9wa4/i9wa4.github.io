@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
-date: 2026-03-15 16:17:53 +0900
+date: 2026-03-15 16:21:50 +0900
 date-modified: last-modified
 description: |
   禁止コマンドリスト・MCPサーバー・Agent Skills の3つを Nix home-manager で一元管理する方法。
@@ -65,7 +65,7 @@ Nix のリストとして禁止コマンドを定義し、2つの異なるエン
 | argv          | Codex CLI の prefix_rule 用トークン配列                |
 | justification | Codex CLI が拒否時に表示するメッセージ                 |
 
-これをコンシューマ側がそれぞれ読み取ります。
+これをツール設定側でそれぞれ読み取ります。
 
 Claude Code 側 (`claude-code.nix`) では、
 
