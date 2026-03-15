@@ -163,7 +163,7 @@ hook のみのエントリの場合:
 
 | 生成先                               | 生成内容                                              |
 | ------------------------------------ | ----------------------------------------------------- |
-| `~/.claude/bash-deny-patterns.sh`    | DENY_PATTERNS に `'git.*push'`、DENY_JUSTIFICATIONS に `'pushing is denied'` を追加 |
+| `~/.claude/scripts/bash-deny-patterns.sh`    | DENY_PATTERNS に `'git.*push'`、DENY_JUSTIFICATIONS に `'pushing is denied'` を追加 |
 | `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["git", "push"], decision = "forbidden", justification = "pushing is denied")` を追加 |
 | `~/.claude/settings.json`            | 変更なし                                              |
 
@@ -175,7 +175,7 @@ hook のみのエントリの場合:
 
 | 生成先                               | 生成内容                                              |
 | ------------------------------------ | ----------------------------------------------------- |
-| `~/.claude/bash-deny-patterns.sh`    | DENY_PATTERNS に `'\brm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
+| `~/.claude/scripts/bash-deny-patterns.sh`    | DENY_PATTERNS に `'\brm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
 | `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["rm"], decision = "forbidden", justification = "rm is denied; use mv /tmp/ instead")` を追加 |
 | `~/.claude/settings.json`            | permissions.deny に `Bash(rm *)` を追加               |
 
@@ -230,16 +230,24 @@ exit 0
 パターンファイルのパスは `claude-code.nix` から引数として渡されます。
 
 ```{.nix filename="claude-code.nix"}
-bashDenyPatternsRelPath = ".claude/bash-deny-patterns.sh";
+# repo scripts + generated patterns file を1つの Nix store ディレクトリに合成
+scriptsDir = pkgs.runCommand "claude-scripts" { } ''
+  mkdir -p $out
+  for f in ${../../../agents/scripts}/*; do
+    ln -s "$f" "$out/$(basename "$f")"
+  done
+  ln -s ${deniedBash.claudeCode.patternsFile} $out/bash-deny-patterns.sh
+'';
 
 # hooks.PreToolUse
-command = "~/.claude/scripts/claude-pretooluse-bash-deny.sh ~/${bashDenyPatternsRelPath}";
+command = "$CLAUDE_CONFIG_DIR/scripts/claude-pretooluse-bash-deny.sh $CLAUDE_CONFIG_DIR/scripts/bash-deny-patterns.sh";
 
 # home.file (Nix store symlink)
-"${bashDenyPatternsRelPath}".source = deniedBash.claudeCode.patternsFile;
+".claude/scripts".source = scriptsDir;
 ```
 
-パスを1箇所で定義しているため、生成先を変更してもスクリプトの修正は不要です。
+スクリプトと生成ファイルが同じディレクトリに配置されるため、パスの管理がシンプルになります。
+`$CLAUDE_CONFIG_DIR` は Claude Code が設定する環境変数で、通常は `~/.claude` を指します。
 
 ### 2.2. MCP サーバー設定
 
