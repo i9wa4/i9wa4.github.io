@@ -19,7 +19,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 「git push を禁止する」「context7 MCP サーバーを使う」といったルールを、両方のツール用に別々のファイルへ書いていると、片方を更新したときにもう片方へのバックポートを忘れます。
 実際に忘れました。
 
-そこで Nix home-manager を使って3つの設定要素を SSOT (Single Source of Truth) 化しました。
+そこで Nix home-manager を使って設定要素を SSOT (Single Source of Truth) 化しました。
 設定は `nix/home-manager/agents/` ディレクトリ以下にまとめています。
 
 | ファイル                 | 役割                                           |
@@ -27,10 +27,11 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 | denied-bash-commands.nix | 拒否コマンドリスト (Claude Code + Codex CLI)   |
 | mcp-servers.nix          | 共有 MCP サーバー定義                          |
 | agent-skills.nix         | Agent Skills の宣言的管理                      |
+| subagents/               | 専門調査エージェントの役割定義 (7種)           |
 | claude-code.nix          | Claude Code の home-manager モジュール         |
 | codex-cli.nix            | Codex CLI の home-manager モジュール           |
 
-## 2. SSOT 化した3つの要素
+## 2. SSOT 化した要素
 
 ### 2.1. 拒否コマンドリスト
 
@@ -448,6 +449,26 @@ in
 `excludePatterns = [ "/.system" ]` は、エージェントが実行時に `skills/` 配下に書き込む `.system/` ディレクトリを rsync 対象から除外するための設定です。
 これがないと `home-manager switch` のたびに実行時状態が消えます。
 
+### 2.4. サブエージェント
+
+`subagents/` には Claude Code の Agent ツールで呼び出せる専門調査エージェントの役割定義が入っています。
+
+各ファイルは Markdown で書かれた役割定義で、Nix では管理せず dotfiles リポジトリに直接置いています。
+`AGENTS.md` のセクション 9.3 でエージェントの一覧と用途を参照できます。
+
+| エージェント          | 用途                                    |
+| --------------------- | --------------------------------------- |
+| researcher-tech       | 技術調査・リサーチ                      |
+| reviewer-architecture | 設計パターン・構造レビュー              |
+| reviewer-code         | コード品質・可読性レビュー              |
+| reviewer-data         | データ品質・スキーマ設計レビュー        |
+| reviewer-historian    | コンテキスト・変更経緯の把握            |
+| reviewer-qa           | テストカバレッジ・エッジケースレビュー  |
+| reviewer-security     | セキュリティ・脆弱性レビュー            |
+
+denied-bash-commands・mcp-servers・agent-skills の3つが Nix 管理の設定要素であるのに対し、
+`subagents/` はプロンプト定義のため通常の Markdown ファイルとして dotfiles に置き、`AGENTS.md` から参照します。
+
 ## 3. 実装のはまりポイント
 
 ### 3.1. settings.json はシンボリックリンクにできない
@@ -582,11 +603,12 @@ excludePatterns = [ "/.system" ];
 
 ### 4.1. SSOT 化した3要素
 
-| 要素           | ファイル                 | 読み込み先                        |
-| -------------- | ------------------------ | --------------------------------- |
-| 拒否コマンド   | denied-bash-commands.nix | claude-code.nix, codex-cli.nix    |
-| MCP サーバー   | mcp-servers.nix          | claude-code.nix, codex-cli.nix    |
-| Agent Skills   | agent-skills.nix         | ~/.claude/skills, ~/.codex/skills |
+| 要素              | ファイル / ディレクトリ  | 読み込み先                        |
+| ----------------- | ------------------------ | --------------------------------- |
+| 拒否コマンド      | denied-bash-commands.nix | claude-code.nix, codex-cli.nix    |
+| MCP サーバー      | mcp-servers.nix          | claude-code.nix, codex-cli.nix    |
+| Agent Skills      | agent-skills.nix         | ~/.claude/skills, ~/.codex/skills |
+| サブエージェント  | subagents/               | AGENTS.md (section 9.3)           |
 
 ### 4.2. やってみて
 
