@@ -453,8 +453,25 @@ in
 
 `subagents/` には Claude Code の Agent ツールで呼び出せる専門調査エージェントの役割定義が入っています。
 
-各ファイルは Markdown で書かれた役割定義で、Nix では管理せず dotfiles リポジトリに直接置いています。
-`AGENTS.md` のセクション 9.3 でエージェントの一覧と用途を参照できます。
+各ファイルは YAML フロントマター (`name`, `description`, `model`) と Markdown 本文で構成されています。
+`subagents/*.md` が単一のソースで、ツールごとに異なる形式に変換されます。
+
+- `claude-code.nix` は `subagents/` を `~/.claude/agents/` にシンボリックリンクし、生の `.md` ファイルを Claude Code に渡します。
+- `codex-cli.nix` は Nix ビルド時に各 `.md` を `.toml` に変換し、`~/.codex/agents/` に配置します。`model` フィールドは削除されるため、エージェントは親セッションのモデルを継承します。
+
+```{.nix filename="codex-cli.nix"}
+codexAgentsDir = pkgs.runCommand "codex-agents" { } ''
+  mkdir -p $out
+  for md in ${./subagents}/*.md; do
+    basename="$(basename "$md" .md)"
+    agent_name="$(${pkgs.gnused}/bin/sed -n 's/^name: //p' "$md")"
+    description="$(${pkgs.gnused}/bin/sed -n 's/^description: //p' "$md")"
+    body="$(${pkgs.gawk}/bin/awk 'BEGIN{n=0} /^---$/{n++; next} n>=2{print}' "$md")"
+    printf 'name = "%s"\ndescription = "%s"\ndeveloper_instructions = """\n%s\n"""\n' \
+      "$agent_name" "$description" "$body" > "$out/$basename.toml"
+  done
+'';
+```
 
 | エージェント          | 用途                                    |
 | --------------------- | --------------------------------------- |
@@ -466,8 +483,8 @@ in
 | reviewer-qa           | テストカバレッジ・エッジケースレビュー  |
 | reviewer-security     | セキュリティ・脆弱性レビュー            |
 
-denied-bash-commands・mcp-servers・agent-skills の3つが Nix 管理の設定要素であるのに対し、
-`subagents/` はプロンプト定義のため通常の Markdown ファイルとして dotfiles に置き、`AGENTS.md` から参照します。
+`subagents/` は denied-bash-commands・mcp-servers・agent-skills と同様に Nix が管理する要素です。
+`subagents/*.md` を1箇所更新して `home-manager switch` を実行するだけで、Claude Code と Codex CLI の両方に反映されます。
 
 ## 3. 実装のはまりポイント
 
