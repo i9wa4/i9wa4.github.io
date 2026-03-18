@@ -7,7 +7,7 @@ categories:
 date: 2026-03-15 16:21:50 +0900
 date-modified: last-modified
 description: |
-  拒否コマンドリスト・MCPサーバー・Agent Skills の3つを Nix home-manager で一元管理する方法。
+  拒否コマンドリスト・MCPサーバー・Agent Skills・サブエージェント の4つを Nix home-manager で一元管理する方法。
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -618,7 +618,7 @@ excludePatterns = [ "/.system" ];
 
 ## 4. まとめ
 
-### 4.1. SSOT 化した3要素
+### 4.1. SSOT 化した4要素
 
 | 要素              | ファイル / ディレクトリ  | 読み込み先                        |
 | ----------------- | ------------------------ | --------------------------------- |
