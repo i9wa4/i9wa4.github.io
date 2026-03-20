@@ -34,7 +34,7 @@ Claude Code と Codex CLI は両方ともアップデートが頻繁で、新機
 claude --version
 ```
 
-出力例:
+出力例
 
 ```text
 2.1.76 (Claude Code)
@@ -120,7 +120,7 @@ uvx --from git+https://github.com/laiso/site2skill site2skill <URL> <SKILL_NAME>
 codex --version
 ```
 
-出力例:
+出力例
 
 ```text
 codex-cli 0.115.0
