@@ -1,0 +1,320 @@
+---
+title: "Claude Code と Codex CLI の情報収集術"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-03-21 20:30:00 +0900
+date-modified: last-modified
+description: |
+  Claude Code と Codex CLI それぞれの情報源の場所・取得方法・読み方を具体的なコマンド付きで整理する。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. はじめに
+
+Claude Code と Codex CLI は両方ともアップデートが頻繁で、新機能や破壊的変更の追い方にそれぞれコツがあります。
+
+[以前の記事](2026-03-15-agent-config-ssot-nix.qmd)では設定を Nix で SSOT 化する方法を書きました。
+今回はその前段階にあたる「ツールの変化をどうやって把握するか」という情報収集のワークフローを整理します。
+
+2つのツールで情報源の場所が違い、取得コマンドも異なります。
+この記事では「どこにあるか・どう取得するか・どう読むか」を具体的なコマンド付きで示します。
+
+なお、この記事で紹介する手順の多くは `/claude-config-optimizer` と `/codex-config-optimizer` スキルにも記載があります。
+スキルは実際の作業時の参照用、この記事は概念の整理用として使い分けています。
+
+## 2. Claude Code の情報収集
+
+### 2.1. インストール済みバージョンの確認
+
+まずローカルにインストールされているバージョンを確認します。
+
+```{.sh filename="terminal"}
+claude --version
+```
+
+出力例:
+
+```text
+2.1.76 (Claude Code)
+```
+
+このバージョン番号を起点にします。
+CHANGELOG を読む際はこのバージョン以下の変更のみを対象にします。
+ローカルにない新しいバージョンの変更を先取りして読んでも、実際の動作と一致しないためです。
+
+### 2.2. CHANGELOG の取得
+
+Claude Code の変更履歴は GitHub リポジトリの `CHANGELOG.md` にあります。
+Contents API 経由で取得し、base64 デコードが必要です。
+
+```{.sh filename="terminal"}
+FILE=$(mkoutput --dir tmp --label claude-code-changelog)
+gh api repos/anthropics/claude-code/contents/CHANGELOG.md \
+  --jq '.content' | base64 -d > "$FILE"
+```
+
+`mkoutput` はセッションごとの作業ファイルを管理するコマンドです。
+出力先を git 管理外の `~/.local/state/mkoutput/` 以下に自動で決めてくれます。
+
+### 2.3. 対象バージョンのセクション確認
+
+取得した CHANGELOG を開いて、インストール済みバージョンの `## <version>` セクションを探します。
+
+```{.sh filename="terminal"}
+grep "^## " "$FILE" | head -20
+```
+
+各バージョンのセクション見出しが一覧されます。
+確認したいバージョンのセクション範囲を絞って読むと効率的です。
+
+変更内容は大まかに次の種別に分かれています。
+
+| 種別       | 内容                                       |
+| ---------- | ------------------------------------------ |
+| Added      | 新機能の追加                               |
+| Fixed      | バグ修正                                   |
+| Improved   | 既存機能の改善                             |
+| Deprecated | 将来削除予定の機能                         |
+
+### 2.4. 破壊的変更の検出
+
+`Deprecated`、`Removed`、`Breaking`、`Changed` の語を検索します。
+
+```{.sh filename="terminal"}
+grep -i "deprecated\|removed\|breaking\|changed" "$FILE"
+```
+
+このコマンドは CHANGELOG 全体を対象にするため、インストール済みより新しいバージョンの変更も含まれます。
+ヒットした行が自分のバージョン以下のセクションにあるかを確認してから、設定ファイル (`~/.claude/settings.json`、`CLAUDE.md` など) への影響を判断してください。
+
+### 2.5. 仕様の詳細調査
+
+ドキュメントに明示されていない動作や設定の詳細を調べたい場合、`claude-code-guide` スキルが役立ちます。
+これは `/claude-config-optimizer` で管理される managed skill で、Claude Code の仕様調査に特化した知識を持ちます。
+
+Claude Code の Agent ツールから Task として呼び出すと、組み込みドキュメントに基づいた回答を返してくれます。
+
+Codex CLI には `claude-code-guide` に相当する専用スキルが見当たらないため、この調べ方は現時点では Claude Code 側で特に有効です。
+
+### 2.6. ドキュメントをスキルに変換する (site2skill)
+
+公式ドキュメントや外部サイトをエージェントスキルに変換するツールとして `site2skill` があります。
+
+```{.sh filename="terminal"}
+uvx --from git+https://github.com/laiso/site2skill site2skill <URL> <SKILL_NAME>
+```
+
+`uvx --from git+https://...` という形式は、このプロジェクトの Nix ファースト方針に対する意図的な例外です。
+`site2skill` は活発に開発が続いており、Nix derivation で固定するとすぐに古くなります。
+そのため git リポジトリから直接 `uvx` で実行することにしています。
+
+なお、この形式はリポジトリの HEAD を都度実行するため、本番環境で継続利用する場合はコミット SHA やタグを固定することを推奨します。
+
+## 3. Codex CLI の情報収集
+
+### 3.1. インストール済みバージョンの確認
+
+```{.sh filename="terminal"}
+codex --version
+```
+
+出力例:
+
+```text
+codex-cli 0.115.0
+```
+
+Claude Code と同様に、このバージョン以下のリリースを分析対象にします。
+ローカルバージョンより新しいリリースの変更内容は参考程度にとどめます。
+
+Codex CLI は `CHANGELOG.md` ではなく GitHub Releases ページを情報源にしています。
+この点が Claude Code と大きく異なります。
+
+### 3.2. インストール済みバージョンのリリースノートを取得
+
+タグを直接指定して取得することで、インストール済みバージョンのリリースノートのみを確実に得られます。
+
+```{.sh filename="terminal"}
+LOCAL_VERSION=$(codex --version | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+')
+FILE=$(mkoutput --dir tmp --label codex-releases)
+gh api "repos/openai/codex/releases/tags/rust-v${LOCAL_VERSION}" > "$FILE"
+```
+
+タグの形式は `rust-v<version>` です (例: `rust-v0.115.0`)。
+バージョン番号だけのタグではないので注意が必要です。
+
+### 3.3. リリースノートの内容を確認
+
+取得した JSON の `body` フィールドにリリースノートの本文が入っています。
+
+```{.sh filename="terminal"}
+jq '{tag_name, body}' "$FILE"
+```
+
+Markdown 形式で書かれているため、そのまま読めます。
+
+### 3.4. 破壊的変更の検出
+
+リリースノートの本文から影響のある語を検索します。
+
+```{.sh filename="terminal"}
+jq -r '.body' "$FILE" | grep -i "breaking\|removed\|deprecated"
+```
+
+該当行が見つかれば、リリースノートの該当箇所を読んでマイグレーションパスを確認してから、設定ファイル (`~/.codex/config.toml`、`rules/` など) への影響を判断します。
+
+### 3.5. ドキュメントをスキルに変換する (site2skill)
+
+Claude Code と同様に、`site2skill` で Codex CLI 向けのドキュメントをスキルに変換できます。
+手順は [Section 2.6](#ドキュメントをスキルに変換する-site2skill) と同一です。
+
+## 4. まとめ
+
+### 4.1. 情報収集の比較
+
+| 項目             | Claude Code                        | Codex CLI                       |
+| ---------------- | ---------------------------------- | ------------------------------- |
+| バージョン確認   | `claude --version`                 | `codex --version`               |
+| 情報源           | CHANGELOG.md (GitHub Contents API) | GitHub Releases API             |
+| タグ形式         | `## <version>`                     | `rust-v<version>`               |
+| 仕様詳細調査     | claude-code-guide サブエージェント | releases 本文 + コード読解      |
+| ドキュメント変換 | site2skill                         | site2skill (同様)               |
+
+### 4.2. スコープガードの習慣
+
+両ツールとも「ローカルバージョン以下に絞る」という制約を忘れないようにしています。
+新しいバージョンの変更を先読みしても、実際の動作と合わなくて混乱するだけです。
+
+情報収集の手順は `/claude-config-optimizer` と `/codex-config-optimizer` スキルにも記載があるので、実作業中はそちらを参照してください。
+この記事は2つのツールの違いを並べて確認するための整理用として書きました。
+
+## 5. スキルとして使う
+
+### 5.1. スキルとは
+
+Claude Code のスキルは `~/.claude/skills/<name>/SKILL.md` に置くことで
+起動時に自動的に読み込まれます。以下のブロックをコピーして保存するだけで、
+`/changelog-fetch`・`/codex-release-check` コマンドとして呼び出せるようになります。
+追加後は Claude Code を再起動して読み込ませてください。
+
+なお、4.2 節で紹介した `/claude-config-optimizer` や `/codex-config-optimizer` スキルを
+すでに利用している場合はそちらで同等の操作が行えます。ここで紹介するのは
+それらをインストールしていない環境向けの最小構成です。
+
+スキルブロックは POSIX 標準の `mktemp` を使用しています。
+記事本文で使っている `mkoutput` はこのリポジトリ固有のコマンドのため、
+一般の読者環境では使用できません。
+
+前提条件として `gh` と `jq` が必要です。
+`### 5.3.` の codex-release-check スキルを使う場合はさらに `codex` が必要です。
+
+```{.sh filename="terminal"}
+gh auth status   # gh が認証済みであることを確認する
+jq --version     # jq がインストール済みであることを確認する
+```
+
+### 5.2. changelog-fetch スキル
+
+以下のブロックを `~/.claude/skills/changelog-fetch/SKILL.md` にコピーして保存します。
+
+```{.sh filename="terminal"}
+mkdir -p ~/.claude/skills/changelog-fetch
+```
+
+````{.markdown filename="~/.claude/skills/changelog-fetch/SKILL.md"}
+---
+name: changelog-fetch
+description: |
+  Claude Code の CHANGELOG をインストール済みバージョンに絞って確認する。
+  Use when:
+  - User says "changelog" or "updates" about Claude Code
+  - Checking for breaking changes before upgrading
+---
+
+# Changelog Fetch Skill
+
+## 1. インストール済みバージョンを確認する
+
+```sh
+claude --version
+```
+
+この番号以下の CHANGELOG セクションのみを分析対象にする。
+
+## 2. CHANGELOG を取得する
+
+```sh
+FILE=$(mktemp /tmp/claude-changelog-XXXXXX.md)
+gh api repos/anthropics/claude-code/contents/CHANGELOG.md \
+  --jq '.content' | base64 --decode > "$FILE"
+echo "Saved to $FILE"
+```
+
+## 3. バージョンセクション一覧を確認する
+
+```sh
+grep "^## " "$FILE" | head -20
+```
+
+## 4. 破壊的変更を検索する
+
+```sh
+grep -i "deprecated\|removed\|breaking\|changed" "$FILE"
+```
+
+インストール済みバージョン以下のセクションのヒットのみを確認する。
+````
+
+### 5.3. codex-release-check スキル
+
+以下のブロックを `~/.claude/skills/codex-release-check/SKILL.md` にコピーして保存します。
+
+```{.sh filename="terminal"}
+mkdir -p ~/.claude/skills/codex-release-check
+```
+
+````{.markdown filename="~/.claude/skills/codex-release-check/SKILL.md"}
+---
+name: codex-release-check
+description: |
+  インストール済みバージョンの Codex CLI リリースノートを取得して確認する。
+  Use when:
+  - User says "codex changelog" or "codex updates"
+  - Checking for breaking changes in Codex CLI
+---
+
+# Codex Release Check Skill
+
+タグ形式は `rust-v<version>` (例: `rust-v0.115.0`)。
+
+## 1. インストール済みバージョンを確認する
+
+```sh
+codex --version
+```
+
+このバージョン以下のリリースのみを分析対象にする。
+
+## 2. リリースノートを取得する
+
+```sh
+LOCAL_VERSION=$(codex --version | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+')
+FILE=$(mktemp /tmp/codex-releases-XXXXXX.json)
+gh api "repos/openai/codex/releases/tags/rust-v${LOCAL_VERSION}" > "$FILE"
+echo "Saved to $FILE"
+```
+
+## 3. 内容を確認する
+
+```sh
+jq '{tag_name, body}' "$FILE"
+```
+
+## 4. 破壊的変更を検索する
+
+```sh
+jq -r '.body' "$FILE" | grep -i "breaking\|removed\|deprecated"
+```
+````
