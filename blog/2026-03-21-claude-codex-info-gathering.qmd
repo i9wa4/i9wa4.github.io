@@ -318,3 +318,103 @@ jq '{tag_name, body}' "$FILE"
 jq -r '.body' "$FILE" | grep -i "breaking\|removed\|deprecated"
 ```
 ````
+
+## 6. optimizer スキルの中身
+
+Claude Code と Codex CLI それぞれに `optimizer` スキルが存在し、設定管理・CHANGELOG
+確認・最適化チェックの指針をまとめています。この節では、スキルをインストールしていない
+読者のためにスキルの主要な情報を抜粋します。
+
+### 6.1. CHANGELOG 操作の種類
+
+3種類の操作が定義されています。いずれもローカルにインストール済みのバージョン以下に
+分析対象を限定します。
+
+| 操作              | 内容                                                                            |
+| ----------------- | ------------------------------------------------------------------------------- |
+| 最新リリース要約  | ローカルバージョンのリリースノートを取得し、Added/Fixed/Improved/Deprecated に分類する |
+| バージョン差分    | 指定した起点バージョンからローカルバージョンまでの累積変更を一覧する                |
+| 破壊的変更の検出  | Deprecated/Removed/Breaking/Changed のキーワードを検索し、設定ファイルへの影響を確認する |
+
+CHANGELOG の取得方法は [Section 2](#claude-code-の情報収集) (Claude Code) と
+[Section 3](#codex-cli-の情報収集) (Codex CLI) を参照してください。
+
+### 6.2. 設定カテゴリ
+
+#### Claude Code (`~/.claude/settings.json`)
+
+| カテゴリ | 設定例                               |
+| -------- | ------------------------------------ |
+| Display  | `showTurnDuration`, `language`       |
+| Behavior | `respectGitignore`, `autoUpdate`     |
+| Tools    | `disallowedTools`, `allowedTools`    |
+| MCP      | MCP サーバ設定                       |
+| Hooks    | PreToolUse, PostToolUse, Stop フック |
+| Plans    | `plansDirectory`                     |
+
+#### Codex CLI (`~/.codex/config.toml`)
+
+| カテゴリ  | 設定例                                               |
+| --------- | ---------------------------------------------------- |
+| Model     | `model`, `model_reasoning`, `model_reasoning_effort` |
+| Behavior  | `approval_mode`, `sandbox`, `network_access`         |
+| Display   | `notify`, `tui.notifications_method`                 |
+| Shell     | `shell_environment_commands`                         |
+| History   | `history`, `project_doc_max_bytes`                   |
+| Features  | `features.skills`, `features.web_search_request`     |
+| Disable   | `disable_response_storage`, `hide_agent_*`           |
+| Analytics | `analytics.enabled`, `feedback.enabled`              |
+
+### 6.3. CLAUDE.md / AGENTS.md の設計方針
+
+optimizer スキルは設定ファイルに書く内容の取捨選択基準を定義しています。
+
+| 書く内容                                  | 書かない内容                                 |
+| ----------------------------------------- | -------------------------------------------- |
+| Claude が推測できないコマンド             | コードを読めばわかること                     |
+| デフォルトと異なるコードスタイルのルール  | Claude が既知の標準的な言語慣習              |
+| テスト手順・推奨テストランナー            | 詳細な API ドキュメント（リンクで代替）      |
+| リポジトリの作法（ブランチ名、PR ルール） | 頻繁に変わる情報                             |
+| プロジェクト固有のアーキテクチャ決定      | 長い説明やチュートリアル                     |
+| 環境の特殊事情（必須の環境変数など）      | コードベースのファイルごとの説明             |
+| よくある落とし穴や非自明な動作            | 自明な慣習（「クリーンなコードを書く」など） |
+
+各行の確認: 「この行を削除したら Claude が間違いを犯すか?」 そうでなければ削除する。
+Codex CLI の AGENTS.md も同じ原則が適用されます。追加の制約として、Claude Code 固有の
+構文（TodoWrite など）を含めないことが必要です。
+
+### 6.4. 設定種別と読み込みタイミング (Claude Code)
+
+| 種別               | 読み込みタイミング     | 用途                           |
+| ------------------ | ---------------------- | ------------------------------ |
+| CLAUDE.md / rules/ | 起動時に全量読み込み   | 常時適用されるグローバルルール |
+| commands/          | ユーザーが明示的に呼出 | 定型プロンプト・ワークフロー   |
+| skills/            | 会話の流れで自動起動   | 専門知識の注入                 |
+| agents/            | Task ツール経由で委譲  | 独立したコンテキストで実行     |
+
+### 6.5. 最適化チェックリスト
+
+optimizer スキルには定期メンテナンス用のチェックリストが含まれています。
+
+#### CLAUDE.md / AGENTS.md の確認項目
+
+- ペルソナ定義は簡潔か
+- 基本ルールは本当に常時必要か
+- 詳細説明を rules/ や skills/ に移せるか
+- 参照リンクを skills に移したか
+- 各行が「削除すると Claude が誤る」テストに合格するか
+- 大きなドキュメントセクションに @import を使っているか
+- ファイルが短く、中間のルールが無視されない長さか
+
+#### Claude Code の `settings.json` パーミッション
+
+- deny ルールが現行構文 `Bash(cmd *)` を使っているか (非推奨の `:*` は廃止)
+- 重要なコマンドがブロックされているか (`git push`, `rm`, `sudo` など)
+- `git -C *` がブロックされているか
+- `defaultMode` が適切か ("plan" または "dontAsk")
+- 機密パスがブロックされているか (`.ssh`, `.env`, tokens など)
+
+#### Codex CLI の `config.toml`
+
+- `approval_mode` は適切か
+- AGENTS.md に Claude Code 固有の構文が混入していないか
