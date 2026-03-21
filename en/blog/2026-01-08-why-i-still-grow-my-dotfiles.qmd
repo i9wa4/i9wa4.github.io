@@ -1,0 +1,194 @@
+---
+title: "Why I Still Grow My Dotfiles in the Age of AI Coding Agents"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-01-08 01:24:41 +0900
+date-modified: last-modified
+description: |
+  AI coding agent features will converge across IDEs and terminals. What remains is the ability to build your own development environment. That's why dotfiles still matter.
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. What Claude Code's Evolution Tells Us
+
+Claude Code has been shipping features at a staggering pace.
+Background agent execution, `/teleport` for handing off CLI sessions to web/mobile, subagent hooks, mobile notifications for long-running tasks --- the list goes on.
+
+My first reaction was:
+
+**"You can only do this in a terminal" will not be true for much longer.**
+
+## 2. Feature Comparisons Are Becoming Meaningless
+
+### 2.1. The Current Advantage
+
+As of early 2026, the terminal + Claude Code combination still has some advantages. With tmux, you can run unlimited parallel agents in the same directory on different tasks.
+
+But looking at the development roadmap, this gap is closing.
+
+### 2.2. Convergence Is Inevitable
+
+Claude Code's VS Code extension uses the same configuration files as the terminal version:
+
+```text
+.claude/
+  CLAUDE.md
+  rules/
+  skills/
+  agents/
+  commands/
+```
+
+**Claude Code's features are interface-agnostic.** The configuration you're carefully building works everywhere.
+
+So why choose the terminal at all?
+
+## 3. What Remains: The Ability to Build Your Environment
+
+### 3.1. The Real Value of Terminal Environments
+
+The real value of a terminal environment is not something you can compare in a feature matrix.
+
+**The real value is that you can define your entire development environment in text files and manage it with Git.**
+
+### 3.2. Unix Philosophy
+
+The Claude Code documentation itself says it:
+
+> ## Why developers love Claude Code
+>
+> - **Works in your terminal:** Not another chat window. Not another IDE. Claude Code meets you where you already work, with the tools you already love.
+>
+> - **Unix philosophy:** Claude Code is composable and scriptable.
+>
+> --- [Claude Code Overview](https://code.claude.com/docs/en/overview)
+
+In a terminal environment, you can combine AI agents with shell scripts and other CLI tools to build a development environment that is uniquely yours.
+
+### 3.3. Every Layer Is Replaceable
+
+In a terminal environment, every tool is swappable:
+
+| Layer               | Options                            | Swappable? |
+| ------------------- | ---------------------------------- | ---------- |
+| Terminal emulator   | Ghostty, WezTerm, iTerm2, Kitty    | Yes        |
+| Terminal multiplexer | tmux, zellij, screen              | Yes        |
+| Shell               | zsh, bash, fish                    | Yes        |
+| Text editor         | Neovim, Vim, Emacs, Helix          | Yes        |
+| AI coding agent     | Claude Code, Codex CLI, Gemini CLI | Yes        |
+
+Each layer evolves independently.
+
+I've switched my terminal emulator from Alacritty to Ghostty to WezTerm recently, and my development experience hasn't changed at all. My tmux, Vim, and Zsh keybindings are tuned to work together across all of them.
+
+## 4. The Case for Dotfiles
+
+### 4.1. What Are Dotfiles?
+
+Dotfiles is the culture of managing your home directory configuration files with Git.
+
+A typical structure looks like this:
+
+```text
+dotfiles/
+  .config/
+    claude/      # AI coding agent config
+    tmux/        # Terminal multiplexer config
+    wezterm/     # Terminal emulator config
+    nvim/        # Text editor config
+  .zshrc         # Shell config
+  bin/           # Custom scripts
+```
+
+### 4.2. Why Grow Your Dotfiles?
+
+#### 4.2.1. Reproducibility
+
+`git clone` and a few commands give you the same environment on any new machine.
+
+The confidence that you can always reproduce your setup motivates you to invest in making it better.
+
+#### 4.2.2. Evolution History
+
+Every configuration change is tracked in Git.
+
+You can always trace why you made a change and easily revert to a previous state.
+
+#### 4.2.3. Accumulated Knowledge
+
+Dotfiles are a concrete expression of "how I want to work."
+
+Configuration refined over years becomes an asset you can't get anywhere else.
+
+#### 4.2.4. Sharing and Learning
+
+You can learn from others' dotfiles and share your own.
+
+Since dotfiles are text files, you can feed them to an AI and ask "What does this configuration do?" or "How can I adopt this in my setup?" The barrier to understanding someone else's complex configuration has dropped dramatically.
+
+### 4.3. Claude Code Config + Surrounding Tools = Your Ultimate Environment
+
+Claude Code configuration alone works in IDEs too. But...
+
+```text
+dotfiles/
+  .config/
+    claude/         # <- Works in IDEs too
+      CLAUDE.md
+      rules/
+      agents/
+      commands/
+
+    tmux/           # <- Terminal-only
+      tmux.conf
+
+    wezterm/        # <- Terminal-only
+      wezterm.lua
+
+  .zshrc            # <- Terminal-only
+
+  bin/              # <- Terminal-only
+```
+
+Claude Code config is a **point**. Your entire dotfiles are a **surface**.
+
+The integration with surrounding tools lets AI blend into your entire development workflow.
+
+## 5. Getting Started with Dotfiles
+
+Dotfiles aren't built in a day. You grow them gradually, picking up new ideas as you go.
+
+Start small --- perhaps with your Claude Code configuration --- and expand from there.
+
+Some resources to get started:
+
+- [Getting Started with Dotfiles - Dries Vints](https://www.driesvints.com/blog/getting-started-with-dotfiles/)
+- [GitHub does dotfiles](https://dotfiles.github.io/)
+
+## 6. Summary
+
+### 6.1. Features Will Converge
+
+As Claude Code's `/teleport` and background execution show, the feature gap between terminal and IDE is disappearing.
+
+### 6.2. What Remains Is "Environment Building"
+
+The value of a terminal environment is that it is programmable, composable, swappable, and portable. An environment defined entirely in text files and managed with Git will not lose its shine even after AI agent features converge.
+
+### 6.3. Grow Your Dotfiles
+
+Claude Code config works in IDEs too. But...
+
+- Workflow automation with scripts
+- Integration with custom tools and bleeding-edge CLIs
+- Unified keybindings across multiple tools
+
+These are only possible in an environment you build yourself.
+
+### 6.4. And Most Importantly
+
+**Dotfiles are fun. I highly recommend it. Let your setup reflect how you live and work.**
+
+That's all I wanted to say.

@@ -1,0 +1,25 @@
+---
+title: "Blog (EN)"
+listing:
+  - id: "all"
+    contents:
+      - "."
+    exclude:
+      filename:
+        - "index.qmd"
+    feed: true
+    fields:
+      - "title"
+      - "date"
+      - "image"
+      - "categories"
+      - "description"
+    sort:
+      - "date desc"
+      - "title"
+    type: default
+share: false
+---
+
+::: {#all}
+:::

@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 env:
-  CONTENT_DIRS: blog resume root slides zenn
+  CONTENT_DIRS: blog en/blog resume root slides zenn
   FEED_DIRS: blog
   FULL_REBUILD_TRIGGERS: _extensions/ _includes/ themes/ _quarto.yaml
 
@@ -54,6 +54,7 @@ jobs:
             _quarto.yaml
             assets/**
             blog/**
+            en/**
             resume/**
             slides/**
             themes/**
@@ -163,10 +164,16 @@ jobs:
             cp -r _site/site_libs "_site/${BUILD_DIR}/_site_libs"
           fi
 
+      - name: Sanitize artifact name
+        id: artifact
+        run: echo "name=site-${BUILD_DIR//\//-}" >> "$GITHUB_OUTPUT"
+        env:
+          BUILD_DIR: ${{ matrix.dir }}
+
       - name: Upload artifact
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          name: site-${{ matrix.dir }}
+          name: ${{ steps.artifact.outputs.name }}
           path: _site/${{ matrix.dir }}/
           retention-days: 1
 
@@ -206,7 +213,15 @@ jobs:
           mkdir -p _site
           for artifact_dir in _artifacts/site-*; do
             [ -d "$artifact_dir" ] || continue
-            dir_name="${artifact_dir##*/site-}"
+            artifact_name="${artifact_dir##*/site-}"
+            # Reverse artifact name sanitization (en-blog -> en/blog)
+            dir_name="${artifact_name}"
+            for dir in $CONTENT_DIRS; do
+              if [ "${dir//\//-}" = "$artifact_name" ]; then
+                dir_name="$dir"
+                break
+              fi
+            done
             # Merge _site_libs from each artifact
             if [ -d "$artifact_dir/_site_libs" ]; then
               mkdir -p _site/site_libs

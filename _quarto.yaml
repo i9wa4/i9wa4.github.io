@@ -6,6 +6,7 @@ project:
     - "blog/"
     - "resume/"
     - "slides/"
+    - "en/blog/"
     - "zenn/*.qmd"
     - "!zenn/raw/"
 
@@ -49,6 +50,8 @@ website:
     left:
       - text: "Blog"
         href: "blog/index.qmd"
+      - text: "Blog (EN)"
+        href: "en/blog/index.qmd"
       - text: "Zenn"
         href: "zenn/index.qmd"
       - text: "Slides"
