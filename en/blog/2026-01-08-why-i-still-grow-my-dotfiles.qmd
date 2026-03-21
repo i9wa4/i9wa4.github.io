@@ -13,9 +13,9 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 1. What Claude Code's Evolution Tells Us
 
-Boris Cherny, the creator of Claude Code, shared his workflow and the sheer volume of recent changes was staggering.
+Boris Cherny, the creator of Claude Code, announced the 2.1.0 release with a massive list of shipped features.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m Boris and I created Claude Code. Lots of people have asked how I use Claude Code, so I wanted to show off my setup a bit. My setup might be surprisingly vanilla! Claude Code works great out of the box, so I personally don&#39;t customize it much. There is no one correct way to <a href="https://t.co/EvXuMlnV5c">pic.twitter.com/EvXuMlnV5c</a></p>&mdash; Boris Cherny (@bcherny) <a href="https://twitter.com/bcherny/status/2007179832300581177?ref_src=twsrc%5Etfw">January 5, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Claude Code 2.1.0 is officially out! claude update to get it We shipped: - Shift+enter for newlines, w/ zero setup - Add hooks directly to agents &amp; skills frontmatter - Skills: forked context, hot reload, custom agent support, invoke with / - Agents no longer stop when you deny <a href="https://t.co/p29WlcdwoR">https://t.co/p29WlcdwoR</a></p>&mdash; Boris Cherny (@bcherny) <a href="https://twitter.com/bcherny/status/2009072293826453669?ref_src=twsrc%5Etfw">January 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Background agent execution, `/teleport` for handing off CLI sessions to web/mobile, subagent hooks, mobile notifications for long-running tasks --- the list goes on.
 
