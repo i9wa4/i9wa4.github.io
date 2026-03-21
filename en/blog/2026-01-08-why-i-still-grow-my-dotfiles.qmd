@@ -13,7 +13,10 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 1. What Claude Code's Evolution Tells Us
 
-Claude Code has been shipping features at a staggering pace.
+Boris Cherny, the creator of Claude Code, shared his workflow and the sheer volume of recent changes was staggering.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m Boris and I created Claude Code. Lots of people have asked how I use Claude Code, so I wanted to show off my setup a bit. My setup might be surprisingly vanilla! Claude Code works great out of the box, so I personally don&#39;t customize it much. There is no one correct way to <a href="https://t.co/EvXuMlnV5c">pic.twitter.com/EvXuMlnV5c</a></p>&mdash; Boris Cherny (@bcherny) <a href="https://twitter.com/bcherny/status/2007179832300581177?ref_src=twsrc%5Etfw">January 5, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Background agent execution, `/teleport` for handing off CLI sessions to web/mobile, subagent hooks, mobile notifications for long-running tasks --- the list goes on.
 
 My first reaction was:
@@ -127,6 +130,12 @@ Configuration refined over years becomes an asset you can't get anywhere else.
 You can learn from others' dotfiles and share your own.
 
 Since dotfiles are text files, you can feed them to an AI and ask "What does this configuration do?" or "How can I adopt this in my setup?" The barrier to understanding someone else's complex configuration has dropped dramatically.
+
+Here's a post from the Japanese developer community that captures this well. A developer recommends learning Claude Code configuration by reading another developer's dotfiles --- configuration knowledge that was common among dotfiles enthusiasts but hadn't spread to the wider community.
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ryoppippiからclaude codeの設定を学ぶといいので、みんなryoppippiのdotfilesも見ような<a href="https://t.co/RduDuxgLml">https://t.co/RduDuxgLml</a> <a href="https://t.co/NJMD3hNyFP">https://t.co/NJMD3hNyFP</a></p>&mdash; yasunori🫖@loglass🐳 (@YKirin0418) <a href="https://twitter.com/YKirin0418/status/1977585870787301738?ref_src=twsrc%5Etfw">October 13, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+The information gap is real. Dotfiles users share and learn from each other, while everyone else misses out.
 
 ### 4.3. Claude Code Config + Surrounding Tools = Your Ultimate Environment
 
