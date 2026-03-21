@@ -1,0 +1,11 @@
+# format is inherited from _quarto.yml (html + gfm)
+
+filters:
+  - schochastics/social-share
+
+share:
+  site-url: "https://i9wa4.github.io"
+  site-title: "uma-chan's page"
+  twitter: true
+  bsky: true
+  linkedin: true
