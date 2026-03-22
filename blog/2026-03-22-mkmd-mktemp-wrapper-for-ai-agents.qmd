@@ -1,5 +1,5 @@
 ---
-title: "AIにドキュメントを散らかさせない mktemp wrapper"
+title: "AIがドキュメントを書き散らかさないための mkmd"
 author: uma-chan
 categories:
   - "blog"
