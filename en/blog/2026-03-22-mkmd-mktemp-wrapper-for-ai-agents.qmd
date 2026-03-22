@@ -117,7 +117,11 @@ When run outside a git repository, it falls back to `local-<dirname>/...-local/`
 
 ## 4. Full Script
 
-Just add it to your PATH and you are good to go.
+Place it in a directory on your PATH and make it executable.
+
+```bash
+chmod +x mkmd
+```
 
 ```{.bash filename="mkmd"}
 #!/usr/bin/env bash
