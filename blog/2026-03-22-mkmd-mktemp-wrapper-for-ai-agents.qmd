@@ -1,5 +1,5 @@
 ---
-title: "AIエージェントの作業ファイルを mktemp wrapper で整理する"
+title: "AIにドキュメントを散らかさせない mktemp wrapper"
 author: uma-chan
 categories:
   - "blog"
