@@ -1,0 +1,263 @@
+---
+title: "AIエージェントの作業ファイルを mktemp wrapper で整理する"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-03-22 23:55:00 +0900
+date-modified: last-modified
+description: |
+  Claude Code や Codex CLI が生成する作業ファイルの散らかりを mktemp wrapper スクリプト mkmd で解決する。スクリプト全文付き。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. 課題：AIエージェントの作業ファイルが散らかる
+
+Claude Code や Codex CLI を日常的に使っていると、調査メモ、計画書、レビュー結果など、セッション中だけ使う一時的なMarkdownファイルが大量に生まれます。
+
+これらをリポジトリ内に作ると `.gitignore` 管理が面倒ですし、`/tmp/` に作ると再起動で消えます。かといって毎回手動でパスを考えるのも非効率です。
+
+欲しかったのは以下を満たすツールです。
+
+- git リポジトリ汚さない
+- プロジェクトごとに自動分類される
+- 日付とブランチでセッションが区別できる
+- ファイル名が衝突しない
+- コマンド一発で作れる
+
+## 2. どう便利か
+
+### 2.1. あとから探せる
+
+作業ファイルが `~/.local/state/mkmd/` 以下にプロジェクト別・日付別で整理されるので、「あの調査結果どこだっけ」が `ls` 一発で解決します。
+
+```text
+~/.local/state/mkmd/
+├── i9wa4-dotfiles/
+│   └── 2026-03-22-main/
+│       ├── research/
+│       │   └── nix-investigation-aB3xKq.md
+│       └── plans/
+│           └── plan-Xk9mZw.md
+├── i9wa4-internal/
+│   └── 2026-03-22-feat-auth/
+│       └── draft/
+│           └── design-doc-pQ7rLs.md
+└── mycompany-api/
+    └── 2026-03-21-issue-42/
+        └── reviews/
+            └── completion-nW2vHj.md
+```
+
+ディレクトリ名を見ればどのリポジトリの、いつの、どのブランチの作業かわかります。
+ブランチ名が含まれるので、同じ日に複数の Issue を行き来しても混ざりません。
+
+### 2.2. リポジトリが汚れない
+
+`$XDG_STATE_HOME` (デフォルト `~/.local/state`) に出力するので git リポジトリには一切触れません。`.gitignore` に追加する必要もなく、リポジトリは常にクリーンに保てます。
+
+### 2.3. AIエージェントが自律的に使える
+
+CLAUDE.md / AGENTS.md に一行書いておくだけで、エージェントが調査・計画・レビューの各フェーズで適切にファイルを作ってくれます。
+
+エージェントが自分で
+
+```{.console}
+mkmd --dir research --label api-investigation
+```
+
+を実行し、結果をそのファイルに書き込み、後続のタスクで参照してくれます。
+
+### 2.4. 消しやすい
+
+不要になったら日付ディレクトリごと消せます。
+
+```bash
+rm -rf ~/.local/state/mkmd/i9wa4-dotfiles/2026-03-20-*
+```
+
+プロジェクトごと消すのも簡単です。全部消しても何も壊れません。
+
+## 3. mkmd：mktemp の Markdown wrapper
+
+`mktemp` は一時ファイルをアトミックに作成する UNIX の基本コマンドです。
+
+`mkmd` はその wrapper として作っています。
+
+```text
+$ mkmd --dir research --label api-investigation
+~/.local/state/mkmd/i9wa4-dotfiles/2026-03-22-main/research/api-investigation-xEZZqX.md
+```
+
+生成されるパスの構造はこうなっています。
+
+```text
+$MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
+```
+
+| セグメント       | 決定方法                                     |
+| ---------------- | -------------------------------------------- |
+| `MKMD_BASE_DIR`  | 環境変数 (デフォルト: `$XDG_STATE_HOME/mkmd`) |
+| `owner-repo`     | `git remote get-url origin` から自動抽出     |
+| `YYYY-MM-DD`     | 実行日                                       |
+| `branch`         | `git rev-parse --abbrev-ref HEAD`            |
+| `DIR`            | `--dir` 引数                                 |
+| `LABEL-XXXXXX`   | `--label` 引数 + `mktemp` のランダム文字列   |
+
+git リポジトリ外で実行した場合は `local-<dirname>/...-local/` にフォールバックします。
+
+## 4. スクリプト全文
+
+PATH を通すだけで使えます。
+
+```{.bash filename="mkmd"}
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+BASE_DIR="${MKMD_BASE_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/mkmd}"
+
+print_usage() {
+  cat <<EOF
+Usage:
+  mkmd --dir DIR --label LABEL
+
+mktemp wrapper that creates a markdown working file.
+
+Creates:
+  \$MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
+
+  Base directory: ${BASE_DIR}
+  Works in git repos (uses owner/repo from remote URL) and outside git (uses "local"/dirname).
+
+Environment:
+  MKMD_BASE_DIR  Override base directory (default: \$XDG_STATE_HOME/mkmd)
+
+Options:
+  --dir DIR      Directory name under the daily session
+  --label LABEL  File label included in the filename
+  -h, --help     Show this help and exit
+EOF
+}
+
+LABEL=""
+DIR=""
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  -h | --help)
+    print_usage
+    exit 0
+    ;;
+  --dir)
+    DIR="$2"
+    shift 2
+    ;;
+  --label)
+    LABEL="$2"
+    shift 2
+    ;;
+  -*)
+    echo "Unknown option: $1" >&2
+    exit 1
+    ;;
+  *)
+    echo "Error: Unknown argument: $1" >&2
+    exit 1
+    ;;
+  esac
+done
+
+# Validate DIR and LABEL
+if [[ -z $DIR || -z $LABEL ]]; then
+  echo "Error: --dir and --label are required" >&2
+  print_usage >&2
+  exit 1
+fi
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+
+if [[ -n $repo_root ]]; then
+  remote_url="$(git remote get-url origin 2>/dev/null || true)"
+  if [[ -n $remote_url ]]; then
+    # Extract owner/repo from remote URL (handles both SSH and HTTPS)
+    remote_url="${remote_url%.git}"
+    project_name="${remote_url##*/}"
+    remote_url="${remote_url%/*}"
+    project_owner="${remote_url##*[:/]}"
+  else
+    project_owner="local"
+    project_name="$(basename "$repo_root")"
+  fi
+  branch_name="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
+  branch_name="${branch_name//\//-}"
+else
+  project_owner="local"
+  project_name="$(basename "$(pwd -P)")"
+  branch_name="local"
+fi
+date_dir="$(date +%Y-%m-%d)-${branch_name}"
+TARGET_DIR="${BASE_DIR}/${project_owner}-${project_name}/${date_dir}/${DIR}"
+
+mkdir -p "$TARGET_DIR"
+FILE_PATH=$(mktemp "${TARGET_DIR}/${LABEL}-XXXXXX.md")
+echo "$FILE_PATH"
+echo "Created: $FILE_PATH" >&2
+```
+
+## 5. AIエージェントとの Integration
+
+### 5.1. CLAUDE.md / AGENTS.md での定義
+
+私の環境では CLAUDE.md / AGENTS.md に以下を書いています。
+
+```{.markdown}
+- Create working files (not tracked by git) with `mkmd` (`mkmd --help`)
+- Common dir/label combinations:
+
+    | --dir     | --label                          |
+    | --------- | -------------------------------- |
+    | draft     | `${topic}`                       |
+    | research  | `${feature}-investigation`       |
+    | plans     | plan                             |
+    | reviews   | completion                       |
+    | tmp       | `${purpose}`                     |
+```
+
+これだけ書いておけばエージェントは `mkmd --help` で使い方を確認し、適切な `--dir` / `--label` を選んでくれます。各スキルに個別の使用例を書く必要はありません。
+
+### 5.2. PreToolUse hook との連携
+
+Claude Code の PreToolUse hook でファイル書き込みを制御している場合、`mkmd` の出力先を許可リストに追加する必要があります。
+
+```bash
+elif [[ -n $FILE_PATH && $FILE_PATH == "$HOME/.local/state/mkmd/"* ]]; then
+  : # Allow writes to mkmd state directory
+```
+
+### 5.3. スクリプト内での利用例
+
+他のスクリプトから呼び出す場合、stdout にはファイルパスだけが出力されるため、コマンド置換で受け取れます。
+
+```bash
+FILE=$(mkmd --dir tmp --label compact-save)
+echo "# Context Save" > "$FILE"
+```
+
+`Created: ...` のメッセージは stderr に出力されるため、stdout のパスと混ざりません。
+
+## 6. まとめ
+
+AIエージェントの作業ファイル管理は地味ですが、散らかると生産性に響きます。
+
+`mktemp` を薄く wrap して「プロジェクト/日付/用途」の構造を自動付与するだけで、以下が手に入ります。
+
+- `git status` が常にクリーン
+- 作業ファイルがプロジェクト/日付/ブランチで自動整理される
+- エージェントが自律的にファイルを作り、人間がパスを気にする必要がない
+- 不要になったらディレクトリごと消せる
+
+AIエージェントに作業ファイルの置き場所を教えるのに苦労している方は、試してみてください。
