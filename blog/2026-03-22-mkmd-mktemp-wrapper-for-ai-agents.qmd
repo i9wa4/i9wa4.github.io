@@ -39,7 +39,7 @@ Claude Code や Codex CLI を日常的に使っていると、調査メモ、計
 │       │   └── nix-investigation-aB3xKq.md
 │       └── plans/
 │           └── plan-Xk9mZw.md
-├── i9wa4-internal/
+├── i9wa4-i9wa4.github.io/
 │   └── 2026-03-22-feat-auth/
 │       └── draft/
 │           └── design-doc-pQ7rLs.md
