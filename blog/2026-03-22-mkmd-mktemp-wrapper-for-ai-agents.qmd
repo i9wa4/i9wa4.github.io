@@ -1,5 +1,5 @@
 ---
-title: "AIがドキュメントを書き散らかさないための mkmd"
+title: "AIがドキュメントを書き散らかさないための mkmd スクリプトの紹介"
 author: uma-chan
 categories:
   - "blog"
@@ -7,7 +7,7 @@ categories:
 date: 2026-03-22 23:55:00 +0900
 date-modified: last-modified
 description: |
-  mkmd スクリプトを紹介。Claude Code や Codex CLI が生成する作業ファイルの散らかりを mktemp wrapper で解決する。スクリプト全文付き。
+  mkmd スクリプトの紹介。Claude Code や Codex CLI が生成する作業ファイルの散らかりを mktemp wrapper で解決する。スクリプト全文付き。
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
