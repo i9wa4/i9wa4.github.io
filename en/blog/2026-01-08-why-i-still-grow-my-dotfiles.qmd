@@ -7,7 +7,7 @@ categories:
 date: 2026-01-08 01:24:41 +0900
 date-modified: last-modified
 description: |
-  AI coding agent features will converge across IDEs and terminals. What remains is the ability to build your own development environment. That's why dotfiles still matter.
+  I've switched terminal emulators 3 times this year. My dev experience didn't change at all. That's the power of dotfiles. Everything I configure is a text file, managed with Git. One git clone and I have my full setup on any machine. When a tool dies, I swap it. The rest stays.
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
