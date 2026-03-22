@@ -7,7 +7,19 @@ categories:
 date: 2026-01-08 01:24:41 +0900
 date-modified: last-modified
 description: |
-  I've switched terminal emulators 3 times this year. My dev experience didn't change at all. That's the power of dotfiles. Everything I configure is a text file, managed with Git. One git clone and I have my full setup on any machine. When a tool dies, I swap it. The rest stays.
+  I've switched terminal emulators 3 times this year. My dev experience didn't change at all.
+
+  That's the power of dotfiles.
+
+  AI coding agents are evolving fast. Claude Code just shipped /teleport, background agents, subagent hooks --- features that used to be terminal-only are coming everywhere.
+
+  So why do I still invest in my terminal setup?
+
+  Because no one ships your workflow for you.
+
+  Everything I configure is a text file, managed with Git: Terminal (tmux, zsh), Editor (Neovim), AI agents (Claude Code, Codex CLI), Scripts that glue them together.
+
+  One git clone and I have my full setup on any machine. When a tool dies, I swap it. The rest stays.
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 

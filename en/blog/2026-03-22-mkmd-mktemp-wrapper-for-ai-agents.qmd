@@ -7,7 +7,17 @@ categories:
 date: 2026-03-22 23:55:00 +0900
 date-modified: last-modified
 description: |
-  Every AI coding agent session leaves behind a trail of files. Investigation notes, plans, review results. I wrote mkmd --- a 50-line bash wrapper around mktemp. One command, auto-organized by project, date, and branch. Repo stays clean. Agent picks it up autonomously. Full script included.
+  Your AI agent just created 12 temp files. Where did they go?
+
+  I wrote a 50-line bash script that solved this for good.
+
+  Investigation notes. Plans. Review results. Every Claude Code / Codex CLI session leaves behind temporary markdown that clutters your repo or vanishes on reboot.
+
+  mkmd is a mktemp wrapper. One command. File lands in ~/.local/state/mkmd/, auto-organized by project, date, and branch. Repo stays clean. Agent picks it up autonomously.
+
+  The trick: add one line to CLAUDE.md / AGENTS.md. The agent starts creating files in the right place on its own.
+
+  Full script included in the post.
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
