@@ -9,7 +9,7 @@ date-modified: last-modified
 description: |
   Your AI agent just created 12 temp files. Where did they go?
 
-  I wrote a 50-line bash script that solved this for good.
+  I wrote a ~100-line bash script that solved this for good.
 
   Investigation notes. Plans. Review results. Every Claude Code / Codex CLI session leaves behind temporary markdown that clutters your repo or vanishes on reboot.
 
