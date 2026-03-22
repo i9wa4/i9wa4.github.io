@@ -127,6 +127,10 @@ def main() -> int:
             "index": project_root / "slides" / "index.qmd",
             "sources": [project_root / "slides"],
         },
+        "en/blog": {
+            "index": project_root / "en" / "blog" / "index.qmd",
+            "sources": [project_root / "en" / "blog"],
+        },
     }
 
     # Filter targets based on command line arguments
