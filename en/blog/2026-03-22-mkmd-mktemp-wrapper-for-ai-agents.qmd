@@ -1,5 +1,5 @@
 ---
-title: "Taming AI Agent Work Files with a mktemp Wrapper"
+title: "Stop AI from Scattering Docs: Introducing mkmd"
 author: uma-chan
 categories:
   - "blog"
