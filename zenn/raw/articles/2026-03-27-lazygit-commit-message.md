@@ -1,14 +1,13 @@
 ---
 title: "lazygit で AI コミットメッセージ生成"
-emoji: "✍️"
+emoji: "🐴"
 type: "tech"
 topics:
   - "lazygit"
   - "git"
   - "claudecode"
-  - "nix"
 published: true
-published_at: 2026-03-27 00:00
+published_at: 2026-03-27 14:50
 ---
 
 ## 1. はじめに
