@@ -17,24 +17,20 @@ lazygit のカスタムコマンド機能を使い、ステージ済みの diff 
 
 ## 2. 設定
 
-```nix:lazygit.nix
-programs.lazygit.settings.customCommands = [
-  {
-    key = "<c-g>";
-    context = "files";
-    output = "terminal";
-    command = ''
+```yaml:~/.config/lazygit/config.yml
+customCommands:
+  - key: "<c-g>"
+    context: "files"
+    output: "terminal"
+    command: |
       MSG=$(git diff --cached | claude --no-session-persistence --print --model haiku \
         'Generate ONLY a one-line Git commit message following Conventional Commits format \
         (type(scope): description). Types: feat, fix, docs, style, refactor, test, chore. \
         Based strictly on the diff from stdin. Output ONLY the message, nothing else.') \
         && git commit -e -m "$MSG"
-    '';
-  }
-];
 ```
 
-`output = "terminal"` にすることで `git commit -e` がターミナル上で動き、エディタが開きます。
+`output: "terminal"` にすることで `git commit -e` がターミナル上で動き、エディタが開きます。
 
 ## 3. 使い方
 
