@@ -17,7 +17,7 @@ lazygit のカスタムコマンド機能を使い、ステージ済みの diff 
 
 ## 2. 設定
 
-```yaml:~/.config/lazygit/config.yml
+```yaml:config.yml
 customCommands:
   - key: "<c-g>"
     context: "files"
