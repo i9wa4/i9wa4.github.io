@@ -7,7 +7,7 @@ categories:
 date: 2026-04-30 00:30:00 +0900
 date-modified: last-modified
 description: |
-  skk-emoji-jisyo を macSKK / skkeleton に追加するだけで、ブラウザでも Vim でもどのアプリでも日本語キーワードで絵文字を入力できるようになる。
+  SKK のアブレブモードで絵文字の英語名を打つと変換できる。skk-emoji-jisyo を辞書に追加しておけば macSKK でも skkeleton でも同じ操作でどこからでも絵文字が打てる。
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -16,93 +16,93 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 絵文字を入力したいとき、あなたはどうしていますか？
 
 - 絵文字ピッカーを開いてスクロールして探す
-- 別タブで [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) を開いてコピペする
+- 別タブで emoji-cheat-sheet を開いてコピペする
 - スマホからコピペする
 
 どれも一手間あります。「🎉 を打ちたいだけなのに」と思ったことが何度もあります。
 
-## 2. 解決策：SKK + skk-emoji-jisyo
+## 2. 英語名を覚えるとどこでも打てる
 
-[skk-emoji-jisyo](https://github.com/uasi/skk-emoji-jisyo) は SKK 用の絵文字辞書です。
+SKK にはアブレブモードという入力モードがあります。
 
-SKK は辞書引きで変換するインプットメソッドなので、日本語キーワードを変換候補として絵文字を登録できます。
+`/` を打って英語キーワードを入力すると、辞書に登録されたエントリを変換候補として引けます。
 
 ```text
-かんぱい /🥂/🍻/
-たじょう /🙏/
-よし /👍/
-ぱーてぃー /🎉/🥳/
+/party → 🎉 🥳 を選択
+/fire  → 🔥 を選択
+/tada  → 🎉 を選択
 ```
 
-この辞書を SKK クライアントに追加するだけで、日本語キーワードで絵文字を変換できるようになります。
+スニペット展開に近い感覚です。`party` と打てば変換できますが、そのためには `party` というキーワードが登録されていることを知っている必要があります。結局は**英語名を覚えること**が前提です。
 
-## 3. SKK クライアント
+[emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) は絵文字の英語名を一覧できるリファレンスです。「この絵文字は英語で何と呼ぶか」をここで確認しながら覚えておけば、SKK が動いている環境ならどこでも絵文字が打てるようになります。
 
-### 3.1. macSKK (macOS)
+## 3. skk-emoji-jisyo
 
-[macSKK](https://github.com/mtgto/macSKK) は macOS の入力ソースとして動作する SKK クライアントです。
+[skk-emoji-jisyo](https://github.com/uasi/skk-emoji-jisyo) は SKK 用の絵文字辞書です。英語名・日本語キーワード両方のエントリが登録されています。
 
-macOS の IME として登録するため、**ブラウザ・Slack・ターミナル・あらゆるアプリ** で同じ辞書が使えます。
+```text
+party /🎉/🥳/
+かんぱい /🥂/🍻/
+fire /🔥/
+ほし /⭐/🌟/
+```
 
-辞書の追加は設定画面から行います。
+この辞書を追加しておくことで、アブレブモードでの英語変換が機能します。
 
-1. macSKK の設定を開く
-2. 「辞書」タブを選択
-3. `+` ボタンで辞書ファイルを追加
-4. skk-emoji-jisyo のリポジトリから `SKK-JISYO.emoji.utf8` をダウンロードして指定
+## 4. クライアント別設定
 
-辞書の優先順位は上に持っていくほど高くなります。通常の日本語変換と干渉させたくない場合は末尾に置くとよいです。
-
-### 3.2. skkeleton (Vim / Neovim)
+### 4.1. skkeleton (Vim / Neovim)
 
 [skkeleton](https://github.com/vim-skk/skkeleton) は Vim / Neovim 用の SKK プラグインです。
 
-エディタ内でのみ使いたい場合や、Vim を主戦場にしている場合はこちらが適しています。
-
-辞書の追加は `globalDictionaries` に指定するだけです。
+私の環境では [dpp.vim](https://github.com/Shougo/dpp.vim) で辞書リポジトリ自体をプラグインとして管理しています。`skk-dev/dict` と `uasi/skk-emoji-jisyo` を dpp に登録しておくと `$XDG_CACHE_HOME/dpp/repos/` 以下にクローンされるので、そのパスを `globalDictionaries` に渡しています。
 
 ```vim
+let s:skk_dev_path = $XDG_CACHE_HOME->expand() .. '/dpp/repos/github.com/skk-dev/dict'
+let s:skk_emoji_path = $XDG_CACHE_HOME->expand() .. '/dpp/repos/github.com/uasi/skk-emoji-jisyo'
 call skkeleton#config({
-  \ 'globalDictionaries': [
-  \   '/path/to/SKK-JISYO.L',
-  \   '/path/to/SKK-JISYO.emoji.utf8',
-  \ ],
-  \ })
+\   'globalDictionaries': [
+\     s:skk_dev_path .. '/SKK-JISYO.L',
+\     s:skk_dev_path .. '/SKK-JISYO.jinmei',
+\     s:skk_dev_path .. '/SKK-JISYO.assoc',
+\     s:skk_emoji_path .. '/SKK-JISYO.emoji.utf8',
+\   ],
+\   'userDictionary': '~/path/to/skkdict.utf8',
+\ })
+call skkeleton#register_keymap('input', ';', 'henkanPoint')
+imap <C-k> <Plug>(skkeleton-enable)
 ```
 
-```lua
--- lazy.nvim の場合
-vim.fn['skkeleton#config']({
-  globalDictionaries = {
-    '/path/to/SKK-JISYO.L',
-    '/path/to/SKK-JISYO.emoji.utf8',
-  },
-})
+`Ctrl+K` で SKK モードに入り、`/` でアブレブモード、英語名を入力してスペースで変換します。
+
+### 4.2. macSKK (macOS)
+
+[macSKK](https://github.com/mtgto/macSKK) は macOS の入力ソースとして動作する SKK クライアントです。IME として登録するため、**ブラウザ・Slack・ターミナル・あらゆるアプリ**で同じ辞書が使えます。
+
+macSKK は sandbox の制約で `~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/` 以下にしか辞書ファイルを置けません。
+
+私は Nix home-manager の activation スクリプトで dpp キャッシュから自動コピーしています。
+
+```nix
+home.activation.setupMacSkkDict = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  macSkkDir="$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries"
+  dppSkkDev="${XDG_CACHE_HOME:-$HOME/.cache}/dpp/repos/github.com/skk-dev/dict"
+  dppSkkEmoji="${XDG_CACHE_HOME:-$HOME/.cache}/dpp/repos/github.com/uasi/skk-emoji-jisyo"
+  mkdir -p "$macSkkDir"
+  [[ -f "$dppSkkDev/SKK-JISYO.L" ]] && cp -f "$dppSkkDev/SKK-JISYO.L" "$macSkkDir/SKK-JISYO.L"
+  [[ -f "$dppSkkEmoji/SKK-JISYO.emoji.utf8" ]] && cp -f "$dppSkkEmoji/SKK-JISYO.emoji.utf8" "$macSkkDir/SKK-JISYO.emoji.utf8"
+'';
 ```
 
-辞書ファイルのパスは絶対パスで指定します。`SKK-JISYO.emoji.utf8` は skk-emoji-jisyo リポジトリをクローンした場所に合わせてください。
+`home-manager switch` を実行するだけで辞書が同期されます。dpp を一度でも起動してキャッシュが作られていることが前提です。
 
-## 4. 使い方
-
-どちらのクライアントでも操作は同じです。
-
-SKK の変換モードに入り、キーワードをひらがなで入力して変換します。
-
-| 操作          | 結果               |
-| ------------- | ------------------ |
-| `かんぱい` 変換 | 🥂 / 🍻 を選択     |
-| `にこにこ` 変換 | 😊 などを選択      |
-| `ほし` 変換   | ⭐ / 🌟 などを選択 |
-| `いぬ` 変換   | 🐶 / 🐕 などを選択 |
-
-登録されているキーワードを探したいときは [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) が参考になります。
-絵文字の英語名からおおよその日本語キーワードを類推できます。
+Nix を使っていない場合は、手動で `SKK-JISYO.emoji.utf8` を上記のディレクトリにコピーすれば動きます。
 
 ## 5. まとめ
 
-- [skk-emoji-jisyo](https://github.com/uasi/skk-emoji-jisyo) を SKK クライアントに追加するだけ
-- macSKK ならどのアプリでも使える
+- SKK アブレブモード (`/` + 英語名) で絵文字変換できる
+- **英語名を覚えること**が本質で、[emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) がその辞書になる
+- [skk-emoji-jisyo](https://github.com/uasi/skk-emoji-jisyo) を追加することで英語名・日本語キーワード両方で変換できるようになる
+- macSKK なら OS レベルで動くのでどのアプリでも使える
 - skkeleton なら Vim / Neovim 内で完結する
-- キーワードを日本語で打って変換するだけなので、絵文字ピッカーを開く必要がなくなる
-
-SKK を使っているなら辞書を1つ追加するだけで完結するので、試してみてください。
