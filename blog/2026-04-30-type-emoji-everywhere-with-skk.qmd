@@ -1,0 +1,108 @@
+---
+title: "SKK + 絵文字辞書でどこからでも絵文字を打つ"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech"
+date: 2026-04-30 00:30:00 +0900
+date-modified: last-modified
+description: |
+  skk-emoji-jisyo を macSKK / skkeleton に追加するだけで、ブラウザでも Vim でもどのアプリでも日本語キーワードで絵文字を入力できるようになる。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. 課題：絵文字を打つのが面倒
+
+絵文字を入力したいとき、あなたはどうしていますか？
+
+- 絵文字ピッカーを開いてスクロールして探す
+- 別タブで [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) を開いてコピペする
+- スマホからコピペする
+
+どれも一手間あります。「🎉 を打ちたいだけなのに」と思ったことが何度もあります。
+
+## 2. 解決策：SKK + skk-emoji-jisyo
+
+[skk-emoji-jisyo](https://github.com/uasi/skk-emoji-jisyo) は SKK 用の絵文字辞書です。
+
+SKK は辞書引きで変換するインプットメソッドなので、日本語キーワードを変換候補として絵文字を登録できます。
+
+```text
+かんぱい /🥂/🍻/
+たじょう /🙏/
+よし /👍/
+ぱーてぃー /🎉/🥳/
+```
+
+この辞書を SKK クライアントに追加するだけで、日本語キーワードで絵文字を変換できるようになります。
+
+## 3. SKK クライアント
+
+### 3.1. macSKK (macOS)
+
+[macSKK](https://github.com/mtgto/macSKK) は macOS の入力ソースとして動作する SKK クライアントです。
+
+macOS の IME として登録するため、**ブラウザ・Slack・ターミナル・あらゆるアプリ** で同じ辞書が使えます。
+
+辞書の追加は設定画面から行います。
+
+1. macSKK の設定を開く
+2. 「辞書」タブを選択
+3. `+` ボタンで辞書ファイルを追加
+4. skk-emoji-jisyo のリポジトリから `SKK-JISYO.emoji.utf8` をダウンロードして指定
+
+辞書の優先順位は上に持っていくほど高くなります。通常の日本語変換と干渉させたくない場合は末尾に置くとよいです。
+
+### 3.2. skkeleton (Vim / Neovim)
+
+[skkeleton](https://github.com/vim-skk/skkeleton) は Vim / Neovim 用の SKK プラグインです。
+
+エディタ内でのみ使いたい場合や、Vim を主戦場にしている場合はこちらが適しています。
+
+辞書の追加は `globalDictionaries` に指定するだけです。
+
+```vim
+call skkeleton#config({
+  \ 'globalDictionaries': [
+  \   '/path/to/SKK-JISYO.L',
+  \   '/path/to/SKK-JISYO.emoji.utf8',
+  \ ],
+  \ })
+```
+
+```lua
+-- lazy.nvim の場合
+vim.fn['skkeleton#config']({
+  globalDictionaries = {
+    '/path/to/SKK-JISYO.L',
+    '/path/to/SKK-JISYO.emoji.utf8',
+  },
+})
+```
+
+辞書ファイルのパスは絶対パスで指定します。`SKK-JISYO.emoji.utf8` は skk-emoji-jisyo リポジトリをクローンした場所に合わせてください。
+
+## 4. 使い方
+
+どちらのクライアントでも操作は同じです。
+
+SKK の変換モードに入り、キーワードをひらがなで入力して変換します。
+
+| 操作          | 結果               |
+| ------------- | ------------------ |
+| `かんぱい` 変換 | 🥂 / 🍻 を選択     |
+| `にこにこ` 変換 | 😊 などを選択      |
+| `ほし` 変換   | ⭐ / 🌟 などを選択 |
+| `いぬ` 変換   | 🐶 / 🐕 などを選択 |
+
+登録されているキーワードを探したいときは [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) が参考になります。
+絵文字の英語名からおおよその日本語キーワードを類推できます。
+
+## 5. まとめ
+
+- [skk-emoji-jisyo](https://github.com/uasi/skk-emoji-jisyo) を SKK クライアントに追加するだけ
+- macSKK ならどのアプリでも使える
+- skkeleton なら Vim / Neovim 内で完結する
+- キーワードを日本語で打って変換するだけなので、絵文字ピッカーを開く必要がなくなる
+
+SKK を使っているなら辞書を1つ追加するだけで完結するので、試してみてください。

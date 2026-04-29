@@ -24,9 +24,10 @@ share: false
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[blog (75)](#category=blog){.btn .btn-outline-primary .btn-sm}
+[blog (76)](#category=blog){.btn .btn-outline-primary .btn-sm}
 [diary (10)](#category=diary){.btn .btn-outline-primary .btn-sm}
 [memo (4)](#category=memo){.btn .btn-outline-primary .btn-sm}
+[tech (1)](#category=tech){.btn .btn-outline-primary .btn-sm}
 [tech-ai (15)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 [tech-data (8)](#category=tech-data){.btn .btn-outline-primary .btn-sm}
 [tech-others (31)](#category=tech-others){.btn .btn-outline-primary .btn-sm}
