@@ -7,7 +7,7 @@ categories:
 date: 2026-04-30 00:30:00 +0900
 date-modified: last-modified
 description: |
-  SKK のabbrev モードで絵文字の英語名を打つと変換できる。skk-emoji-jisyo を辞書に追加しておけば macSKK でも skkeleton でも同じ操作でどこからでも絵文字が打てる。
+  SKK の abbrev モードで絵文字の英語名を打つと変換できる。skk-emoji-jisyo を辞書に追加しておけば macSKK でも skkeleton でも同じ操作でどこからでも絵文字が打てる。
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -19,7 +19,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 2. 英語名を覚えるとどこでも打てる
 
-SKK にはabbrev モードという入力モードがあります。
+SKK には abbrev モードという入力モードがあります。
 
 `/` を打って英語キーワードを入力すると、辞書に登録されたエントリを変換候補として引けます。
 
@@ -71,7 +71,7 @@ call skkeleton#register_keymap('input', ';', 'henkanPoint')
 imap <C-k> <Plug>(skkeleton-enable)
 ```
 
-`Ctrl+K` で SKK モードに入り、`/` でabbrev モード、英語名を入力してスペースで変換します。
+`Ctrl+K` で SKK モードに入り、`/` で abbrev モード、英語名を入力してスペースで変換します。
 
 ### 4.2. macSKK (macOS)
 
