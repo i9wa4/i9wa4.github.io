@@ -1,0 +1,433 @@
+# Claude Code と Codex CLI のアップデート情報収集術
+uma-chan
+2026-03-21
+
+## 1. はじめに
+
+Claude Code と Codex CLI
+は両方ともアップデートが頻繁で、新機能や破壊的変更の追い方にそれぞれコツがあります。
+
+2つのツールで情報源の場所が違い、取得コマンドも異なります。
+この記事では「どこにあるか・どう取得するか・どう読むか」を具体的なコマンド付きで示します。
+
+前提条件として `gh`、`jq`、および調べたいツール (`claude` / `codex`)
+が必要です。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+gh auth status   # gh が認証済みであることを確認する
+jq --version     # jq がインストール済みであることを確認する
+```
+
+</div>
+
+## 2. Claude Code の情報収集
+
+### 2.1. インストール済みバージョンの確認
+
+まずローカルにインストールされているバージョンを確認します。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+claude --version
+```
+
+</div>
+
+出力例
+
+``` text
+2.1.76 (Claude Code)
+```
+
+このバージョン番号を起点にします。 CHANGELOG
+を読む際はこのバージョン以下の変更のみを対象にします。
+ローカルにない新しいバージョンの変更を先取りして読んでも、実際の動作と一致しないためです。
+
+### 2.2. CHANGELOG の取得
+
+Claude Code の変更履歴は GitHub リポジトリの `CHANGELOG.md` にあります。
+Contents API に Raw
+メディアタイプを指定すると、ファイル内容をそのまま取得できます。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+FILE=$(mktemp /tmp/claude-changelog-XXXXXX.md)
+gh api repos/anthropics/claude-code/contents/CHANGELOG.md \
+  -H "Accept: application/vnd.github.raw+json" > "$FILE"
+```
+
+</div>
+
+### 2.3. 対象バージョンのセクション確認
+
+取得した CHANGELOG を開いて、インストール済みバージョンの `## <version>`
+セクションを探します。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+grep "^## " "$FILE" | head -20
+```
+
+</div>
+
+各バージョンのセクション見出しが一覧されます。
+確認したいバージョンのセクション範囲を絞って読むと効率的です。
+
+変更内容は大まかに次の種別に分かれています。
+
+| 種別       | 内容               |
+|------------|--------------------|
+| Added      | 新機能の追加       |
+| Fixed      | バグ修正           |
+| Improved   | 既存機能の改善     |
+| Deprecated | 将来削除予定の機能 |
+
+### 2.4. 破壊的変更の検出
+
+`Deprecated`、`Removed`、`Breaking`、`Changed` の語を検索します。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+grep -i "deprecated\|removed\|breaking\|changed" "$FILE"
+```
+
+</div>
+
+このコマンドは CHANGELOG
+全体を対象にするため、インストール済みより新しいバージョンの変更も含まれます。
+ヒットした行が自分のバージョン以下のセクションにあるかを確認してから、設定ファイル
+(`~/.claude/settings.json`、`CLAUDE.md` など)
+への影響を判断してください。
+
+### 2.5. 仕様の詳細調査
+
+ドキュメントに明示されていない動作や設定の詳細を調べたい場合、Claude
+Code の仕様調査に特化した `claude-code-guide` スキルが役立ちます。
+
+Claude Code の Agent ツールから Task
+として呼び出すと、組み込みドキュメントに基づいた回答を返してくれます。
+
+Codex CLI には `claude-code-guide`
+に相当する専用スキルが見当たらないため、この調べ方は現時点では Claude
+Code 側で特に有効です。
+
+## 3. Codex CLI の情報収集
+
+### 3.1. インストール済みバージョンの確認
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+codex --version
+```
+
+</div>
+
+出力例
+
+``` text
+codex-cli 0.115.0
+```
+
+Claude Code と同様に、このバージョン以下のリリースを分析対象にします。
+ローカルバージョンより新しいリリースの変更内容は参考程度にとどめます。
+
+Codex CLI は `CHANGELOG.md` ではなく GitHub Releases
+ページを情報源にしています。 この点が Claude Code と大きく異なります。
+
+### 3.2. インストール済みバージョンのリリースノートを取得
+
+タグを直接指定して取得することで、インストール済みバージョンのリリースノートのみを確実に得られます。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+LOCAL_VERSION=$(codex --version | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+')
+FILE=$(mktemp /tmp/codex-releases-XXXXXX.json)
+gh api "repos/openai/codex/releases/tags/rust-v${LOCAL_VERSION}" > "$FILE"
+```
+
+</div>
+
+タグの形式は `rust-v<version>` です (例: `rust-v0.115.0`)。
+バージョン番号だけのタグではないので注意が必要です。
+
+### 3.3. リリースノートの内容を確認
+
+取得した JSON の `body` フィールドにリリースノートの本文が入っています。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+jq '{tag_name, body}' "$FILE"
+```
+
+</div>
+
+Markdown 形式で書かれているため、そのまま読めます。
+
+### 3.4. 破壊的変更の検出
+
+リリースノートの本文から影響のある語を検索します。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+jq -r '.body' "$FILE" | grep -i "breaking\|removed\|deprecated"
+```
+
+</div>
+
+該当行が見つかれば、リリースノートの該当箇所を読んでマイグレーションパスを確認してから、設定ファイル
+(`~/.codex/config.toml`、`rules/` など) への影響を判断します。
+
+## 4. まとめ
+
+### 4.1. 情報収集の比較
+
+| 項目 | Claude Code | Codex CLI |
+|----|----|----|
+| バージョン確認 | `claude --version` | `codex --version` |
+| 情報源 | CHANGELOG.md (Contents API Raw) | GitHub Releases API |
+| タグ形式 | `## <version>` | `rust-v<version>` |
+| 仕様詳細調査 | claude-code-guide サブエージェント | releases 本文 + コード読解 |
+
+### 4.2. スコープガードの習慣
+
+両ツールとも「ローカルバージョン以下に絞る」という制約を忘れないようにしています。
+新しいバージョンの変更を先読みしても、実際の動作と合わなくて混乱するだけです。
+
+## 5. スキルとして使う
+
+### 5.1. スキルとは
+
+Claude Code のスキルは `~/.claude/skills/<name>/SKILL.md` に置くことで
+起動時に自動的に読み込まれます。以下のブロックをコピーして保存するだけで、
+`/claude-config-optimizer`・`/codex-config-optimizer`
+コマンドとして呼び出せるようになります。 追加後は Claude Code
+を再起動して読み込ませてください。
+
+### 5.2. references/ による蓄積
+
+各スキルには `references/` ディレクトリを設けます。
+スキルを実行するたびに、確認したバージョン・注目した変更・対応方針を 1
+ファイルに追記していきます。
+
+蓄積があると次回の実行時に「前回どこまで確認したか」「見送った項目はどれか」がわかり、アップデート情報のピックアップが楽になります。
+
+``` text
+~/.claude/skills/claude-config-optimizer/
+  SKILL.md
+  references/
+    changelog-tracking.md   # 蓄積ファイル (1 ファイルに追記)
+
+~/.claude/skills/codex-config-optimizer/
+  SKILL.md
+  references/
+    release-tracking.md     # 蓄積ファイル (1 ファイルに追記)
+```
+
+### 5.3. Claude Code 用スキル
+
+以下のブロックを `~/.claude/skills/claude-config-optimizer/SKILL.md`
+にコピーして保存します。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+mkdir -p ~/.claude/skills/claude-config-optimizer/references
+```
+
+</div>
+
+<div class="code-with-filename">
+
+**~/.claude/skills/claude-config-optimizer/SKILL.md**
+
+```` markdown
+---
+name: claude-config-optimizer
+description: |
+  Claude Code の CHANGELOG をインストール済みバージョンに絞って確認する。
+  Use when:
+  - User says "changelog" or "updates" about Claude Code
+  - Checking for breaking changes before upgrading
+---
+
+# Claude Config Optimizer Skill
+
+全ステップを順番に実行し、結果をまとめて報告する。
+途中で確認を求めず、最後まで一気に進める。
+設定ファイルの書き換えは行わない。
+
+## 1. インストール済みバージョンを確認する
+
+```sh
+claude --version
+```
+
+この番号以下の CHANGELOG セクションのみを分析対象にする。
+
+## 2. CHANGELOG を取得する
+
+```sh
+FILE=$(mktemp /tmp/claude-changelog-XXXXXX.md)
+gh api repos/anthropics/claude-code/contents/CHANGELOG.md \
+  -H "Accept: application/vnd.github.raw+json" > "$FILE"
+echo "Saved to $FILE"
+```
+
+## 3. バージョンセクション一覧を確認する
+
+```sh
+grep "^## " "$FILE" | head -20
+```
+
+## 4. 破壊的変更を検索する
+
+```sh
+grep -i "deprecated\|removed\|breaking\|changed" "$FILE"
+```
+
+インストール済みバージョン以下のセクションのヒットのみを報告する。
+
+## 5. 報告をまとめる
+
+ステップ 3-4 の結果をもとに、以下を一括で報告する。
+
+1. アップデート情報の要約 (Added/Fixed/Deprecated)
+2. 設定ファイルへの影響判定と変更提案
+   - `~/.claude/settings.json`
+   - `CLAUDE.md`、`rules/`、`skills/`
+
+## 6. 調査結果を references/ に蓄積する
+
+`references/changelog-tracking.md` に追記する。
+ファイルが存在しなければ新規作成する。
+以下のセクション構成で管理する。
+
+- Applied: 採用した変更と適用内容
+- Not Adopting: 見送った項目と理由
+- Version Notes: バージョンごとの主要変更メモ (日付付き)
+
+既存の記録があれば前回との差分のみ追記する。
+````
+
+</div>
+
+### 5.4. Codex CLI 用スキル
+
+以下のブロックを `~/.claude/skills/codex-config-optimizer/SKILL.md`
+にコピーして保存します。
+
+<div class="code-with-filename">
+
+**terminal**
+
+``` sh
+mkdir -p ~/.claude/skills/codex-config-optimizer/references
+```
+
+</div>
+
+<div class="code-with-filename">
+
+**~/.claude/skills/codex-config-optimizer/SKILL.md**
+
+```` markdown
+---
+name: codex-config-optimizer
+description: |
+  インストール済みバージョンの Codex CLI リリースノートを取得して確認する。
+  Use when:
+  - User says "codex changelog" or "codex updates"
+  - Checking for breaking changes in Codex CLI
+---
+
+# Codex Config Optimizer Skill
+
+全ステップを順番に実行し、結果をまとめて報告する。
+途中で確認を求めず、最後まで一気に進める。
+設定ファイルの書き換えは行わない。
+タグ形式は `rust-v<version>` (例: `rust-v0.115.0`)。
+
+## 1. インストール済みバージョンを確認する
+
+```sh
+codex --version
+```
+
+このバージョン以下のリリースのみを分析対象にする。
+
+## 2. リリースノートを取得する
+
+```sh
+LOCAL_VERSION=$(codex --version | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+')
+FILE=$(mktemp /tmp/codex-releases-XXXXXX.json)
+gh api "repos/openai/codex/releases/tags/rust-v${LOCAL_VERSION}" > "$FILE"
+echo "Saved to $FILE"
+```
+
+## 3. 内容を確認する
+
+```sh
+jq '{tag_name, body}' "$FILE"
+```
+
+## 4. 破壊的変更を検索する
+
+```sh
+jq -r '.body' "$FILE" | grep -i "breaking\|removed\|deprecated"
+```
+
+## 5. 報告をまとめる
+
+ステップ 3-4 の結果をもとに、以下を一括で報告する。
+
+1. アップデート情報の要約 (New Features/Bug Fixes/Breaking)
+2. 設定ファイルへの影響判定と変更提案
+   - `~/.codex/config.toml`
+   - `AGENTS.md`、`rules/`、`skills/`
+
+## 6. 調査結果を references/ に蓄積する
+
+`references/release-tracking.md` に追記する。
+ファイルが存在しなければ新規作成する。
+以下のセクション構成で管理する。
+
+- Applied: 採用した変更と適用内容
+- Not Adopting: 見送った項目と理由
+- Version Notes: バージョンごとの主要変更メモ (日付付き)
+
+既存の記録があれば前回との差分のみ追記する。
+````
+
+</div>
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-03-21-claude-codex-info-gathering.html&text=Claude%20Code%20%E3%81%A8%20Codex%20CLI%20%E3%81%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E6%83%85%E5%A0%B1%E5%8F%8E%E9%9B%86%E8%A1%93%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Claude%20Code%20%E3%81%A8%20Codex%20CLI%20%E3%81%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E6%83%85%E5%A0%B1%E5%8F%8E%E9%9B%86%E8%A1%93%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-03-21-claude-codex-info-gathering.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-03-21-claude-codex-info-gathering.html&title=Claude%20Code%20%E3%81%A8%20Codex%20CLI%20%E3%81%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E6%83%85%E5%A0%B1%E5%8F%8E%E9%9B%86%E8%A1%93%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>

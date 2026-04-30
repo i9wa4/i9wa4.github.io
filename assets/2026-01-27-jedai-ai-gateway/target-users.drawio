@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="target-users">
+        <mxGraphModel dx="989" dy="755" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="good-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#4CAF50;strokeWidth=3;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="80" width="420" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="good-title" value="適している" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#2E7D32;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="95" width="420" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="good1-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A5D6A7;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="145" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="good1-icon" value="🎓" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="150" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="good1-text" value="インターン・外部協力者" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="145" y="155" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="good2-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A5D6A7;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="210" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="good2-icon" value="💼" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="215" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="good2-text" value="技術部門以外（データアナリスト等）" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="145" y="220" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="good3-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A5D6A7;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="275" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="good3-icon" value="💰" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="280" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="good3-text" value="Databricks外の予算がない人" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="145" y="285" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="good4-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A5D6A7;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="340" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="good4-icon" value="🚀" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="345" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="good4-text" value="今すぐ使いたい人" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#2E7D32;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="145" y="350" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#F44336;strokeWidth=3;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="80" width="420" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad-title" value="適していない" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#C62828;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="95" width="420" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad1-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#EF9A9A;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="145" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad1-icon" value="⚡" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="150" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad1-text" value="ヘビーユーザー（大量利用）" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#C62828;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="605" y="155" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad2-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#EF9A9A;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="210" width="380" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad2-icon" value="⏰" style="text;html=1;fontSize=28;fontFamily=Noto Sans JP;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="215" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="bad2-text" value="リアルタイム遮断が必要な場合" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontColor=#C62828;align=left;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="605" y="220" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="note-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#FFC107;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="520" y="310" width="420" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="note-title" value="ポイント" style="text;html=1;fontSize=18;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#F57F17;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="320" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="note-text" value="指定した間隔で予算超過を検知&lt;br&gt;例えば15分間隔なら&lt;br&gt;ライトユーザーが使い切ることはほぼない" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#5D4037;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="350" width="380" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
