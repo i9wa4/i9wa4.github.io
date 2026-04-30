@@ -42,9 +42,7 @@ SKK には abbrev モードという入力モードがあります。
 ```text
 tada /🎉/
 partying_face /🥳/
-かんぱい /🥂/🍻/
 fire /🔥/
-ほし /⭐/🌟/
 ```
 
 この辞書を追加しておくことで、abbrev モードでの英語変換が機能します。
@@ -72,8 +70,6 @@ call skkeleton#config({
 call skkeleton#register_keymap('input', ';', 'henkanPoint')
 imap <C-k> <Plug>(skkeleton-enable)
 ```
-
-`Ctrl+K` で SKK モードに入り、`/` で abbrev モード、英語名を入力してスペースで変換します。
 
 ### 4.2. macSKK (macOS)
 
