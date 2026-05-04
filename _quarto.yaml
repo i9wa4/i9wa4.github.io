@@ -7,6 +7,7 @@ project:
     - "resume/"
     - "slides/"
     - "en/blog/"
+    - "en/resume/"
     - "zenn/*.qmd"
     - "!zenn/raw/"
 
@@ -58,6 +59,8 @@ website:
         href: "slides/index.qmd"
       - text: "Resume"
         href: "resume/index.qmd"
+      - text: "Resume (EN)"
+        href: "en/resume/index.qmd"
     right:
       - icon: github
         href: "https://github.com/i9wa4"
