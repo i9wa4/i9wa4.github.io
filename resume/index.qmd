@@ -40,7 +40,7 @@ date-modified: last-modified
 - Excelで手作業作成されていた日次売上速報を自動化し、役員・地域責任者向けの週次営業会議資料もほぼ自動化しました。
 - 店舗分析Excelの生成プロセスを改善し、所要時間を約1-2日から約20分へ短縮しました。
 - CI/CD、Ruff、mise、レビュー前提のデプロイ、Databricksへのスコアリング移行によりMLOpsを改善しました。
-- AI-ReadyなNotebook・開発ワークフローを改善し、jupyter-databricks-kernelやDatabricks MCP Server関連の開発にも貢献しました。
+- AI-ReadyなNotebook・開発ワークフローを改善し、Databricks向けNotebook toolingやMCPを活用した開発支援にも貢献しました。
 
 ### PIVOT株式会社 | 業務委託データエンジニア
 
@@ -48,15 +48,15 @@ date-modified: last-modified
 
 - KPIレポート、リファラル分析、GA4 / ULIZAトラッキング、パフォーマンス改善向けのBigQuery / dbtモデルを構築・改善しています。
 - OOMを起こしていたウィンドウ関数中心のロジックをJOIN中心の設計へ変更し、主要モデルの実行時間を51-90分から数分へ短縮しました。
-- GA4の`user_pseudo_id`と`user_id`を統合し、匿名訪問からログイン後までを追跡する全期間ユーザー分析のincrementalモデルを実装しました。
-- `unique_key`、パーティション、クラスタリング設定によりBigQuery MERGEの効率を改善しました。
+- GA4のユーザー同定・トラッキング継続性を整備し、匿名訪問からログイン後までを追跡する全期間ユーザー分析のincrementalモデルを実装しました。
+- 安定したマージキー、パーティション、クラスタリング設定によりBigQuery MERGEの効率を改善しました。
 
 ### 株式会社hacomono | データエンジニア
 
 2024/04 - 2024/10 | 正社員
 
 - BigQuery、Embulk、AWS、Google Cloud、Terraform、Terragruntを用いて、顧客向けおよび社内向けDWH転送基盤を運用しました。
-- RDSメトリクス、転送ログ、Embulkの並列数・読込サイズ設定を用いてバッチ転送の安定性を改善しました。
+- RDSメトリクス、転送ログ、Embulkのチューニングによりバッチ転送の安定性を改善しました。
 - BigQuery権限を手動付与からTerraform管理のdatasetレベル権限へ移行しました。
 - Google Cloud DatastreamによるRDS MySQLからBigQueryへのリアルタイム転送を検証し、障害・復旧時の挙動を文書化しました。
 

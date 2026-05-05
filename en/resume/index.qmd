@@ -57,8 +57,8 @@ and translating business questions into maintainable analytics systems.
   minutes by improving the generation process.
 - Improved MLOps by introducing CI/CD, Ruff, mise, review-backed deployment,
   and Databricks-based scoring migration where appropriate.
-- Improved AI-ready notebook and development workflows and contributed to
-  jupyter-databricks-kernel and Databricks MCP Server adjacent tooling.
+- Improved AI-ready notebook and development workflows, including Databricks
+  notebook tooling and MCP-based developer support.
 
 ### PIVOT Inc. | Freelance Data Engineer
 
@@ -68,10 +68,10 @@ and translating business questions into maintainable analytics systems.
   analytics, GA4 / ULIZA tracking, and model performance.
 - Reworked OOM-prone window-function-heavy logic into a JOIN-based design and
   reduced a major model runtime from 51-90 minutes to a few minutes.
-- Implemented incremental all-period user tracking by unifying GA4
-  `user_pseudo_id` and `user_id` from anonymous visit through login.
-- Improved BigQuery MERGE efficiency through `unique_key`, partitioning, and
-  clustering settings.
+- Implemented incremental all-period user tracking with GA4 identity resolution
+  from anonymous visit through login.
+- Improved BigQuery MERGE efficiency through stable merge keys, partitioning,
+  and clustering.
 
 ### hacomono Inc. | Data Engineer
 
@@ -80,7 +80,7 @@ and translating business questions into maintainable analytics systems.
 - Operated customer and internal DWH transfer infrastructure across BigQuery,
   Embulk, AWS, Google Cloud, Terraform, and Terragrunt.
 - Tuned batch transfer stability using RDS metrics, transfer logs, and Embulk
-  parallelism / read-size parameters.
+  tuning.
 - Moved BigQuery permissions from manual grants toward Terraform-managed
   dataset-level access control.
 - Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
