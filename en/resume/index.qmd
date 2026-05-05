@@ -11,8 +11,8 @@ Data Engineering Manager, MLOps Engineer
 - GitHub: <https://github.com/i9wa4>
 - LinkedIn: <https://www.linkedin.com/in/daikm>
 - X: <https://x.com/i9wa4_>
-- Resume PDF: <https://i9wa4.github.io/en/resume/index.pdf>
-- Japanese resume: [Japanese version](../../resume/index.qmd)
+- Resume (Web): [ja](https://i9wa4.github.io/resume/index.html) / [en](https://i9wa4.github.io/en/resume/index.html)
+- Resume (PDF): [ja](https://i9wa4.github.io/resume/index.pdf) / [en](https://i9wa4.github.io/en/resume/index.pdf)
 
 ## 1. Professional Summary
 
@@ -51,10 +51,9 @@ Nov 2024 - Present | Full-time
 - For karaoke business data utilization, organized 9 management and sales
   reports, 13 ingestion DAGs, and 37 dashboards into a roadmap with
   dependencies and migration priorities.
-- Automated daily sales flash reporting previously maintained in Excel and
-  nearly automated weekly sales-meeting reporting for executives and regional
-  leaders.
-- Reduced shop-analysis Excel generation from roughly 1-2 days to about 20
+- Automated daily sales flash reporting and nearly automated weekly
+  sales-meeting reporting for executives and regional leaders.
+- Reduced shop-analysis report generation from roughly 1-2 days to about 20
   minutes by improving the generation process.
 - Improved MLOps by introducing CI/CD, Ruff, mise, review-backed deployment,
   and Databricks-based scoring migration where appropriate.
@@ -111,9 +110,9 @@ Aug 2018 - Mar 2022 | Full-time
   requirements, design, implementation, and testing.
 - Worked with C / assembler, Renesas and GHS embedded toolchains, RH850 / RL78
   microcontrollers, QAC, and winAMS.
-- Automated formatting for 30+ test specification documents across 5 engineers
-  with Excel VBA; used Python for customer-facing analysis materials and
-  delivered CAN communication lectures.
+- Automated formatting for 30+ test specification documents across 5 engineers;
+  used Python for customer-facing analysis materials and delivered CAN
+  communication lectures.
 
 ### 3.6. Okuma Corporation | Windows Application Engineer
 
@@ -131,8 +130,8 @@ Apr 2016 - Jul 2018 | Full-time
 
 ## 5. Certifications
 
-- Japan Statistical Society Certificate Grade 2, Apr 2023
-- TOEIC 805, Mar 2015
+- Apr 2023: Japan Statistical Society Certificate Grade 2
+- Mar 2015: TOEIC 805
 
 ## 6. Speaking and Writing
 
