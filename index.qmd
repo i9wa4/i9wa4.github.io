@@ -7,13 +7,11 @@ about:
 date-modified: last-modified
 description: |
   [Blog](/blog/){.btn .btn-outline-primary}
+  [Blog (EN)](/en/blog/){.btn .btn-outline-primary}
   [Zenn](/zenn/){.btn .btn-outline-primary}
   [Slides](/slides/){.btn .btn-outline-primary}
   [Resume](/resume/){.btn .btn-outline-primary}
   [Resume (EN)](/en/resume/){.btn .btn-outline-primary}
-  [GitHub](https://github.com/i9wa4){.btn .btn-outline-primary}
-  [LinkedIn](https://www.linkedin.com/in/daikm){.btn .btn-outline-primary}
-  [X](https://x.com/i9wa4_){.btn .btn-outline-primary}
 image: "https://github.com/i9wa4.png"
 toc: false
 ---
