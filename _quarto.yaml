@@ -40,7 +40,7 @@ format:
 
 website:
   title: "uma-chan's page"
-  bread-crumbs: true
+  bread-crumbs: false
   description: "All of my thoughts."
   favicon: "assets/common/icon_hhkb3.png"
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
