@@ -9,7 +9,7 @@ on:
 permissions: {}
 
 env:
-  CONTENT_DIRS: blog en/blog resume root slides zenn
+  CONTENT_DIRS: blog en/blog en/resume resume root slides zenn
   FEED_DIRS: blog
   FULL_REBUILD_TRIGGERS: _extensions/ _includes/ themes/ _quarto.yaml
 
@@ -111,15 +111,16 @@ jobs:
       - name: Set up Python dependencies
         run: uv sync
 
-      - name: Install Playwright
-        if: matrix.dir == 'resume'
-        run: uv run playwright install chromium
+      - name: Install Japanese PDF fonts
+        if: matrix.dir == 'resume' || matrix.dir == 'en/resume'
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-noto-cjk
 
       - name: Render
         env:
           BUILD_DIR: ${{ matrix.dir }}
           BUILD_FILE: ${{ matrix.file }}
           BUILD_MODE: ${{ matrix.mode }}
+          TYPST_FONT_PATHS: /usr/share/fonts/opentype/noto
         run: |
           # NOTE: single mode disabled for deployment stability - always do full directory build
           # if [ "$BUILD_MODE" = "single" ]; then
@@ -133,20 +134,15 @@ jobs:
           fi
 
       - name: Generate PDF
-        if: matrix.dir == 'slides' || matrix.dir == 'resume'
+        if: matrix.dir == 'slides'
         env:
           BUILD_DIR: ${{ matrix.dir }}
         run: |
-          if [ "$BUILD_DIR" = "slides" ]; then
-            for html in _site/slides/*.html; do
-              [ "$(basename "$html")" = "index.html" ] && continue
-              uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
-            done
-            wait
-          else
-            uv run python .github/scripts/html-to-pdf.py \
-              _site/resume/index.html _site/resume/index.pdf
-          fi
+          for html in _site/slides/*.html; do
+            [ "$(basename "$html")" = "index.html" ] && continue
+            uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
+          done
+          wait
 
       - name: Fix image paths and links in GFM files
         run: uv run python .github/scripts/fix-gfm-paths.py _site/

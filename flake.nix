@@ -46,8 +46,10 @@
           devShells = {
             default = pkgs.mkShell {
               packages = [
+                pkgs.noto-fonts-cjk-sans
                 pkgs.uv
               ];
+              TYPST_FONT_PATHS = "${pkgs.noto-fonts-cjk-sans}/share/fonts/opentype/noto-cjk";
               shellHook = ''
                 uv sync --frozen
                 ${config.pre-commit.installationScript}
