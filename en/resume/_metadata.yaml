@@ -3,7 +3,9 @@ format:
     title-prefix: ""
   typst:
     papersize: a4
+    font: "Noto Sans CJK JP"
+    fontsize: 9pt
     margin:
-      x: 0.55in
-      y: 0.55in
+      x: 0.45in
+      y: 0.45in
   gfm: default

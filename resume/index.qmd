@@ -96,8 +96,11 @@ date-modified: last-modified
 
 ## 6. 登壇・執筆
 
-- 登壇: [Mosaic AI Gateway運用](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)、[Databricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)、[AI-ReadyなDatabricks開発環境](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)、[AWSからDatabricksへのML移行](../slides/2025-11-07-tamesare-data-sapporo-uma-chan.qmd)。
-- 執筆・掲載: [GENDA Databricks導入](https://findy-tools.io/products/databricks/11/164)、[PIVOT dbt incrementalモデル設計](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)、[GENDA AWSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)、[GENDAデータ基盤とMLOps](https://note.com/genda_jp/n/n94def6811d47)。
-- その他: [Zenn記事一覧](https://zenn.dev/i9wa4)、[個人サイト](https://i9wa4.github.io)
+- 登壇
+  - 2026/01/26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+  - 2025/12/12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- 執筆
+  - 2026/03/24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
+  - 2025/10/31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->

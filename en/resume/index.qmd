@@ -134,10 +134,9 @@ Apr 2016 - Jul 2018 | Full-time
 
 ## 6. Selected Speaking and Writing
 
-- Talks: [Mosaic AI Gateway operations](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari),
-  [AI-ready Databricks Jupyter Kernel](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari),
-  [AWS-to-Databricks ML migration](../../slides/2025-11-07-tamesare-data-sapporo-uma-chan.qmd).
-- Writing: [GENDA Databricks adoption](https://findy-tools.io/products/databricks/11/164),
-  [PIVOT dbt incremental model design](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model),
-  [AWS-to-Databricks migration article](https://zenn.dev/genda_jp/articles/724a597e8f18ff),
-  [GENDA data platform and MLOps interview](https://note.com/genda_jp/n/n94def6811d47).
+- Talks
+  - 2026-01-26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+  - 2025-12-12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- Writing
+  - 2026-03-24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
+  - 2025-10-31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
