@@ -11,6 +11,7 @@ Data Engineering Manager, MLOps Engineer
 - GitHub: <https://github.com/i9wa4>
 - LinkedIn: <https://www.linkedin.com/in/daikm>
 - X: <https://x.com/i9wa4_>
+- Resume PDF: <https://i9wa4.github.io/en/resume/index.pdf>
 - Japanese resume: [職務経歴書](../../resume/index.qmd)
 
 ## Professional Summary
