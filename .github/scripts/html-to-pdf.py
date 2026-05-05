@@ -75,7 +75,7 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         page.pdf(
             path=pdf_path,
             format="A4",
-            scale=0.95,
+            scale=0.85,
             margin={
                 "top": "20mm",
                 "right": "20mm",
