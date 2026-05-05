@@ -76,12 +76,12 @@ website:
           - text: "GitHub"
             icon: github
             href: "https://github.com/i9wa4"
-          - text: "X"
-            icon: twitter-x
-            href: "https://x.com/i9wa4_"
           - text: "LinkedIn"
             icon: linkedin
             href: "https://www.linkedin.com/in/daikm"
+          - text: "X"
+            icon: twitter-x
+            href: "https://x.com/i9wa4_"
   open-graph:
     locale: "ja_JP"
     site-name: "uma-chan's page"
