@@ -14,7 +14,7 @@ Data Engineering Manager, MLOps Engineer
 - Resume PDF: <https://i9wa4.github.io/en/resume/index.pdf>
 - Japanese resume: [Japanese version](../../resume/index.qmd)
 
-## Professional Summary
+## 1. Professional Summary
 
 Data platform and MLOps engineer with 10+ years of software engineering
 experience, including 4+ years in data engineering and machine-learning
@@ -24,7 +24,7 @@ dashboards, reporting automation, and stakeholder-facing delivery. Strong in
 building reliable data marts and pipelines, improving ML deployment workflows,
 and translating business questions into maintainable analytics systems.
 
-## Core Skills
+## 2. Core Skills
 
 - Data platforms: Databricks, Snowflake, BigQuery, dbt Core, dbt Cloud,
   Airflow / MWAA
@@ -36,9 +36,9 @@ and translating business questions into maintainable analytics systems.
 - Leadership: team management, code review, hiring, stakeholder alignment,
   documentation
 
-## Professional Experience
+## 3. Professional Experience
 
-### GENDA Inc. | Data Engineer / MLOps Engineer; Data Engineering Team Manager
+### 3.1. GENDA Inc. | Data Engineer / MLOps Engineer; Data Engineering Team Manager
 
 2024/11 - Present | Full-time
 
@@ -60,7 +60,7 @@ and translating business questions into maintainable analytics systems.
 - Improved AI-ready notebook and development workflows, including Databricks
   notebook tooling and MCP-based developer support.
 
-### PIVOT Inc. | Freelance Data Engineer
+### 3.2. PIVOT Inc. | Freelance Data Engineer
 
 2025/06 - Present | Contract
 
@@ -73,7 +73,7 @@ and translating business questions into maintainable analytics systems.
 - Improved BigQuery MERGE efficiency through stable merge keys, partitioning,
   and clustering.
 
-### hacomono Inc. | Data Engineer
+### 3.3. hacomono Inc. | Data Engineer
 
 2024/04 - 2024/10 | Full-time
 
@@ -86,7 +86,7 @@ and translating business questions into maintainable analytics systems.
 - Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
   Datastream and documented failure / recovery behavior.
 
-### CNS Hokkaido Inc. | Data Engineer / MLOps Engineer
+### 3.4. CNS Hokkaido Inc. | Data Engineer / MLOps Engineer
 
 2022/04 - 2024/03 | Full-time
 
@@ -100,18 +100,20 @@ and translating business questions into maintainable analytics systems.
   across roughly 200 stores, completing processing in about 2 days against a
   4-day requirement.
 
-### Shinko Shoji LSI Design Center Co., Ltd. | Embedded Software Engineer
+### 3.5. Shinko Shoji LSI Design Center Co., Ltd. | Embedded Software Engineer
 
 2018/08 - 2022/03 | Full-time
 
-- Developed embedded software for automotive and industrial microcontroller
-  systems across requirements, design, implementation, and testing.
+- Developed automotive and industrial embedded firmware for traction-control
+  updates, sprayer inverter control, and operation controllers across
+  requirements, design, implementation, and testing.
+- Worked with C / assembler, Renesas and GHS embedded toolchains, RH850 / RL78
+  microcontrollers, QAC, and winAMS.
 - Automated formatting for 30+ test specification documents across 5 engineers
-  with Excel VBA.
-- Used Python to create customer-facing graph analysis materials and delivered
-  CAN communication lectures.
+  with Excel VBA; used Python for customer-facing analysis materials and
+  delivered CAN communication lectures.
 
-### Okuma Corporation | Windows Application Engineer
+### 3.6. Okuma Corporation | Windows Application Engineer
 
 2016/04 - 2018/07 | Full-time
 
@@ -121,16 +123,16 @@ and translating business questions into maintainable analytics systems.
 - Built a foundation in quality assurance, domain understanding, and
   user-facing software maintenance.
 
-## Education
+## 4. Education
 
 - Bachelor of Science in Mathematics, Hokkaido University
 
-## Certifications
+## 5. Certifications
 
 - Japan Statistical Society Certificate Grade 2, 2023/04
 - TOEIC 805, 2015/03
 
-## Selected Speaking and Writing
+## 6. Selected Speaking and Writing
 
 - GENDA talk: Databricks migration for machine-learning environments
 - GENDA talks: Databricks permissions, AI-ready notebooks, and AI coding
