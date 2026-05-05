@@ -76,12 +76,6 @@ website:
           - text: "X"
             icon: twitter-x
             href: "https://x.com/i9wa4_"
-      - text: "---"
-      - section: "Feeds"
-        contents:
-          - text: "RSS"
-            icon: rss
-            href: "blog/index.xml"
   open-graph:
     locale: "ja_JP"
     site-name: "uma-chan's page"
@@ -93,12 +87,6 @@ website:
     left:
       - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
     right:
-      - icon: github
-        href: "https://github.com/i9wa4"
-      - icon: linkedin
-        href: "https://www.linkedin.com/in/daikm"
-      - icon: twitter-x
-        href: "https://x.com/i9wa4_"
       - icon: rss
         href: "blog/index.xml"
       - text: "Built with"
