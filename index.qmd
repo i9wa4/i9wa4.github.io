@@ -5,13 +5,6 @@ about:
   image-width: 9em
   image-shape: round
 date-modified: last-modified
-description: |
-  [Blog](/blog/){.btn .btn-outline-primary}
-  [Blog (EN)](/en/blog/){.btn .btn-outline-primary}
-  [Zenn](/zenn/){.btn .btn-outline-primary}
-  [Slides](/slides/){.btn .btn-outline-primary}
-  [Resume](/resume/){.btn .btn-outline-primary}
-  [Resume (EN)](/en/resume/){.btn .btn-outline-primary}
 image: "https://github.com/i9wa4.png"
 toc: false
 ---
