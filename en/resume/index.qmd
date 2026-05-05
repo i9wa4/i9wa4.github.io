@@ -51,8 +51,6 @@ Nov 2024 - Present | Full-time
 - For karaoke business data utilization, organized 9 management and sales
   reports, 13 ingestion DAGs, and 37 dashboards into a roadmap with
   dependencies and migration priorities.
-- Automated daily sales flash reporting and nearly automated weekly
-  sales-meeting reporting for executives and regional leaders.
 - Reduced shop-analysis report generation from roughly 1-2 days to about 20
   minutes by improving the generation process.
 - Improved MLOps by introducing CI/CD, Ruff, mise, review-backed deployment,
