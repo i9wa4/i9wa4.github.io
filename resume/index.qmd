@@ -7,7 +7,7 @@ date-modified: last-modified
 - [職務経歴書 (pdf)](https://i9wa4.github.io/resume/index.pdf)
 - [Resume (English)](../en/resume/index.qmd)
 
-## 馬渡 大樹
+馬渡 大樹
 
 データエンジニアマネージャー、MLOpsエンジニア
 
@@ -96,7 +96,7 @@ date-modified: last-modified
 
 ## 6. 登壇・執筆
 
-### 6.1 登壇
+### 6.1. 登壇
 
 - 2026/01/26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
 - 2025/12/23: [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
@@ -104,7 +104,7 @@ date-modified: last-modified
 - 2025/11/07: [GENDA の機械学習環境を AWS から Databricks に移行してみた](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
 - 2025/05/22: [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
 
-### 6.2 執筆
+### 6.2. 執筆
 
 - 2026/03/24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
 - 2025/10/31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)

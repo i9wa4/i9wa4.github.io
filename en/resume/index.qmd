@@ -3,7 +3,7 @@ title: "Daiki Mawatari - Resume"
 date-modified: last-modified
 ---
 
-## Daiki Mawatari
+Daiki Mawatari
 
 Data Engineering Manager, MLOps Engineer
 
@@ -136,7 +136,7 @@ Apr 2016 - Jul 2018 | Full-time
 
 ## 6. Speaking and Writing
 
-### 6.1 Talks
+### 6.1. Talks
 
 - January 26, 2026: [Operational Tips for Distributing Coding Agents with Mosaic AI Gateway](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
 - December 23, 2025: [Databricks Permission Management for Enabling Data Use at GENDA as M&A Expands](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
@@ -144,7 +144,7 @@ Apr 2016 - Jul 2018 | Full-time
 - November 7, 2025: [Migrating GENDA's Machine Learning Environment from AWS to Databricks](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
 - May 22, 2025: [Recommended Cursor Settings and How to Let Cursor Handle Data Analysis](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
 
-### 6.2 Writing
+### 6.2. Writing
 
 - March 24, 2026: [Before and After Introducing Databricks to GENDA's Data Platform](https://findy-tools.io/products/databricks/11/164)
 - October 31, 2025: [Designing dbt Incremental Models to Promote Data Analysis: Lower-Cost All-Period Tracking](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
