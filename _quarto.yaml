@@ -95,10 +95,10 @@ website:
     right:
       - icon: github
         href: "https://github.com/i9wa4"
-      - icon: twitter-x
-        href: "https://x.com/i9wa4_"
       - icon: linkedin
         href: "https://www.linkedin.com/in/daikm"
+      - icon: twitter-x
+        href: "https://x.com/i9wa4_"
       - icon: rss
         href: "blog/index.xml"
       - text: "Built with"
