@@ -96,27 +96,8 @@ date-modified: last-modified
 
 ## 6. 登壇・執筆
 
-### 6.1. 登壇
-
-- 2026/01/26 株式会社GENDA: JEDAI 2026 新春 Meetupで、Mosaic AI Gatewayを用いたコーディングエージェント運用を発表
-- 2025/12/23 株式会社GENDA: AEON TECH HUBで、GENDAのDatabricks権限管理を発表
-- 2025/12/12 株式会社GENDA: Databricks Data + AI World Tour Tokyo After Partyで、Databricks向けJupyter KernelとAI-Readyな開発環境を発表
-- 2025/11/07 株式会社GENDA: 試されDATA SAPPORO #1で、機械学習環境のAWSからDatabricksへの移行を発表
-- 2025/05/22 株式会社GENDA: AIネイティブ開発勉強会で、Cursor設定とAIを用いたデータ分析支援を発表
-
-### 6.2. 記事執筆・掲載
-
-- 2026/03/24 株式会社GENDA: Findy ToolsでGENDAデータ基盤へのDatabricks導入事例を執筆
-- 2025/10/31 PIVOT株式会社: dbt incrementalモデル設計と全期間ユーザー追跡についてテックブログを執筆
-- 2025/09/01 株式会社GENDA: データサイエンティスト開発体験向上とAWS ECSからDatabricksへの移行についてテックブログを執筆
-- 2025/06/25 株式会社GENDA: GENDAのデータ基盤とMLOpsに関するnote記事に掲載
-- 2024/10/08 株式会社hacomono: Findy Toolsのデータ基盤アーキテクチャ特集に掲載
-- 2024/08/21 株式会社hacomono: Findy ToolsでBigQuery導入事例レビューを執筆
-- 2024/07/02 株式会社hacomono: hacomonoデータ基盤のデータ転送課題についてテックブログを執筆
-
-### 6.3. その他技術記事
-
-- [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)
-- [uma-chan's page](https://i9wa4.github.io)
+- 登壇: [Mosaic AI Gateway運用](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)、[Databricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)、[AI-ReadyなDatabricks開発環境](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)、[AWSからDatabricksへのML移行](../slides/2025-11-07-tamesare-data-sapporo-uma-chan.qmd)。
+- 執筆・掲載: [GENDA Databricks導入](https://findy-tools.io/products/databricks/11/164)、[PIVOT dbt incrementalモデル設計](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)、[GENDA AWSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)、[GENDAデータ基盤とMLOps](https://note.com/genda_jp/n/n94def6811d47)。
+- その他: [Zenn記事一覧](https://zenn.dev/i9wa4)、[個人サイト](https://i9wa4.github.io)
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
