@@ -111,16 +111,15 @@ jobs:
       - name: Set up Python dependencies
         run: uv sync
 
-      - name: Install Japanese PDF fonts
+      - name: Install Playwright
         if: matrix.dir == 'resume' || matrix.dir == 'en/resume'
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-noto-cjk
+        run: uv run playwright install chromium
 
       - name: Render
         env:
           BUILD_DIR: ${{ matrix.dir }}
           BUILD_FILE: ${{ matrix.file }}
           BUILD_MODE: ${{ matrix.mode }}
-          TYPST_FONT_PATHS: /usr/share/fonts/opentype/noto
         run: |
           # NOTE: single mode disabled for deployment stability - always do full directory build
           # if [ "$BUILD_MODE" = "single" ]; then
@@ -134,15 +133,20 @@ jobs:
           fi
 
       - name: Generate PDF
-        if: matrix.dir == 'slides'
+        if: matrix.dir == 'slides' || matrix.dir == 'resume' || matrix.dir == 'en/resume'
         env:
           BUILD_DIR: ${{ matrix.dir }}
         run: |
-          for html in _site/slides/*.html; do
-            [ "$(basename "$html")" = "index.html" ] && continue
-            uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
-          done
-          wait
+          if [ "$BUILD_DIR" = "slides" ]; then
+            for html in _site/slides/*.html; do
+              [ "$(basename "$html")" = "index.html" ] && continue
+              uvx deck2pdf@0.9.0 "$html" "${html%.html}.pdf" &
+            done
+            wait
+          else
+            uv run python .github/scripts/html-to-pdf.py \
+              "_site/${BUILD_DIR}/index.html" "_site/${BUILD_DIR}/index.pdf"
+          fi
 
       - name: Fix image paths and links in GFM files
         run: uv run python .github/scripts/fix-gfm-paths.py _site/
