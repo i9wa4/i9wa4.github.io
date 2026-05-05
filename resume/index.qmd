@@ -1,43 +1,6 @@
 ---
 title: "職務経歴書"
 date-modified: last-modified
-listing:
-  - id: "list-details-full-time"
-    contents:
-      - "."
-    exclude:
-      filename:
-        - "index.qmd"
-    fields:
-      - "Period"
-      - "title"
-      - "description"
-    filter-ui: false
-    include:
-      categories:
-        - "正社員"
-    sort:
-      - "filename desc"
-    sort-ui: false
-    type: table
-  - id: "list-details-part-time"
-    contents:
-      - "."
-    exclude:
-      filename:
-        - "index.qmd"
-    fields:
-      - "Period"
-      - "title"
-      - "description"
-    filter-ui: false
-    include:
-      categories:
-        - "業務委託"
-    sort:
-      - "filename desc"
-    sort-ui: false
-    type: table
 ---
 
 - [職務経歴書 (Web ページ)](https://i9wa4.github.io/resume/index.html)
@@ -135,47 +98,25 @@ listing:
 
 ### 登壇
 
-| 日付       | 所属          | 登壇先                                                                                                                         | 資料                                                                                                                                                                                                                |
-| :---       | :---          | :---                                                                                                                           | :---                                                                                                                                                                                                                |
-| 2026/01/26 | 株式会社GENDA | [JEDAI 2026 新春 Meetup! AIコーディング特集 - connpass](https://jedai.connpass.com/event/379174/)                              | [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips / JEDAI 2026 新春 Meetup! AIコーディング特集 - Speaker Deck](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)                   |
-| 2025/12/23 | 株式会社GENDA | [モダンデータ基盤の最前線：現場から学ぶ実践と挑戦 - connpass](https://aeon.connpass.com/event/375097/)                         | [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 / AEON TECH HUB #22 - Speaker Deck](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)                                                      |
-| 2025/12/12 | 株式会社GENDA | [Databricks Data + AI World Tour Tokyo After Party](https://events.databricks.com/daiwt-tokyo-after-party/registration-closed) | [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする / Data+AI World Tour Tokyo After Party - Speaker Deck](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari) |
-| 2025/11/07 | 株式会社GENDA | [試されDATA SAPPORO #1 - connpass](https://tamesaredatahokkaido.connpass.com/event/369741/)                                    | [GENDA の機械学習環境を AWS から Databricks に移行してみた](/slides/2025-11-07-tamesare-data-sapporo-uma-chan.qmd)                                                                                                  |
-| 2025/05/22 | 株式会社GENDA | AIネイティブ開発 Tips 1000本ノック (ミダスキャピタル投資先企業勉強会)                                                          | [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](/slides/2025-05-22-midas-cursor-tips.qmd)                                                                                                                   |
+- 2026/01/26 株式会社GENDA: JEDAI 2026 新春 Meetupで、Mosaic AI Gatewayを用いたコーディングエージェント運用を発表
+- 2025/12/23 株式会社GENDA: AEON TECH HUBで、GENDAのDatabricks権限管理を発表
+- 2025/12/12 株式会社GENDA: Databricks Data + AI World Tour Tokyo After Partyで、Databricks向けJupyter KernelとAI-Readyな開発環境を発表
+- 2025/11/07 株式会社GENDA: 試されDATA SAPPORO #1で、機械学習環境のAWSからDatabricksへの移行を発表
+- 2025/05/22 株式会社GENDA: AIネイティブ開発勉強会で、Cursor設定とAIを用いたデータ分析支援を発表
 
 ### 記事執筆・掲載
 
-| 日付       | 所属             | 概要                     | リンク                                                                                                                                                 |
-| :---       | :---             | :---                     | :---                                                                                                                                                   |
-| 2026/03/24 | 株式会社GENDA    | Findy Tools レビュー執筆 | [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)                                                   |
-| 2025/10/31 | PIVOT株式会社    | テックブログ執筆         | [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model) |
-| 2025/09/01 | 株式会社GENDA    | テックブログ執筆         | [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)            |
-| 2025/06/25 | 株式会社GENDA    | note 掲載                | [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)                      |
-| 2024/10/08 | 株式会社hacomono | Findy Tools 特集記事掲載 | [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28)                |
-| 2024/08/21 | 株式会社hacomono | Findy Tools レビュー執筆 | [株式会社hacomonoのBigQuery導入事例 - Findy Tools](https://findy-tools.io/products/bigquery/49/231)                                                    |
-| 2024/07/02 | 株式会社hacomono | テックブログ執筆         | [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)                      |
+- 2026/03/24 株式会社GENDA: Findy ToolsでGENDAデータ基盤へのDatabricks導入事例を執筆
+- 2025/10/31 PIVOT株式会社: dbt incrementalモデル設計と全期間ユーザー追跡についてテックブログを執筆
+- 2025/09/01 株式会社GENDA: データサイエンティスト開発体験向上とAWS ECSからDatabricksへの移行についてテックブログを執筆
+- 2025/06/25 株式会社GENDA: GENDAのデータ基盤とMLOpsに関するnote記事に掲載
+- 2024/10/08 株式会社hacomono: Findy Toolsのデータ基盤アーキテクチャ特集に掲載
+- 2024/08/21 株式会社hacomono: Findy ToolsでBigQuery導入事例レビューを執筆
+- 2024/07/02 株式会社hacomono: hacomonoデータ基盤のデータ転送課題についてテックブログを執筆
 
 ### その他技術記事
 
 - [uma-chanさんの記事一覧 - Zenn](https://zenn.dev/i9wa4)
 - [uma-chan's page](https://i9wa4.github.io)
-
-## 職務経歴詳細
-
-::: {.callout-note appearance=simple}
-
-詳細は社名リンク先をご確認ください。
-
-:::
-
-### 正社員
-
-::: {#list-details-full-time}
-:::
-
-### 業務委託
-
-::: {#list-details-part-time}
-:::
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->

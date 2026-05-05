@@ -4,10 +4,10 @@ project:
   render:
     - "*.qmd"
     - "blog/"
-    - "resume/"
+    - "resume/index.qmd"
     - "slides/"
     - "en/blog/"
-    - "en/resume/"
+    - "en/resume/index.qmd"
     - "zenn/*.qmd"
     - "!zenn/raw/"
 
