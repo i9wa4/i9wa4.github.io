@@ -138,18 +138,18 @@ Apr 2016 - Jul 2018 | Full-time
 
 ### 6.1 Talks
 
-- 2026-01-26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
-- 2025-12-23: [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
-- 2025-12-12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
-- 2025-11-07: [GENDA の機械学習環境を AWS から Databricks に移行してみた](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
-- 2025-05-22: [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
+- January 26, 2026: [Operational Tips for Distributing Coding Agents with Mosaic AI Gateway](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+- December 23, 2025: [Databricks Permission Management for Enabling Data Use at GENDA as M&A Expands](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- December 12, 2025: [Making Data Scientists' Development Environments AI-Ready with a Jupyter Kernel for Databricks](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- November 7, 2025: [Migrating GENDA's Machine Learning Environment from AWS to Databricks](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
+- May 22, 2025: [Recommended Cursor Settings and How to Let Cursor Handle Data Analysis](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
 
 ### 6.2 Writing
 
-- 2026-03-24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
-- 2025-10-31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
-- 2025-09-01: [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
-- 2025-06-25: [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)
-- 2024-10-08: [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28)
-- 2024-08-21: [株式会社hacomonoのBigQuery導入事例](https://findy-tools.io/products/bigquery/49/231)
-- 2024-07-02: [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)
+- March 24, 2026: [Before and After Introducing Databricks to GENDA's Data Platform](https://findy-tools.io/products/databricks/11/164)
+- October 31, 2025: [Designing dbt Incremental Models to Promote Data Analysis: Lower-Cost All-Period Tracking](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+- September 1, 2025: [Improving GENDA's Data Scientist Development Experience: Migrating from AWS ECS to Databricks](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- June 25, 2025: [Becoming a Hub for Growth: Data Platforms and MLOps that Accelerate GENDA's Data-Driven Organization](https://note.com/genda_jp/n/n94def6811d47)
+- October 8, 2024: [Data Platform Architecture Feature Covering 39 Companies: Tool Selection Points and Use Cases](https://findy-tools.io/articles/data-review/28)
+- August 21, 2024: [hacomono BigQuery Adoption Case Study](https://findy-tools.io/products/bigquery/49/231)
+- July 2, 2024: [Data Transfer Challenges and Future Plans in hacomono's Data Platform](https://techblog.hacomono.jp/entry/2024/07/02/1100)
