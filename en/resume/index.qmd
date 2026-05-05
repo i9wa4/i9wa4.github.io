@@ -19,10 +19,11 @@ Data Engineering Manager, MLOps Engineer
 Data platform and MLOps engineer with 10+ years of software engineering
 experience, including 4+ years in data engineering and machine-learning
 operations. Currently Data Engineering Team Manager at GENDA, leading
-group-company data utilization across Databricks, dbt, Snowflake, AWS,
-dashboards, reporting automation, and stakeholder-facing delivery. Strong in
-building reliable data marts and pipelines, improving ML deployment workflows,
-and translating business questions into maintainable analytics systems.
+cross-company data utilization through Databricks, dbt, Snowflake, AWS,
+dashboard and data-mart delivery, stakeholder coordination, and team
+management. Strong in building reliable data platforms and ML deployment
+workflows, connecting business priorities to maintainable analytics systems,
+and leading delivery across engineering and business stakeholders.
 
 ## 2. Core Skills
 
@@ -77,10 +78,11 @@ Jun 2025 - Present | Contract
 
 Apr 2024 - Oct 2024 | Full-time
 
-- Operated customer and internal DWH transfer infrastructure across BigQuery,
-  Embulk, AWS, Google Cloud, Terraform, and Terragrunt.
-- Tuned batch transfer stability using RDS metrics, transfer logs, and Embulk
-  tuning.
+- Served as solo data engineer owning customer and internal DWH transfer
+  operations, infrastructure / IaC changes, and delivery support across
+  BigQuery, Embulk, AWS, Google Cloud, Terraform, and Terragrunt.
+- Improved batch transfer stability using RDS metrics, transfer logs, and
+  Embulk tuning.
 - Moved BigQuery permissions from manual grants toward Terraform-managed
   dataset-level access control.
 - Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
@@ -132,11 +134,22 @@ Apr 2016 - Jul 2018 | Full-time
 - Japan Statistical Society Certificate Grade 2, Apr 2023
 - TOEIC 805, Mar 2015
 
-## 6. Selected Speaking and Writing
+## 6. Speaking and Writing
 
-- Talks
-  - 2026-01-26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
-  - 2025-12-12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
-- Writing
-  - 2026-03-24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
-  - 2025-10-31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+### 6.1 Talks
+
+- 2026-01-26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+- 2025-12-23: [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- 2025-12-12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- 2025-11-07: [GENDA の機械学習環境を AWS から Databricks に移行してみた](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
+- 2025-05-22: [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
+
+### 6.2 Writing
+
+- 2026-03-24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
+- 2025-10-31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+- 2025-09-01: [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- 2025-06-25: [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)
+- 2024-10-08: [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28)
+- 2024-08-21: [株式会社hacomonoのBigQuery導入事例](https://findy-tools.io/products/bigquery/49/231)
+- 2024-07-02: [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)

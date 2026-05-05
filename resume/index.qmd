@@ -18,7 +18,7 @@ date-modified: last-modified
 
 ## 1. 職務要約
 
-ソフトウェアエンジニアとして10年以上の経験があり、直近4年以上はデータエンジニアリングとMLOpsを中心に取り組んでいます。現職GENDAではデータエンジニアチームのマネージャーとして、グループ会社のデータ利活用をDatabricks、dbt、Snowflake、AWS、ダッシュボード、帳票自動化、関係者調整の面から推進しています。信頼できるデータマートとパイプラインの構築、機械学習デプロイワークフローの改善、事業上の問いを保守可能な分析システムへ落とし込むことを得意としています。
+ソフトウェアエンジニアとして10年以上の経験があり、直近4年以上はデータエンジニアリングとMLOpsを中心に取り組んでいます。現職GENDAではデータエンジニアチームのマネージャーとして、Databricks、dbt、Snowflake、AWSを活用したグループ横断のデータ基盤整備、データマート・ダッシュボード提供、関係者調整、チームマネジメントを推進しています。信頼できるデータ基盤と機械学習デプロイワークフローを構築し、事業上の優先度を保守可能な分析システムとステークホルダー向けの提供価値へ落とし込むことを得意としています。
 
 ## 2. コアスキル
 
@@ -55,8 +55,8 @@ date-modified: last-modified
 
 2024/04 - 2024/10 | 正社員
 
-- BigQuery、Embulk、AWS、Google Cloud、Terraform、Terragruntを用いて、顧客向けおよび社内向けDWH転送基盤を運用しました。
-- RDSメトリクス、転送ログ、Embulkのチューニングによりバッチ転送の安定性を改善しました。
+- 一人データエンジニアとして、BigQuery、Embulk、AWS、Google Cloud、Terraform、Terragruntを用いた顧客向け・社内向けDWH転送運用、インフラ / IaC変更、提供支援を担当しました。
+- RDSメトリクス、転送ログ、Embulkチューニングによりバッチ転送の安定性を改善しました。
 - BigQuery権限を手動付与からTerraform管理のdatasetレベル権限へ移行しました。
 - Google Cloud DatastreamによるRDS MySQLからBigQueryへのリアルタイム転送を検証し、障害・復旧時の挙動を文書化しました。
 
@@ -96,11 +96,22 @@ date-modified: last-modified
 
 ## 6. 登壇・執筆
 
-- 登壇
-  - 2026/01/26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
-  - 2025/12/12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
-- 執筆
-  - 2026/03/24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
-  - 2025/10/31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+### 6.1 登壇
+
+- 2026/01/26: [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+- 2025/12/23: [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- 2025/12/12: [Databricks向けJupyter Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- 2025/11/07: [GENDA の機械学習環境を AWS から Databricks に移行してみた](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
+- 2025/05/22: [Cursorのおすすめ設定 & Cursorにデータ分析を任せる方法](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
+
+### 6.2 執筆
+
+- 2026/03/24: [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
+- 2025/10/31: [データ分析を促進する dbt incremental モデル設計 ― 全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+- 2025/09/01: [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- 2025/06/25: [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)
+- 2024/10/08: [39社のデータ基盤アーキテクチャ特集 - ツールの技術選定のポイントと活用術 - Findy Tools](https://findy-tools.io/articles/data-review/28)
+- 2024/08/21: [株式会社hacomonoのBigQuery導入事例](https://findy-tools.io/products/bigquery/49/231)
+- 2024/07/02: [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)
 
 <!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
