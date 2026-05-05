@@ -33,21 +33,3 @@ table {
     overflow-wrap: anywhere;
   }
 }
-
-// Match About's fullcontent grid to ordinary floating-sidebar pages on tablets.
-@media (min-width: 768px) and (max-width: 991.98px) {
-  body.floating.fullcontent .page-columns {
-    grid-template-columns:
-      [screen-start] 1.5em
-      [screen-start-inset] 5fr
-      [page-start page-start-inset body-start-outset body-start] 1.5em
-      [body-content-start] minmax(500px, calc(850px - 3em))
-      [body-content-end] 1.5em
-      [body-end] 60px
-      [body-end-outset] minmax(90px, 180px)
-      [page-end-inset] 30px
-      [page-end] 5fr
-      [screen-end-inset] 1.5em
-      [screen-end];
-  }
-}
