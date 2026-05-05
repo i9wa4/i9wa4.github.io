@@ -85,7 +85,7 @@ Apr 2024 - Oct 2024 | Full-time
 - Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
   Datastream and documented failure / recovery behavior.
 
-### 3.4. CNS Hokkaido Inc. | Data Engineer / MLOps Engineer
+### 3.4.  CNS HOKKAIDO Co., Ltd. | Data Engineer / MLOps Engineer
 
 Apr 2022 - Mar 2024 | Full-time
 
