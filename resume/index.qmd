@@ -108,4 +108,8 @@ date-modified: last-modified
 - 2024/08/21: [株式会社hacomonoのBigQuery導入事例](https://findy-tools.io/products/bigquery/49/231)
 - 2024/07/02: [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 - hacomono TECH BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)
 
-<!-- <https://x.com/Akira_Akagawa/status/1870455703472865395> -->
+### 6.3. 受賞
+
+- 2026/03/24: JEDAI Order 2026 Knight
+  - [JEDAI Order 2026 受賞者一覧 | Databricks User Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
+  - [データマネジメント部 マネージャーの馬渡がJEDAI Order 2026に選出](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)

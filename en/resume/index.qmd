@@ -147,3 +147,9 @@ Apr 2016 - Jul 2018 | Full-time
 - October 8, 2024: [Data Platform Architecture Feature Covering 39 Companies: Tool Selection Points and Use Cases](https://findy-tools.io/articles/data-review/28)
 - August 21, 2024: [hacomono BigQuery Adoption Case Study](https://findy-tools.io/products/bigquery/49/231)
 - July 2, 2024: [Data Transfer Challenges and Future Plans in hacomono's Data Platform](https://techblog.hacomono.jp/entry/2024/07/02/1100)
+
+### 6.3. Awards
+
+- 2026: JEDAI Order 2026 Knight, Databricks Japan User Community
+  - [JEDAI Order 2026 Award Recipients | Databricks User Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
+  - [GENDA Data Management Department Manager Daiki Mawatari Selected for JEDAI Order 2026](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)

@@ -2,6 +2,8 @@
 HTML to PDF converter using Playwright
 """
 
+import os
+import shutil
 import sys
 from pathlib import Path
 
@@ -30,8 +32,16 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
         web_dir = "/" + html_file.parent.name
 
     with sync_playwright() as p:
-        browser = p.chromium.launch()
-        page = browser.new_page()
+        executable_path = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH")
+        if executable_path and not Path(executable_path).exists():
+            executable_path = shutil.which(executable_path) or executable_path
+
+        launch_options = {}
+        if executable_path:
+            launch_options["executable_path"] = executable_path
+
+        browser = p.chromium.launch(**launch_options)
+        page = browser.new_page(viewport={"width": 1440, "height": 1200})
 
         # Load HTML file
         page.goto(f"file://{html_file.absolute()}")
@@ -69,6 +79,35 @@ def html_to_pdf(html_path: str, pdf_path: str) -> None:
             }
         """,
             web_dir,
+        )
+
+        # Keep resume PDFs within the public 1-2 page target without removing content.
+        page.add_style_tag(
+            content="""
+@media print {
+  body {
+    font-size: 85% !important;
+    line-height: 1.18 !important;
+  }
+
+  p,
+  li {
+    line-height: 1.18 !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-top: 0.45rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  ul {
+    margin-top: 0.15rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+}
+"""
         )
 
         # Generate PDF
