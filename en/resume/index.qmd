@@ -21,6 +21,8 @@ dashboard and data-mart delivery, stakeholder coordination, and team
 management. Strong in building reliable data platforms and ML deployment
 workflows, connecting business priorities to maintainable analytics systems,
 and leading delivery across engineering and business stakeholders.
+Building toward broader data leadership across analytics platforms, MLOps, and
+business-facing data strategy.
 
 ## 2. Core Skills
 
