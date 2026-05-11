@@ -1,5 +1,5 @@
 ---
-title: "Resume - Daiki Mawatari"
+title: "Data Engineering Manager / MLOps Engineer - Daiki Mawatari"
 date-modified: last-modified
 ---
 
