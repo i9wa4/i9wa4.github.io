@@ -5,7 +5,7 @@ date-modified: last-modified
 
 Daiki Mawatari
 
-Data Engineering Manager & MLOps Engineer
+Data Engineering Manager / MLOps Engineer
 
 [Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4)
 
@@ -13,28 +13,30 @@ Resume: Japanese ([Website](https://i9wa4.github.io/resume/index.html), [PDF](ht
 
 ## 1. Professional Summary
 
-Data platform and MLOps engineer with 10+ years of software engineering
-experience, including 4+ years in data engineering and machine-learning
-operations. Currently Data Engineering Team Manager at GENDA, leading
-cross-company data utilization through Databricks, dbt, Snowflake, AWS,
-dashboard and data-mart delivery, stakeholder coordination, and team
-management. Strong in building reliable data platforms and ML deployment
-workflows, connecting business priorities to maintainable analytics systems,
-and leading delivery across engineering and business stakeholders.
-Building toward broader data leadership across analytics platforms, MLOps, and
-business-facing data strategy.
+Data Engineering Manager and MLOps Engineer with 10+ years of software
+engineering experience, including 4+ years in data engineering and
+machine-learning operations. Currently Data Engineering Team Manager at GENDA,
+leading cross-company data utilization, data-mart and dashboard delivery,
+MLOps, stakeholder alignment, and data-team operations. I translate business,
+sales, data-science, and engineering requirements into reliable data platforms,
+analytics workflows, and developer experience that can be operated
+continuously. My recent work combines Databricks, dbt, Snowflake, BigQuery,
+AWS, Google Cloud, AI-enabled workflows, notebook tooling, permissions,
+governance, and team practices to support data utilization and ML operations.
 
 ## 2. Core Skills
 
-- Data platforms: Databricks, Snowflake, BigQuery, dbt Core, dbt Cloud,
-  Airflow / MWAA
+- Data and analytics platforms: Databricks, Snowflake, BigQuery, dbt Core /
+  Cloud, Airflow / MWAA, data marts, dashboards
 - Cloud and infrastructure: AWS, Google Cloud, Terraform, GitHub Actions,
   Docker
-- MLOps and AI enablement: CI/CD, Ruff, mise, DataRobot, Snowpark ML,
-  Databricks notebooks, MCP tooling
-- Programming: Python, SQL, Shell Script, C, C++
-- Leadership: team management, code review, hiring, stakeholder alignment,
-  documentation
+- MLOps and AI enablement: CI/CD, DataRobot, Snowpark ML, Databricks notebooks,
+  notebook tooling, MCP tooling, AI coding agent workflows
+- Developer productivity and governance: Nix / mise, Ruff, review-backed
+  deployment, permission design, data governance, documentation
+- Data-team operations: team management, code review, hiring, 1:1s, technical
+  handoff, and operating rhythms
+- Engineering foundation: Python, SQL, Shell Script, C, C++
 
 ## 3. Professional Experience
 
@@ -42,9 +44,9 @@ business-facing data strategy.
 
 Nov 2024 - Present | Full-time
 
-- Lead data utilization work for group companies, connecting stakeholder
-  requirements with Databricks, dbt, Snowflake, data marts, and dashboard
-  delivery.
+- Lead data utilization work for group companies, connecting management, sales,
+  and field requirements in an M&A-expanding business to data platforms, data
+  marts, dashboards, and analytics workflows.
 - Became Data Engineering Team Manager in 2026/04; manage progress, code
   reviews, 1:1s, hiring activity, and technical handoff practices.
 - For karaoke business data utilization, organized 9 management and sales
@@ -54,8 +56,9 @@ Nov 2024 - Present | Full-time
   minutes by improving the generation process.
 - Improved MLOps by introducing CI/CD, Ruff, mise, review-backed deployment,
   and Databricks-based scoring migration where appropriate.
-- Improved AI-ready notebook and development workflows, including Databricks
-  notebook tooling and MCP-based developer support.
+- Improved AI-ready notebook and development workflows so data scientists and
+  data engineers can validate business value faster with safer developer
+  experience.
 
 ### 3.2. PIVOT Inc. | Freelance Data Engineer
 

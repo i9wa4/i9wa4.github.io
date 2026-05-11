@@ -5,7 +5,7 @@ date-modified: last-modified
 
 馬渡 大樹
 
-データエンジニアマネージャー・MLOpsエンジニア
+データエンジニアリングマネージャー / MLOpsエンジニア
 
 [Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4)
 
@@ -13,15 +13,16 @@ date-modified: last-modified
 
 ## 1. 職務要約
 
-データ基盤・MLOpsエンジニアとして、ソフトウェアエンジニアリング10年以上の経験を持ち、そのうち4年以上はデータエンジニアリングと機械学習運用に取り組んでいます。現職GENDAではデータエンジニアチームのマネージャーとして、Databricks、dbt、Snowflake、AWSを活用したグループ横断のデータ利活用、ダッシュボード・データマート提供、関係者調整、チームマネジメントをリードしています。信頼できるデータ基盤と機械学習デプロイワークフローを構築し、事業上の優先度を保守可能な分析システムへ接続し、エンジニアリングとビジネス双方の関係者を巻き込んだデリバリーをリードすることを得意としています。データ基盤、MLOps、事業に向き合うデータ戦略を横断しながら、より広いデータリーダーシップへ領域を広げています。
+データ基盤・MLOps領域のエンジニアリングマネージャーです。ソフトウェアエンジニアリング10年以上、データエンジニアリングと機械学習運用4年以上の経験を持ち、現職GENDAではデータエンジニアチームのマネージャーとして、グループ横断のデータ利活用、データマート・ダッシュボード提供、MLOps、関係者調整、チーム運営をリードしています。事業部、営業、データサイエンス、エンジニアリングの要件を、信頼できるデータ基盤、分析ワークフロー、開発者体験へ落とし込み、継続的に運用できる形で届けることを得意としています。Databricks、dbt、Snowflake、BigQuery、AWS / Google Cloud、AI活用、Notebook tooling、権限・ガバナンス、開発ワークフローを組み合わせ、データ活用と機械学習運用を支える基盤づくりに取り組んでいます。
 
 ## 2. コアスキル
 
-- データ基盤: Databricks、Snowflake、BigQuery、dbt Core、dbt Cloud、Airflow / MWAA
-- クラウド・インフラ: AWS、Google Cloud、Terraform、GitHub Actions、Docker
-- MLOps・AI活用: CI/CD、Ruff、mise、DataRobot、Snowpark ML、Databricks notebooks、MCP tooling
-- プログラミング: Python、SQL、Shell Script、C、C++
-- リーダーシップ: チームマネジメント、コードレビュー、採用、関係者調整、ドキュメンテーション
+- データ基盤・分析基盤 - Databricks、Snowflake、BigQuery、dbt Core / Cloud、Airflow / MWAA、データマート、ダッシュボード
+- クラウド・インフラ - AWS、Google Cloud、Terraform、GitHub Actions、Docker
+- MLOps・AI活用 - CI/CD、DataRobot、Snowpark ML、Databricks notebooks、Notebook tooling、MCP tooling、AI coding agent workflow
+- 開発生産性・ガバナンス - Nix / mise、Ruff、レビュー前提のデプロイ、権限設計、データガバナンス、ドキュメンテーション
+- 組織運営 - チームマネジメント、コードレビュー、採用、1on1、技術移譲、データチーム運営
+- エンジニアリング基盤 - Python、SQL、Shell Script、C、C++
 
 ## 3. 職務経歴
 
@@ -29,12 +30,12 @@ date-modified: last-modified
 
 2024/11 - 現在 | 正社員
 
-- グループ会社のデータ利活用を担当し、関係者要件をDatabricks、dbt、Snowflake、データマート、ダッシュボード提供へ接続しています。
+- グループ会社のデータ利活用を担当し、M&Aで拡大する事業の管理・営業・現場要件をデータ基盤、データマート、ダッシュボード、分析ワークフローへ接続しています。
 - 2026/04よりデータエンジニアチームのマネージャーに就任し、進捗管理、コードレビュー、1on1、採用活動、技術移譲の仕組み化を担当しています。
 - カラオケ事業会社のデータ利活用では、経営・営業向け帳票9件、データ取込DAG 13件、既存ダッシュボード37件を依存関係と移行優先度を含むロードマップに整理しました。
 - 店舗分析資料の生成プロセスを改善し、所要時間を約1-2日から約20分へ短縮しました。
 - CI/CD、Ruff、mise、レビュー前提のデプロイ、Databricksへのスコアリング移行によりMLOpsを改善しました。
-- AI-ReadyなNotebook・開発ワークフローを改善し、Databricks向けNotebook toolingやMCPを活用した開発支援にも貢献しました。
+- AI-readyなNotebook・開発ワークフローを改善し、データサイエンティストとデータエンジニアが安全に速く価値検証できる開発者体験の整備に貢献しました。
 
 ### 3.2. PIVOT株式会社 | 業務委託データエンジニア
 
