@@ -18,6 +18,9 @@ dev = [
   "ruff",
 ]
 
+[tool.uv]
+exclude-newer = "3 days"
+
 [tool.rumdl]
 disable = [
   "MD013",  # Line length: allow long lines
