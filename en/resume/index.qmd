@@ -5,7 +5,7 @@ date-modified: last-modified
 
 Daiki Mawatari
 
-Data Engineering Manager & MLOps Engineer
+Data & AI Platform Leader (MLOps)
 
 [Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4)
 
@@ -13,16 +13,17 @@ Resume: Japanese ([Website](https://i9wa4.github.io/resume/index.html), [PDF](ht
 
 ## 1. Professional Summary
 
-Data platform and MLOps engineer with 10+ years of software engineering
-experience, including 4+ years in data engineering and machine-learning
-operations. Currently Data Engineering Team Manager at GENDA, leading
-cross-company data utilization through Databricks, dbt, Snowflake, AWS,
-dashboard and data-mart delivery, stakeholder coordination, and team
-management. Strong in building reliable data platforms and ML deployment
-workflows, connecting business priorities to maintainable analytics systems,
-and leading delivery across engineering and business stakeholders.
-Building toward broader data leadership across analytics platforms, MLOps, and
-business-facing data strategy.
+Data & AI platform leader with 10+ years of software engineering experience,
+including 4+ years in data engineering and MLOps. Currently Data Engineering
+Team Manager at GENDA, leading cross-company data utilization initiatives
+across Databricks, dbt, Snowflake, and AWS.
+
+Translate business priorities into production-grade analytics and ML workflows,
+aligning stakeholders across data, engineering, and business functions.
+Delivered measurable impact through roadmap standardization (9 management
+reports, 13 ingestion DAGs, 37 dashboards), report lead-time reduction
+(from 1-2 days to about 20 minutes), and team-scale delivery through hiring,
+code review, and technical handoff practices.
 
 ## 2. Core Skills
 
