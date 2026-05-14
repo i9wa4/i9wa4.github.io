@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
-date: 2026-05-14 22:45:00 +0900
+date: 2026-05-15 00:01:02 +0900
 date-modified: last-modified
 description: |
   I replaced my lazygit commit-message helper's `claude -p` call with `codex exec`.
