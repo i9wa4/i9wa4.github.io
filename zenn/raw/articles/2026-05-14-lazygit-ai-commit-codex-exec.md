@@ -16,7 +16,7 @@ published_at: 2026-05-14 21:30
 
 @[card](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-狙いは、コミットメッセージ生成をバックグラウンドで進めながら、そのまま `git commit` を開始して pre-commit hook と並行させることです。今回はそのために、この処理を Codex CLI の `codex exec` に移しました。
+狙いは、lazygit のカスタムコマンドから起動したシェルスクリプトでコミットメッセージ生成をバックグラウンドで進め、そのまま `git commit` を開始して pre-commit hook と並行させることです。AI 生成部分では、非対話で呼び出せる Codex CLI の `codex exec` を使います。
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
 
@@ -131,7 +131,7 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
 
 ## 5. pre-commit hook と並行させる
 
-このスクリプトでは `codex exec` をバックグラウンドで先に走らせ、その直後に `git commit` を始めます。
+このスクリプトでは、コミットメッセージ生成処理をバックグラウンドで先に走らせ、その直後に `git commit` を始めます。生成処理の中で、ステージ済み diff を `codex exec` に渡しています。
 pre-commit hook があるリポジトリでは、hook の実行と AI によるメッセージ生成が並行して進みます。
 
 pre-commit hook と AI コミットメッセージ生成が成功した場合は下書き入りでエディタが開きます。
