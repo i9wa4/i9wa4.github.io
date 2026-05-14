@@ -20,7 +20,7 @@ published_at: 2026-05-14 16:00
 
 リンク先の記事の要点は、2026-06-15 から対象の Claude プランで Agent SDK 用の月次クレジットが用意され、Claude Code の `claude -p` もその対象になる、というものです。つまり、`claude -p` が単純に従量課金制へ変わったわけではありません。対象プランではまず別枠の月次クレジットを使い、超過分は追加使用量が有効な場合だけ標準 API レートに移ります。
 
-`claude -p` 自体は使い続けられます。ただ、LazyGit のコミットメッセージ生成は Git 操作のたびに何度も走る小さな補助処理です。このワークフローでは Claude プラン側の Agent SDK クレジットや追加使用量に依存しないよう、同じ下書き生成を `codex exec` に移しました。
+`claude -p` 自体は使い続けられます。ただ、lazygit のコミットメッセージ生成は Git 操作のたびに何度も走る小さな補助処理です。このワークフローでは Claude プラン側の Agent SDK クレジットや追加使用量に依存しないよう、同じ下書き生成を `codex exec` に移しました。
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
 
@@ -42,7 +42,7 @@ MSG=$(git diff --cached | claude --no-session-persistence -p --model haiku \
 
 良かった点は、最後に必ずエディタで確認できることです。AI に完全に任せるのではなく、下書きだけ作ってもらい、人間が直してからコミットします。
 
-## 3. 今の LazyGit 設定
+## 3. 今の lazygit 設定
 
 現在は、lazygit の長いカスタムコマンドを `config.yml` に直接書かず、別のシェルスクリプトに逃がしています。
 
@@ -141,13 +141,13 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
 
 ## 6. 移行して良かったこと
 
-今回の変更で一番大きいのは、LazyGit のコミットメッセージ生成を Claude Code の非対話実行から分離できたことです。
+今回の変更で一番大きいのは、lazygit のコミットメッセージ生成を Claude Code の非対話実行から分離できたことです。
 
 自分の中では、Claude Code は対話的な開発作業で使う場面が多いです。一方で、コミットメッセージ生成は、Git 操作の途中で何度も走る小さな補助処理です。同じ AI CLI でも、用途ごとに使い分けた方が気持ちよく運用できます。
 
 また、設定面でも分かりやすくなりました。
 
-- LazyGit 側の設定は `Ctrl+G` からスクリプトを呼ぶだけ。
+- lazygit 側の設定は `Ctrl+G` からスクリプトを呼ぶだけ。
 - AI 呼び出しの詳細は `lazygit-ai-commit.sh` に閉じ込める。
 - pre-commit hook の実行中に AI 生成も進むため、待ち時間を短くできる。
 - 失敗時はコミット作業そのものを止めず、エディタを開く。
@@ -170,7 +170,7 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
 
 ## 8. まとめ
 
-`claude -p` で作っていた LazyGit の AI コミットメッセージ生成を、`codex exec` に移しました。
+`claude -p` で作っていた lazygit の AI コミットメッセージ生成を、`codex exec` に移しました。
 
 やっていることは大きく変えていません。`git diff --cached --no-ext-diff` を AI に渡し、Conventional Commits 形式の1行を作らせ、最後はエディタで確認してコミットします。
 
