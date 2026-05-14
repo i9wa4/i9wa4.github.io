@@ -27,6 +27,7 @@ listing:
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
 [cli (2)](#category=cli){.btn .btn-outline-primary .btn-sm}
+[codex (1)](#category=codex){.btn .btn-outline-primary .btn-sm}
 [codexcli (2)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
@@ -36,7 +37,7 @@ listing:
 [dotfiles (1)](#category=dotfiles){.btn .btn-outline-primary .btn-sm}
 [drawio (2)](#category=drawio){.btn .btn-outline-primary .btn-sm}
 [ghq (1)](#category=ghq){.btn .btn-outline-primary .btn-sm}
-[git (3)](#category=git){.btn .btn-outline-primary .btn-sm}
+[git (2)](#category=git){.btn .btn-outline-primary .btn-sm}
 [github (4)](#category=github){.btn .btn-outline-primary .btn-sm}
 [githubactions (3)](#category=githubactions){.btn .btn-outline-primary .btn-sm}
 [gitworktree (1)](#category=gitworktree){.btn .btn-outline-primary .btn-sm}

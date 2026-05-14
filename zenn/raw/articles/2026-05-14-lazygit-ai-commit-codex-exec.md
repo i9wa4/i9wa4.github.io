@@ -4,10 +4,10 @@ emoji: "🐴"
 type: "tech"
 topics:
   - "lazygit"
-  - "git"
   - "codexcli"
+  - "codex"
 published: true
-published_at: 2026-05-14 21:30
+published_at: 2026-05-14 22:15
 ---
 
 ## 1. はじめに
@@ -16,11 +16,13 @@ published_at: 2026-05-14 21:30
 
 @[card](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-狙いは、lazygit のカスタムコマンドから起動したシェルスクリプトでコミットメッセージ生成をバックグラウンドで進め、そのまま `git commit` を開始して pre-commit hook と並行させることです。AI 生成部分では、非対話で呼び出せる Codex CLI の `codex exec` を使います。
+狙いは lazygit のカスタムコマンドから起動したシェルスクリプトでコミットメッセージ生成をバックグラウンドで進め、そのまま `git commit` を開始して pre-commit hook と並行させることです。
+コミットメッセージ生成部分では、非対話で呼び出せる Codex CLI の `codex exec` を使います。
+
+背景として、下記 Claude 公式記事では 2026-06-15 から対象プランで Claude Code の `claude -p` が Agent SDK 用の月次クレジット対象になると説明されています。
+これまでと異なり気軽に何度も `claude -p` を実行するわけにもいかないので依存度を下げておきたくなったわけです。
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
-
-背景として、こちらの Claude 公式記事では、2026-06-15 から対象プランで Claude Code の `claude -p` が Agent SDK 用の月次クレジット対象になると説明されています。
 
 ## 2. やりたいこと
 
@@ -132,14 +134,14 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
 ## 5. pre-commit hook と並行させる
 
 このスクリプトでは、コミットメッセージ生成処理をバックグラウンドで先に走らせ、その直後に `git commit` を始めます。生成処理の中で、ステージ済み diff を `codex exec` に渡しています。
-pre-commit hook があるリポジトリでは、hook の実行と AI によるメッセージ生成が並行して進みます。
+pre-commit hook があるリポジトリでは、hook の実行とコミットメッセージ生成が並行して進みます。
 
-pre-commit hook と AI コミットメッセージ生成が成功した場合は下書き入りでエディタが開きます。
+pre-commit hook とコミットメッセージ生成が成功した場合は下書き入りでエディタが開きます。
 Codex CLI がない場合でも、エディタは開くので通常の手入力コミットに戻れます。
 
 ## 6. 良かったこと
 
-この形で一番大きいのは pre-commit hook の実行中に AI コミットメッセージ生成も進むため待ち時間を短くできることです。
+この形で一番大きいのは pre-commit hook の実行中にコミットメッセージ生成も進むため待ち時間を短くできることです。
 自動コミットと違ってコミットメッセージを一応確認するという半自動な点も lazygit の利用体験にマッチしていて気に入っています。
 
 ## 7. まとめ

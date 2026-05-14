@@ -1,15 +1,15 @@
 ---
 title: "lazygit のコミットメッセージを `codex exec` で生成する"
 author: uma-chan
-date: 2026-05-14 21:30:00 +0900
+date: 2026-05-14 22:15:00 +0900
 image: "/assets/common/zenn-ogp.png"
 description: |
   lazygit のカスタムコマンドから `codex exec` でステージ済み diff からコミットメッセージを生成する手法を解説
 categories:
   - "zenn"
   - "lazygit"
-  - "git"
   - "codexcli"
+  - "codex"
 ---
 
 ## Zenn リンク先
