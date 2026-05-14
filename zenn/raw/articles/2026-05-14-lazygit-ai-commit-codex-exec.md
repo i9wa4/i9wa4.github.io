@@ -16,7 +16,7 @@ published_at: 2026-05-14 21:30
 
 @[card](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-今回はこの処理を Codex CLI の `codex exec` に移しました。狙いは、コミットメッセージ生成をバックグラウンドで進めながら、そのまま `git commit` を開始して pre-commit hook と並行させることです。
+狙いは、コミットメッセージ生成をバックグラウンドで進めながら、そのまま `git commit` を開始して pre-commit hook と並行させることです。今回はそのために、この処理を Codex CLI の `codex exec` に移しました。
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
 
