@@ -1,0 +1,19 @@
+---
+title: "lazygit の AI コミットメッセージを `codex exec` で生成する"
+author: uma-chan
+date: 2026-05-14 16:00:00 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  lazygit のカスタムコマンドから `codex exec` でステージ済み diff からコミットメッセージを生成する手法を解説
+categories:
+  - "zenn"
+  - "lazygit"
+  - "git"
+  - "codexcli"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[lazygit の AI コミットメッセージを `codex exec` で生成する](https://zenn.dev/i9wa4/articles/2026-05-14-lazygit-ai-commit-codex-exec)

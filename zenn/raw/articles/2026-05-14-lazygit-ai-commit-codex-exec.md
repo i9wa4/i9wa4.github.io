@@ -1,25 +1,22 @@
 ---
-title: "lazygit の AI コミットメッセージ生成を codex exec に移した"
+title: "lazygit の AI コミットメッセージを `codex exec` で生成する"
 emoji: "🐴"
 type: "tech"
 topics:
   - "lazygit"
   - "git"
   - "codexcli"
-  - "claudecode"
-  - "aiagent"
-published: false
+published: true
+published_at: 2026-05-14 16:00
 ---
 
 ## 1. はじめに
 
-以前、lazygit のカスタムコマンドから Claude Code の非対話実行を呼び出して、ステージ済み diff からコミットメッセージを生成する記事を書きました。
+以前、lazygit のカスタムコマンドから Claude Code を `claude -p` で呼び出して、ステージ済み diff からコミットメッセージを生成する記事を書きました。
 
 @[card](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-そのときは `claude -p` を使っていました。標準入力に `git diff --cached` を渡し、1行の Conventional Commits 形式のメッセージだけを返してもらう構成でした。
-
-今回、その実装を `codex exec` に移しました。
+そのときは `claude -p` を使っていました。今回は、その実装を `codex exec` に移しました。
 
 理由は、Claude プランでの Claude Agent SDK と `claude -p` の扱いが変わるという案内を見て、日常的に何度も叩く LazyGit の補助処理を Claude Code 側の非対話実行から切り離したくなったためです。
 
@@ -138,6 +135,8 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
   git commit
 ```
 
+ここで `codex exec` はバックグラウンドで先に走らせています。そのまま `git commit` を始めるため、pre-commit hook があるリポジトリでは、hook の実行と AI によるメッセージ生成が並行して進みます。エディタ側は AI の結果が出るまで待つので、hook 待ちの時間をコミットメッセージ生成に充てられます。
+
 この形にしておくと、AI 生成が成功した場合は下書き入りでエディタが開きます。失敗した場合や `codex` がない場合でも、エディタは開くので通常の手入力コミットに戻れます。
 
 ## 6. 移行して良かったこと
@@ -150,6 +149,7 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
 
 - LazyGit 側の設定は `Ctrl+G` からスクリプトを呼ぶだけ。
 - AI 呼び出しの詳細は `lazygit-ai-commit.sh` に閉じ込める。
+- pre-commit hook の実行中に AI 生成も進むため、待ち時間を短くできる。
 - 失敗時はコミット作業そのものを止めず、エディタを開く。
 - 最終的なコミットメッセージは必ず人間が確認する。
 

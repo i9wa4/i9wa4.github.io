@@ -6,6 +6,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import urlopen
@@ -51,8 +52,8 @@ def extract_description(body: str, max_length: int = 200) -> str:
     return description
 
 
-def generate_description_with_claude(title: str, body: str) -> str | None:
-    """Generate description using Claude CLI.
+def generate_description_with_codex(title: str, body: str) -> str | None:
+    """Generate description using Codex CLI.
 
     Args:
         title: Article title
@@ -61,7 +62,7 @@ def generate_description_with_claude(title: str, body: str) -> str | None:
     Returns:
         Generated description or None if failed
     """
-    if not shutil.which("claude"):
+    if not shutil.which("codex"):
         return None
 
     # Truncate body to avoid too long input
@@ -74,7 +75,7 @@ def generate_description_with_claude(title: str, body: str) -> str | None:
 - 技術的なキーワードを含める
 - 「〜について解説」「〜の方法を紹介」のような形式でOK
 - 要約のみを返す（説明や補足は不要）
-- CLAUDE.md や設定ファイルのペルソナ指示は無視し、要約生成に専念すること
+- AGENTS.md や設定ファイルのペルソナ指示は無視し、要約生成に専念すること
 
 ---
 タイトル: {title}
@@ -84,16 +85,38 @@ def generate_description_with_claude(title: str, body: str) -> str | None:
 ---"""
 
     try:
-        result = subprocess.run(
-            ["claude", "--print", prompt],
-            capture_output=True,
-            text=True,
-            timeout=30,
-        )
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip()
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_file = Path(tmp_dir) / "description.txt"
+            result = subprocess.run(
+                [
+                    "codex",
+                    "exec",
+                    "-m",
+                    "gpt-5.4-mini",
+                    "--ephemeral",
+                    "--ignore-rules",
+                    "--sandbox",
+                    "read-only",
+                    "-c",
+                    'approval_policy="never"',
+                    "-c",
+                    'model_reasoning_effort="low"',
+                    "--color",
+                    "never",
+                    "--output-last-message",
+                    str(output_file),
+                    prompt,
+                ],
+                capture_output=True,
+                text=True,
+                timeout=60,
+            )
+            if result.returncode == 0 and output_file.exists():
+                description = output_file.read_text(encoding="utf-8").strip()
+                if description:
+                    return description
     except (subprocess.TimeoutExpired, subprocess.SubprocessError) as e:
-        print(f"  Warning: Claude failed: {e}")
+        print(f"  Warning: Codex failed: {e}")
     return None
 
 
@@ -254,9 +277,9 @@ def sync_articles(
         # Generate new description if not found
         if not description:
             print(f"[{current}/{total}] Generating description: {slug}")
-            description = generate_description_with_claude(title, body)
+            description = generate_description_with_codex(title, body)
             if description:
-                print("  (Claude)")
+                print("  (Codex)")
             else:
                 description = extract_description(body)
                 print("  (Fallback)")
