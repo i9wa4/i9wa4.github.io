@@ -9,6 +9,8 @@ date-modified: last-modified
 description: |
   I replaced my lazygit commit-message helper's `claude -p` call with `codex exec`.
 
+  The reason is Anthropic's Agent SDK credit change. Starting June 15, 2026, eligible Claude plans can claim separate monthly Agent SDK credits, and Claude Code's non-interactive `claude -p` usage is covered by that credit pool. I do not want this small helper script to depend on casually running `claude -p` every time.
+
   The important detail is where the parallelism comes from. `codex exec` does not magically make the workflow run in the background. The shell script does that: it starts commit-message generation in the background, launches `git commit`, and lets pre-commit hooks run while the draft message is being generated.
 
   `codex exec` is the non-interactive AI command in that flow.
@@ -29,7 +31,7 @@ I previously wrote about calling Claude Code from a lazygit custom command with 
 
 This version replaces that helper with Codex CLI's `codex exec` and changes the surrounding flow so commit-message generation runs alongside pre-commit hooks.
 
-There is also a practical background reason. [Anthropic's support article](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B) says that starting June 15, 2026, eligible Claude plans can claim monthly Agent SDK credits, and that Claude Code's non-interactive `claude -p` usage is included in that credit pool. I read that as a reason to reduce my dependency on `claude -p` for small helper scripts.
+There is also a practical background reason. [Anthropic's support article](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan) says that starting June 15, 2026, eligible Claude plans can claim monthly Agent SDK credits, and that Claude Code's non-interactive `claude -p` usage is included in that credit pool. I read that as a reason to reduce my dependency on `claude -p` for small helper scripts.
 
 That credit wording matters. This is not a claim that `claude -p` disappeared, and it is not a claim that Codex has some permanent special status. It is just the context for moving this particular helper to the tool I am using most often right now.
 
@@ -64,6 +66,10 @@ customCommands:
 Here is the full `~/.config/lazygit/lazygit-ai-commit.sh` script.
 
 I checked this with Codex CLI v0.130.0.
+
+:::: {.callout-note appearance="simple" collapse="true"}
+
+### 4.1. `~/.config/lazygit/lazygit-ai-commit.sh`
 
 ```{.bash filename="~/.config/lazygit/lazygit-ai-commit.sh"}
 #!/usr/bin/env bash
@@ -141,6 +147,8 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
   GIT_EDITOR="$editor" \
   git commit
 ```
+
+::::
 
 The AI part is intentionally small. It reads the staged diff from stdin and returns only one line: a Conventional Commits message.
 
