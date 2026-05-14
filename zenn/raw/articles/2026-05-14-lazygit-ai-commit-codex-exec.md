@@ -18,7 +18,7 @@ published_at: 2026-05-14 16:00
 
 そのときは `claude -p` を使っていました。今回は、その実装を `codex exec` に移しました。
 
-理由は、Claude プランでの Claude Agent SDK と `claude -p` の扱いが変わるという案内を見て、日常的に何度も叩く LazyGit の補助処理を Claude Code 側の非対話実行から切り離したくなったためです。
+リンク先の Anthropic ヘルプセンター記事では、2026-06-15 から対象の Claude プランで Agent SDK 用の月次クレジットが提供され、その対象に Claude Agent SDK と Claude Code の `claude -p` が含まれること、またこの利用は通常のサブスクリプション使用制限とは別に扱われることが説明されています。`claude -p` 自体は使い続けられますが、LazyGit のコミットメッセージ生成は Git 操作のたびに何度も走る小さな補助処理です。そこで、このワークフローでは `claude -p` を使うのをやめ、Claude プラン側の Agent SDK クレジットや非対話実行の扱いに依存しないように、同じ下書き生成を `codex exec` に移しました。
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
 
