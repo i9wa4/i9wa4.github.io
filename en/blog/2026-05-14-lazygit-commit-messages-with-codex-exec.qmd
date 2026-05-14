@@ -7,7 +7,7 @@ categories:
 date: 2026-05-14 22:45:00 +0900
 date-modified: last-modified
 description: |
-  I moved my lazygit commit-message helper from `claude -p` to `codex exec`.
+  I replaced my lazygit commit-message helper's `claude -p` call with `codex exec`.
 
   The important detail is where the parallelism comes from. `codex exec` does not magically make the workflow run in the background. The shell script does that: it starts commit-message generation in the background, launches `git commit`, and lets pre-commit hooks run while the draft message is being generated.
 
@@ -27,15 +27,7 @@ I previously wrote about calling Claude Code from a lazygit custom command with 
 
 [Previous article](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-The goal was to make the commit flow feel faster without turning it into an automatic commit button:
-
-- Start a shell script from a lazygit custom command
-- Generate a commit-message draft in the background
-- Immediately start `git commit`
-- Let pre-commit hooks and message generation run at the same time
-- Open the editor at the end so I can review the message before committing
-
-In the current version, the non-interactive AI command is Codex CLI's `codex exec`.
+This version replaces that helper with Codex CLI's `codex exec` and changes the surrounding flow so commit-message generation runs alongside pre-commit hooks.
 
 There is also a practical background reason. [Anthropic's support article](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B) says that starting June 15, 2026, eligible Claude plans can claim monthly Agent SDK credits, and that Claude Code's non-interactive `claude -p` usage is included in that credit pool. I read that as a reason to reduce my dependency on `claude -p` for small helper scripts.
 
