@@ -1,5 +1,5 @@
 ---
-title: "lazygit の AI コミットメッセージを `codex exec` で生成する"
+title: "lazygit のコミットメッセージを `codex exec` で生成する"
 author: uma-chan
 date: 2026-05-14 21:30:00 +0900
 image: "/assets/common/zenn-ogp.png"
@@ -16,4 +16,4 @@ categories:
 
 この記事は Zenn で公開されています。
 
-[lazygit の AI コミットメッセージを `codex exec` で生成する](https://zenn.dev/i9wa4/articles/2026-05-14-lazygit-ai-commit-codex-exec)
+[lazygit のコミットメッセージを `codex exec` で生成する](https://zenn.dev/i9wa4/articles/2026-05-14-lazygit-ai-commit-codex-exec)
