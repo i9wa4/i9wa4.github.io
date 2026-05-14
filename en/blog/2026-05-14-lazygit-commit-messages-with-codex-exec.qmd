@@ -1,0 +1,203 @@
+---
+title: "Generate lazygit Commit Messages with `codex exec`"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-05-14 22:45:00 +0900
+date-modified: last-modified
+description: |
+  I moved my lazygit commit-message helper from `claude -p` to `codex exec`.
+
+  The important detail is where the parallelism comes from. `codex exec` does not magically make the workflow run in the background. The shell script does that: it starts commit-message generation in the background, launches `git commit`, and lets pre-commit hooks run while the draft message is being generated.
+
+  `codex exec` is the non-interactive AI command in that flow.
+
+  The result is a small lazygit custom command: press Ctrl+G, generate a Conventional Commits draft from the staged diff, wait for hooks, then review the message in Vim before committing.
+
+  Full config and shell script included.
+
+  #lazygit #CodexCLI #Git #PreCommit #DeveloperTools #AIAgents
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. Introduction
+
+I previously wrote about calling Claude Code from a lazygit custom command with `claude -p` to generate a commit message from the staged diff.
+
+[Previous article](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
+
+The goal was to make the commit flow feel faster without turning it into an automatic commit button:
+
+- Start a shell script from a lazygit custom command
+- Generate a commit-message draft in the background
+- Immediately start `git commit`
+- Let pre-commit hooks and message generation run at the same time
+- Open the editor at the end so I can review the message before committing
+
+In the current version, the non-interactive AI command is Codex CLI's `codex exec`.
+
+There is also a practical background reason. [Anthropic's support article](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B) says that starting June 15, 2026, eligible Claude plans can claim monthly Agent SDK credits, and that Claude Code's non-interactive `claude -p` usage is included in that credit pool. I read that as a reason to reduce my dependency on `claude -p` for small helper scripts.
+
+That credit wording matters. This is not a claim that `claude -p` disappeared, and it is not a claim that Codex has some permanent special status. It is just the context for moving this particular helper to the tool I am using most often right now.
+
+## 2. Target Behavior
+
+In lazygit's `files` panel, I want `Ctrl+G` to:
+
+1. Read the staged diff
+2. Ask AI for a one-line Conventional Commits message
+3. Start the normal `git commit` flow
+4. Run pre-commit hooks while the message is being generated
+5. Open Vim with the generated draft inserted at the top
+
+The final commit still goes through the normal editor step. I can edit the message, replace it, or abort.
+
+## 3. lazygit Configuration
+
+I keep the lazygit custom command short and move the real logic into a shell script.
+
+```{.yaml filename="~/.config/lazygit/config.yml"}
+customCommands:
+  - key: <c-g>
+    context: files
+    output: terminal
+    command: bash ~/.config/lazygit/lazygit-ai-commit.sh
+```
+
+`Ctrl+G` is registered for the `files` panel. `output: terminal` lets `git commit` and Vim run in the terminal instead of inside a small lazygit prompt.
+
+## 4. Shell Script
+
+Here is the full `~/.config/lazygit/lazygit-ai-commit.sh` script.
+
+I checked this with Codex CLI v0.130.0.
+
+```{.bash filename="~/.config/lazygit/lazygit-ai-commit.sh"}
+#!/usr/bin/env bash
+
+editor=$(mktemp /tmp/lazygit-ai-commit-editor.XXXXXX)
+staged_diff=$(mktemp /tmp/lazygit-ai-commit-staged-diff.XXXXXX)
+ai_message=$(mktemp /tmp/lazygit-ai-commit-ai-message.XXXXXX)
+ai_status=$(mktemp /tmp/lazygit-ai-commit-ai-status.XXXXXX)
+ai_stderr=$(mktemp /tmp/lazygit-ai-commit-ai-stderr.XXXXXX)
+ai_pid=
+
+cleanup() {
+  if [ -n "$ai_pid" ] && kill -0 "$ai_pid" >/dev/null 2>&1; then
+    kill "$ai_pid" >/dev/null 2>&1 || true
+    wait "$ai_pid" >/dev/null 2>&1 || true
+  fi
+  rm -f "$editor" "$staged_diff" "$ai_message" "$ai_status" "$ai_stderr"
+}
+trap cleanup EXIT INT TERM
+
+git diff --cached --no-ext-diff >"$staged_diff"
+
+cat >"$editor" <<'AI_COMMIT_EDITOR'
+#!/usr/bin/env bash
+set -u
+
+msg_file=$1
+ai_message=$LAZYGIT_AI_COMMIT_MESSAGE
+ai_status=$LAZYGIT_AI_COMMIT_STATUS
+
+while [ ! -s "$ai_status" ]; do
+  sleep 0.1
+done
+
+if [ -s "$ai_message" ]; then
+  buffer=$(mktemp /tmp/lazygit-ai-commit-editor-buffer.XXXXXX)
+  {
+    head -n 1 "$ai_message"
+    printf '\n'
+    cat "$msg_file"
+  } >"$buffer"
+  cat "$buffer" >"$msg_file"
+  rm -f "$buffer"
+elif ! grep -qx 'ok' "$ai_status"; then
+  cat "$ai_status" >&2
+fi
+
+exec vim "$msg_file"
+AI_COMMIT_EDITOR
+
+chmod +x "$editor"
+
+if command -v codex >/dev/null 2>&1; then
+  {
+    prompt='Generate ONLY a one-line Git commit message following Conventional Commits format (type(scope): description). Types: feat, fix, docs, style, refactor, test, chore. Based strictly on the diff from stdin. Output ONLY the message, nothing else.'
+    if codex exec -m gpt-5.4-mini --ephemeral --ignore-rules --sandbox read-only -c approval_policy='"never"' -c model_reasoning_effort='"low"' --color never --output-last-message "$ai_message" "$prompt" <"$staged_diff" >/dev/null 2>"$ai_stderr"; then
+      msg=$(head -n 1 "$ai_message")
+      if [ -n "$msg" ]; then
+        printf '%s\n' "$msg" >"$ai_message"
+        printf '%s\n' 'ok' >"$ai_status"
+      else
+        printf '%s\n' 'AI commit message generation returned an empty message; opening editor without AI message.' >"$ai_status"
+      fi
+    else
+      printf '%s\n' 'AI commit message generation failed; opening editor without AI message.' >"$ai_status"
+    fi
+  } &
+  ai_pid=$!
+else
+  printf '%s\n' 'codex not found; opening editor without AI message.' >"$ai_status"
+fi
+
+LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
+  LAZYGIT_AI_COMMIT_STATUS="$ai_status" \
+  GIT_EDITOR="$editor" \
+  git commit
+```
+
+The AI part is intentionally small. It reads the staged diff from stdin and returns only one line: a Conventional Commits message.
+
+## 5. Where the Parallelism Comes From
+
+The background behavior comes from the shell script, not from `codex exec`.
+
+This block starts the message-generation process in the background:
+
+```bash
+{
+  # codex exec ...
+} &
+ai_pid=$!
+```
+
+Right after that, the script starts `git commit`:
+
+```bash
+LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
+  LAZYGIT_AI_COMMIT_STATUS="$ai_status" \
+  GIT_EDITOR="$editor" \
+  git commit
+```
+
+If the repository has pre-commit hooks, Git runs those hooks before opening the commit-message editor. While that is happening, the background process is already asking `codex exec` for a message draft.
+
+The temporary editor script waits until the AI process has written a status file:
+
+```bash
+while [ ! -s "$ai_status" ]; do
+  sleep 0.1
+done
+```
+
+Then it prepends the generated first line to the commit message file and opens Vim.
+
+If Codex CLI is missing or message generation fails, the script still opens the normal editor, so the fallback is just a manual commit message.
+
+## 6. Why I Like This Shape
+
+The biggest win is that pre-commit hook time is no longer pure waiting time. Message generation happens during that window.
+
+I also like that the workflow stays semi-automatic. The AI drafts one line, but I still see the final message in the editor before the commit is created. That fits lazygit well: fast enough for daily use, but still explicit.
+
+## 7. Summary
+
+This lazygit command now uses `codex exec` for non-interactive commit-message generation.
+
+The important implementation detail is the shell script around it. The script backgrounds the AI generation, starts `git commit`, lets pre-commit hooks run in parallel with generation, and then opens Vim with the generated message draft.
+
+Codex CLI may also get different limits or billing rules someday. If that happens, I will probably look at a local LLM version for this helper. For now, this small `codex exec` workflow is a good fit.
