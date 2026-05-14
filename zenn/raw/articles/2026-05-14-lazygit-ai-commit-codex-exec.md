@@ -16,8 +16,7 @@ published_at: 2026-05-14 22:45
 
 @[card](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-狙いは lazygit のカスタムコマンドから起動したシェルスクリプトでコミットメッセージ生成をバックグラウンドで進め、そのまま `git commit` を開始して pre-commit hook と並行させることです。
-コミットメッセージ生成部分では、非対話で呼び出せる Codex CLI の `codex exec` を使います。
+今回は Codex CLI の `codex exec` で代替しつつ、コミットメッセージ生成処理と pre-commit hook と並行させる変更を入れてみました。
 
 背景として、下記 Claude 公式記事では 2026-06-15 から対象プランで Claude Code の `claude -p` が Agent SDK 用の月次クレジット対象になると説明されています。
 これまでと異なり気軽に何度も `claude -p` を実行するわけにもいかないので依存度を下げておきたくなったわけです。
