@@ -21,6 +21,7 @@ published_at: 2026-05-14 20:30
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
 
 こちらの Claude 公式記事の要点は、2026-06-15 から対象の Claude プランで Agent SDK 用の月次クレジットが用意され、Claude Code の `claude -p` もその対象になるというものです。
+従来の対話型 AI 利用枠が削られて月次クレジットに置き換わる、という説明ではなく、Agent SDK と非対話の `claude -p` がサブスクリプション使用制限とは別の月次クレジットで扱われます。対話型の Claude Code や Claude の会話は、引き続きサブスクリプション使用制限を使うとされています。
 そのため対象プランについては、単純な従量課金への切り替えと断定するより、まず別枠の月次クレジットを使い、超過分は追加使用量が有効な場合だけ標準 API レートに移る、と読む方が近そうです。
 
 `claude -p` への依存度を下げるためにコミットメッセージ生成処理を `codex exec` に移しました。
@@ -29,11 +30,11 @@ published_at: 2026-05-14 20:30
 
 やることはシンプルです。lazygit の `files` パネルで `Ctrl+G` を押すと、ステージ済み diff からコミットメッセージの下書きを作り、最後はエディタで確認してから通常の `git commit` として確定します。
 
-以前の実装では `claude -p` を使っていましたが、ここでは前回との差分よりも、`codex exec` を先にバックグラウンドで走らせ、pre-commit hook の待ち時間と重ねる点を中心に見ます。AI に完全に任せるのではなく、下書きだけ作ってもらい、人間が直してからコミットする流れは変えていません。
+ここでは、`codex exec` を先にバックグラウンドで走らせ、pre-commit hook の待ち時間と重ねる点を中心に見ます。AI に完全に任せるのではなく、下書きだけ作ってもらい、人間が直してからコミットする流れです。
 
 ## 3. 今の lazygit 設定
 
-現在は、lazygit の長いカスタムコマンドを `config.yml` に直接書かず、別のシェルスクリプトに逃がしています。
+lazygit の長いカスタムコマンドは `config.yml` に直接書かず、別のシェルスクリプトに逃がしています。
 
 読者がそのまま置くなら、`~/.config/lazygit/config.yml` は次のような形です。
 
@@ -48,7 +49,7 @@ customCommands:
 `Ctrl+G` は `files` パネル用のカスタムコマンドとして登録し、`output: terminal` で通常のターミナル上に `git commit` とエディタを出します。
 AI 呼び出しの中身は `~/.config/lazygit/lazygit-ai-commit.sh` に置きます。
 
-## 4. codex exec 版の中身
+## 4. codex exec の中身
 
 `~/.config/lazygit/lazygit-ai-commit.sh` の全体は次の通りです。
 
@@ -142,7 +143,7 @@ LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
 - 返ってきた内容の1行目だけをコミットメッセージ候補として使う。
 - `codex exec` はバックグラウンドで走らせ、そのまま `git commit` を開始する。
 
-`claude -p` から `codex exec` に変えても、やっていることは同じです。ステージ済み diff を読み、1行のコミットメッセージだけを返してもらいます。
+このスクリプトが AI に任せる範囲は、ステージ済み diff を読んで1行のコミットメッセージだけを返すところまでです。
 
 ## 5. pre-commit hook と並行させる
 
@@ -156,7 +157,7 @@ AI が生成したメッセージは、そのまま `git commit -m` には渡し
 
 ## 6. 良かったこと
 
-今回の変更で一番大きいのは、pre-commit hook の実行中に AI 生成も進むため、待ち時間を短くできることです。
+この形で一番大きいのは、pre-commit hook の実行中に AI 生成も進むため、待ち時間を短くできることです。
 
 設定面でも分かりやすくなりました。
 
@@ -183,10 +184,10 @@ AI が生成したメッセージは、そのまま `git commit -m` には渡し
 
 ## 8. まとめ
 
-`claude -p` で作っていた lazygit の AI コミットメッセージ生成を、`codex exec` に移しました。
+この lazygit カスタムコマンドでは、`codex exec` で AI コミットメッセージの下書きを作ります。
 
-やっていることは大きく変えていません。`git diff --cached --no-ext-diff` を AI に渡し、Conventional Commits 形式の1行を作らせ、最後はエディタで確認してコミットします。
+`git diff --cached --no-ext-diff` を AI に渡し、Conventional Commits 形式の1行を作らせ、最後はエディタで確認してコミットします。
 
 この形にすると、pre-commit hook と AI によるコミットメッセージ生成を並行して進められます。
 
-Claude Agent SDK と `claude -p` の扱いが変わるタイミングでもあるので、こういう日々の自動化を `codex exec` 側に寄せるのは、ちょうど良い整理でした。
+日々の小さな自動化でも、CLI で完結する処理にしておくと運用しやすいです。
