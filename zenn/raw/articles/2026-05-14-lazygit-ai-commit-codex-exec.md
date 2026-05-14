@@ -22,8 +22,6 @@ published_at: 2026-05-14 16:00
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
 
-この記事は 2026-05-14 時点の手元の dotfiles と Anthropic ヘルプセンター記事を見て書いています。ヘルプセンター記事では、2026-06-15 からの Claude Agent SDK 月次クレジットと `claude -p` の扱いが説明されています。
-
 ## 2. 前回の構成
 
 前回の記事では、lazygit の `files` パネルで `Ctrl+G` を押すと Claude がコミットメッセージを生成し、その内容を `git commit -e -m "$MSG"` に渡す構成でした。
