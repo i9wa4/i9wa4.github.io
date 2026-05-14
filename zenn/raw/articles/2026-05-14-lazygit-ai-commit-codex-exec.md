@@ -7,22 +7,23 @@ topics:
   - "git"
   - "codexcli"
 published: true
-published_at: 2026-05-14 16:00
+published_at: 2026-05-14 20:30
 ---
 
 ## 1. はじめに
 
-以前、lazygit のカスタムコマンドから Claude Code を `claude -p` で呼び出して、ステージ済み diff からコミットメッセージを生成する記事を書きました。
+以前 lazygit のカスタムコマンドから Claude Code を `claude -p` で呼び出してステージ済み diff からコミットメッセージを生成する記事を書きました。
 
 @[card](https://i9wa4.github.io/blog/2026-03-14-lazygit-commit-message.html)
 
-そのときは `claude -p` を使っていました。今回は、その実装を `codex exec` に移しました。
-
-リンク先の記事の要点は、2026-06-15 から対象の Claude プランで Agent SDK 用の月次クレジットが用意され、Claude Code の `claude -p` もその対象になる、というものです。つまり、`claude -p` が単純に従量課金制へ変わったわけではありません。対象プランではまず別枠の月次クレジットを使い、超過分は追加使用量が有効な場合だけ標準 API レートに移ります。
-
-`claude -p` 自体は使い続けられます。ただ、lazygit のコミットメッセージ生成は Git 操作のたびに何度も走る小さな補助処理です。このワークフローでは Claude プラン側の Agent SDK クレジットや追加使用量に依存しないよう、同じ下書き生成を `codex exec` に移しました。
+そのときは `claude -p` を使っていました。今回はその実装を `codex exec` に移しました。
 
 @[card](https://support.claude.com/ja/articles/15036540-claude-%E3%83%97%E3%83%A9%E3%83%B3%E3%81%A7-claude-agent-sdk-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B)
+
+こちらの Claude 公式記事の要点は 2026-06-15 から対象の Claude プランで Agent SDK 用の月次クレジットが用意され、Claude Code の `claude -p` もその対象になる、というものです。
+つまり、`claude -p` が単純に従量課金制へ変わったわけではありません。対象プランではまず別枠の月次クレジットを使い、超過分は追加使用量が有効な場合だけ標準 API レートに移ります。
+
+`claude -p` への依存度を下げるためにコミットメッセージ生成処理を `codex exec` に移しました。
 
 ## 2. 前回の構成
 
@@ -49,9 +50,6 @@ MSG=$(git diff --cached | claude --no-session-persistence -p --model haiku \
 読者がそのまま置くなら、`~/.config/lazygit/config.yml` は次のような形です。
 
 ```yaml
-gui:
-  scrollHeight: 15
-
 customCommands:
   - key: <c-g>
     context: files
@@ -59,17 +57,12 @@ customCommands:
     command: bash ~/.config/lazygit/lazygit-ai-commit.sh
 ```
 
-`Ctrl+G` は `files` パネル用のカスタムコマンドとして登録し、`output: terminal` で通常のターミナル上に `git commit` とエディタを出します。AI 呼び出しの中身は `~/.config/lazygit/lazygit-ai-commit.sh` に置きます。
+`Ctrl+G` は `files` パネル用のカスタムコマンドとして登録し、`output: terminal` で通常のターミナル上に `git commit` とエディタを出します。
+AI 呼び出しの中身は `~/.config/lazygit/lazygit-ai-commit.sh` に置きます。
 
 ## 4. codex exec 版の中身
 
-新しい `lazygit-ai-commit.sh` は、まずステージ済み diff を一時ファイルに保存します。
-
-```bash
-git diff --cached --no-ext-diff >"$staged_diff"
-```
-
-その後、`codex` コマンドが存在する場合だけ `codex exec` を実行します。
+新しい `lazygit-ai-commit.sh` は、まずステージ済み diff を一時ファイルに保存し、`codex` コマンドが存在する場合だけ `codex exec` を実行します。
 
 ```bash
 if command -v codex >/dev/null 2>&1; then
