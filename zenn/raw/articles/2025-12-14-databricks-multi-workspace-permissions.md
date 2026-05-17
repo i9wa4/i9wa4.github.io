@@ -72,7 +72,7 @@ Databricks on AWS のドキュメントを参照しています。
 Consumer access、SQL access、Workspace access の3種類があって、ユーザーが Databricks のどの機能を利用できるかを決めます。
 
 | 機能                                              | Consumer | SQL | Workspace |
-| ---                                               | ---      | --- | ---       |
+| ------------------------------------------------- | -------- | --- | --------- |
 | 共有ダッシュボード、Genie、Databricks Apps        | ✓        | ✓   | ✓         |
 | BI ツールから SQL Warehouse にクエリ              | ✓        | ✓   | -         |
 | Databricks SQL オブジェクトの読み書き             | -        | ✓   | -         |

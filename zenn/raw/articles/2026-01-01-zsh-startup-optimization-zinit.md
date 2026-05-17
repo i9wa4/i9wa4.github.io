@@ -88,14 +88,14 @@ zinit light some-plugin
 この2行で1セットです。
 
 | コマンド               | 役割                                            |
-| ---                    | ---                                             |
+| ---------------------- | ----------------------------------------------- |
 | `zinit ice <options>`  | 次の `zinit` コマンドに適用するオプションを設定 |
 | `zinit light <plugin>` | プラグインを読み込む                            |
 
 `ice` は「一度使うと溶ける」という意味で、次の1回の `zinit` コマンドにだけ適用されます。
 
 | 修飾子  | 意味                           |
-| ---     | ---                            |
+| ------- | ------------------------------ |
 | `wait`  | プロンプト表示後に読み込む     |
 | `lucid` | 読み込み完了メッセージを非表示 |
 
@@ -110,7 +110,7 @@ zinit light some-plugin
 `wait` の数字はプロンプト表示後の待機秒数です。
 
 | 指定      | 意味                       |
-| ---       | ---                        |
+| --------- | -------------------------- |
 | `wait'0'` | 0秒後 (プロンプト表示直後) |
 | `wait'1'` | 1秒後                      |
 | `wait'2'` | 2秒後                      |
@@ -124,7 +124,7 @@ zinit light some-plugin
 > In other words, instead of `wait'1'` you can enter `wait'1a'`, `wait'1b'` and `wait'1c'` -- to this way impose order on the loadings regardless of the order of `zinit` commands.
 
 | サブスロット | 読み込み順 |
-| ---          | ---        |
+| ------------ | ---------- |
 | `wait'0a'`   | 最初       |
 | `wait'0b'`   | 2番目      |
 | `wait'0c'`   | 3番目      |
@@ -195,7 +195,7 @@ Time (mean +- o):      27.4 ms +-   2.3 ms    [User: 14.0 ms, System: 12.9 ms]
 ### 6.2. 比較
 
 | 方式         | 起動時間 |
-| ---          | ---      |
+| ------------ | -------- |
 | 直接読み込み | 97.2ms   |
 | 遅延読み込み | 27.4ms   |
 

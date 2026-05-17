@@ -86,13 +86,13 @@ In a terminal environment, you can combine AI agents with shell scripts and othe
 
 In a terminal environment, every tool is swappable:
 
-| Layer               | Options                            | Swappable? |
-| ------------------- | ---------------------------------- | ---------- |
-| Terminal emulator   | Ghostty, WezTerm, iTerm2, Kitty    | Yes        |
-| Terminal multiplexer | tmux, zellij, screen              | Yes        |
-| Shell               | zsh, bash, fish                    | Yes        |
-| Text editor         | Neovim, Vim, Emacs, Helix          | Yes        |
-| AI coding agent     | Claude Code, Codex CLI, Gemini CLI | Yes        |
+| Layer                | Options                            | Swappable? |
+| -------------------- | ---------------------------------- | ---------- |
+| Terminal emulator    | Ghostty, WezTerm, iTerm2, Kitty    | Yes        |
+| Terminal multiplexer | tmux, zellij, screen               | Yes        |
+| Shell                | zsh, bash, fish                    | Yes        |
+| Text editor          | Neovim, Vim, Emacs, Helix          | Yes        |
+| AI coding agent      | Claude Code, Codex CLI, Gemini CLI | Yes        |
 
 Each layer evolves independently.
 

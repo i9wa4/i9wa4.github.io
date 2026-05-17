@@ -90,7 +90,7 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
 | ------------------ | ---- | -------------------------------------------------------------------------- |
 | argv               | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)                   |
 | justification      | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)             |
-| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加             |
+| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加              |
 | anchored           | No   | false → hookRegex に `^` を付けない (wrapper prefix bypass 対策)           |
 | hookRegex          | No   | 指定すると argv からの自動導出を上書きし、そのまま使用する                 |
 
@@ -174,11 +174,11 @@ hook のみのエントリの場合:
 { argv = [ "git" "merge" ]; anchored = false; justification = "merge is denied"; }
 ```
 
-| 生成先                               | 生成内容                                              |
-| ------------------------------------ | ----------------------------------------------------- |
-| `~/.claude/scripts/deny-bash-patterns.sh`    | DENY_PATTERNS に `'git.*merge'`、DENY_JUSTIFICATIONS に `'merge is denied'` を追加 |
-| `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["git", "merge"], decision = "forbidden", justification = "merge is denied")` を追加 |
-| `~/.claude/settings.json`            | 変更なし                                              |
+| 生成先                                    | 生成内容                                                                                                    |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `~/.claude/scripts/deny-bash-patterns.sh` | DENY_PATTERNS に `'git.*merge'`、DENY_JUSTIFICATIONS に `'merge is denied'` を追加                          |
+| `~/.codex/rules/default.rules`            | `prefix_rule(pattern = ["git", "merge"], decision = "forbidden", justification = "merge is denied")` を追加 |
+| `~/.claude/settings.json`                 | 変更なし                                                                                                    |
 
 `claudeSettingsJson = true` を付けた場合:
 
@@ -186,11 +186,11 @@ hook のみのエントリの場合:
 { argv = [ "rm" ]; justification = "rm is denied; use mv /tmp/ instead"; claudeSettingsJson = true; }
 ```
 
-| 生成先                               | 生成内容                                              |
-| ------------------------------------ | ----------------------------------------------------- |
-| `~/.claude/scripts/deny-bash-patterns.sh`    | DENY_PATTERNS に `'^rm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加 |
-| `~/.codex/rules/default.rules`       | `prefix_rule(pattern = ["rm"], decision = "forbidden", justification = "rm is denied; use mv /tmp/ instead")` を追加 |
-| `~/.claude/settings.json`            | permissions.deny に `Bash(rm *)` を追加               |
+| 生成先                                    | 生成内容                                                                                                             |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `~/.claude/scripts/deny-bash-patterns.sh` | DENY_PATTERNS に `'^rm\b'`、DENY_JUSTIFICATIONS に `'rm is denied; use mv /tmp/ instead'` を追加                     |
+| `~/.codex/rules/default.rules`            | `prefix_rule(pattern = ["rm"], decision = "forbidden", justification = "rm is denied; use mv /tmp/ instead")` を追加 |
+| `~/.claude/settings.json`                 | permissions.deny に `Bash(rm *)` を追加                                                                              |
 
 `argv` の長さによって hookRegex と claudeGlob の導出ルールが変わります。
 

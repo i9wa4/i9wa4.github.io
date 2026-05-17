@@ -95,14 +95,14 @@ $ mkmd --dir research --label api-investigation
 $MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
 ```
 
-| セグメント       | 決定方法                                     |
-| ---------------- | -------------------------------------------- |
+| セグメント       | 決定方法                                      |
+| ---------------- | --------------------------------------------- |
 | `MKMD_BASE_DIR`  | 環境変数 (デフォルト: `$XDG_STATE_HOME/mkmd`) |
-| `owner-repo`     | `git remote get-url origin` から自動抽出     |
-| `YYYY-MM-DD`     | 実行日                                       |
-| `branch`         | `git rev-parse --abbrev-ref HEAD`            |
-| `DIR`            | `--dir` 引数                                 |
-| `LABEL-XXXXXX`   | `--label` 引数 + `mktemp` のランダム文字列   |
+| `owner-repo`     | `git remote get-url origin` から自動抽出      |
+| `YYYY-MM-DD`     | 実行日                                        |
+| `branch`         | `git rev-parse --abbrev-ref HEAD`             |
+| `DIR`            | `--dir` 引数                                  |
+| `LABEL-XXXXXX`   | `--label` 引数 + `mktemp` のランダム文字列    |
 
 git リポジトリ外で実行した場合は `local-<dirname>/...-local/` にフォールバックします。
 

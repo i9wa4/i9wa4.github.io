@@ -42,7 +42,7 @@ uv                             = "0.9.18"
 #### 2.1.1. CI/Linter 系
 
 | ツール     | 用途                                    |
-| --------   | ------                                  |
+| ---------- | --------------------------------------- |
 | StyLua     | Lua フォーマッター (Neovim 設定用)      |
 | gitleaks   | シークレット検出                        |
 | actionlint | GitHub Actions Workflow の Linter       |
@@ -58,7 +58,7 @@ uv                             = "0.9.18"
 #### 2.1.2. 開発ツール系
 
 | ツール          | 用途                      |
-| --------        | ------                    |
+| --------------- | ------------------------- |
 | rumdl           | Markdown Linter/Formatter |
 | vim-startuptime | Vim の起動時間計測        |
 

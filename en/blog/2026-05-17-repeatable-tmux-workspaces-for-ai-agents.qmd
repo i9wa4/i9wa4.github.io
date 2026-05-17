@@ -45,11 +45,11 @@ For this workflow, tmux is useful because it gives long-lived terminal surfaces 
 
 The important pieces are:
 
-| tmux concept | How I use it                         |
-| ------------ | ------------------------------------ |
-| Session      | One project or work context          |
-| Window       | One screen inside the project        |
-| Pane         | One long-running shell or agent      |
+| tmux concept | How I use it                          |
+| ------------ | ------------------------------------- |
+| Session      | One project or work context           |
+| Window       | One screen inside the project         |
+| Pane         | One long-running shell or agent       |
 | Pane title   | A visible role label for the operator |
 
 A pane title is not a permanent identity guarantee. It is an operator-controlled label that helps humans and scripts route attention. The stable part of the workflow comes from combining tmux's process model with explicit configuration and checks, not from pretending that a title can never change.
@@ -261,8 +261,8 @@ This is not required for `vde-layout`, but it helps when several agent workspace
 
 After tmux and `vde-layout`, I get:
 
-| Need                         | Layer that handles it |
-| ---------------------------- | --------------------- |
+| Need                          | Layer that handles it |
+| ----------------------------- | --------------------- |
 | Long-lived terminal processes | tmux                  |
 | Multiple visible agents       | tmux panes            |
 | Project-level grouping        | tmux sessions         |

@@ -46,7 +46,7 @@ published_at: 2025-12-01 07:00
 ### 3.1. 各ツールのコマンド
 
 | ツール             | コマンド例                |
-| ---                | ---                       |
+| ------------------ | ------------------------- |
 | Claude Code        | `claude -p "プロンプト"`  |
 | Gemini CLI         | `gemini "プロンプト"`     |
 | GitHub Copilot CLI | `copilot -p "プロンプト"` |

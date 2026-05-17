@@ -155,10 +155,10 @@ jq -r '.body' "$FILE" | grep -i "breaking\|removed\|deprecated"
 
 | 項目             | Claude Code                        | Codex CLI                       |
 | ---------------- | ---------------------------------- | ------------------------------- |
-| バージョン確認 | `claude --version`                 | `codex --version`          |
-| 情報源         | CHANGELOG.md (Contents API Raw)    | GitHub Releases API        |
-| タグ形式       | `## <version>`                     | `rust-v<version>`          |
-| 仕様詳細調査   | claude-code-guide サブエージェント | releases 本文 + コード読解 |
+| バージョン確認   | `claude --version`                 | `codex --version`               |
+| 情報源           | CHANGELOG.md (Contents API Raw)    | GitHub Releases API             |
+| タグ形式         | `## <version>`                     | `rust-v<version>`               |
+| 仕様詳細調査     | claude-code-guide サブエージェント | releases 本文 + コード読解      |
 
 ### 4.2. スコープガードの習慣
 
