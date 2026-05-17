@@ -349,6 +349,8 @@ worker        ready
 guardian      ready
 ```
 
+The same state is available through `get-status` for full inspection or `get-status-oneline` for a status-bar-sized heartbeat. That is useful when a review cycle is running: the operator can see that mail is moving, a reply is still open, or a reviewer has returned evidence-backed feedback without treating the agent panes as the source of truth.
+
 There is nothing magical in that loop.
 
 That is the point. It is ordinary local state, ordinary Markdown, ordinary terminal panes, and explicit reply closure.
