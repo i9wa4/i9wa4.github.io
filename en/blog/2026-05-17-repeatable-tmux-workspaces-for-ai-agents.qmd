@@ -37,7 +37,7 @@ The more useful the setup becomes, the more annoying it is to recreate.
 
 So I treat the terminal workspace as something that should be declared, versioned, and replayed. tmux is the workbench. `vde-layout` is the repeatable floor plan.
 
-This is also why I still care about dotfiles. I want the behavior of my environment to live in text files that Git can track. I wrote more about that in [Why I Still Grow My Dotfiles in the Age of AI Coding Agents](/en/blog/2026-01-08-why-i-still-grow-my-dotfiles.html).
+This is also why I still care about dotfiles. I want the behavior of my environment to live in text files that Git can track. I wrote more about that in [Why I Still Grow My Dotfiles in the Age of AI Coding Agents](2026-01-08-why-i-still-grow-my-dotfiles.qmd).
 
 ## 2. Why tmux
 
@@ -306,7 +306,7 @@ At this point tmux gives me stable places for agents to run, and `vde-layout` gi
 
 The remaining problem is handoffs.
 
-The next article is about the small mailbox layer I built on top of this setup: [`tmux-a2a-postman`](/en/blog/2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.html).
+The next article is about the small mailbox layer I built on top of this setup: [`tmux-a2a-postman`](2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.qmd).
 
 It does not replace tmux or `vde-layout`. It adds messages, reply obligations, readable routing rules, and archived delivery evidence between panes.
 
