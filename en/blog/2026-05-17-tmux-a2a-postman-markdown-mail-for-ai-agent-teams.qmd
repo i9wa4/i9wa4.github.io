@@ -97,7 +97,7 @@ It is a Markdown file that humans can review and agents can read. It can contain
 
 A minimal topology can be written as Mermaid:
 
-```mermaid
+```{mermaid}
 graph LR
     messenger --- orchestrator
     orchestrator --- worker
