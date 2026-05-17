@@ -200,7 +200,7 @@ The important behavior is the state transition:
 For public examples, I prefer synthetic paths:
 
 ```text
-$XDG_STATE_HOME/tmux-a2a-postman/<context>/<session>/read/msg_demo_001.md
+$XDG_STATE_HOME/tmux-a2a-postman/<context>/<session>/read/20260517-101500-r7f3a-from-worker-to-orchestrator.md
 ```
 
 That path shape communicates the idea without exposing a real machine path, session id, or operational archive.
@@ -218,7 +218,7 @@ Example reply:
 ```text
 tmux-a2a-postman send-heredoc \
   --to orchestrator \
-  --reply-to msg_demo_001.md \
+  --reply-to 20260517-101500-r7f3a-from-worker-to-orchestrator.md \
   --fills-input-request-id req_demo_001 <<'POSTMAN_BODY'
 DONE: Implemented the refactor and ran validation.
 
