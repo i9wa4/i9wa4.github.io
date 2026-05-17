@@ -23,7 +23,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 In the previous article, I described my tmux and `vde-layout` workflow for creating repeatable local workspaces for CLI agents:
 
-[Build Repeatable tmux Workspaces for CLI Agents with vde-layout](/en/blog/2026-05-17-repeatable-tmux-workspaces-for-ai-agents.html)
+[Build Repeatable tmux Workspaces for CLI Agents with vde-layout](2026-05-17-repeatable-tmux-workspaces-for-ai-agents.qmd)
 
 That gives me the physical workspace:
 
@@ -68,7 +68,7 @@ The stack looks like this:
 
 That last distinction matters. Postman is not internal agent memory. It does not make an agent remember everything. It makes pending work, delivered mail, unread/read state, reply obligations, and delivery evidence visible as local state.
 
-For longer investigation notes, I use a separate Markdown artifact workflow such as [`mkmd`](/en/blog/2026-03-22-mkmd-mktemp-wrapper-for-ai-agents.html). The two fit well together, but they are not the same layer.
+For longer investigation notes, I use a separate Markdown artifact workflow such as [`mkmd`](2026-03-22-mkmd-mktemp-wrapper-for-ai-agents.qmd). The two fit well together, but they are not the same layer.
 
 ## 3. Why a Mailbox
 
