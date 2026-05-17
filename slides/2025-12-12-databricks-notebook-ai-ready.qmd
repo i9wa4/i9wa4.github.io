@@ -83,7 +83,7 @@ Jupyterにおけるカーネルとは
 
 ローカル開発環境を改善すべくDatabricks Computeに接続できるカーネルを作りました！
 
-```sh
+```{.bash}
 jupyter execute notebook.ipynb
 ```
 
