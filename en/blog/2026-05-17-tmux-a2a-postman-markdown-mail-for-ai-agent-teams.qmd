@@ -171,7 +171,7 @@ graph LR
 
 The diagram is not decoration. The node names and `---` edges define which roles may talk to each other. With `inject: ping`, the `skill_path` block injects postman-oriented Agent Skills into recurring daemon PING role content, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
 
-The daemon TUI does not render a transcript like the one below. Read it as a fictional relay of an expected postman conversation using the roles from this example:
+The daemon TUI does not render a transcript like the one below. Read it as a fictional relay of an expected postman conversation using the roles from this example. The useful part is the rework loop: review feedback can travel back to the worker before completion returns through messenger.
 
 ```{.text}
 messenger> User asks: please tighten the parser explanation and validate the page.
@@ -180,11 +180,19 @@ messenger> Routed to orchestrator with the current article and constraints.
 
 orchestrator> worker: make the scoped article edit.
 
-orchestrator> reviewer: review the result when worker is done.
-
 worker> DONE: edited the section and rendered the page.
 
-reviewer> APPROVED: evidence matches the requested scope.
+orchestrator> reviewer: review the result before completion.
+
+reviewer> NOT APPROVED: the example still sounds like a screen transcript.
+
+orchestrator> worker: rework the transcript as a postman relay example.
+
+worker> DONE: revised the wording, role labels, and validation evidence.
+
+orchestrator> reviewer: re-review the updated section.
+
+reviewer> APPROVED: the rework matches the requested scope.
 
 orchestrator> messenger: result ready with changed file, validation, and commit.
 
