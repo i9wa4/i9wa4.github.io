@@ -179,7 +179,7 @@ Implementation role. Reply with changed files, validation, and blockers.
 Review role. Return evidence-backed APPROVED or NOT APPROVED.
 ````
 
-The diagram is not just decoration. The node names and `---` edges define which roles may talk to each other. The `skill_path` block points the startup prompt toward postman-oriented Agent Skills, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
+The diagram is not just decoration. The node names and `---` edges define which roles may talk to each other. With `inject: ping`, the `skill_path` block injects postman-oriented Agent Skills into recurring daemon PING role content, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
 
 That role contract changes output quality. Without a contract, a worker can drift toward a vague reply:
 
