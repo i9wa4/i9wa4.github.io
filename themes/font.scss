@@ -15,6 +15,26 @@ code *, pre *, .sourceCode * {
   font-variant-ligatures: none;
 }
 
+pre.mermaid.mermaid-js {
+  --mermaid-bg-color: var(--bs-tertiary-bg);
+  --mermaid-label-bg-color: var(--bs-tertiary-bg);
+
+  margin: 1rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+}
+
+body.quarto-light pre.mermaid.mermaid-js {
+  --mermaid-edge-color: #475569;
+}
+
+body.quarto-dark pre.mermaid.mermaid-js {
+  --mermaid-edge-color: #94a3b8;
+}
+
 // Apply Japanese font to SVG text
 svg, svg *, foreignObject, foreignObject * {
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
