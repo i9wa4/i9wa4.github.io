@@ -208,38 +208,15 @@ It also keeps the control surface close to normal Git review. A change to the te
 
 Skill catalogs fit the same idea, but the value is not only prompt size or discovery. In a long-running conversation, an agent can lose track of when a local skill applies and improvise even though the repository already has operating rules. A role can receive a compact list of relevant skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That list acts as a role and task reminder: use the known local rule before guessing, while keeping the handoff readable and reviewable.
 
-## 5. The Minimal Mail Loop
+That matters because postman does not prescribe a single team shape. You can define roles, routes, reply expectations, and operating rules in Markdown, then revise them as the workflow changes. A postman-specific skill such as `postman-config-auditor` gives agents local knowledge for auditing that topology and suggesting scoped refinements, so the harness can become more tailored without the user explaining every rule each time.
 
-The operational loop is intentionally small.
+## 5. The Mail Loop Agents Can Operate
 
-One role sends Markdown mail:
+The runtime loop is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence. The README covers the command syntax; the article-level point is the state model: delivered mail, claimed mail, archived body, and exact reply closure.
 
-```{.bash}
-tmux-a2a-postman send-heredoc --to worker --reply-required <<'POSTMAN_BODY'
-Tighten the parser behavior described in the task note.
+This is where skill catalogs become operational rather than decorative. A receiver that has `postman-session-operator` in its relevant skills can know when to claim mail, how to treat the archive, how to close an exact input request, and when to report blocked or delivery trouble. A config-focused role with `postman-config-auditor` can inspect the topology and help refine roles, routes, and rules as the user's preferred workflow evolves.
 
-Constraints:
-- Keep the change scoped.
-- Run the relevant tests.
-- Reply with DONE or BLOCKED and evidence.
-POSTMAN_BODY
-```
-
-The receiver claims mail:
-
-```{.bash}
-tmux-a2a-postman pop
-```
-
-That is the core. The message body is Markdown. The shell surface is a quoted heredoc so code fences, variables, backticks, and YAML survive the send. `pop` moves unread mail into a read archive and returns the archived Markdown path. A receiver is expected to read that archived body before acting.
-
-For required replies, postman opens an exact input request. The reply closes that transport slot, which means the sender can tell which `DONE` or `BLOCKED` answered which request. The README covers the full command syntax; the article-level point is the state model: delivered mail, claimed mail, archived body, and exact reply closure.
-
-That changes where instructions live. In a long-running agent conversation, earlier constraints can become distant. With mail, each handoff can carry the local instructions for that moment: constraints, reply policy, success checks, and references to the task artifact.
-
-The tradeoff is token use. Repeating local instructions in each mail costs context.
-
-I do not try to repeat everything. I pay the overhead when the handoff is high-risk: long-running implementation, review, approval, or work where constraints are easy to forget. For small pings or status updates, the useful message is short. For long investigation context, I usually point at a task artifact instead of pasting the whole investigation into the mail body.
+The skills do not make the agent magically autonomous. They provide local operating knowledge. The task mail still carries the current constraints, reply policy, success checks, and artifact references, especially for long-running implementation, review, or approval work.
 
 This closes transport state, not truth. A `DONE` reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
 
@@ -349,6 +326,28 @@ This article is not the full setup manual. The README is still the right place f
 2. Put terminal agents or tools that need durable cross-tool handoffs in tmux panes.
 3. Use `postman.md` to name roles, allowed handoff edges, and role contracts.
 4. Let postman mail carry the handoff, reply obligation, archived body, and status surface.
+
+The daemon itself stays resident in a pane:
+
+```{.bash}
+tmux-a2a-postman start
+```
+
+A trimmed and anonymized view looks like this:
+
+```{.text}
+tmux-a2a-postman git-b2c8283   [up/down:move] [p:ping] [q:quit]
+
+[sessions]
+> [1] project-workbench
+  [2] docs-review
+
+[nodes]
+messenger     ready
+orchestrator  waiting
+worker        ready
+guardian      ready
+```
 
 There is nothing magical in that loop.
 
