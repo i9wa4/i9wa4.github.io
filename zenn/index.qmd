@@ -44,9 +44,9 @@ listing:
 [goose (1)](#category=goose){.btn .btn-outline-primary .btn-sm}
 [jupyter (4)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
 [lazygit (1)](#category=lazygit){.btn .btn-outline-primary .btn-sm}
-[markdown (1)](#category=markdown){.btn .btn-outline-primary .btn-sm}
 [mcp (3)](#category=mcp){.btn .btn-outline-primary .btn-sm}
 [mise (3)](#category=mise){.btn .btn-outline-primary .btn-sm}
+[multiagent (1)](#category=multiagent){.btn .btn-outline-primary .btn-sm}
 [neovim (2)](#category=neovim){.btn .btn-outline-primary .btn-sm}
 [notion (1)](#category=notion){.btn .btn-outline-primary .btn-sm}
 [oss (1)](#category=oss){.btn .btn-outline-primary .btn-sm}

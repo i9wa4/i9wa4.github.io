@@ -1,5 +1,5 @@
 ---
-title: "tmux-a2a-postmanでターミナルAIエージェントにMarkdownの郵便受けを足す"
+title: "Claude Code/Codex CLIをtmuxで並べるならMarkdownの郵便受けを足す"
 author: uma-chan
 date: 2026-05-18 02:40:00 +0900
 image: "/assets/common/zenn-ogp.png"
@@ -8,14 +8,14 @@ description: |
 categories:
   - "zenn"
   - "tmux"
-  - "markdown"
   - "claudecode"
   - "codexcli"
   - "aiagent"
+  - "multiagent"
 ---
 
 ## Zenn リンク先
 
 この記事は Zenn で公開されています。
 
-[tmux-a2a-postmanでターミナルAIエージェントにMarkdownの郵便受けを足す](https://zenn.dev/i9wa4/articles/2026-05-07-tmux-a2a-postman)
+[Claude Code/Codex CLIをtmuxで並べるならMarkdownの郵便受けを足す](https://zenn.dev/i9wa4/articles/2026-05-07-tmux-a2a-postman)
