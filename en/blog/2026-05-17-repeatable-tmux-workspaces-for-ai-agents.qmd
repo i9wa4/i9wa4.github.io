@@ -1,0 +1,298 @@
+---
+title: "Build Repeatable tmux Workspaces for CLI Agents with vde-layout"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-05-17 10:00:00 +0900
+date-modified: last-modified
+description: |
+  I do not want to recreate the same tmux panes by hand every time I start a multi-agent coding session.
+
+  tmux gives me the durable workbench: sessions, windows, panes, pane titles, capture, and input delivery.
+
+  vde-layout gives me the repeatable floor plan: a YAML definition that opens the same editor and agent panes again and again.
+
+  This article is the prelude to my tmux-a2a-postman setup. It explains the physical workspace first: how I use tmux and vde-layout to keep multiple CLI agents visible, replaceable, and easy to restart.
+
+  The coordination layer comes later. First, the workbench needs a floor plan.
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. The Problem
+
+Running one AI coding agent in a terminal is simple.
+
+Running several of them for real work is a different shape of problem. I want an editor, a shell, one or more agent panes, maybe a reviewer pane, and a place to inspect Git state. I also want the same layout tomorrow, in another repository, without remembering which split command I used last time.
+
+Manually doing this is boring:
+
+1. Split a tmux pane.
+2. Resize the pane.
+3. Split it again.
+4. Start Vim, Claude Code, Codex CLI, or another CLI agent.
+5. Rename enough things that I can still tell what is happening.
+
+The more useful the setup becomes, the more annoying it is to recreate.
+
+So I treat the terminal workspace as something that should be declared, versioned, and replayed. tmux is the workbench. `vde-layout` is the repeatable floor plan.
+
+This is also why I still care about dotfiles. I want the behavior of my environment to live in text files that Git can track. I wrote more about that in [Why I Still Grow My Dotfiles in the Age of AI Coding Agents](/en/blog/2026-01-08-why-i-still-grow-my-dotfiles.html).
+
+## 2. Why tmux
+
+For this workflow, tmux is useful because it gives long-lived terminal surfaces that can be controlled from the outside.
+
+The important pieces are:
+
+| tmux concept | How I use it                         |
+| ------------ | ------------------------------------ |
+| Session      | One project or work context          |
+| Window       | One screen inside the project        |
+| Pane         | One long-running shell or agent      |
+| Pane title   | A visible role label for the operator |
+
+A pane title is not a permanent identity guarantee. It is an operator-controlled label that helps humans and scripts route attention. The stable part of the workflow comes from combining tmux's process model with explicit configuration and checks, not from pretending that a title can never change.
+
+tmux is not the only possible terminal substrate. Zellij, editor-integrated terminals, and AI-first editor environments all have strong workflows. My point here is narrower: tmux exposes a mature local model of sessions, windows, panes, pane titles, input commands, and pane capture. That makes it a practical substrate for shell-first agent work today.
+
+## 3. The Minimum tmux Model
+
+The mental model is close to a browser:
+
+| Layer   | Browser analogy       | Agent workflow analogy              |
+| ------- | --------------------- | ----------------------------------- |
+| Session | Browser window        | Project workspace                   |
+| Window  | Browser tab           | A named screen inside that project  |
+| Pane    | Split view inside tab | Editor, shell, or CLI agent process |
+
+I keep one tmux session per project. Inside that session, I can have a main work window, a review window, or a monitoring window. Inside each window, each pane owns one long-lived process.
+
+That sounds simple, but it matters for CLI agents. A pane can keep a conversation alive while I inspect another pane. A session can detach and survive terminal restarts. A window can group related roles without mixing every process into one crowded screen.
+
+The goal is not to make tmux fancy. The goal is to give agents stable places to run.
+
+## 4. A Few tmux Settings That Matter
+
+I try to reduce prefix-heavy operations because multi-pane work requires frequent movement.
+
+For window and session movement:
+
+```{.conf filename="~/.config/tmux/tmux.conf"}
+bind-key -n M-Left previous-window
+bind-key -n M-Right next-window
+bind-key -n M-Up switch-client -p
+bind-key -n M-Down switch-client -n
+```
+
+For pane movement:
+
+```{.conf filename="~/.config/tmux/tmux.conf"}
+bind-key -n S-Left select-pane -L
+bind-key -n S-Right select-pane -R
+bind-key -n S-Up select-pane -U
+bind-key -n S-Down select-pane -D
+```
+
+On macOS, `M-` is usually Option. On Linux, it is usually Alt.
+
+I also inherit the current directory when opening new panes or windows:
+
+```{.conf filename="~/.config/tmux/tmux.conf"}
+bind-key % split-window -h -c "#{pane_current_path}"
+bind-key '"' split-window -v -c "#{pane_current_path}"
+bind-key c new-window -c "#{pane_current_path}"
+```
+
+And I use popup windows for quick checks:
+
+```{.conf filename="~/.config/tmux/tmux.conf"}
+bind-key u display-popup -d '#{pane_current_path}' -w 90% -h 90% -E
+bind-key g display-popup -d '#{pane_current_path}' -w 90% -h 90% -E 'lazygit'
+```
+
+The popup is useful when an agent is working and I want to inspect Git state without disturbing the main pane layout.
+
+These settings are not the center of the workflow. They just make the workbench pleasant enough to use all day.
+
+## 5. vde-layout Is the Floor Plan
+
+`vde-layout` is a tmux layout tool by yuki-yano. You define panes and windows in YAML, then run one command to materialize them.
+
+Repository: <https://github.com/yuki-yano/vde-layout>
+
+This is the turning point. Instead of remembering tmux split commands, I define the workspace once:
+
+```{.yaml filename="~/.config/vde/layout.yml"}
+presets:
+  main:
+    name: main
+    description: editor plus one worker
+    windowMode: current-window
+    layout:
+      type: horizontal
+      ratio: [1, 1]
+      panes:
+        - name: editor
+          command: vim
+          focus: true
+        - name: worker
+          command: claude
+```
+
+Then I run:
+
+```bash
+vde-layout main
+```
+
+That creates two panes: an editor and a worker agent.
+
+The exact command is replaceable. Use `codex`, `gemini`, `opencode`, a plain shell, or any other long-running CLI process. The important part is that the physical workspace shape is now declared in a file.
+
+## 6. Scaling Beyond Two Panes
+
+Two panes are enough to show the idea, but the same model scales to a small local agent team.
+
+For example:
+
+```{.yaml filename="~/.config/vde/layout.yml"}
+presets:
+  concierge:
+    name: concierge
+    description: editor and user-facing shell
+    windowMode: current-window
+    layout:
+      type: horizontal
+      ratio: [1, 1]
+      panes:
+        - name: editor
+          command: vim
+          focus: true
+        - name: messenger
+          command: codex
+
+  builders:
+    name: builders
+    description: implementation agents
+    windowMode: new-window
+    layout:
+      type: horizontal
+      ratio: [1, 1]
+      panes:
+        - name: worker
+          command: codex
+        - name: worker-alt
+          command: claude
+
+  review:
+    name: review
+    description: review and final decision
+    windowMode: new-window
+    layout:
+      type: horizontal
+      ratio: [1, 1]
+      panes:
+        - name: reviewer
+          command: claude
+        - name: shell
+          command: bash
+```
+
+Then:
+
+```bash
+vde-layout concierge
+vde-layout builders
+vde-layout review
+```
+
+Only the first preset uses `current-window`. The later presets use `new-window`, so one command sequence can build a multi-window workspace.
+
+The names in this YAML are role labels for the human operator. They make the workspace legible. They also become useful later when a coordination layer needs to address a pane by role.
+
+## 7. Short Commands Help
+
+I do not want to type three long `vde-layout` commands every time.
+
+I use shell snippets for that. With `zeno.zsh`, a short keyword can expand into the full command sequence.
+
+Repository: <https://github.com/yuki-yano/zeno.zsh>
+
+For example:
+
+```{.yaml filename="~/.config/zeno/config.yaml"}
+snippets:
+  - name: (vde-layout) agent workspace
+    keyword: va
+    snippet: vde-layout concierge && vde-layout builders && vde-layout review
+```
+
+Now `va` can expand into the complete layout command.
+
+This is optional. A shell alias, an abbreviation, a Make target, or a small script would also work. The principle is the same: the workspace is defined in text and recreated with a short command.
+
+## 8. Session Names Matter
+
+When multiple projects are open, tmux session names become part of the operator interface.
+
+I like repository-based session names. If I move into `my-project`, the tmux session should be named `my-project`. If the repository name contains dots, I usually replace them with dashes so it is easier to target from shell commands.
+
+This is not required for `vde-layout`, but it helps when several agent workspaces are open at once. A session name tells me which project I am looking at before I even inspect the panes.
+
+In my setup, this is tied to repository navigation. The exact tool does not matter. `ghq`, `zoxide`, shell hooks, or a small wrapper can all do the same job.
+
+## 9. What This Layer Solves
+
+After tmux and `vde-layout`, I get:
+
+| Need                         | Layer that handles it |
+| ---------------------------- | --------------------- |
+| Long-lived terminal processes | tmux                  |
+| Multiple visible agents       | tmux panes            |
+| Project-level grouping        | tmux sessions         |
+| Repeatable pane layout        | `vde-layout`          |
+| Fast startup command          | shell snippet         |
+| Durable environment config    | dotfiles              |
+
+This is already enough to improve daily work. I can restart a project workspace quickly. I can keep several agents visible. I can swap one agent runtime without redesigning the whole setup.
+
+It also makes experimentation cheaper. If a layout is bad, I edit YAML. If an agent command changes, I edit one command string. If a role should move to another window, I change the floor plan.
+
+## 10. What This Layer Does Not Solve
+
+tmux and `vde-layout` create places for agents to run. They do not define handoffs.
+
+After the workspace exists, new questions appear:
+
+- Which pane is allowed to send work to which pane?
+- Did the receiver read the request?
+- Is someone waiting for a required reply?
+- Which reply closes which request?
+- Where is the durable evidence for a handoff?
+- What should happen when delivery fails?
+
+You can answer some of this with conventions and direct `tmux send-keys` calls, but the state is easy to lose. The terminal screen shows activity, not a durable delivery record.
+
+That is the boundary I care about:
+
+| Layer              | Responsibility                                   |
+| ------------------ | ------------------------------------------------ |
+| tmux               | Workbench: sessions, windows, panes, processes   |
+| `vde-layout`       | Floor plan: repeatable pane and window creation  |
+| Shell snippets     | Launcher: short commands for common layouts      |
+| Coordination layer | Handoffs: messages, replies, routing, receipts   |
+
+This article is about the first three rows.
+
+## 11. The Next Layer
+
+At this point tmux gives me stable places for agents to run, and `vde-layout` gives me a repeatable way to create those places.
+
+The remaining problem is handoffs.
+
+The next article is about the small mailbox layer I built on top of this setup: [`tmux-a2a-postman`](/en/blog/2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.html).
+
+It does not replace tmux or `vde-layout`. It adds messages, reply obligations, readable routing rules, and archived delivery evidence between panes.
+
+That separation is the important idea: first make the physical workspace repeatable, then make the coordination inside it explicit.
