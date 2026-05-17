@@ -113,7 +113,7 @@ skill_path:
     inject: ping
     skills:
       - postman-session-operator
-      - postman-config-auditor
+      - postman-send-message
 ---
 
 ## `edges`
@@ -193,13 +193,13 @@ Remaining blockers: none
 
 An Agent Skills catalog fits the same idea, but the value is not only prompt size or discovery. In a long-running conversation, an agent can lose track of when a local Agent Skill applies and improvise even though the repository already has operating rules. A role can receive a compact list of relevant Agent Skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That list acts as a role and task reminder: use the known local rule before guessing.
 
-That matters because postman does not prescribe a single team shape. You can define roles, routes, reply expectations, and operating rules in Markdown, then revise them as the workflow changes. A postman-oriented Agent Skill such as `postman-config-auditor` gives agents local knowledge for auditing that topology and suggesting scoped refinements, so the harness can become more tailored without the user explaining every rule each time.
+That matters because postman does not prescribe a single team shape. You can define roles, routes, reply expectations, and operating rules in Markdown, then revise them as the workflow changes. A handoff-focused catalog can include `postman-send-message`, while a config-focused role can receive `postman-config-auditor` for auditing topology and suggesting scoped refinements.
 
 ## 5. The Mail Loop Agents Can Operate
 
 The runtime loop is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence.
 
-This is where the Agent Skills catalog becomes operational rather than decorative. A receiver that has `postman-session-operator` in its relevant Agent Skills can know when to claim mail, how to treat the archive, how to close an exact input request, and when to report blocked or delivery trouble. A config-focused role with `postman-config-auditor` can inspect the topology and help refine roles, routes, and rules as the user's preferred workflow evolves.
+This is where the Agent Skills catalog becomes operational rather than decorative. A sender that has `postman-send-message` can use the quoted-heredoc send path correctly. A receiver that has `postman-session-operator` can know when to claim mail, how to treat the archive, how to close an exact input request, and when to report blocked or delivery trouble.
 
 This closes transport state, not truth. A `DONE` reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
 
