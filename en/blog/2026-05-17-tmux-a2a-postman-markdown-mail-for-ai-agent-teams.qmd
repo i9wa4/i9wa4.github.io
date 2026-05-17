@@ -11,7 +11,7 @@ description: |
 
   But long-running work still raises local coordination questions: how much one agent should plan, implement, remember, review, coordinate, and report; which instructions are active; what was delivered; who owes a reply; and what evidence remains when something goes wrong.
 
-  tmux-a2a-postman is my small local mailbox layer for that gap. It complements native agent features when I want durable Markdown instructions, explicit handoffs, tool-neutral coordination, and inspectable local state.
+  tmux-a2a-postman is my small local mailbox layer for that gap. It complements native agent features when I want durable Markdown instructions, explicit handoffs, a controlled input surface, tool-neutral coordination, and inspectable local state.
 
   It is Markdown-forward, not attachment-based. It sends quoted-heredoc Markdown messages, stores archived Markdown mail, tracks reply-required obligations, and exposes status for terminal agents using tmux as the local substrate.
 
@@ -26,6 +26,10 @@ This article is for people who use AI coding agents and are starting to care abo
 You might already use Codex CLI, Claude Code, or another agent runtime, including native subagents, team features, or task delegation where they are available. Keep using them when they solve the problem. `tmux-a2a-postman` is about a different surface: a small local mailbox for handoffs that should stay visible outside one long chat, one model runtime, or one vendor-specific feature.
 
 The pain I am solving is not "native agent features are missing." It is role overload. A single lead agent can become planner, implementer, reviewer, coordinator, memory keeper, and status reporter at once. Native subagents help narrow the work, but durable handoffs still need a place to live when work crosses runtime boundaries, lasts longer than one context window, or needs evidence that another role can inspect later.
+
+The practical value is input-surface control, not control over model internals. At each handoff, I can choose the current instructions, constraints, evidence, and references that enter the next agent's context window. That makes the handoff explicit and reviewable, and it reduces the chance that old, diluted, or forgotten instructions drive the next step.
+
+The same is true for behavior. Roles, routing, and reply contracts live in Markdown, so orchestration stays readable, editable, versionable, and easy for an agent to update in a normal diff.
 
 In the previous article, I described my tmux and `vde-layout` workflow for creating repeatable local workspaces for CLI agents:
 
@@ -72,16 +76,18 @@ Repository: <https://github.com/i9wa4/tmux-a2a-postman>
 
 It does not create the model, write the code, isolate a container, or decide a workflow by itself. It delivers Markdown messages between role-labeled terminal panes, records unread and read mail, tracks reply-required obligations, and exposes status.
 
-It also does not compete with native subagent or team features. Those features are useful inside their own runtime. Postman is for the local operating layer around terminal agents: durable instructions, explicit handoffs, role contracts that keep each agent narrower, and evidence that remains inspectable as local Markdown and filesystem state.
+It also does not compete with native subagent or team features. Those features are useful inside their own runtime. Postman is for the local operating layer around terminal agents: durable instructions, explicit handoffs, a deliberate context surface, role contracts that keep each agent narrower, and evidence that remains inspectable as local Markdown and filesystem state.
 
 The value spine is simple: turn "I told that agent something" into "there is a Markdown mail item with a sender, receiver, inbox/read state, and an exact reply slot when one is required."
 
 | Before postman                          | With postman                                |
 | --------------------------------------- | ------------------------------------------- |
 | Requests live in one chat or pane       | Requests are delivered as Markdown mail     |
+| Handoff context is whatever is nearby   | Handoff context is chosen for this request  |
 | Replies are inferred from terminal text | Required replies close exact input requests |
 | Old constraints live in chat history    | Current constraints travel with the handoff |
 | Routing rules are team convention       | Routing and role contracts are Markdown     |
+| Behavior drifts across prompts          | Behavior is versioned as Markdown           |
 
 This is a thin local harness, not a platform. It sits around terminal agents, uses tmux as the transport substrate, records small pieces of local state, and leaves thinking, editing, testing, and review to the tools already doing that work.
 
@@ -125,7 +131,7 @@ The center of the setup is `postman.md`.
 
 It is a Markdown file that humans can review and agents can read. It can contain the team topology, role instructions, shared rules, and skill catalog references.
 
-This is the part I usually want outside a native model feature. A runtime may provide its own subagents or task tools, but `postman.md` is a local Markdown contract I can review in Git and apply across terminal tools.
+This is the part I usually want outside a native model feature. A runtime may provide its own subagents or task tools, but `postman.md` is a local Markdown contract I can review in Git and apply across terminal tools. Behavior changes by editing Markdown, not by writing framework code; that keeps orchestration readable, versionable, and easy for an AI agent to patch in a normal diff.
 
 A minimal topology can be written as Mermaid:
 
