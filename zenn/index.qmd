@@ -22,11 +22,12 @@ listing:
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[aiagent (1)](#category=aiagent){.btn .btn-outline-primary .btn-sm}
+[aiagent (2)](#category=aiagent){.btn .btn-outline-primary .btn-sm}
 [aws (1)](#category=aws){.btn .btn-outline-primary .btn-sm}
+[bash (1)](#category=bash){.btn .btn-outline-primary .btn-sm}
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
-[cli (2)](#category=cli){.btn .btn-outline-primary .btn-sm}
+[cli (3)](#category=cli){.btn .btn-outline-primary .btn-sm}
 [codex (1)](#category=codex){.btn .btn-outline-primary .btn-sm}
 [codexcli (2)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
@@ -34,7 +35,7 @@ listing:
 [devcontainer (3)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
 [devin (2)](#category=devin){.btn .btn-outline-primary .btn-sm}
 [docker (1)](#category=docker){.btn .btn-outline-primary .btn-sm}
-[dotfiles (1)](#category=dotfiles){.btn .btn-outline-primary .btn-sm}
+[dotfiles (2)](#category=dotfiles){.btn .btn-outline-primary .btn-sm}
 [drawio (2)](#category=drawio){.btn .btn-outline-primary .btn-sm}
 [ghq (1)](#category=ghq){.btn .btn-outline-primary .btn-sm}
 [git (2)](#category=git){.btn .btn-outline-primary .btn-sm}
@@ -44,6 +45,7 @@ listing:
 [goose (1)](#category=goose){.btn .btn-outline-primary .btn-sm}
 [jupyter (4)](#category=jupyter){.btn .btn-outline-primary .btn-sm}
 [lazygit (1)](#category=lazygit){.btn .btn-outline-primary .btn-sm}
+[markdown (1)](#category=markdown){.btn .btn-outline-primary .btn-sm}
 [mcp (3)](#category=mcp){.btn .btn-outline-primary .btn-sm}
 [mise (3)](#category=mise){.btn .btn-outline-primary .btn-sm}
 [neovim (2)](#category=neovim){.btn .btn-outline-primary .btn-sm}
@@ -62,7 +64,7 @@ listing:
 [uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
 [vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
-[zenn (34)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zenn (35)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 [zinit (1)](#category=zinit){.btn .btn-outline-primary .btn-sm}
 [zsh (3)](#category=zsh){.btn .btn-outline-primary .btn-sm}
 :::
