@@ -171,19 +171,6 @@ graph LR
 
 The diagram is not decoration. The node names and `---` edges define which roles may talk to each other. With `inject: ping`, the `skill_path` block injects postman-oriented Agent Skills into recurring daemon PING role content, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
 
-This is not a chat UI feature, and the daemon TUI does not render a transcript like the one below. It is only a fictional way to make the route concrete; role names vary by configuration, and `guardian` here is just a review-gate example:
-
-```{.text}
-user> Please tighten the parser explanation and validate the page.
-messenger> Routed to orchestrator with the current article and constraints.
-orchestrator> worker: make the scoped article edit.
-orchestrator> guardian: review the result when worker is done.
-worker> DONE: edited the section and rendered the page.
-guardian> APPROVED: evidence matches the requested scope.
-orchestrator> messenger: result ready with changed file, validation, and commit.
-messenger> Done. The article was updated and the checks passed.
-```
-
 That role contract changes output quality. Without a contract, a worker can drift toward a vague reply:
 
 ```{.text}
