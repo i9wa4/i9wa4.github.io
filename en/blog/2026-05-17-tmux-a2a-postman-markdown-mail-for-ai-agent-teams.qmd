@@ -107,6 +107,22 @@ graph LR
     classDef ui_node fill:#e0f2fe
 ```
 
+The copyable source is just a `postman.md` section:
+
+````{.markdown filename="postman.md"}
+## `edges`
+
+```mermaid
+graph LR
+    messenger --- orchestrator
+    orchestrator --- worker
+    orchestrator --- reviewer
+    reviewer --- boss
+    class messenger ui_node
+    classDef ui_node fill:#e0f2fe
+```
+````
+
 The diagram is not just decoration. The node names and edges define which roles may talk to each other.
 
 The same Markdown file can also carry operating rules:
