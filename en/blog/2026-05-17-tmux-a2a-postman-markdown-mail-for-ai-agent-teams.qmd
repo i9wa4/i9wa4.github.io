@@ -56,20 +56,20 @@ tmux-a2a-postman git-b2c8283   [up/down:move] [p:ping] [q:quit]
   🔷 [3] runtime-workbench
 
 [nodes]
-messenger     🟢  ready
-orchestrator  🔷  waiting
-worker        🔷  pending
+messenger     🟡  waiting
+orchestrator  🔷  pending
+worker        🟢  ready
 guardian      🟢  ready
 critic        🟢  ready
 boss          🟢  ready
 ```
 
-The important part is not the dashboard itself. After a task is handed off, the human does not have to shepherd every hop manually: the configured `postman.md` workflow can carry it through role handoff, worker implementation, review quality gates, boss-style approval, and final `DONE` or result back to the user-facing role. That is not full autonomy. It is a Markdown-defined route, with Agent Skills teaching each role how to operate its part.
+The important part is not the dashboard itself. Once a task is handed off, postman keeps the route and reply obligation outside terminal scrollback: messenger to orchestrator to worker to reviewer to messenger can be a Markdown-defined path instead of a human remembering which pane should answer next. Agent Skills add local operating rules for each role when they materially help.
 
 The compact heartbeat is deliberately dense:
 
 ```{.text}
-[0]⚫ [1]🟢:🟢🟢🟢🟢🟢🟢 [2]🟡:🔷🔷🟢🟢🟢🟢 [3]🟢:🟢🟢🟢🟢🟢🟢
+[0]⚫ [1]🟡:🟡🔷🟢🟢🟢🟢 [2]🟢:🟢🟢🟢🟢🟢🟢 [3]🔷:🔷🟢🟢🟢🟢🟢
 ```
 
 I use `get-status` for full inspection and `get-status-oneline` for a status-bar-sized heartbeat. This is the concrete value: I can see that mail is moving, a reply is still open, or a role is waiting without treating the agent panes as the source of truth.
@@ -171,63 +171,25 @@ graph LR
 
 The diagram is not decoration. The node names and `---` edges define which roles may talk to each other. With `inject: ping`, the `skill_path` block injects postman-oriented Agent Skills into recurring daemon PING role content, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
 
-The daemon TUI does not render a transcript like the one below. Read it as a fictional relay of an expected postman conversation using the roles from this example. The useful part is the rework loop: review feedback can travel back to the worker before completion returns through messenger.
+A review loop can then stay in mail instead of terminal scrollback:
 
 ```{.text}
-messenger> User asks: please tighten the parser explanation and validate the page.
-
-messenger> Routed to orchestrator with the current article and constraints.
-
-orchestrator> worker: make the scoped article edit.
-
-worker> DONE: edited the section and rendered the page.
-
-orchestrator> reviewer: review the result before completion.
-
-reviewer> NOT APPROVED: the example still sounds like a screen transcript.
-
-orchestrator> worker: rework the transcript as a postman relay example.
-
-worker> DONE: revised the wording, role labels, and validation evidence.
-
-orchestrator> reviewer: re-review the updated section.
-
-reviewer> APPROVED: the rework matches the requested scope.
-
-orchestrator> messenger: result ready with changed file, validation, and commit.
-
-messenger> Done. The article was updated and the checks passed.
+messenger -> orchestrator: tighten the article and validate it
+orchestrator -> worker: make the scoped edit
+worker -> orchestrator: DONE with changed files and checks
+orchestrator -> reviewer: verify before user-facing completion
+reviewer -> orchestrator: APPROVED or NOT APPROVED with evidence
 ```
 
-That role contract changes output quality. Without a contract, a worker can drift toward a vague reply:
+That does not make the result correct by itself. It gives each reply a checkable shape: changed files, validation, remaining blockers, and the exact open request it closes.
 
-```{.text}
-DONE. Fixed.
-```
-
-With a contract, the reply has a shape that an orchestrator or reviewer can check:
-
-```{.text}
-DONE: Parser behavior tightened.
-
-Changed files:
-- internal/parser/example.go
-
-Validation:
-- go test ./...
-
-Remaining blockers: none
-```
-
-An Agent Skills catalog fits the same idea, but the value is not only prompt size or discovery. In a long-running conversation, an agent can lose track of when a local Agent Skill applies and improvise even though the repository already has operating rules. A role can receive a compact list of relevant Agent Skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That list acts as a role and task reminder: use the known local rule before guessing.
-
-That matters because postman does not prescribe a single team shape. You can define roles, routes, reply expectations, and operating rules in Markdown, then revise them as the workflow changes. A handoff-focused catalog can include `postman-send-message`, while a config-focused role can receive `postman-config-auditor` for auditing topology and suggesting scoped refinements.
+Agent Skills fit the same pattern. A role can receive a compact catalog of local rules, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. The catalog is a reminder to use known repository behavior before improvising.
 
 ## 5. The Mail Loop Agents Can Operate
 
 The runtime loop is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence.
 
-This is where the Agent Skills catalog becomes operational rather than decorative. A sender that has `postman-send-message` can use the quoted-heredoc send path correctly. A receiver that has `postman-session-operator` can know when to claim mail, how to treat the archive, how to close an exact input request, and when to report blocked or delivery trouble.
+The Agent Skills catalog becomes operational here: sender roles learn the heredoc send path; receiver roles learn that archived mail must be read, required replies must close exact input requests, and blocked or delivery failures must be reported.
 
 This closes transport state, not truth. A `DONE` reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
 
