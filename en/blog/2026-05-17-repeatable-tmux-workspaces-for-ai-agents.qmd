@@ -238,9 +238,24 @@ When multiple projects are open, tmux session names become part of the operator 
 
 I like repository-based session names. If I move into `my-project`, the tmux session should be named `my-project`. If the repository name contains dots, I usually replace them with dashes so it is easier to target from shell commands.
 
-This is not required for `vde-layout`, but it helps when several agent workspaces are open at once. A session name tells me which project I am looking at before I even inspect the panes.
+The managed version I would point readers to is `zeno.zsh`'s repository jump hook. If you use `zeno-ghq-cd` to choose a repository, register a post-hook that derives the tmux session name from the selected path:
 
-In my setup, this is tied to repository navigation. The exact tool does not matter. `ghq`, `zoxide`, shell hooks, or a small wrapper can all do the same job.
+```{.zsh filename="~/.zshrc"}
+function zeno-ghq-cd-post-hook-impl() {
+  local dir="$ZENO_GHQ_CD_DIR"
+  [[ -z "$TMUX" || -z "$dir" ]] && return
+
+  local repository="${dir:t}"
+  local session="${repository//./-}"
+  tmux rename-session "$session"
+}
+
+zle -N zeno-ghq-cd-post-hook zeno-ghq-cd-post-hook-impl
+```
+
+With that shape, repository selection is the managed entry point. `my.project` becomes `my-project`, and any `vde-layout` preset you run afterward lands in a tmux session whose project identity is already visible.
+
+This is not required for `vde-layout`, but it helps when several agent workspaces are open at once. A session name tells me which project I am looking at before I even inspect the panes, and scripts can use the same label when targeting a workspace.
 
 ## 9. What This Layer Solves
 
