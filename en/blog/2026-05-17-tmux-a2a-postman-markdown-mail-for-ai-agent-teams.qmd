@@ -206,7 +206,7 @@ That is why I like Markdown for this layer. The coordination contract is partly 
 
 It also keeps the control surface close to normal Git review. A change to the team topology or DONE criteria appears as a normal diff.
 
-Skill catalogs fit the same idea. A role can receive a compact list of available local skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That keeps the handoff readable for humans and gives agents a way to discover local operating rules without pasting every rule into every message.
+Skill catalogs fit the same idea, but the value is not only prompt size or discovery. In a long-running conversation, an agent can lose track of when a local skill applies and improvise even though the repository already has operating rules. A role can receive a compact list of relevant skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That list acts as a role and task reminder: use the known local rule before guessing, while keeping the handoff readable and reviewable.
 
 ## 5. The Minimal Mail Loop
 
