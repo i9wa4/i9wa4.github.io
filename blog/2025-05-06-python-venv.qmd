@@ -39,7 +39,7 @@ python-venv:  ## install/update Python venv (e.g. make python-venv VENV_PATH="${
 
 ## 3. スクリプト (シェルスクリプト)
 
-```{.sh}
+```bash
 #!/usr/bin/env bash
 
 VENV_PATH="${HOME}"/.venv

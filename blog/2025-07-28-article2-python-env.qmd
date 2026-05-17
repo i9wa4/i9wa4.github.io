@@ -249,7 +249,7 @@ VS Code ユーザーは不要ですが一応 JupyterLab を起動するスクリ
 
 #### 5.2.1. `.devcontainer/start-jupyter.sh`
 
-```{.sh filename=".devcontainer/start-jupyter.sh"}
+```{.bash filename=".devcontainer/start-jupyter.sh"}
 #!/usr/bin/env bash
 set -o errexit
 
@@ -322,7 +322,7 @@ fi
 
 ### 6.1. パッケージ追加手順
 
-```sh
+```bash
 # 新しいパッケージを追加
 uv add pandas matplotlib
 

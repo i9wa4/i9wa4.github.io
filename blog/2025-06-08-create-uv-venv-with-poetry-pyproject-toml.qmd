@@ -21,7 +21,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 2. 仮想環境構築手順
 
-```{.sh}
+```bash
 # .venv を作成する
 # このとき .python-version に記載された Python で構築される
 $ uv venv

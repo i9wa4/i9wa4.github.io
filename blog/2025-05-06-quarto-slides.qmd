@@ -81,7 +81,7 @@ Quarto では .qmd という拡張子のファイルを使用します。VS Code
 
 空のリポジトリを作ったあと以下の構成を作っていきます。
 
-```{.sh}
+```text
 ./
 ├── _quarto.yml
 ├── .github/
@@ -342,7 +342,7 @@ https://example.com
 
 リポジトリルートで以下のコマンドを実行することで手元でプレビューできます。
 
-```{.sh}
+```bash
 quarto preview
 ```
 
@@ -350,7 +350,7 @@ quarto preview
 
 手元で HTML 出力する場合は以下のコマンドを実行します。上記設定のままの場合、 ``_output`` ディレクトリ配下に HTML ファイルが格納されます。
 
-```{.sh}
+```bash
 quarto render
 ```
 

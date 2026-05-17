@@ -32,7 +32,7 @@ description: |
 
 ### 3.1. MCPクライアントを実行する
 
-```{.sh}
+```bash
 (myenv3.12) [2025-04-10 22:50:25] -zsh [~/ghq/github.com/i9wa4/mcp-hands-on] (main) 9e297f01
 $ python mini_client.py
 Processing request of type CallToolRequest

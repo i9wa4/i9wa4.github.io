@@ -87,7 +87,7 @@ devcontainer.json に以下の設定を追加します。
 
 `.env.example` ファイルを作成します。
 
-```{.sh filename=".env.example"}
+```{.text filename=".env.example"}
 # Databricks設定
 
 # .databrickscfgのプロファイル名（推奨）
@@ -368,7 +368,7 @@ if os.environ.get("DATABRICKS_RUNTIME_VERSION"):
 
 Databricks Connect のバージョンとクラスタのランタイムバージョンが合わない場合があります
 
-```sh
+```bash
 # クラスタのランタイムに合わせてダウングレード
 uv add 'databricks-connect~=14.3.0'  # この場合は DBR 14.3 に対応
 ```

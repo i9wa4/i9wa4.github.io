@@ -44,7 +44,7 @@ Databricks MCP Server を含む AI エージェントを社内展開しようと
 
 ちなみに Service Principal 認証の場合は `DATABRICKS_TOKEN` は不要です。
 
-```{.sh}
+```bash
 export DATABRICKS_HOST="your-databricks-instance.cloud.databricks.com"
 export DATABRICKS_TOKEN="your-databricks-access-token"
 export DATABRICKS_SQL_WAREHOUSE_ID="your-sql-warehouse-id"

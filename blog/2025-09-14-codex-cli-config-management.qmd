@@ -44,7 +44,7 @@ trust_level = "trusted"
 
 ※リポジトリを ghq で管理していることを前提としています。
 
-```{.sh filename="~/.config/codex/generate_config.sh"}
+```{.bash filename="~/.config/codex/generate_config.sh"}
 #!/usr/bin/env bash
 set -euo pipefail
 

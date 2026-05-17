@@ -271,7 +271,7 @@ fi
 
 テーマファイルは [alacritty-theme](https://github.com/alacritty/alacritty-theme) リポジトリから入手できます。
 
-```{.sh}
+```bash
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 ```
 

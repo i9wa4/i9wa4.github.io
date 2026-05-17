@@ -24,7 +24,7 @@ GitHub Actions をローカルで実行できる便利な OSS <https://github.co
 
 インストール手順 <https://nektosact.com/installation/index.html> に従って
 
-```{.sh}
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 ```
 
@@ -34,7 +34,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/ac
 
 続いて GitHub CLI extension としてのインストール方法が簡単そうに見えました。
 
-```{.sh}
+```bash
 gh extension install https://github.com/nektos/gh-act
 ```
 
@@ -42,7 +42,7 @@ gh extension install https://github.com/nektos/gh-act
 
 仕方がないのでソースコードからビルドすることに。
 
-```{.sh}
+```bash
 git clone https://github.com/nektos/act.git
 cd act/
 make build
@@ -59,7 +59,7 @@ make build
 
 `https://github.com/i9wa4/gha-sandbox` のうち `.github/workflows/4.6.actionlint.yml` を実行してみます。
 
-```{.sh}
+```bash
 $ ~/src/github.com/nektos/act/dist/local/act workflow_dispatch -W '.github/workflows/4.6.actionlint.yml'
 INFO[0000] Using docker host 'unix:///var/run/docker.sock', and daemon socket 'unix:///var/run/docker.sock'
 [4.6. Linting GitHub Actions/lint] 🚀  Start image=catthehacker/ubuntu:act-latest
