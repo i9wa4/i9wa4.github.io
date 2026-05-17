@@ -36,7 +36,7 @@ The missing layer is the handoff surface:
 
 Repository: <https://github.com/i9wa4/tmux-a2a-postman>
 
-## 2. The Core Loop
+## 2. The Core Task Route
 
 Postman runs as a resident daemon in a tmux pane:
 
@@ -185,9 +185,9 @@ That does not make the result correct by itself. It gives each reply a checkable
 
 Agent Skills fit the same pattern. A role can receive a compact catalog of local rules, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. The catalog is a reminder to use known repository behavior before improvising.
 
-## 5. The Mail Loop Agents Can Operate
+## 5. The Mail Handoff Agents Can Operate
 
-The runtime loop is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence.
+The mail handoff is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence.
 
 The Agent Skills catalog becomes operational here: sender roles learn the heredoc send path; receiver roles learn that archived mail must be read, required replies must close exact input requests, and blocked or delivery failures must be reported.
 
