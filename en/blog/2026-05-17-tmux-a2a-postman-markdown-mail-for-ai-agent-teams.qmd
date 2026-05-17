@@ -1,5 +1,5 @@
 ---
-title: "tmux-a2a-postman: Markdown Mail for Local Terminal Agent Teams"
+title: "tmux-a2a-postman: A Markdown Mailbox for Terminal AI Agents"
 author: uma-chan
 categories:
   - "blog"
