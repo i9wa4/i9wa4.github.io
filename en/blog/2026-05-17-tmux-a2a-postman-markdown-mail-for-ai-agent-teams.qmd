@@ -7,9 +7,13 @@ categories:
 date: 2026-05-17 12:16:22 +0900
 date-modified: last-modified
 description: |
-  tmux-a2a-postman is a small local mailbox layer for terminal AI agent teams.
-  It complements native agent features by giving handoffs, reply obligations,
-  role contracts, and status a durable Markdown surface.
+  AI coding agents can share a terminal, but handoffs still disappear into chat history and pane scrollback.
+
+  tmux-a2a-postman gives terminal agent teams a local Markdown mailbox: explicit routes, reply obligations, role contracts, and status that survives beyond one runtime.
+
+  This post shows the coordination layer I use on top of repeatable tmux workspaces.
+
+  #CodexCLI #ClaudeCode #tmux #AIAgents #DeveloperTools
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 

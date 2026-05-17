@@ -1,5 +1,12 @@
 # AGENTS.md
 
+## English Blog Descriptions
+
+- For `en/blog/*.qmd` frontmatter, write `description` as concise social or
+  LinkedIn promotional copy: a strong hook, the practical value, and optional
+  relevant hashtags. Match existing English blog examples; do not turn the
+  field into a long abstract.
+
 ## Code Fence Rules
 
 - In `.qmd` files, write static highlighted code blocks with Pandoc attribute
