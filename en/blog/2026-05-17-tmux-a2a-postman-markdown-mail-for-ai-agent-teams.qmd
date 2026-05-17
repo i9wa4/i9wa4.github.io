@@ -21,6 +21,8 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 1. The Missing Layer
 
+This article is for people who already run two or more terminal agents in tmux and are starting to lose handoffs, reply obligations, or role-specific instructions.
+
 In the previous article, I described my tmux and `vde-layout` workflow for creating repeatable local workspaces for CLI agents:
 
 [Build Repeatable tmux Workspaces for CLI Agents with vde-layout](2026-05-17-repeatable-tmux-workspaces-for-ai-agents.qmd)
@@ -34,6 +36,10 @@ That gives me the physical workspace:
 
 But a workspace is not a coordination protocol.
 
+Here is the failure mode.
+
+An orchestrator asks a worker to tighten parser behavior while another pane is still busy with a long edit. The task appears on screen, but later it is unclear whether the worker claimed it, whether a reply is required, and which later `DONE` message closes that exact request. After enough context-heavy turns, the original constraints still exist somewhere in history, but they are no longer the active handoff surface.
+
 Once several agents are alive, the hard questions move up a layer:
 
 - Who is allowed to talk to whom?
@@ -46,7 +52,9 @@ Once several agents are alive, the hard questions move up a layer:
 
 Without a handoff layer, the usual fallback is copy-paste, direct `tmux send-keys`, chat history, and memory. That works until it does not.
 
-`tmux-a2a-postman` is my attempt to keep the useful parts of tmux while adding the missing handoff semantics.
+The missing layer is not more memory. It is a handoff surface: a way to make the current request, receiver, reply obligation, and evidence visible at the moment work changes hands.
+
+`tmux-a2a-postman` is my attempt to keep the useful parts of tmux while adding that missing handoff layer.
 
 Repository: <https://github.com/i9wa4/tmux-a2a-postman>
 
@@ -55,6 +63,17 @@ Repository: <https://github.com/i9wa4/tmux-a2a-postman>
 `tmux-a2a-postman` is a local mailbox and coordination layer for already-running agents in tmux.
 
 It does not create the model, write the code, isolate a container, or decide a workflow by itself. It delivers Markdown messages between role-labeled panes, records unread and read mail, tracks reply-required obligations, and exposes status.
+
+The value spine is simple: turn "I told that pane something" into "there is a Markdown mail item with a sender, receiver, inbox/read state, and an exact reply slot when one is required."
+
+| Before postman                          | With postman                                 |
+| --------------------------------------- | -------------------------------------------- |
+| Requests are pasted into panes          | Requests are delivered as Markdown mail      |
+| Replies are inferred from terminal text | Required replies close exact input requests  |
+| Old constraints live in chat history    | Current constraints travel with the handoff  |
+| Routing rules are team convention       | Routing and role contracts are Markdown      |
+
+This is a thin local harness, not a platform. It sits between tmux panes and agent runtimes, records small pieces of local state, and leaves thinking, editing, testing, and review to the tools already doing that work.
 
 The stack looks like this:
 
@@ -123,14 +142,18 @@ graph LR
 ```
 ````
 
-The diagram is not just decoration. The node names and edges define which roles may talk to each other.
+The diagram is not just decoration. The node names and `---` edges define which roles may talk to each other. Postman only treats a small parsed subset as routing data; the rest stays useful as human-readable diagram context.
 
 The same Markdown file can also carry operating rules:
 
 ```{.markdown filename="postman.md"}
-## worker
+## `worker`
 
-You implement assigned tasks.
+### `role`
+
+Primary implementation role.
+
+### Reply Contract
 
 Before replying DONE, include:
 
@@ -140,9 +163,31 @@ Before replying DONE, include:
 - remaining blockers
 ```
 
+That role contract changes output quality. Without a contract, a worker can drift toward a vague reply:
+
+```{.text}
+DONE. Fixed.
+```
+
+With a contract, the reply has a shape that an orchestrator or reviewer can check:
+
+```{.text}
+DONE: Parser behavior tightened.
+
+Changed files:
+- internal/parser/example.go
+
+Validation:
+- go test ./...
+
+Remaining blockers: none
+```
+
 That is why I like Markdown for this layer. The coordination contract is partly structured data and partly natural-language procedure. TOML or YAML are good for numeric defaults. Markdown is better for a reviewable role contract.
 
 It also keeps the control surface close to normal Git review. A change to the team topology or DONE criteria appears as a normal diff.
+
+Skill catalogs fit the same idea. A role can receive a compact list of available local skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That keeps the handoff readable for humans and gives agents a way to discover local operating rules without pasting every rule into every message.
 
 ## 5. Markdown-Forward, Not Attachment-Based
 
@@ -195,7 +240,9 @@ In a long-running agent conversation, earlier constraints can become distant. Th
 
 That is not perfect memory and it is not magic autonomy. It just makes the current obligation harder to lose. The receiver is expected to read the archived body before acting, and the sender can inspect the same archived mail later.
 
-The tradeoff is token use. Repeating local instructions in each mail costs context. I accept that overhead when the alternative is an ambiguous handoff that has to be reconstructed from a long conversation, screen state, or memory.
+The tradeoff is token use. Repeating local instructions in each mail costs context.
+
+I do not try to repeat everything. I pay the overhead when the handoff is high-risk: long-running implementation, review, approval, or work where constraints are easy to forget. For small pings or status updates, the useful message is short. For long investigation context, I usually point at a task artifact instead of pasting the whole investigation into the mail body.
 
 ## 6. Reading Mail
 
@@ -262,26 +309,15 @@ An agent may be working. It may be waiting for a reply. It may have unread mail.
 
 `tmux-a2a-postman get-status` exists so the operator does not have to guess from screen state alone.
 
-The key is to keep different concepts separate.
+The key is not the full taxonomy. The key is that different states imply different operator decisions.
 
-Visible node state is about what the node appears to be doing:
-
-| Visible state | Meaning                                      |
-| ------------- | -------------------------------------------- |
-| `initial`     | Node has not reached a ready projection yet  |
-| `ready`       | No immediate input is pending                |
-| `waiting`     | Node is waiting on a reply from someone else |
-| `pending`     | Node has input it should handle              |
-| `stale`       | Node has not shown recent enough progress    |
-
-Session-level `unavailable` can appear as a fallback when a session cannot be inspected.
-
-Severity and delivery health are separate:
-
-| Field type | Examples                                               |
-| ---------- | ------------------------------------------------------ |
-| Severity   | `blocked`, `attention_stale`                           |
-| Delivery   | `delivery_stuck`, `delivery_failure`                   |
+| Status clue        | Operational meaning                                      |
+| ------------------ | -------------------------------------------------------- |
+| `pending`          | The receiver still needs to claim and read input         |
+| `waiting`          | A required request is still open                         |
+| `stale`            | The pane may be alive but lacks recent progress evidence |
+| `delivery_failure` | Inspect routing, pane identity, or dead-letter state     |
+| `blocked`          | The task state is different from transport delivery      |
 
 This split matters. `stale` is not the same kind of fact as `delivery_failure`. `pending` is not the same as `blocked`. If a dashboard turns all of these into one red/green light, it loses the information needed to decide whether to wait, follow up, or recover delivery.
 
@@ -358,17 +394,23 @@ Each layer can be replaced or improved without pretending one tool should own ev
 
 That is the "loose harness engineering" shape I like. The harness does not need to be a giant platform. It can be a set of small, inspectable tools with clear boundaries.
 
+The vendor-neutral part comes from the boundary. The transport cares about pane titles, shell commands, and local mail files, not a specific model vendor or agent API. Claude Code, Codex CLI, Gemini CLI, OpenCode, or another terminal agent can sit behind the same role name as long as it can read mail, act, and reply.
+
 ## 12. A Small Runtime Loop
 
-A typical loop looks like this:
+The mental model is simple: tmux panes are work locations, and postman mail is the handoff record between those locations.
 
-1. Create a repeatable tmux workspace with `vde-layout`.
-2. Start the postman daemon for that session.
-3. Send a Markdown task to a role with `send-heredoc`.
-4. The receiver runs `pop`, reads the archived body, and does the work.
-5. The receiver replies with `--fills-input-request-id` when required.
-6. The orchestrator checks the task artifact and validation evidence.
-7. `get-status` shows visible state plus severity and delivery fields, such as pending input, waiting replies, stale panes, blocked work, or delivery trouble.
+This article is not the full setup manual. The README is still the right place for installation, complete config, and edge cases. But the first runnable shape should be easy to picture:
+
+1. Create a repeatable tmux workspace with `vde-layout` or your own tmux setup.
+2. Put a `postman.md` config under `$XDG_CONFIG_HOME/tmux-a2a-postman/`.
+3. Define `edges` and role sections with backtick-wrapped h2 names, as shown above.
+4. Start the postman daemon for that session.
+5. Send a Markdown task to a role with `send-heredoc`.
+6. The receiver runs `pop`, reads the archived body, and does the work.
+7. The receiver replies with `--fills-input-request-id` when required.
+8. The orchestrator checks the task artifact and validation evidence.
+9. `get-status` shows pending input, waiting replies, stale panes, blocked work, or delivery trouble.
 
 There is nothing magical in that loop.
 
