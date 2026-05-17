@@ -34,9 +34,6 @@ include = ["**/*.md", "**/*.qmd"]
 exclude = [".git", ".github", "node_modules", "_site", ".venv"]
 respect-gitignore = true
 
-[tool.rumdl.MD007]
-indent = 4
-
 [tool.rumdl.MD013]
 code-blocks = false
 tables = false

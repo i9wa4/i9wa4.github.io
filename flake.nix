@@ -36,9 +36,22 @@
         }:
         let
           ghWorkflowFiles = "^\\.github/workflows/.*\\.(yml|yaml)$";
+          markdownFormatterHook = pkgs.writeShellScript "markdown-formatter-pre-commit" ''
+            if [ -n "$NIX_BUILD_TOP" ]; then
+              exit 0
+            fi
+
+            mdfmt="../markdown-formatter/result/bin/mdfmt"
+            if [ ! -x "$mdfmt" ]; then
+              echo "markdown-formatter not found: expected $mdfmt" >&2
+              exit 1
+            fi
+
+            exec "$mdfmt" --no-heading-numbering --write "$@"
+          '';
           rumdlConfig = pkgs.writeText "rumdl.toml" ''
             [global]
-            disable = ["MD013", "MD024", "MD033", "MD036", "MD051"]
+            disable = ["MD013", "MD024", "MD033", "MD036", "MD046", "MD051"]
           '';
         in
         {
@@ -169,6 +182,12 @@
               rumdl-check = {
                 enable = true;
                 entry = "${pkgs.rumdl}/bin/rumdl check --config ${rumdlConfig}";
+                files = "\\.(md|qmd)$";
+              };
+
+              markdown-formatter = {
+                enable = true;
+                entry = "${markdownFormatterHook}";
                 files = "\\.(md|qmd)$";
               };
 
