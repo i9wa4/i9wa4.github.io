@@ -111,7 +111,7 @@ The diagram is not just decoration. The node names and edges define which roles 
 
 The same Markdown file can also carry operating rules:
 
-```markdown
+```{.markdown filename="postman.md"}
 ## worker
 
 You implement assigned tasks.
@@ -132,18 +132,31 @@ It also keeps the control surface close to normal Git review. A change to the te
 
 The message body is Markdown.
 
-The normal send shape is a quoted heredoc:
+The normal send shape is a quoted heredoc. I usually treat it as a plain mail transcript, because most of the block is the message body:
 
-```bash
+```text
 tmux-a2a-postman send-heredoc --to worker --reply-required <<'POSTMAN_BODY'
 # Task
 
-Implement the small refactor described below.
+Tighten the parser behavior described in the linked issue.
+
+## Local Instructions
+
+- Keep the change scoped to the parser.
+- Do not rewrite the CLI surface.
+
+## Success Checks
+
+- Run the parser tests.
+- Report changed files and remaining blockers.
+
+## Context
+
+- task-notes.md
 
 ## Completion
 
-Reply with DONE or BLOCKED.
-Include changed files, validation, and remaining blockers.
+Reply with DONE or BLOCKED and include validation evidence.
 POSTMAN_BODY
 ```
 
@@ -159,6 +172,14 @@ I am not claiming send-time Markdown attachment support. I am not relying on a b
 - keep an archived Markdown mail file for later inspection
 
 That gives long-form messages a safer surface without pretending the tool is an attachment system.
+
+It also changes where instructions live.
+
+In a long-running agent conversation, earlier constraints can become distant. They may still exist somewhere in the transcript, but they are not always active at the handoff point. With mail, each request can carry the local instructions for that handoff: constraints, reply policy, success checks, and references to the task context.
+
+That is not perfect memory and it is not magic autonomy. It just makes the current obligation harder to lose. The receiver is expected to read the archived body before acting, and the sender can inspect the same archived mail later.
+
+The tradeoff is token use. Repeating local instructions in each mail costs context. I accept that overhead when the alternative is an ambiguous handoff that has to be reconstructed from a long conversation, screen state, or memory.
 
 ## 6. Reading Mail
 
@@ -194,11 +215,11 @@ Postman models a required reply as an input request. Sending with `--reply-requi
 
 Example reply:
 
-```bash
+```text
 tmux-a2a-postman send-heredoc \
   --to orchestrator \
-  --reply-to message-demo-001.md \
-  --fills-input-request-id INPUT_REQUEST_ID_PLACEHOLDER <<'POSTMAN_BODY'
+  --reply-to msg_demo_001.md \
+  --fills-input-request-id req_demo_001 <<'POSTMAN_BODY'
 DONE: Implemented the refactor and ran validation.
 
 Changed files:
