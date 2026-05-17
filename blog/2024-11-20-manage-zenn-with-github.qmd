@@ -42,7 +42,7 @@ Markdown で管理しているので流用しやすくて便利！
 
 ### 3.1. スラッグを最初に指定する
 
-```bash
+```{.bash}
 npx zenn new:article
 ```
 

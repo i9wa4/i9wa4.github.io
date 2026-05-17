@@ -51,7 +51,7 @@ my_dbt_project:
 
 以下のコマンドにより dbt が Google Cloud の API を呼び出せることになります。
 
-```bash
+```{.bash}
 gcloud auth application-default login
 ```
 

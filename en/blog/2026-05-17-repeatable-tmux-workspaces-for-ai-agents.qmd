@@ -142,7 +142,7 @@ presets:
 
 Then I run:
 
-```bash
+```{.bash}
 vde-layout main
 ```
 
@@ -201,7 +201,7 @@ presets:
 
 Then:
 
-```bash
+```{.bash}
 vde-layout concierge
 vde-layout builders
 vde-layout review

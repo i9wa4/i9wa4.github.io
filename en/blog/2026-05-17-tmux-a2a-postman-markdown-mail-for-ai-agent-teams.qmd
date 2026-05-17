@@ -185,7 +185,7 @@ The tradeoff is token use. Repeating local instructions in each mail costs conte
 
 The receiver does not just read text that was pasted into a pane. It claims mail.
 
-```bash
+```{.bash}
 tmux-a2a-postman pop
 ```
 

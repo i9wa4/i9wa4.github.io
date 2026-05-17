@@ -83,7 +83,7 @@ writes the results to that file, and references it in subsequent tasks.
 
 When files are no longer needed, delete an entire date directory:
 
-```bash
+```{.bash}
 rm -rf ~/.local/state/mkmd/i9wa4-dotfiles/2026-03-20-*
 ```
 
@@ -121,7 +121,7 @@ When run outside a git repository, it falls back to `local-<dirname>/...-local/`
 
 Place it in a directory on your PATH and make it executable.
 
-```bash
+```{.bash}
 chmod +x mkmd
 ```
 
@@ -253,7 +253,7 @@ This is all you need. The agent checks `mkmd --help` on its own and picks the ri
 
 If you use Claude Code's PreToolUse hooks to control file writes, add `mkmd`'s output directory to the allow list:
 
-```bash
+```{.bash}
 elif [[ -n $FILE_PATH && $FILE_PATH == "$HOME/.local/state/mkmd/"* ]]; then
   : # Allow writes to mkmd state directory
 ```
@@ -262,7 +262,7 @@ elif [[ -n $FILE_PATH && $FILE_PATH == "$HOME/.local/state/mkmd/"* ]]; then
 
 When calling `mkmd` from another script, stdout contains only the file path, so you can capture it with command substitution:
 
-```bash
+```{.bash}
 FILE=$(mkmd --dir tmp --label compact-save)
 echo "# Context Save" > "$FILE"
 ```

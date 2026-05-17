@@ -29,7 +29,7 @@ mise をインストールしておきます。
 
 まずディレクトリもしくは Git リポジトリを作成します。
 
-```bash
+```{.bash}
 mkdir jupyterlab-project
 ```
 
@@ -37,17 +37,17 @@ mkdir jupyterlab-project
 
 mise.toml ファイルを作成します。
 
-```bash
+```{.bash}
 cd jupyterlab-project
 ```
 
-```bash
+```{.bash}
 touch mise.toml
 ```
 
 mise.toml を作成するとエラーが出るので `mise trust` しておきます。
 
-```bash
+```{.bash}
 mise trust
 ```
 
@@ -64,7 +64,7 @@ run = "mise exec -- uv run jupyter-lab"
 
 mise.toml に記述したツールをインストールします。
 
-```bash
+```{.bash}
 mise install
 ```
 
@@ -72,13 +72,13 @@ mise install
 
 以下のように uv プロジェクトを初期化します。
 
-```bash
+```{.bash}
 uv init
 ```
 
 ### 2.5. JupyterLab 追加
 
-```bash
+```{.bash}
 uv add jupyterlab
 ```
 
@@ -86,7 +86,7 @@ uv add jupyterlab
 
 以下のコマンドで JupyterLab を起動します。
 
-```bash
+```{.bash}
 mise run jupyter
 ```
 
@@ -94,7 +94,7 @@ mise run jupyter
 
 ### 2.7. ライブラリを追加したい場合
 
-```bash
+```{.bash}
 uv add numpy pandas matplotlib
 ```
 
@@ -106,7 +106,7 @@ uv add numpy pandas matplotlib
 
 [Python プロジェクト管理したくて uv に触れてみたメモ #初心者 - Qiita](https://qiita.com/0xmks/items/f5a4fcac81714ac2f803)
 
-```bash
+```{.bash}
 uv init --lib
 ```
 

@@ -24,7 +24,7 @@ dbt-databricks==1.7.17 のインストールを試みました。
 本来は最新バージョンをインストールすべきで、執筆時点では 1.10.0 です。
 このコマンドを知らなかったのでメモ代わりに残しておきます。
 
-```bash
+```{.bash}
 $ pip index versions dbt-databricks
 WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
 dbt-databricks (1.10.0)
@@ -39,7 +39,7 @@ Available versions: 1.10.0, 1.9.7, 1.9.6, 1.9.5, 1.9.4, 1.9.2, 1.9.1, 1.9.0, 1.8
 
 ### 3.1. details エラーログ詳細
 
-```bash
+```{.bash}
 $ python --version
 Python 3.13.3
 
@@ -235,7 +235,7 @@ CPython 側の Pull Request:
 
 ### 4.1. Python 3.12.10 のエラーログ詳細
 
-```bash
+```{.bash}
 $ python --version
 Python 3.12.10
 

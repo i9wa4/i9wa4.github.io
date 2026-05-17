@@ -368,7 +368,7 @@ if os.environ.get("DATABRICKS_RUNTIME_VERSION"):
 
 Databricks Connect のバージョンとクラスタのランタイムバージョンが合わない場合があります
 
-```bash
+```{.bash}
 # クラスタのランタイムに合わせてダウングレード
 uv add 'databricks-connect~=14.3.0'  # この場合は DBR 14.3 に対応
 ```

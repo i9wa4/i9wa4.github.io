@@ -322,7 +322,7 @@ fi
 
 ### 6.1. パッケージ追加手順
 
-```bash
+```{.bash}
 # 新しいパッケージを追加
 uv add pandas matplotlib
 

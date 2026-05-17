@@ -158,7 +158,7 @@ The background behavior comes from the shell script, not from `codex exec`.
 
 This block starts the message-generation process in the background:
 
-```bash
+```{.bash}
 {
   # codex exec ...
 } &
@@ -167,7 +167,7 @@ ai_pid=$!
 
 Right after that, the script starts `git commit`:
 
-```bash
+```{.bash}
 LAZYGIT_AI_COMMIT_MESSAGE="$ai_message" \
   LAZYGIT_AI_COMMIT_STATUS="$ai_status" \
   GIT_EDITOR="$editor" \
@@ -178,7 +178,7 @@ If the repository has pre-commit hooks, Git runs those hooks before opening the 
 
 The temporary editor script waits until the AI process has written a status file:
 
-```bash
+```{.bash}
 while [ ! -s "$ai_status" ]; do
   sleep 0.1
 done

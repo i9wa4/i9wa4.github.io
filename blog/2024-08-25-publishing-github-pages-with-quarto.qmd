@@ -39,7 +39,7 @@ GitHub でブログやスライドを管理したい方にオススメな Quarto
 
 まずは Quarto をインストールしておきましょう。
 
-```bash
+```{.bash}
 pip install quarto-cli
 ```
 
@@ -102,7 +102,7 @@ pip install quarto-cli
 
 指示に従って yes と入力すると `gh-pages` ブランチが作成されて初回デプロイが完了します。
 
-```bash
+```{.bash}
 $ quarto publish gh-pages
 ? Publish site to ssh://git@github.com/i9wa4/quarto-page using gh-pages? (Y/n) › Yes
 ```
@@ -276,7 +276,7 @@ jobs:
 
 プレビューを Web ブラウザで確認しながら編集が可能です。
 
-```bash
+```{.bash}
 quarto preview
 ```
 
@@ -288,7 +288,7 @@ quarto preview
 
 遭遇した場合は以下のコマンドで `docs/` 配下に都度 html ファイルを作成する、もしくは Firefox を使う、で対処しましょう。
 
-```bash
+```{.bash}
 quarto render
 ```
 

@@ -295,7 +295,7 @@ Anthropic のリファレンス実装 ([33e37bd](https://github.com/anthropics/c
 
 Claude Code の設定ディレクトリを環境変数で指定しておきます。
 
-```bash
+```{.bash}
 export CLAUDE_CONFIG_DIR="$HOME/.claude"
 ```
 
@@ -308,7 +308,7 @@ export CLAUDE_CONFIG_DIR="$HOME/.claude"
 
 VS Code を使わない場合は Dev Container CLI を利用できます。
 
-```bash
+```{.bash}
 # Dev Container CLI のインストール
 npm install -g @devcontainers/cli
 
