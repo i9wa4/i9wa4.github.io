@@ -7,13 +7,13 @@ categories:
 date: 2026-05-17 12:16:22 +0900
 date-modified: last-modified
 description: |
-  tmux can keep multiple CLI agents alive. vde-layout can recreate the pane layout.
+  Coding agents already have useful native workflows, subagents, and team features.
 
-  But panes alone do not answer the handoff questions: who may talk to whom, what was delivered, what remains unread, who owes a reply, and what evidence remains when something goes wrong.
+  But long-running work still raises local coordination questions: how much one agent should plan, implement, remember, review, coordinate, and report; which instructions are active; what was delivered; who owes a reply; and what evidence remains when something goes wrong.
 
-  tmux-a2a-postman is my small local mailbox layer for that gap.
+  tmux-a2a-postman is my small local mailbox layer for that gap. It complements native agent features when I want durable Markdown instructions, explicit handoffs, tool-neutral coordination, and inspectable local state.
 
-  It is Markdown-forward, not attachment-based. It sends quoted-heredoc Markdown messages, stores archived Markdown mail, tracks reply-required obligations, and exposes status for already-running agents in tmux.
+  It is Markdown-forward, not attachment-based. It sends quoted-heredoc Markdown messages, stores archived Markdown mail, tracks reply-required obligations, and exposes status for terminal agents using tmux as the local substrate.
 
   It is not an agent framework, not an A2A-compliant server, and not a replacement for Claude Code, Codex CLI, or other agent runtimes. It is a handoff layer for the terminal workbench.
 image: "/assets/common/icon_hhkb3_large.jpg"
@@ -21,36 +21,44 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 1. The Missing Layer
 
-This article is for people who already run two or more terminal agents in tmux and are starting to lose handoffs, reply obligations, or role-specific instructions.
+This article is for people who use AI coding agents and are starting to care about durable instructions, explicit handoffs, reviewable task state, or mixing more than one terminal agent or tool in the same workflow.
+
+You might already use Codex CLI, Claude Code, or another agent runtime, including native subagents, team features, or task delegation where they are available. Keep using them when they solve the problem. `tmux-a2a-postman` is about a different surface: a small local mailbox for handoffs that should stay visible outside one long chat, one model runtime, or one vendor-specific feature.
+
+The pain I am solving is not "native agent features are missing." It is role overload. A single lead agent can become planner, implementer, reviewer, coordinator, memory keeper, and status reporter at once. Native subagents help narrow the work, but durable handoffs still need a place to live when work crosses runtime boundaries, lasts longer than one context window, or needs evidence that another role can inspect later.
 
 In the previous article, I described my tmux and `vde-layout` workflow for creating repeatable local workspaces for CLI agents:
 
 [Build Repeatable tmux Workspaces for CLI Agents with vde-layout](2026-05-17-repeatable-tmux-workspaces-for-ai-agents.qmd)
 
-That gives me the physical workspace:
+You do not need to start there to understand the idea here. The important point is that terminal agents need somewhere to run, and tmux is one practical local substrate for keeping those processes alive. That previous setup gives me the physical workspace:
 
 - tmux sessions for projects
 - tmux windows for groups of work
 - tmux panes for long-running shells and agents
 - `vde-layout` YAML for recreating the floor plan
 
+That tmux-native choice matters because it gives me durable local panes, processes, and sessions without making the workflow depend on one vendor runtime. It also gives practical control over the input and handoff surface across different terminal agents and tools. This does not mean the reader needs to become a tmux power user: in my intended workflow, `vde-layout` manages the workspace shape, the human mostly talks to the user-facing `ui_pane`, and postman keeps handoff state explicit.
+
 But a workspace is not a coordination protocol.
 
 Here is the failure mode.
 
-An orchestrator asks a worker to tighten parser behavior while another pane is still busy with a long edit. The task appears on screen, but later it is unclear whether the worker claimed it, whether a reply is required, and which later `DONE` message closes that exact request. After enough context-heavy turns, the original constraints still exist somewhere in history, but they are no longer the active handoff surface.
+A coding task starts in Codex CLI, Claude Code, or another terminal agent with precise constraints. Later, another terminal agent, reviewer role, or different tool needs to continue part of the work. The task appears on screen, but later it is unclear whether the receiver claimed it, whether a reply is required, and which later `DONE` message closes that exact request. After enough context-heavy turns, the original constraints still exist somewhere in history, but they are no longer the active handoff surface.
 
-Once several agents are alive, the hard questions move up a layer:
+That is where role quality degrades. The agent that should be focused on implementation is also remembering process rules. The reviewer is reconstructing intent from a chat transcript. The coordinator is tracking state by watching panes and remembering who promised what.
+
+Once several agents, roles, or tools are involved, the hard questions move up a layer:
 
 - Who is allowed to talk to whom?
-- What role does each pane have?
+- What role does each participant have?
 - Was a request delivered?
 - Has the receiver claimed it?
 - Is a reply required?
 - Which reply closes which request?
 - What can I inspect after something goes wrong?
 
-Without a handoff layer, the usual fallback is copy-paste, direct `tmux send-keys`, chat history, and memory. That works until it does not.
+Without a handoff layer, the usual fallback is copy-paste, terminal input automation, chat history, and memory. That works until it does not.
 
 The missing layer is not more memory. It is a handoff surface: a way to make the current request, receiver, reply obligation, and evidence visible at the moment work changes hands.
 
@@ -60,30 +68,33 @@ Repository: <https://github.com/i9wa4/tmux-a2a-postman>
 
 ## 2. What It Is
 
-`tmux-a2a-postman` is a local mailbox and coordination layer for already-running agents in tmux.
+`tmux-a2a-postman` is a local mailbox and coordination layer for terminal agents, implemented on top of tmux.
 
-It does not create the model, write the code, isolate a container, or decide a workflow by itself. It delivers Markdown messages between role-labeled panes, records unread and read mail, tracks reply-required obligations, and exposes status.
+It does not create the model, write the code, isolate a container, or decide a workflow by itself. It delivers Markdown messages between role-labeled terminal panes, records unread and read mail, tracks reply-required obligations, and exposes status.
 
-The value spine is simple: turn "I told that pane something" into "there is a Markdown mail item with a sender, receiver, inbox/read state, and an exact reply slot when one is required."
+It also does not compete with native subagent or team features. Those features are useful inside their own runtime. Postman is for the local operating layer around terminal agents: durable instructions, explicit handoffs, role contracts that keep each agent narrower, and evidence that remains inspectable as local Markdown and filesystem state.
 
-| Before postman                          | With postman                                 |
-| --------------------------------------- | -------------------------------------------- |
-| Requests are pasted into panes          | Requests are delivered as Markdown mail      |
-| Replies are inferred from terminal text | Required replies close exact input requests  |
-| Old constraints live in chat history    | Current constraints travel with the handoff  |
-| Routing rules are team convention       | Routing and role contracts are Markdown      |
+The value spine is simple: turn "I told that agent something" into "there is a Markdown mail item with a sender, receiver, inbox/read state, and an exact reply slot when one is required."
 
-This is a thin local harness, not a platform. It sits between tmux panes and agent runtimes, records small pieces of local state, and leaves thinking, editing, testing, and review to the tools already doing that work.
+| Before postman                          | With postman                                |
+| --------------------------------------- | ------------------------------------------- |
+| Requests live in one chat or pane       | Requests are delivered as Markdown mail     |
+| Replies are inferred from terminal text | Required replies close exact input requests |
+| Old constraints live in chat history    | Current constraints travel with the handoff |
+| Routing rules are team convention       | Routing and role contracts are Markdown     |
+
+This is a thin local harness, not a platform. It sits around terminal agents, uses tmux as the transport substrate, records small pieces of local state, and leaves thinking, editing, testing, and review to the tools already doing that work.
 
 The stack looks like this:
 
-| Layer                | Responsibility                                      |
-| -------------------- | --------------------------------------------------- |
-| Agent runtime        | Think, edit, run commands                           |
-| tmux                 | Keep long-lived panes and sessions alive            |
-| `vde-layout`         | Recreate the physical workspace                     |
-| `tmux-a2a-postman`   | Deliver mail, track replies, expose handoff state   |
-| `mkmd` or work notes | Hold larger investigation and task evidence         |
+| Layer                 | Responsibility                                      |
+| --------------------- | --------------------------------------------------- |
+| Native agent features | In-runtime delegation, subagents, tool use          |
+| Agent runtime         | Think, edit, run commands                           |
+| tmux                  | Keep long-lived panes and sessions alive            |
+| `vde-layout`          | Recreate the physical workspace                     |
+| `tmux-a2a-postman`    | Deliver mail, track replies, expose handoff state   |
+| `mkmd` or work notes  | Hold larger investigation and task evidence         |
 
 That last distinction matters. Postman is not internal agent memory. It does not make an agent remember everything. It makes pending work, delivered mail, unread/read state, reply obligations, and delivery evidence visible as local state.
 
@@ -102,9 +113,9 @@ When one agent sends work to another, I want a few facts to be durable:
 - If a reply was required, an exact reply slot was opened.
 - A later reply filled that exact slot.
 
-That is different from pushing text into a pane.
+That is different from pushing text into a terminal.
 
-Direct `tmux send-keys` is useful for automation, but it is not a handoff ledger by itself. If the recipient misses the text, if the pane is busy, or if a reply is expected later, the operator has to reconstruct intent from screen state and memory.
+Direct terminal input automation such as `tmux send-keys` is useful, but it is not a handoff ledger by itself. If the recipient misses the text, if the pane is busy, or if a reply is expected later, the operator has to reconstruct intent from screen state and memory.
 
 Postman turns handoffs into local mail.
 
@@ -113,6 +124,8 @@ Postman turns handoffs into local mail.
 The center of the setup is `postman.md`.
 
 It is a Markdown file that humans can review and agents can read. It can contain the team topology, role instructions, shared rules, and skill catalog references.
+
+This is the part I usually want outside a native model feature. A runtime may provide its own subagents or task tools, but `postman.md` is a local Markdown contract I can review in Git and apply across terminal tools.
 
 A minimal topology can be written as Mermaid:
 
@@ -189,125 +202,48 @@ It also keeps the control surface close to normal Git review. A change to the te
 
 Skill catalogs fit the same idea. A role can receive a compact list of available local skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That keeps the handoff readable for humans and gives agents a way to discover local operating rules without pasting every rule into every message.
 
-## 5. Markdown-Forward, Not Attachment-Based
+## 5. The Minimal Mail Loop
 
-The message body is Markdown.
+The operational loop is intentionally small.
 
-The normal send shape is a quoted heredoc. I usually treat it as a plain mail transcript, because most of the block is the message body:
+One role sends Markdown mail:
 
 ```{.bash}
 tmux-a2a-postman send-heredoc --to worker --reply-required <<'POSTMAN_BODY'
-# Task
+Tighten the parser behavior described in the task note.
 
-Tighten the parser behavior described in the linked issue.
-
-## Local Instructions
-
-- Keep the change scoped to the parser.
-- Do not rewrite the CLI surface.
-
-## Success Checks
-
-- Run the parser tests.
-- Report changed files and remaining blockers.
-
-## Context
-
-- task-notes.md
-
-## Completion
-
-Reply with DONE or BLOCKED and include validation evidence.
+Constraints:
+- Keep the change scoped.
+- Run the relevant tests.
+- Reply with DONE or BLOCKED and evidence.
 POSTMAN_BODY
 ```
 
-The quoted delimiter matters. Agent tasks often contain code fences, `$HOME`, command substitutions, backticks, and YAML. A quoted heredoc keeps the shell from expanding those pieces before the message is sent.
-
-This is Markdown-forward, not attachment-based.
-
-I am not claiming send-time Markdown attachment support. I am not relying on a body-file feature. The useful current shape is:
-
-- send a Markdown body through `send-heredoc`
-- have the daemon deliver it through the mailbox
-- have `pop` move it to the read archive
-- keep an archived Markdown mail file for later inspection
-
-That gives long-form messages a safer surface without pretending the tool is an attachment system.
-
-It also changes where instructions live.
-
-In a long-running agent conversation, earlier constraints can become distant. They may still exist somewhere in the transcript, but they are not always active at the handoff point. With mail, each request can carry the local instructions for that handoff: constraints, reply policy, success checks, and references to the task context.
-
-That is not perfect memory and it is not magic autonomy. It just makes the current obligation harder to lose. The receiver is expected to read the archived body before acting, and the sender can inspect the same archived mail later.
-
-The tradeoff is token use. Repeating local instructions in each mail costs context.
-
-I do not try to repeat everything. I pay the overhead when the handoff is high-risk: long-running implementation, review, approval, or work where constraints are easy to forget. For small pings or status updates, the useful message is short. For long investigation context, I usually point at a task artifact instead of pasting the whole investigation into the mail body.
-
-## 6. Reading Mail
-
-The receiver does not just read text that was pasted into a pane. It claims mail.
+The receiver claims mail:
 
 ```{.bash}
 tmux-a2a-postman pop
 ```
 
-The `pop` command claims the oldest unread message for the current node, moves it from inbox to read archive, and returns metadata plus the archived Markdown path.
+That is the core. The message body is Markdown. The shell surface is a quoted heredoc so code fences, variables, backticks, and YAML survive the send. `pop` moves unread mail into a read archive and returns the archived Markdown path. A receiver is expected to read that archived body before acting.
 
-The important behavior is the state transition:
+For required replies, postman opens an exact input request. The reply closes that transport slot, which means the sender can tell which `DONE` or `BLOCKED` answered which request. The README covers the full command syntax; the article-level point is the state model: delivered mail, claimed mail, archived body, and exact reply closure.
 
-| Before `pop` | After `pop`       |
-| ------------ | ----------------- |
-| unread inbox | read archive mail |
+That changes where instructions live. In a long-running agent conversation, earlier constraints can become distant. With mail, each handoff can carry the local instructions for that moment: constraints, reply policy, success checks, and references to the task artifact.
 
-For public examples, I prefer synthetic paths:
+The tradeoff is token use. Repeating local instructions in each mail costs context.
 
-```{.text}
-$XDG_STATE_HOME/tmux-a2a-postman/<context>/<session>/read/20260517-101500-r7f3a-from-worker-to-orchestrator.md
-```
+I do not try to repeat everything. I pay the overhead when the handoff is high-risk: long-running implementation, review, approval, or work where constraints are easy to forget. For small pings or status updates, the useful message is short. For long investigation context, I usually point at a task artifact instead of pasting the whole investigation into the mail body.
 
-That path shape communicates the idea without exposing a real machine path, session id, or operational archive.
+This closes transport state, not truth. A `DONE` reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
 
-Agents are expected to read the archived body before handling the message. The CLI metadata is not treated as the complete task when the archived body exists.
-
-## 7. Reply Obligations
-
-For multi-agent work, "please reply later" is too vague.
-
-Postman models a required reply as an input request. Sending with `--reply-required` opens a reply obligation. The receiver's reply must fill that exact obligation.
-
-Example reply:
-
-```{.bash}
-tmux-a2a-postman send-heredoc \
-  --to orchestrator \
-  --reply-to 20260517-101500-r7f3a-from-worker-to-orchestrator.md \
-  --fills-input-request-id req_demo_001 <<'POSTMAN_BODY'
-DONE: Implemented the refactor and ran validation.
-
-Changed files:
-- src/example.ts
-
-Validation:
-- npm test
-
-Remaining blockers: none
-POSTMAN_BODY
-```
-
-The exact ids above are synthetic. The point is the relationship: this reply closes that request.
-
-This closes transport state, not truth. A DONE reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
-
-That distinction prevents the mailbox from becoming a fake approval system. It tracks obligations and receipts. It does not magically prove that the work is correct.
-
-## 8. Status Without Collapsing Meaning
+## 6. Status Without Collapsing Meaning
 
 In a long-running session, silence is ambiguous.
 
 An agent may be working. It may be waiting for a reply. It may have unread mail. It may be stale. Delivery may have failed.
 
-`tmux-a2a-postman get-status` exists so the operator does not have to guess from screen state alone.
+Status exists so the operator does not have to guess from screen state alone.
 
 The key is not the full taxonomy. The key is that different states imply different operator decisions.
 
@@ -315,15 +251,14 @@ The key is not the full taxonomy. The key is that different states imply differe
 | ------------------ | -------------------------------------------------------- |
 | `pending`          | The receiver still needs to claim and read input         |
 | `waiting`          | A required request is still open                         |
-| `stale`            | The pane may be alive but lacks recent progress evidence |
 | `delivery_failure` | Inspect routing, pane identity, or dead-letter state     |
 | `blocked`          | The task state is different from transport delivery      |
 
-This split matters. `stale` is not the same kind of fact as `delivery_failure`. `pending` is not the same as `blocked`. If a dashboard turns all of these into one red/green light, it loses the information needed to decide whether to wait, follow up, or recover delivery.
+This split matters. `pending` is not the same as `blocked`. `waiting` is not the same as `delivery_failure`. If a dashboard turns all of these into one red/green light, it loses the information needed to decide whether to wait, follow up, or recover delivery.
 
-## 9. Why tmux-Native
+## 7. Why tmux-Native
 
-Postman is intentionally tmux-native today.
+Postman is intentionally tmux-native today. That is an implementation choice, not the reader identity.
 
 It uses tmux-specific surfaces:
 
@@ -357,7 +292,7 @@ So the comparison I care about is category-level:
 
 Postman lives in the last row and currently runs on the first row.
 
-## 10. What It Is Not
+## 8. What It Is Not
 
 The boundaries are important.
 
@@ -369,26 +304,28 @@ The boundaries are important.
 - a sandbox
 - an MCP server
 - an A2A-compliant server
+- a reason to abandon native subagent or team features
 - a replacement for tmux or `vde-layout`
 - a replacement for Claude Code, Codex CLI, or other agent runtimes
 
 The name contains `a2a` because A2A-style vocabulary is useful for thinking about messages, contexts, artifacts, and input-required states. But this is a local tmux and filesystem coordination runtime, not a standards-compliant A2A endpoint.
 
-That honesty is part of the design. The tool is small because it stays in its lane.
+That honesty is part of the design. The tool is small because it stays in its lane. Use native runtime features where they are enough; add postman when you want a tool-neutral local record of handoffs, obligations, and evidence.
 
-## 11. Where It Composes
+## 9. Where It Composes
 
 The interesting part is composition.
 
 I can use:
 
+- native subagents or team features for work inside one runtime
 - tmux for the workbench
 - `vde-layout` for repeatable pane creation
 - worktrees or containers for isolation
 - Claude Code, Codex CLI, Gemini CLI, OpenCode, or another CLI agent for execution
 - skills or local instructions for agent behavior
 - `mkmd` for larger task artifacts
-- postman for handoffs between already-running panes
+- postman for handoffs between terminal roles and tools
 
 Each layer can be replaced or improved without pretending one tool should own everything.
 
@@ -396,31 +333,26 @@ That is the "loose harness engineering" shape I like. The harness does not need 
 
 The vendor-neutral part comes from the boundary. The transport cares about pane titles, shell commands, and local mail files, not a specific model vendor or agent API. Claude Code, Codex CLI, Gemini CLI, OpenCode, or another terminal agent can sit behind the same role name as long as it can read mail, act, and reply.
 
-## 12. A Small Runtime Loop
+## 10. A Small Runtime Loop
 
-The mental model is simple: tmux panes are work locations, and postman mail is the handoff record between those locations.
+The mental model is simple: terminal processes are work locations, tmux panes keep them addressable, and postman mail is the handoff record between those locations.
 
 This article is not the full setup manual. The README is still the right place for installation, complete config, and edge cases. But the first runnable shape should be easy to picture:
 
-1. Create a repeatable tmux workspace with `vde-layout` or your own tmux setup.
-2. Put a `postman.md` config under `$XDG_CONFIG_HOME/tmux-a2a-postman/`.
-3. Define `edges` and role sections with backtick-wrapped h2 names, as shown above.
-4. Start the postman daemon for that session.
-5. Send a Markdown task to a role with `send-heredoc`.
-6. The receiver runs `pop`, reads the archived body, and does the work.
-7. The receiver replies with `--fills-input-request-id` when required.
-8. The orchestrator checks the task artifact and validation evidence.
-9. `get-status` shows pending input, waiting replies, stale panes, blocked work, or delivery trouble.
+1. Keep using the agent runtime's native features for work they handle well.
+2. Put terminal agents or tools that need durable cross-tool handoffs in tmux panes.
+3. Use `postman.md` to name roles, allowed handoff edges, and role contracts.
+4. Let postman mail carry the handoff, reply obligation, archived body, and status surface.
 
 There is nothing magical in that loop.
 
-That is the point. It is ordinary local state, ordinary Markdown, ordinary tmux panes, and explicit reply closure.
+That is the point. It is ordinary local state, ordinary Markdown, ordinary terminal panes, and explicit reply closure.
 
-## 13. Summary
+## 11. Summary
 
-Terminal agents can already think, edit, and run commands.
+Terminal agents can already think, edit, run commands, and sometimes delegate to native subagents or team features.
 
-tmux can keep those agents alive side by side. `vde-layout` can recreate the physical workspace.
+Keep those capabilities. tmux can keep terminal agents alive side by side when you want a local, inspectable workbench. `vde-layout` can recreate that physical workspace.
 
 The missing piece is the handoff layer: who may talk to whom, what was delivered, what remains unread, who owes a reply, and what evidence remains when delivery or task completion needs inspection.
 
