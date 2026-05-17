@@ -129,7 +129,7 @@ Repo-map: using 4096 tokens, auto refresh
 
 ここで修正コミットをしてくれました。すごいですね。
 
-```text
+```{.text}
 > in denops/dbt-jump2def/main.ts, I want to fix not to jump to the model in "target" directory.
 
 
@@ -179,7 +179,7 @@ You can use /undo to undo and discard each aider commit.
 
 ### 4.5. 終わり
 
-```text
+```{.text}
 denops/dbt-jump2def/main.ts
 > /exit
 ```

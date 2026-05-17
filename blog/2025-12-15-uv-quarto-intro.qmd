@@ -76,7 +76,7 @@ dependencies = [
 
 quarto-intro リポジトリの構成は以下の通りです。
 
-```text
+```{.text}
 ./
 ├── .github/
 │   ├── dependabot.yml

@@ -43,7 +43,7 @@ What I wanted was a tool that checks all these boxes:
 
 Work files land under `~/.local/state/mkmd/`, organized by project, date, and branch. "Where did I put that investigation?" is solved with a single `ls`.
 
-```text
+```{.text}
 ~/.local/state/mkmd/
 ├── i9wa4-dotfiles/
 │   └── 2026-03-22-main/
@@ -95,14 +95,14 @@ Deleting by project is just as easy. Nothing breaks even if you wipe everything.
 
 `mkmd` is a thin wrapper around it.
 
-```text
+```{.text}
 $ mkmd --dir research --label api-investigation
 ~/.local/state/mkmd/i9wa4-dotfiles/2026-03-22-main/research/api-investigation-xEZZqX.md
 ```
 
 The generated path follows this structure:
 
-```text
+```{.text}
 $MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
 ```
 

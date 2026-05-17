@@ -47,7 +47,7 @@ But looking at the development roadmap, this gap is closing.
 
 Claude Code's VS Code extension uses the same configuration files as the terminal version:
 
-```text
+```{.text}
 .claude/
   CLAUDE.md
   rules/
@@ -106,7 +106,7 @@ Dotfiles is the culture of managing your home directory configuration files with
 
 A typical structure looks like this:
 
-```text
+```{.text}
 dotfiles/
   .config/
     claude/      # AI coding agent config
@@ -153,7 +153,7 @@ The information gap is real. Dotfiles users share and learn from each other, whi
 
 Claude Code configuration alone works in IDEs too. But...
 
-```text
+```{.text}
 dotfiles/
   .config/
     claude/         # <- Works in IDEs too

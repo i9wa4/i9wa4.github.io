@@ -150,7 +150,7 @@ The message body is Markdown.
 
 The normal send shape is a quoted heredoc. I usually treat it as a plain mail transcript, because most of the block is the message body:
 
-```text
+```{.text}
 tmux-a2a-postman send-heredoc --to worker --reply-required <<'POSTMAN_BODY'
 # Task
 
@@ -215,7 +215,7 @@ The important behavior is the state transition:
 
 For public examples, I prefer synthetic paths:
 
-```text
+```{.text}
 $XDG_STATE_HOME/tmux-a2a-postman/<context>/<session>/read/20260517-101500-r7f3a-from-worker-to-orchestrator.md
 ```
 
@@ -231,7 +231,7 @@ Postman models a required reply as an input request. Sending with `--reply-requi
 
 Example reply:
 
-```text
+```{.text}
 tmux-a2a-postman send-heredoc \
   --to orchestrator \
   --reply-to 20260517-101500-r7f3a-from-worker-to-orchestrator.md \

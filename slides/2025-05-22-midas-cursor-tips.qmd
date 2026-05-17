@@ -361,7 +361,7 @@ DWH 向けの MCP Server を利用しクエリを実行できるようにする
 ::: {.column width="50%"}
 プロジェクトに対してルールを設定できると便利
 
-```text
+```{.text}
 project/
   .cursor/rules/        # Project-wide rules
   backend/

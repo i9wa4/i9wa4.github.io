@@ -144,7 +144,7 @@ Databricks で堅牢なコードを書くにはローカル開発環境が必要
 
 **例: 大量データをローカルに取り込む場合**
 
-```python
+```{.python}
 # 100万行のSparkDataFrameをpandasに変換
 df = spark.sql("SELECT * FROM large_table LIMIT 1000000").toPandas()
 

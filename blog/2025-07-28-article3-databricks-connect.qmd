@@ -300,7 +300,7 @@ def create_spark_session():
 
 Spark config で以下を設定します。
 
-```text
+```{.text}
 spark.databricks.service.server.enabled true
 ```
 
@@ -308,7 +308,7 @@ spark.databricks.service.server.enabled true
 
 Databricks へ接続する場合は `~/.databrickscfg` に以下の内容を記述します。
 
-```ini
+```{.ini}
 [DEFAULT]
 host = https://your-databricks-workspace.cloud.databricks.com
 token = your-access-token
@@ -335,7 +335,7 @@ token = your-access-token
 1. Python カーネルを選択
 1. Spark セッションを作成して開発開始
 
-```python
+```{.python}
 from databricks_spark import create_spark_session
 
 # Sparkセッション作成

@@ -141,7 +141,7 @@ win-copy:  ## copy config files for Windows (WSL only)
 
 ### 3.1. 堅牢なシェル設定
 
-```makefile
+```{.makefile}
 SHELL := /bin/bash
 .SHELLFLAGS := -o errexit -o nounset -o pipefail -c
 .ONESHELL:
@@ -159,7 +159,7 @@ SHELL := /bin/bash
 
 ### 3.2. 自己文書化 help ターゲット
 
-```makefile
+```{.makefile}
 help:  ## print this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 ```
@@ -168,7 +168,7 @@ help:  ## print this help
 
 ### 3.3. 動的 .PHONY 定義
 
-```makefile
+```{.makefile}
 PHONY_TARGETS := $(shell grep -E '^[a-zA-Z_-]+:' $(MAKEFILE_LIST) | sed 's/://')
 .PHONY: $(PHONY_TARGETS)
 ```
@@ -177,7 +177,7 @@ PHONY_TARGETS := $(shell grep -E '^[a-zA-Z_-]+:' $(MAKEFILE_LIST) | sed 's/://')
 
 ### 3.4. OS 判定
 
-```makefile
+```{.makefile}
 MF_DETECTED_OS := $(shell \
 	_uname="$$(uname -a)"; \
 	if echo "$${_uname}" | grep -q Darwin; then \
@@ -195,7 +195,7 @@ MF_DETECTED_OS := $(shell \
 
 ### 3.5. define/endef による設定ファイル管理
 
-```makefile
+```{.makefile}
 define MF_WSLCONF_IN_WSL
 [boot]
 systemd=true

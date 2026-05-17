@@ -31,7 +31,7 @@ Claude Code や Codex CLI を日常的に使っていると、調査メモ、計
 
 作業ファイルが `~/.local/state/mkmd/` 以下にプロジェクト別・日付別で整理されるので、「あの調査結果どこだっけ」が `ls` 一発で解決します。
 
-```text
+```{.text}
 ~/.local/state/mkmd/
 ├── i9wa4-dotfiles/
 │   └── 2026-03-22-main/
@@ -84,14 +84,14 @@ rm -rf ~/.local/state/mkmd/i9wa4-dotfiles/2026-03-20-*
 
 `mkmd` はその wrapper として作っています。
 
-```text
+```{.text}
 $ mkmd --dir research --label api-investigation
 ~/.local/state/mkmd/i9wa4-dotfiles/2026-03-22-main/research/api-investigation-xEZZqX.md
 ```
 
 生成されるパスの構造はこうなっています。
 
-```text
+```{.text}
 $MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
 ```
 
