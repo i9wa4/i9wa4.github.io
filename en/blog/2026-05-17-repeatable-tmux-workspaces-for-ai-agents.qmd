@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
-date: 2026-05-17 10:00:00 +0900
+date: 2026-05-17 12:16:13 +0900
 date-modified: last-modified
 description: |
   I do not want to recreate the same tmux panes by hand every time I start a multi-agent coding session.

@@ -4,7 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
-date: 2026-05-17 10:15:00 +0900
+date: 2026-05-17 12:16:22 +0900
 date-modified: last-modified
 description: |
   tmux can keep multiple CLI agents alive. vde-layout can recreate the pane layout.
