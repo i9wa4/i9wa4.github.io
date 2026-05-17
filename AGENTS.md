@@ -19,6 +19,10 @@
 - For shell examples in `.qmd`, prefer ` ```{.bash}`. Avoid `shell` or
   `{.shell}` when Bash highlighting is intended. Use `sh` only when the
   example is specifically POSIX `sh`.
+- Use ` ```{.text}` in `.qmd` only for genuinely plain text, output, logs,
+  terminal transcripts, directory trees, config-ish samples, or
+  language-neutral content. If a block is primarily an executable shell command
+  for the reader to run, use ` ```{.bash}` instead.
 - In plain `.md` files that target CommonMark, GitHub, or Zenn, use normal
   Markdown info strings such as ` ```bash`, ` ```python`, or Zenn's
   ` ```bash:script.sh` filename form. Do not use Pandoc-only forms such as
