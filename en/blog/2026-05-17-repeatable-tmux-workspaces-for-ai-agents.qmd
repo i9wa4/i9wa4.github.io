@@ -7,15 +7,13 @@ categories:
 date: 2026-05-17 12:16:13 +0900
 date-modified: last-modified
 description: |
-  I do not want to recreate the same tmux panes by hand every time I start a multi-agent coding session.
+  Multi-agent terminal sessions should be easy to recreate, not rebuilt from memory.
 
-  tmux gives me the durable workbench: sessions, windows, panes, pane titles, capture, and input delivery.
+  tmux gives the durable workbench. vde-layout gives the repeatable floor plan: editor panes, agent panes, shell panes, and role labels brought back from YAML.
 
-  vde-layout gives me the repeatable floor plan: a YAML definition that opens the same editor and agent panes again and again.
+  This post shows the physical workspace I use before adding a mailbox and coordination layer.
 
-  This article is the prelude to my tmux-a2a-postman setup. It explains the physical workspace first: how I use tmux and vde-layout to keep multiple CLI agents visible, replaceable, and easy to restart.
-
-  The coordination layer comes later. First, the workbench needs a floor plan.
+  #tmux #CodexCLI #ClaudeCode #AIAgents #DeveloperTools
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
