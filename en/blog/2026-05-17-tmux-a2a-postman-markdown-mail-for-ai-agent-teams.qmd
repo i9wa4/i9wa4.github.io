@@ -129,25 +129,22 @@ Postman turns handoffs into local mail.
 
 The center of the setup is `postman.md`.
 
-It is a Markdown file that humans can review and agents can read. It can contain the team topology, role instructions, shared rules, and skill catalog references.
+It is a Markdown file that humans can review and agents can read. It can contain the team topology, role instructions, shared rules, and Agent Skills catalog references.
 
 This is the part I usually want outside a native model feature. A runtime may provide its own subagents or task tools, but `postman.md` is a local Markdown contract I can review in Git and apply across terminal tools. Behavior changes by editing Markdown, not by writing framework code; that keeps orchestration readable, versionable, and easy for an AI agent to patch in a normal diff.
 
-A minimal topology can be written as Mermaid:
-
-```{mermaid}
-graph LR
-    messenger --- orchestrator
-    orchestrator --- worker
-    orchestrator --- reviewer
-    reviewer --- boss
-    class messenger ui_node
-    classDef ui_node fill:#e0f2fe
-```
-
-The copyable source is just a `postman.md` section:
+A compact synthetic `postman.md` can show the moving parts without exposing private workflow details:
 
 ````{.markdown filename="postman.md"}
+---
+skill_path:
+  - path: ~/.codex/skills
+    inject: ping
+    skills:
+      - postman-session-operator
+      - postman-config-auditor
+---
+
 ## `edges`
 
 ```mermaid
@@ -155,32 +152,34 @@ graph LR
     messenger --- orchestrator
     orchestrator --- worker
     orchestrator --- reviewer
-    reviewer --- boss
     class messenger ui_node
     classDef ui_node fill:#e0f2fe
 ```
-````
 
-The diagram is not just decoration. The node names and `---` edges define which roles may talk to each other. Postman only treats a small parsed subset as routing data; the rest stays useful as human-readable diagram context.
+## `common_template`
 
-The same Markdown file can also carry operating rules:
+Use postman mail for handoffs. Required work ends with DONE or BLOCKED and evidence.
 
-```{.markdown filename="postman.md"}
+## `orchestrator`
+
+### `role`
+
+Coordinator. Delegate implementation to `worker` and request review from `reviewer`.
+
 ## `worker`
 
 ### `role`
 
-Primary implementation role.
+Implementation role. Reply with changed files, validation, and blockers.
 
-### Reply Contract
+## `reviewer`
 
-Before replying DONE, include:
+### `role`
 
-- changed files
-- validation results
-- evidence
-- remaining blockers
-```
+Review role. Return evidence-backed APPROVED or NOT APPROVED.
+````
+
+The diagram is not just decoration. The node names and `---` edges define which roles may talk to each other. The `skill_path` block points the startup prompt toward postman-oriented Agent Skills, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
 
 That role contract changes output quality. Without a contract, a worker can drift toward a vague reply:
 
@@ -206,17 +205,17 @@ That is why I like Markdown for this layer. The coordination contract is partly 
 
 It also keeps the control surface close to normal Git review. A change to the team topology or DONE criteria appears as a normal diff.
 
-Skill catalogs fit the same idea, but the value is not only prompt size or discovery. In a long-running conversation, an agent can lose track of when a local skill applies and improvise even though the repository already has operating rules. A role can receive a compact list of relevant skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That list acts as a role and task reminder: use the known local rule before guessing, while keeping the handoff readable and reviewable.
+An Agent Skills catalog fits the same idea, but the value is not only prompt size or discovery. In a long-running conversation, an agent can lose track of when a local Agent Skill applies and improvise even though the repository already has operating rules. A role can receive a compact list of relevant Agent Skills with names and descriptions, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. That list acts as a role and task reminder: use the known local rule before guessing, while keeping the handoff readable and reviewable.
 
-That matters because postman does not prescribe a single team shape. You can define roles, routes, reply expectations, and operating rules in Markdown, then revise them as the workflow changes. A postman-specific skill such as `postman-config-auditor` gives agents local knowledge for auditing that topology and suggesting scoped refinements, so the harness can become more tailored without the user explaining every rule each time.
+That matters because postman does not prescribe a single team shape. You can define roles, routes, reply expectations, and operating rules in Markdown, then revise them as the workflow changes. A postman-oriented Agent Skill such as `postman-config-auditor` gives agents local knowledge for auditing that topology and suggesting scoped refinements, so the harness can become more tailored without the user explaining every rule each time.
 
 ## 5. The Mail Loop Agents Can Operate
 
 The runtime loop is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence. The README covers the command syntax; the article-level point is the state model: delivered mail, claimed mail, archived body, and exact reply closure.
 
-This is where skill catalogs become operational rather than decorative. A receiver that has `postman-session-operator` in its relevant skills can know when to claim mail, how to treat the archive, how to close an exact input request, and when to report blocked or delivery trouble. A config-focused role with `postman-config-auditor` can inspect the topology and help refine roles, routes, and rules as the user's preferred workflow evolves.
+This is where the Agent Skills catalog becomes operational rather than decorative. A receiver that has `postman-session-operator` in its relevant Agent Skills can know when to claim mail, how to treat the archive, how to close an exact input request, and when to report blocked or delivery trouble. A config-focused role with `postman-config-auditor` can inspect the topology and help refine roles, routes, and rules as the user's preferred workflow evolves.
 
-The skills do not make the agent magically autonomous. They provide local operating knowledge. The task mail still carries the current constraints, reply policy, success checks, and artifact references, especially for long-running implementation, review, or approval work.
+Agent Skills do not make the agent magically autonomous. They provide local operating knowledge. The task mail still carries the current constraints, reply policy, success checks, and artifact references, especially for long-running implementation, review, or approval work.
 
 This closes transport state, not truth. A `DONE` reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
 
@@ -306,7 +305,7 @@ I can use:
 - `vde-layout` for repeatable pane creation
 - worktrees or containers for isolation
 - Claude Code, Codex CLI, Gemini CLI, OpenCode, or another CLI agent for execution
-- skills or local instructions for agent behavior
+- Agent Skills or local instructions for agent behavior
 - `mkmd` for larger task artifacts
 - postman for handoffs between terminal roles and tools
 
@@ -320,7 +319,7 @@ The vendor-neutral part comes from the boundary. The transport cares about pane 
 
 The mental model is simple: terminal processes are work locations, tmux panes keep them addressable, and postman mail is the handoff record between those locations.
 
-This article is not the full setup manual. The README is still the right place for installation, complete config, and edge cases. But the first runnable shape should be easy to picture:
+This article is not the full setup manual. The [README quick start](https://github.com/i9wa4/tmux-a2a-postman#quick-start) is still the right place for installation, complete config, and edge cases. But the first runnable shape should be easy to picture:
 
 1. Keep using the agent runtime's native features for work they handle well.
 2. Put terminal agents or tools that need durable cross-tool handoffs in tmux panes.
