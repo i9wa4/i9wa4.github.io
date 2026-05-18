@@ -153,6 +153,32 @@ tmux-a2a-postman get-status
 tmux-a2a-postman get-status-oneline
 ```
 
+実際に手元で実行すると、たとえば次のように出ます。
+
+```console
+$ tmux-a2a-postman get-status-oneline
+[0]⚫ [1]🟢:🟢🟢🟢🟢🟢🟢 [2]🟡:🔷🔷🟢🔷🟡🟢 [3]🟡:🔷🔷🔷🟢🟢🟢 [4]🟡:🔷🔷🟢🟢🟢🟢 [5]🟡:🔷🟢🟢🟢🟢🟢 [6]🟡:🔷🟢🟢🔷🟢🟢
+```
+
+`tmux-a2a-postman start` で立ち上がる TUI も、同じ状態を人間向けに見せています。手元の表示を公開用にセッション名だけ置き換えると、次のような感じです。
+
+```text
+tmux-a2a-postman git-7c520a4   [up/down:move] [p:ping] [q:quit]
+
+[sessions]
+  ⚫ [0] shell
+  🟢 [1] dotfiles
+> 🔷 [2] work-session
+
+[nodes]
+messenger     🟡  waiting
+orchestrator  🔷  pending
+worker        🔷  pending
+reviewer      🟢  ready
+```
+
+`🔷` はこちらが返事をしないと進まない状態、`🟡` は誰かの返事待ち、`🟢` は今のところ未処理の依頼がない状態です。
+
 見たいのはエージェントの思考内容ではありません。
 
 誰に未読があるか、誰が返事待ちか、どこかで `BLOCKED` が残っていないかです。
