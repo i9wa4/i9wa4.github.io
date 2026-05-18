@@ -1,5 +1,5 @@
 ---
-title: "`tmux-a2a-postman` で AI エージェント間の依頼を Markdown に残す"
+title: "postman.md で tmux 上の AIエージェントの役割と依頼経路を管理する"
 emoji: "🐴"
 type: "tech"
 topics:
