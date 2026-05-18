@@ -1,0 +1,21 @@
+---
+title: "Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する"
+author: uma-chan
+date: 2026-05-18 16:40:00 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  tmux上のAIエージェント間の依頼や返事待ちをMarkdownに残す仕組みを紹介
+categories:
+  - "zenn"
+  - "tmux"
+  - "claudecode"
+  - "codex"
+  - "aiagent"
+  - "multiagent"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する](https://zenn.dev/genda_jp/articles/2026-05-18-tmux-a2a-postman)

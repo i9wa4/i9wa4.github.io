@@ -22,12 +22,12 @@ listing:
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[aiagent (1)](#category=aiagent){.btn .btn-outline-primary .btn-sm}
+[aiagent (2)](#category=aiagent){.btn .btn-outline-primary .btn-sm}
 [aws (1)](#category=aws){.btn .btn-outline-primary .btn-sm}
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
-[claudecode (7)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
+[claudecode (8)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
 [cli (2)](#category=cli){.btn .btn-outline-primary .btn-sm}
-[codex (1)](#category=codex){.btn .btn-outline-primary .btn-sm}
+[codex (2)](#category=codex){.btn .btn-outline-primary .btn-sm}
 [codexcli (2)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
@@ -46,6 +46,7 @@ listing:
 [lazygit (1)](#category=lazygit){.btn .btn-outline-primary .btn-sm}
 [mcp (3)](#category=mcp){.btn .btn-outline-primary .btn-sm}
 [mise (3)](#category=mise){.btn .btn-outline-primary .btn-sm}
+[multiagent (1)](#category=multiagent){.btn .btn-outline-primary .btn-sm}
 [neovim (2)](#category=neovim){.btn .btn-outline-primary .btn-sm}
 [notion (1)](#category=notion){.btn .btn-outline-primary .btn-sm}
 [oss (1)](#category=oss){.btn .btn-outline-primary .btn-sm}
@@ -58,11 +59,11 @@ listing:
 [shellscript (1)](#category=shellscript){.btn .btn-outline-primary .btn-sm}
 [spark (1)](#category=spark){.btn .btn-outline-primary .btn-sm}
 [terminal (2)](#category=terminal){.btn .btn-outline-primary .btn-sm}
-[tmux (4)](#category=tmux){.btn .btn-outline-primary .btn-sm}
+[tmux (5)](#category=tmux){.btn .btn-outline-primary .btn-sm}
 [uv (3)](#category=uv){.btn .btn-outline-primary .btn-sm}
 [vim (3)](#category=vim){.btn .btn-outline-primary .btn-sm}
 [vscode (2)](#category=vscode){.btn .btn-outline-primary .btn-sm}
-[zenn (34)](#category=zenn){.btn .btn-outline-primary .btn-sm}
+[zenn (35)](#category=zenn){.btn .btn-outline-primary .btn-sm}
 [zinit (1)](#category=zinit){.btn .btn-outline-primary .btn-sm}
 [zsh (3)](#category=zsh){.btn .btn-outline-primary .btn-sm}
 :::
