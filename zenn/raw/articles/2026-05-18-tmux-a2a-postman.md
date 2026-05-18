@@ -5,7 +5,7 @@ type: "tech"
 topics:
   - "tmux"
   - "claudecode"
-  - "codexcli"
+  - "codex"
   - "aiagent"
   - "multiagent"
 publication_name: "genda_jp"

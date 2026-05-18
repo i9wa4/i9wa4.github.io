@@ -9,7 +9,7 @@ categories:
   - "zenn"
   - "tmux"
   - "claudecode"
-  - "codexcli"
+  - "codex"
   - "aiagent"
   - "multiagent"
 ---

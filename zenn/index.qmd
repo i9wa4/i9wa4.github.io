@@ -27,8 +27,8 @@ listing:
 [bigquery (1)](#category=bigquery){.btn .btn-outline-primary .btn-sm}
 [claudecode (8)](#category=claudecode){.btn .btn-outline-primary .btn-sm}
 [cli (2)](#category=cli){.btn .btn-outline-primary .btn-sm}
-[codex (1)](#category=codex){.btn .btn-outline-primary .btn-sm}
-[codexcli (3)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
+[codex (2)](#category=codex){.btn .btn-outline-primary .btn-sm}
+[codexcli (2)](#category=codexcli){.btn .btn-outline-primary .btn-sm}
 [databricks (10)](#category=databricks){.btn .btn-outline-primary .btn-sm}
 [dbt (2)](#category=dbt){.btn .btn-outline-primary .btn-sm}
 [devcontainer (3)](#category=devcontainer){.btn .btn-outline-primary .btn-sm}
