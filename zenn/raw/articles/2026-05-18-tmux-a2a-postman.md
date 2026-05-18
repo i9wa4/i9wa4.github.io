@@ -9,7 +9,7 @@ topics:
   - "aiagent"
   - "multiagent"
 published: true
-published_at: 2026-05-18 02:40
+published_at: 2026-05-18 12:00:00
 ---
 
 ## 1. はじめに
@@ -25,7 +25,7 @@ tmux 上で Claude Code や Codex CLI を複数起動して、実装用、レビ
 - レビュー依頼が終わったのか曖昧になる
 - ターミナルのスクロールバックを後から探すことになる
 
-このあたりをどうにかするために `tmux-a2a-postman` を作っています。
+このあたりをどうにかするために tmux-a2a-postman を作っています。
 
 @[card](https://github.com/i9wa4/tmux-a2a-postman)
 
@@ -56,7 +56,7 @@ tmux はかなり便利です。
 
 ## 3. tmux-a2a-postman でやっていること
 
-`tmux-a2a-postman` がやっていることはそこまで大げさではありません。
+tmux-a2a-postman がやっていることはそこまで大げさではありません。
 
 送信側が Markdown のメッセージを書き、宛先の `inbox` に置きます。受信側は `pop` でそれを取り出し、読んだものは `read archive` に移ります。
 
@@ -143,6 +143,25 @@ worker に実装を頼み、必要なら reviewer に確認を頼む。
 問題があれば理由を添えて返す。
 ````
 
+同じ edges を図として描くと、次のようになります。
+
+```mermaid
+graph LR
+    messenger["messenger"]
+    orchestrator["orchestrator"]
+    worker["worker"]
+    reviewer["reviewer"]
+
+    messenger --- orchestrator
+    orchestrator --- worker
+    orchestrator --- reviewer
+
+    class messenger entry
+    class orchestrator,worker,reviewer role
+    classDef entry fill:#dbeafe,stroke:#2563eb,color:#0f172a
+    classDef role fill:#f8fafc,stroke:#64748b,color:#0f172a
+```
+
 Mermaid の図は見た目だけではなく、どの名前のペインからどの名前のペインへ送れるかの設定にもなります。
 
 最低限は `edges` という backtick 付きの H2 セクションと Mermaid の `---` だけでもトポロジーとして動きます。`common_template` は全員に渡す共通ルール、`worker` や `reviewer` のセクションはその役割にだけ渡す説明です。
@@ -181,7 +200,7 @@ Remaining blockers: none
 POSTMAN_BODY
 ```
 
-もう少し引いて見ると、タスクのリレーは次のように流れます。これは `tmux-a2a-postman` の画面に表示される会話ではなく、Markdown mail の受け渡しを説明するための例です。
+もう少し引いて見ると、タスクのリレーは次のように流れます。これは Markdown mail の受け渡しを説明するための例です。
 
 ```text
 user -> messenger: 記事に Agent Skills の説明を足してほしい
@@ -205,7 +224,7 @@ orchestrator -> messenger: DONE: commit と検証結果をまとめる
 messenger -> user: 記事を更新しました
 ```
 
-ここでやっているのはチャット UI の再現ではありません。`postman.md` で「誰が誰に送れるか」と「各役割が何を返すか」を決め、実際の依頼と返事は Markdown のメールとして残す、というだけです。
+このブロックは tmux-a2a-postman の TUI に表示されるものではありません。`postman.md` で「誰が誰に送れるか」と「各役割が何を返すか」を決め、実際の依頼と返事は Markdown のメールとして残します。
 
 ## 7. 状態を確認する
 
@@ -261,7 +280,7 @@ reviewer      🟢  ready
 
 Agent Skills も `postman.md` から参照できます。
 
-`tmux-a2a-postman` 側にも、`tmux-a2a-postman` を使いやすくするための Skill を三つ用意しています。
+tmux-a2a-postman 側にも、tmux-a2a-postman を使いやすくするための Skill を三つ用意しています。
 
 - `postman-send-message` は、最初のメッセージを安全に送るための Skill
 - `postman-session-operator` は、受信、既読アーカイブ、返事待ち、状態確認を扱うための Skill
@@ -275,7 +294,7 @@ Agent Skills も `postman.md` から参照できます。
 
 ## 9. 何ではないか
 
-`tmux-a2a-postman` は AI コーディングエージェント本体ではありません。
+tmux-a2a-postman は AI コーディングエージェント本体ではありません。
 
 Claude Code や Codex CLI の代替でもありません。tmux や vde-layout の代わりにペインを作るツールでもありません。
 
@@ -289,7 +308,7 @@ tmux 上に Claude Code や Codex CLI を複数並べると、作業を分担し
 
 ただ、依頼や返事待ちまで人間が覚えておく運用はつらいです。
 
-`tmux-a2a-postman` は、Markdown の設定ファイルでリレーの流れを決め、その部分を Markdown のメッセージとして残します。
+tmux-a2a-postman は、Markdown の設定ファイルでリレーの流れを決め、その部分を Markdown のメッセージとして残します。
 
 ペインを増やすためのツールではなく、増やした後の受け渡しを扱うためのツールです。
 
