@@ -8,6 +8,7 @@ topics:
   - "codexcli"
   - "aiagent"
   - "multiagent"
+publication_name: "genda_jp"
 published: true
 published_at: 2026-05-18 13:00:00
 ---
