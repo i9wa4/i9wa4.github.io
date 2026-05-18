@@ -10,7 +10,7 @@ topics:
   - "multiagent"
 publication_name: "genda_jp"
 published: true
-published_at: 2026-05-18 13:00:00
+published_at: 2026-05-18 16:30:00
 ---
 
 ## 1. はじめに
@@ -180,15 +180,15 @@ Mermaid の図は見た目だけではなく、どの名前のペインからど
 
 ## Recipient Instructions
 
-##### 2.4. [common_template] Mail and Reply Contract
+### 2.4. [common_template] Mail and Reply Contract
 
 返事が必要な作業は DONE または BLOCKED で返す。
 
-##### 8.2. [worker] Identity
+### 8.2. [worker] Identity
 
 You are worker. Execute assigned tasks with full tool access.
 
-##### Available Skills
+### Available Skills
 
 Read every applicable skill before starting work. Skill files live under `~/...`.
 
