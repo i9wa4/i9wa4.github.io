@@ -181,7 +181,7 @@ Mermaid の図は見た目だけではなく、どの名前のペインからど
 
 ## 6. 実際にタスクをリレーする
 
-README の quickstart では、`messenger`、`orchestrator`、`worker`、`reviewer` のような小さなチームを例にしています。
+[README](https://github.com/i9wa4/tmux-a2a-postman#4-quick-start) の Quick Start では、`messenger`、`orchestrator`、`worker`、`reviewer` のような小さなチームを例にしています。
 
 この構成では、人間に近い入口を `messenger` にします。実装の段取りは `orchestrator`、実作業は `worker`、確認は `reviewer` に寄せます。`postman.md` の `edges` に `messenger --- orchestrator` と `orchestrator --- worker` があるので、`messenger` は `worker` に直接投げません。いったん `orchestrator` に渡します。
 
