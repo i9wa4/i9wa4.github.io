@@ -205,7 +205,8 @@ tmux-a2a-postman send-heredoc --to orchestrator ...
 記事の説明を確認し、必要なら修正してください。
 ```
 
-`Recipient Instructions` には `postman.md` の `common_template` と宛先ごとの説明が入り、通常の role context として設定した `skill_path` は `SKILL.md` の `name` / `description` から `Available Skills` を作ります。`inject: ping` や `inject: compaction_ping` にしたカタログは、通常の依頼ではなく daemon PING 側に入ります。
+`Recipient Instructions` には `postman.md` の `common_template` と宛先ごとの説明が入ります。
+また、通常の role context として設定した `skill_path` は `SKILL.md` の `name` / `description` から `Available Skills` を作ります。
 
 この手の運用ルールを普通の Markdown として持てるのが気に入っています。差分で見られるし、AI エージェントにもそのまま読ませやすいです。
 
@@ -284,6 +285,7 @@ tmux-a2a-postman get-status-oneline
 ```
 
 実際に手元で実行すると、たとえば次のように出ます。
+私の tmux では statusline にこれを表示させています。
 
 ```console
 $ tmux-a2a-postman get-status-oneline
