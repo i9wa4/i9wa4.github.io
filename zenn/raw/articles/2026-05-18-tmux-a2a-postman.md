@@ -18,6 +18,8 @@ tmux 上で Claude Code や Codex CLI を複数起動して、実装用、レビ
 
 ペインを並べるだけなら tmux や vde-layout でかなり楽になります。
 
+ここでの vde-layout は、AI エージェント用の tmux ペイン配置を同じ形で用意し直すための道具です。
+
 @[card](https://zenn.dev/i9wa4/articles/2026-02-08-tmux-intro-ai-agent-orchestration)
 
 ただ、実際に複数の AI エージェントを動かしていると別の問題が出ます。
