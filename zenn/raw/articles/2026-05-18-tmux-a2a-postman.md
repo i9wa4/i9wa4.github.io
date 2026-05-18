@@ -175,9 +175,39 @@ Mermaid の図は見た目だけではなく、どの名前のペインからど
 
 最低限は `edges` という backtick 付きの H2 セクションと Mermaid の `---` だけでもトポロジーとして動きます。`common_template` は全員に渡す共通ルールです。`worker` や `reviewer` のセクションは、その役割にだけ渡す説明になります。
 
-実際に `pop` で読む Markdown mail には、送信者の本文だけが入るわけではありません。既定の形では、`Recipient Instructions` に `postman.md` 由来の `common_template` と宛先ごとの説明が入り、`Sender Message` に送信本文が入ります。
+実際に `pop` で読む Markdown mail は、送信者の本文だけではなく、受信者に必要な運用ルールをまとめた envelope です。形はだいたい次のようになります。
 
-`skill_path` を通常の role context として設定している場合は、`SKILL.md` の `name` と `description` から作られた `Available Skills` も同じ受信 mail に入ります。`inject: ping` や `inject: compaction_ping` にしたカタログは、通常の依頼ではなく daemon PING 側に入ります。
+```markdown
+# Message
+
+## Recipient Instructions
+
+##### 2.4. [common_template] Mail and Reply Contract
+
+返事が必要な作業は DONE または BLOCKED で返す。
+
+##### 8.2. [worker] Identity
+
+You are worker. Execute assigned tasks with full tool access.
+
+##### Available Skills
+
+Read every applicable skill before starting work. Skill files live under `~/...`.
+
+- `postman-session-operator`: USE FOR: Operate live tmux-a2a-postman sessions...
+- `markdown`: USE FOR: Markdown authoring...
+
+## Sender Message
+
+Reply with quoted heredoc:
+tmux-a2a-postman send-heredoc --to orchestrator ...
+
+---
+
+記事の説明を確認し、必要なら修正してください。
+```
+
+`Recipient Instructions` には `postman.md` の `common_template` と宛先ごとの説明が入り、通常の role context として設定した `skill_path` は `SKILL.md` の `name` / `description` から `Available Skills` を作ります。`inject: ping` や `inject: compaction_ping` にしたカタログは、通常の依頼ではなく daemon PING 側に入ります。
 
 この手の運用ルールを普通の Markdown として持てるのが気に入っています。差分で見られるし、AI エージェントにもそのまま読ませやすいです。
 
