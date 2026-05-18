@@ -173,7 +173,9 @@ graph LR
     classDef role fill:#f8fafc,stroke:#64748b,color:#0f172a
 ```
 
-The diagram is not decoration. The node names and `---` edges define which roles may talk to each other. With `inject: ping`, the `skill_path` block injects postman-oriented Agent Skills into recurring daemon PING role content, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
+The diagram is not decoration. The node names and `---` edges define which roles may talk to each other. With `inject: ping`, the `skill_path` block injects a compact Agent Skills catalog into recurring daemon PING role content, while the role sections keep the review loop and reply expectations local to Markdown. Postman only treats a small parsed subset as routing and Agent Skills catalog data; the rest stays useful as human-readable role context.
+
+Each received mail item carries the relevant `postman.md` instructions with the request: role context, routing expectations, reply shape, and available Agent Skills when configured. That matters over longer tasks because the receiving agent can re-read its local contract instead of relying on nearby pane history.
 
 A review loop can then stay in mail instead of terminal scrollback:
 
@@ -191,15 +193,15 @@ reviewer -> orchestrator: APPROVED or NOT APPROVED with evidence
 
 This block is not displayed by tmux-a2a-postman's TUI. It is a compact example of Markdown mail handoff and reply shape.
 
-That does not make the result correct by itself. It gives each reply a checkable shape: changed files, validation, remaining blockers, and the exact open request it closes.
+That does not make the result correct by itself. It makes three kinds of forgetting harder: role drift, dropped reply-required loops, and forgotten local capabilities. `postman.md` carries role and routing expectations with the mail, reply-required keeps open loops visible, and the Agent Skills catalog gives the receiver compact names and descriptions for local capabilities it can choose when needed.
 
-Agent Skills fit the same pattern. A role can receive a compact catalog of local rules, while the full `SKILL.md` body stays out of the prompt until the task actually needs it. The catalog is a reminder to use known repository behavior before improvising.
+The full `SKILL.md` body stays out of the prompt until the task actually needs it. The catalog is a reminder to use known local behavior before improvising.
 
 ## 5. The Mail Handoff Agents Can Operate
 
 The mail handoff is intentionally small: one role sends Markdown mail, the receiver claims it, reads the archived body, and answers required requests with `DONE` or `BLOCKED` plus evidence.
 
-The Agent Skills catalog becomes operational here: sender roles learn the heredoc send path; receiver roles learn that archived mail must be read, required replies must close exact input requests, and blocked or delivery failures must be reported.
+tmux-a2a-postman's own Agent Skills make the handoff operational: sender roles learn the heredoc send path; receiver roles learn that archived mail must be read, required replies must close exact input requests, and blocked or delivery failures must be reported. `postman-config-auditor` covers topology and config checks when routes or role definitions need review.
 
 This closes transport state, not truth. A `DONE` reply still needs evidence. A reviewer, orchestrator, or human can inspect changed files, test output, and the task artifact before accepting the result.
 
@@ -227,7 +229,7 @@ Postman lives in the last row and currently runs on tmux.
 
 tmux-a2a-postman is not an AI coding agent, a full multi-agent framework, a workflow engine, a sandbox, an MCP server, an A2A-compliant server, or a replacement for Claude Code, Codex CLI, tmux, or `vde-layout`.
 
-The name contains `a2a` because A2A-style vocabulary is useful for thinking about messages, contexts, artifacts, and input-required states. But this is a local tmux and filesystem coordination runtime, not a standards-compliant A2A endpoint.
+The name uses `a2a` in the agent-to-agent handoff sense and borrows useful A2A-style vocabulary for messages, contexts, artifacts, and input-required states. It is not currently a standards-compliant A2A endpoint.
 
 I use native subagents or team features for work inside one runtime, tmux for the workbench, `vde-layout` for repeatable pane creation, Agent Skills or local instructions for role behavior, `mkmd` for larger task artifacts, and postman for handoffs between terminal roles and tools.
 
