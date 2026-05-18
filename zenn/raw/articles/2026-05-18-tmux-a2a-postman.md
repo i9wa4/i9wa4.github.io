@@ -181,7 +181,20 @@ Remaining blockers: none
 POSTMAN_BODY
 ```
 
-必要なら `orchestrator` は同じように `reviewer` へレビューを依頼し、最後に `messenger` へ報告します。
+もう少し引いて見ると、タスクのラリーは次のように流れます。これは `tmux-a2a-postman` の画面に表示される会話ではなく、Markdown mail の受け渡しを説明するための例です。
+
+```text
+user -> messenger: 記事に Agent Skills の説明を足してほしい
+messenger -> orchestrator: 依頼を整理して作業担当へ渡す
+orchestrator -> worker: 本文を更新し、変更ファイルと確認結果を返す
+worker -> orchestrator: DONE: raw article を更新、checks passed
+orchestrator -> reviewer: 要求どおりか確認して
+reviewer -> orchestrator: BLOCKED: Skill 名の根拠が不足している
+orchestrator -> worker: 根拠を追記して再確認して
+worker -> orchestrator: DONE: README と SKILL.md を確認済み
+orchestrator -> messenger: DONE: commit と検証結果をまとめる
+messenger -> user: 記事を更新しました
+```
 
 ここでやっているのはチャット UI の再現ではありません。`postman.md` で「誰が誰に送れるか」と「各役割が何を返すか」を決め、実際の依頼と返事は Markdown のメールとして残す、というだけです。
 
@@ -239,9 +252,17 @@ reviewer      🟢  ready
 
 Agent Skills も `postman.md` から参照できます。
 
+`tmux-a2a-postman` 側にも、postman を使いやすくするための Skill を三つ用意しています。
+
+- `postman-send-message` は、最初のメッセージを安全に送るための Skill
+- `postman-session-operator` は、受信、既読アーカイブ、返事待ち、状態確認を扱うための Skill
+- `postman-config-auditor` は、`postman.md` の経路やロール定義、設定のずれを確認するための Skill
+
 毎回長い手順を全部プロンプトに入れるのではなく、使える Skill の名前と説明だけを渡しておき、必要になったときに `SKILL.md` を読む形にしています。
 
-これにより、Claude Code と Codex CLI のように別の CLI ツールを同じ tmux セッションに並べても、同じ担当名と同じ運用ルールで扱いやすくなります。
+人間が毎回「このコマンドで送って」「返事待ちはこう閉じて」「設定はここを見る」と説明しなくても、エージェント側がローカルの手順を読めるようにしておく。そうしておくと、`postman.md` は役割と依頼経路に集中させ、細かい使い方や監査手順は Skill 側に逃がせます。
+
+これにより、Claude Code と Codex CLI のように別の CLI ツールを同じ tmux セッションに並べても、同じ担当名と同じ運用ルールで扱いやすくなります。ツールそのものだけではなく、エージェントが正しく使うための説明も一緒に配る、というのは今の CLI エージェント運用ではかなり大事だと思っています。
 
 ## 9. 何ではないか
 
