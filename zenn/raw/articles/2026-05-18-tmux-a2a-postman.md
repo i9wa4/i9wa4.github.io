@@ -1,5 +1,5 @@
 ---
-title: "postman.md で tmux 上の AIエージェントの役割と依頼経路を管理する"
+title: "Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する"
 emoji: "🐴"
 type: "tech"
 topics:
@@ -29,7 +29,7 @@ tmux 上で Claude Code や Codex CLI を複数起動して、実装用、レビ
 
 @[card](https://github.com/i9wa4/tmux-a2a-postman)
 
-ざっくり言うと、tmux 上の AI エージェント同士の依頼を Markdown のメッセージとして残すためのツールです。
+ざっくり言うと、Markdown を設定ファイルとして使い、tmux 上の AI エージェント同士の依頼リレーを Markdown のメッセージとして残すためのツールです。
 
 ## 2. ペインを増やした後に困ること
 
@@ -54,7 +54,7 @@ tmux はかなり便利です。
 
 これを全部チャット履歴と人間の記憶で管理するのはつらいです。
 
-## 3. postman でやっていること
+## 3. tmux-a2a-postman でやっていること
 
 `tmux-a2a-postman` がやっていることはそこまで大げさではありません。
 
@@ -64,7 +64,7 @@ tmux はかなり便利です。
 
 つまり、やりたいことはこれです。
 
-| 困ること                     | postman での扱い                    |
+| 困ること                     | tmux-a2a-postman での扱い           |
 | ---------------------------- | ----------------------------------- |
 | 何を頼んだか忘れる           | Markdown のメッセージとして残る     |
 | 誰が読んだか分からない       | `inbox` と `read archive` で分かる  |
@@ -101,7 +101,7 @@ tmux-a2a-postman pop
 
 ## 5. postman.md に運用ルールを書く
 
-宛先や担当ごとの説明は `postman.md` に書きます。
+`postman.md` は、宛先や担当ごとの説明を書く Markdown の設定ファイルです。
 
 たとえば最小構成だと次のようなイメージです。
 
@@ -119,7 +119,7 @@ graph LR
 
 ## `common_template`
 
-依頼の受け渡しは postman mail を使う。
+依頼の受け渡しは tmux-a2a-postman の mail を使う。
 返事が必要な作業は DONE または BLOCKED で返す。
 
 ## `messenger`
@@ -149,7 +149,7 @@ Mermaid の図は見た目だけではなく、どの名前のペインからど
 
 この手の運用ルールを普通の Markdown として持てるのが気に入っています。差分で見られるし、AI エージェントにもそのまま読ませやすいです。
 
-## 6. 実際にタスクを受け渡す
+## 6. 実際にタスクをリレーする
 
 README の quickstart では、`messenger`、`orchestrator`、`worker`、`reviewer` のような小さなチームを例にしています。
 
@@ -181,18 +181,27 @@ Remaining blockers: none
 POSTMAN_BODY
 ```
 
-もう少し引いて見ると、タスクのラリーは次のように流れます。これは `tmux-a2a-postman` の画面に表示される会話ではなく、Markdown mail の受け渡しを説明するための例です。
+もう少し引いて見ると、タスクのリレーは次のように流れます。これは `tmux-a2a-postman` の画面に表示される会話ではなく、Markdown mail の受け渡しを説明するための例です。
 
 ```text
 user -> messenger: 記事に Agent Skills の説明を足してほしい
+
 messenger -> orchestrator: 依頼を整理して作業担当へ渡す
+
 orchestrator -> worker: 本文を更新し、変更ファイルと確認結果を返す
+
 worker -> orchestrator: DONE: raw article を更新、checks passed
+
 orchestrator -> reviewer: 要求どおりか確認して
+
 reviewer -> orchestrator: BLOCKED: Skill 名の根拠が不足している
+
 orchestrator -> worker: 根拠を追記して再確認して
+
 worker -> orchestrator: DONE: README と SKILL.md を確認済み
+
 orchestrator -> messenger: DONE: commit と検証結果をまとめる
+
 messenger -> user: 記事を更新しました
 ```
 
@@ -252,7 +261,7 @@ reviewer      🟢  ready
 
 Agent Skills も `postman.md` から参照できます。
 
-`tmux-a2a-postman` 側にも、postman を使いやすくするための Skill を三つ用意しています。
+`tmux-a2a-postman` 側にも、`tmux-a2a-postman` を使いやすくするための Skill を三つ用意しています。
 
 - `postman-send-message` は、最初のメッセージを安全に送るための Skill
 - `postman-session-operator` は、受信、既読アーカイブ、返事待ち、状態確認を扱うための Skill
@@ -260,7 +269,7 @@ Agent Skills も `postman.md` から参照できます。
 
 毎回長い手順を全部プロンプトに入れるのではなく、使える Skill の名前と説明だけを渡しておき、必要になったときに `SKILL.md` を読む形にしています。
 
-人間が毎回「このコマンドで送って」「返事待ちはこう閉じて」「設定はここを見る」と説明しなくても、エージェント側がローカルの手順を読めるようにしておく。そうしておくと、`postman.md` は役割と依頼経路に集中させ、細かい使い方や監査手順は Skill 側に逃がせます。
+人間が毎回「このコマンドで送って」「返事待ちはこう閉じて」「設定はここを見る」と説明しなくても、エージェント側がローカルの手順を読めるようにしておく。そうしておくと、`postman.md` は役割とリレーの流れに集中させ、細かい使い方や監査手順は Skill 側に逃がせます。
 
 これにより、Claude Code と Codex CLI のように別の CLI ツールを同じ tmux セッションに並べても、同じ担当名と同じ運用ルールで扱いやすくなります。ツールそのものだけではなく、エージェントが正しく使うための説明も一緒に配る、というのは今の CLI エージェント運用ではかなり大事だと思っています。
 
@@ -280,7 +289,7 @@ tmux 上に Claude Code や Codex CLI を複数並べると、作業を分担し
 
 ただ、依頼や返事待ちまで人間が覚えておく運用はつらいです。
 
-`tmux-a2a-postman` は、その部分を Markdown のメッセージとして残します。
+`tmux-a2a-postman` は、Markdown の設定ファイルでリレーの流れを決め、その部分を Markdown のメッセージとして残します。
 
 ペインを増やすためのツールではなく、増やした後の受け渡しを扱うためのツールです。
 

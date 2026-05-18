@@ -1,5 +1,5 @@
 ---
-title: "postman.md で tmux 上の AIエージェントの役割と依頼経路を管理する"
+title: "Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する"
 author: uma-chan
 date: 2026-05-18 02:40:00 +0900
 image: "/assets/common/zenn-ogp.png"
@@ -18,4 +18,4 @@ categories:
 
 この記事は Zenn で公開されています。
 
-[postman.md で tmux 上の AIエージェントの役割と依頼経路を管理する](https://zenn.dev/i9wa4/articles/2026-05-18-tmux-a2a-postman)
+[Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する](https://zenn.dev/i9wa4/articles/2026-05-18-tmux-a2a-postman)
