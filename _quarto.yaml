@@ -94,7 +94,7 @@ website:
       - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
     right:
       - icon: rss
-        href: "blog/index.xml"
+        href: "feed.xml"
       - text: "Built with"
       - text: "Quarto"
         href: "https://quarto.org/"

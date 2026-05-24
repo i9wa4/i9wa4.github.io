@@ -26,19 +26,12 @@ share: false
 
 All public writing and talks in one stream.
 
-## Sources
+Sources:
 
 - [Blog](blog/index.qmd): personal notes, diary, and technical notes.
 - [Blog (EN)](en/blog/index.qmd): English articles.
 - [Zenn](zenn/index.qmd): external-facing technical articles.
 - [Slides](slides/index.qmd): talks and presentation material.
-
-::: {.category-buttons}
-[Blog](blog/index.qmd){.btn .btn-outline-primary .btn-sm}
-[Blog (EN)](en/blog/index.qmd){.btn .btn-outline-primary .btn-sm}
-[Zenn](zenn/index.qmd){.btn .btn-outline-primary .btn-sm}
-[Slides](slides/index.qmd){.btn .btn-outline-primary .btn-sm}
-:::
 
 ::: {#all}
 :::

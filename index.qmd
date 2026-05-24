@@ -6,13 +6,13 @@ date-modified: last-modified
 Data Engineering Manager / MLOps Engineer working on data platforms,
 developer workflows, and AI-ready tooling.
 
-[GitHub](https://github.com/i9wa4) | [LinkedIn](https://www.linkedin.com/in/daikm) | [X (Twitter)](https://x.com/i9wa4_)
+[Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4) | [X (Twitter)](https://x.com/i9wa4_)
 
 ## Start
 
-- [Feed](feed.qmd)
-- [Resume](resume/index.qmd)
-- [Resume (EN)](en/resume/index.qmd)
+- [Feed](https://i9wa4.github.io/feed.html)
+- [Resume](https://i9wa4.github.io/resume/)
+- [Resume (EN)](https://i9wa4.github.io/en/resume/)
 
 ## GitHub Stats
 
