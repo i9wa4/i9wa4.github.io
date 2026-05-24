@@ -128,7 +128,14 @@ jobs:
           #   [ "$BUILD_DIR" != "root" ] && uv run quarto render "$BUILD_DIR/index.qmd"
           # fi
           if [ "$BUILD_DIR" = "root" ]; then
+            for feed_dir in $ROOT_FEED_SOURCE_DIRS; do
+              uv run quarto render "$feed_dir/"
+            done
             for page in *.qmd; do uv run quarto render "$page"; done
+            if [ -f feed.qmd ] && [ ! -f _site/feed.xml ]; then
+              echo "::error::Root feed.xml was not generated"
+              exit 1
+            fi
           else
             uv run quarto render "$BUILD_DIR/"
           fi
