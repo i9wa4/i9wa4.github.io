@@ -1,5 +1,6 @@
 ---
 title: "uma-chan's page"
+toc: false
 ---
 
 Data Engineering Manager & MLOps Engineer working on data platforms, developer workflows, and AI-ready tooling.

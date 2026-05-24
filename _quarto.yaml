@@ -81,6 +81,9 @@ website:
   page-footer:
     left:
       - text: "&copy; 2024-YEAR_PLACEHOLDER uma-chan"
+    center:
+      - text: "Top"
+        href: "index.qmd"
     right:
       - icon: rss
         href: "feed.xml"
