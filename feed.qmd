@@ -1,0 +1,44 @@
+---
+title: "Feed"
+listing:
+  - id: "all"
+    contents:
+      - "blog/*.qmd"
+      - "en/blog/*.qmd"
+      - "zenn/*.qmd"
+      - "slides/*.qmd"
+    exclude:
+      filename:
+        - "index.qmd"
+    feed: true
+    fields:
+      - "title"
+      - "date"
+      - "image"
+      - "categories"
+      - "description"
+    sort:
+      - "date desc"
+      - "title"
+    type: default
+share: false
+---
+
+All public writing and talks in one stream.
+
+## Sources
+
+- [Blog](blog/index.qmd): personal notes, diary, and technical notes.
+- [Blog (EN)](en/blog/index.qmd): English articles.
+- [Zenn](zenn/index.qmd): external-facing technical articles.
+- [Slides](slides/index.qmd): talks and presentation material.
+
+::: {.category-buttons}
+[Blog](blog/index.qmd){.btn .btn-outline-primary .btn-sm}
+[Blog (EN)](en/blog/index.qmd){.btn .btn-outline-primary .btn-sm}
+[Zenn](zenn/index.qmd){.btn .btn-outline-primary .btn-sm}
+[Slides](slides/index.qmd){.btn .btn-outline-primary .btn-sm}
+:::
+
+::: {#all}
+:::

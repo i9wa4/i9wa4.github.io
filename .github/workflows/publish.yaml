@@ -10,7 +10,8 @@ permissions: {}
 
 env:
   CONTENT_DIRS: blog en/blog en/resume resume root slides zenn
-  FEED_DIRS: blog
+  FEED_DIRS: blog en/blog zenn slides
+  ROOT_FEED_SOURCE_DIRS: blog en/blog zenn slides
   FULL_REBUILD_TRIGGERS: _extensions/ _includes/ themes/ _quarto.yaml
 
 defaults:
@@ -157,7 +158,7 @@ jobs:
         run: |
           if [ "$BUILD_DIR" = "root" ]; then
             mkdir -p _site/root
-            mv _site/*.html _site/*.md _site/root/ 2>/dev/null || true
+            mv _site/*.html _site/*.md _site/*.xml _site/root/ 2>/dev/null || true
           fi
           # Include site_libs in each artifact for merge
           if [ -d "_site/site_libs" ]; then
@@ -229,7 +230,7 @@ jobs:
               rm -rf "$artifact_dir/_site_libs"
             fi
             if [ "$dir_name" = "root" ]; then
-              mv "$artifact_dir"/*.html "$artifact_dir"/*.md _site/ 2>/dev/null || true
+              mv "$artifact_dir"/*.html "$artifact_dir"/*.md "$artifact_dir"/*.xml _site/ 2>/dev/null || true
             else
               # Always remove target dir to ensure clean copy (fixes incremental deploy issue)
               rm -rf "_site/${dir_name}"

@@ -1,35 +1,23 @@
 ---
-title: "About me"
-about:
-  template: marquee
-  image-width: 9em
-  image-shape: round
+title: "uma-chan's page"
 date-modified: last-modified
-image: "https://github.com/i9wa4.png"
-toc: false
 ---
 
-```{.yaml}
-profile:
-  name: uma-chan
+Data Engineering Manager / MLOps Engineer working on data platforms,
+developer workflows, and AI-ready tooling.
 
-  organizations:
-    - name: GENDA Inc.
-      roles:
-        - Data Engineer
-        - MLOps Engineer
+[GitHub](https://github.com/i9wa4) | [LinkedIn](https://www.linkedin.com/in/daikm) | [X (Twitter)](https://x.com/i9wa4_)
 
-    - name: PIVOT, Inc.
-      roles:
-        - Data Engineer
+## Start
 
-  passions:
-    - Vim
-    - tmux
-    - Databricks
-```
+- [Feed](feed.qmd)
+- [Resume](resume/index.qmd)
+- [Resume (EN)](en/resume/index.qmd)
 
-[![3-stats](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)[![1-repos-per-language](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/1-repos-per-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+## GitHub Stats
+
+[![3-stats](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/3-stats.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![1-repos-per-language](https://raw.githubusercontent.com/i9wa4/i9wa4.github.io/gh-summary/transparent/1-repos-per-language.svg)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
 
 <div align="left">
   <a href="https://github.com/antonkomarev/github-profile-views-counter">

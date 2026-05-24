@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Environment variables from GitHub Actions
-: "${CONTENT_DIRS:?}" "${FEED_DIRS:=}" "${FULL_REBUILD_TRIGGERS:?}"
+: "${CONTENT_DIRS:?}" "${FEED_DIRS:=}" "${ROOT_FEED_SOURCE_DIRS:=}" "${FULL_REBUILD_TRIGGERS:?}"
 
 # Parse ADDED_FILES into array
 added_files_arr=()
@@ -14,6 +14,16 @@ fi
 has_added_file_in_dir() {
   local dir="$1"
   for file in "${added_files_arr[@]}"; do
+    if [[ $file == "$dir/"* ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+has_changed_file_in_dir() {
+  local dir="$1"
+  for file in "${changed_files[@]}"; do
     if [[ $file == "$dir/"* ]]; then
       return 0
     fi
@@ -67,6 +77,13 @@ for file in "${changed_files[@]}"; do
   done
 done
 
+for dir in $ROOT_FEED_SOURCE_DIRS; do
+  if has_changed_file_in_dir "$dir"; then
+    dir_files[root]+="__root_feed__ "
+    break
+  fi
+done
+
 # Build matrix
 matrix_items=()
 
@@ -79,7 +96,9 @@ else
     files="${dir_files[$dir]}"
     if [[ -n $files ]]; then
       # Non-.qmd files or assets trigger full rebuild
-      if [[ $files == *"__non_qmd__"* ]] || [[ $files == *"__assets__"* ]]; then
+      if [[ $files == *"__non_qmd__"* ]] ||
+        [[ $files == *"__assets__"* ]] ||
+        [[ $files == *"__root_feed__"* ]]; then
         matrix_items+=("{\"dir\":\"$dir\",\"mode\":\"full\",\"file\":\"\"}")
       else
         qmd_files=$(echo "$files" | xargs)

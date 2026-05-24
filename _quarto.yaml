@@ -50,7 +50,17 @@ website:
     style: floating
     search: true
     contents:
-      - section: "Content"
+      - section: "Start"
+        contents:
+          - text: "Home"
+            href: "index.qmd"
+          - text: "Feed"
+            href: "feed.qmd"
+          - text: "Resume"
+            href: "resume/index.qmd"
+          - text: "Resume (EN)"
+            href: "en/resume/index.qmd"
+      - section: "Archives"
         contents:
           - text: "Blog"
             href: "blog/index.qmd"
@@ -60,10 +70,6 @@ website:
             href: "zenn/index.qmd"
           - text: "Slides"
             href: "slides/index.qmd"
-          - text: "Resume"
-            href: "resume/index.qmd"
-          - text: "Resume (EN)"
-            href: "en/resume/index.qmd"
       - text: "---"
       - section: "External Links"
         contents:

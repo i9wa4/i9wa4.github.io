@@ -71,7 +71,7 @@ jobs:
           git push origin "$BRANCH"
           gh pr create \
             --title "sync: update README from i9wa4.github.io" \
-            --body "Auto-generated PR to sync README.md from [i9wa4.github.io](https://i9wa4.github.io/about.html)." \
+            --body "Auto-generated PR to sync README.md from [i9wa4.github.io](https://i9wa4.github.io/)." \
             --head "$BRANCH" \
             --base main \
             --assignee i9wa4
