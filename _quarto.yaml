@@ -46,42 +46,31 @@ website:
   google-analytics: "GOOGLE_ANALYTICS_PLACEHOLDER"
   image: "assets/common/icon_hhkb3_large.jpg"
   navbar: false
-  sidebar:
-    style: floating
-    search: true
-    contents:
-      - section: "Start"
-        contents:
-          - text: "Home"
-            href: "index.qmd"
-          - text: "Feed"
-            href: "feed.qmd"
-          - text: "Resume"
-            href: "resume/index.qmd"
-          - text: "Resume (EN)"
-            href: "en/resume/index.qmd"
-      - section: "Archives"
-        contents:
-          - text: "Blog"
-            href: "blog/index.qmd"
-          - text: "Blog (EN)"
-            href: "en/blog/index.qmd"
-          - text: "Zenn"
-            href: "zenn/index.qmd"
-          - text: "Slides"
-            href: "slides/index.qmd"
-      - text: "---"
-      - section: "External Links"
-        contents:
-          - text: "GitHub"
-            icon: github
-            href: "https://github.com/i9wa4"
-          - text: "LinkedIn"
-            icon: linkedin
-            href: "https://www.linkedin.com/in/daikm"
-          - text: "X"
-            icon: twitter-x
-            href: "https://x.com/i9wa4_"
+  sidebar: false
+  # sidebar:
+  #   style: floating
+  #   search: true
+  #   contents:
+  #     - section: "Start"
+  #       contents:
+  #         - text: "Feed"
+  #           href: "feed.qmd"
+  #         - text: "Resume"
+  #           href: "resume/index.qmd"
+  #         - text: "Resume (EN)"
+  #           href: "en/resume/index.qmd"
+  #     - text: "---"
+  #     - section: "External Links"
+  #       contents:
+  #         - text: "GitHub"
+  #           icon: github
+  #           href: "https://github.com/i9wa4"
+  #         - text: "LinkedIn"
+  #           icon: linkedin
+  #           href: "https://www.linkedin.com/in/daikm"
+  #         - text: "X"
+  #           icon: twitter-x
+  #           href: "https://x.com/i9wa4_"
   open-graph:
     locale: "ja_JP"
     site-name: "uma-chan's page"
