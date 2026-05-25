@@ -1,0 +1,650 @@
+---
+title: "Agent Skills"
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+  - "genda"
+date: 2026-05-28
+date-modified: last-modified
+description: |
+  [登壇資料] GENDA 社内勉強会 2026-05-28
+draft: false
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: "GENDA 社内勉強会 2026-05-28"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+subtitle: ""
+---
+
+## 1. はじめに
+
+### 1.1. 今日話すこと
+
+Agent Skills は、AI エージェントに読ませる手順書を再利用可能な単位にしたもの
+
+今日のゴール
+
+- Agent Skills が何を解決するのかを理解する
+- 個人運用でどんな skill を作ると効くか判断できる
+- チーム運用で skill をどう共有・検証するか考えられる
+- 既存ドキュメントや repo ルールを skill に落とす時の勘所を掴む
+
+### 1.2. 今日の主題
+
+この資料の主題は、個人の dotfiles 紹介ではない
+
+主題は、AI エージェント運用における Agent Skills の設計と運用
+
+`../dotfiles` は、実際に運用されている例として使う
+
+- どのような粒度で skill を分けるか
+- validation gate をどこに置くか
+- 個人運用からチーム運用へ持ち上げる時に何を見るか
+
+### 1.3. この話の位置づけ
+
+この資料は、特定の agent framework や transport の説明ではない
+
+焦点は「どのツールを使うか」ではなく「agent にどの operating knowledge を渡すか」
+
+| 観点             | この資料で扱うこと                         | 扱わないこと                       |
+| ---------------- | ------------------------------------------ | ---------------------------------- |
+| 主題             | Agent Skills の設計と運用                  | 特定ツールの導入手順               |
+| 実行単位         | 作業領域ごとの reusable skill              | agent transport や pane 構成       |
+| 課題             | 手順・判断基準・検証の再利用               | agent 間通信の設計                 |
+| 成功条件         | trigger と完了条件が明確                   | 特定実行基盤への依存               |
+
+### 1.4. なぜ今 Agent Skills なのか
+
+AI エージェントに任せる作業が増えると、毎回同じ指示を書くようになる
+
+- この repo ではどの検証コマンドを使うのか
+- Markdown や Quarto ではどの書き方を守るのか
+- GitHub コメントでは何を出してはいけないのか
+- dbt や Databricks ではどの安全ルールを優先するのか
+- レビューではどの観点と証跡を要求するのか
+
+毎回プロンプトに全部書くと、長い・忘れる・古くなる
+
+Agent Skills は、その反復する operating knowledge を保守可能な形にする
+
+### 1.5. Skill が変えるもの
+
+Agent Skills は、AI を deterministic な実行環境に変える仕組みではない
+
+- 出力は確率的で、解釈や判断の揺れは残る
+- ただし、毎回書くプロンプトを reusable operating knowledge に圧縮できる
+- trigger、workflow、validation を固定すると、作業開始から完了報告までの揺れを小さくできる
+- 個人の使い方も、チームの標準手順も、同じ単位で改善できる
+
+目的は「完全に同じ答えを出す」ことではなく「同じ判断材料を毎回渡す」こと
+
+## 2. Agent Skills の基本
+
+### 2.1. Skill は小さな専門手順書
+
+1 つの skill は、特定の作業領域に対する「使うタイミング」と「進め方」をまとめる
+
+```{.yaml filename="skills/example/SKILL.md"}
+---
+name: example
+license: MIT
+description: |
+  USE FOR: Specific work this skill owns.
+  DO NOT USE FOR: Adjacent work owned by another skill.
+---
+
+# Example
+
+## Workflow
+
+1. Inspect the relevant files.
+2. Read only the needed references.
+3. Make the smallest scoped change.
+4. Run the nearest validation.
+5. Report changed files, evidence, and residual risk.
+```
+
+### 2.2. Skill の 3 要素
+
+| 要素             | 意味                                                       |
+| ---------------- | ---------------------------------------------------------- |
+| Trigger          | いつ読むべきかを `description` で判断できるようにする      |
+| Procedure        | その作業で守る手順、禁止事項、検証を明示する               |
+| Progressive Load | 長い詳細は `references/` に逃がし、必要な時だけ読む        |
+
+Agent Skills は「全部入りのドキュメント」ではなく「入口」
+
+入口を小さく保つことで、必要な詳細だけをその場で展開できる
+
+### 2.3. Skill と普通のドキュメントの違い
+
+| 観点       | 普通の docs                      | Agent Skills                                  |
+| ---------- | -------------------------------- | --------------------------------------------- |
+| 読み手     | 人間                             | AI エージェントと人間                         |
+| 目的       | 背景理解                         | 作業時の判断と実行                            |
+| 起動条件   | 人間が探して読む                 | task に応じて agent が選ぶ                    |
+| 重要な項目 | 説明の網羅性                     | trigger、workflow、validation、handoff        |
+| 失敗例     | 長くても読めばよい               | 長すぎるとコンテキストを圧迫する              |
+
+skill は、AI エージェント向けの lightweight runbook と考えるとわかりやすい
+
+### 2.4. よくある構成
+
+:::: {.columns}
+
+::: {.column width="48%"}
+
+小さな skill は `SKILL.md` だけで足りる
+
+```{.text filename="small-skill-tree.txt"}
+skills/
+  markdown/
+    SKILL.md
+```
+
+:::
+
+::: {.column width="52%"}
+
+詳細や補助スクリプトがある場合は分ける
+
+```{.text filename="larger-skill-tree.txt"}
+skills/
+  dbt-local/
+    SKILL.md
+    references/
+      warehouse-rules.md
+    scripts/
+      check_models.sh
+```
+
+:::
+
+::::
+
+`SKILL.md` は短く、詳しい説明は `references/` に置くのが扱いやすい
+
+## 3. 個人運用で効く使い方
+
+### 3.1. 個人運用の課題
+
+個人で AI エージェントを使う時も、運用ルールはすぐ増える
+
+- 自分の repo でいつも使う command
+- 自分の好みではなく、事故を避けるための禁止事項
+- よく使う cloud、dbt、notebook、diagram の作業手順
+- 失敗した後に毎回思い出す注意点
+- 完了報告に必ず入れてほしい証跡
+
+これらを毎回プロンプトに入れるのは、手作業の CI をしているようなもの
+
+### 3.2. 個人 skill の始め方
+
+最初から大きく作らない
+
+1. 何度も書いている指示を 1 つ選ぶ
+2. 使う条件を 1 文で書く
+3. 最小 workflow を 3 から 5 手順にする
+4. 完了時に必要な evidence を決める
+5. 2 回使ってから trigger と workflow を直す
+
+最初の skill は完成度より再利用回数が大事
+
+### 3.3. 個人 skill に向いている題材
+
+| 題材                         | なぜ向いているか                         |
+| ---------------------------- | ---------------------------------------- |
+| Markdown / Quarto authoring  | 書式ルールと検証コマンドが明確           |
+| Bash / Python utility edits  | 事故りやすい操作と確認手順がある         |
+| dbt / SQL                    | production data safety を明文化できる    |
+| diagram authoring            | render 確認とレイアウト確認が必要        |
+| GitHub review comments       | public surface に出す表現を制御できる    |
+| local agent harness          | 環境固有の修復手順を短く呼び出せる       |
+
+「覚えておけばよい」ではなく「agent が作業時に読むべき」ものを skill にする
+
+### 3.4. 個人運用の落とし穴
+
+個人 skill は、放っておくと自分専用すぎるメモになる
+
+よくある失敗
+
+- home directory の絶対パスが混ざる
+- secret や account 固有情報が混ざる
+- 過去の失敗を全部書いて巨大化する
+- trigger が曖昧で毎回読まれる
+- docs と skill の境界が崩れる
+
+個人運用でも、後からチームに渡せる形を意識しておくと資産になりやすい
+
+## 4. チーム運用で効く使い方
+
+### 4.1. チーム運用の狙い
+
+チームで skill を使う目的は「便利なメモ共有」だけではない
+
+主な狙い
+
+- repo 固有の暗黙知を agent が守れるようにする
+- review で同じ指摘を繰り返さない
+- 完了条件と evidence を揃える
+- 新しいメンバーでも同じ作業面を使えるようにする
+- AI ツールが違っても振る舞いの意図を揃える
+
+skill は、人間向け onboarding と agent 向け operating contract の中間にある
+
+### 4.2. チーム skill の責務分担
+
+チームでは、skill を作ることより ownership を決めることが重要
+
+| 領域             | 置くべき内容                                     |
+| ---------------- | ------------------------------------------------ |
+| `SKILL.md`       | 使う条件、短い workflow、完了条件                |
+| `references/`    | 詳細手順、背景、長いコマンド例                   |
+| `scripts/`       | agent に貼らせず再利用したい機械的処理           |
+| `docs/`          | 人間向け背景、設計思想、オンボーディング         |
+| CI / pre-commit  | 人間と agent の両方に効く deterministic gate     |
+
+agent が守るべきことは skill へ、人間が理解すべき背景は docs へ寄せる
+
+### 4.3. Team Skill Lifecycle
+
+```{mermaid}
+#| label: fig-team-skill-lifecycle
+flowchart LR
+  A["Pain<br/>同じ指示を繰り返す"]
+  B["Draft<br/>小さな SKILL.md"]
+  C["Use<br/>実タスクで試す"]
+  D["Verify<br/>検証を固定する"]
+  E["Share<br/>チーム標準にする"]
+  F["Retire<br/>不要なら消す"]
+
+  A --> B --> C --> D --> E
+  E --> C
+  E --> F
+```
+
+最初から標準化しない
+
+実タスクで使い、検証できるようになってからチーム標準にする
+
+### 4.4. チームで避けたいこと
+
+team skill で避けたいアンチパターン
+
+- 何でも入った `repo-local` skill を作る
+- docs の全文を skill にコピーする
+- 検証できない「雰囲気ルール」だけを書く
+- tool 固有機能に依存しすぎる
+- obsolete な skill を残し続ける
+- trigger description が長く、選択基準が読めない
+
+skill は増やすより、選びやすく保つ方が難しい
+
+## 5. Authoring Practice
+
+### 5.1. USE FOR と DO NOT USE FOR
+
+良い skill は、読むべき場面と読まない場面が両方わかる
+
+```{.yaml filename="frontmatter-example.yaml"}
+description: |
+  USE FOR: Markdown authoring in this repo, including Quarto code fences,
+  table alignment, and Japanese Markdown caveats.
+  DO NOT USE FOR: Diagram layout, dbt safety, or GitHub PR mechanics.
+```
+
+境界が曖昧な skill は、agent にとっても人間にとっても選びにくい
+
+### 5.2. Metadata は英語寄りにする
+
+skill の `name` と `description` は、agent が最初に見る compressed prompt catalog
+
+| Field               | 実務上のおすすめ                                      |
+| ------------------- | ----------------------------------------------------- |
+| `name`              | lowercase ASCII、digits、hyphen の kebab-case         |
+| `description`       | English の `USE FOR` / `DO NOT USE FOR` を基本にする  |
+| `SKILL.md` body     | 対象業務に合わせて日本語でもよい                      |
+| `references/`       | 人間と agent が読む実務資料として日本語でもよい       |
+| eval / trigger case | 日本語 task で使う skill なら日本語 prompt も入れる   |
+
+日本語が禁止されているわけではない
+
+ただし、共有・検索・trigger・validator の安定性を考えると、catalog metadata は英語に寄せる方が安全
+
+### 5.3. Workflow は短くする
+
+`SKILL.md` の workflow は、作業開始直後に読むもの
+
+良い workflow
+
+- 最初に見るファイルが明確
+- 追加で読む reference が限定されている
+- 編集範囲が狭い
+- 検証コマンドがある
+- 報告内容が決まっている
+
+長い tutorial は `references/` に逃がす
+
+### 5.4. Progressive Loading
+
+全部を最初から読ませない
+
+```{mermaid}
+#| label: fig-progressive-loading
+flowchart TD
+  TASK["Task"]
+  CATALOG["Skill catalog"]
+  SKILL["Short SKILL.md"]
+  REF["Specific reference"]
+  SCRIPT["Reusable script"]
+  RESULT["Verified result"]
+
+  TASK --> CATALOG --> SKILL
+  SKILL --> REF
+  SKILL --> SCRIPT
+  REF --> RESULT
+  SCRIPT --> RESULT
+```
+
+小さい入口から必要な詳細だけ読むことで、コンテキストを節約する
+
+### 5.5. Example より Policy を優先する
+
+skill には例を書くより、判断基準を書く
+
+例だけだと起きる問題
+
+- 似ているが少し違う task に弱い
+- 古い path や command が残りやすい
+- agent が例を過剰に真似る
+
+書くべきこと
+
+- 何を守るか
+- 何を確認するか
+- 何を evidence として出すか
+- どの範囲なら変更してよいか
+
+## 6. Validation と Governance
+
+### 6.1. Skill は検証対象
+
+Agent Skills は単なるメモではなく、検証可能な成果物として扱う
+
+検証観点
+
+| 観点              | 目的                                               |
+| ----------------- | -------------------------------------------------- |
+| Frontmatter       | `name`、`description`、YAML 構造の破損検出         |
+| Trigger clarity   | catalog から選びやすい説明にする                   |
+| Link / reference  | 参照先の broken link を避ける                      |
+| Token budget      | `SKILL.md` を入口として小さく保つ                  |
+| Private content   | local path、secret、private topology を混ぜない    |
+| Publish dry-run   | 外部共有できる形か確認する                         |
+| Behavior evidence | 実タスクで期待した skill が選ばれるか確認する      |
+
+### 6.2. 安い gate を先に置く
+
+review で頑張る前に、機械的に落とせるものを落とす
+
+```{.bash filename="skill-checks.sh"}
+bash bin/validate-skill-frontmatter.sh skills/<name>
+bash bin/validate-skill-private-content.sh skills/<name>
+waza --no-update-check check skills/<name> --format json
+gh skill publish --dry-run
+```
+
+CI に入れるなら、速いものから順に走らせる
+
+### 6.3. Private Content Gate
+
+個人運用の skill をチームに持ち込む時に一番危ないのは、環境固有情報の混入
+
+確認するもの
+
+- home directory の絶対パス
+- private topology や node 名
+- account-specific auth
+- personal machine name
+- copied runtime output
+- public surface に出すべきでない local path
+
+「自分の手元では便利」から「共有しても安全」へ変換する gate が必要
+
+### 6.4. Trigger Validation
+
+skill selection は、感覚だけに頼ると壊れやすい
+
+trigger validation で見ること
+
+- その prompt で期待した skill が選ばれるか
+- 古い skill 名が target skill に誘導されるか
+- rename や merge の互換性が保たれているか
+- target group の責務が重複していないか
+
+skill が増えたチームでは、trigger もテスト対象になる
+
+## 7. Personal から Team へ
+
+### 7.1. 昇格の判断基準
+
+個人 skill をチーム標準にする前に確認する
+
+| 質問                                     | 見るポイント                             |
+| ---------------------------------------- | ---------------------------------------- |
+| 複数人が使う作業か                       | 個人最適化だけで終わっていないか         |
+| 失敗した時の損害があるか                 | safety rule を skill に入れる価値        |
+| 完了条件が明確か                         | evidence を要求できるか                  |
+| docs ではなく skill が必要か             | agent が作業時に読む必要があるか         |
+| 検証コマンドを置けるか                   | review 前に落とせるか                    |
+
+「便利」だけではなく「運用品質が上がる」ものを昇格する
+
+### 7.2. チーム標準にする時の形
+
+チーム skill にする時は、最低限この形にする
+
+1. Owner を決める
+2. USE FOR / DO NOT USE FOR を書く
+3. workflow を 5 手順以内にする
+4. validation を 1 つ以上置く
+5. private content scan を通す
+6. 既存 docs との関係を書く
+7. 古くなった時の削除基準を決める
+
+削除基準がない skill は、だんだん catalog noise になる
+
+### 7.3. 運用の役割分担
+
+| 役割             | 責務                                             |
+| ---------------- | ------------------------------------------------ |
+| Skill owner      | 内容の正しさ、trigger、reference の鮮度          |
+| Repo maintainer  | CI、publish gate、private content gate           |
+| Daily user       | 実タスクでの使いにくさを feedback                |
+| Reviewer         | skill が docs や config と重複していないか確認   |
+| Agent            | task に合う skill を読み、evidence を返す        |
+
+チーム運用では、skill も code と同じように owner と review が必要
+
+## 8. Concrete Examples
+
+### 8.1. dotfiles は例として使う
+
+ここからは、実際の repo-local context から抽出した例
+
+目的は dotfiles の紹介ではなく、transferable practice の確認
+
+| dotfiles の例                  | 一般化できる practice                         |
+| ------------------------------ | --------------------------------------------- |
+| `skills/*/SKILL.md`            | 作業領域ごとに trigger と workflow を分ける   |
+| `references/`                  | 詳細手順を progressive loading にする         |
+| `agent-skills-management`      | skill authoring 自体を運用対象にする          |
+| `classification.yaml`          | target group と lifecycle を機械可読にする    |
+| `trigger-validation.json`      | skill selection を test case 化する           |
+| `shared/agent-skills.nix`      | 複数 runtime へ同じ source から配布する       |
+
+### 8.2. Skill Management Skill
+
+dotfiles には、skill 自体を管理する `agent-skills-management` がある
+
+一般化すると、チームには「skill authoring の skill」があると便利
+
+扱うこと
+
+- `SKILL.md` の追加・編集・削除
+- reference 分割
+- trigger description の改善
+- readiness check
+- publish dry-run
+- private content scan
+
+skill が増えたら、skill を管理する手順も skill 化する
+
+### 8.3. Compatibility Trigger
+
+古い呼び出し名をいきなり消すと、agent と人間の習慣が壊れる
+
+dotfiles では、一部の古い skill 名を compatibility trigger として残し、詳細 owner を target skill に寄せている
+
+一般化できること
+
+- rename はいきなり削除しない
+- old trigger が new owner に向くようにする
+- migration 状態を machine-readable に残す
+- 完了後に削除する gate を決める
+
+skill catalog も API と同じで、互換性を考える必要がある
+
+### 8.4. Multi Runtime Distribution
+
+dotfiles では、同じ skill source を Claude Code と Codex CLI に配っている
+
+```{mermaid}
+#| label: fig-multi-runtime-skills
+flowchart LR
+  SOURCE["Skill source<br/>skills/*"]
+  INSTALL["Install graph"]
+  CLAUDE["Runtime A<br/>Claude Code"]
+  CODEX["Runtime B<br/>Codex CLI"]
+
+  SOURCE --> INSTALL
+  INSTALL --> CLAUDE
+  INSTALL --> CODEX
+```
+
+一般化できること
+
+- runtime ごとに手順を分岐させすぎない
+- source of truth を 1 つにする
+- runtime-specific な差分は理由を書く
+- installed output は編集対象にしない
+
+## 9. 導入パターン
+
+### 9.1. 個人で始める 1 週間プラン
+
+1 日目
+
+- 毎回書いている prompt を 1 つ選ぶ
+- `SKILL.md` に trigger と 3 手順だけ書く
+
+2 から 3 日目
+
+- 実タスクで 2 回使う
+- 読まれすぎるなら trigger を狭める
+
+4 から 5 日目
+
+- validation command を 1 つ追加する
+- 長くなった説明を `references/` に移す
+
+1 週間後
+
+- 残すか、直すか、消すか決める
+
+### 9.2. チームで始める 1 スプリントプラン
+
+1. 候補を 3 つまでに絞る
+2. 事故を避けたい作業から選ぶ
+3. 各 skill に owner を置く
+4. small `SKILL.md` と validation を作る
+5. 実タスクで使い、review で evidence を見る
+6. 使われない skill は標準化しない
+7. 次スプリントで publish / retire を判断する
+
+最初から catalog を増やしすぎない
+
+### 9.3. 成功指標
+
+Agent Skills の成功は、skill 数では測らない
+
+見るべき指標
+
+- 同じ指摘が review で減る
+- 完了報告に evidence が揃う
+- 新しい人でも安全に agent 作業を任せられる
+- task ごとの context が短くなる
+- obsolete な手順を消せる
+- agent が「何を確認すべきか」を迷わない
+
+skill catalog は、多いほど良いのではなく、選びやすいほど良い
+
+## 10. まとめ
+
+### 10.1. 今日のまとめ
+
+| テーマ             | 要点                                                       |
+| ------------------ | ---------------------------------------------------------- |
+| Agent Skills       | AI に読ませる reusable operating playbook                  |
+| 個人運用           | 反復 prompt、事故防止、完了 evidence を skill 化する       |
+| チーム運用         | ownership、validation、private content gate が重要         |
+| Authoring          | short `SKILL.md`、clear trigger、progressive loading       |
+| Governance         | trigger validation と lifecycle 管理が必要                 |
+| dotfiles の扱い    | 主題ではなく、transferable practice を見る具体例           |
+
+### 10.2. 覚えて帰ること
+
+Agent Skills は、AI エージェント向けの手順書を運用可能にする仕組み
+
+大事なこと
+
+1. `SKILL.md` は短く、trigger と workflow を明確にする
+2. 長い背景は `references/` に逃がす
+3. 個人運用でも private content を混ぜない
+4. チーム運用では owner と validation を置く
+5. skill を増やすより、選びやすく保つ
+
+### 10.3. 次の一歩
+
+もし明日から試すなら
+
+1. 直近 1 週間で agent に 3 回以上書いた指示を探す
+2. その指示を `SKILL.md` 10 行にする
+3. 使う条件と完了 evidence を書く
+4. 実タスクで 2 回使う
+5. 読まれすぎるなら trigger を直す
+
+Agent Skills は、一度で完成させるものではない
+
+小さく作り、使いながら sharpen する
