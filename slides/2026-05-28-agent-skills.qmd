@@ -375,6 +375,17 @@ description: |
   DO NOT USE FOR: Build failures, release safety, or public writing rules.
 ```
 
+これは GitHub Agent Skills の必須構文ではない
+
+ただし Waza は実装上この形と相性がよい
+
+| Waza 側の見る場所 | `USE FOR` / `DO NOT USE FOR` の扱い                       |
+| ----------------- | --------------------------------------------------------- |
+| compliance scorer | trigger / anti-trigger の signal として見る               |
+| `scope-reduction` | `USE FOR:` の item 数を capability signal として数える    |
+| trigger grader    | `USE FOR:` phrase を prompt との relevance scoring に使う |
+| trigger grader    | `DO NOT USE FOR:` 以降を通常 keyword extraction から外す  |
+
 境界が曖昧な Agent Skills は、agent にとっても人間にとっても選びにくい
 
 短い prompt で任せるほど、入口の精度が効く
@@ -469,12 +480,12 @@ Agent Skills 定義には例を書くより、判断基準を書く
 
 ### 6.1. `waza` と `gh skill` は何か
 
-どちらも Agent Skills を扱う tool だが、見る場所が違う
+どちらも Agent Skills を扱う tool だが、責任範囲が違う
 
-| Tool       | 何を見るか                                                             | 公式 link                                            |
-| ---------- | ---------------------------------------------------------------------- | ---------------------------------------------------- |
-| `waza`     | Agent Skills の readiness、quality、token budget、eval の入口を見る    | [Waza docs](https://microsoft.github.io/waza/about/) |
-| `gh skill` | GitHub CLI で Agent Skills を search / install / update / publish する | [CLI manual](https://cli.github.com/manual/gh_skill) |
+| Tool       | 何を見るか                                                         | 見ないもの                                  | 公式 link                                            |
+| ---------- | ------------------------------------------------------------------ | ------------------------------------------- | ---------------------------------------------------- |
+| `waza`     | Agent Skills の readiness、token budget、eval、grader の入口       | GitHub release と install 先の package 管理 | [Waza docs](https://microsoft.github.io/waza/about/) |
+| `gh skill` | GitHub CLI core command として search / install / update / publish | trigger quality や eval の実行品質          | [CLI manual](https://cli.github.com/manual/gh_skill) |
 
 この資料では、`waza check` は作りの確認、`gh skill publish --dry-run` は publishability の確認として使う
 
@@ -482,22 +493,23 @@ Agent Skills 定義には例を書くより、判断基準を書く
 
 ### 6.2. `waza` で見るもの
 
-`waza` は、Agent Skills を作った後の quality check として使う
+`waza check` は、Agent Skills を作った後の readiness check として使う
 
 AI との向き合い方を運用にするには、Agent Skills 側の入口が壊れていないことが大事
 
-見るもの
+確認した Waza 0.33.0 では、`ready` は主に次で決まる
 
-| 観点               | 個人運用での意味                                 |
-| ------------------ | ------------------------------------------------ |
-| Frontmatter        | `name`、`description`、YAML 構造の破損を見つける |
-| Trigger clarity    | catalog から選びやすい説明になっているか見る     |
-| Token budget       | `SKILL.md` が入口として小さいか見る              |
-| Link / reference   | 参照先が壊れていないか見る                       |
-| Procedural content | 手順として読める説明になっているか見る           |
-| Eval readiness     | 後で trigger test を置ける状態か見る             |
+| 観点             | 実装上の意味                                                           |
+| ---------------- | ---------------------------------------------------------------------- |
+| Compliance score | `Medium-High` 以上。trigger、anti-trigger、routing clarity を見る      |
+| Spec checks      | frontmatter、name、directory match、description、allowed fields を見る |
+| Token budget     | `SKILL.md` が limit を超えていないか見る                               |
+| Links / schema   | reference link と eval schema が壊れていないか見る                     |
+| Advisory checks  | procedure、body structure、progressive disclosure、scope を見る        |
 
-`waza check` は exit code だけでなく JSON の `ready` も見る
+`eval.yaml` がないことは recommendation として出るが、それだけで `ready=false` にはならない
+
+`waza check` は exit code だけでなく JSON の `ready` と各 check 名を見る
 
 ### 6.3. `waza` の使い方
 
@@ -511,11 +523,11 @@ waza --no-update-check check skills/<name> --format json |
 
 見る順番
 
-1. spec / frontmatter が壊れていないか
-2. description が短すぎないか
-3. trigger が具体的か
-4. token budget が大きすぎないか
-5. 長い内容を `references/` に逃がせるか
+1. `specCompliance` が落ちていないか
+2. `compliance.level` が `Medium-High` 以上か
+3. `tokenBudget.exceeded` が `false` か
+4. `links` と `schema` が壊れていないか
+5. `advisoryChecks` に設計上の warning がないか
 
 ### 6.4. `gh skill` で見るもの
 
@@ -531,12 +543,18 @@ gh skill --help
 gh skill publish --dry-run
 ```
 
-`waza` と `gh skill` の役割は違う
+`gh skill publish --dry-run` が見るもの
 
-| Tool       | 見るもの                                      |
-| ---------- | --------------------------------------------- |
-| `waza`     | Agent Skills として読みやすく、運用しやすいか |
-| `gh skill` | GitHub の Agent Skills として package 可能か  |
+| 観点              | publish dry-run の意味                                |
+| ----------------- | ----------------------------------------------------- |
+| Discovery         | `skills/*/SKILL.md` などの convention で見つかるか    |
+| Name              | lowercase、digits、hyphen、directory match を満たすか |
+| Frontmatter       | `name` と `description` があるか                      |
+| `allowed-tools`   | array ではなく space-delimited string になっているか  |
+| Install metadata  | `metadata.github-*` が残っていないか                  |
+| Publish readiness | topic、tag、release に進める repository 状態か        |
+
+つまり、`waza` は Agent Skills としての読みやすさ、`gh skill` は package と配布の形を見る
 
 ### 6.5. `sh skill` と間違えない
 
@@ -582,12 +600,19 @@ Agent Skills の選択は、感覚だけに頼ると壊れやすい
 
 `description` を読むだけではなく、現実に近い prompt で選択結果を見る
 
+Waza では、trigger validation は `waza check` そのものではなく eval 側の grader として扱う
+
 | 見るもの              | 確認すること                         |
 | --------------------- | ------------------------------------ |
 | Prompt case           | 実際の依頼文に近いか                 |
 | Expected Agent Skills | 読まれてほしい Agent Skills はどれか |
 | Observed Agent Skills | 実際に選ばれた Agent Skills はどれか |
 | Result                | pass / fail / blocked を記録できるか |
+
+| Waza grader        | 見ること                                                    |
+| ------------------ | ----------------------------------------------------------- |
+| `trigger`          | prompt が `SKILL.md` の keyword / `USE FOR` phrase と合うか |
+| `skill_invocation` | 実行 transcript で期待した Agent Skills が呼ばれたか        |
 
 確認すること
 
@@ -649,13 +674,13 @@ AI との向き合い方も、運用しているうちに更新される
 
 ### 9.1. 今日のまとめ
 
-| テーマ            | 要点                                                   |
-| ----------------- | ------------------------------------------------------ |
-| AI との向き合い方 | AI に任せる前に、渡す判断材料を設計する                |
-| 弱い prompt       | context、workflow、validation、evidence が足りない状態 |
-| Agent Skills      | operating knowledge を再利用可能にする package         |
-| Tooling           | `waza` で quality、`gh skill` で publishability を見る |
-| Validation        | trigger、language support、publishability を確認する   |
+| テーマ            | 要点                                                     |
+| ----------------- | -------------------------------------------------------- |
+| AI との向き合い方 | AI に任せる前に、渡す判断材料を設計する                  |
+| 弱い prompt       | context、workflow、validation、evidence が足りない状態   |
+| Agent Skills      | operating knowledge を再利用可能にする package           |
+| Tooling           | `waza` で readiness、`gh skill` で publishability を見る |
+| Validation        | trigger、language support、publishability を確認する     |
 
 ### 9.2. 覚えて帰ること
 
