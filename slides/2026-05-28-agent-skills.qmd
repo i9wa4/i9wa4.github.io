@@ -39,7 +39,7 @@ subtitle: "AI との向き合い方と Agent Skills"
 
 ### 1.1. 今日話すこと
 
-この資料は、Agent Skills そのものだけではなく、AI との向き合い方を考える話
+今日は Agent Skills を入口に、AI への依頼をどう設計するかを考えます
 
 今日のゴール
 
