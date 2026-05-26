@@ -243,10 +243,19 @@ agent が予測可能に動くための instruction の形の話
 ふだんの依頼は、このくらいでよい
 
 ```{.text filename="task-prompt.txt"}
+$skill-description-index
 @markdown
 slides/example.qmd を QMD の規約に合わせて直して。
 quarto render と lint を確認し、変更 file と evidence を報告して。
 ```
+
+Agent Skills が絡む依頼では、冒頭に `$skill-description-index` を置くのも実用的
+
+catalog 上の説明が短い、圧縮されている、曖昧な時に full description を戻してから判断できる
+
+ただし magic word ではない
+
+どの Skill を読むべきか明らかな小さい task なら、省いてもよい
 
 ここに、QMD code fence の細かい規約を毎回貼らない
 
