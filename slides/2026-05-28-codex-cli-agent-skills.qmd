@@ -1,5 +1,5 @@
 ---
-title: "Agent Skills を邪魔しない Codex CLI 運用"
+title: "Codex CLI は薄い実行面にする"
 author:
   - name: uma-chan
 categories:
@@ -32,218 +32,124 @@ format:
     height: 1080
     width: 1920
   gfm: default
-subtitle: "大事なのは Skill を管理すること。Codex CLI は薄い実行面にする"
+subtitle: "Agent Skills を邪魔しないための最小限の Codex CLI"
 ---
 
-## 1. この資料の狙い
+## 1. この資料の位置づけ
 
 ### 1.1. 資料その2で話すこと
 
-資料その1では、AI との向き合い方、弱い prompt、Agent Skills、
-validation を広く扱った
+資料その1では、Agent Skills を主役として扱った
 
-この資料はその続き
+- 弱い prompt
+- reusable operating knowledge
+- `$skill-description-index`
+- `name` と `description`
+- one-shot prompting
+- good issue / ticket
+- workflow、validation、evidence
 
-Codex CLI 側で新しい話を増やすのではなく、Agent Skills の考え方を邪魔しないための薄い補足にする
+この資料では、Codex CLI について多くは話さない
 
-- Agent Skills をちゃんと管理する
-- Codex CLI をその邪魔にならない薄い実行面にする
-- project guidance や shared docs に局所 rule を置く
-- 完了条件を evidence で確認できる形にする
-
-主題は Codex CLI の option 紹介ではない
-
-主題は「Agent Skills が効く状態を保つこと」
+Codex CLI は、Agent Skills が効く場所を壊さないための薄い実行面として扱う
 
 ### 1.2. 今日の結論
 
-主役は Agent Skills の管理
+Codex CLI 側で頑張りすぎない
 
-Codex CLI は、入口と実行環境として薄く使い、Skill の判断を邪魔しない
+| 層           | 役割                                    |
+| ------------ | --------------------------------------- |
+| Task prompt  | 今回だけの目的、対象、例外              |
+| Agent Skills | 繰り返す workflow、validation、report   |
+| Project docs | project 固有の約束                      |
+| Codex CLI    | 作業場所、書込範囲、危険 command の停止 |
+| Checks       | 機械的に確認できる evidence             |
 
-| 置き場所         | 置くもの                                 |
-| ---------------- | ---------------------------------------- |
-| Codex CLI        | 作業場所、書込範囲、危険 command の停止  |
-| Task prompt      | 今回だけの目的、対象、例外               |
-| Agent Skills     | workflow、validation、report 形式        |
-| Project docs     | project 固有の約束、編集規約、禁止事項   |
-| Automated checks | 機械的に確認できる品質 gate              |
-| Task artifact    | 長い作業の現在地、check 結果、残 blocker |
+Codex CLI に workflow を埋め込むと、Agent Skills と二重管理になる
 
-設定を増やす前に、置き場所を分ける
+Codex 側は、作業場所と安全境界を決めるくらいでよい
 
 ### 1.3. 扱わないこと
 
-この資料では、意図的に扱わないものがある
+この資料では扱わない
 
 - Codex CLI の全 option 解説
-- local file や script の一覧
-- hook 実装の詳細
-- 複数 agent 連携の詳細設計
+- Agent Skills の詳しい作り方
 - Agent Skills の publish 手順
-- 環境構築ツールの説明
+- 個別 script や環境構築の紹介
+- 大きな運用設計
 
-細部の紹介ではなく、聞き手が持ち帰れる考え方にする
+細部の機能紹介ではなく、置き場所の分離を確認する
 
-## 2. Codex CLI は邪魔しない
+## 2. Codex CLI に残すもの
 
-### 2.1. Codex 側で頑張りすぎない
+### 2.1. 作業 root
 
-Codex CLI 側に workflow を埋め込むと、Skill と二重管理になる
+Codex CLI でまず決めるのは、どこで作業するか
 
-Codex 固有で話す価値があるのは、だいたい次の薄い土台
+作業 root が曖昧だと、agent は関係ない file や古い context を見に行きやすい
 
-| 種類               | 目的                                      |
-| ------------------ | ----------------------------------------- |
-| Skill を読める状態 | workflow を CLI 設定に埋め込まない        |
-| 作業 root          | 対象 project / workspace を決める         |
-| writable scope     | 書いてよい範囲を狭くする                  |
-| command guardrail  | 危険な command を早めに止める             |
-| status visibility  | context、権限状態、version を見える化する |
+起動時に決めること
 
-これは「Codex CLI をカスタムしまくる」という話ではない
+| 観点        | 決めること                  |
+| ----------- | --------------------------- |
+| 作業場所    | どの workspace で作業するか |
+| 今回の task | 何を完成とするか            |
+| 参照先      | どの issue / artifact か    |
+| 完了条件    | どの check を見るか         |
 
-Agent Skills が働く場所を壊さないための最低限の整備
+ここで workflow まで書き込まない
 
-### 2.2. 起動時に人間が決めること
+workflow は Agent Skills 側に置く
 
-毎回変わるものは、設定ではなく起動時と prompt に残す
+### 2.2. writable scope
 
-| 観点       | 決めること                      | 例                  |
-| ---------- | ------------------------------- | ------------------- |
-| 作業場所   | どの workspace で作業するか     | `--cd <workspace>`  |
-| 書込範囲   | 追加で書き込ませる場所があるか  | `--add-dir <scope>` |
-| 今回の目的 | 何を完成とするか                | task prompt         |
-| 完了条件   | どの check を evidence にするか | test / lint / build |
+書込範囲は狭い方がよい
 
-model や外部 tool は重要だが、この話の中心にしない
-
-今回の作業に必要な時だけ触ればよい
-
-### 2.3. `--add-dir` は writable scope
-
-`--add-dir <DIR>` は、追加で読ませるだけの option ではない
-
-primary workspace と並んで、追加範囲を書き込み可能にする option と考える
+`--add-dir <DIR>` は、追加で読ませるだけの option ではなく、追加範囲を書き込み可能にする option として扱う
 
 使う時の判断
 
 - 追加範囲を実際に編集する時だけ使う
 - 読むだけでよいなら prompt で参照先を説明する
-- workspace や権限範囲を雑に広げない
-- 複数の成果物にまたがる時は、変更対象を明示する
+- 変更対象が複数にまたがる時は、成果物を明示する
+- 何となく workspace を広げない
 
-これは context expansion ではなく write-scope expansion
+context を増やす話ではなく、write scope を広げる話
 
-### 2.4. 機能紹介にしない
+### 2.3. command guardrail
 
-Codex CLI には多くの primitive がある
+Codex CLI に期待する guardrail は、品質そのものではない
 
-ただし、日々の運用で毎回説明したいのはそこではない
+危険な操作やおかしな状態を早く目立たせるための補助
 
-この資料で残す観点
+- 危険な command を止める
+- 書込範囲が広い時に気づけるようにする
+- 権限状態を見える場所に出す
+- 失敗した check を evidence として残す
 
-- 作業場所をどう決めるか
-- 書込範囲をどう狭く保つか
-- 危険な command をどう止めるか
-- Skill の workflow を CLI 設定に埋め込まないこと
-- 完了報告を evidence でどう検証可能にするか
+hard guard だけに頼らない
 
-便利機能の列挙より、失敗時に原因を追える形を優先する
+作業順や判断基準は Agent Skills 側にも書く
 
-## 3. 運用面をどこに置くか
+## 3. Prompt は薄くする
 
-### 3.1. 大きな root instruction を作らない
+### 3.1. 今回だけの情報を残す
 
-全 task に効く root instruction を大きくすると、古い rule が残りやすい
+prompt に残すのは、今回だけの情報
 
-実運用では、置き場所を分ける方が扱いやすい
+- 何を終わらせたいか
+- どの issue / artifact を見るか
+- 今回だけの例外は何か
+- 追加で確認してほしいことは何か
 
-| 内容                   | 置き場所                        |
-| ---------------------- | ------------------------------- |
-| persona や基本姿勢     | runtime の薄い共通 instruction  |
-| project 固有の約束     | project guidance / shared docs  |
-| domain ごとの作業手順  | Agent Skills                    |
-| 長い背景や実例         | Skill references / project docs |
-| 機械的に判定できるもの | check command                   |
-| 今回だけの例外         | task prompt                     |
+毎回同じ手順は貼らない
 
-全部を 1 つの prompt に戻さない
+同じ手順は Agent Skills や project docs に置く
 
-全部を Skill にもしない
+### 3.2. 依頼文の型
 
-### 3.2. Skill に残す最小要素
-
-Agent Skills は、短い依頼を雑な依頼にしないための置き場所
-
-Codex CLI と組み合わせるなら、このくらいで足りる
-
-| 要素          | 置くもの                             |
-| ------------- | ------------------------------------ |
-| `description` | いつ読むか、いつ読まないか           |
-| Workflow      | 作業開始から報告までの短い手順       |
-| Validation    | 近い check と見る順番                |
-| Report        | evidence、残リスク、BLOCKED の出し方 |
-| References    | 長い背景や例。必要な時だけ読む       |
-
-Skill は百科事典ではない
-
-作業時に読む runbook として小さく保つ
-
-### 3.3. Project guidance に向くもの
-
-Project guidance は、その作業場所に入った時だけ効いてほしい約束に向いている
-
-たとえば
-
-- project 固有の用語や文体
-- public / private surface の分け方
-- 入力データと出力データの境界
-- 近い validation command
-- review 前に見るべき artifact
-
-prompt に毎回貼るより、project の source of truth に置いた方がずれにくい
-
-ただし、長い背景説明まで project guidance に入れない
-
-### 3.4. instruction design の小さな型
-
-役に立つ instruction は、細かい手順より先に境界を決めている
-
-project guidance や Skill に転用しやすい型
-
-| 型                        | 何を決めるか                         |
-| ------------------------- | ------------------------------------ |
-| Role boundary             | 誰が実装し、誰が review するか       |
-| Decision rule             | 進めるか、止まって BLOCKED にするか  |
-| Public/private separation | 公開してよい情報と伏せる情報         |
-| Evidence gate             | DONE と言う前に何を確認するか        |
-| Report shape              | changed files、checks、blockers の形 |
-
-これは通信方式の話ではない
-
-agent が予測可能に動くための instruction の形の話
-
-## 4. Prompt を短くする
-
-### 4.1. 短い prompt の前提
-
-短い prompt は、情報を捨てることではない
-
-毎回同じ判断を Skill や project guidance に逃がした上で、今回だけの情報を残す
-
-依頼文に残すもの
-
-- 読ませたい Skill
-- 対象 issue / artifact
-- 直してほしい範囲
-- 今回だけ追加したい完了条件
-
-短い prompt は、置き場所が分かれている時にだけ効く
-
-### 4.2. 依頼文の型
-
-ふだんの依頼は、このくらいでよい
+Agent Skills がある前提なら、依頼は短くできる
 
 ```{.text filename="task-prompt.txt"}
 $skill-description-index
@@ -251,167 +157,85 @@ issue #123 の対応を進めてください。
 関連する Agent Skills の workflow に従ってください。
 ```
 
-Agent Skills が絡む依頼では、冒頭に `$skill-description-index` を置くのも実用的
+これは magic word ではない
 
-catalog 上の説明が短い、圧縮されている、曖昧な時に full description を戻してから判断できる
+よい issue / ticket と、よい Agent Skills が先にあるから短くできる
 
-実装、test/lint、残リスク報告の通常順序は、毎回 prompt に書くよりも開発 workflow Skill に置く
+Codex CLI は、この prompt を実行する薄い入口
 
-ただし、この型はよい issue / ticket が先にある時に効く
+### 3.3. Codex に持たせないもの
 
-goal、constraints、acceptance criteria、verification expectations は issue 側に書く
+Codex CLI 側に入れすぎないもの
 
-もちろん magic word ではない
+| 入れすぎないもの      | 置き場所                |
+| --------------------- | ----------------------- |
+| domain ごとの作業手順 | Agent Skills            |
+| 長い背景や例          | Skill references / docs |
+| project 固有の規約    | project docs            |
+| 完了報告の細かい形式  | Agent Skills            |
+| 今回だけの例外        | task prompt             |
 
-どの Skill を読むべきか明らかな小さい task なら、省いてもよい
+Codex CLI は、判断材料そのものではない
 
-ここに、書式や禁止事項を毎回貼らない
+判断材料を読める場所で、余計な邪魔をしない実行面にする
 
-規約は project guidance や Skill に置く
+## 4. 完了は evidence で見る
 
-prompt には今回の対象とゴールだけを残す
+### 4.1. DONE を検証可能にする
 
-### 4.3. 悪い短さと良い短さ
+Codex CLI で作業しても、完了確認は tool 任せにしない
 
-短ければよいわけではない
-
-| 種類     | 例                                               | 起きること                     |
-| -------- | ------------------------------------------------ | ------------------------------ |
-| 悪い短さ | `いい感じに直して`                               | scope、style、check を推測する |
-| 良い短さ | `issue #123 の acceptance criteria に沿って対応` | Skill が workflow を補う       |
-| 悪い長さ | 禁止事項を毎回 100 行貼る                        | 古い手順が混ざりやすい         |
-| 良い長さ | 今回だけの例外を 3 行足す                        | 再利用部分と例外が分かれる     |
-
-短くする目的は、agent に考えさせないことではない
-
-同じ判断材料を、同じ場所から読ませること
-
-## 5. Guardrail と evidence
-
-### 5.1. Guardrail は補助
-
-Guardrail は、作業品質そのものではない
-
-役割は、危険な操作やおかしな状態を早く目立たせること
-
-- 危険な command を止める
-- 書込範囲が広い時に気づけるようにする
-- 権限状態を見える場所に出す
-- 失敗した check を evidence として残す
-
-作業順や判断基準は、Skill 側にも書く
-
-hard guard だけに頼らない
-
-### 5.2. Evidence を完了条件にする
-
-Codex CLI で作業する時は、結果だけでなく evidence を求める
-
-良い完了報告に入るもの
+見るもの
 
 - 変更した file
 - 実行した check
 - check の成否
 - test artifact の有無
 - 残った blocker
-- 人間が次に見るべき場所
+- 次に人間が見る場所
 
-「できました」だけでは、受け手が確認できない
+完了報告の形式は、Agent Skills 側に置く
 
-Skill に report 形式を書くと、短い prompt でも evidence が残る
+Codex CLI は、check を実行して結果を残す実行面
 
-### 5.3. BLOCKED を許す
-
-失敗を隠す agent は危ない
-
-できない時に BLOCKED と言わせる方がよい
-
-BLOCKED に入れるもの
-
-- 何ができなかったか
-- どの command / check が失敗したか
-- どこまで確認したか
-- 人間の判断が必要なこと
-- 次に安全に試せること
-
-未確認を完了扱いしない
-
-## 6. 長い作業の現在地
-
-### 6.1. Chat history を信じすぎない
+### 4.2. 長い作業は外に記録する
 
 長い作業では、chat history だけを作業記録にしない
-
-理由
 
 - context が圧縮される
 - 別 session に引き継ぐと消える
 - どこまで検証したかが曖昧になる
-- 途中で方針が変わると古い情報が残る
+- 方針変更で古い情報が残る
 
-長くなる作業は、外部の task artifact に現在地を書く
+作業の現在地は task artifact に置く
 
-これは tool に依存しない考え方
+これも Codex CLI 固有の話ではない
 
-### 6.2. Task artifact に書くもの
+長い作業を検証可能にするための運用
 
-task artifact は、後から読む人のための作業台帳
+## 5. まとめ
 
-| 項目        | 内容                                  |
-| ----------- | ------------------------------------- |
-| Objective   | 何を完成させるか                      |
-| Checklist   | 元の依頼の完了条件                    |
-| Milestones  | 今どこまで進んでいるか                |
-| Evidence    | check、test artifact、diff の確認結果 |
-| Surprises   | 想定外だったこと                      |
-| Next action | 次にやること                          |
+### 5.1. 今日のまとめ
 
-Agent Skills は作業の手順
+| テーマ       | 要点                                             |
+| ------------ | ------------------------------------------------ |
+| Codex CLI    | 作業 root、write scope、command guardrail に絞る |
+| Agent Skills | workflow、validation、report を持つ主役          |
+| Prompt       | 今回だけの目的、対象、例外を残す                 |
+| Evidence     | check と artifact で完了を確認する               |
 
-task artifact は作業の現在地
+Codex CLI は、Agent Skills の代わりではない
 
-### 6.3. Codex CLI との相性
+Agent Skills を邪魔しない薄い実行面にする
 
-Codex CLI は、作業を始めるには軽い
+### 5.2. 覚えて帰ること
 
-一方で、長い作業の記録を自動で完璧に保存してくれるわけではない
-
-だから運用で補う
-
-- 開始時に checklist を置く
-- milestone を進めるたびに更新する
-- check 結果を evidence に残す
-- 途中で詰まったら blocker を更新する
-- 完了報告は artifact と実ファイルを照合する
-
-CLI を複雑にするより、記録の置き場所を決める
-
-## 7. まとめ
-
-### 7.1. 今日のまとめ
-
-| テーマ       | 要点                                                  |
-| ------------ | ----------------------------------------------------- |
-| Codex CLI    | Skill を邪魔しない入口。書込範囲と危険 command を絞る |
-| Agent Skills | 繰り返す workflow、validation、report を置く          |
-| Project docs | project 固有の約束を置く                              |
-| Prompt       | 今回だけの目的、対象、例外を残す                      |
-| Evidence     | check と artifact で完了を確認できる形にする          |
-
-Agent Skills をちゃんと管理する
-
-Codex CLI は、その邪魔をしないくらいでよい
-
-### 7.2. 覚えて帰ること
-
-1. 主役は Agent Skills の管理
-2. writable scope は狭く扱う
-3. Codex 固有の設定は、危険 command の停止くらいから始める
-4. Skill は短く、詳細は reference に分ける
-5. DONE には evidence と残 blocker を入れる
-
-全部を CLI 設定で解決しなくてよい
+1. 主役は Agent Skills
+2. Codex CLI に workflow を埋め込まない
+3. write scope は必要な時だけ広げる
+4. command guardrail は補助と考える
+5. DONE は evidence で確認する
 
 素直な起動、短い prompt、小さな Skill、実際の check
 
-この組み合わせで、AI との作業はかなり安定する
+Codex CLI は、それを邪魔しないくらいでよい
