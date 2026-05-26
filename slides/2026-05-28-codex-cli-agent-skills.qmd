@@ -1,0 +1,706 @@
+---
+title: "Codex CLI と Agent Skills の素直な運用"
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+  - "genda"
+date: 2026-05-28
+date-modified: last-modified
+description: |
+  [登壇資料] GENDA 社内勉強会 2026-05-28 勉強会資料その2
+draft: false
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: "GENDA 社内勉強会 2026-05-28"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+subtitle: "Codex CLI を頑張らせすぎず、Agent Skills に手順を寄せる"
+---
+
+## 1. はじめに
+
+### 1.1. この資料の位置づけ
+
+これは 2026-05-28 勉強会資料その2
+
+資料その1では、AI との向き合い方、弱い prompt、Agent Skills、
+validation を広く扱った
+
+この資料では、もう少し作業日に近い粒度で考える
+
+- Codex CLI をどう使うか
+- Agent Skills に何を任せるか
+- 設定や小技を増やさずに、作業品質をどう安定させるか
+- 個人運用を、チームにも説明できる形にどう落とすか
+
+主題は「Codex CLI の高度な設定」ではない
+
+主題は「Codex CLI を素直に使い、繰り返す判断を Agent Skills に出す」
+
+### 1.2. 今日の結論
+
+Codex CLI は、入口と実行環境として薄く使う
+
+Agent Skills は、作業時に読む小さな手順書として使う
+
+大事な分担
+
+| 置き場所      | 置くもの                                     |
+| ------------- | -------------------------------------------- |
+| Codex CLI     | working directory、sandbox、approval、実行面 |
+| Task prompt   | 今回だけの目的、対象、制約                   |
+| Agent Skills  | いつもの workflow、validation、report 形式   |
+| Repo checks   | 機械的に確認できる品質 gate                  |
+| Task artifact | 長い作業の現在地と evidence                  |
+
+Codex CLI の設定を増やす前に、まず Agent Skills と小さな約束で済ませる
+
+### 1.3. 扱わないこと
+
+この資料では、意図的に扱わないものがある
+
+- Codex CLI の全 option 解説
+- 特定の個人環境の構成紹介
+- runtime hook の詳細実装
+- 複数エージェントの approval flow の設計
+- Agent Skills の publish 手順の深掘り
+- 環境構築ツールの説明
+
+設定の作り込みではなく、日々の使い方を整理する
+
+### 1.4. 想定する使い方
+
+想定するのは、ふだんの開発やドキュメント作成で Codex CLI を使う場面
+
+- repo の中で小さな修正を頼む
+- Markdown や QMD の書き方を揃える
+- エラー調査の順序を崩さない
+- 変更後に render や lint を確認する
+- 完了報告に evidence を残してもらう
+
+このくらいの作業では、Codex CLI の設定を複雑にしなくてよい
+
+繰り返す判断だけ Agent Skills に寄せる
+
+## 2. Codex CLI は何を担当するか
+
+### 2.1. Codex CLI を薄く使う
+
+Codex CLI に全部を埋め込もうとすると、運用が読みにくくなる
+
+薄く使うとは、次の責務に絞ること
+
+- どの directory で作業するか
+- どの model / profile / sandbox で動かすか
+- どの追加 directory を見せるか
+- interactive か non-interactive かを選ぶか
+- 必要な時だけ web search や MCP を使うか
+
+作業手順そのものは、CLI option ではなく Agent Skills 側に置く
+
+Codex CLI は「作業の入口」
+
+Agent Skills は「作業中の判断材料」
+
+### 2.2. 最初に決めること
+
+Codex CLI の起動前に決めるのは、だいたいこれで足りる
+
+| 観点       | 決めること                         | 例                        |
+| ---------- | ---------------------------------- | ------------------------- |
+| 場所       | どの repo / directory で作業するか | `--cd <repo>`             |
+| 範囲       | 追加で読ませる directory はあるか  | `--add-dir <docs>`        |
+| 実行       | shell command を許す範囲           | sandbox / approval policy |
+| 使い方     | 対話か一回実行か                   | `codex` / `codex exec`    |
+| 今回の目的 | 何を完成とするか                   | task prompt にだけ書く    |
+
+この表を超える設定を増やす時は、本当に毎回必要かを疑う
+
+一回の作業にしか効かない設定は、だいたい prompt に書けば足りる
+
+### 2.3. 実行例
+
+Codex CLI は、まず素直に起動する
+
+```{.bash filename="codex-start.sh"}
+codex --cd <repo>
+```
+
+対象 directory を明示して一回だけ依頼する時は、non-interactive に寄せる
+
+```{.bash filename="codex-exec.sh"}
+codex exec --cd <repo> \
+  "@markdown slides/example.qmd の code fence と表記を確認して"
+```
+
+ここで重要なのは command の凝り方ではない
+
+短い task prompt から、適切な Agent Skills と repo convention が読まれること
+
+### 2.4. 便利にしすぎない
+
+最初から便利機能を盛ると、失敗した時に原因が追いにくくなる
+
+避けたいこと
+
+- 1 つの alias に model、directory、追加指示、禁止事項を全部詰める
+- 毎回違う長大な system prompt を渡す
+- 作業ごとに config profile を増やす
+- 検証 command を prompt の奥に埋める
+- 失敗時の判断を shell wrapper 側に隠す
+
+便利さより、失敗時に観測できることを優先する
+
+Codex CLI は薄く、手順は Agent Skills に、確認は repo checks に置く
+
+## 3. Agent Skills に任せるもの
+
+### 3.1. Agent Skills は小さな作業手順書
+
+Agent Skills に置くのは、毎回 prompt に書きたくない operating knowledge
+
+たとえば
+
+- 作業開始時に読むファイル
+- 編集してよい範囲
+- 禁止事項
+- 失敗時の調査順
+- 検証 command
+- 完了報告に必要な evidence
+
+人間向けの長い説明書ではなく、作業時に読む runbook と考える
+
+### 3.2. Prompt と Skill の分担
+
+短い prompt にすることは、情報を捨てることではない
+
+今回だけの情報と、毎回使う判断材料を分ける
+
+| Task prompt に残すもの | Agent Skills に移すもの       |
+| ---------------------- | ----------------------------- |
+| 何を作るか             | 作業の標準 workflow           |
+| 対象 file              | いつ見るべき repo convention  |
+| 今回の制約             | いつもの禁止事項              |
+| 完了条件               | validation と report evidence |
+| 例外的な判断           | blocked 時の報告形式          |
+
+Agent Skills は、短い依頼を雑な依頼にしないための置き場所
+
+### 3.3. 最小の Skill 形
+
+最初の Agent Skills は、このくらいでよい
+
+```{.yaml filename="skills/example/SKILL.md"}
+---
+name: example
+license: MIT
+description: |
+  USE FOR: One specific recurring task.
+  DO NOT USE FOR: Adjacent tasks owned by other skills.
+---
+
+# Example
+
+## Workflow
+
+1. Inspect the target files and current git status.
+2. Read only the needed reference file.
+3. Make the smallest scoped change.
+4. Run the nearest focused check.
+5. Report changed files, evidence, and remaining risk.
+```
+
+完成度より、実タスクで 2 回使えることを優先する
+
+### 3.4. 大きくしない
+
+Agent Skills は、詳しすぎても使いにくい
+
+よくある膨張
+
+- 背景説明を全部 `SKILL.md` に入れる
+- 手元の script 一覧をそのまま貼る
+- 過去の失敗を時系列で残し続ける
+- 複数領域を 1 つの Skill にまとめる
+- trigger が広くなり、関係ない task でも読まれる
+
+`SKILL.md` は入口
+
+長い説明は `references/` に逃がし、必要な時だけ読む
+
+## 4. 素直な運用パターン
+
+### 4.1. 基本フロー
+
+日々の作業は、次の形に寄せる
+
+```{mermaid}
+#| label: fig-simple-codex-skills-flow
+flowchart LR
+  A["Task prompt<br/>今回だけの目的"]
+  B["Codex CLI<br/>作業場所と実行面"]
+  C["Agent Skills<br/>いつもの手順"]
+  D["Repo files<br/>実際の変更"]
+  E["Checks<br/>render / lint / test"]
+  F["Report<br/>evidence と残リスク"]
+
+  A --> B --> C --> D --> E --> F
+```
+
+この流れが見えていれば、設定を増やさなくても運用できる
+
+詰まった時も、どこが足りないかを切り分けやすい
+
+### 4.2. 依頼文の型
+
+Codex CLI に渡す prompt は、短くてよい
+
+ただし、短いなりに必要な情報を入れる
+
+```{.text filename="task-prompt.txt"}
+@markdown
+slides/example.qmd を確認して、QMD の code fence 規約に合わない箇所を直して。
+render できるか確認し、変更点と evidence を報告して。
+```
+
+含めるもの
+
+- 読ませたい Skill
+- 対象 file
+- 直してほしい範囲
+- 確認してほしいこと
+- 報告してほしい evidence
+
+### 4.3. 悪い短さと良い短さ
+
+短い prompt でも、良い短さと悪い短さがある
+
+| 種類     | 例                                 | 起きること                      |
+| -------- | ---------------------------------- | ------------------------------- |
+| 悪い短さ | `いい感じに直して`                 | scope、style、check を推測する  |
+| 良い短さ | `@markdown A.qmd を規約に合わせて` | Skill が workflow を補う        |
+| 悪い長さ | 禁止事項と手順を毎回 100 行貼る    | 古い手順が混ざりやすい          |
+| 良い長さ | 今回だけの例外条件を 3 行だけ足す  | reusable な部分と例外が分かれる |
+
+短くする目的は、考えなくてよくすることではない
+
+毎回同じ判断を、毎回同じ場所から読ませること
+
+### 4.4. 1 task 1 skill ではない
+
+1 つの task で複数の Agent Skills が必要になることはある
+
+例
+
+- QMD を書くので `markdown`
+- PR や commit の公開面が絡むので `github`
+- 原因不明の failure なので `systematic-debugging`
+
+ただし、最初から全部を呼ばない
+
+task の主語に合う Skill を先に読み、必要になったら追加で読む
+
+Agent Skills は checklist ではなく、作業時の判断材料
+
+### 4.5. 作業単位を小さくする
+
+Codex CLI を賢くするより、作業単位を小さくする方が効く
+
+小さな単位
+
+- 1 file の表記を揃える
+- 1 failure の原因を切り分ける
+- 1 deck を render できるようにする
+- 1 PR comment の文面を作る
+- 1 utility のテストを通す
+
+大きすぎる task は、Skill を読んでも判断が散らばる
+
+まず task を切る
+
+## 5. 何を外部化するか
+
+### 5.1. 外部化する判断
+
+Agent Skills に向いているのは、繰り返し現れる判断
+
+| 繰り返す判断                 | Skill に置く理由                     |
+| ---------------------------- | ------------------------------------ |
+| 編集前に見る repo convention | 毎回忘れると style が揺れる          |
+| 危険操作の扱い               | prompt だけでは漏れやすい            |
+| render / lint / test の順序  | 完了条件を揃えやすい                 |
+| 公開面の path 表記           | 個人環境の情報を出さないため         |
+| DONE / BLOCKED の報告形式    | 受け手が evidence を確認しやすくなる |
+
+作業ごとに悩む必要がないものを、作業の外に出す
+
+### 5.2. 外部化しない判断
+
+逆に、Agent Skills にしない方がよいものもある
+
+| 判断                         | Prompt に残す理由                  |
+| ---------------------------- | ---------------------------------- |
+| 今回だけの目的               | 再利用できない                     |
+| 今回だけ許す例外             | Skill に入れると次回も効いてしまう |
+| 作業対象 file                | 毎回変わる                         |
+| 書きたい主張                 | コンテンツの中身は task 側にある   |
+| まだ試していない一回限りの案 | Skill にするには早い               |
+
+Agent Skills は memory ではない
+
+繰り返し使える作業手順だけを入れる
+
+### 5.3. 迷った時の判断表
+
+迷ったら、この表で決める
+
+| 状態                     | 置き場所        |
+| ------------------------ | --------------- |
+| 2 回以上同じ指示を書いた | Agent Skills    |
+| 1 回だけ必要             | Task prompt     |
+| 長い背景だが時々読む     | Skill reference |
+| 機械的に判定できる       | Repo check      |
+| 失敗すると危険           | Guardrail       |
+| 人間の判断が必要         | BLOCKED report  |
+
+全部を Skill にしない
+
+全部を prompt にも戻さない
+
+## 6. Guardrail の考え方
+
+### 6.1. Guardrail は境界ではなく補助
+
+Codex CLI でも、shell command や file edit には guardrail が必要になる
+
+ただし、guardrail は万能の安全境界ではない
+
+役割は、事故を早く止めること
+
+- 危険な command を出した時に止める
+- sandbox 外に出る操作を目立たせる
+- approval が必要な操作を人間に戻す
+- 失敗した command を evidence として残す
+
+guardrail に頼り切ると、なぜ危険なのかを agent が学ばない
+
+Agent Skills には、危険を避ける作業順も書く
+
+### 6.2. Prompt rule と hard guard
+
+安全策には、柔らかいものと硬いものがある
+
+| 種類        | 例                          | 向いているもの         |
+| ----------- | --------------------------- | ---------------------- |
+| Prompt rule | 先に `git status` を見る    | 作業品質、報告形式     |
+| Skill rule  | render 後に evidence を残す | domain ごとの workflow |
+| Hard guard  | 危険 command を止める       | 事故ると戻せない操作   |
+| Human gate  | production 操作の承認       | 人間判断が必要な操作   |
+
+柔らかい rule は Agent Skills に置き、硬い guard は実行環境に置く
+
+両方を混ぜて巨大な prompt にしない
+
+### 6.3. Evidence を完了条件にする
+
+Codex CLI で作業する時は、結果だけでなく evidence を求める
+
+良い完了報告に入るもの
+
+- 変更した file
+- 実行した check
+- check の成否
+- render artifact の有無
+- 残った blocker
+- 人間が次に見るべき場所
+
+「できました」だけでは、受け手が確認できない
+
+Agent Skills に report 形式を書くと、短い prompt でも evidence が残る
+
+### 6.4. BLOCKED を許す
+
+失敗を隠す agent は危ない
+
+Codex CLI の運用では、できない時に BLOCKED と言わせる方がよい
+
+BLOCKED に入れるもの
+
+- 何ができなかったか
+- どの command / check が失敗したか
+- どこまで確認したか
+- 人間の判断が必要なこと
+- 次に安全に試せること
+
+「最後までやり切る」より「未確認を完了扱いしない」方が大事
+
+## 7. 長い作業の扱い
+
+### 7.1. Chat history を信じすぎない
+
+長い作業では、chat history だけを作業記録にしない
+
+理由
+
+- context が圧縮される
+- 別 session に引き継ぐと消える
+- どこまで検証したかが曖昧になる
+- 途中で方針が変わると古い情報が残る
+
+長くなる作業は、外部の task artifact に現在地を書く
+
+これは tool に依存しない考え方
+
+### 7.2. Task artifact に書くもの
+
+task artifact は、後から読む人のための作業台帳
+
+入れるもの
+
+| 項目        | 内容                           |
+| ----------- | ------------------------------ |
+| Objective   | 何を完成させるか               |
+| Checklist   | 元の依頼の完了条件             |
+| Milestones  | 今どこまで進んでいるか         |
+| Evidence    | check、render、diff の確認結果 |
+| Surprises   | 想定外だったこと               |
+| Next action | 次にやること                   |
+
+Agent Skills は作業の手順
+
+task artifact は作業の現在地
+
+### 7.3. Codex CLI との相性
+
+Codex CLI は、作業を始めるには軽い
+
+一方で、長い作業の記録を自動で完璧に保存してくれるわけではない
+
+だから運用で補う
+
+- 開始時に checklist を置く
+- milestone を進めるたびに更新する
+- check 結果を evidence に残す
+- 途中で詰まったら blocker を更新する
+- 完了報告は artifact と実ファイルを照合する
+
+CLI を複雑にするより、記録の置き場所を決める
+
+## 8. 実運用から一般化した考え方
+
+### 8.1. Inventory ではなく behavior を書く
+
+自分の環境から Agent Skills を作る時、script 名や config 名を並べたくなる
+
+でも、他の人に有用なのは inventory ではなく behavior
+
+| Inventory に寄る書き方    | Behavior に寄る書き方                         |
+| ------------------------- | --------------------------------------------- |
+| この script を実行する    | 変更後に最も近い check を実行する             |
+| この config がある        | 作業中に読む rule を小さく分ける              |
+| この hook が止める        | 危険操作は事前に止まり、理由を返す            |
+| この directory に置く     | 長い背景は reference に分ける                 |
+| この toolchain で管理する | 同じ rule を複数 runtime で共有できる形にする |
+
+名前を覚えさせるより、判断基準を渡す
+
+### 8.2. Prompt path を優先する
+
+繰り返す行動は、まず agent が読める言葉にする
+
+設定で頑張る前に、次を確認する
+
+1. Agent Skills に workflow と validation を書けるか
+2. repo の Markdown や docs に背景を逃がせるか
+3. prompt には今回だけの目的だけを残せるか
+4. 機械的に判定できる部分だけ check にできるか
+5. 危険な操作だけ hard guard にできるか
+
+設定より prompt path がよい理由
+
+- transcript で何を読んだか見える
+- runtime が変わっても持ち運びやすい
+- 修正が review しやすい
+- 失敗時にどの rule が足りなかったか分かる
+
+### 8.3. Single source of truth を小さくする
+
+同じ rule を複数の場所にコピーすると、必ずずれる
+
+素直な運用では、rule の置き場所を決める
+
+| Rule の種類         | 置き場所の例              |
+| ------------------- | ------------------------- |
+| 作業手順            | Agent Skills              |
+| 長い背景            | Reference docs            |
+| 機械的な確認        | Check command             |
+| 一回限りの依頼      | Task prompt               |
+| 人間が判断する gate | Review / approval process |
+
+同じ内容を CLI alias、prompt、Skill、docs に重複させない
+
+重複が増えたら、どこかを消す
+
+### 8.4. Tool 固有機能に寄せすぎない
+
+Codex CLI の機能は使う
+
+ただし、作業品質の中心を tool 固有機能に寄せすぎない
+
+寄せすぎると
+
+- 別の agent に移しにくい
+- CLI の version 差分で壊れやすい
+- 人間が読めない設定に知識が隠れる
+- task prompt が短く見えるだけで、判断材料が見えなくなる
+
+Agent Skills と docs に operating knowledge を置くと、tool が変わっても残る
+
+Codex CLI は実行環境
+
+運用知識は外に出しておく
+
+## 9. 実務で使う型
+
+### 9.1. Markdown / QMD 作業
+
+QMD や Markdown は Agent Skills と相性がよい
+
+依頼例
+
+```{.text filename="markdown-task.txt"}
+@markdown
+slides/2026-05-28-example.qmd を追加して。
+既存 slides の metadata と code fence 規約に合わせる。
+quarto render で確認し、生成 artifact と変更 file を報告して。
+```
+
+Skill 側に置きたいもの
+
+- static code fence の書き方
+- table alignment
+- 日本語 Markdown の表記 caveat
+- render command
+- report に必要な evidence
+
+prompt には今回の対象とゴールだけを残す
+
+### 9.2. Debug 作業
+
+原因不明の failure は、いきなり直さない
+
+依頼例
+
+```{.text filename="debug-task.txt"}
+@systematic-debugging
+quarto render が失敗する原因を切り分けて。
+再現 command、最小原因、修正案、確認結果を分けて報告して。
+```
+
+Skill 側に置きたいもの
+
+- reproduce first
+- working pattern comparison
+- hypothesis を evidence で潰す順番
+- 原因が分からないまま広く直さないこと
+- BLOCKED の出し方
+
+Codex CLI の推測力より、調査順を固定する
+
+### 9.3. GitHub 公開面
+
+commit message、PR body、review comment は公開面になる
+
+依頼例
+
+```{.text filename="github-task.txt"}
+@github
+今回の差分から commit message を作って。
+公開面に local absolute path を出さず、最近の commit の言語と形式に合わせて。
+```
+
+Skill 側に置きたいもの
+
+- repo-relative path を使う
+- commit message の型
+- issue / PR の引用形式
+- 公開してはいけない local 情報
+- push や publication の安全確認
+
+公開面の rule は毎回 prompt に書くより、Skill に固定する
+
+### 9.4. Review 作業
+
+review は、見方を固定すると品質が上がる
+
+依頼例
+
+```{.text filename="review-task.txt"}
+@subagent-review
+この変更を review して。
+blocking defect、重要な未検証、残リスクに分けて報告して。
+```
+
+Skill 側に置きたいもの
+
+- 何を blocking と見るか
+- どの evidence を確認するか
+- artifact と実ファイルを照合すること
+- verdict とコメント作成を混ぜないこと
+- 人間承認が必要な公開操作
+
+review も「気合い」ではなく workflow にする
+
+## 10. まとめ
+
+### 10.1. 今日のまとめ
+
+| テーマ       | 要点                                           |
+| ------------ | ---------------------------------------------- |
+| Codex CLI    | 作業場所と実行面を渡す薄い入口として使う       |
+| Agent Skills | 繰り返す workflow、validation、evidence を置く |
+| Prompt       | 今回だけの目的、対象、例外条件を残す           |
+| Guardrail    | 事故を止める補助。作業順は Skill にも書く      |
+| Artifact     | 長い作業の現在地と evidence を chat 外に残す   |
+
+Codex CLI を頑張らせすぎない
+
+Agent Skills に、作業時の判断材料を寄せる
+
+### 10.2. 覚えて帰ること
+
+1. Codex CLI の設定を増やす前に、Skill にできるかを見る
+2. `SKILL.md` は短く、詳細は reference に分ける
+3. 短い prompt には、今回だけの情報を残す
+4. 検証できるものは repo check に寄せる
+5. 完了報告には evidence と残リスクを入れる
+
+運用の目的は、agent を完全に制御することではない
+
+同じ判断材料を、毎回同じ形で渡すこと
+
+### 10.3. 最後に
+
+Codex CLI は強い tool だが、全部を CLI 設定で解決しなくてよい
+
+素直な起動、短い prompt、小さな Agent Skills、実際の check
+
+この組み合わせで、AI との作業はかなり安定する
