@@ -136,6 +136,10 @@ issue xxx の対応をやってください。
 
 よい ticket を task source にして、compressed catalog だけでなく full description / source of truth まで戻してから作業するための型
 
+実装、test/lint、残リスク報告の順序は prompt に毎回列挙しない
+
+開発 workflow を持つ Agent Skill に置けば、prompt は今回の task に集中できる
+
 ### 1.7. Agent Skills が変えるもの
 
 Agent Skills は、AI を deterministic な実行環境に変える仕組みではない
@@ -323,9 +327,14 @@ prompt を短くする前に、抜けると困るものを外部化する
 
 | Prompt に残すもの       | Agent Skills に移すもの                    |
 | ----------------------- | ------------------------------------------ |
-| 今回やってほしい task   | いつもの workflow                          |
+| 今回やってほしい task   | ticket 理解から報告までの workflow         |
 | 今回の対象 file / scope | いつもの禁止事項と確認順                   |
 | 今回だけの判断          | いつも必要な validation と report evidence |
+
+たとえば開発 workflow なら、ticket / issue を理解する、
+関連する Agent Skills と source of truth を探す、必要な時だけ plan する、
+実装する、test/lint を走らせる、残リスクを報告する、
+という順序を Skill に置ける
 
 短い prompt は、情報を捨てることではない
 
@@ -443,11 +452,11 @@ Agent Skills の `name` と `description` は、agent が最初に見る compres
 
 良い workflow
 
-- 最初に見るファイルが明確
-- 追加で読む reference が限定されている
-- 編集範囲が狭い
-- 検証コマンドがある
-- 報告内容が決まっている
+- ticket / issue を読む順番がある
+- 関連する Agent Skills と source of truth を探す
+- 必要な時だけ plan する
+- 実装と validation の順番がある
+- 残リスクを report に入れる
 
 長い tutorial は `references/` に逃がす
 

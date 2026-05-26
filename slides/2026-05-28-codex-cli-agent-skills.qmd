@@ -237,8 +237,7 @@ agent が予測可能に動くための instruction の形の話
 - 読ませたい Skill
 - 対象 issue / artifact
 - 直してほしい範囲
-- 確認してほしい check
-- 報告してほしい evidence
+- 今回だけ追加したい完了条件
 
 短い prompt は、置き場所が分かれている時にだけ効く
 
@@ -249,12 +248,14 @@ agent が予測可能に動くための instruction の形の話
 ```{.text filename="task-prompt.txt"}
 $skill-description-index
 issue #123 の対応を進めてください。
-関連する Agent Skills を読んだ上で、実装、test、lint、残リスクを報告してください。
+関連する Agent Skills の workflow に従ってください。
 ```
 
 Agent Skills が絡む依頼では、冒頭に `$skill-description-index` を置くのも実用的
 
 catalog 上の説明が短い、圧縮されている、曖昧な時に full description を戻してから判断できる
+
+実装、test/lint、残リスク報告の通常順序は、毎回 prompt に書くよりも開発 workflow Skill に置く
 
 ただし、この型はよい issue / ticket が先にある時に効く
 
