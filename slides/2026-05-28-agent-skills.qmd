@@ -497,15 +497,16 @@ Agent Skills 定義には例を書くより、判断基準を書く
 
 AI との向き合い方を運用にするには、Agent Skills 側の入口が壊れていないことが大事
 
-確認した Waza 0.33.0 では、`ready` は主に次で決まる
+確認した Waza 0.33.0 では、`ready` の gate は主に次で決まる
 
-| 観点             | 実装上の意味                                                           |
+| 観点             | `ready` gate としての意味                                              |
 | ---------------- | ---------------------------------------------------------------------- |
 | Compliance score | `Medium-High` 以上。trigger、anti-trigger、routing clarity を見る      |
 | Spec checks      | frontmatter、name、directory match、description、allowed fields を見る |
 | Token budget     | `SKILL.md` が limit を超えていないか見る                               |
-| Links / schema   | reference link と eval schema が壊れていないか見る                     |
-| Advisory checks  | procedure、body structure、progressive disclosure、scope を見る        |
+| Links / schema   | reference link と eval / task schema に blocking error がないかを見る  |
+
+Advisory checks は別枠の warning。procedure、body structure、progressive disclosure、scope は改善材料だが、それだけでは `ready=false` にしない
 
 `eval.yaml` がないことは recommendation として出るが、それだけで `ready=false` にはならない
 
@@ -527,7 +528,7 @@ waza --no-update-check check skills/<name> --format json |
 2. `compliance.level` が `Medium-High` 以上か
 3. `tokenBudget.exceeded` が `false` か
 4. `links` と `schema` が壊れていないか
-5. `advisoryChecks` に設計上の warning がないか
+5. `advisoryChecks` に設計上の warning がないか。これは `ready` gate ではない
 
 ### 6.4. `gh skill` で見るもの
 
@@ -552,7 +553,9 @@ gh skill publish --dry-run
 | Frontmatter       | `name` と `description` があるか                      |
 | `allowed-tools`   | array ではなく space-delimited string になっているか  |
 | Install metadata  | `metadata.github-*` が残っていないか                  |
-| Publish readiness | topic、tag、release に進める repository 状態か        |
+| Packaging warning | license や body length の publish 前 warning がないか |
+
+topic、tag、release 作成は dry-run 後の publish flow であり、dry-run は validation-only として扱う
 
 つまり、`waza` は Agent Skills としての読みやすさ、`gh skill` は package と配布の形を見る
 
