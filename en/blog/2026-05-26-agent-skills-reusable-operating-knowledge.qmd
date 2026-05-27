@@ -7,11 +7,7 @@ categories:
 date: 2026-05-26 22:05:00 +0900
 date-modified: last-modified
 description: |
-  One-shot prompting gets easier when recurring process knowledge lives outside the prompt.
-
-  This post explains Agent Skills as reusable operating knowledge: metadata for discovery, workflows for execution, validation for confidence, and tickets as the other half of the prompt.
-
-  #AgentSkills #AIAgents #PromptEngineering #DeveloperTools
+  One-shot prompts work when repeated process lives outside the prompt. This guide shows how to package Agent Skills, validate them with Waza and `gh skill`, and keep short prompts honest. #AgentSkills #AIAgents #DeveloperTools
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -25,34 +21,42 @@ A short prompt becomes weak when it depends on context that the agent does not h
 - which workflow to follow
 - which constraints are non-negotiable
 - which checks should prove the work
-- which residual risks should be reported
+- which residual risks should be reported instead of hidden
 
 If those details live only in the prompt, every task starts with a long preamble. If they are omitted, the agent fills gaps by inference.
 
 Agent Skills are useful because they move recurring process knowledge out of the one-off prompt and into a reusable package. The prompt can stay focused on the current task while the skill carries the operating knowledge that should be reused every time.
 
-That does not make an AI agent deterministic. It makes the starting materials more consistent.
+The agent still remains probabilistic. The starting materials become more consistent.
 
-[OpenAI's current skills documentation](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) describes skills as reusable, shareable workflows that help ChatGPT perform a specific task more consistently, and says skills can include instructions, examples, code, and supporting resources. The important word for daily engineering work is "more." Skills can reduce variance by providing the same process knowledge, but the agent is still interpreting a task probabilistically.
+[OpenAI's skills documentation](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) describes skills as reusable, shareable workflows that help ChatGPT perform a specific task more consistently, and says skills can include instructions, examples, code, and supporting resources. For daily engineering work, "more consistently" carries the practical value. Skills reduce variance by providing the same process knowledge, but the agent still interprets the task probabilistically.
 
-## 2. What an Agent Skill Actually Packages
+For me, the working definition is:
+
+```{.text filename="working-definition.txt"}
+Agent Skills are reusable operating knowledge for AI agents.
+```
+
+A skill is a small package that tells an agent when a workflow applies, how to proceed, what to avoid, and how to prove the result.
+
+## 2. Agent Skill Package Contents
 
 The [Agent Skills specification](https://agentskills.io/specification) defines a skill as a directory that contains at least a `SKILL.md` file. That file has YAML frontmatter followed by Markdown instructions.
 
-The required frontmatter fields are small but important:
+A skill needs two frontmatter fields:
 
-| Field         | Why it matters                                                                       |
+| Field         | Routing role                                                                         |
 | ------------- | ------------------------------------------------------------------------------------ |
 | `name`        | The stable identifier. It must follow the naming rules and match the directory name. |
 | `description` | The discoverability surface. It should say what the skill does and when to use it.   |
 
 The body is where the work instructions live. Optional `references/`, `scripts/`, and `assets/` directories can hold supporting material.
 
-That shape matters because Agent Skills are designed for progressive disclosure. The specification says the `name` and `description` metadata are loaded for all skills at startup, the full `SKILL.md` body is loaded when a skill is activated, and resources are loaded only as needed.
+This shape supports progressive disclosure. The specification says the `name` and `description` metadata are loaded first, the full `SKILL.md` body is loaded when a skill is activated, and resources are loaded only as needed.
 
-So the frontmatter is not just decoration. It is routing metadata.
+The frontmatter is routing metadata.
 
-Here is a deliberately small example:
+A small skill can look like this:
 
 ```{.yaml filename="skills/scoped-code-change/SKILL.md"}
 ---
@@ -61,6 +65,7 @@ description: |
   USE FOR: Implementing a bounded code change from an issue or ticket,
   including source-of-truth discovery, implementation, checks, and residual-risk reporting.
   DO NOT USE FOR: Incident response, production operations, or broad architecture redesigns.
+license: MIT
 ---
 
 # Scoped Code Change
@@ -71,19 +76,19 @@ description: |
 2. Discover relevant Agent Skills and source-of-truth documents before editing.
 3. Make a short plan only when the change is ambiguous, risky, or multi-step.
 4. Implement the smallest scoped change that satisfies the ticket.
-5. Run the nearest test, lint, or render check.
+5. Run the nearest test, lint, render, or validation check.
 6. Report changed files, checks, residual risks, and anything intentionally left out.
 ```
 
-This is not a magic prompt. It is an operating procedure the agent can reuse.
+This operating procedure gives the agent a reusable start.
 
-## 3. Why `name` and `description` Deserve More Attention
+## 3. `name` and `description` Drive Routing
 
-When people first write skills, they often spend most of their effort on the body. That is understandable, but the body only helps after the skill has been selected.
+Many first drafts spend most of their effort on the body. The body only helps after the skill has been selected.
 
 The `name` and `description` decide whether the skill is discoverable in the first place.
 
-The Agent Skills specification requires `name` to follow strict naming rules and to match the parent directory. That makes the package stable. The same document says `description` should explain both what the skill does and when to use it, and should include keywords that help agents identify relevant tasks.
+The Agent Skills specification requires `name` to follow strict naming rules and to match the parent directory. The same document says `description` should explain both what the skill does and when to use it, and should include keywords that help agents identify relevant tasks.
 
 That means vague descriptions are costly:
 
@@ -143,17 +148,17 @@ $skill-description-index
 Implement issue 123.
 ```
 
-That prompt is only good if the issue is good and the relevant Agent Skills are good. If the ticket is vague, the skill cannot invent acceptance criteria. If the skill catalog is noisy or stale, the prompt may activate the wrong process.
+That prompt works only when the issue and relevant Agent Skills are good. If the ticket is vague, the skill cannot invent acceptance criteria. If the skill catalog is noisy or stale, the prompt may activate the wrong process.
 
 One-shot prompting becomes easier because the reusable part is no longer in the prompt.
 
-## 5. Why `$skill-description-index` Matters
+## 5. The `$skill-description-index` Step
 
-The Agent Skills specification's progressive-disclosure model creates a useful tension. Loading only `name` and `description` at startup keeps context small, but sometimes the compressed catalog is not enough.
+The Agent Skills specification's progressive-disclosure model creates a useful tension. Loading only compact metadata at startup keeps context small, but sometimes the compressed catalog is not enough.
 
-That is where a catalog-recovery helper such as `$skill-description-index` matters.
+`$skill-description-index` fills that catalog-recovery gap.
 
-I am using `$skill-description-index` here as a process pattern, not as a field in the Agent Skills specification. The point is to give the agent a reliable way to recover the available skills and their source-of-truth descriptions before it chooses how to work.
+I am using `$skill-description-index` as a process pattern, not as a field in the Agent Skills specification. The helper gives the agent a reliable way to recover the available skills and their source-of-truth descriptions before it chooses how to work.
 
 Without that step, the agent may act from a partial memory of the catalog:
 
@@ -170,7 +175,7 @@ Use the available skill catalog and source-of-truth skill descriptions,
 then implement issue 123.
 ```
 
-This still does not guarantee the correct skill choice. It does make the failure mode more inspectable. If the wrong skill was selected, you can improve the description, split overlapping skills, or add a prompt-case evaluation.
+The index step cannot guarantee the correct skill choice, but it makes the failure mode more inspectable. If the wrong skill was selected, you can improve the description, split overlapping skills, or add a prompt-case evaluation.
 
 The principle is portable: before asking an agent to act, let it recover the current operating knowledge that should guide the work.
 
@@ -187,7 +192,7 @@ Run tests and lint.
 Report what changed and any remaining risks.
 ```
 
-Those are not task-specific instructions. They are process instructions.
+These are process instructions, not task facts.
 
 They belong in a process-oriented Agent Skill.
 
@@ -208,33 +213,234 @@ Use the scoped code-change process and implement issue 123.
 
 The skill should also say when not to use it. A routine scoped-change process is not the right process for an incident, a security disclosure, a migration plan, or a production operation. Negative routing is part of reliability.
 
-## 7. Tooling: Waza and `gh skill`
+## 7. `SKILL.md` Contents
 
-Agent Skills are mostly about operating knowledge, not tooling. Still, tooling helps because skills are small packages that can drift.
+The most useful `SKILL.md` is usually not the longest one.
+
+The body is loaded when the skill is activated, so it should give the agent enough structure to start correctly without forcing it to carry every possible example. Long background belongs in `references/`.
+
+A practical first version can be small:
+
+| Section    | Useful content                                              |
+| ---------- | ----------------------------------------------------------- |
+| Purpose    | The work this skill owns                                    |
+| Workflow   | The usual order of operations                               |
+| Validation | The minimum checks expected before reporting success        |
+| Report     | The evidence and residual risk expected in the final answer |
+| References | Links to deeper files that should be read only when needed  |
+
+Copying a whole manual into `SKILL.md` creates a new problem. The skill should be an entry point. It can point to a manual, a runbook, or a script, but it should not become an unbounded archive.
+
+When I decide whether something belongs in `SKILL.md`, I use this rule:
+
+```{.text filename="skill-body-rule.txt"}
+If the agent needs it before taking the first safe step, keep it in SKILL.md.
+If the agent needs it only for a specific branch of the work, move it to references/.
+```
+
+That rule keeps the entry small while still preserving depth.
+
+## 8. Outside the Skill
+
+Agent Skills work best when they are part of a larger work surface.
+
+Not everything should move into a skill:
+
+| Content                         | Better home                                |
+| ------------------------------- | ------------------------------------------ |
+| This task's specific goal       | Prompt, issue, or ticket                   |
+| Acceptance criteria             | Issue or ticket                            |
+| Long domain background          | `references/` or external documentation    |
+| Project-wide style rules        | Project docs, then referenced by the skill |
+| Generated evidence              | Task artifact, CI output, or final report  |
+| Secrets or personal credentials | Nowhere in the skill                       |
+
+Avoid two bad extremes:
+
+- a giant root prompt that tries to control everything
+- hundreds of tiny skills that overlap and make routing noisy
+
+A skill should own a repeated workflow, not the whole organization.
+
+## 9. Language and Metadata Choices
+
+Agent Skills do not need English-only bodies.
+
+For Japanese-heavy work, I prefer this split:
+
+| Location      | Practical guidance                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| `name`        | Use lowercase ASCII, digits, and hyphens. This is the portable package name.               |
+| `description` | Prefer English for discovery, especially if tooling or heuristics expect English keywords. |
+| Body          | Use the language that makes the workflow clearest for the people and agents using it.      |
+| `references/` | Use the language of the source material. Japanese references are fine.                     |
+| Eval prompts  | Include Japanese cases when real requests are Japanese.                                    |
+
+Japanese instructions are valid. I keep `name` and `description` closer to English because they are the catalog surface. Tools read them early, compare them often, and use them for routing. The body and references can be much more local.
+
+If you expect Japanese prompts, test Japanese prompt cases. A skill that routes correctly for English prompts may not route correctly for Japanese ones unless the metadata and eval cases reflect that reality.
+
+## 10. Progressive Disclosure as a Design Constraint
+
+Progressive disclosure is the main design pressure behind Agent Skills.
+
+The specification describes a staged loading model:
+
+| Stage      | Loaded material                      | Design implication                             |
+| ---------- | ------------------------------------ | ---------------------------------------------- |
+| Catalog    | `name` and `description`             | Keep routing clear and specific                |
+| Activation | Full `SKILL.md`                      | Keep the main workflow short and actionable    |
+| On demand  | `references/`, `scripts/`, `assets/` | Split deeper detail into focused support files |
+
+That model rewards small entry points and focused references.
+
+For example:
+
+```{.text filename="larger-skill-tree.txt"}
+skills/
+  writing-rules/
+    SKILL.md
+    references/
+      style-rules.md
+      review-checklist.md
+    scripts/
+      check_style.sh
+```
+
+The `SKILL.md` should tell the agent when to read `style-rules.md`, not paste the whole style guide into the main file.
+
+Progressive disclosure also makes failures easier to fix. If the wrong skill is selected, improve the description. If the right skill is selected but the work goes off track, improve the workflow. If the workflow is correct but lacks depth, improve the references.
+
+## 11. Tooling: Waza and `gh skill`
+
+Agent Skills encode operating knowledge. Tooling helps because skills are small packages that can drift.
 
 I separate two concerns:
 
-| Tool       | Useful for                                                            | Do not treat it as                                       |
-| ---------- | --------------------------------------------------------------------- | -------------------------------------------------------- |
-| Waza       | Skill readiness, evaluation, graders, token and quality checks        | A guarantee that the agent will behave deterministically |
-| `gh skill` | GitHub CLI packaging, search, install, update, and publish validation | A trigger-quality evaluator                              |
+| Tool       | Useful for                                                                     | Do not treat it as                                       |
+| ---------- | ------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| Waza       | Skill readiness, checks, evals, graders, token and quality feedback            | A guarantee that the agent will behave deterministically |
+| `gh skill` | GitHub CLI packaging, search, preview, install, update, and publish validation | A trigger-quality evaluator                              |
 
-[Waza's documentation](https://microsoft.github.io/waza/about/) describes structured benchmarks, built-in validators, skill-invocation validation, and local-first evaluation workflows. Its [CLI reference](https://microsoft.github.io/waza/reference/cli/) documents `waza check` as a compliance, token, and eval readiness check, and `waza quality` as an LLM-as-judge quality check across dimensions such as clarity, completeness, trigger precision, scope coverage, and anti-patterns.
-
-That makes Waza useful for questions like:
-
-- Is the skill structurally ready?
-- Is the `SKILL.md` too large?
-- Does the skill have evaluation coverage?
-- Are trigger boundaries clear enough to test?
+[Waza's documentation](https://microsoft.github.io/waza/about/) describes a CLI platform for creating, testing, and evaluating AI agent skills. Its [CLI reference](https://microsoft.github.io/waza/reference/cli/) documents `waza check`, `waza quality`, `waza run`, graders, token commands, and related workflows.
 
 GitHub CLI's [`gh skill`](https://cli.github.com/manual/gh_skill) command has a different role. The official manual says it installs and manages agent skills from GitHub repositories, and that this CLI surface is in preview and subject to change. The available commands listed there are `install`, `preview`, `publish`, `search`, and `update`.
 
-For publishability, use [`gh skill publish --dry-run`](https://cli.github.com/manual/gh_skill_publish). The manual says `--dry-run` validates without publishing. It also lists validation checks such as strict skill naming rules, directory-name matching, required frontmatter fields, `allowed-tools` type checking, and removal of install metadata.
+Use each tool for a different question:
 
-The important negative fact is just as useful: there is no need to invent a separate validate subcommand when the documented validation path is `gh skill publish --dry-run`.
+- Use Waza to ask whether the skill is shaped well enough to use and evaluate.
+- Use `gh skill publish --dry-run` to ask whether the repository is shaped well enough to publish.
+- Use prompt cases and evals to ask whether the right skills are selected for real requests.
 
-## 8. A Practical Lifecycle
+These are different questions.
+
+## 12. Waza Details I Verified
+
+I verified `waza --version`; the output was `waza version 0.33.0`. I also checked the source of `microsoft/waza` at commit [`23e9dbae6bd73f8a526b9c16cef0eb543ddaed96`](https://github.com/microsoft/waza/tree/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96).
+
+The most useful implementation references were:
+
+- [`cmd/waza/cmd_check.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/cmd/waza/cmd_check.go)
+- [`internal/checks/spec_checks.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/checks/spec_checks.go)
+- [`internal/checks/token_budget.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/checks/token_budget.go)
+- [`internal/checks/eval_suite.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/checks/eval_suite.go)
+- [`internal/graders/trigger_grader.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/graders/trigger_grader.go)
+- [`internal/graders/skill_invocation_grader.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/graders/skill_invocation_grader.go)
+- [`cmd/waza/cmd_quality.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/cmd/waza/cmd_quality.go)
+
+The installed help says `waza check` runs compliance, token, and eval checks. The implementation is more detailed than that summary. In the checked source, `checkReadiness` loads `SKILL.md`, computes compliance, runs MCP and link checks, checks token budget, detects evals, validates eval and task schemas when present, and runs spec plus advisory checks.
+
+The JSON `ready` field carries the gate. In the checked implementation, readiness is true only when:
+
+- compliance is at least `Medium-High`
+- the token budget is not exceeded
+- links pass when link results are available
+- eval and task schemas have no validation errors
+- spec checks pass
+
+Eval absence is reported, but absence of eval coverage alone does not necessarily make `ready` false. I confirmed that with an installed-command probe against a local skill:
+
+```{.text filename="waza-check-observed.txt"}
+agent-skills-management	true	Medium-High	ok	false
+```
+
+Those columns were `name`, `ready`, `compliance.level`, `tokenBudget.status`, and `eval.found`. This means `eval.found=false` and `ready=true` can coexist.
+
+I do not describe `waza check` as "the eval gate." It is a readiness check with eval visibility. Eval coverage is still useful, but the current readiness flag is not "has eval."
+
+Waza also has a separate `waza quality` command. The checked help and source describe it as an LLM-as-judge quality check across clarity, completeness, trigger precision, scope coverage, and anti-patterns. It requires Copilot authentication in the current implementation.
+
+For trigger work, the distinction is:
+
+| Mechanism                 | Check surface                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------ |
+| `trigger` grader          | A heuristic score between a prompt and skill trigger material                  |
+| `skill_invocation` grader | Whether expected skills were invoked, including required and forbidden skills  |
+| `waza check`              | Structural readiness and related validation, not a full real-task routing test |
+
+So the practical loop is:
+
+1. Use `waza check` for structural readiness.
+2. Use prompt cases and graders for routing behavior.
+3. Use `waza quality` when you want LLM-judged feedback on the skill text.
+
+## 13. `gh skill` Details I Verified
+
+I checked `gh version 2.92.0` and the source of `cli/cli` at commit [`9a593ce81b593dee752cc11737d1a3ef768e52b3`](https://github.com/cli/cli/tree/9a593ce81b593dee752cc11737d1a3ef768e52b3).
+
+The most useful implementation references were:
+
+- [`pkg/cmd/skills/skills.go`](https://github.com/cli/cli/blob/9a593ce81b593dee752cc11737d1a3ef768e52b3/pkg/cmd/skills/skills.go)
+- [`pkg/cmd/skills/publish/publish.go`](https://github.com/cli/cli/blob/9a593ce81b593dee752cc11737d1a3ef768e52b3/pkg/cmd/skills/publish/publish.go)
+- [`internal/skills/discovery/discovery.go`](https://github.com/cli/cli/blob/9a593ce81b593dee752cc11737d1a3ef768e52b3/internal/skills/discovery/discovery.go)
+- [`internal/skills/frontmatter/frontmatter.go`](https://github.com/cli/cli/blob/9a593ce81b593dee752cc11737d1a3ef768e52b3/internal/skills/frontmatter/frontmatter.go)
+- [`skills/gh-skill/SKILL.md`](https://github.com/cli/cli/blob/9a593ce81b593dee752cc11737d1a3ef768e52b3/skills/gh-skill/SKILL.md)
+
+The top-level command is a core GitHub CLI command named `gh skill`, with `gh skills` as an alias. The manual and installed help list these subcommands:
+
+- `install`
+- `preview`
+- `publish`
+- `search`
+- `update`
+
+For publishability, the validation path is:
+
+```{.bash filename="gh-skill-validation.sh"}
+gh skill publish --dry-run
+```
+
+The official manual says `--dry-run` validates without publishing. The checked source confirms the local validation path before the release flow.
+
+In the checked implementation, `gh skill publish` discovers skills using conventions such as:
+
+- `skills/*/SKILL.md`
+- `skills/{scope}/*/SKILL.md`
+- `*/SKILL.md`
+- `plugins/{scope}/skills/*/SKILL.md`
+
+Then it validates:
+
+| Check            | Meaning                                                          |
+| ---------------- | ---------------------------------------------------------------- |
+| Name             | Present, strict Agent Skills naming, and matching directory name |
+| Description      | Required frontmatter field                                       |
+| `allowed-tools`  | Must be a string, not an array                                   |
+| Install metadata | `metadata.github-*` should be stripped before publishing         |
+| License          | Recommended; missing license is a warning                        |
+| Body length      | Long bodies can warn before publish                              |
+
+I also ran a minimal local dry-run probe with a generated skill directory. It produced a missing-remote warning but completed validation:
+
+```{.text filename="gh-skill-dry-run-observed.txt"}
+warning		no git remote found. Create a GitHub repository with: gh repo create
+
+Dry run complete. Use without --dry-run to publish.
+```
+
+Do not document a separate `gh skill validate` workflow. The documented and implemented validation path is `gh skill publish --dry-run`.
+
+## 14. A Practical Lifecycle
 
 I like this lifecycle because each step has a different job:
 
@@ -246,8 +452,9 @@ I like this lifecycle because each step has a different job:
 6. Use Waza for readiness, quality, and eval feedback.
 7. Use `gh skill publish --dry-run` for packaging validation.
 8. Update the skill when real tasks expose ambiguity.
+9. Remove or archive skills that no longer earn their place.
 
-Prompt cases are especially important. A skill that looks clear in isolation can still be hard for an agent to select when adjacent skills have overlapping descriptions.
+Prompt cases expose routing mistakes. A skill that looks clear in isolation can still be hard for an agent to select when adjacent skills have overlapping descriptions.
 
 A small prompt-case table is enough to start:
 
@@ -258,18 +465,101 @@ A small prompt-case table is enough to start:
 | "Fix production now"                | Not this skill       | Does negative scope prevent unsafe activation?                      |
 | "Write release notes for this diff" | `release-notes`      | Does it route to writing rather than code change?                   |
 
-The goal is not to build a perfect benchmark on day one. The goal is to make skill selection observable.
+You do not need a perfect benchmark on day one. Make skill selection observable.
 
-## 9. What Is Documented and What Is My Framing
+## 15. Cheap Checks Before Real Work
 
-It is worth separating documented behavior from interpretation.
+Before trusting a short prompt, check the skill package itself.
+
+For one skill:
+
+```{.bash filename="check-one-skill.sh"}
+waza --no-update-check check skills/<name> --format json
+```
+
+For a repository that should be publishable through GitHub CLI:
+
+```{.bash filename="publish-dry-run.sh"}
+gh skill publish --dry-run
+```
+
+The first command asks whether the skill is structurally healthy enough to use. The second asks whether the repository can be packaged for GitHub skill distribution.
+
+Neither command proves that the agent will choose the right skill for every prompt. For that, add prompt cases and task-level evals.
+
+## 16. Completion Evidence Should Be Part of the Skill
+
+Short prompts increase the need for completion evidence.
+
+A useful final report should include:
+
+- changed files
+- checks that ran
+- check results
+- artifacts produced, such as screenshots or rendered output
+- remaining blockers
+- residual risks or unverified assumptions
+
+If the skill owns a workflow, it should also own the handoff shape.
+
+For example:
+
+```{.markdown filename="skills/scoped-code-change/SKILL.md"}
+## Report
+
+Include:
+
+- changed files
+- verification commands and results
+- behavior intentionally left unchanged
+- residual risk, if any
+```
+
+That makes the short prompt safer. The prompt can say "implement issue 123" because the skill already says what evidence must come back.
+
+## 17. When to Say BLOCKED
+
+A skill should not train an agent to pretend.
+
+For risky work, the skill should say when to stop:
+
+| Stop condition             | Why it matters                                     |
+| -------------------------- | -------------------------------------------------- |
+| Missing source of truth    | Prevents implementation from guesswork             |
+| Denied command or hook     | Prevents silent policy bypass                      |
+| Production write operation | Requires explicit human approval in many workflows |
+| Failing verification       | Prevents "done" from meaning "untested"            |
+| Conflicting instructions   | Forces the conflict into the open                  |
+
+Use `BLOCKED` to keep uncertainty visible, not to avoid work.
+
+## 18. Common Anti-Patterns
+
+Agent Skills fail in predictable ways.
+
+The most common problems I see:
+
+| Anti-pattern                             | Why it hurts                                   |
+| ---------------------------------------- | ---------------------------------------------- |
+| `general-work` owns everything           | The trigger becomes meaningless                |
+| A whole manual is copied into `SKILL.md` | The context cost rises and routing stays vague |
+| Only examples are provided               | The agent overfits old examples                |
+| No negative scope                        | Adjacent tasks activate the wrong workflow     |
+| No verification section                  | The agent reports completion without evidence  |
+| No retirement path                       | Stale skills keep competing with useful ones   |
+
+Most fixes improve the boundary, not the length.
+
+## 19. Documented Behavior and My Framing
+
+Separate documented behavior from interpretation.
 
 Documented facts:
 
 - Agent Skills use a `SKILL.md` file with required `name` and `description` frontmatter.
 - The Agent Skills specification documents optional `scripts/`, `references/`, and `assets/` directories.
 - The specification describes progressive disclosure: metadata first, full instructions on activation, resources as needed.
-- OpenAI documents skills as reusable workflows that can include instructions, examples, code, and supporting resources, and says OpenAI skills follow the Agent Skills open standard.
+- [OpenAI's skills documentation](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) describes skills as reusable workflows that can include instructions, examples, code, and supporting resources, and states that OpenAI skills follow the Agent Skills open standard.
 - GitHub CLI documents `gh skill` as preview and documents `gh skill publish --dry-run` as validation without publishing.
 - Waza documents skill checks, validators, graders, quality scoring, and evaluation workflows.
 
@@ -279,10 +569,11 @@ My framing:
 - `$skill-description-index` is a catalog-recovery pattern for returning from compressed metadata to available source-of-truth skill descriptions before acting.
 - A good ticket is the other half of a good one-shot prompt.
 - Skills reduce repeated instructions and improve consistency, but they do not make probabilistic agents deterministic.
+- Different tools check different layers. Waza readiness, Waza evals, and `gh skill publish --dry-run` should not be collapsed into one generic "validation" bucket.
 
-That distinction keeps the article honest. The tools are real; the operating model is a way to use them responsibly.
+This distinction keeps the article honest. The tools are real; the operating model is a way to use them responsibly.
 
-## 10. Summary
+## 20. Summary
 
 Agent Skills are most useful when they are treated as reusable operating knowledge.
 
@@ -296,4 +587,4 @@ They let you move recurring instructions out of every prompt:
 
 The short prompt becomes practical only when the surrounding system is strong: a good issue or ticket on one side, and well-described Agent Skills on the other.
 
-That is the real value. Not a magic phrase. Not deterministic execution. Just a better way to keep the same process knowledge available every time an agent starts work.
+The value is repeated access to process knowledge every time an agent starts work.
