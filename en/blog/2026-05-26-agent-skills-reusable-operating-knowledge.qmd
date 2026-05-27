@@ -259,6 +259,8 @@ Agent Skills encode operating knowledge. Tooling helps because skills are small 
 
 This is a 2026-05 snapshot. The tool surfaces below are real, but both local versions and hosted documentation can change.
 
+Official documentation exists for both tools, so I treat the hosted docs and installed help as the first behavior sources. The repository source checks below are implementation verification for the specific 2026-05 versions, not a substitute for the docs.
+
 I separate two concerns:
 
 | Tool       | Useful for                                                                     | Do not treat it as                                       |
@@ -266,9 +268,9 @@ I separate two concerns:
 | Waza       | Skill readiness, checks, evals, graders, token and quality feedback            | A guarantee that the agent will behave deterministically |
 | `gh skill` | GitHub CLI packaging, search, preview, install, update, and publish validation | A trigger-quality evaluator                              |
 
-[Waza's documentation](https://microsoft.github.io/waza/about/) describes a CLI platform for creating, testing, and evaluating AI agent skills. Its [CLI reference](https://microsoft.github.io/waza/reference/cli/) documents `waza check`, `waza quality`, `waza run`, graders, token commands, and related workflows.
+The official [Waza documentation](https://microsoft.github.io/waza/about/) is the primary documentation source I use here. It describes a CLI platform for creating, testing, and evaluating AI agent skills. The [Waza CLI reference](https://microsoft.github.io/waza/reference/cli/) documents `waza check`, `waza quality`, `waza run`, graders, token commands, and related workflows.
 
-GitHub CLI's [`gh skill`](https://cli.github.com/manual/gh_skill) command has a different role. The official manual says it installs and manages agent skills from GitHub repositories, and that this CLI surface is in preview and subject to change. The available commands listed there are `install`, `preview`, `publish`, `search`, and `update`.
+GitHub CLI's [`gh skill`](https://cli.github.com/manual/gh_skill) command has a different role. The official manual says it installs and manages agent skills from GitHub repositories, and that this CLI surface is in preview and subject to change. The same manual lists `gh skills` as an alias and lists `install`, `preview`, `publish`, `search`, and `update` as available commands. The [`gh skill publish`](https://cli.github.com/manual/gh_skill_publish) manual documents `--dry-run` as validation without publishing.
 
 Use each tool for a different question:
 
@@ -282,7 +284,7 @@ These are different questions.
 
 ## 9. Waza Details I Verified
 
-I verified `waza --version`; the output was `waza version 0.33.0`. I also checked the source of `microsoft/waza` at commit [`23e9dbae6bd73f8a526b9c16cef0eb543ddaed96`](https://github.com/microsoft/waza/tree/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96).
+After checking the Waza docs and installed help, I verified `waza --version`; the output was `waza version 0.33.0`. I also checked the source of `microsoft/waza` at commit [`23e9dbae6bd73f8a526b9c16cef0eb543ddaed96`](https://github.com/microsoft/waza/tree/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96).
 
 The most useful implementation references were:
 
@@ -332,7 +334,7 @@ So the practical loop is:
 
 ## 10. `gh skill` Details I Verified
 
-I checked `gh version 2.92.0` and the source of `cli/cli` at commit [`9a593ce81b593dee752cc11737d1a3ef768e52b3`](https://github.com/cli/cli/tree/9a593ce81b593dee752cc11737d1a3ef768e52b3).
+After checking the official GitHub CLI manual and installed help, I checked `gh version 2.92.0` and the source of `cli/cli` at commit [`9a593ce81b593dee752cc11737d1a3ef768e52b3`](https://github.com/cli/cli/tree/9a593ce81b593dee752cc11737d1a3ef768e52b3).
 
 The most useful implementation references were:
 
