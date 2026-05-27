@@ -31,15 +31,11 @@ The agent still remains probabilistic. The starting materials become more consis
 
 [OpenAI's skills documentation](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) describes skills as reusable, shareable workflows that help ChatGPT perform a specific task more consistently, and says skills can include instructions, examples, code, and supporting resources. For daily engineering work, "more consistently" carries the practical value. Skills reduce variance by providing the same process knowledge, but the agent still interprets the task probabilistically.
 
-For me, the working definition is:
-
-```{.text filename="working-definition.txt"}
-Agent Skills are reusable operating knowledge for AI agents.
-```
+My working definition is simple: Agent Skills are reusable operating knowledge for AI agents. The shorthand is: Skills = reusable operating knowledge.
 
 A skill is a small package that tells an agent when a workflow applies, how to proceed, what to avoid, and how to prove the result.
 
-## 2. Agent Skill Package Contents
+## 2. Package Contents and Routing Metadata
 
 The [Agent Skills specification](https://agentskills.io/specification) defines a skill as a directory that contains at least a `SKILL.md` file. That file has YAML frontmatter followed by Markdown instructions.
 
@@ -52,7 +48,7 @@ A skill needs two frontmatter fields:
 
 The body is where the work instructions live. Optional `references/`, `scripts/`, and `assets/` directories can hold supporting material.
 
-This shape supports progressive disclosure. The specification says the `name` and `description` metadata are loaded first, the full `SKILL.md` body is loaded when a skill is activated, and resources are loaded only as needed.
+This shape supports progressive disclosure, which becomes the main design constraint later in the article. The specification says the `name` and `description` metadata are loaded first, the full `SKILL.md` body is loaded when a skill is activated, and resources are loaded only as needed.
 
 The frontmatter is routing metadata.
 
@@ -82,7 +78,7 @@ license: MIT
 
 This operating procedure gives the agent a reusable start.
 
-## 3. `name` and `description` Drive Routing
+## 3. `name` and `description` Drive Selection
 
 Many first drafts spend most of their effort on the body. The body only helps after the skill has been selected.
 
@@ -115,9 +111,7 @@ People often describe one-shot prompting as if the prompt itself has to contain 
 
 For agentic engineering work, I think the better model is:
 
-```{.text filename="one-shot-shape.txt"}
-good ticket + relevant Agent Skills = useful short prompt
-```
+> good ticket + relevant Agent Skills = useful short prompt
 
 The ticket or issue should carry the task-specific facts:
 
@@ -142,7 +136,7 @@ The Agent Skill should carry the reusable process:
 
 That split makes the one-shot prompt smaller:
 
-```{.text filename="prompt.txt"}
+```{.bash}
 $skill-description-index
 
 Implement issue 123.
@@ -152,23 +146,19 @@ That prompt works only when the issue and relevant Agent Skills are good. If the
 
 One-shot prompting becomes easier because the reusable part is no longer in the prompt.
 
-## 5. The `$skill-description-index` Step
+## 5. The `$skill-description-index` Pattern
 
 The Agent Skills specification's progressive-disclosure model creates a useful tension. Loading only compact metadata at startup keeps context small, but sometimes the compressed catalog is not enough.
 
-`$skill-description-index` fills that catalog-recovery gap.
+`$skill-description-index` is how I fill that catalog-recovery gap in my local workflow.
 
-I am using `$skill-description-index` as a process pattern, not as a field in the Agent Skills specification. The helper gives the agent a reliable way to recover the available skills and their source-of-truth descriptions before it chooses how to work.
+It is not an Agent Skills spec field. It is not portable metadata. It is a process pattern: ask the agent to recover the available skill catalog and source-of-truth descriptions before it chooses how to work.
 
-Without that step, the agent may act from a partial memory of the catalog:
+In my local agent setup, `skill-description-index` is a skill whose description says it is for recovering full skill descriptions from disk when descriptions are missing, truncated, or unclear, including after context compaction. That is the concrete implementation behind the shorthand.
 
-```{.text filename="weak-start.txt"}
-Implement issue 123.
-```
+Without that step, the agent may act from a partial memory of the catalog. With the index step, the agent has a stronger opening move:
 
-With the index step, the agent has a stronger opening move:
-
-```{.text filename="stronger-start.txt"}
+```{.bash}
 $skill-description-index
 
 Use the available skill catalog and source-of-truth skill descriptions,
@@ -177,24 +167,13 @@ then implement issue 123.
 
 The index step cannot guarantee the correct skill choice, but it makes the failure mode more inspectable. If the wrong skill was selected, you can improve the description, split overlapping skills, or add a prompt-case evaluation.
 
-The principle is portable: before asking an agent to act, let it recover the current operating knowledge that should guide the work.
+The portable principle is broader than the exact token: before asking an agent to act, let it recover the current operating knowledge that should guide the work.
 
-## 6. Put Development Order in the Skill
+## 6. Put First-Step Knowledge in `SKILL.md`
 
-A lot of prompts repeat the same development-order instructions:
+A lot of prompts repeat the same development-order instructions: read the issue, find the relevant docs, plan if needed, implement the change, run tests, and report risks.
 
-```{.text filename="repeated-prompt-tail.txt"}
-Read the issue carefully.
-Find the relevant docs.
-Make a plan if needed.
-Implement the change.
-Run tests and lint.
-Report what changed and any remaining risks.
-```
-
-These are process instructions, not task facts.
-
-They belong in a process-oriented Agent Skill.
+These are process instructions, not task facts. They belong in a process-oriented Agent Skill.
 
 For ordinary engineering tasks, the reusable workflow often looks like this:
 
@@ -205,19 +184,9 @@ For ordinary engineering tasks, the reusable workflow often looks like this:
 5. Run the nearest test, lint, render, or validation check.
 6. Report evidence and residual risks.
 
-That workflow can live in `SKILL.md`. Then the prompt can stay short:
+That workflow can live in `SKILL.md`. Then the prompt can stay short: "Use the scoped code-change process and implement issue 123."
 
-```{.text filename="short-prompt.txt"}
-Use the scoped code-change process and implement issue 123.
-```
-
-The skill should also say when not to use it. A routine scoped-change process is not the right process for an incident, a security disclosure, a migration plan, or a production operation. Negative routing is part of reliability.
-
-## 7. `SKILL.md` Contents
-
-The most useful `SKILL.md` is usually not the longest one.
-
-The body is loaded when the skill is activated, so it should give the agent enough structure to start correctly without forcing it to carry every possible example. Long background belongs in `references/`.
+The most useful `SKILL.md` is usually not the longest one. The body is loaded when the skill is activated, so it should give the agent enough structure to start correctly without forcing it to carry every possible example. Long background belongs in `references/`.
 
 A practical first version can be small:
 
@@ -233,56 +202,13 @@ Copying a whole manual into `SKILL.md` creates a new problem. The skill should b
 
 When I decide whether something belongs in `SKILL.md`, I use this rule:
 
-```{.text filename="skill-body-rule.txt"}
-If the agent needs it before taking the first safe step, keep it in SKILL.md.
-If the agent needs it only for a specific branch of the work, move it to references/.
-```
+> If the agent needs it before taking the first safe step, keep it in `SKILL.md`. If the agent needs it only for a specific branch of the work, move it to `references/`.
 
 That rule keeps the entry small while still preserving depth.
 
-## 8. Outside the Skill
+## 7. Progressive Disclosure and Language Choices
 
-Agent Skills work best when they are part of a larger work surface.
-
-Not everything should move into a skill:
-
-| Content                         | Better home                                |
-| ------------------------------- | ------------------------------------------ |
-| This task's specific goal       | Prompt, issue, or ticket                   |
-| Acceptance criteria             | Issue or ticket                            |
-| Long domain background          | `references/` or external documentation    |
-| Project-wide style rules        | Project docs, then referenced by the skill |
-| Generated evidence              | Task artifact, CI output, or final report  |
-| Secrets or personal credentials | Nowhere in the skill                       |
-
-Avoid two bad extremes:
-
-- a giant root prompt that tries to control everything
-- hundreds of tiny skills that overlap and make routing noisy
-
-A skill should own a repeated workflow, not the whole organization.
-
-## 9. Language and Metadata Choices
-
-Agent Skills do not need English-only bodies.
-
-For Japanese-heavy work, I prefer this split:
-
-| Location      | Practical guidance                                                                         |
-| ------------- | ------------------------------------------------------------------------------------------ |
-| `name`        | Use lowercase ASCII, digits, and hyphens. This is the portable package name.               |
-| `description` | Prefer English for discovery, especially if tooling or heuristics expect English keywords. |
-| Body          | Use the language that makes the workflow clearest for the people and agents using it.      |
-| `references/` | Use the language of the source material. Japanese references are fine.                     |
-| Eval prompts  | Include Japanese cases when real requests are Japanese.                                    |
-
-Japanese instructions are valid. I keep `name` and `description` closer to English because they are the catalog surface. Tools read them early, compare them often, and use them for routing. The body and references can be much more local.
-
-If you expect Japanese prompts, test Japanese prompt cases. A skill that routes correctly for English prompts may not route correctly for Japanese ones unless the metadata and eval cases reflect that reality.
-
-## 10. Progressive Disclosure as a Design Constraint
-
-Progressive disclosure is the main design pressure behind Agent Skills.
+Progressive disclosure is the main design pressure behind Agent Skills. It is context-budget architecture, not just a packaging nicety.
 
 The specification describes a staged loading model:
 
@@ -296,7 +222,7 @@ That model rewards small entry points and focused references.
 
 For example:
 
-```{.text filename="larger-skill-tree.txt"}
+```{.text}
 skills/
   writing-rules/
     SKILL.md
@@ -309,11 +235,27 @@ skills/
 
 The `SKILL.md` should tell the agent when to read `style-rules.md`, not paste the whole style guide into the main file.
 
+Agent Skills also do not need English-only bodies. For Japanese-heavy work, I prefer this split:
+
+| Location      | Practical guidance                                                                    |
+| ------------- | ------------------------------------------------------------------------------------- |
+| `name`        | Use lowercase ASCII, digits, and hyphens. This is the portable package name.          |
+| `description` | Prefer English for discovery when catalog tooling compares text directly.             |
+| Body          | Use the language that makes the workflow clearest for the people and agents using it. |
+| `references/` | Use the language of the source material. Japanese references are fine.                |
+| Eval prompts  | Include Japanese cases when real requests are Japanese.                               |
+
+That English-description preference is operational, not a spec rule. I keep `name` and `description` closer to English because they are the catalog surface. Tools read them early, compare them often, and use them for routing. The body and references can be much more local.
+
+If you expect Japanese prompts, test Japanese prompt cases. A skill that routes correctly for English prompts may not route correctly for Japanese ones unless the metadata and eval cases reflect that reality.
+
 Progressive disclosure also makes failures easier to fix. If the wrong skill is selected, improve the description. If the right skill is selected but the work goes off track, improve the workflow. If the workflow is correct but lacks depth, improve the references.
 
-## 11. Tooling: Waza and `gh skill`
+## 8. Tooling Snapshot: Waza and `gh skill`
 
 Agent Skills encode operating knowledge. Tooling helps because skills are small packages that can drift.
+
+This is a 2026-05 snapshot. The tool surfaces below are real, but both local versions and hosted documentation can change.
 
 I separate two concerns:
 
@@ -332,9 +274,11 @@ Use each tool for a different question:
 - Use `gh skill publish --dry-run` to ask whether the repository is shaped well enough to publish.
 - Use prompt cases and evals to ask whether the right skills are selected for real requests.
 
+These are structural and behavioral checks. They do not prove trust, supply-chain integrity, script safety, reference safety, or `allowed-tools` safety.
+
 These are different questions.
 
-## 12. Waza Details I Verified
+## 9. Waza Details I Verified
 
 I verified `waza --version`; the output was `waza version 0.33.0`. I also checked the source of `microsoft/waza` at commit [`23e9dbae6bd73f8a526b9c16cef0eb543ddaed96`](https://github.com/microsoft/waza/tree/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96).
 
@@ -360,7 +304,7 @@ The JSON `ready` field carries the gate. In the checked implementation, readines
 
 Eval absence is reported, but absence of eval coverage alone does not necessarily make `ready` false. I confirmed that with an installed-command probe against a local skill:
 
-```{.text filename="waza-check-observed.txt"}
+```{.text}
 agent-skills-management	true	Medium-High	ok	false
 ```
 
@@ -384,7 +328,7 @@ So the practical loop is:
 2. Use prompt cases and graders for routing behavior.
 3. Use `waza quality` when you want LLM-judged feedback on the skill text.
 
-## 13. `gh skill` Details I Verified
+## 10. `gh skill` Details I Verified
 
 I checked `gh version 2.92.0` and the source of `cli/cli` at commit [`9a593ce81b593dee752cc11737d1a3ef768e52b3`](https://github.com/cli/cli/tree/9a593ce81b593dee752cc11737d1a3ef768e52b3).
 
@@ -406,7 +350,7 @@ The top-level command is a core GitHub CLI command named `gh skill`, with `gh sk
 
 For publishability, the validation path is:
 
-```{.bash filename="gh-skill-validation.sh"}
+```{.bash}
 gh skill publish --dry-run
 ```
 
@@ -432,7 +376,7 @@ Then it validates:
 
 I also ran a minimal local dry-run probe with a generated skill directory. It produced a missing-remote warning but completed validation:
 
-```{.text filename="gh-skill-dry-run-observed.txt"}
+```{.text}
 warning		no git remote found. Create a GitHub repository with: gh repo create
 
 Dry run complete. Use without --dry-run to publish.
@@ -440,21 +384,29 @@ Dry run complete. Use without --dry-run to publish.
 
 Do not document a separate `gh skill validate` workflow. The documented and implemented validation path is `gh skill publish --dry-run`.
 
-## 14. A Practical Lifecycle
+## 11. Lifecycle, Evidence, and Risk Surface
 
-I like this lifecycle because each step has a different job:
+This section has three layers: the cheap development loop, the evidence that should come back after work, and the risks that checks do not remove.
 
-1. Extract recurring prompt text.
-2. Split task-specific facts from reusable process knowledge.
-3. Write a small `SKILL.md` with clear `name` and `description`.
-4. Move long supporting detail into `references/`.
-5. Try real prompt cases.
-6. Use Waza for readiness, quality, and eval feedback.
-7. Use `gh skill publish --dry-run` for packaging validation.
-8. Update the skill when real tasks expose ambiguity.
-9. Remove or archive skills that no longer earn their place.
+The practical lifecycle can stay short:
 
-Prompt cases expose routing mistakes. A skill that looks clear in isolation can still be hard for an agent to select when adjacent skills have overlapping descriptions.
+1. Try prompt cases that cover expected routing, adjacent workflows, and negative scope.
+2. Run Waza checks for structural readiness, quality, and eval visibility.
+3. Run `gh skill publish --dry-run` when the repository should be publishable through GitHub CLI.
+
+For one skill:
+
+```{.bash}
+waza --no-update-check check skills/<name> --format json
+```
+
+For a repository that should be publishable through GitHub CLI:
+
+```{.bash}
+gh skill publish --dry-run
+```
+
+Neither command proves that the agent will choose the right skill for every prompt. Prompt cases expose routing mistakes. A skill that looks clear in isolation can still be hard for an agent to select when adjacent skills have overlapping descriptions.
 
 A small prompt-case table is enough to start:
 
@@ -465,31 +417,7 @@ A small prompt-case table is enough to start:
 | "Fix production now"                | Not this skill       | Does negative scope prevent unsafe activation?                      |
 | "Write release notes for this diff" | `release-notes`      | Does it route to writing rather than code change?                   |
 
-You do not need a perfect benchmark on day one. Make skill selection observable.
-
-## 15. Cheap Checks Before Real Work
-
-Before trusting a short prompt, check the skill package itself.
-
-For one skill:
-
-```{.bash filename="check-one-skill.sh"}
-waza --no-update-check check skills/<name> --format json
-```
-
-For a repository that should be publishable through GitHub CLI:
-
-```{.bash filename="publish-dry-run.sh"}
-gh skill publish --dry-run
-```
-
-The first command asks whether the skill is structurally healthy enough to use. The second asks whether the repository can be packaged for GitHub skill distribution.
-
-Neither command proves that the agent will choose the right skill for every prompt. For that, add prompt cases and task-level evals.
-
-## 16. Completion Evidence Should Be Part of the Skill
-
-Short prompts increase the need for completion evidence.
+Short prompts also increase the need for completion evidence. If the skill owns a workflow, it should also own the handoff shape.
 
 A useful final report should include:
 
@@ -499,8 +427,6 @@ A useful final report should include:
 - artifacts produced, such as screenshots or rendered output
 - remaining blockers
 - residual risks or unverified assumptions
-
-If the skill owns a workflow, it should also own the handoff shape.
 
 For example:
 
@@ -515,13 +441,7 @@ Include:
 - residual risk, if any
 ```
 
-That makes the short prompt safer. The prompt can say "implement issue 123" because the skill already says what evidence must come back.
-
-## 17. When to Say BLOCKED
-
-A skill should not train an agent to pretend.
-
-For risky work, the skill should say when to stop:
+A skill should not train an agent to pretend. For risky work, the skill should say when to stop:
 
 | Stop condition             | Why it matters                                     |
 | -------------------------- | -------------------------------------------------- |
@@ -533,24 +453,30 @@ For risky work, the skill should say when to stop:
 
 Use `BLOCKED` to keep uncertainty visible, not to avoid work.
 
-## 18. Common Anti-Patterns
+The broader risk surface matters too:
 
-Agent Skills fail in predictable ways.
+| Risk                         | What to watch                                                       |
+| ---------------------------- | ------------------------------------------------------------------- |
+| Discovery failure            | Overlapping descriptions, skill explosion, and routing ambiguity    |
+| Version drift                | Stale skills, conflicting policies, and unclear version provenance  |
+| Security and trust           | Malicious skills, poisoned references, unsafe scripts, exfiltration |
+| Missing retirement path      | Old skills keep competing with better current workflows             |
+| Over-centralized root prompt | One giant instruction surface becomes hard to audit and update      |
 
-The most common problems I see:
+Not everything should move into a skill:
 
-| Anti-pattern                             | Why it hurts                                   |
-| ---------------------------------------- | ---------------------------------------------- |
-| `general-work` owns everything           | The trigger becomes meaningless                |
-| A whole manual is copied into `SKILL.md` | The context cost rises and routing stays vague |
-| Only examples are provided               | The agent overfits old examples                |
-| No negative scope                        | Adjacent tasks activate the wrong workflow     |
-| No verification section                  | The agent reports completion without evidence  |
-| No retirement path                       | Stale skills keep competing with useful ones   |
+| Content                         | Better home                                |
+| ------------------------------- | ------------------------------------------ |
+| This task's specific goal       | Prompt, issue, or ticket                   |
+| Acceptance criteria             | Issue or ticket                            |
+| Long domain background          | `references/` or external documentation    |
+| Project-wide style rules        | Project docs, then referenced by the skill |
+| Generated evidence              | Task artifact, CI output, or final report  |
+| Secrets or personal credentials | Nowhere in the skill                       |
 
-Most fixes improve the boundary, not the length.
+Future tooling may improve this with embedding retrieval, hierarchical routing, evaluator feedback loops, and better audit trails for which skill version was used. Those are useful directions, but they do not remove the need for clear boundaries today.
 
-## 19. Documented Behavior and My Framing
+## 12. Documented Behavior, Framing, and Summary
 
 Separate documented behavior from interpretation.
 
@@ -566,25 +492,13 @@ Documented facts:
 My framing:
 
 - "Reusable operating knowledge" is a practical way to think about what should move from a repeated prompt into a skill.
-- `$skill-description-index` is a catalog-recovery pattern for returning from compressed metadata to available source-of-truth skill descriptions before acting.
+- `$skill-description-index` is a local catalog-recovery pattern, not a spec field.
 - A good ticket is the other half of a good one-shot prompt.
 - Skills reduce repeated instructions and improve consistency, but they do not make probabilistic agents deterministic.
 - Different tools check different layers. Waza readiness, Waza evals, and `gh skill publish --dry-run` should not be collapsed into one generic "validation" bucket.
 
-This distinction keeps the article honest. The tools are real; the operating model is a way to use them responsibly.
+Agent Skills are most useful when they are treated as reusable operating knowledge. The short prompt becomes practical only when the surrounding system is strong: a good issue or ticket on one side, and well-described Agent Skills on the other.
 
-## 20. Summary
-
-Agent Skills are most useful when they are treated as reusable operating knowledge.
-
-They let you move recurring instructions out of every prompt:
-
-- how to discover source-of-truth context
-- how to choose the relevant workflow
-- how to avoid adjacent work
-- how to validate the result
-- how to report evidence and residual risks
-
-The short prompt becomes practical only when the surrounding system is strong: a good issue or ticket on one side, and well-described Agent Skills on the other.
+The body-placement rule is the part I return to most often: if the agent needs it before taking the first safe step, keep it in `SKILL.md`; if the agent needs it only for a specific branch of the work, move it to `references/`.
 
 The value is repeated access to process knowledge every time an agent starts work.

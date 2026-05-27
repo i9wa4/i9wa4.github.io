@@ -12,8 +12,13 @@
 - In `.qmd` files, write static highlighted code blocks with Pandoc attribute
   class syntax: use an opening fence like ` ```{.bash}` rather than
   ` ```bash`.
-- In `.qmd` files, add filenames as Pandoc attributes on the same opening
-  fence, for example ` ```{.bash filename="script.sh"}`.
+- When adding filenames in `.qmd` files, write them as Pandoc attributes on
+  the same opening fence, for example ` ```{.bash filename="script.sh"}`.
+- Add filenames only when the filename carries useful meaning for the reader or
+  maps to a real file. Avoid decorative `.txt` filename attributes such as
+  `filename="prompt.txt"` on prompt/example snippets.
+- In public `.qmd` surfaces, keep filename attributes repo-relative or
+  filename-only. Do not use machine-local absolute paths.
 - Use ` ```{bash}`, ` ```{python}`, and similar non-class braces only for
   intentionally executable Quarto cells. For documentation examples that
   should not execute, use a static class fence such as ` ```{.python}` or wrap
@@ -30,6 +35,9 @@
   terminal transcripts, directory trees, config-ish samples, or
   language-neutral content. If a block is primarily an executable shell command
   for the reader to run, use ` ```{.bash}` instead.
+- For prompt-like shell invocations or reader-run commands with no meaningful
+  filename, prefer unnamed ` ```{.bash}` blocks. Keep `.text` for logs, command
+  output, directory trees, config-ish samples, and language-neutral content.
 - In plain `.md` files that target CommonMark, GitHub, or Zenn, use normal
   Markdown info strings such as ` ```bash`, ` ```python`, or Zenn's
   ` ```bash:script.sh` filename form. Do not use Pandoc-only forms such as
