@@ -152,9 +152,11 @@ The Agent Skills specification's progressive-disclosure model creates a useful t
 
 `$skill-description-index` is how I fill that catalog-recovery gap in my local workflow.
 
-It is not an Agent Skills spec field. It is not portable metadata. It is a process pattern: ask the agent to recover the available skill catalog and source-of-truth descriptions before it chooses how to work.
+It is not an Agent Skills spec field, an official command, or portable metadata. It is a local, repository-specific utility skill example: ask the agent to recover the available skill catalog and source-of-truth descriptions before it chooses how to work.
 
-In my local agent setup, `skill-description-index` is a skill whose description says it is for recovering full skill descriptions from disk when descriptions are missing, truncated, or unclear, including after context compaction. That is the concrete implementation behind the shorthand.
+The concrete skill package is named `skill-description-index`. Its metadata says to use it when full skill descriptions need to be recovered from disk because the active catalog is missing, truncated, or unclear, including after autocompaction. The same metadata says not to use it for unrelated tasks, broad rewrites, generated runtime outputs, or replacing repo-specific source of truth.
+
+The body is also narrow. It tells the agent to inspect relevant files, repo conventions, and `git status`; read `references/preserved-guidance.md` before behavior changes or detailed instructions; make the smallest scoped change; run the preserved checks or nearest repo harness; and report verification plus remaining risk. The reference it points to is `references/preserved-guidance.md`, which preserves the deeper original guidance for generating or recovering the description index. Its troubleshooting rule is conservative: if Waza or repo validation disagrees with the preserved guidance, follow the stricter rule and report the exception.
 
 Without that step, the agent may act from a partial memory of the catalog. With the index step, the agent has a stronger opening move:
 
