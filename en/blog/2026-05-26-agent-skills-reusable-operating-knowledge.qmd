@@ -154,9 +154,59 @@ The Agent Skills specification's progressive-disclosure model creates a useful t
 
 It is not an Agent Skills spec field, an official command, or portable metadata. It is a local, repository-specific utility skill example: ask the agent to recover the available skill catalog and source-of-truth descriptions before it chooses how to work.
 
-The concrete skill package is named `skill-description-index`. Its metadata says to use it when full skill descriptions need to be recovered from disk because the active catalog is missing, truncated, or unclear, including after autocompaction. The same metadata says not to use it for unrelated tasks, broad rewrites, generated runtime outputs, or replacing repo-specific source of truth.
+The concrete local package is named `skill-description-index`. Its job is narrow: recover full skill descriptions from disk when the active catalog is missing, truncated, compressed by autocompaction, or otherwise unclear. It should not replace the repo's source of truth, and it should not be used as a general-purpose rewrite trigger.
 
-The body is also narrow. It tells the agent to inspect relevant files, repo conventions, and `git status`; read `references/preserved-guidance.md` before behavior changes or detailed instructions; make the smallest scoped change; run the preserved checks or nearest repo harness; and report verification plus remaining risk. The reference it points to is `references/preserved-guidance.md`, which preserves the deeper original guidance for generating or recovering the description index. Its troubleshooting rule is conservative: if Waza or repo validation disagrees with the preserved guidance, follow the stricter rule and report the exception.
+A minimal local version can be created by copy-pasting a small `SKILL.md` and adapting the paths to your own skill tree:
+
+```{.markdown filename="skills/skill-description-index/SKILL.md"}
+---
+name: skill-description-index
+license: MIT
+description: |
+  USE FOR: Recover full skill descriptions from disk. Use when descriptions are missing, truncated, or unclear, including after autocompaction.
+  DO NOT USE FOR: unrelated tasks, broad rewrites outside the request, generated runtime outputs, or replacing repo-specific source of truth.
+---
+
+# Skill Description Index
+
+Use this skill when the active skill catalog is too short to trust:
+descriptions are missing, truncated, compressed by autocompaction, or unclear.
+
+## Workflow
+
+1. Inspect the relevant files, current repo conventions, and `git status`.
+2. Read `references/preserved-guidance.md` before changing behavior or giving detailed instructions.
+3. Recover full skill descriptions from the installed or repo-local `SKILL.md` files.
+4. Make the smallest scoped change that satisfies the request.
+5. Run the checks named in the preserved guidance or the nearest repo harness.
+6. Report verification results and any remaining risk.
+
+## References
+
+- `references/preserved-guidance.md`
+```
+
+The preserved guidance is where the local, non-portable details belong. My version records that the index script scans installed user-level skill trees and prints a Markdown table:
+
+```{.markdown filename="skills/skill-description-index/references/preserved-guidance.md"}
+# Preserved Guidance
+
+Use this local skill when the active skill catalog is missing, truncated, or unclear.
+
+If an index script is installed with this skill, run it from the available local skill tree:
+
+- `bash ~/.codex/skills/skill-description-index/scripts/agent-skill-description-index.sh`
+- `bash ~/.claude/skills/skill-description-index/scripts/agent-skill-description-index.sh`
+
+The script should print a Markdown index with:
+
+- skill root
+- skill name
+- home-relative `SKILL.md` path
+- frontmatter `description`
+
+Treat installed skill trees as generated output. Edit source skills in the repository or local source tree that owns them, not in generated installs.
+```
 
 Without that step, the agent may act from a partial memory of the catalog. With the index step, the agent has a stronger opening move:
 
@@ -166,6 +216,21 @@ $skill-description-index
 Use the available skill catalog and source-of-truth skill descriptions,
 then implement issue 123.
 ```
+
+Success should be visible in the agent's first actions. Instead of relying only on the compressed catalog entry, it should read the skill package, follow the preserved guidance, and recover a Markdown index shaped like this:
+
+```{.markdown}
+# Agent Skill Description Index
+
+Generated from installed user-level skill trees.
+
+| Skill Root | Skill | SKILL.md Path | Description |
+| ---------- | ----- | ------------- | ----------- |
+| ~/.codex/skills | `github` | `~/.codex/skills/github/SKILL.md` | GitHub workflow guidance... |
+| ~/.codex/skills | `skill-description-index` | `~/.codex/skills/skill-description-index/SKILL.md` | Recover full skill descriptions from disk... |
+```
+
+After that, a good handoff should say which full skill descriptions were used, which source files were read, and which checks proved the work. If the index output is empty, stale, or points to generated installs instead of editable source, that is not success; it is a signal to fix the local skill roots or the preserved guidance.
 
 The index step cannot guarantee the correct skill choice, but it makes the failure mode more inspectable. If the wrong skill was selected, you can improve the description, split overlapping skills, or add a prompt-case evaluation.
 
