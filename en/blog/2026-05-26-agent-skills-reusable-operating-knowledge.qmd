@@ -394,6 +394,16 @@ This section has three layers: the cheap development loop, the evidence that sho
 
 The practical lifecycle can stay short:
 
+1. Notice a repeated instruction, missing check, or recurring handoff mistake.
+2. Draft a small `SKILL.md` for one workflow.
+3. Use it on a real task.
+4. Run prompt cases and structural checks.
+5. Keep, revise, split, or retire the skill based on what happened.
+
+Do not skip the last step. Old skills keep competing for attention, and a stale skill can be worse than no skill because it gives the agent confident but outdated process knowledge.
+
+For validation, I use three layers:
+
 1. Try prompt cases that cover expected routing, adjacent workflows, and negative scope.
 2. Run Waza checks for structural readiness, quality, and eval visibility.
 3. Run `gh skill publish --dry-run` when the repository should be publishable through GitHub CLI.
