@@ -244,6 +244,17 @@ Agent Skills は、必要な Skill が選ばれて初めて効きます。
 OpenAI や GitHub の公式コマンドでもありません。
 あくまで、利用できる Skill の説明をディスク上の `SKILL.md` から取り直すためのローカルな補助です。
 
+依頼文では、たとえば次のように書けます。
+
+```text
+$skill-description-index
+
+Issue 123 を実装してください。
+```
+
+先頭に Skill を選ばせる合図を置き、その下に短い作業依頼を書きます。
+こうすると agent は動き出す前に、使うべき運用知識を取り戻しやすくなります。
+
 たとえば Skill 側には、次のような責務だけを持たせます。
 
 ```markdown:skills/skill-description-index/SKILL.md
