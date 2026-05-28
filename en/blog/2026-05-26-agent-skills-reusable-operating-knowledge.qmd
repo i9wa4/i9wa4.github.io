@@ -219,16 +219,14 @@ then implement issue 123.
 
 Success should be visible in the agent's first actions. Instead of relying only on the compressed catalog entry, it should read the skill package, follow the preserved guidance, and recover a Markdown index shaped like this:
 
-```{.markdown}
-# Agent Skill Description Index
-
-Generated from installed user-level skill trees.
-
-| Skill Root | Skill | SKILL.md Path | Description |
-| ---------- | ----- | ------------- | ----------- |
-| ~/.codex/skills | `github` | `~/.codex/skills/github/SKILL.md` | GitHub workflow guidance... |
-| ~/.codex/skills | `skill-description-index` | `~/.codex/skills/skill-description-index/SKILL.md` | Recover full skill descriptions from disk... |
-```
+> # Agent Skill Description Index
+>
+> Generated from installed user-level skill trees.
+>
+> | Skill Root | Skill | SKILL.md Path | Description |
+> | ---------- | ----- | ------------- | ----------- |
+> | ~/.codex/skills | `github` | `~/.codex/skills/github/SKILL.md` | GitHub workflow guidance... |
+> | ~/.codex/skills | `skill-description-index` | `~/.codex/skills/skill-description-index/SKILL.md` | Recover full skill descriptions from disk... |
 
 After that, a good handoff should say which full skill descriptions were used, which source files were read, and which checks proved the work. Installed skill trees can be useful catalog evidence, but they are not the editable source of truth. If the index output is empty, stale, or does not lead back to an owning source tree, treat that as a signal to fix the local skill roots or the preserved guidance.
 
