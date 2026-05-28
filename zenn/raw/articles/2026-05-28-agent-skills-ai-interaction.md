@@ -8,7 +8,8 @@ topics:
   - "github"
   - "prompt"
 publication_name: "genda_jp"
-published: false
+published: true
+published_at: 2026-05-28 16:00
 ---
 
 ## 1. はじめに

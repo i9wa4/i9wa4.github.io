@@ -1,0 +1,20 @@
+---
+title: "Agent Skills で AI への依頼を設計する"
+author: uma-chan
+date: 2026-05-28 16:00:00 +0900
+image: "/assets/common/zenn-ogp.png"
+description: |
+  Agent SkillsでAIへの依頼を設計し、前提・手順・制約・検証をSKILL.mdに分離する方法を解説
+categories:
+  - "zenn"
+  - "aiagent"
+  - "agentskills"
+  - "github"
+  - "prompt"
+---
+
+## Zenn リンク先
+
+この記事は Zenn で公開されています。
+
+[Agent Skills で AI への依頼を設計する](https://zenn.dev/genda_jp/articles/2026-05-28-agent-skills-ai-interaction)
