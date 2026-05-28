@@ -332,7 +332,11 @@ should_not_trigger_prompts:
 waza run evals/markdown/eval.yaml
 ```
 
-Waza then checks whether the `markdown` skill is selected for `should_trigger_prompts` and not selected for `should_not_trigger_prompts`. When that result is wrong, improve the `description` trigger and anti-trigger wording or the skill body.
+A trigger test is not a static lint check. When `waza run` finds `trigger_tests.yaml` next to the eval spec, it runs each prompt through the configured executor and compares the recorded skill invocations with the expected label: `should_trigger_prompts` should invoke `markdown`, and `should_not_trigger_prompts` should not.
+
+That run may involve AI. Waza's normal project default is the `copilot-sdk` executor, so the task uses `config.model` or `--model`; `executor: mock` is local simulation. This is separate from `waza check`, which checks compliance, token budget, and eval file presence.
+
+The grader side is also mixed. `skill_invocation` checks recorded invocations deterministically, and the lightweight `trigger` grader scores prompt/skill relevance heuristically. Only the `prompt` grader is LLM-as-judge, controlled by `config.judge_model` or `--judge-model`. When the result is wrong, improve the `description` trigger and anti-trigger wording or the skill body.
 
 Progressive disclosure also makes failures easier to fix. If the wrong skill is selected, improve the description. If the right skill is selected but the work goes off track, improve the workflow. If the workflow is correct but lacks depth, improve the references.
 

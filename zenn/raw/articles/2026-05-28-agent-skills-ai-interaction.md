@@ -205,7 +205,17 @@ should_not_trigger_prompts:
 waza run evals/markdown/eval.yaml
 ```
 
-この例で Waza が見るのは、`should_trigger_prompts` の依頼で `markdown` Skill が選ばれ、`should_not_trigger_prompts` の依頼では選ばれないかです。
+この trigger test は、`trigger_tests.yaml` の各依頼文を `waza run` の実行時に agent へ投げ、対象 Skill が実際に呼ばれたかを比較します。
+`should_trigger_prompts` は `markdown` Skill が呼ばれたら成功で、`should_not_trigger_prompts` は呼ばれなければ成功です。
+
+この実行が AI を使うかは `eval.yaml` の `config.executor` で決まります。
+Waza の通常のプロジェクト設定では `copilot-sdk` executor が使われるため、`config.model` や `--model` の model で agent が実行されます。
+`executor: mock` なら local の模擬実行です。
+これは、`waza check` のような frontmatter、token budget、`eval.yaml` の有無を見る静的確認とは別です。
+
+採点側も一種類ではありません。
+`skill_invocation` grader は記録された Skill invocation を deterministic に確認し、`trigger` grader は依頼文と Skill の対応を heuristic に score します。
+`prompt` grader を使う場合だけ、`config.judge_model` や `--judge-model` の LLM judge で評価します。
 ズレていたら、`description` の `USE FOR` / `DO NOT USE FOR` や本文の説明を直します。
 
 大事なのは、英語の名前を覚えることではなく、実際に自分が投げそうな依頼文を残すことです。
