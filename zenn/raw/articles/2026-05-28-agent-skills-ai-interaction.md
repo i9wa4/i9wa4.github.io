@@ -169,7 +169,8 @@ description: |
   DO NOT USE FOR: Build failures, release safety, or unrelated prose editing.
 ```
 
-この書き味は Waza で trigger / anti-trigger の signal として扱われていておすすめの記法です。
+これは Agent Skills 仕様や Waza が要求する構文ではなく、私が分かりやすいと思っている convention です。
+ただし、Waza はこの形式を trigger / anti-trigger の signal として扱えるので、評価やテストとは相性がよいです。
 
 ## 7. 日本語でどこまで書くか
 
@@ -177,13 +178,15 @@ description: |
 
 ただし、入口になるメタデータは英語寄りにした方が安定しやすいです。
 
-| 場所          | 実務上のおすすめ                                     |
-| ------------- | ---------------------------------------------------- |
-| `name`        | lowercase ASCII、digits、hyphen                      |
-| `description` | English の `USE FOR` / `DO NOT USE FOR` を基本にする |
-| 本文          | 対象作業に合わせて日本語でもよい                     |
-| `references/` | 人間と AI が読む実務資料として日本語でもよい         |
-| eval prompt   | 日本語の依頼を扱うなら日本語の依頼文ケースも入れる   |
+| 場所           | 実務上のおすすめ                                     |
+| -------------- | ---------------------------------------------------- |
+| `name`         | lowercase ASCII、digits、hyphen                      |
+| `description`  | English の `USE FOR` / `DO NOT USE FOR` を基本にする |
+| 本文           | 対象作業に合わせて日本語でもよい                     |
+| `references/`  | 人間と AI が読む実務資料として日本語でもよい         |
+| 評価用の依頼文 | 日本語の依頼を扱うなら日本語の依頼文ケースも入れる   |
+
+ここでいう評価用の依頼文は、Skill が期待どおりに呼ばれるかを確認するためのテスト入力です。
 
 理由は、`name` と `description` が最初に読まれるカタログだからです。
 AI やツールが最初に見る入口は、検索性と trigger の安定性を優先した方が扱いやすいです。
