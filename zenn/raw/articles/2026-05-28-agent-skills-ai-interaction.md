@@ -187,6 +187,26 @@ description: |
 | 評価用の依頼文 | 日本語の依頼を扱うなら日本語の依頼文ケースも入れる   |
 
 ここでいう評価用の依頼文は、Skill が期待どおりに呼ばれるかを確認するためのテスト入力です。
+Waza の trigger test なら、たとえば次のように「呼ばれてほしい依頼」と「呼ばれてほしくない依頼」を分けて書きます。
+
+```yaml:evals/markdown/trigger_tests.yaml
+skill: markdown
+
+should_trigger_prompts:
+  - prompt: "Zenn の記事でコードブロックの書き方を確認して"
+    reason: "Markdown の書き方に関する依頼"
+
+should_not_trigger_prompts:
+  - prompt: "Quarto のビルドエラーを直して"
+    reason: "ビルド失敗の調査であり、Markdown の書き方ではない"
+```
+
+```bash
+waza run evals/markdown/eval.yaml
+```
+
+大事なのは、英語の名前を覚えることではなく、実際に自分が投げそうな依頼文を残すことです。
+日本語で使う Skill なら、日本語の依頼文をそのままケースにします。
 
 理由は、`name` と `description` が最初に読まれるカタログだからです。
 AI やツールが最初に見る入口は、検索性と trigger の安定性を優先した方が扱いやすいです。
