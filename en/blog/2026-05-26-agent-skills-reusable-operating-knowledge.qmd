@@ -304,17 +304,35 @@ The `SKILL.md` should tell the agent when to read `style-rules.md`, not paste th
 
 Agent Skills also do not need English-only bodies. For Japanese-heavy work, I prefer this split:
 
-| Location      | Practical guidance                                                                    |
-| ------------- | ------------------------------------------------------------------------------------- |
-| `name`        | Use lowercase ASCII, digits, and hyphens. This is the portable package name.          |
-| `description` | Prefer English for discovery when catalog tooling compares text directly.             |
-| Body          | Use the language that makes the workflow clearest for the people and agents using it. |
-| `references/` | Use the language of the source material. Japanese references are fine.                |
-| Eval prompts  | Include Japanese cases when real requests are Japanese.                               |
+| Location                | Practical guidance                                                                    |
+| ----------------------- | ------------------------------------------------------------------------------------- |
+| `name`                  | Use lowercase ASCII, digits, and hyphens. This is the portable package name.          |
+| `description`           | Prefer English for discovery when catalog tooling compares text directly.             |
+| Body                    | Use the language that makes the workflow clearest for the people and agents using it. |
+| `references/`           | Use the language of the source material. Japanese references are fine.                |
+| Evaluation prompt cases | Include Japanese request cases when real requests are Japanese.                       |
 
 That English-description preference is operational, not a spec rule. I keep `name` and `description` closer to English because they are the catalog surface. Tools read them early, compare them often, and use them for routing. The body and references can be much more local.
 
-If you expect Japanese prompts, test Japanese prompt cases. A skill that routes correctly for English prompts may not route correctly for Japanese ones unless the metadata and eval cases reflect that reality.
+If you expect Japanese prompts, test Japanese prompt cases. Here, an evaluation prompt case means a test input that should or should not trigger a skill. In Waza trigger tests, make those cases explicit:
+
+```{.yaml filename="evals/markdown/trigger_tests.yaml"}
+skill: markdown
+
+should_trigger_prompts:
+  - prompt: "Zenn の記事でコードブロックの書き方を確認して"
+    reason: "A request about Markdown authoring"
+
+should_not_trigger_prompts:
+  - prompt: "Quarto のビルドエラーを直して"
+    reason: "A build-debugging request, not Markdown authoring guidance"
+```
+
+```{.bash}
+waza run evals/markdown/eval.yaml
+```
+
+Waza then checks whether the `markdown` skill is selected for `should_trigger_prompts` and not selected for `should_not_trigger_prompts`. When that result is wrong, improve the `description` trigger and anti-trigger wording or the skill body.
 
 Progressive disclosure also makes failures easier to fix. If the wrong skill is selected, improve the description. If the right skill is selected but the work goes off track, improve the workflow. If the workflow is correct but lacks depth, improve the references.
 
