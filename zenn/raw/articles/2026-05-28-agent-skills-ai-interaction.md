@@ -205,6 +205,9 @@ should_not_trigger_prompts:
 waza run evals/markdown/eval.yaml
 ```
 
+この例で Waza が見るのは、`should_trigger_prompts` の依頼で `markdown` Skill が選ばれ、`should_not_trigger_prompts` の依頼では選ばれないかです。
+ズレていたら、`description` の `USE FOR` / `DO NOT USE FOR` や本文の説明を直します。
+
 大事なのは、英語の名前を覚えることではなく、実際に自分が投げそうな依頼文を残すことです。
 日本語で使う Skill なら、日本語の依頼文をそのままケースにします。
 
