@@ -169,22 +169,13 @@ description: |
   DO NOT USE FOR: Build failures, release safety, or unrelated prose editing.
 ```
 
-注意点として、これは Agent Skills 仕様の必須構文ではありません。
-仕様として必須なのは、たとえば `name` と `description` のような frontmatter です。
-
-一方で、Waza はこの書き方と相性がよいです。
-確認した Waza 0.33.0 では、`USE FOR:` や `DO NOT USE FOR:` が trigger / anti-trigger の signal として扱われます。
-また、trigger grader や `skill_invocation` grader の文脈でも、この形式は読みやすい signal になります。
-
-つまり、これは「GitHub や Agent Skills 仕様が要求する構文」ではなく「Waza で評価されやすく、人間にも読みやすい convention」として扱うのがよさそうです。
+この書き味は Waza で trigger / anti-trigger の signal として扱われていておすすめの記法です。
 
 ## 7. 日本語でどこまで書くか
 
-日本語の手順を書くこと自体は禁止されていません。
-むしろ、日本語の記事や日本語の運用手順を扱うなら、本文や `references/` は日本語の方が読みやすいです。
+日本語の記事や日本語の運用手順を扱うなら、本文や `references/` は日本語の方が読みやすいです。
 
 ただし、入口になるメタデータは英語寄りにした方が安定しやすいです。
-これは仕様上の要件ではなく、実務上の好みです。
 
 | 場所          | 実務上のおすすめ                                     |
 | ------------- | ---------------------------------------------------- |
