@@ -334,7 +334,7 @@ waza run evals/markdown/eval.yaml
 
 A trigger test is not a static lint check. When `waza run` finds `trigger_tests.yaml` next to the eval spec, it runs each prompt through the configured executor and compares the recorded skill invocations with the expected label: `should_trigger_prompts` should invoke `markdown`, and `should_not_trigger_prompts` should not.
 
-That run may involve AI. Waza's normal project default is the `copilot-sdk` executor, so the task uses `config.model` or `--model`; `executor: mock` is local simulation. This is separate from `waza check`, which checks compliance, token budget, and eval file presence.
+That run may involve GitHub Copilot, but not every Waza check or eval path does. Waza's normal project default is the `copilot-sdk` executor. That is not just an internal label: Waza's docs and source show this path uses the GitHub Copilot SDK/CLI. With the default provider, local runs need `copilot login`; token-based CI runs use `GITHUB_TOKEN`. A custom Copilot SDK provider can use `COPILOT_BASE_URL` or `COPILOT_PROVIDER_BASE_URL` and related provider environment variables, which skips the default Copilot auth check. The agent/task model is `config.model` or `--model`; `executor: mock` is local simulation and does not need Copilot authentication. This is separate from `waza check`, which checks compliance, token budget, and eval file presence.
 
 The grader side is also mixed. `skill_invocation` checks recorded invocations deterministically, and the lightweight `trigger` grader scores prompt/skill relevance heuristically. Only the `prompt` grader is LLM-as-judge, controlled by `config.judge_model` or `--judge-model`. When the result is wrong, improve the `description` trigger and anti-trigger wording or the skill body.
 
@@ -377,6 +377,12 @@ The most useful implementation references were:
 - [`internal/checks/spec_checks.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/checks/spec_checks.go)
 - [`internal/checks/token_budget.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/checks/token_budget.go)
 - [`internal/checks/eval_suite.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/checks/eval_suite.go)
+- [`cmd/waza/cmd_run.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/cmd/waza/cmd_run.go)
+- [`internal/execution/copilot.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/execution/copilot.go)
+- [`internal/execution/sdkclient.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/execution/sdkclient.go)
+- [`internal/execution/mock.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/execution/mock.go)
+- [`internal/graders/run.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/graders/run.go)
+- [`internal/graders/prompt_grader.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/graders/prompt_grader.go)
 - [`internal/graders/trigger_grader.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/graders/trigger_grader.go)
 - [`internal/graders/skill_invocation_grader.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/internal/graders/skill_invocation_grader.go)
 - [`cmd/waza/cmd_quality.go`](https://github.com/microsoft/waza/blob/23e9dbae6bd73f8a526b9c16cef0eb543ddaed96/cmd/waza/cmd_quality.go)
