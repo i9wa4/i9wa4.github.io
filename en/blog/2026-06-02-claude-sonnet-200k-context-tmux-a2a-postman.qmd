@@ -17,7 +17,11 @@ Claude Sonnet's large context windows are useful. They let an agent keep more co
 
 The trap is treating that window as a workflow.
 
-A large context window is still working memory. Anthropic's [context window documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows) makes the operational warning clear: more context is not automatically better, and recall can degrade as token count grows. The same page currently lists Claude Sonnet 4.6 as a 1M-token model on Claude API, Amazon Bedrock, and Vertex AI, while Claude Sonnet 4.5 and Sonnet 4 are in the 200k-token class. The exact limit depends on the model and deployment, but the operating problem does not go away when the window gets larger.
+A large context window is still working memory. Anthropic's [context window documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows) makes the operational warning clear: more context is not automatically better, and recall can degrade as token count grows. The same page currently lists Claude Sonnet 4.6 as a 1M-token model on Claude API, Amazon Bedrock, and Vertex AI, while Claude Sonnet 4.5 and Sonnet 4 are in the 200k-token class. The exact limit depends on the model, product surface, and deployment, but the operating problem does not go away when the window gets larger.
+
+That is also why 200K still matters. Current Claude Help Center pages separate [usage limits from length limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work): usage limits are the plan budget over time, while length limits are the context window for a single conversation. The current [paid-plan context page](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans) describes 500K chat windows for several current Opus models and Sonnet 4.6, 200K windows outside those models, and 1M Claude Code paths for current Opus and Sonnet models with usage credit requirements in some cases. The [API context page](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window) similarly separates 1M-capable current Opus and Sonnet deployments from 200K-class models. Pro and Max usage is also shared across `claude.ai`, Claude Desktop, and Claude Code.
+
+In practical terms, a 200K-token model is useful for work that is too large for casual chat but does not justify, qualify for, or fit within a 1M-token path. Examples include a repository plus logs, a design document plus implementation files, a long debugging transcript, or a review packet with enough source context to reason safely. [Max 5x and Max 20x](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) increase usage capacity over Pro, but they do not remove the need to manage context shape. A bigger window helps; it also makes each messy conversation more expensive against the same shared usage system.
 
 For agentic coding, the failure mode is rarely "the model cannot fit the file." The failure mode is usually operational:
 
@@ -102,13 +106,15 @@ The fix is not to make every prompt longer. The fix is to create small durable s
 
 This gives the model a current working set instead of asking it to infer the live task board from thousands of old tokens.
 
-## 5. The Concrete Tool: Postman
+## 5. The Concrete Tool: `tmux-a2a-postman`
 
-Those three practices can be implemented in many ways. My concrete local tool for them is [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman).
+Everything up to this point is tool agnostic. The operating model is: split the work across agents, restore the right role after compaction, and keep task state outside the transcript.
 
-I introduced the mailbox layer in [a previous Postman post](2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.qmd). This post is about the context-management angle: using Postman as the coordination layer around Claude's large but fallible working memory.
+My concrete local tool for that model is [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman).
 
-Postman does not make Claude smarter. It does not increase the context window. It does not replace Claude Code, Codex CLI, tmux, or native subagents.
+I introduced the mailbox layer in [a previous `tmux-a2a-postman` post](2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.qmd). This post is about the context-management angle: using `tmux-a2a-postman` as the coordination layer around Claude's large but fallible working memory.
+
+`tmux-a2a-postman` does not make Claude smarter. It does not increase the context window. It does not replace Claude Code, Codex CLI, tmux, or native subagents.
 
 It adds a coordination surface:
 
@@ -123,7 +129,7 @@ It adds a coordination surface:
 
 The key sentence is this:
 
-> Context is for reasoning; postman mail is for obligations.
+> Context is for reasoning; `tmux-a2a-postman` mail is for obligations.
 
 That lets a Claude session use its available tokens for the current piece of work instead of carrying the whole project's workflow state in a chat transcript.
 
@@ -166,7 +172,7 @@ This reduces the effective task size. Instead of one Claude context carrying eve
 
 ## 7. Compaction Becomes a Mail Event
 
-Postman treats compaction as something the harness can notice. The daemon can scan pane output for newer Claude or Codex compaction markers. When it sees one, it sends a compaction-triggered daemon PING to that node.
+`tmux-a2a-postman` treats compaction as something the harness can notice. The daemon can scan pane output for newer Claude or Codex compaction markers. When it sees one, it sends a compaction-triggered daemon PING to that node.
 
 That automatic compaction PING is not a task by itself. It is a continuity signal:
 
@@ -176,7 +182,7 @@ That automatic compaction PING is not a task by itself. It is a continuity signa
 - Recover the local skill catalog if configured
 - Continue from durable task state instead of pane memory alone
 
-This is where tmux pane titles become more than a naming convention. Postman already treats a node as an agent role identified by its pane title. If the `worker` pane compacts, it can receive worker-specific recovery context. If the `orchestrator` pane compacts, it can receive coordinator-specific recovery context. The hook or daemon does not have to infer the role from a compressed conversation.
+This is where tmux pane titles become more than a naming convention. `tmux-a2a-postman` already treats a node as an agent role identified by its pane title. If the `worker` pane compacts, it can receive worker-specific recovery context. If the `orchestrator` pane compacts, it can receive coordinator-specific recovery context. The hook or daemon does not have to infer the role from a compressed conversation.
 
 The configuration surface is intentionally small. A `skill_path` catalog can opt into ordinary PING mail, compaction PING mail, or both:
 
@@ -208,9 +214,9 @@ The important point is not the PING text. The important point is that compaction
 
 That is how I want to use a large window: aggressively, but with recovery hooks when the window is rewritten.
 
-## 8. If You Do Not Use Postman
+## 8. If You Do Not Use `tmux-a2a-postman`
 
-You can build a lighter version without Postman.
+You can build a lighter version without `tmux-a2a-postman`.
 
 For example, an after-compaction hook could read the current tmux pane title, map it to a role prompt, and paste or submit the matching reminder into that pane. A shell script could map `worker` to `roles/worker.md`, `reviewer` to `roles/reviewer.md`, and so on. A shared Markdown file, issue, or task board could hold the durable checklist.
 
@@ -218,7 +224,7 @@ That is a reasonable design if you only need role recovery.
 
 The harder part is communication. Once there are multiple agents, they need a way to send work to each other, know whether a reply is required, recover missed messages, and see which obligations are still open. Without a coordination tool, you still have to answer the operational question: how do the agents talk to each other in the first place?
 
-Postman is my answer to that missing layer. It does not just re-inject role text. It gives the pane-title roles a local mail route, an archive, reply-required slots, and session status.
+`tmux-a2a-postman` is my answer to that missing layer. It does not just re-inject role text. It gives the pane-title roles a local mail route, an archive, reply-required slots, and session status.
 
 ## 9. Task Management Belongs Outside the Transcript
 
@@ -226,7 +232,7 @@ The next failure mode is work getting forgotten.
 
 A long Claude session can contain a perfect checklist and still lose track of it after enough turns. The checklist is present, but it is not an active obligation. It is just text somewhere in the past.
 
-Postman separates transport obligations from task evidence.
+`tmux-a2a-postman` separates transport obligations from task evidence.
 
 When a sender uses `--reply-required`, the message opens an `input_request_id`. Status can then show:
 
@@ -241,13 +247,13 @@ Reading a message with `pop` clears unread mail. It does not clear the required 
 tmux-a2a-postman send-heredoc \
   --to orchestrator \
   --reply-to <message-id> \
-  --fills-input-request-id <input-request-id> <<'POSTMAN_BODY'
+  --fills-input-request-id <input-request-id> <<'MESSAGE_BODY'
 DONE: Requirements satisfied.
 Task artifact: <artifact-reference>
 Original checklist: PASS
 Evidence: <commands, checks, changed files, or review links>
 Remaining blockers: none
-POSTMAN_BODY
+MESSAGE_BODY
 ```
 
 That still does not prove the task is correct. It only closes the transport slot.
@@ -256,12 +262,12 @@ For the actual task, I use a durable Markdown artifact. In my setup that usually
 
 The pairing is useful:
 
-| Layer          | Responsibility                                      |
-| -------------- | --------------------------------------------------- |
-| context window | Reason about the current step                       |
-| postman mail   | Deliver the request and keep reply obligations open |
-| task artifact  | Preserve checklist, decisions, and evidence         |
-| reviewer route | Verify the artifact and changed files               |
+| Layer                   | Responsibility                                      |
+| ----------------------- | --------------------------------------------------- |
+| context window          | Reason about the current step                       |
+| `tmux-a2a-postman` mail | Deliver the request and keep reply obligations open |
+| task artifact           | Preserve checklist, decisions, and evidence         |
+| reviewer route          | Verify the artifact and changed files               |
 
 This is why I do not want the agent to "remember the to-do list." I want it to read the current task artifact.
 
@@ -293,7 +299,7 @@ For a real task, the loop looks like this.
 The orchestrator sends a scoped request:
 
 ```{.bash}
-tmux-a2a-postman send-heredoc --to worker --reply-required <<'POSTMAN_BODY'
+tmux-a2a-postman send-heredoc --to worker --reply-required <<'MESSAGE_BODY'
 Task: write or update the article.
 
 Original checklist:
@@ -302,7 +308,7 @@ Original checklist:
 - [ ] It covers compaction recovery, task management, and decomposition.
 
 Reply with DONE or BLOCKED and include evidence.
-POSTMAN_BODY
+MESSAGE_BODY
 ```
 
 The worker claims the request:
@@ -319,7 +325,7 @@ The worker creates or updates the durable task artifact, performs the work, veri
 tmux-a2a-postman send-heredoc \
   --to orchestrator \
   --fills-input-request-id <input-request-id> \
-  --reply-to <message-id> <<'POSTMAN_BODY'
+  --reply-to <message-id> <<'MESSAGE_BODY'
 DONE: Article written and verified.
 Task artifact: <artifact-reference>
 Original checklist: PASS
@@ -327,7 +333,7 @@ Evidence:
 - changed file: en/blog/example.qmd
 - checks: rumdl, Vale, Harper, Quarto render
 Remaining blockers: none
-POSTMAN_BODY
+MESSAGE_BODY
 ```
 
 The DONE report is intentionally boring. That is the point. It gives the orchestrator a compact status object instead of another long transcript to interpret.
@@ -346,4 +352,4 @@ For long agent runs, I want three things around it:
 2. Automatic compaction PING recovery so the agent restores role and state after the runtime rewrites the conversation.
 3. Durable task management so the checklist and evidence survive outside the model's working memory.
 
-Postman is just the local implementation of that operating model. It keeps the chat focused on reasoning and moves the workflow into explicit, readable files.
+`tmux-a2a-postman` is just the local implementation of that operating model. It keeps the chat focused on reasoning and moves the workflow into explicit, readable files.
