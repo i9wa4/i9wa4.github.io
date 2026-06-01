@@ -1,5 +1,5 @@
 ---
-title: "How to Use Claude Sonnet's 200k Context Window Without Trusting It"
+title: "How to Use 200k-Class Claude Sonnet Context Without Trusting It"
 author: uma-chan
 categories:
   - "blog"
@@ -7,17 +7,17 @@ categories:
 date: 2026-06-02 01:50:00 +0900
 date-modified: last-modified
 description: |
-  Claude Sonnet's 200k context window is powerful, but long agent work still drifts. Learn how tmux-a2a-postman turns context into explicit mail, task artifacts, compaction recovery, and smaller agent jobs. #ClaudeCode #AIAgents #tmux #DeveloperTools
+  200k-class Claude Sonnet context is powerful, and even 1M-token deployments still need workflow discipline. Learn how tmux-a2a-postman turns long agent work into explicit mail, task artifacts, compaction recovery, and smaller agent jobs. #ClaudeCode #AIAgents #tmux #DeveloperTools
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. The Large Window Is Not an Operating System
 
-Claude Sonnet's 200k context window is useful. It lets an agent keep more code, logs, design notes, and conversation history in reach before the session has to compress or drop something.
+Claude Sonnet's large context windows are useful. They let an agent keep more code, logs, design notes, and conversation history in reach before the session has to compress or drop something.
 
 The trap is treating that window as a workflow.
 
-A large context window is still working memory. Anthropic's [context window documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows) makes the operational warning clear: more context is not automatically better, and recall can degrade as token count grows. The model can reference a much larger working set, but the operator still has to decide what belongs there, what is stale, and what must survive when the chat compacts.
+A large context window is still working memory. Anthropic's [context window documentation](https://platform.claude.com/docs/en/build-with-claude/context-windows) makes the operational warning clear: more context is not automatically better, and recall can degrade as token count grows. The same page currently lists Claude Sonnet 4.6 as a 1M-token model on Claude API, Amazon Bedrock, and Vertex AI, while Claude Sonnet 4.5 and Sonnet 4 are in the 200k-token class. The exact limit depends on the model and deployment, but the operating problem does not go away when the window gets larger.
 
 For agentic coding, the failure mode is rarely "the model cannot fit the file." The failure mode is usually operational:
 
@@ -47,7 +47,7 @@ I prefer to split the work by responsibility:
 
 This is not about pretending multiple agents are magically objective. A reviewer can still miss things. An orchestrator can still delegate poorly. The practical advantage is narrower working memory: each agent receives the context needed for its role and is less likely to carry irrelevant turns forward.
 
-The 200k window is still valuable here. It becomes room for a focused role to inspect files, logs, and evidence deeply, not an invitation to keep the entire organization inside one prompt.
+The large window is still valuable here. It becomes room for a focused role to inspect files, logs, and evidence deeply, not an invitation to keep the entire organization inside one prompt.
 
 ## 3. Practice Two: Reground the Role After Compaction
 
@@ -69,6 +69,12 @@ After compaction, I want the agent to ground itself again before acting:
 - What evidence already exists outside the transcript?
 
 That reminder should not depend on the compressed chat being perfect. Compaction is exactly the moment when the session should read durable instructions again, recover the task artifact, and continue from explicit state.
+
+If Claude Code exposes an after-compaction hook in your version, that hook is an obvious place to re-input the role after compaction. For a single agent, the hook could say: you are the implementer, read this instruction file, recover this task artifact, and continue from the current checklist.
+
+The multi-agent case is harder. The same reminder cannot be injected into every pane. A messenger, orchestrator, worker, and reviewer each need a different role, a different contact list, and a different set of safety rules. The hook needs a stable way to answer "which agent just compacted?"
+
+In a tmux-based setup, the practical answer is the pane title. A pane titled `worker` should recover the worker role. A pane titled `orchestrator` should recover the coordinator role. A pane titled `messenger` should stay transport-only. The pane title is outside the model context, visible to the harness, and simple enough to use as local role identity.
 
 ## 4. Practice Three: Externalize the Task List
 
@@ -108,6 +114,7 @@ It adds a coordination surface:
 
 - Roles are named in `postman.md`
 - Allowed handoffs are defined as Mermaid edges
+- Node identity uses tmux pane titles
 - Messages are stored as Markdown mail
 - Recipients claim mail with `pop`
 - Required replies open exact input requests
@@ -118,7 +125,7 @@ The key sentence is this:
 
 > Context is for reasoning; postman mail is for obligations.
 
-That lets a Claude session use its 200k tokens for the current piece of work instead of carrying the whole project's workflow state in a chat transcript.
+That lets a Claude session use its available tokens for the current piece of work instead of carrying the whole project's workflow state in a chat transcript.
 
 ## 6. Multi-Agent Decomposition in Practice
 
@@ -169,6 +176,8 @@ That automatic compaction PING is not a task by itself. It is a continuity signa
 - Recover the local skill catalog if configured
 - Continue from durable task state instead of pane memory alone
 
+This is where tmux pane titles become more than a naming convention. Postman already treats a node as an agent role identified by its pane title. If the `worker` pane compacts, it can receive worker-specific recovery context. If the `orchestrator` pane compacts, it can receive coordinator-specific recovery context. The hook or daemon does not have to infer the role from a compressed conversation.
+
 The configuration surface is intentionally small. A `skill_path` catalog can opt into ordinary PING mail, compaction PING mail, or both:
 
 ````{.markdown filename="postman.md"}
@@ -197,9 +206,21 @@ graph LR
 
 The important point is not the PING text. The important point is that compaction creates a mailbox event. The agent gets a reason to ground itself again in durable instructions after the runtime changed its working memory.
 
-That is how I want to use a 200k window: aggressively, but with recovery hooks when the window is rewritten.
+That is how I want to use a large window: aggressively, but with recovery hooks when the window is rewritten.
 
-## 8. Task Management Belongs Outside the Transcript
+## 8. If You Do Not Use Postman
+
+You can build a lighter version without Postman.
+
+For example, an after-compaction hook could read the current tmux pane title, map it to a role prompt, and paste or submit the matching reminder into that pane. A shell script could map `worker` to `roles/worker.md`, `reviewer` to `roles/reviewer.md`, and so on. A shared Markdown file, issue, or task board could hold the durable checklist.
+
+That is a reasonable design if you only need role recovery.
+
+The harder part is communication. Once there are multiple agents, they need a way to send work to each other, know whether a reply is required, recover missed messages, and see which obligations are still open. Without a coordination tool, you still have to answer the operational question: how do the agents talk to each other in the first place?
+
+Postman is my answer to that missing layer. It does not just re-inject role text. It gives the pane-title roles a local mail route, an archive, reply-required slots, and session status.
+
+## 9. Task Management Belongs Outside the Transcript
 
 The next failure mode is work getting forgotten.
 
@@ -244,7 +265,7 @@ The pairing is useful:
 
 This is why I do not want the agent to "remember the to-do list." I want it to read the current task artifact.
 
-## 9. Why This Uses the Large Window Better
+## 10. Why This Uses the Large Window Better
 
 The most practical way to use a large context window is sometimes to stop using one enormous context.
 
@@ -265,7 +286,7 @@ It also helps with context rot because durable state lives outside the compresse
 
 The context window becomes a working area, not the whole workshop.
 
-## 10. A Minimal Operating Pattern
+## 11. A Minimal Operating Pattern
 
 For a real task, the loop looks like this.
 
@@ -311,13 +332,13 @@ POSTMAN_BODY
 
 The DONE report is intentionally boring. That is the point. It gives the orchestrator a compact status object instead of another long transcript to interpret.
 
-## 11. The Rule of Thumb
+## 12. The Rule of Thumb
 
-My rule for Claude Sonnet's 200k context window is simple:
+My rule for large Claude Sonnet context windows is simple:
 
 > Put reasoning in context. Put obligations in mail. Put evidence in artifacts.
 
-The 200k window is a powerful workspace. It is not a reliable memory system, queue, review process, or project manager.
+The context window is a powerful workspace. It is not a reliable memory system, queue, review process, or project manager.
 
 For long agent runs, I want three things around it:
 
