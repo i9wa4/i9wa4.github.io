@@ -13,7 +13,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 ## 1. A Large Context Window Is Not a Workflow
 
-Claude Sonnet 200K still matters because it is a practical operating target. A large context window gives the model room to read and reason, but it does not manage roles, task state, compaction recovery, or coordination. If a task only works by reaching for the bigger or deeper model every time, the workflow is spending Claude Opus where discipline should have been enough.
+Claude Sonnet 200K still matters because it is a practical operating target. Here, Claude Sonnet 200K means a Claude Sonnet model with a 200K-token context window; uppercase `K` is the token-count shorthand I use throughout this article. A large context window gives the model room to read and reason, but it does not manage roles, task state, compaction recovery, or coordination. If a task only works by reaching for the bigger or deeper model every time, the workflow is spending Claude Opus where discipline should have been enough.
 
 On 2026-06-02, my Claude Code `/model` menu labels Claude Sonnet 4.6 as "Default (recommended)" and "Best for everyday tasks." The same menu labels Claude Opus 4.8 as "Opus (1M context)" and "Most capable for complex work." The [Claude Code model guide](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code) gives the same shape: Claude Sonnet is the default for most coding work, while Claude Opus is the deeper-reasoning choice for difficult debugging, large refactors, and architecture decisions.
 
