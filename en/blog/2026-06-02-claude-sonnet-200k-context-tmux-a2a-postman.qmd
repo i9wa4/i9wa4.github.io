@@ -7,7 +7,7 @@ categories:
 date: 2026-06-02 01:50:00 +0900
 date-modified: last-modified
 description: |
-  Claude Code recommends Sonnet for everyday work while Opus is the visible 1M-context choice for complex work. Learn how tmux-a2a-postman turns long agent runs into explicit mail, task artifacts, compaction recovery, and smaller agent jobs. #ClaudeCode #AIAgents #tmux #DeveloperTools
+  Claude Code recommends Sonnet for everyday work, but `/usage` exposes how subagent-heavy and high-context sessions burn budget. Learn how tmux-a2a-postman turns long agent runs into explicit mail, task artifacts, compaction recovery, and smaller agent jobs. #ClaudeCode #AIAgents #tmux #DeveloperTools
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -17,7 +17,9 @@ The useful fact in my current Claude Code setup is not that Sonnet has the large
 
 On 2026-06-02, my Claude Code `/model` menu labels Sonnet 4.6 as "Default (recommended)" and "Best for everyday tasks." The same menu labels Opus 4.8 as "Opus (1M context)" and "Most capable for complex work." That is the model-choice motivation for this article: sustained agent workflows need to run well on the everyday Sonnet path, while Opus remains the higher-capability, high-context option to reach for deliberately.
 
-The trap is treating either choice as a workflow.
+The usage motivation is more concrete. On the same day, my Claude Code `/usage` view on Claude Team showed a current-session meter, a current-week all-models meter, and an approximate local contributor view. It also said the last-24-hour contributors are independent characteristics rather than a breakdown. The strongest signals were operational: 98% usage from subagent-heavy sessions, 42% usage at more than 150K context, and 14% usage from subagents under `subagent-review`.
+
+That changes the argument. The trap is not only "Opus versus Sonnet." The trap is treating a default model, a large context window, or a swarm of subagents as a workflow.
 
 The [Claude Code model guide](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code) says `/model` is the source of truth for the models available to your account. It describes Sonnet as the default for most coding work. It frames Opus as the deeper-reasoning choice for harder refactors, difficult debugging, and architecture decisions, and it names "plan with Opus, execute with Sonnet" as a normal way to spend Opus where it pays off.
 
@@ -25,9 +27,11 @@ Anthropic's [context window documentation](https://platform.claude.com/docs/en/b
 
 The stronger motivation is usage, not just length. Current Claude Help Center pages separate [usage limits from length limits](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work): usage limits are the plan budget over time, while length limits are the context window for a single conversation. Usage is affected by the model, conversation length, attached files, and tools; it is also shared across `claude.ai`, Claude Desktop, and Claude Code.
 
-That usage model is where Opus versus Sonnet matters. The [usage best-practices page](https://support.claude.com/en/articles/9797557-usage-limit-best-practices) tells paid users to monitor weekly limits for Opus and for all other models. The [Max plan page](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) says Max has one weekly limit across all models and another for Sonnet models only. The Claude Code guide also says Opus uses meaningfully more quota, so it is not a model to leave on for routine execution.
+For Claude Code specifically, the model guide explains why the `/usage` view points at context shape. Every turn sends the conversation so far, project context, and the new prompt. Long sessions keep carrying old messages, files, tool output, and diffs forward. That is why `/clear` between tasks and `/compact` mid-task are not cosmetic commands; they are usage controls.
 
-In practical terms, Sonnet is where most sustained work has to become efficient. The everyday/default model still needs to handle tasks that are too large for casual chat but should not spend Opus turns on every step. Examples include a repository plus logs, a design document plus implementation files, a long debugging transcript, or a review packet with enough source context to reason safely. [Max 5x and Max 20x](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) increase usage capacity over Pro, but they do not remove the need to manage context shape. A bigger window helps; it also makes each messy conversation more expensive against the same shared usage system.
+Opus still matters. It is the 1M-context complex-work option in my `/model` menu, and the Claude Code guide says it uses meaningfully more quota. But I should not describe Claude Code usage accounting as simply "Opus versus everything else" when the visible `/usage` screen is showing current-session pressure, current-week all-model pressure, high-context usage, and subagent-heavy usage.
+
+In practical terms, Sonnet is where most sustained work has to become efficient. The everyday/default model still needs to handle tasks that are too large for casual chat but should not spend Opus turns on every step. Examples include a repository plus logs, a design document plus implementation files, a long debugging transcript, or a review packet with enough source context to reason safely. Native subagents can help isolate noisy work, and Claude Code's [subagent docs](https://code.claude.com/docs/en/sub-agents) let a subagent choose or inherit a model. But the current `/usage` evidence makes the tradeoff visible: unbounded subagent fan-out and 150K-plus contexts are themselves usage pressure.
 
 For agentic coding, the failure mode is rarely "the model cannot fit the file." The failure mode is usually operational:
 
