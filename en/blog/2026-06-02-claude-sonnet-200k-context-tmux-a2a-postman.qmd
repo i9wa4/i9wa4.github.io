@@ -1,5 +1,5 @@
 ---
-title: "Why Claude Sonnet Context Still Needs a Workflow"
+title: "Why Claude Sonnet 200K Still Needs a Workflow"
 author: uma-chan
 categories:
   - "blog"
@@ -7,25 +7,25 @@ categories:
 date: 2026-06-02 01:50:00 +0900
 date-modified: last-modified
 description: |
-  Sonnet 200K is useful only when the workflow keeps Opus for the turns that justify it. A practical pattern for splitting agent work, recovering after compaction, and preserving evidence outside the transcript. #ClaudeCode #AIAgents #tmux
+  Claude Sonnet 200K is useful only when the workflow keeps Claude Opus for the turns that justify it. A practical pattern for splitting agent work, recovering after compaction, and preserving evidence outside the transcript. #ClaudeCode #AIAgents #tmux
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
-## 1. The Large Window Is Not an Operating System
+## 1. A Large Context Window Is Not a Workflow
 
-Sonnet 200K still matters because it is a practical operating target. It is large enough for real coding work, but small enough to punish sloppy orchestration. If a task only works by reaching for the bigger or deeper model every time, the workflow is spending Opus where discipline should have been enough.
+Claude Sonnet 200K still matters because it is a practical operating target. A large context window gives the model room to read and reason, but it does not manage roles, task state, compaction recovery, or coordination. If a task only works by reaching for the bigger or deeper model every time, the workflow is spending Claude Opus where discipline should have been enough.
 
-On 2026-06-02, my Claude Code `/model` menu labels Sonnet 4.6 as "Default (recommended)" and "Best for everyday tasks." The same menu labels Opus 4.8 as "Opus (1M context)" and "Most capable for complex work." The [Claude Code model guide](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code) gives the same shape: Sonnet is the default for most coding work, while Opus is the deeper-reasoning choice for difficult debugging, large refactors, and architecture decisions.
+On 2026-06-02, my Claude Code `/model` menu labels Claude Sonnet 4.6 as "Default (recommended)" and "Best for everyday tasks." The same menu labels Claude Opus 4.8 as "Opus (1M context)" and "Most capable for complex work." The [Claude Code model guide](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code) gives the same shape: Claude Sonnet is the default for most coding work, while Claude Opus is the deeper-reasoning choice for difficult debugging, large refactors, and architecture decisions.
 
-That is the model-choice argument for this article. Sonnet is the everyday path. Opus is the deliberate high-capability and high-context option. A good agent workflow should make Sonnet effective first, then reserve Opus for turns where deeper reasoning actually pays.
+That is the model-choice argument for this article. Claude Sonnet is the everyday path. Claude Opus is the deliberate high-capability and high-context option. A good agent workflow should make Claude Sonnet effective first, then reserve Claude Opus for turns where deeper reasoning actually pays.
 
-Do not confuse that with a simple usage-bucket story. I first saw a Team `/usage` screen without a "Current week (Sonnet only)" meter, then later saw that a Sonnet-only meter can appear after all. A Max-plan screenshot also showed one. The [Claude Code changelog](https://code.claude.com/docs/en/changelog) says one release hid a redundant Sonnet-only bar for Pro and Enterprise plans. The current [Max plan page](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) and [Team plan page](https://support.claude.com/en/articles/9266767-what-is-the-team-plan) say some plans or seats have both all-model and Sonnet-only weekly limits. The safe conclusion is UI, plan, seat, version, and account-state variability, not a confirmed bug and not a universal accounting rule.
+Do not confuse that with a simple usage-bucket story. I first saw a Team `/usage` screen without a "Current week (Sonnet only)" meter, then later saw that a Claude Sonnet-only meter can appear after all. A Max-plan screenshot also showed one. The [Claude Code changelog](https://code.claude.com/docs/en/changelog) says one release hid a redundant Claude Sonnet-only bar for Pro and Enterprise plans. The current [Max plan page](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) and [Team plan page](https://support.claude.com/en/articles/9266767-what-is-the-team-plan) say some plans or seats have both all-model and Claude Sonnet-only weekly limits. The safe conclusion is UI, plan, seat, version, and account-state variability, not a confirmed bug and not a universal accounting rule.
 
-The reliable distinction is usage pressure. The model guide says Opus uses meaningfully more quota than Sonnet and costs several times more per turn. Anthropic's API [pricing page](https://platform.claude.com/docs/en/about-claude/pricing) also shows higher Opus rates than Sonnet rates; Claude Code subscription meters are not API invoices, but model choice still affects how quickly work spends the available budget. The [usage limits page](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) adds the broader rule: usage depends on the model, conversation length, features, and tools.
+The reliable distinction is usage pressure. The model guide says Claude Opus uses meaningfully more quota than Claude Sonnet and costs several times more per turn. Anthropic's API [pricing page](https://platform.claude.com/docs/en/about-claude/pricing) also shows higher Claude Opus rates than Claude Sonnet rates; Claude Code subscription meters are not API invoices, but model choice still affects how quickly work spends the available budget. The [usage limits page](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) adds the broader rule: usage depends on the model, conversation length, features, and tools.
 
-Context limits also vary by product surface and model. The current [paid-plan context page](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans) describes 1M Claude Code paths for recent Opus models and Sonnet 4.6 under plan and usage-credit conditions. The [API context page](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window) separates 1M-capable recent Opus and Sonnet 4.6 deployments from 200K-class models. So I treat Sonnet 200K as the everyday operating target, not as a universal limit for every Sonnet deployment.
+Context limits also vary by product surface and model. The current [paid-plan context page](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans) describes 1M Claude Code paths for recent Claude Opus models and Claude Sonnet 4.6 under plan and usage-credit conditions. The [API context page](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window) separates 1M-capable recent Claude Opus and Claude Sonnet 4.6 deployments from 200K-class models. So I treat Claude Sonnet 200K as the everyday operating target, not as a universal limit for every Claude Sonnet deployment.
 
-My local `/usage` evidence points at the same failure mode: subagent-heavy sessions and 150K-plus contexts create pressure. The fix is not to treat Opus as extra room for every task. The fix is to make the everyday Sonnet path cleaner.
+My local `/usage` evidence points at the same failure mode: subagent-heavy sessions and 150K-plus contexts create pressure. The fix is not to treat Claude Opus as extra room for every task. The fix is to make the everyday Claude Sonnet path cleaner.
 
 For agentic coding, the failure mode is rarely "the model cannot fit the file." The failure mode is usually operational:
 
@@ -212,7 +212,7 @@ Task: update the article.
 
 Original checklist:
 - [ ] Keep the opening tool-agnostic.
-- [ ] Preserve the Sonnet/default versus Opus/deliberate framing.
+- [ ] Preserve the Claude Sonnet/default versus Claude Opus/deliberate framing.
 - [ ] Verify and report evidence.
 MESSAGE_BODY
 ```
@@ -246,7 +246,7 @@ You can build a lighter version without `tmux-a2a-postman`. A hook plus pane-tit
 
 ## 7. The Rule of Thumb
 
-My rule for large Claude Sonnet context windows is simple:
+My rule for Claude Sonnet 200K work is simple:
 
 > Put reasoning in context. Put obligations in mail. Put evidence in artifacts.
 
@@ -258,4 +258,4 @@ For long agent runs, I want three things around it:
 2. Compaction recovery so the agent restores role and state after the runtime rewrites the conversation.
 3. Durable task management so the checklist and evidence survive outside the model's working memory.
 
-`tmux-a2a-postman` is just the local implementation of that operating model. It keeps Sonnet useful for everyday work and makes Opus a deliberate choice instead of a rescue path for messy state.
+`tmux-a2a-postman` is just the local implementation of that operating model. It keeps Claude Sonnet useful for everyday work and makes Claude Opus a deliberate choice instead of a rescue path for messy state.
