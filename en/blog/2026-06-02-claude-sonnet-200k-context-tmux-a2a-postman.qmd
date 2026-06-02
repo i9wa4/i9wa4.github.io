@@ -1,5 +1,5 @@
 ---
-title: "Why Claude Sonnet 200K Still Needs a Workflow"
+title: "Why Claude Sonnet 200k Still Needs a Workflow"
 author: uma-chan
 categories:
   - "blog"
@@ -7,13 +7,13 @@ categories:
 date: 2026-06-02 01:50:00 +0900
 date-modified: last-modified
 description: |
-  Claude Sonnet 200K is useful only when the workflow keeps Claude Opus for the turns that justify it. A practical pattern for splitting agent work, recovering after compaction, and preserving evidence outside the transcript. #ClaudeCode #AIAgents #tmux
+  Claude Sonnet 200k is useful only when the workflow keeps Claude Opus for the turns that justify it. A practical pattern for splitting agent work, recovering after compaction, and preserving evidence outside the transcript. #ClaudeCode #AIAgents #tmux
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. A Large Context Window Is Not a Workflow
 
-Claude Sonnet 200K still matters because it is a practical operating target. Here, Claude Sonnet 200K means a Claude Sonnet model with a 200K-token context window; uppercase `K` is the token-count shorthand I use throughout this article. A large context window gives the model room to read and reason, but it does not manage roles, task state, compaction recovery, or coordination. If a task only works by reaching for the bigger or deeper model every time, the workflow is spending Claude Opus where discipline should have been enough.
+Claude Sonnet 200k still matters because it is a practical operating target. Here, Claude Sonnet 200k means a Claude Sonnet model with a 200k-token context window. A large context window gives the model room to read and reason, but it does not manage roles, task state, compaction recovery, or coordination. If a task only works by reaching for the bigger or deeper model every time, the workflow is spending Claude Opus where discipline should have been enough.
 
 On 2026-06-02, my Claude Code `/model` menu labels Claude Sonnet 4.6 as "Default (recommended)" and "Best for everyday tasks." The same menu labels Claude Opus 4.8 as "Opus (1M context)" and "Most capable for complex work." The [Claude Code model guide](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code) gives the same shape: Claude Sonnet is the default for most coding work, while Claude Opus is the deeper-reasoning choice for difficult debugging, large refactors, and architecture decisions.
 
@@ -23,9 +23,9 @@ Do not confuse that with a simple usage-bucket story. I first saw a Team `/usage
 
 The reliable distinction is usage pressure. The model guide says Claude Opus uses meaningfully more quota than Claude Sonnet and costs several times more per turn. Anthropic's API [pricing page](https://platform.claude.com/docs/en/about-claude/pricing) also shows higher Claude Opus rates than Claude Sonnet rates; Claude Code subscription meters are not API invoices, but model choice still affects how quickly work spends the available budget. The [usage limits page](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) adds the broader rule: usage depends on the model, conversation length, features, and tools.
 
-Context limits also vary by product surface and model. The current [paid-plan context page](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans) describes 1M Claude Code paths for recent Claude Opus models and Claude Sonnet 4.6 under plan and usage-credit conditions. The [API context page](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window) separates 1M-capable recent Claude Opus and Claude Sonnet 4.6 deployments from 200K-class models. So I treat Claude Sonnet 200K as the everyday operating target, not as a universal limit for every Claude Sonnet deployment.
+Context limits also vary by product surface and model. The current [paid-plan context page](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans) describes 1M Claude Code paths for recent Claude Opus models and Claude Sonnet 4.6 under plan and usage-credit conditions. The [API context page](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window) separates 1M-capable recent Claude Opus and Claude Sonnet 4.6 deployments from 200k-class models. So I treat Claude Sonnet 200k as the everyday operating target, not as a universal limit for every Claude Sonnet deployment.
 
-My local `/usage` evidence points at the same failure mode: subagent-heavy sessions and 150K-plus contexts create pressure. The fix is not to treat Claude Opus as extra room for every task. The fix is to make the everyday Claude Sonnet path cleaner.
+My local `/usage` evidence points at the same failure mode: subagent-heavy sessions and 150k-plus contexts create pressure. The fix is not to treat Claude Opus as extra room for every task. The fix is to make the everyday Claude Sonnet path cleaner.
 
 For agentic coding, the failure mode is rarely "the model cannot fit the file." The failure mode is usually operational:
 
@@ -246,7 +246,7 @@ You can build a lighter version without `tmux-a2a-postman`. A hook plus pane-tit
 
 ## 7. The Rule of Thumb
 
-My rule for Claude Sonnet 200K work is simple:
+My rule for Claude Sonnet 200k work is simple:
 
 > Put reasoning in context. Put obligations in mail. Put evidence in artifacts.
 
