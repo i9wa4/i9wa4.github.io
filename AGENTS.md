@@ -26,6 +26,9 @@
 - Use ` ```{mermaid}` for Mermaid diagrams that Quarto should render. Use a
   static Markdown/text block when showing Mermaid source as copyable source
   code.
+- After adding or editing renderable Mermaid diagrams in `.qmd`, verify that
+  Quarto renders them correctly. Do not leave Quarto cell-option lines such as
+  `#| label:` inside Mermaid source that is emitted to HTML.
 - Use raw attribute fences such as ` ```{=html}` only when the block is meant
   to pass raw output-format content through Quarto/Pandoc.
 - For shell examples in `.qmd`, prefer ` ```{.bash}`. Avoid `shell` or

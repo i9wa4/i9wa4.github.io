@@ -146,7 +146,6 @@ It adds the missing coordination surface:
 The simplest useful topology is small:
 
 ```{mermaid}
-#| label: fig-postman-context-route
 graph LR
     messenger["messenger<br/>human-facing"]
     orchestrator["orchestrator<br/>task coordinator"]
