@@ -1,0 +1,149 @@
+---
+title: "Claude Sonnet 200k にはまだワークフローが必要"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-06-04 01:50:00 +0900
+date-modified: last-modified
+description: |
+  Claude Sonnet 200k を普段使いするために、モデル選択より先に整えるべき役割分担、復帰、証跡管理をまとめる。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. コンテキストが大きくても、運用は自動で整わない
+
+Claude Sonnet 200k は、今でも日常作業の現実的な目安です。ここでは、200k トークン級のコンテキストウィンドウを持つ Claude Sonnet モデルを指しています。
+
+ただ、コンテキストが大きいことと、ワークフローが整っていることは別です。モデルが読める量は増えますが、タスクの持ち主、レビュー依頼、コンパクション後の復帰、エージェント間の受け渡しまで自動で整理してくれるわけではありません。
+
+毎回 Claude Opus に寄せないと作業が安定しないなら、モデル選択の問題というより、普段の Claude Sonnet 経路に運用上の詰まりが残っている可能性があります。
+
+2026-06-02 時点で、私の Claude Code の `/model` メニューでは Claude Sonnet 4.6 が普段使い、Claude Opus 4.8 が複雑な作業向けとして表示されていました。[Claude Code model guide](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code) も同じ整理です。
+
+利用枠やコンテキスト上限の見え方は、UI、プラン、シート、バージョン、アカウント状態で変わります。[Claude Code changelog](https://code.claude.com/docs/en/changelog)、[Max plan page](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)、[Team plan page](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)、[paid-plan context page](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)、[API context page](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window) を見ても、条件付きの話が多いです。
+
+それでも、Opus の方が枠とコストを強く使う傾向は変わりません。[pricing page](https://platform.claude.com/docs/en/about-claude/pricing) でも Opus は Sonnet より高く、[usage limits page](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) も利用量がモデル、会話の長さ、機能、ツールに依存すると説明しています。
+
+だから私は、Claude Sonnet 200k をすべての上限の名前ではなく、日常運用の基準として扱います。まず Sonnet で回る道を整える。そのうえで、本当に深い推論が効くターンだけ Opus を選ぶ、という切り分けです。
+
+失敗の多くは、モデルがファイルを読めなかったことより、運用が曖昧になったことから起きます。たとえば、タスクの持ち主が分からない、現在のチェックリストが古いターンに埋もれる、レビュー依頼に誰も返答しない、コンパクション後に重要な細部が抜ける、といったものです。
+
+コンテキストは作業場所です。1つのエージェントが計画、実装、レビュー、記憶、報告を全部抱えるなら、あとから参照したい義務や証跡には別の置き場所が必要です。
+
+## 2. 役割を分けて、各エージェントの文脈を小さくする
+
+1つの高性能なエージェントは、計画、編集、テスト、レビュー、報告までできます。ただ、その全部を1つのセッションに積むと、古い選択肢、途中の確認、レビュー指摘、ユーザー向けの言い回し、実装詳細が混ざります。
+
+私は責務ごとに分ける方が扱いやすいと思っています。
+
+| 責務                   | 持たせる仕事                          |
+| ---------------------- | ------------------------------------- |
+| ユーザー依頼を受ける   | messenger または入口の役割            |
+| 計画して委譲する       | orchestrator role                     |
+| 実装する               | worker role                           |
+| 検証する               | reviewer role                         |
+| ユーザーに要約して返す | messenger または orchestrator handoff |
+
+これは、複数エージェントにすれば客観性が自動で生まれる、という話ではありません。レビュアーも見落としますし、オーケストレーターも委譲に失敗します。
+
+利点はもっと地味です。各エージェントが、自分の役割に必要な文脈だけを濃く持てることです。大きなコンテキストウィンドウは、全員の履歴を1つに詰め続けるためではなく、焦点を絞った役割がファイル、ログ、証跡を深く調べるために使う方が効きます。
+
+## 3. コンパクション後に役割を戻す
+
+自動コンパクションは、長いセッションを続けるには便利です。同時に、エージェントがすぐ参照できるものを書き換えるので危険でもあります。
+
+危ないのは、タスクの途中で要約から再開し、小さいが重要な指示の効き方が変わることです。コンパクション後は、動く前に次の足場を戻したいです。
+
+- 自分はどの役割か
+- 誰と話せるか
+- 今開いているタスクは何か
+- 何をもって完了とする元チェックリストか
+- トランスクリプトの外にどんな証跡があるか
+
+Claude Code の after-compaction hook が使えるなら、単一エージェントでは「この指示ファイルを読み、このタスクアーティファクトから続ける」と戻せます。
+
+マルチエージェントでは、全ペインに同じリマインダーを入れるだけでは足りません。messenger、orchestrator、worker、reviewer は、必要な役割、連絡先、安全ルールが違います。
+
+tmux ベースなら、ペインタイトルを役割識別子として使うのが分かりやすいです。`worker` ペインは worker の役割を復元する。`orchestrator` ペインは調整役に戻す。`messenger` ペインは transport-only のままにする。これはモデルのコンテキスト外にあり、ハーネスから見えるので、ローカルな復帰キーとして使いやすいです。
+
+## 4. タスク状態は外に置く
+
+長いコンテキストは推論には役立ちますが、タスクデータベースとしては弱いです。
+
+1つの長いチャットには、古い意思決定、捨てた計画、コマンド出力、レビューコメント、横道の議論が混ざります。モデルには長いテキストの列として見えますが、運用側がほしいのは、現在の意思決定、アクティブなチェックリスト、検証サマリー、未解決のレビュー指摘、役割にルーティングできるハンドオフです。
+
+解決策はプロンプトをさらに長くすることではありません。プロンプトの外に、小さな永続的な置き場所を作ることです。
+
+メールは義務を運ぶ。タスクアーティファクトは証跡を運ぶ。コンテキストは推論に使う。この分担にすると、古いトークンの山から現在の状態を推測させずに済みます。
+
+## 5. `tmux-a2a-postman` は受け渡しの層
+
+私のローカル実装は [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman) です。メールボックス層は [以前の記事](../en/blog/2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.qmd) で紹介しました。この記事での関心は、Claude の大きいが誤りうる作業記憶の周りに、受け渡しの層を置くことです。
+
+`tmux-a2a-postman` は Claude を賢くするものではありません。コンテキストウィンドウを増やすものでもありません。Claude Code、Codex CLI、tmux、ネイティブサブエージェントを置き換えるものでもありません。
+
+足しているのは、次のような薄い運用レイヤーです。
+
+- 役割を `postman.md` で名前付けする
+- 許可されたハンドオフを Mermaid の edge として定義する
+- ノード識別に tmux のペインタイトルを使う
+- メッセージを Markdown メールとして保存する
+- 受信者が `pop` でメールを claim する
+- reply-required な依頼に正確な入力リクエストを開く
+- キュー、dead letter、`pending`、`waiting`、`ready`、`stale` を見えるようにする
+
+最小限で役に立つトポロジーは小さなものです。
+
+```{mermaid, label=fig-postman-context-route-ja}
+graph LR
+    messenger["messenger<br/>human-facing"]
+    orchestrator["orchestrator<br/>task coordinator"]
+    worker["worker<br/>implementation"]
+    reviewer["reviewer<br/>verification"]
+
+    messenger --- orchestrator
+    orchestrator --- worker
+    orchestrator --- reviewer
+
+    class messenger entry
+    class orchestrator,worker,reviewer role
+    classDef entry fill:#dbeafe,stroke:#2563eb,color:#0f172a
+    classDef role fill:#f8fafc,stroke:#64748b,color:#0f172a
+```
+
+worker は人間と話す手順を覚えなくてよい。reviewer は実装の全履歴を抱えなくてよい。messenger はファイルを調べなくてよい。orchestrator が経路を持ち、各役割の文脈を小さく保ちます。
+
+作業の単位は Markdown メールです。送信者は reply-required な依頼を作り、受信者は `pop` で claim し、完了時に正確な入力リクエストを閉じます。
+
+```{.bash}
+tmux-a2a-postman pop
+
+tmux-a2a-postman send-heredoc \
+  --to orchestrator \
+  --fills-input-request-id <input-request-id> \
+  --reply-to <message-id> <<'MESSAGE_BODY'
+DONE: Article updated and verified.
+Task artifact: <artifact-reference>
+Original checklist: PASS
+Remaining blockers: none
+MESSAGE_BODY
+```
+
+ここで閉じるのは transport slot です。作業が正しいことは、元チェックリスト、進捗、意思決定、検証証跡、ブロッカー、完了判定を持つタスクアーティファクトで示します。
+
+## 6. 経験則
+
+Claude Sonnet 200k 作業に対する私のルールは単純です。
+
+> 推論はコンテキストに置く。義務はメールに置く。証跡はアーティファクトに置く。
+
+コンテキストウィンドウは強力な作業空間です。信頼できる記憶システム、キュー、レビュープロセス、プロジェクトマネージャーではありません。
+
+長いエージェント実行では、私はその周りに3つのものを置きたいです。
+
+1. 各役割の仕事を小さくするマルチエージェント分解。
+2. コンパクション後に役割と状態を戻す復帰の仕組み。
+3. チェックリストと証跡をモデルの作業記憶の外に残すタスク管理。
+
+`tmux-a2a-postman` は、この運用モデルのローカル実装にすぎません。日常作業で Claude Sonnet を使いやすく保ち、Claude Opus を乱雑な状態からの救済策ではなく、意図して選ぶものにできます。
