@@ -137,6 +137,7 @@ Apr 2016 - Jul 2018 | Full-time
 
 ### 6.1. Talks
 
+- March 6, 2026: [Challenges and Solutions for Writing Robust Code with Databricks](https://i9wa4.github.io/slides/2026-03-06-kenro-py.html)
 - January 26, 2026: [Operational Tips for Distributing Coding Agents with Mosaic AI Gateway](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
 - December 23, 2025: [Databricks Permission Management for Enabling Data Use at GENDA as M&A Expands](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
 - December 12, 2025: [Making Data Scientists' Development Environments AI-Ready with a Jupyter Kernel for Databricks](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
