@@ -12,6 +12,15 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    markdown-formatter = {
+      url = "github:i9wa4/markdown-formatter";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        git-hooks.follows = "git-hooks";
+        treefmt-nix.follows = "treefmt-nix";
+      };
+    };
   };
 
   outputs =
@@ -31,6 +40,7 @@
       perSystem =
         {
           config,
+          system,
           pkgs,
           ...
         }:
@@ -41,13 +51,9 @@
               exit 0
             fi
 
-            mdfmt="../markdown-formatter/result/bin/mdfmt"
-            if [ ! -x "$mdfmt" ]; then
-              echo "markdown-formatter not found: expected $mdfmt" >&2
-              exit 1
-            fi
-
-            exec "$mdfmt" --no-heading-numbering --write "$@"
+            exec "${
+              inputs.markdown-formatter.packages.${system}.default
+            }/bin/mdfmt" --no-heading-numbering --write "$@"
           '';
           rumdlConfig = pkgs.writeText "rumdl.toml" ''
             [global]

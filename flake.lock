@@ -77,6 +77,35 @@
         "type": "github"
       }
     },
+    "markdown-formatter": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "git-hooks": [
+          "git-hooks"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": [
+          "treefmt-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781872312,
+        "narHash": "sha256-+hH1mtCPyqV+Aq2OMaO77WyKzRKNy2HfhOzHqNjsoE0=",
+        "owner": "i9wa4",
+        "repo": "markdown-formatter",
+        "rev": "e4f1c1c381e642f123488d3c9a25e4edfd2ad593",
+        "type": "github"
+      },
+      "original": {
+        "owner": "i9wa4",
+        "repo": "markdown-formatter",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1773443291,
@@ -112,6 +141,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
+        "markdown-formatter": "markdown-formatter",
         "nixpkgs": "nixpkgs",
         "treefmt-nix": "treefmt-nix"
       }
