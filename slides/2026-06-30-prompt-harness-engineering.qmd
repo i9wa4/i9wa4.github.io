@@ -1,0 +1,105 @@
+---
+title: "プロンプトに軸を置いたハーネスエンジニアリングに関する思想と実践"
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+date: 2026-06-30
+date-modified: last-modified
+description: |
+  [登壇資料] コーディングエージェント ハーネスエンジニアリング LT大会！！ (MLOps/LLMOps/AgentOps 勉強会)
+draft: true
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: コーディングエージェント ハーネスエンジニアリング LT大会！！ <https://mlops.connpass.com/event/395882/>
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+subtitle: ""
+---
+
+## 1. 自己紹介
+
+- 名前：uma-chan
+- 職種：データエンジニア・MLOpsエンジニア
+- 最近の趣味
+  - どこでも同じように作業できるようにするための環境整備
+    - 場所：PC1台のみで作業を完結させ場所を選ばない
+    - PC：OS問わず貸与PC・個人PCをdotfilesで直ちにいつもの環境にする
+    - AIエージェント：Claude CodeでもCodex CLIでも差異なく動かす
+	  - **→ この思想を持つ人間の発表内容なんだなと思ってください！**
+
+### 1.1. 本日話すこと
+
+- AIエージェントを想定通りに制御し続けるために必要な考え方
+- tmux上でのプロンプトを軸にしたハーネスエンジニアリングによる課題解決
+
+## 2. AIエージェントを制御する上で遭遇した課題（大体Claude Sonnetの話）
+
+### 2.1. 制御課題事例1：いつの間にか最初の方の会話を忘れている
+
+最初の方に会話した本質的なタスクを忘れてしまっていて想定外の方向に進んでしまっている
+
+これがあるのでコンテキストウインドウについていつも気にしながら会話しなければいけない
+
+### 2.2. 制御課題事例2：CLAUDE.md/AGENTS.mdの内容を忘れる
+
+会話より前にロードしているものになるので当然？
+
+特にユーザーレベルのCLAUDE.md/AGENTS.mdの内容は覚えていてくれないので丁寧に記述しても無駄になる場面にちょくちょく遭遇する
+
+長時間走らせると徐々に症状として現れる
+
+### 2.3. 制御課題事例3：Compaction後に滅茶苦茶な作業の進め方をしてしまう
+
+Codex CLIのCompactionの性能が良いのでClaude CodeのCompactionの性能の悪さが目立つ
+
+特にClaude Sonnetはスムーズに作業を継続してくれないことの方が多いくらい
+
+### 2.4. 制御課題事例4：適切にAgent Skillsを使ってくれない
+
+折角作業手順をAgent Skillsに記載したのにその通りにやってくれない
+
+また長時間動かしていくとどんなAgent Skillsを利用できるか忘れてしまっていそう
+
+### 2.5. 制御課題事例5：コマンドの禁止を無理矢理突破しようとする
+
+何とかシェル芸で突破しようとしてみたり、 `git push` が禁止されているなら `git -C /path/to/repo push` で回避しようとしてみたり、小賢しい
+
+## 3. 課題への本質的な対策
+
+### 3.1. 課題振り返り
+
+1. いつの間にか最初の方の会話を忘れている
+2. CLAUDE.md/AGENTS.mdの内容を忘れる
+3. Compaction後に滅茶苦茶な作業の進め方をしてしまう
+4. 適切にAgent Skillsを使ってくれない
+5. コマンドの禁止を無理矢理突破しようとする
+
+### 3.2. 対策（理想論）
+
+1. いつの間にか最初の方の会話を忘れている
+   - 会話を逐一記録に残しておく
+   - マルチエージェント or サブエージェントでコンテキストウインドウを圧迫しないようにする
+2. CLAUDE.md/AGENTS.mdの内容を忘れる
+3. Compaction後に滅茶苦茶な作業の進め方をしてしまう
+4. 適切にAgent Skillsを使ってくれない
+5. コマンドの禁止を無理矢理突破しようとする
+
+## 4. tmuxでAIエージェントを薄く有機的に繋ぐ
