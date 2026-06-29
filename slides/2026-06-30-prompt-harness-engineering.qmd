@@ -1,5 +1,5 @@
 ---
-title: "プロンプトに軸を置いたハーネスエンジニアリングに関する思想と実践"
+title: "コンテキスト設計から考えるハーネスエンジニアリング"
 author:
   - name: uma-chan
 categories:
