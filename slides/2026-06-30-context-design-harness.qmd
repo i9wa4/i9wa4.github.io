@@ -14,7 +14,7 @@ format:
   revealjs:
     auto-stretch: false
     code-copy: true
-    footer: コーディングエージェント ハーネスエンジニアリング LT大会！！ <https://mlops.connpass.com/event/395882/>
+    footer: "[2026-06-30 コーディングエージェント ハーネスエンジニアリング LT大会！！](https://mlops.connpass.com/event/395882/)"
     include-in-header:
       - ../_includes/hatena-nocomment.html
     incremental: false
