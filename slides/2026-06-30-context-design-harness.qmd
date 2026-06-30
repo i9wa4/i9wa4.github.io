@@ -38,7 +38,7 @@ subtitle: ""
 
 ### 1.1. 自己紹介
 
-- 名前：uma-chan
+- 名前：uma-chan / 馬渡 大樹 (Mawatari Daiki)
 - 職種：データエンジニア・MLOpsエンジニア
   - どちらもエンジョイできるDatabricks環境に身を置いている
 - 最近の趣味
@@ -46,7 +46,7 @@ subtitle: ""
     - 場所：PC1台のみで完結させどこでも作業できるようにする
     - PC：OS問わず貸与PC・個人PCをdotfilesでいつもの環境に変える
     - AIエージェント：Claude CodeでもCodex CLIでも差異なく動かす
-	  - **→ この思想を持つ人間の発表内容です！**
+    - **→ この思想を持つ人間の発表内容です！**
 
 ### 1.2. 本日話すこと
 
@@ -58,16 +58,16 @@ subtitle: ""
 ### 2.1. AIエージェントを制御する上で遭遇した問題（大体Claude Sonnetの話）
 
 - いつの間にか最初の方の会話やチェックリスト化したタスクを忘れている
-    - 本質的なタスクを忘れてしまっていて想定外の方向に進んでしまっている
+  - 本質的なタスクを忘れてしまっていて想定外の方向に進んでしまっている
 - コマンドの禁止を無理矢理突破しようとする
-    - シェル芸、スクリプト実行、オプション活用など
+  - シェル芸、スクリプト実行、オプション活用など
 - CLAUDE.md/AGENTS.mdの内容を忘れる
-    - 長時間動かすと徐々に症状として現れる
+  - 長時間動かすと徐々に症状として現れる
 - Compaction後に滅茶苦茶な作業の進め方をしてしまう
-    - Claude CodeのCompactionの性能の悪さが目立つ
+  - Claude CodeのCompactionの性能の悪さが目立つ
 - 適切にAgent Skillsを使ってくれない
-    - 折角作業手順をAgent Skillsに記載したのにその通りにやってくれない
-    - また長時間動かしていくとどんなAgent Skillsを利用できるか忘れてしまっていそう
+  - 折角作業手順をAgent Skillsに記載したのにその通りにやってくれない
+  - また長時間動かしていくとどんなAgent Skillsを利用できるか忘れてしまっていそう
 
 **→ これらの真の原因は適切にコンテキストを付与できていないこと！**
 
@@ -108,16 +108,16 @@ subtitle: ""
 - Agent Skillsで重要なのは **名前** と **説明** ！適当に作らない！
   - 名前と説明を見てロードするかどうかを決めている
 
-  ```{.md filename=SKILL.md}
+  ```{.md filename="SKILL.md"}
   ---
   name: skill-name
   description: A description of what this skill does and when to use it.
   ---
-   ```
+  ```
 
 - 名前と説明は表紙、SKILL.mdは目次、references/は本文
 
-  ```
+  ```{.text}
   my-skill/
   ├── SKILL.md          # Required: metadata + instructions
   ├── scripts/          # Optional: executable code
