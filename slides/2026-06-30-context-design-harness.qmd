@@ -207,7 +207,7 @@ subtitle: ""
 ### 5.1. まとめ
 
 - 地道にAIエージェントと向き合ってコンテキスト設計をしよう
-- 忘れん坊で暴れ馬であるClaude Sonnetを制御できるハーネスエンジニアリングは本物 🐴
+- 忘れん坊で暴れ馬であるClaude Sonnetを制御できるハーネスを作ろう 🐴
 - tmuxはいいぞ
 
 ::: {style="transform: scale(1.2); transform-origin: top left;"}
