@@ -210,4 +210,4 @@ subtitle: ""
 - tmuxはいいぞ
 
 ::: {style="transform: scale(1.2); transform-origin: top left;"}
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する｜uma-chan <a href="https://t.co/5XBEvvmCbQ">https://t.co/5XBEvvmCbQ</a> <a href="https://x.com/hashtag/zenn?src=hash&amp;ref_src=twsrc%5Etfw">#zenn</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://x.com/i9wa4_/status/2071749142867808687?ref_src=twsrc%5Etfw">June 30, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">AI エージェント時代の波に乗るための tmux 入門 — マルチエージェントオーケストレーションの相棒｜uma-chan <a href="https://t.co/mToD0i5XaC">https://t.co/mToD0i5XaC</a> <a href="https://x.com/hashtag/zenn?src=hash&amp;ref_src=twsrc%5Etfw">#zenn</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://x.com/i9wa4_/status/2071742945120948422?ref_src=twsrc%5Etfw">June 29, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
