@@ -47,8 +47,8 @@ subtitle: ""
 
 ### 1.1. 本日話すこと
 
-- AIエージェントの挙動を常時狙った通りに制御し続けるために必要な考え方
-- tmux上でのプロンプトを軸にしたハーネスエンジニアリングによる課題解決
+- AIエージェントを常時意図通りに制御し続けるために必要な考え方
+- コンテキスト設計を軸にしたtmux上でのハーネスエンジニアリングによる課題解決
 
 ## 2. AIエージェントを制御する上で遭遇した問題
 
@@ -167,4 +167,20 @@ subtitle: ""
 
 ### 4.1. AI基盤の選定
 
-マルチエージェント
+1つのタスクにマルチエージェントで取り組みつつ基本思想を全て実装できる基盤として **tmux** を利用する
+
+……本当は以下のような自分の趣味と相性が良いから
+
+> - 最近の趣味
+>   - どこでも同じように作業するための環境整備
+>     - 場所：PC1台のみで作業を完結させ場所を選ばない
+>     - PC：OS問わず貸与PC・個人PCをdotfilesでいつもの環境に変える
+>     - AIエージェント：Claude CodeでもCodex CLIでも差異なく動かす
+
+### 4.2. tmuxでのマルチエージェントオーケストレーション用のOSS
+
+これまで述べた基本思想の実装を依頼すると作れます
+
+<https://github.com/i9wa4/tmux-a2a-postman>
+
+<blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/OwiZj72CNO">https://t.co/OwiZj72CNO</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://x.com/i9wa4_/status/2071747807002955999?ref_src=twsrc%5Etfw">June 30, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
