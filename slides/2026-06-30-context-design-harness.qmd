@@ -179,10 +179,30 @@ subtitle: ""
 
 ### 4.2. tmuxでのマルチエージェントオーケストレーション用のOSS
 
-これまで述べた基本思想の実装を依頼すると作れます
+:::: {.columns}
+::: {.column width="50%"}
 
-<https://github.com/i9wa4/tmux-a2a-postman>
+作ったもの
 
-::: {style="transform: scale(1.2); transform-origin: top left;"}
+::: {style="transform: scale(1.4); transform-origin: top left;"}
 <blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/OwiZj72CNO">https://t.co/OwiZj72CNO</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://x.com/i9wa4_/status/2071747807002955999?ref_src=twsrc%5Etfw">June 30, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
 :::
+
+
+:::
+::: {.column width="50%"}
+
+解説記事
+
+::: {style="transform: scale(1.4); transform-origin: top left;"}
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Markdown を設定ファイルにして tmux 上の AIエージェント間リレーを管理する｜uma-chan <a href="https://t.co/5XBEvvmCbQ">https://t.co/5XBEvvmCbQ</a> <a href="https://x.com/hashtag/zenn?src=hash&amp;ref_src=twsrc%5Etfw">#zenn</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://x.com/i9wa4_/status/2071749142867808687?ref_src=twsrc%5Etfw">June 30, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+:::
+
+:::
+::::
+
+## 5. まとめ
+
+- 地道にAIエージェントと向き合ってコンテキスト設計をしよう
+- 忘れん坊で暴れ馬であるClaude Sonnetを制御できるハーネスエンジニアリングは本物 🐴
+- tmuxはいいぞ
