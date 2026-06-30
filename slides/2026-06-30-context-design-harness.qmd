@@ -183,4 +183,6 @@ subtitle: ""
 
 <https://github.com/i9wa4/tmux-a2a-postman>
 
+::: {style="transform: scale(1.2); transform-origin: top left;"}
 <blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/OwiZj72CNO">https://t.co/OwiZj72CNO</a></p>&mdash; uma-chan🌲 (@i9wa4_) <a href="https://x.com/i9wa4_/status/2071747807002955999?ref_src=twsrc%5Etfw">June 30, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+:::
