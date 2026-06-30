@@ -106,14 +106,14 @@ The generated path follows this structure:
 $MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
 ```
 
-| Segment          | How It Is Determined                                   |
-| ---------------- | ------------------------------------------------------ |
-| `MKMD_BASE_DIR`  | Environment variable (default: `$XDG_STATE_HOME/mkmd`) |
-| `owner-repo`     | Extracted from `git remote get-url origin`             |
-| `YYYY-MM-DD`     | Date of execution                                      |
-| `branch`         | `git rev-parse --abbrev-ref HEAD`                      |
-| `DIR`            | `--dir` argument                                       |
-| `LABEL-XXXXXX`   | `--label` argument + random suffix from `mktemp`       |
+| Segment         | How It Is Determined                                   |
+| --------------- | ------------------------------------------------------ |
+| `MKMD_BASE_DIR` | Environment variable (default: `$XDG_STATE_HOME/mkmd`) |
+| `owner-repo`    | Extracted from `git remote get-url origin`             |
+| `YYYY-MM-DD`    | Date of execution                                      |
+| `branch`        | `git rev-parse --abbrev-ref HEAD`                      |
+| `DIR`           | `--dir` argument                                       |
+| `LABEL-XXXXXX`  | `--label` argument + random suffix from `mktemp`       |
 
 When run outside a git repository, it falls back to `local-<dirname>/...-local/`.
 

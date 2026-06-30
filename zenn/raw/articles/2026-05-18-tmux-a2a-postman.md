@@ -317,11 +317,11 @@ reviewer      🟢  ready
 
 長い作業で忘れやすいものはだいたい三つです。
 
-| 忘れやすいもの                 | 残し方                                              |
-| ------------------------------ | --------------------------------------------------- |
-| 誰として動くか                 | `postman.md` の role-specific instructions を入れる |
-| 何を返す必要があるか           | reply-required な依頼を開いたループとして残す       |
-| どのローカル手順を使えるか     | 通常の `skill_path` を `Available Skills` にする    |
+| 忘れやすいもの             | 残し方                                              |
+| -------------------------- | --------------------------------------------------- |
+| 誰として動くか             | `postman.md` の role-specific instructions を入れる |
+| 何を返す必要があるか       | reply-required な依頼を開いたループとして残す       |
+| どのローカル手順を使えるか | 通常の `skill_path` を `Available Skills` にする    |
 
 ## 9. tmux-a2a-postman 用の Agent Skills
 

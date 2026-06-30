@@ -289,12 +289,12 @@ You can answer some of this with conventions and direct `tmux send-keys` calls, 
 
 That is the boundary I care about:
 
-| Layer              | Responsibility                                   |
-| ------------------ | ------------------------------------------------ |
-| tmux               | Workbench: sessions, windows, panes, processes   |
-| `vde-layout`       | Floor plan: repeatable pane and window creation  |
-| Shell snippets     | Launcher: short commands for common layouts      |
-| Coordination layer | Handoffs: messages, replies, routing, receipts   |
+| Layer              | Responsibility                                  |
+| ------------------ | ----------------------------------------------- |
+| tmux               | Workbench: sessions, windows, panes, processes  |
+| `vde-layout`       | Floor plan: repeatable pane and window creation |
+| Shell snippets     | Launcher: short commands for common layouts     |
+| Coordination layer | Handoffs: messages, replies, routing, receipts  |
 
 This article is about the first three rows.
 

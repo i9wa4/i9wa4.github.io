@@ -22,14 +22,14 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 そこで Nix home-manager を使って設定要素を SSOT (Single Source of Truth) 化しました。
 設定は `nix/home-manager/agents/` ディレクトリ以下にまとめています。
 
-| ファイル                 | 役割                                           |
-| ------------------------ | ---------------------------------------------- |
-| denied-bash-commands.nix | 拒否コマンドリスト (Claude Code + Codex CLI)   |
-| mcp-servers.nix          | 共有 MCP サーバー定義                          |
-| agent-skills.nix         | Agent Skills の宣言的管理                      |
-| subagents/               | 専門調査エージェントの役割定義 (7種)           |
-| claude-code.nix          | Claude Code の home-manager モジュール         |
-| codex-cli.nix            | Codex CLI の home-manager モジュール           |
+| ファイル                 | 役割                                         |
+| ------------------------ | -------------------------------------------- |
+| denied-bash-commands.nix | 拒否コマンドリスト (Claude Code + Codex CLI) |
+| mcp-servers.nix          | 共有 MCP サーバー定義                        |
+| agent-skills.nix         | Agent Skills の宣言的管理                    |
+| subagents/               | 専門調査エージェントの役割定義 (7種)         |
+| claude-code.nix          | Claude Code の home-manager モジュール       |
+| codex-cli.nix            | Codex CLI の home-manager モジュール         |
 
 ## 2. SSOT 化した要素
 
@@ -86,13 +86,13 @@ Nix のリストとして拒否コマンドを定義し、2つの異なるツー
 
 各エントリの必須フィールドは `argv` と `justification` の2つだけです。
 
-| フィールド         | 必須 | 用途                                                                       |
-| ------------------ | ---- | -------------------------------------------------------------------------- |
-| argv               | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)                   |
-| justification      | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)             |
-| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加              |
-| anchored           | No   | false → hookRegex に `^` を付けない (wrapper prefix bypass 対策)           |
-| hookRegex          | No   | 指定すると argv からの自動導出を上書きし、そのまま使用する                 |
+| フィールド         | 必須 | 用途                                                             |
+| ------------------ | ---- | ---------------------------------------------------------------- |
+| argv               | Yes  | トークン配列 (Codex CLI + Claude Code hook の両方で使用)         |
+| justification      | Yes  | 拒否時に表示するメッセージ (Claude Code hook + Codex CLI 共通)   |
+| claudeSettingsJson | No   | true → `~/.claude/settings.json` の permissions.deny にも追加    |
+| anchored           | No   | false → hookRegex に `^` を付けない (wrapper prefix bypass 対策) |
+| hookRegex          | No   | 指定すると argv からの自動導出を上書きし、そのまま使用する       |
 
 `claudeSettingsJson` を省略すると hook のみで拒否します。拒否時に `justification` のメッセージが表示されるため、Claude は代替手段を理解できます。
 `rm` や `sudo` のように絶対に実行させたくないコマンドには `claudeSettingsJson = true` を設定し、Claude が計画段階で試行しないようにします。
@@ -194,10 +194,10 @@ hook のみのエントリの場合:
 
 `argv` の長さによって hookRegex と claudeGlob の導出ルールが変わります。
 
-| argv の長さ | hookRegex の導出      | claudeGlob の導出 (claudeSettingsJson 時) |
-| ----------- | --------------------- | ----------------------------------------- |
-| 1 token     | `^token\b`            | `token *`                                 |
-| 2+ tokens   | `^token1.*token2`     | tokens をスペースで結合 + `*`             |
+| argv の長さ | hookRegex の導出  | claudeGlob の導出 (claudeSettingsJson 時) |
+| ----------- | ----------------- | ----------------------------------------- |
+| 1 token     | `^token\b`        | `token *`                                 |
+| 2+ tokens   | `^token1.*token2` | tokens をスペースで結合 + `*`             |
 
 #### 2.1.2. PreToolUse hook スクリプト
 
@@ -473,15 +473,15 @@ codexAgentsDir = pkgs.runCommand "codex-agents" { } ''
 '';
 ```
 
-| エージェント          | 用途                                    |
-| --------------------- | --------------------------------------- |
-| researcher-tech       | 技術調査・リサーチ                      |
-| reviewer-architecture | 設計パターン・構造レビュー              |
-| reviewer-code         | コード品質・可読性レビュー              |
-| reviewer-data         | データ品質・スキーマ設計レビュー        |
-| reviewer-historian    | コンテキスト・変更経緯の把握            |
-| reviewer-qa           | テストカバレッジ・エッジケースレビュー  |
-| reviewer-security     | セキュリティ・脆弱性レビュー            |
+| エージェント          | 用途                                   |
+| --------------------- | -------------------------------------- |
+| researcher-tech       | 技術調査・リサーチ                     |
+| reviewer-architecture | 設計パターン・構造レビュー             |
+| reviewer-code         | コード品質・可読性レビュー             |
+| reviewer-data         | データ品質・スキーマ設計レビュー       |
+| reviewer-historian    | コンテキスト・変更経緯の把握           |
+| reviewer-qa           | テストカバレッジ・エッジケースレビュー |
+| reviewer-security     | セキュリティ・脆弱性レビュー           |
 
 `subagents/` は denied-bash-commands・mcp-servers・agent-skills と同様に Nix が管理する要素です。
 `subagents/*.md` を1箇所更新して `home-manager switch` を実行するだけで、Claude Code と Codex CLI の両方に反映されます。
@@ -620,12 +620,12 @@ excludePatterns = [ "/.system" ];
 
 ### 4.1. SSOT 化した4要素
 
-| 要素              | ファイル / ディレクトリ  | 読み込み先                        |
-| ----------------- | ------------------------ | --------------------------------- |
-| 拒否コマンド      | denied-bash-commands.nix | claude-code.nix, codex-cli.nix    |
-| MCP サーバー      | mcp-servers.nix          | claude-code.nix, codex-cli.nix    |
-| Agent Skills      | agent-skills.nix         | ~/.claude/skills, ~/.codex/skills |
-| サブエージェント  | subagents/               | AGENTS.md (section 9.3)           |
+| 要素             | ファイル / ディレクトリ  | 読み込み先                        |
+| ---------------- | ------------------------ | --------------------------------- |
+| 拒否コマンド     | denied-bash-commands.nix | claude-code.nix, codex-cli.nix    |
+| MCP サーバー     | mcp-servers.nix          | claude-code.nix, codex-cli.nix    |
+| Agent Skills     | agent-skills.nix         | ~/.claude/skills, ~/.codex/skills |
+| サブエージェント | subagents/               | AGENTS.md (section 9.3)           |
 
 ### 4.2. やってみて
 

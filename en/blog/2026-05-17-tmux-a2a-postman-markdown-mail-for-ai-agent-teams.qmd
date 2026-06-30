@@ -215,13 +215,13 @@ Those are implementation facts, not universal claims about terminal tools. The p
 
 So the comparison I care about is category-level:
 
-| Category                         | What it usually solves                     |
-| -------------------------------- | ------------------------------------------ |
-| Native agent features            | In-runtime delegation, subagents, tool use |
-| Agent runtime                    | Thinking, editing, tool execution          |
-| Terminal multiplexer substrate   | Long-lived panes, sessions, input surfaces |
-| Workspace layout harness         | Recreate the physical workspace            |
-| Mailbox and coordination layer   | Handoffs, unread state, replies, receipts  |
+| Category                       | What it usually solves                     |
+| ------------------------------ | ------------------------------------------ |
+| Native agent features          | In-runtime delegation, subagents, tool use |
+| Agent runtime                  | Thinking, editing, tool execution          |
+| Terminal multiplexer substrate | Long-lived panes, sessions, input surfaces |
+| Workspace layout harness       | Recreate the physical workspace            |
+| Mailbox and coordination layer | Handoffs, unread state, replies, receipts  |
 
 Postman lives in the last row and currently runs on tmux.
 
