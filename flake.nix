@@ -222,6 +222,7 @@
                 enable = true;
                 entry = "bash .github/scripts/convert-drawio-to-png.sh";
                 files = "assets/.*\\.drawio$";
+                require_serial = true;
               };
 
               # NOTE: uv-dependent hooks — local only (skip in CI)
