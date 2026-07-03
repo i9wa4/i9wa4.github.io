@@ -7,7 +7,7 @@ categories:
 date: 2026-07-03 07:37:11 +0900
 date-modified: last-modified
 description: |
-  Prompt, context, and harness engineering get a message to the right place. Loop engineering is the part most setups skip: proving the work is actually done. How far can pure instructions carry autonomous agents — and what does the substrate after them need? Ends with a requirements memo. #PromptEngineering #AIAgents #LoopEngineering #AgenticWorkflows
+  Prompt, context, and harness engineering get a message to the right place. Loop engineering is the part most setups skip: proving the work is actually done. How far can pure instructions carry autonomous agents — and what does the substrate after them need? Ends with a requirements memo and the cold-start problem baked into it. #PromptEngineering #AIAgents #LoopEngineering #AgenticWorkflows
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -27,7 +27,7 @@ flowchart TD
     C["Stage 2: Context engineering<br/>what the reader knows right now"]
     H["Stage 3: Harness engineering<br/>how the message moves, and fails"]
     L["Stage 4: Loop engineering<br/>proving the work actually happened"]
-    N["what comes after<br/>(sections 8 and 9)"]
+    N["what comes after<br/>(sections 8 to 10)"]
     P -- "assumes the reader's facts are current" --> C
     C -- "facts still need a way to travel" --> H
     H -- "delivered is not the same as done" --> L
@@ -94,7 +94,7 @@ Concretely, that means designing for a few properties that are easy to state and
 
 The honest closing line for this stage: prompt engineering gets you a message. Context engineering gets the reader the right facts. Harness engineering gets the message to the right process. Loop engineering is what tells you — provably, not by vibes — that the work is actually done.
 
-But this stage has a limitation too, and it would be dishonest to end the staircase on a stage that pretends not to. Verification is not free, and the verifier is another probabilistic actor. Every check adds tokens, latency, and a new place to be wrong. A reviewer can be satisfied by evidence that was optimized to pass review rather than to be true. And "who reviews the reviewer" has no base case — only a budget. Loop engineering can tell you that a given piece of work is done. It cannot, by itself, tell you how much verification is *enough*, or whose work has earned lighter checking. Those are economic questions, and they're where the last two sections of this post are headed.
+But this stage has a limitation too, and it would be dishonest to end the staircase on a stage that pretends not to. Verification is not free, and the verifier is another probabilistic actor. Every check adds tokens, latency, and a new place to be wrong. A reviewer can be satisfied by evidence that was optimized to pass review rather than to be true. And "who reviews the reviewer" has no base case — only a budget. Loop engineering can tell you that a given piece of work is done. It cannot, by itself, tell you how much verification is *enough*, or whose work has earned lighter checking. Those are economic questions, and they're where the closing sections of this post are headed.
 
 ## 6. The Thought Experiment: Can Instructions Alone Get You This Far?
 
@@ -119,6 +119,8 @@ One refinement before leaning on that boundary too hard: it's drawn as if an ins
 If you're scaling up agent-driven work, this suggests a cheap diagnostic before reaching for new infrastructure. For each rule you want to enforce, ask whether it's a rule about *behavior* ("always name what you're replying to") or a rule about *shared state* ("the system must know, at all times, exactly how many things are outstanding"). The first kind can live in instructions indefinitely. The second kind needs somewhere durable to live, sooner or later, no matter how well the instructions are written.
 
 Most teams get this backward. They over-build for the first kind, reaching for new services to enforce behavior that a clearer instruction would have fixed for free. They under-build for the second, leaving genuinely shared state balanced precariously on convention and good faith. Sorting which kind of problem you actually have, before writing either a paragraph or a schema, is most of the work.
+
+There's a second phrasing of the same test, if the first feels abstract: ask whether the thing would work on day one if you copied it into a fresh deployment. A behavior rule would — it's words, and installing it is the same act as adopting it. Shared state wouldn't — it has to be accumulated in place, and no copy operation substitutes for the accumulating. Section ten is about why that difference ends up mattering more than anything else in this post.
 
 ## 8. Where the Boundary Moves Next
 
@@ -150,4 +152,24 @@ What must be machinery:
 
 What deliberately stays prose, by the same diagnostic: the taxonomy of work classes, the choice of verification tier a given risk deserves, and conventions like blind review — handing a reviewer the change and the evidence but not the author's reasoning, which manufactures decorrelated judgment out of information asymmetry, no second model required. Those are behavior rules. They'll keep paying their way as sentences right up until the conveyor takes them too.
 
-Two things about this memo are worth noticing. The sorting was mechanical — every item landed on the machinery side because it's a shared fact that must outlive a turn, and on the prose side because it's a description of behavior; the diagnostic did the work, which is some evidence the diagnostic is sharp. And the memo measures itself: the sampled audits and the convention meter produce, as a side effect, exactly the dataset this post lacks — which rules get broken, how often, by whom. Which means the honest follow-up to this thought experiment shouldn't be another thought experiment. It should be a table of numbers.
+Two things about this memo are worth noticing. The sorting was mechanical — every item landed on the machinery side because it's a shared fact that must outlive a turn, and on the prose side because it's a description of behavior; the diagnostic did the work, which is some evidence the diagnostic is sharp. And the memo measures itself: the sampled audits and the convention meter produce, as a side effect, exactly the dataset this post lacks — which rules get broken, how often, by whom.
+
+But there's a catch in this memo, and it deserves its own section, because it's where the whole argument finally lands.
+
+## 10. What Cannot Be Distributed
+
+Everything in section nine's machinery list passes the copy-to-a-fresh-deployment test — as a mechanism. The schema, the policy function, the audit dice, the convention meter: those are stateless artifacts. Like any software, they install in minutes and work immediately. Which also means that whichever of them prove useful will be copied by everyone, quickly, and stop being anyone's advantage. Distributable things commoditize at the speed of distribution.
+
+What fails the test is the *contents*. A track record is not installable. Trust is indexical — a score means "this agent, on this class of work, in this environment, under these risk tolerances" — so someone else's filled ledger is close to worthless to you, and there is no zero-shot version of it, because trust just *is* compressed history. Capability can't synthesize it; a smarter model arriving tomorrow does not know whether yesterday's migration was verified. History can only be recorded, and only at the time.
+
+So any system built on this memo has a structural cold-start problem: on day one, every agent is a stranger, every completion gets the full-depth check, and the verification budget burns at its maximum. That's not a flaw to engineer away — it's the definition of the thing being computed. But structural doesn't mean nothing improves. It means the discipline shifts one more time. After prompt, context, harness, and loop engineering, the next scarce skill is **accumulation efficiency**: how fast a deployment turns operation into history. The levers are already visible:
+
+- **Record what already happens.** The single biggest waste is a review that occurs and evaporates as prose. And check whether your setup has been recording without your noticing: archives full of messages with legible pass-and-fail markers are a ledger waiting for a backfill script. Many cold starts are warmer than they look.
+- **Front-load the verdicts.** Early observations tighten an estimate fastest, so full-depth review of a new agent isn't a grudging cost — it's the cheapest information the system will ever buy. Give newcomers a deliberately diverse diet of small, cheap-to-verify tasks across work classes. Probation periods and rotation programs were accumulation-efficiency technologies all along; we just never called them that.
+- **Warm the start with priors.** An unknown agent isn't unknowable: you know how its model version tends to perform on this class of work in general, even before it has local history. Let thin agent-level records shrink toward model-level aggregates until the local evidence takes over, and let a version change discount the record rather than zero it. This is also where the distributable and the accumulated finally connect: ship the prior, grow the evidence. And it predicts an institution — portable, signed track records, the agent's résumé, the credit bureau — because wherever accumulated trust is valuable and non-transferable, someone eventually builds the machinery to make it semi-portable.
+- **Cheapen the unit of verification.** Executable evidence isn't only an anti-gaming measure. It lowers the cost per check, which raises the number of checks a fixed budget buys, which *is* the accumulation rate. Even the free tier — the convention meter, counting violations no human looks at — is a steady stream of weak verdicts.
+- **Store raw, aggregate later.** Keep verdicts as immutable events with their full context — who, what class, what evidence, which versions — and derive scores as views you can recompute. Then every future improvement to the scoring applies retroactively to everything you kept.
+
+All of these improvements share one scoreboard: **time-to-trust** — how long, and at what verification cost, a new agent takes to earn its first lighter tier. Whatever makes that number shrink without letting gamed work through is progress in this discipline, measured in one place.
+
+And that's where the thought experiment lands. The staircase keeps migrating out from under you: behaviors get absorbed into models, conventions ossify into protocols, and both arrive everywhere at once, for everyone, the day they ship. What never ships is your deployment's history — who did what, what was checked, what held up. Mechanisms can be improved retroactively; history cannot be collected retroactively. Which turns out to be this post's conclusion and its only real advice in one sentence: whatever substrate you build or adopt next, the scoring can wait and the policy can wait — start recording the verdicts now. The honest follow-up to a thought experiment like this isn't another thought experiment. It's a table of numbers, and the table starts filling the moment you begin writing things down.
