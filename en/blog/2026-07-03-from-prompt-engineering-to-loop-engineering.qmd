@@ -132,6 +132,19 @@ Section six drew the boundary as a line you find. Its own refinement already gav
 
 **Verification economics from above.** As generation gets cheaper, the scarce resource shifts to checking. Uniform verification — every claim reviewed at the same depth — stops being affordable long before anyone admits it, and verification depth has to become a function of two things: the actor's track record and the blast radius of being wrong. That's how human organizations already ration attention: a senior engineer's routine change gets a lighter review than a new contributor's change to the auth system, and audits sample rather than inspect every return. The marker: approval systems in agent tooling moving from static policy ("always ask before X") to adaptive policy ("ask based on this agent's verified history with X-class work").
 
+The same picture, drawn: one rule living as prose, three exits.
+
+```{mermaid}
+flowchart TD
+    C["a rule living as prose<br/>(instruction, convention)"]
+    M["model weights<br/>(absorption from below)"]
+    P["protocol schema<br/>(ossification from the side)"]
+    R["durable records<br/>(verification economics from above)"]
+    C -- "proves valuable:<br/>models internalize it" --> M
+    C -- "carries economic weight:<br/>specs freeze it" --> P
+    C -- "must survive scale:<br/>enforcement produces records" --> R
+```
+
 There's a second-order prediction hiding inside that third force, and I think it's the most interesting one: **track records create an identity problem.** The moment trust accumulates against an agent's name, the cheapest way to escape a bad record is to show up under a new name. Nothing about a freshly spawned agent prevents that reputation laundering. So identity becomes load-bearing — bound to the model version and the standing instructions actually running, so that a new model answering to a senior agent's name is recognized for what it is: a new junior wearing a familiar badge, whose inherited trust should be discounted accordingly. "Who is this agent, really" becomes the next shared, durable fact that prose can't hold. Section four's identity pattern was the seed of this; the trust economy is what makes it germinate.
 
 Where does the conveyor stop? Some cargo never arrives. Shared durable state, enforcement, and incentives don't get absorbed into models, because they aren't behaviors — they're facts about a system that has to be bigger than any one actor inside it. Which suggests an ending blunt enough to write down: prompt engineering dies a little with every model generation, as models internalize what used to need saying. State engineering doesn't die, because no amount of model capability makes a fact persist itself.
@@ -149,6 +162,24 @@ What must be machinery:
 - **Health that volunteers itself.** Thresholds on the system's own state — the age of the oldest open item, the count of undeliverable messages — that push an escalation to whoever fronts for the human, instead of waiting to be queried. A diagnostic that must be asked for functions, in practice, as if it didn't exist, because reaching it requires already suspecting something is wrong.
 - **A meter on its own conventions.** The substrate should lint its own message stream — missing reply references, missing freshness marks, completion claims without evidence slots — and report violation rates per agent. This is the instrument the whole argument has been implying: it measures how fast prose conventions actually decay in the wild, it feeds the track record, and it turns section eight's absorption prediction into something checkable with data rather than vibes.
 - **Identity bound to version.** An agent's name should bind to the model and instruction versions actually running, and accumulated trust should discount when either changes. Otherwise the trust system teaches its agents exactly one reliable skill: knowing when to change names.
+
+Listed like that, these read as six independent requirements. Drawn, they turn out to be one feedback loop — the track record tunes the very audit draw that feeds it:
+
+```{mermaid}
+flowchart LR
+    claim["completion claim<br/>with evidence slot"]
+    gate["presence gate:<br/>no evidence = refused"]
+    draw["audit draw:<br/>p from track record and blast radius,<br/>never zero"]
+    review["independent review:<br/>re-run the evidence"]
+    ledger["track record<br/>per identity and work class"]
+    accepted["accepted"]
+    claim --> gate
+    gate --> draw
+    draw -- "sampled" --> review
+    review -- "verdict: pass or fail" --> ledger
+    draw -. "passed through unchecked" .-> accepted
+    ledger -- "tunes the next draw" --> draw
+```
 
 What deliberately stays prose, by the same diagnostic: the taxonomy of work classes, the choice of verification tier a given risk deserves, and conventions like blind review — handing a reviewer the change and the evidence but not the author's reasoning, which manufactures decorrelated judgment out of information asymmetry, no second model required. Those are behavior rules. They'll keep paying their way as sentences right up until the conveyor takes them too.
 
