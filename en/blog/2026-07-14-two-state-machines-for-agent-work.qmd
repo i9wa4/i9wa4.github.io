@@ -73,8 +73,8 @@ They make it harder to lose the work before correctness can even be checked.
 
 ## 3. postman as a Message-Lane State Machine
 
-The most important design choice in postman is that it refuses to pretend the
-mailbox is the whole workflow.
+Postman's best design choice is that it refuses to pretend the mailbox is the
+whole workflow.
 
 The README describes postman as a thin coordination layer. It keeps roles and
 edges in `postman.md`, routes local mail between tmux panes, stores archives,
@@ -82,9 +82,9 @@ tracks reply-required slots, reports status, and keeps dead-letter state
 visible. Its product direction notes say the message lane remains the center:
 `send-heredoc`, `pop`, routing, reply flow, and dead-letter handling.
 
-That is a useful boundary.
+That boundary keeps the claim honest.
 
-Another way to name the boundary is obligation ledger. A message is not
+Another name for the boundary is obligation ledger. A message is not
 interesting only because text moved. It is interesting because it opened,
 filled, or failed to fill an obligation between roles. That is why transport
 closure and task acceptance have to remain separate events.
@@ -156,8 +156,8 @@ Postman shows a thinner transport boundary. It does not own model sessions. It
 does not try to be a full workflow engine. It keeps mail, reply obligations,
 archives, and status projection outside any one agent's context window.
 
-That difference is useful. The future does not need every tool to become the
-same product. It needs clean layers:
+That difference matters because the future does not need every tool to become
+the same product. It needs clean layers:
 
 - terminal/session substrate;
 - agent operating state;
@@ -167,8 +167,7 @@ same product. It needs clean layers:
 - human-facing summary state.
 
 Some products will combine layers. Some local systems will compose small tools.
-The important part is not the brand boundary. The important part is that the
-state has a durable place to live.
+The brand boundary matters less than the durability of the state.
 
 This is what makes Claude Code and Codex feel increasingly interchangeable in
 the forecast. They can differ as execution engines, but the operating state and
@@ -183,7 +182,8 @@ review surface.
 
 ## 6. Where Remote Access Fits
 
-Phone access is not just a convenience feature. It pressures the state model.
+Phone access is not just a convenience feature. It stress-tests the state
+model.
 
 When the human is at the terminal, the system can get away with weak state
 because the human can inspect everything manually. When the human is on a
@@ -196,14 +196,14 @@ SSH, a phone, a browser, or a private network review surface, the system cannot
 lean on the human's memory of a pane. It has to carry the obligation state
 itself.
 
-Phone access does not remove the need for state machines. It reveals the need.
+Phone access does not remove the need for state machines. It exposes the need.
 
 ## 7. What the Task Layer Should Store
 
 The second state machine does not need to be heavy at first. It can start as a
 durable task artifact with a checklist.
 
-The minimum useful shape is boring:
+The minimum useful record is deliberately plain:
 
 - original request;
 - acceptance checklist;
@@ -219,9 +219,8 @@ the distinction between "reply sent" and "work accepted" concrete.
 
 Over time, more of this becomes structured. A review verdict becomes a record.
 An approval becomes a record. An agent's history of correct completions becomes
-a queryable fact. A random audit becomes a state transition. A failure to
-include evidence becomes a malformed completion claim rather than a weak
-paragraph.
+a queryable fact. An audit becomes a state transition. A completion without
+evidence becomes a malformed claim rather than a weak paragraph.
 
 That is the second-stage state machine.
 

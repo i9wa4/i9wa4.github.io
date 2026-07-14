@@ -35,13 +35,13 @@ inside one person's computer. But the operating shape is familiar:
 - one top-level agent talks to the human.
 
 The surprising part is not that AI can write code. The surprising part is that
-personal computing starts to inherit organizational structure.
+personal computing starts to borrow the structure of organizations.
 
 ## 2. The Human Stops Being the Operator
 
 The old personal-computer story made the human the operator. The machine waited
-for commands. The user clicked, typed, dragged, opened, closed, copied, pasted,
-and watched progress.
+for commands. The user clicked, typed, dragged, copied, pasted, and watched
+progress.
 
 Agent work changes the user's job.
 
@@ -62,8 +62,8 @@ not need to report every keystroke. It needs to report what matters:
 - what artifact should be read;
 - what can safely proceed without interruption.
 
-This is why visual decoration becomes less important. A president does not need
-a decorative cockpit for every machine in the factory. A president needs a
+This is why visual decoration carries less value. A president does not need a
+decorative cockpit for every machine in the factory. A president needs a
 trustworthy briefing, clear exceptions, and the ability to drill down when the
 details matter.
 
@@ -89,8 +89,8 @@ there may be several layers:
 - an approval coordinator;
 - a human-facing messenger.
 
-The names do not matter as much as the shape. Execution fans out. Status rolls
-up. Decisions are routed to the level that can responsibly make them.
+The names matter less than the flow. Execution fans out. Status rolls up.
+Decisions move to the level that can responsibly make them.
 
 Human organizations invented this shape because attention is limited. Agent
 organizations will rediscover it for the same reason.
@@ -171,7 +171,7 @@ available as interchangeable staff.
 That matters because personal AI work is still governed by provider
 constraints. Pricing models, subscription contracts, token budgets, rate
 limits, and service availability shape what the user can actually do. A small
-company inside the PC should be able to move work to the engine that is
+company inside the PC should be able to assign work to the engine that is
 affordable, available, and well matched to the task without moving the whole
 company-state with it.
 
@@ -213,11 +213,12 @@ Together, they suggest the same future:
 - review and approval become gates;
 - the human speaks to the front office.
 
-The metaphor is imperfect, but it points at the right abstraction.
+The metaphor is imperfect, but it points at the operational structure.
 
 ## 8. The Top-Level Agent
 
-Eventually the user should not talk to most of the agents.
+In the mature version of this setup, the user should not talk to most of the
+agents.
 
 The user should talk to a top-level agent that behaves like the accountable
 representative of the whole local organization. That agent may delegate to
@@ -233,7 +234,7 @@ approval gates. The organization owns continuity. The engine contributes
 labor. Provider limits then become scheduling inputs, not existential
 constraints on the whole workstation.
 
-The top-level agent's job is not to be omniscient. It is to know when to
+The top-level agent does not need to be omniscient. It needs to know when to
 delegate, when to summarize, when to ask, and when to stop.
 
 This is where the company-president metaphor becomes useful. The president is
@@ -257,12 +258,13 @@ For the machine, the system becomes larger:
 - memory and precedent;
 - remote viewing and notification surfaces.
 
-The visible UI shrinks because the hidden organization grows.
+The visible UI can shrink because the hidden organization has enough structure
+to carry the work.
 
 ## 9. The Forecast
 
-The future personal AI setup is not just an assistant. It is not just a better
-terminal. It is a small organization inside the personal computer.
+The future personal AI setup is not just an assistant or a better terminal. It
+is a small organization inside the personal computer.
 
 The human should not have to touch tmux, but tmux-like substrates will still
 run. The human should not have to stare at decorative dashboards, but the

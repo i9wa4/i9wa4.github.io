@@ -32,7 +32,7 @@ part where terminal processes keep running, sessions stay attachable, output
 can be inspected, and agents can do real work inside normal development
 environments.
 
-That durable form is not disappearing. It is becoming more important.
+That durable form is not disappearing. More of the work is moving onto it.
 
 This is the first post in a loose three-part series. The companion posts cover
 [the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd)
@@ -40,10 +40,10 @@ and [the organizational shape of a personal agent workstation](2026-07-14-compan
 
 It also does not have to live on the laptop in front of me. tmux is valuable
 because it can run on a personal machine, a home server, or a remote host, and
-the session remains a stable place for work even when the human changes
-location. That portability is part of why the visible pane grid can recede: the
-important object is not the screen I am touching now, but the sessionful
-execution substrate that agents can keep using.
+the session remains a stable place for work even when I move between desk,
+laptop, and phone. That portability is part of why the visible pane grid can
+recede: the object worth preserving is not the screen I am touching now, but
+the sessionful execution substrate that agents can keep using.
 
 ## 2. Claude Code and Codex Move Up the Stack
 
@@ -92,7 +92,7 @@ the same point in more structural terms: workspaces contain tabs and panes,
 panes are real terminals, and agents are recognized processes with runtime
 states such as blocked, working, done, idle, and unknown.
 
-That is not just a nicer terminal UI. It is a shift in the unit of attention.
+That is more than a nicer terminal UI. It changes the unit of attention.
 
 Traditional tmux asks me to manage windows and panes. herdr asks me to manage
 workspaces, agents, and status. Its [session state documentation](https://herdr.dev/docs/session-state/)
@@ -101,9 +101,9 @@ session restore, and live handoff. Those distinctions matter because agent work
 is not a single command returning a value. It is a long-running process with
 state, output, context, and recovery paths.
 
-The important direction is not "herdr replaces tmux." It may or may not for a
-given user. The important direction is that terminal multiplexing is being
-reframed around agent operations.
+The claim is not "herdr replaces tmux." It may or may not for a given user.
+The stronger signal is that terminal multiplexing is being reframed around
+agent operations.
 
 That also changes the role of the agent brand. If the workspaces, panes,
 sessions, handoffs, and artifacts are stable outside the model client, then
@@ -127,11 +127,12 @@ pane-state surfaces visible. The design notes are careful about the boundary:
 postman is not a full agent runtime, not a broad workflow engine, and not a
 replacement for tmux or the agent CLIs.
 
-That boundary is the point. tmux still owns terminal processes. postman owns
-the obligation ledger around those processes: who asked for what, which reply
-is still required, which request was filled, and which work is blocked by a
-review or approval dependency. It is a message lane, but the useful part is the
-responsibility state that survives beyond any one pane's terminal history.
+That boundary makes the tool useful. tmux still owns terminal processes.
+postman owns the obligation ledger around those processes: who asked for what,
+which reply is still required, which request was filled, and which work is
+blocked by a review or approval dependency. It is a message lane, but the
+valuable part is the responsibility state that survives beyond any one pane's
+terminal history.
 
 The human-facing dashboard matters less than the state it exposes. A message
 was delivered. A reply is required. A worker is waiting. A request was filled.
@@ -176,12 +177,12 @@ herdr itself, the official remote story I verified is SSH remote attach, not
 native Tailscale. But the direction is the same: private network access plus
 phone-readable review surfaces turns the terminal into a backend.
 
-The stronger point is not a specific network product. It is location
+The durable point is not a specific network product. It is location
 independence. If the execution substrate runs on a server and is reachable
-through SSH or a private network, the human can inspect and approve work from
-almost anywhere without moving the work itself. tmux has had that property for
-a long time. herdr inherits the same direction by treating the terminal
-workspace as a server-backed thing that clients can attach to.
+through SSH or a private network, I can inspect and approve work from almost
+anywhere without moving the work itself. tmux has had that property for a long
+time. herdr follows the same path by treating the terminal workspace as a
+server-backed thing that clients can attach to.
 
 The phone does not need a decorated cockpit. It needs a small set of decisions.
 
@@ -211,12 +212,11 @@ without making it vendor-owned. The terminal remains the execution substrate.
 
 ## 7. What Stops Mattering
 
-Visual decoration matters less in this model.
+Visual decoration carries less of the value in this model.
 
-That is not a claim that design stops mattering. It is a claim that decorative
-operator surfaces stop being the main value. When the human is no longer
-driving the machinery directly, a beautiful dashboard of every pipe and gear is
-not the scarce thing.
+Design still matters. What loses value is the decorative operator surface. When
+the human is no longer driving the machinery directly, a beautiful dashboard of
+every pipe and gear is not the scarce thing.
 
 The scarce thing is a correct escalation:
 
