@@ -7,19 +7,19 @@ categories:
 date: 2026-07-14 19:47:00 +0900
 date-modified: last-modified
 description: |
-  multi-agent setup は tool ではなく小さな organization に近づく。shared substrate、replaceable engine、reviewer、approver、diplomat、top-level agent を個人の PC に置く未来を考える。
+  multi-agent setup は単なる tool ではなく、小さな organization に近づく。共有基盤、差し替え可能なエンジン、reviewer、approver、diplomat、top-level agent を個人の PC に置く未来を考える。
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
 ## 1. 形は組織的になる
 
-複数の agent が関わり始めると、metaphor が変わる。
+複数の agent が関わり始めると、比喩が変わる。
 
 単一の agent は tool である。handoff を持ついくつかの agent は workflow である。role、review、approval、routing、memory、escalation を持つ durable な agent 群は、organization に見え始める。
 
-これは、ゆるい三部作の三つ目の記事である。前の記事では、[生き残る execution substrate としての tmux](2026-07-14-tmux-survives-visible-form-disappears.qmd) と、[agent work の背後にある二つの state machine](2026-07-14-two-state-machines-for-agent-work.qmd) を扱った。
+これは、ゆるい三部作の三つ目の記事である。前の記事では、[生き残る実行基盤としての tmux](2026-07-14-tmux-survives-visible-form-disappears.qmd) と、[エージェント作業の背後にある二つの状態機械](2026-07-14-two-state-machines-for-agent-work.qmd) を扱った。
 
-その organization は、legal sense の company である必要はない。一人の computer の中に住める。ただし operating shape は見慣れたものになる。
+その organization は、法律上の company である必要はない。一人の computer の中に住める。ただし運用上の形は見慣れたものになる。
 
 - workers が task execution を行う
 - reviewers が output を check する
@@ -37,7 +37,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 agent work は user の仕事を変える。
 
-terminal operation がますます AI に渡されるなら、人間は pane、process ID、shell prompt、routing command に attention を使うべきではない。人間は goal、priority、exception、approval に attention を使うべきだ。
+terminal operation がますます AI に渡されるなら、人間は pane、process ID、shell prompt、routing command に注意を使うべきではない。人間は goal、priority、exception、approval に注意を使うべきだ。
 
 これは、人間を org chart の上へ動かす。
 
@@ -121,7 +121,7 @@ AI subscription は intelligence を提供できる。personal computer は、us
 
 だから、Claude Code と Codex のどちらを選ぶかは、時間とともに central ではなくなるかもしれない。両方が同じ tmux や herdr substrate に座れるなら、personal computer は一つの vendor の command line を中心に organized されない。user の durable workbench を中心に organized され、異なる agent engine は interchangeable staff として利用可能になる。
 
-これは重要だ。personal AI work は、今でも provider constraint に支配される。pricing model、subscription contract、token budget、rate limit、service availability は、user が実際に何をできるかを形づくる。PC の中の小さな company は、company-state 全体を移動せずに、affordable で available で task に合う engine へ work を assign できるべきだ。
+これは重要だ。personal AI work は、今でも provider constraint に支配される。pricing model、subscription contract、token budget、rate limit、service availability は、user が実際に何をできるかを形づくる。PC の中の小さな company は、組織全体の状態を移動せずに、affordable で available で task に合う engine へ work を assign できるべきだ。
 
 だから私は hybrid な形になると予想している。
 
@@ -146,7 +146,7 @@ postman は handoff を explicit にする。role に name を与え、declared 
 - terminal session は office floor になる
 - pane は desk になる
 - agent は worker になる
-- message lane は internal mail と obligation ledger になる
+- message lane は internal mail と責務台帳になる
 - task artifact は case file になる
 - review と approval は gate になる
 - human は front office と話す
@@ -159,13 +159,13 @@ metaphor は不完全だが、operational structure を指している。
 
 user は、local organization 全体の accountable representative のように振る舞う top-level agent と話すべきだ。その agent は、ある step を Claude Code に、別の step を Codex に、さらに別の step を reviewer に、risky command を approver に delegate するかもしれない。user は default でその routing を watch する必要はない。
 
-この予測のより強い version では、user はほとんどの場合、どの execution engine が active かも気にする必要がなくなる。Claude Code と Codex は異なる temperament、integration、strength を保つかもしれない。それでも、同じ case file、pane、mail、check、approval gate の背後にいる replaceable worker になる。organization が continuity を所有する。engine は labor を提供する。すると provider limit は、workstation 全体への existential constraint ではなく、scheduling input になる。
+この予測のより強い version では、user はほとんどの場合、どの execution engine が active かも気にする必要がなくなる。Claude Code と Codex は異なる temperament、integration、strength を保つかもしれない。それでも、同じ case file、pane、mail、check、approval gate の背後にいる replaceable worker になる。継続性は organization 側が持つ。engine は labor を提供する。すると provider limit は、workstation 全体への existential constraint ではなく、scheduling input になる。
 
 top-level agent は omniscient である必要はない。delegate すべき時、summarize すべき時、ask すべき時、stop すべき時を知っていればよい。
 
-ここで company-president metaphor が役に立つ。president は assembly line を操作しないから弱いのではない。organization が正しい facts を上に route するから、より effective になる。visible surface が shrink する理由も同じだ。各 worker の console を再現するのではなく、organization の state を expose すべきである。問うべきは、人間が何が変わったか、責任がどこにあるか、どの boundary が crossed されているかを見られるかどうかである。
+ここで company-president metaphor が役に立つ。president は assembly line を操作しないから弱いのではない。organization が正しい facts を上に route するから、より effective になる。見える面が小さくなる理由も同じだ。各 worker の console を再現するのではなく、organization の state を expose すべきである。問うべきは、人間が何が変わったか、責任がどこにあるか、どの boundary が crossed されているかを見られるかどうかである。
 
-human にとって、interface は小さくなる。
+人間にとって、interface は小さくなる。
 
 - goal を話す
 - summary を読む
@@ -173,7 +173,7 @@ human にとって、interface は小さくなる。
 - exception を approve または reject する
 - priority を adjust する
 
-machine にとって、system は大きくなる。
+機械にとって、system は大きくなる。
 
 - persistent terminal runtime
 - multi-agent coordination
@@ -192,4 +192,4 @@ human は tmux に触れる必要がなくなるべきだが、tmux-like substra
 
 重要な問いは、「それは Claude Code だったか Codex だったか」ではなく、「私の local organization のどの部分がこれを handled し、どんな evidence を残し、どの decision がまだ私の責任なのか」になる。
 
-これは personal computing の別の model である。computer は user が操作する tool であるだけではなくなる。user の behalf で organization が働く場所になる。
+これは personal computing の別の model である。computer は user が操作する tool であるだけではなくなる。user の代わりに organization が働く場所になる。
