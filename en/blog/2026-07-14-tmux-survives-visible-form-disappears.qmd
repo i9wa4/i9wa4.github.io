@@ -228,8 +228,11 @@ The scarce thing is a correct escalation:
 
 If the human is effectively the company president speaking to a top-level
 agent, the UI should look less like a machine room and more like an executive
-briefing channel. It can still expose details on demand. It should not require
-the human to operate the details as the default workflow.
+briefing channel. A CEO does not personally track every handoff, queue, and
+minor task in a company; they need goals, exceptions, approvals, evidence, and
+priority changes. The agent workstation should make the same compression. It
+can still expose details on demand. It should not require the human to operate
+the details as the default workflow.
 
 The terminal survives because someone still has to run the processes.
 

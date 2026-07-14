@@ -62,10 +62,12 @@ not need to report every keystroke. It needs to report what matters:
 - what artifact should be read;
 - what can safely proceed without interruption.
 
-This is why visual decoration carries less value. A president does not need a
-decorative cockpit for every machine in the factory. A president needs a
-trustworthy briefing, clear exceptions, and the ability to drill down when the
-details matter.
+This is why the visible UI can become narrower. A CEO in a working company
+does not personally manage every handoff, queue, and small task. They need a
+compressed surface: goals, exceptions, approvals, evidence, and priority
+changes. A personal agent workstation should make the same move. It can expose
+the details, but the default human-facing surface should not be detailed task
+management.
 
 ## 3. Middle Managers Are Not a Joke Here
 
@@ -109,8 +111,9 @@ action should proceed.
 So the approver becomes a separate role.
 
 This separation does not make the system safe by itself. Approval is not an OS
-sandbox. It is a recorded decision boundary. The point is to force a risky
-action through a different state transition:
+sandbox, a permissions model, or a security proof. It is a recorded decision
+boundary. The point is to force a risky action through a different state
+transition:
 
 1. request the action;
 2. describe the reason and blast radius;
@@ -125,21 +128,41 @@ agents are fast, persistent, and capable of acting across many local resources.
 
 The diplomat role exists because boundaries multiply.
 
-There is the boundary between one project and another. Between a private vault
-and a public repository. Between a local terminal and a phone. Between one
-agent runtime and another. Between a human request and an automated execution
-path. Between a safe local draft and a public GitHub surface.
+There is the boundary between a private vault and a public repository. Between
+a local checkout and a remote server. Between a trusted terminal session and a
+phone or Telegram surface. Between a Tailnet viewer and the wider internet.
+Between GitHub publication and local notes. Between production data and test
+fixtures. Between credentials, logs, generated patches, and human approval.
 
 A diplomat is not only a messenger. A messenger moves text. A diplomat carries
-context across a boundary where rules, permissions, expectations, and failure
-modes differ.
+context across a boundary where assumptions change: who can see the data, who
+can act, what is audited, what can be undone, and how large the blast radius is.
+
+Private networking and local execution help, but they do not erase trust
+boundaries. A Tailnet can reduce exposure without making every phone action
+safe. A local terminal can keep work close to the user's files while still
+holding secrets and production-capable credentials. A public GitHub comment is
+not the same kind of act as a local draft edit.
+
+My own private-vault experiments point to the same split. Runtime facts,
+private memory, and escalation policy should not collapse into one bucket.
+The runtime records what happened: message delivery, session state, approvals,
+and failures. The vault stores slower-moving memory: precedents, decisions,
+feedback, and project context. The escalation layer decides when a phone,
+Telegram, GitHub, production system, or human approval boundary is being
+crossed. Mixing those layers makes the system harder to audit and easier to
+criticize.
 
 That distinction becomes more important as the workstation becomes networked.
 Telegram bridges, phone dashboards, SSH remote attach, Tailnet viewers,
 browser-based file review, GitHub publication, and local shell execution all
 have different trust assumptions.
 
-The diplomat's job is to keep those assumptions visible.
+The diplomat's job is to keep those assumptions visible. It should name the
+boundary being crossed, the permission or audience that changes, the evidence
+that should travel with the handoff, and the action that still requires a human
+approval gate. That is an operational design rule, not a guarantee that the
+system is safe.
 
 ## 6. Why the Individual PC Still Matters
 
@@ -239,7 +262,10 @@ delegate, when to summarize, when to ask, and when to stop.
 
 This is where the company-president metaphor becomes useful. The president is
 not less powerful because they do not operate the assembly line. They are more
-effective because the organization routes the right facts upward.
+effective because the organization routes the right facts upward. The visible
+surface shrinks for the same reason: the executive view is not supposed to be a
+live task board for every worker. It is supposed to show goals, exceptions,
+approvals, evidence, and priority changes.
 
 For the human, the interface becomes smaller:
 
@@ -259,7 +285,8 @@ For the machine, the system becomes larger:
 - remote viewing and notification surfaces.
 
 The visible UI can shrink because the hidden organization has enough structure
-to carry the work.
+to carry the work and enough trust-boundary discipline to know when the human
+must still decide.
 
 ## 9. The Forecast
 
