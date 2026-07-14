@@ -15,11 +15,11 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 エージェントを複数動かすとき、最初に崩れやすいのは「状態」を一つにまとめてしまうことだ。
 
-エージェント側の状態がある。どのプロセスが存在するか、どの pane が active か、どのエージェントが blocked か、どの message が unread か、どの reply がまだ required か、どの session に reattach できるか、という状態である。
+エージェント側の状態がある。どのプロセスが存在するか、どのペインが active か、どのエージェントが blocked か、どの message が unread か、どの reply がまだ required か、どのセッションに reattach できるか、という状態である。
 
 一方で、タスク側の状態もある。何を依頼したか、何が変更されたか、何を検証したか、誰が承認したか、どの不確実性が残っているか、その結果を done と数えてよいか、という状態である。
 
-この二つは触れ合うが、同じ層ではない。message が delivered でも、タスクはまだ間違っているかもしれない。pane が alive でも、エージェントは stuck しているかもしれない。reply が transport request を fill しても、完了主張にはまだ根拠が足りないかもしれない。
+この二つは触れ合うが、同じ層ではない。message が delivered でも、タスクはまだ間違っているかもしれない。ペインが alive でも、エージェントは stuck しているかもしれない。reply が配送上の依頼を満たしても、完了主張にはまだ根拠が足りないかもしれない。
 
 これからの agent tooling は、まずエージェントの運用状態を扱う状態機械を持ち、その上にタスクの意味を扱う状態機械を重ねる方向へ向かうと思う。
 
@@ -31,34 +31,34 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 - エージェントのプロセスは alive か
 - working、blocked、done、idle、unknown のどれか
-- session に reattach できるか
-- どの pane が terminal プロセスを所有しているか
+- セッションに reattach できるか
+- どのペインがターミナルプロセスを所有しているか
 - どの役割に unread mail があるか
 - どの required reply がまだ open か
 - message は dead-letter path に到達したか
 
 herdr と tmux-a2a-postman は、この層の別々の部分を扱っている。
 
-herdr の [concepts documentation](https://herdr.dev/docs/concepts/) は、real terminal process を中心に workspace、tab、pane の model を定義している。pane の中のエージェントを認識し、blocked、working、done、idle、unknown などの状態を追跡する。[session state documentation](https://herdr.dev/docs/session-state/) はさらに、live persistence、snapshot restore、pane screen history replay、native agent session restore、live handoff を分けている。何が残り、何を復元でき、operator がどの根拠を信頼できるかを扱う運用状態の model である。
+herdr の [concepts documentation](https://herdr.dev/docs/concepts/) は、実際のターミナルプロセスを中心に workspace、tab、pane の model を定義している。pane の中のエージェントを認識し、blocked、working、done、idle、unknown などの状態を追跡する。[session state documentation](https://herdr.dev/docs/session-state/) はさらに、live persistence、snapshot restore、pane screen history replay、native agent session restore、live handoff を分けている。何が残り、何を復元でき、操作者がどの根拠を信頼できるかを扱う運用状態の model である。
 
-tmux-a2a-postman は、より message 中心の経路を取る。設計上は、initial、ready、waiting、pending、stale などの visible node state を扱う。transport identity hierarchy は意図的に狭い。message、thread、input request である。required message は正確な `input_request_id` を開く。解決する reply はその request を fill する。status projection は、terminal history から人間に推測させずに、node に inbound work がある、あるいは誰かを待っている、と言える。
+tmux-a2a-postman は、より message 中心の経路を取る。設計上は、initial、ready、waiting、pending、stale などの visible node state を扱う。配送上の識別階層は意図的に狭い。message、thread、input request である。返信必須の message は正確な `input_request_id` を開く。その依頼を解決する reply が、同じ request を満たす。status projection は、ターミナル履歴から人間に推測させずに、node に inbound work がある、あるいは誰かを待っている、と言える。
 
 どちらも運用状態の状態機械である。タスクが正しいことは証明しない。しかし、正しさを確認する前に作業そのものを失うことを難しくする。
 
-## 3. postman は message lane の状態機械である
+## 3. postman はメッセージ経路の状態機械である
 
 postman のよい設計は、mailbox が workflow 全体であるかのように装わないことだ。
 
-README は postman を薄い coordination layer と説明している。role と edge を `postman.md` に置き、tmux pane 間で local mail を route し、archive を保存し、reply-required slot を track し、status を report し、dead-letter state を見える状態に保つ。中心にあるのは message lane である。`send-heredoc`、`pop`、routing、reply flow、dead-letter handling である。
+README は postman を薄い調整層と説明している。役割と辺を `postman.md` に置き、tmux pane 間で local mail を route し、archive を保存し、返信必須の枠を track し、status を report し、dead-letter state を見える状態に保つ。中心にあるのはメッセージの経路である。`send-heredoc`、`pop`、routing、reply flow、dead-letter handling がその中核になる。
 
 この境界が主張を誠実に保っている。
 
-別の言い方をすれば、postman は責務台帳である。message が重要なのは、text が動いたからだけではない。役割の間に責務を開き、満たし、あるいは満たせなかったことを残すからである。だから transport closure と task acceptance は、別々の event であり続けなければならない。
+別の言い方をすれば、postman は責務台帳である。message が重要なのは、text が動いたからだけではない。役割の間に責務を開き、満たし、あるいは満たせなかったことを残すからである。だから配送上の終了とタスクの受理は、別々の event であり続けなければならない。
 
 postman はこう言える。
 
 - この message は送信された
-- この recipient は reply しなければならなかった
+- この受信者は reply しなければならなかった
 - この正確な input request は満たされた
 - この node にはまだ inbound required work がある
 - この node は誰かを待っている
@@ -73,15 +73,15 @@ postman だけで言うべきではないこともある。
 
 後者は次の層に属する。
 
-この区別があるから、"DONE" だけでは足りない。terminal に見える reply は transport loop を close できる。しかし、それだけでタスクを close すべきではない。完了には artifact、checklist status、evidence、verification、remaining blockers が必要である。
+この区別があるから、"DONE" だけでは足りない。reply は配送の loop を close できる。しかし、それだけでタスクを close すべきではない。完了には成果物、チェックリストの状態、根拠、検証、残っている blocker が必要である。
 
 ## 4. 第二の状態機械: タスクの意味
 
 第二の状態機械は、意味上の問いに答える。
 
 - original request は何か
-- どの checklist item が pass しなければならないか
-- canonical な artifact はどれか
+- どのチェック項目が pass しなければならないか
+- canonical な成果物はどれか
 - completion を支える evidence は何か
 - evidence は review されたか
 - result は accepted、rejected、blocked、still under revision のどれか
@@ -96,71 +96,71 @@ postman だけで言うべきではないこともある。
 
 第二の状態機械は task state である。requested work、evidence、review、acceptance、rejection、unresolved な残りを扱う。
 
-この二つを混同すると、system は脆くなる。分けておくと、system は inspectable になる。
+この二つを混同すると、システムは脆くなる。分けておくと、検査できるシステムになる。
 
 ## 5. herdr と postman は異なる境界を指している
 
-herdr の official documentation は、強い terminal-runtime boundary を示している。server が pane と process state を所有し、client がそこへ attach する。socket API により、tool は workspace、tab、pane、agent を inspect し control できる。integration は、supported agent CLI の session identity や lifecycle state を report できる。plugin は Herdr CLI や socket API へ callback することで workflow を拡張する。
+herdr の公式ドキュメントは、強いターミナル実行基盤の境界を示している。server が pane と process state を所有し、client がそこへ attach する。socket API により、tool は workspace、tab、pane、agent を inspect し control できる。integration は、supported agent CLI の session identity や lifecycle state を report できる。plugin は Herdr CLI や socket API へ callback することで workflow を拡張する。
 
-これは豊かな operating substrate である。
+これは豊かな運用基盤である。
 
-postman は、より薄い transport boundary を示している。model session を所有しない。full workflow engine になろうとしない。mail、reply obligation、archive、status projection を、どれか一つの agent の context window の外側に保つ。
+postman は、より薄い配送境界を示している。model session を所有しない。完全な workflow engine になろうとしない。mail、reply obligation、archive、status projection を、どれか一つの agent の context window の外側に保つ。
 
 この違いは重要だ。未来は、すべての tool が同じ product になることを必要としない。必要なのは明確な層分けである。
 
-- terminal/session substrate
-- agent operating state
-- message と handoff state
-- task semantic state
-- approval と trust state
-- human-facing summary state
+- ターミナルとセッションの基盤
+- エージェントの運用状態
+- メッセージと引き継ぎの状態
+- タスクの意味上の状態
+- 承認と信頼境界の状態
+- 人間が読む要約
 
 いくつかの product は layer を combine するだろう。いくつかの local system は小さな tool を compose するだろう。brand boundary より、state の durability のほうが重要である。
 
 このため、予測の中では Claude Code と Codex がますます interchangeable に見えてくる。実行エンジンとしての違いはあってよい。しかし operating state と task state は、そのどちらか一つの中に閉じ込められるべきではない。
 
-その durable place は、人間の現在地から remote にあるかもしれない。tmux は server 上で動かせる。herdr の official model も、terminal workspace を、client が detach し reattach できる server-backed runtime として扱う。private networking はこの pattern を強くする。状態機械は作業のそばに残り、人間は browser、phone、SSH session、review surface からそこへ届く。
+その永続する場所は、人間の現在地から遠くにあるかもしれない。tmux はサーバー上で動かせる。herdr の公式モデルも、ターミナル作業空間を、クライアントが detach し reattach できるサーバー支えの実行基盤として扱う。非公開ネットワークはこの型を強くする。状態機械は作業のそばに残り、人間はブラウザ、スマートフォン、SSH session、レビュー面からそこへ届く。
 
-## 6. remote access はどこに入るか
+## 6. 遠隔アクセスはどこに入るか
 
-phone access は単なる convenience feature ではない。state model の stress test である。
+スマートフォンからのアクセスは、単なる便利機能ではない。状態モデルへの負荷試験である。
 
-人間が terminal の前にいるとき、system は弱い state でもごまかせる。人間が手で全部 inspect できるからだ。人間が phone 上にいると、その前提は崩れる。system は何を見せるべきかを知っていなければならない。
+人間がターミナルの前にいるとき、システムは弱い状態管理でもごまかせる。人間が手で全部点検できるからだ。人間がスマートフォン上にいると、その前提は崩れる。システムは何を見せるべきかを知っていなければならない。
 
-具体的な Telegram と Tailscale の evidence は [「tmux は生き残るが、見える形は消える」](2026-07-14-tmux-survives-visible-form-disappears.qmd) で扱った。状態機械上の論点はもっと狭い。SSH、phone、browser、private network review surface 経由で approval と inspection が行われるようになると、system は pane に関する人間の記憶に頼れない。obligation state を system 自身が運ばなければならない。
+具体的な Telegram と Tailscale の根拠は [「tmux は生き残るが、見える形は消える」](2026-07-14-tmux-survives-visible-form-disappears.qmd) で扱った。状態機械上の論点はもっと狭い。SSH、スマートフォン、ブラウザ、非公開ネットワーク上のレビュー面を経由して承認と点検が行われるようになると、システムはペインに関する人間の記憶に頼れない。責務の状態をシステム自身が運ばなければならない。
 
-phone access は状態機械の必要性を消さない。それを露出させる。
+スマートフォンからのアクセスは状態機械の必要性を消さない。それを露出させる。
 
-## 7. task layer は何を保存すべきか
+## 7. タスク層は何を保存すべきか
 
-第二の状態機械は、最初から重くある必要はない。checklist 付きの durable task artifact として始めればよい。
+第二の状態機械は、最初から重くある必要はない。チェックリスト付きの永続的なタスク成果物として始めればよい。
 
-最低限有用な record は、意図的に素朴でよい。
+最低限有用な記録は、意図的に素朴でよい。
 
-- original request
-- acceptance checklist
-- active artifact paths
-- decisions and research findings
-- evidence log
-- verification commands
-- blockers
-- completion verdict
+- 元の依頼
+- 受け入れチェックリスト
+- 有効な成果物のパス
+- 判断と調査結果
+- 根拠ログ
+- 検証コマンド
+- 阻害要因
+- 完了判断
 
-これで compaction、agent handoff、review を survive できる。また、"reply sent" と "work accepted" の違いを concrete にする。
+これで compaction、agent handoff、review を越えられる。また、"reply sent" と "work accepted" の違いを具体的にできる。
 
-時間が経つにつれ、この多くは structured になる。review verdict は record になる。approval は record になる。agent の正しい completion 履歴は queryable fact になる。audit は state transition になる。evidence のない completion は、弱い paragraph ではなく malformed claim になる。
+時間が経つにつれ、この多くは構造化される。レビュー判断は記録になる。承認は記録になる。エージェントの正しい完了履歴は問い合わせ可能な事実になる。監査は状態遷移になる。根拠のない完了は、弱い段落ではなく、根拠のない完了主張として扱われる。
 
-それが second-stage state machine である。
+それが第二段階の状態機械である。
 
 ## 8. 予測
 
-第一段階はすでにここにある。herdr、tmux、postman、terminal pane、status projection、session restore、mailbox archive は、どれも同じ theme の variation だ。agent operating state は、どれか一つの model turn より長く生きなければならない。
+第一段階はすでにここにある。herdr、tmux、postman、terminal pane、status projection、session restore、mailbox archive は、どれも同じ主題の変奏だ。エージェントの運用状態は、どれか一つの model turn より長く生きなければならない。
 
-第二段階はまだ固まっていないが、方向は見えている。task state も、どれか一つの model turn より長く生きなければならない。何が requested され、何が checked され、誰が accepted し、何が unresolved のままかを知らなければならない。
+第二段階はまだ固まっていないが、方向は見えている。タスク状態も、どれか一つの model turn より長く生きなければならない。何が依頼され、何が確認され、誰が受け入れ、何が未解決のままかを知らなければならない。
 
-未来の agent workstation は、単によりよい terminal ではない。二つの状態機械を積み重ねたものだ。
+未来のエージェント作業環境は、単によりよいターミナルではない。二つの状態機械を積み重ねたものだ。
 
 - 一つはエージェントの運用状態のため
 - もう一つはタスクの意味上の状態のため
 
-人間が terminal history からそのどちらかを再構成する必要はなくなるべきだ。
+人間がターミナル履歴からそのどちらかを再構成する必要はなくなるべきだ。
