@@ -1,0 +1,230 @@
+---
+title: "Two State Machines for Agent Work"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-07-14 19:46:00 +0900
+date-modified: last-modified
+description: |
+  Multi-agent work needs more than better prompts: one state machine for the agents' operating state, and another for the task's meaning. A practical forecast from herdr and tmux-a2a-postman. #AIAgents #LoopEngineering #AgenticWorkflows
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. Why One State Is Not Enough
+
+The first mistake in agent coordination is treating all state as one thing.
+
+It is not.
+
+There is the state of the agents: which processes exist, which pane is active,
+which agent is blocked, which message is unread, which reply is still required,
+which session can be reattached.
+
+Then there is the state of the task: what was requested, what changed, what was
+verified, who approved it, which uncertainty remains, whether the result should
+count as done.
+
+Those two layers touch, but they are not the same layer. A message can be
+delivered while the task is still wrong. A pane can be alive while the agent is
+stuck. A reply can fill the transport request while the completion claim still
+lacks evidence.
+
+This is where I think agent tooling is headed: first an operating-state machine
+for agents, then a task-state machine above it.
+
+## 2. The First State Machine: Agent Operations
+
+The first state machine answers operational questions.
+
+- Is the agent process alive?
+- Is it working, blocked, done, idle, or unknown?
+- Can I reattach to the session?
+- Which pane owns the terminal process?
+- Which role has unread mail?
+- Which required reply is still open?
+- Did the message reach a dead-letter path?
+
+herdr and tmux-a2a-postman attack different parts of this layer.
+
+[herdr's concepts documentation](https://herdr.dev/docs/concepts/) defines a
+workspace/tab/pane model around real terminal processes. It recognizes agents
+inside panes and tracks states such as blocked, working, done, idle, and
+unknown. Its [session state documentation](https://herdr.dev/docs/session-state/)
+then separates live persistence, snapshot restore, pane screen history replay,
+native agent session restore, and live handoff. That is an operating-state
+model: what survives, what can be reconstructed, and what evidence the operator
+can trust.
+
+tmux-a2a-postman takes a more message-centered route. Its local design docs
+define visible node states such as initial, ready, waiting, pending, and stale.
+The transport identity hierarchy is deliberately narrow: message, thread, and
+input request. A required message opens an exact `input_request_id`; a resolving
+reply fills that request. The status projection can say a node has inbound work
+or is waiting on someone else without asking a human to infer that from
+terminal history.
+
+Both are operating-state machines. They do not prove that the task is correct.
+They make it harder to lose the work before correctness can even be checked.
+
+## 3. postman as a Message-Lane State Machine
+
+The most important design choice in postman is that it refuses to pretend the
+mailbox is the whole workflow.
+
+The README describes postman as a thin coordination layer. It keeps roles and
+edges in `postman.md`, routes local mail between tmux panes, stores archives,
+tracks reply-required slots, reports status, and keeps dead-letter state
+visible. Its product direction notes say the message lane remains the center:
+`send-heredoc`, `pop`, routing, reply flow, and dead-letter handling.
+
+That is a useful boundary.
+
+Postman can say:
+
+- this message was sent;
+- this recipient had to reply;
+- this exact input request was filled;
+- this node still has inbound required work;
+- this node is waiting on someone else;
+- this delivery failed and landed in dead letter.
+
+Postman should not say, by itself:
+
+- the implementation is correct;
+- the article is good;
+- the reviewer actually understood the evidence;
+- the task is semantically complete.
+
+That second set belongs to the next layer.
+
+This distinction is why "DONE" is not enough. A terminal-looking reply can
+close a transport loop. It should not automatically close the task. Completion
+needs an artifact, checklist status, evidence, verification, and remaining
+blockers.
+
+## 4. The Second State Machine: Task Meaning
+
+The second state machine answers semantic questions.
+
+- What was the original request?
+- Which checklist items must pass?
+- Which artifact is canonical?
+- What evidence supports completion?
+- Was the evidence reviewed?
+- Is the result accepted, rejected, blocked, or still under revision?
+
+This is where loop engineering starts to become real.
+
+In my earlier post, ["From Prompt Engineering to Loop Engineering"](2026-07-03-from-prompt-engineering-to-loop-engineering.qmd),
+I argued that prompt, context, harness, and loop engineering form a staircase.
+Prompting gets a message stated well. Context gets the reader the right facts.
+Harnessing gets the message to the right process. Loop engineering proves the
+work actually happened.
+
+The two-state-machine framing is the next version of that same idea.
+
+The first state machine is mostly harness and operating state. It is about
+agents, panes, mail, sessions, liveness, and recoverability.
+
+The second state machine is task state. It is about requested work, evidence,
+review, acceptance, rejection, and what remains unresolved.
+
+Confusing these two layers creates a brittle system. Keeping them separate
+makes the system inspectable.
+
+## 5. herdr and postman Point at Different Boundaries
+
+herdr's official documentation shows a strong terminal-runtime boundary. The
+server owns panes and process state; clients attach to it. The socket API lets
+tools inspect and control workspaces, tabs, panes, and agents. Integrations can
+report session identity or lifecycle state for supported agent CLIs. Plugins
+extend workflows by calling back into the Herdr CLI or socket API.
+
+That is a rich operating substrate.
+
+Postman shows a thinner transport boundary. It does not own model sessions. It
+does not try to be a full workflow engine. It keeps mail, reply obligations,
+archives, and status projection outside any one agent's context window.
+
+That difference is useful. The future does not need every tool to become the
+same product. It needs clean layers:
+
+- terminal/session substrate;
+- agent operating state;
+- message and handoff state;
+- task semantic state;
+- approval and trust state;
+- human-facing summary state.
+
+Some products will combine layers. Some local systems will compose small tools.
+The important part is not the brand boundary. The important part is that the
+state has a durable place to live.
+
+## 6. Where Telegram and Tailscale Fit
+
+Phone access is not just a convenience feature. It pressures the state model.
+
+When the human is at the terminal, the system can get away with weak state
+because the human can inspect everything manually. When the human is on a
+phone, that assumption collapses. The system has to know what to show.
+
+The verified herdr core gives me a terminal workspace, persistence, remote SSH
+attach, integrations, plugins, and an API. The verified ecosystem around herdr
+is already pushing into phone and Telegram surfaces: `herdr-remote` advertises
+phone, menu bar, and Telegram monitoring and approval; `ccgram` advertises a
+Telegram bridge for tmux and herdr sessions running Claude Code, Codex, Gemini,
+and shells.
+
+For Tailscale, the evidence I have is adjacent but important. My local
+`markdown-remote-viewer` has explicit Tailnet binding for read-only Markdown
+review. That matters because a future agent organization needs exactly this
+kind of surface: a private network path to inspect artifacts without making the
+human operate the terminal.
+
+Phone access does not remove the need for state machines. It reveals the need.
+
+## 7. What the Task Layer Should Store
+
+The second state machine does not need to be heavy at first. It can start as a
+durable task artifact with a checklist.
+
+The minimum useful shape is boring:
+
+- original request;
+- acceptance checklist;
+- active artifact paths;
+- decisions and research findings;
+- evidence log;
+- verification commands;
+- blockers;
+- completion verdict.
+
+That is enough to survive compaction, agent handoff, and review. It also makes
+the distinction between "reply sent" and "work accepted" concrete.
+
+Over time, more of this becomes structured. A review verdict becomes a record.
+An approval becomes a record. An agent's history of correct completions becomes
+a queryable fact. A random audit becomes a state transition. A failure to
+include evidence becomes a malformed completion claim rather than a weak
+paragraph.
+
+That is the second-stage state machine.
+
+## 8. The Forecast
+
+The first stage is already here. herdr, tmux, postman, terminal panes, status
+projection, session restore, and mailbox archives are all variations on one
+theme: agent operating state must outlive any one model turn.
+
+The second stage is less settled, but the direction is visible. Task state must
+also outlive any one model turn. It must know what was requested, what was
+checked, who accepted it, and what remains unresolved.
+
+The future agent workstation is not just a better terminal. It is two state
+machines stacked on top of each other:
+
+- one for the agents' operating state;
+- one for the task's semantic state.
+
+The human should not have to reconstruct either one from terminal history.

@@ -1,0 +1,249 @@
+---
+title: "A Company Inside the Personal Computer"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-07-14 19:47:00 +0900
+date-modified: last-modified
+description: |
+  Multi-agent setups start to look less like tools and more like small organizations: workers, reviewers, approvers, diplomats, managers, and a top-level agent the human talks to. #AIAgents #PersonalComputing #AgenticWorkflows
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. The Shape Is Organizational
+
+Once more than one agent is involved, the metaphor changes.
+
+A single agent is a tool. A few agents with handoffs are a workflow. A durable
+set of agents with roles, review, approval, routing, memory, and escalation
+starts to look like an organization.
+
+That organization does not have to be a company in the legal sense. It can live
+inside one person's computer. But the operating shape is familiar:
+
+- workers do task execution;
+- reviewers check outputs;
+- approvers guard risky actions;
+- diplomats handle boundaries;
+- coordinators route work;
+- managers aggregate status;
+- one top-level agent talks to the human.
+
+The surprising part is not that AI can write code. The surprising part is that
+personal computing starts to inherit organizational structure.
+
+## 2. The Human Stops Being the Operator
+
+The old personal-computer story made the human the operator. The machine waited
+for commands. The user clicked, typed, dragged, opened, closed, copied, pasted,
+and watched progress.
+
+Agent work changes the user's job.
+
+If terminal operation is increasingly handed to AI, the human should not spend
+attention on panes, process IDs, shell prompts, and routing commands. The human
+should spend attention on goals, priorities, exceptions, and approvals.
+
+That moves the human up the org chart.
+
+The user becomes less like the person at the machine console and more like the
+company president speaking to an executive assistant. The top-level agent does
+not need to report every keystroke. It needs to report what matters:
+
+- what is moving;
+- what is blocked;
+- what decision is needed;
+- what risk changed;
+- what artifact should be read;
+- what can safely proceed without interruption.
+
+This is why visual decoration becomes less important. A president does not need
+a decorative cockpit for every machine in the factory. A president needs a
+trustworthy briefing, clear exceptions, and the ability to drill down when the
+details matter.
+
+## 3. Middle Managers Are Not a Joke Here
+
+"Middle manager agent" sounds unflattering, but it is exactly the role that
+multi-agent systems need.
+
+Someone has to aggregate work. Someone has to know that one worker is waiting
+on review, another has failed verification, a third can proceed, and a fourth
+should not touch production data. Someone has to decide which details are worth
+escalating to the human.
+
+That is management.
+
+In a small setup, this role is often called orchestrator. In a larger setup,
+there may be several layers:
+
+- a project coordinator;
+- a review coordinator;
+- a release coordinator;
+- a memory or precedent reader;
+- an approval coordinator;
+- a human-facing messenger.
+
+The names do not matter as much as the shape. Execution fans out. Status rolls
+up. Decisions are routed to the level that can responsibly make them.
+
+Human organizations invented this shape because attention is limited. Agent
+organizations will rediscover it for the same reason.
+
+## 4. The Approver
+
+The approver role exists because some actions should not run just because a
+worker can run them.
+
+Deletion, deployment, credential changes, production data writes, external
+publication, irreversible migrations, public comments, and branch publication
+all have a different risk profile from editing a local draft. A worker can be
+good at execution and still be the wrong actor to decide whether an irreversible
+action should proceed.
+
+So the approver becomes a separate role.
+
+This separation does not make the system safe by itself. Approval is not an OS
+sandbox. It is a recorded decision boundary. The point is to force a risky
+action through a different state transition:
+
+1. request the action;
+2. describe the reason and blast radius;
+3. get approval or rejection;
+4. record the decision;
+5. proceed only if approved.
+
+That looks bureaucratic when the work is small. It becomes essential when
+agents are fast, persistent, and capable of acting across many local resources.
+
+## 5. The Diplomat
+
+The diplomat role exists because boundaries multiply.
+
+There is the boundary between one project and another. Between a private vault
+and a public repository. Between a local terminal and a phone. Between one
+agent runtime and another. Between a human request and an automated execution
+path. Between a safe local draft and a public GitHub surface.
+
+A diplomat is not only a messenger. A messenger moves text. A diplomat carries
+context across a boundary where rules, permissions, expectations, and failure
+modes differ.
+
+That distinction becomes more important as the workstation becomes networked.
+Telegram bridges, phone dashboards, SSH remote attach, Tailnet viewers,
+browser-based file review, GitHub publication, and local shell execution all
+have different trust assumptions.
+
+The diplomat's job is to keep those assumptions visible.
+
+## 6. Why the Individual PC Still Matters
+
+If the system starts to resemble an organization, it is tempting to put the
+whole organization in the cloud.
+
+Some of it will live there. Model calls already do. Team systems may centralize
+more of the runtime. But for individual work, the personal computer remains a
+natural headquarters.
+
+The reason is proximity to context.
+
+The user's PC or personally controlled server already has the repositories,
+notes, dotfiles, SSH identities, local scripts, browser-adjacent artifacts,
+test environments, project checkouts, and half-written drafts. It is not just a
+device. It is an accumulated operating environment.
+
+An AI subscription can provide intelligence. The personal computer provides
+the working memory of the user's actual life.
+
+That is why I expect a hybrid shape:
+
+- models may be remote subscriptions;
+- execution stays close to the user's own machine;
+- state lives in local files and local services where possible;
+- phone/browser/voice become the human interface;
+- terminal processes remain the machine interface.
+
+The AI organization lives where the work lives.
+
+## 7. What herdr and postman Suggest
+
+herdr and tmux-a2a-postman are not the same kind of tool, but together they
+make the organizational direction easier to see.
+
+herdr makes the terminal workspace more agent-aware. Its official docs describe
+workspaces, tabs, panes, agent states, persistence, remote attach, integrations,
+plugins, and a socket API. That is a runtime surface for the organization: it
+lets agents and humans see, control, and recover real terminal work.
+
+postman makes handoffs explicit. It gives roles names, routes messages through
+declared edges, stores archives, tracks reply obligations, and surfaces waiting
+or pending state. That is a coordination surface for the organization: it
+prevents work from depending entirely on one agent's current context window or
+one human's memory of a pane.
+
+Together, they suggest the same future:
+
+- terminal sessions become the office floor;
+- panes become desks;
+- agents become workers;
+- message lanes become internal mail;
+- task artifacts become case files;
+- review and approval become gates;
+- the human speaks to the front office.
+
+The metaphor is imperfect, but it points at the right abstraction.
+
+## 8. The Top-Level Agent
+
+Eventually the user should not talk to most of the agents.
+
+The user should talk to a top-level agent that behaves like the accountable
+representative of the whole local organization. That agent may delegate to
+Claude Code for one step, Codex for another, a reviewer for another, and an
+approver for a risky command. The user does not need to watch that routing by
+default.
+
+The top-level agent's job is not to be omniscient. It is to know when to
+delegate, when to summarize, when to ask, and when to stop.
+
+This is where the company-president metaphor becomes useful. The president is
+not less powerful because they do not operate the assembly line. They are more
+effective because the organization routes the right facts upward.
+
+For the human, the interface becomes smaller:
+
+- speak the goal;
+- read the summary;
+- inspect the artifact;
+- approve or reject the exception;
+- adjust priorities.
+
+For the machine, the system becomes larger:
+
+- persistent terminal runtime;
+- multi-agent coordination;
+- mailbox and task state;
+- review and approval records;
+- memory and precedent;
+- remote viewing and notification surfaces.
+
+The visible UI shrinks because the hidden organization grows.
+
+## 9. The Forecast
+
+The future personal AI setup is not just an assistant. It is not just a better
+terminal. It is a small organization inside the personal computer.
+
+The human should not have to touch tmux, but tmux-like substrates will still
+run. The human should not have to stare at decorative dashboards, but the
+system still needs precise status. The human should not have to choose every
+worker, but the system still needs roles, routing, approvals, and evidence.
+
+The important question becomes less "which agent answered?" and more "which
+part of my local organization handled this, and what decision do I still own?"
+
+That is a different model of personal computing. The computer is no longer only
+a tool the user operates. It becomes a place where an organization works on the
+user's behalf.
+
