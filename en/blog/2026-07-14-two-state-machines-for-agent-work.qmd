@@ -170,6 +170,10 @@ Some products will combine layers. Some local systems will compose small tools.
 The important part is not the brand boundary. The important part is that the
 state has a durable place to live.
 
+This is what makes Claude Code and Codex feel increasingly interchangeable in
+the forecast. They can differ as execution engines, but the operating state and
+task state should not be trapped inside either one.
+
 That durable place may also be remote from the human's current body. tmux can
 run on a server. herdr's official model also treats the terminal workspace as a
 server-backed runtime that clients can detach from and reattach to. Private

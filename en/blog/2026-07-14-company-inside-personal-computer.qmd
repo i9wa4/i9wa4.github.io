@@ -7,7 +7,7 @@ categories:
 date: 2026-07-14 19:47:00 +0900
 date-modified: last-modified
 description: |
-  Multi-agent setups start to look less like tools and more like small organizations: workers, reviewers, approvers, diplomats, managers, and a top-level agent the human talks to. #AIAgents #PersonalComputing #AgenticWorkflows
+  Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, reviewers, approvers, diplomats, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -162,6 +162,19 @@ device. It is an accumulated operating environment.
 An AI subscription can provide intelligence. The personal computer provides
 the working memory of the user's actual life.
 
+This is also why the choice between Claude Code and Codex may become less
+central over time. If both can sit on the same tmux or herdr substrate, then
+the personal computer is not organized around one vendor's command line. It is
+organized around the user's durable workbench, with different agent engines
+available as interchangeable staff.
+
+That matters because personal AI work is still governed by provider
+constraints. Pricing models, subscription contracts, token budgets, rate
+limits, and service availability shape what the user can actually do. A small
+company inside the PC should be able to move work to the engine that is
+affordable, available, and well matched to the task without moving the whole
+company-state with it.
+
 That is why I expect a hybrid shape:
 
 - models may be remote subscriptions;
@@ -212,6 +225,14 @@ Claude Code for one step, Codex for another, a reviewer for another, and an
 approver for a risky command. The user does not need to watch that routing by
 default.
 
+In the stronger version of this forecast, the user also does not need to care
+which execution engine is active most of the time. Claude Code and Codex may
+keep different temperaments, integrations, and strengths, but they become
+replaceable workers behind the same case files, panes, mail, checks, and
+approval gates. The organization owns continuity. The engine contributes
+labor. Provider limits then become scheduling inputs, not existential
+constraints on the whole workstation.
+
 The top-level agent's job is not to be omniscient. It is to know when to
 delegate, when to summarize, when to ask, and when to stop.
 
@@ -248,8 +269,9 @@ run. The human should not have to stare at decorative dashboards, but the
 system still needs precise status. The human should not have to choose every
 worker, but the system still needs roles, routing, approvals, and evidence.
 
-The important question becomes less "which agent answered?" and more "which
-part of my local organization handled this, and what decision do I still own?"
+The important question becomes less "was that Claude Code or Codex?" and more
+"which part of my local organization handled this, what evidence did it leave,
+and what decision do I still own?"
 
 That is a different model of personal computing. The computer is no longer only
 a tool the user operates. It becomes a place where an organization works on the

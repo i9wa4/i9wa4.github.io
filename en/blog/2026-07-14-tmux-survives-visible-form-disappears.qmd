@@ -7,7 +7,7 @@ categories:
 date: 2026-07-14 19:45:00 +0900
 date-modified: last-modified
 description: |
-  The terminal is not going away; the human's direct grip on it is. A forecast on Claude Code, Codex, herdr, postman, phones, voice, and why tmux becomes infrastructure instead of UI. #AIAgents #Terminal #ClaudeCode #Codex
+  The terminal is not going away; the human's direct grip on it is. A forecast on Claude Code and Codex becoming replaceable engines on a shared tmux/herdr substrate. #AIAgents #Terminal #ClaudeCode #Codex
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -55,6 +55,16 @@ But dual use of Claude Code and Codex points in a different direction. The
 human does not want two terminal products. The human wants access to the best
 worker for each kind of step, with the least possible ceremony.
 
+My forecast is that people who seriously use both tools will stop treating
+them as separate places to work. They will put both on the same operating
+fabric: tmux, herdr, or something with the same durable substrate properties.
+Claude Code and Codex then become mutually replaceable execution and
+personality engines behind that fabric. One may be better for a particular
+moment, but the workbench should not depend on which one is currently driving.
+That is partly an economic and operational hedge: pricing, subscription terms,
+token budgets, rate limits, availability, and model fit all change the best
+engine for a given moment.
+
 So the visible interface starts to collapse into simpler surfaces:
 
 - chat for intent and status;
@@ -69,7 +79,8 @@ stops being "which CLI am I typing into?" and becomes "what decision do I need
 to make?"
 
 In that world, Claude Code and Codex are less like two apps competing for a
-terminal tab and more like two departments inside a local organization.
+terminal tab and more like two departments inside a local organization. The
+common substrate matters more than the currently active department.
 
 ## 3. herdr Shows the Interface Direction
 
@@ -93,6 +104,13 @@ state, output, context, and recovery paths.
 The important direction is not "herdr replaces tmux." It may or may not for a
 given user. The important direction is that terminal multiplexing is being
 reframed around agent operations.
+
+That also changes the role of the agent brand. If the workspaces, panes,
+sessions, handoffs, and artifacts are stable outside the model client, then
+switching from Claude Code to Codex is closer to reassigning a worker than
+moving the whole office. The continuity belongs to the substrate, not to a
+single CLI. The practical win is that cost, quota, outage, or fit can change
+the worker choice without forcing the user to rebuild the work state.
 
 The terminal remains the substrate. The visible object becomes the agent.
 
