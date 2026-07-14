@@ -263,9 +263,10 @@ delegate, when to summarize, when to ask, and when to stop.
 This is where the company-president metaphor becomes useful. The president is
 not less powerful because they do not operate the assembly line. They are more
 effective because the organization routes the right facts upward. The visible
-surface shrinks for the same reason: the executive view is not supposed to be a
-live task board for every worker. It is supposed to show goals, exceptions,
-approvals, evidence, and priority changes.
+surface shrinks for the same reason: it should expose the state of the
+organization, not reproduce every worker's console. The question is whether the
+human can see what changed, where responsibility sits, and which boundary is
+being crossed.
 
 For the human, the interface becomes smaller:
 

@@ -226,13 +226,11 @@ The scarce thing is a correct escalation:
 - What evidence should I inspect?
 - What can the system safely decide without me?
 
-If the human is effectively the company president speaking to a top-level
-agent, the UI should look less like a machine room and more like an executive
-briefing channel. A CEO does not personally track every handoff, queue, and
-minor task in a company; they need goals, exceptions, approvals, evidence, and
-priority changes. The agent workstation should make the same compression. It
-can still expose details on demand. It should not require the human to operate
-the details as the default workflow.
+That view does not have to resemble the terminal that keeps the work alive. A
+phone review pane, a remote browser surface, or a small decision inbox can sit
+above the same tmux sessions and show only the handoff that matters now. The
+machine room remains reachable, but the default surface is the decision edge:
+what changed, what needs approval, and which artifact deserves inspection.
 
 The terminal survives because someone still has to run the processes.
 
