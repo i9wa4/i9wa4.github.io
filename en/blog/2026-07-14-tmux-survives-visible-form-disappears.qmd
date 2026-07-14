@@ -34,6 +34,17 @@ environments.
 
 That durable form is not disappearing. It is becoming more important.
 
+This is the first post in a loose three-part series. The companion posts cover
+[the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd)
+and [the organizational shape of a personal agent workstation](2026-07-14-company-inside-personal-computer.qmd).
+
+It also does not have to live on the laptop in front of me. tmux is valuable
+because it can run on a personal machine, a home server, or a remote host, and
+the session remains a stable place for work even when the human changes
+location. That portability is part of why the visible pane grid can recede: the
+important object is not the screen I am touching now, but the sessionful
+execution substrate that agents can keep using.
+
 ## 2. Claude Code and Codex Move Up the Stack
 
 Claude Code and Codex are still exposed as terminal-first tools. That makes
@@ -99,7 +110,10 @@ postman is not a full agent runtime, not a broad workflow engine, and not a
 replacement for tmux or the agent CLIs.
 
 That boundary is the point. tmux still owns terminal processes. postman owns
-the message lane around those processes.
+the obligation ledger around those processes: who asked for what, which reply
+is still required, which request was filled, and which work is blocked by a
+review or approval dependency. It is a message lane, but the useful part is the
+responsibility state that survives beyond any one pane's terminal history.
 
 The human-facing dashboard matters less than the state it exposes. A message
 was delivered. A reply is required. A worker is waiting. A request was filled.
@@ -144,6 +158,13 @@ herdr itself, the official remote story I verified is SSH remote attach, not
 native Tailscale. But the direction is the same: private network access plus
 phone-readable review surfaces turns the terminal into a backend.
 
+The stronger point is not a specific network product. It is location
+independence. If the execution substrate runs on a server and is reachable
+through SSH or a private network, the human can inspect and approve work from
+almost anywhere without moving the work itself. tmux has had that property for
+a long time. herdr inherits the same direction by treating the terminal
+workspace as a server-backed thing that clients can attach to.
+
 The phone does not need a decorated cockpit. It needs a small set of decisions.
 
 ## 6. AI Subscriptions Belong on the Individual's PC
@@ -157,17 +178,18 @@ work, I expect a strong counter-principle:
 
 > AI subscriptions should run against the individual's own PC.
 
-The reason is not nostalgia for local machines. It is state.
+More precisely: they should run against the individual's own operating
+environment, whether that is a laptop, desktop, home server, or personally
+controlled remote machine. The reason is not nostalgia for local machines. It
+is state. I expand this organizational angle in
+["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd);
+the short version here is that the workbench should stay close to the user's
+own files, credentials, project checkouts, and operating habits.
 
-My code, dotfiles, credentials, notes, browser artifacts, local scripts, shells,
-SSH config, build caches, project checkouts, and private knowledge base already
-live close to my own machine. Moving the model call to a subscription service
-is fine. Moving the operating environment away from the personal computer is a
-much bigger change.
-
-So the likely pattern is hybrid. The model may be remote. The workbench stays
+The likely pattern is hybrid. The model may be remote. The workbench stays
 local or personally controlled. The interaction layer becomes browser, phone,
-text, image, and voice. The terminal remains the execution substrate.
+text, image, and voice. Private networking can make the workbench reachable
+without making it vendor-owned. The terminal remains the execution substrate.
 
 ## 7. What Stops Mattering
 

@@ -24,8 +24,8 @@ share: false
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[blog (9)](#category=blog){.btn .btn-outline-primary .btn-sm}
-[tech-ai (9)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
+[blog (12)](#category=blog){.btn .btn-outline-primary .btn-sm}
+[tech-ai (12)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 :::
 
 ::: {#all}

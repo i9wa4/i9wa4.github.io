@@ -19,6 +19,10 @@ A single agent is a tool. A few agents with handoffs are a workflow. A durable
 set of agents with roles, review, approval, routing, memory, and escalation
 starts to look like an organization.
 
+This is the third post in a loose three-part series. The earlier posts cover
+[tmux as the surviving execution substrate](2026-07-14-tmux-survives-visible-form-disappears.qmd)
+and [the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd).
+
 That organization does not have to be a company in the legal sense. It can live
 inside one person's computer. But the operating shape is familiar:
 
@@ -144,7 +148,9 @@ whole organization in the cloud.
 
 Some of it will live there. Model calls already do. Team systems may centralize
 more of the runtime. But for individual work, the personal computer remains a
-natural headquarters.
+natural headquarters. "Personal computer" here includes the user's personally
+controlled machines: a laptop, desktop, home server, or remote host that stays
+close to the user's own operating environment.
 
 The reason is proximity to context.
 
@@ -159,9 +165,11 @@ the working memory of the user's actual life.
 That is why I expect a hybrid shape:
 
 - models may be remote subscriptions;
-- execution stays close to the user's own machine;
+- execution stays close to the user's own machine or personally controlled
+  server;
 - state lives in local files and local services where possible;
-- phone/browser/voice become the human interface;
+- phone/browser/voice become the human interface, often over SSH or private
+  networking;
 - terminal processes remain the machine interface.
 
 The AI organization lives where the work lives.
@@ -187,7 +195,7 @@ Together, they suggest the same future:
 - terminal sessions become the office floor;
 - panes become desks;
 - agents become workers;
-- message lanes become internal mail;
+- message lanes become internal mail and obligation ledgers;
 - task artifacts become case files;
 - review and approval become gates;
 - the human speaks to the front office.
@@ -246,4 +254,3 @@ part of my local organization handled this, and what decision do I still own?"
 That is a different model of personal computing. The computer is no longer only
 a tool the user operates. It becomes a place where an organization works on the
 user's behalf.
-
