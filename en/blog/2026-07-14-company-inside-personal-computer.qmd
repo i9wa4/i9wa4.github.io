@@ -62,12 +62,13 @@ not need to report every keystroke. It needs to report what matters:
 - what artifact should be read;
 - what can safely proceed without interruption.
 
-This is why the visible UI can become narrower. A CEO in a working company
-does not personally manage every handoff, queue, and small task. They need a
-compressed surface: goals, exceptions, approvals, evidence, and priority
-changes. A personal agent workstation should make the same move. It can expose
-the details, but the default human-facing surface should not be detailed task
-management.
+This is why the visible UI can become narrower without becoming decorative. A
+CEO in a working company does not personally manage every handoff, queue, and
+small task. They need a briefing surface: goals, exceptions, approvals,
+evidence, and priority changes. A personal agent workstation should make the
+same move. It can expose the details, but the default human-facing surface
+should be built for executive review, not decorative reassurance or detailed
+task management.
 
 ## 3. Middle Managers Are Not a Joke Here
 
@@ -128,11 +129,11 @@ agents are fast, persistent, and capable of acting across many local resources.
 
 The diplomat role exists because boundaries multiply.
 
-There is the boundary between a private vault and a public repository. Between
-a local checkout and a remote server. Between a trusted terminal session and a
-phone or Telegram surface. Between a Tailnet viewer and the wider internet.
-Between GitHub publication and local notes. Between production data and test
-fixtures. Between credentials, logs, generated patches, and human approval.
+There is the boundary between private notes and a public repository. Between a
+local checkout and a remote server. Between a local terminal session and a phone
+or Telegram surface. Between a Tailnet viewer and the wider internet. Between
+GitHub publication and local notes. Between production data and test fixtures.
+Between credentials, logs, generated patches, and human approval.
 
 A diplomat is not only a messenger. A messenger moves text. A diplomat carries
 context across a boundary where assumptions change: who can see the data, who
@@ -144,14 +145,13 @@ safe. A local terminal can keep work close to the user's files while still
 holding secrets and production-capable credentials. A public GitHub comment is
 not the same kind of act as a local draft edit.
 
-My own private-vault experiments point to the same split. Runtime facts,
-private memory, and escalation policy should not collapse into one bucket.
-The runtime records what happened: message delivery, session state, approvals,
-and failures. The vault stores slower-moving memory: precedents, decisions,
-feedback, and project context. The escalation layer decides when a phone,
-Telegram, GitHub, production system, or human approval boundary is being
-crossed. Mixing those layers makes the system harder to audit and easier to
-criticize.
+The same discipline applies to state. Runtime facts, project memory, and
+escalation policy should not collapse into one bucket. The runtime records what
+happened: message delivery, session state, approvals, and failures. Project
+memory stores slower-moving context: precedents, decisions, feedback, and
+review notes. The escalation layer decides when a phone, Telegram, GitHub,
+production system, or human approval boundary is being crossed. Mixing those
+layers makes the system harder to audit and easier to criticize.
 
 That distinction becomes more important as the workstation becomes networked.
 Telegram bridges, phone dashboards, SSH remote attach, Tailnet viewers,

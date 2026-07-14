@@ -116,7 +116,7 @@ The terminal remains the substrate. The visible object becomes the agent.
 
 ## 4. postman Shows the Other Half
 
-My own local counterpart is [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman).
+A local counterpart is [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman).
 It takes the opposite posture from herdr in some ways. It is not trying to be
 the terminal workspace. It is a thin coordination layer around tmux panes.
 
