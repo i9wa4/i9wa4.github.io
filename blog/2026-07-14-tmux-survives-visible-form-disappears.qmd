@@ -1,0 +1,126 @@
+---
+title: "tmux は生き残るが、見える形は消える"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-07-14 19:45:00 +0900
+date-modified: last-modified
+description: |
+  tmux は消えない。ただし人間が pane を直接見て操作する形は後景に退く。Claude Code と Codex が共通の tmux/herdr substrate 上で差し替え可能な engine になる未来を考える。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. 主張
+
+私は、terminal は生き残ると思っている。ただし、人間が今と同じ見方で terminal を見続けるとは思っていない。
+
+これは、「terminal」を「自分の手で直接操作するもの」と捉える場合にだけ矛盾して聞こえる。agent work において、terminal はプロセスのコンテナであり、永続する作業台であり、復旧のための面になりつつある。これらの役割は今後も重要だ。変わるのは、それを誰が操作するかである。
+
+短く言えば、こうだ。
+
+> tmux は生き残るが、見える形は消える。
+
+見える形とは、私が pane を眺め、どの agent が blocked かを覚え、どの pane が返事すべきかを判断し、次の routing command を打つ部分だ。そこはすでに、人間が担当するには細かすぎる仕事になっている。永続する形とは、terminal process が動き続け、session に再接続でき、output を検査でき、agent が普通の開発環境の中で実作業を進められる部分だ。
+
+その永続する形は消えない。むしろ、より多くの仕事がそこへ移っていく。
+
+これは、ゆるい三部作の一つ目の記事である。続く記事では、[agent work の背後にある二つの state machine](2026-07-14-two-state-machines-for-agent-work.qmd) と、[personal agent workstation の組織的な形](2026-07-14-company-inside-personal-computer.qmd) を扱う。
+
+また、それは目の前の laptop に置かれている必要もない。tmux が価値を持つのは、personal machine、home server、remote host のどれでも動かせて、desk、laptop、phone の間を移動しても session が安定した作業場所として残るからだ。この可搬性があるから、見える pane grid は後景に退ける。保存すべき対象は、今触っている screen ではなく、agent が使い続けられる sessionful な実行 substrate である。
+
+## 2. Claude Code と Codex は stack の上へ移動する
+
+Claude Code と Codex は、今でも terminal-first な tool として表に出ている。現時点ではそれが自然だ。repository、shell、test、editor の習慣、local credential はすでに terminal にある。
+
+だが、Claude Code と Codex を併用すると、別の方向が見えてくる。人間が欲しいのは二つの terminal product ではない。各 step に最も合う worker へ、できるだけ少ない儀式でアクセスすることだ。
+
+私の予測では、両方の tool を本気で使う人は、それらを別々の作業場所として扱わなくなる。tmux、herdr、あるいは同じ永続 substrate 性質を持つ何かの上に、両方を載せるようになる。すると Claude Code と Codex は、その fabric の背後にある、相互に差し替え可能な execution engine 兼 personality engine になる。ある瞬間には片方のほうが向いているかもしれない。だが、workbench は今どちらが運転しているかに依存すべきではない。これは経済面と運用面の hedge でもある。pricing、subscription terms、token budgets、rate limits、availability、model fit は、ある瞬間に最適な engine を変える。
+
+その結果、見える interface はより単純な surface へ畳まれ始める。
+
+- intent と status のための chat
+- 素早い delegation のための voice input
+- review のための file viewer と diff
+- artifact が visual な場合の image と screenshot
+- remote approval のための browser と phone surface
+
+agent CLI は下に残ってよい。各 CLI の強み、local state、authentication、model-specific behavior も残せる。しかし人間向け layer は、「どの CLI に typing しているか」ではなく、「自分がどの decision を下す必要があるか」になる。
+
+その世界では、Claude Code と Codex は terminal tab を奪い合う二つの app というより、local organization の中にある二つの department に近い。今 active な department より、共通 substrate のほうが重要になる。
+
+## 3. herdr が interface の方向を示している
+
+だから [herdr](https://herdr.dev/) は興味深い。homepage では、自分自身を agent multiplexer と説明している。whole herd のための一つの terminal であり、coding agent が real terminal で動き、laptop を閉じた後も server 上で生き続ける、というものだ。[concepts documentation](https://herdr.dev/docs/concepts/) でも同じ点を構造的に説明している。workspace は tab と pane を含み、pane は real terminal であり、agent は blocked、working、done、idle、unknown などの runtime state を持つ recognized process である。
+
+これは、単にきれいな terminal UI というだけではない。attention の単位を変える。
+
+従来の tmux は、window と pane を管理するよう私に求める。herdr は、workspace、agent、status を管理するよう求める。[session state documentation](https://herdr.dev/docs/session-state/) は、live detach、snapshot restore、pane history replay、native agent session restore、live handoff を分けている。この区別は重要だ。agent work は、値を返して終わる単一 command ではない。state、output、context、recovery path を持つ、長く走る process だからである。
+
+主張は「herdr が tmux を置き換える」ではない。ある user にとってそうなるかもしれないし、ならないかもしれない。より強い signal は、terminal multiplexing が agent operation を中心に再定義されつつあることだ。
+
+これにより、agent brand の役割も変わる。workspace、pane、session、handoff、artifact が model client の外側で安定しているなら、Claude Code から Codex へ切り替えることは、office 全体を移すより worker を割り当て直すことに近い。continuity は substrate に属し、単一 CLI には属さない。実用上の利点は、cost、quota、outage、fit に応じて worker choice を変えても、work state を作り直さなくて済むことだ。
+
+terminal は substrate として残る。見える object は agent になる。
+
+## 4. postman がもう片方を示している
+
+local な counterpart が [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman) である。herdr とは逆の姿勢を取る面がある。terminal workspace になろうとはしていない。tmux pane の周囲にある薄い coordination layer だ。
+
+README はその形を素直に説明している。role と handoff edge は `postman.md` に置かれる。daemon は matching する tmux pane title の間で local mail を route する。system は inbox、read、dead-letter、reply-required、journal、projection、pane-state の surface を見える状態に保つ。design note は境界に慎重だ。postman は full agent runtime ではなく、広い workflow engine でもなく、tmux や agent CLI の replacement でもない。
+
+その境界が tool を有用にしている。tmux は terminal process を所有し続ける。postman は、それらの process の周囲にある obligation ledger を所有する。誰が何を依頼したか、どの reply がまだ required か、どの request が filled か、どの work が review や approval dependency で blocked か、という ledger だ。message lane ではあるが、価値があるのは、ある pane の terminal history を越えて残る responsibility state である。
+
+人間向け dashboard より、それが expose する state のほうが重要だ。message が delivered された。reply が required である。worker が waiting している。request が filled された。message が dead letter に落ちた。これらは terminal history から感じ取る雰囲気ではない。transport facts である。
+
+これも同じ予測の別の形だ。tmux は生き残るが、人間が見える pane grid を記憶で操作する必要はなくなるべきだ。
+
+## 5. phone が本当の UI test である
+
+この予測を試すいちばん簡単な方法は、desk から離れることだ。
+
+agent work がなお laptop を開き、正しい terminal window を探し、pane を検査し、正しい process に typing することを必要とするなら、terminal はまだ user interface である。phone から approve、redirect、inspect できるなら、terminal は infrastructure になっている。
+
+だから私は、agent terminal をめぐる phone と private-network の実験に注意している。
+
+herdr の official docs は、local と SSH-based remote attach を強調している。[remote access documentation](https://herdr.dev/docs/persistence-remote/) は、background server、local client、SSH 経由の remote attach、direct terminal attach、read-only terminal observer を説明している。[socket API](https://herdr.dev/docs/socket-api/) は、script や agent が必要とする control surface を expose している。workspace の create と focus、tab と pane の管理、output の read、input の send、agent の start、state の wait、event の subscribe である。
+
+私が確認できる範囲では、Telegram support は herdr の core contract というより、herdr の周辺にすでに現れている。[`herdr-remote`](https://github.com/dcolinmorgan/herdr-remote) は、herdr agent の phone、menu bar、Telegram monitoring と approval をうたっている。[`ccgram`](https://github.com/alexei-led/ccgram) は、Claude Code、Codex CLI、Gemini CLI、tmux、herdr のための Telegram bridge と説明している。この区別は重要だ。official core は terminal workspace と API であり、ecosystem はすでに phone と Telegram surface へ手を伸ばしている。
+
+Tailscale も、現在の私の evidence では似ている。隣接する local tooling では強く確認できる。[`markdown-remote-viewer`](https://github.com/i9wa4/markdown-remote-viewer) には、Tailnet 越しに Markdown を配信する明示的な `--tailscale` mode がある。herdr 自体について、私が確認した official remote story は SSH remote attach であり、native Tailscale ではない。ただし方向は同じだ。private network access と phone-readable review surface は、terminal を backend に変える。
+
+永続する論点は、特定の network product ではない。location independence である。execution substrate が server 上で動き、SSH や private network から到達できるなら、work 自体を動かさずに、ほぼどこからでも inspect と approve ができる。tmux は長い間その性質を持っていた。herdr も、terminal workspace を client が attach できる server-backed なものとして扱うことで、同じ道をたどっている。
+
+phone に decorated cockpit は要らない。必要なのは小さな decision set である。
+
+## 6. AI subscription は個人の PC に属する
+
+この未来には、魅力的な cloud-only 版がある。すべての agent が vendor-controlled remote workspace で動き、local machine は薄い browser tab になる、という形だ。
+
+それは多くの team にとって有用だろう。しかし、それが全体像ではない。personal work では、強い counter-principle が残ると私は見ている。
+
+> AI subscription は個人自身の PC に対して動くべきだ。
+
+より正確には、個人自身の operating environment に対して動くべきである。それは laptop、desktop、home server、personally controlled remote machine のどれでもよい。理由は local machine への郷愁ではない。state である。この組織的な角度は ["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd) で広げている。ここでの短い版は、workbench は user 自身の file、credential、project checkout、operating habit の近くに残るべきだ、ということだ。
+
+おそらく pattern は hybrid になる。model は remote かもしれない。workbench は local、または personally controlled な場所に残る。interaction layer は browser、phone、text、image、voice になる。private networking は、workbench を vendor-owned にせず reachable にできる。terminal は execution substrate として残る。
+
+## 7. 重要でなくなるもの
+
+この model では、visual decoration が担う価値は小さくなる。
+
+design は今後も重要だ。価値を失うのは、decorative operator surface である。人間がもう machinery を直接運転していないなら、あらゆる pipe と gear を見せる美しい dashboard は scarce thing ではない。
+
+scarce thing は、正しい escalation である。
+
+- 何が私の decision を必要としているか
+- 何が終わったか
+- 何が失敗したか
+- どの evidence を inspect すべきか
+- 何を system が私なしで安全に decide できるか
+
+その view は、work を生かし続ける terminal に似ている必要はない。phone review pane、remote browser surface、小さな decision inbox は、同じ tmux session の上に座り、今重要な handoff だけを見せられる。machine room には到達可能なままでよい。だが default surface は decision edge になる。何が変わったか、何に approval が必要か、どの artifact を inspect すべきか、である。
+
+誰かが process を動かし続ける必要があるので、terminal は生き残る。
+
+その誰かがますます AI agent になるので、見える terminal は消えていく。

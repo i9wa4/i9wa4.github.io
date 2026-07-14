@@ -1,0 +1,168 @@
+---
+title: "Agent Work のための二つの State Machine"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+date: 2026-07-14 19:46:00 +0900
+date-modified: last-modified
+description: |
+  multi-agent work には prompt だけでは足りない。agent の operating state と task の semantic state を分ける実践的な見取り図を、herdr と tmux-a2a-postman から考える。
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. なぜ一つの state では足りないのか
+
+agent coordination における最初の間違いは、すべての state を一つのものとして扱うことだ。
+
+そうではない。
+
+agent の state がある。どの process が存在するか、どの pane が active か、どの agent が blocked か、どの message が unread か、どの reply がまだ required か、どの session に reattach できるか、という state である。
+
+そして task の state がある。何が requested されたか、何が changed したか、何が verified されたか、誰が approved したか、どの uncertainty が残っているか、その result を done と数えるべきか、という state である。
+
+この二つの layer は触れ合うが、同じ layer ではない。message は delivered されても、task はまだ wrong かもしれない。pane は alive でも、agent は stuck しているかもしれない。reply は transport request を fill しても、completion claim にはまだ evidence が足りないかもしれない。
+
+agent tooling はこの方向へ向かうと私は考えている。まず agent のための operating-state machine があり、その上に task-state machine が置かれる。
+
+これは、ゆるい三部作の二つ目の記事である。["tmux Survives, But Its Visible Form Disappears"](2026-07-14-tmux-survives-visible-form-disappears.qmd) と ["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd) と合わせて読むとよい。
+
+## 2. 第一の state machine: agent operations
+
+第一の state machine は、運用上の問いに答える。
+
+- agent process は alive か
+- working、blocked、done、idle、unknown のどれか
+- session に reattach できるか
+- どの pane が terminal process を所有しているか
+- どの role に unread mail があるか
+- どの required reply がまだ open か
+- message は dead-letter path に到達したか
+
+herdr と tmux-a2a-postman は、この layer の別々の部分を攻めている。
+
+[herdr's concepts documentation](https://herdr.dev/docs/concepts/) は、real terminal process を中心に workspace、tab、pane の model を定義している。pane の中の agent を認識し、blocked、working、done、idle、unknown などの state を tracking する。[session state documentation](https://herdr.dev/docs/session-state/) はさらに、live persistence、snapshot restore、pane screen history replay、native agent session restore、live handoff を分けている。これは operating-state model である。何が survive し、何を reconstruct でき、operator がどの evidence を trust できるか、という model だ。
+
+tmux-a2a-postman は、より message-centered な route を取る。local design docs は、initial、ready、waiting、pending、stale などの visible node state を定義する。transport identity hierarchy は意図的に狭い。message、thread、input request である。required message は正確な `input_request_id` を open する。解決する reply はその request を fill する。status projection は、terminal history から人間に推測させずに、node に inbound work がある、あるいは誰かを待っている、と言える。
+
+どちらも operating-state machine である。task が correct であることは証明しない。correctness を確認する前に work を失うことを難しくする。
+
+## 3. message-lane state machine としての postman
+
+Postman の最もよい design choice は、mailbox が workflow 全体であるかのように装わないことだ。
+
+README は postman を薄い coordination layer と説明している。role と edge を `postman.md` に置き、tmux pane 間で local mail を route し、archive を保存し、reply-required slot を track し、status を report し、dead-letter state を見える状態に保つ。product direction note は、message lane が中心であり続けると言っている。`send-heredoc`、`pop`、routing、reply flow、dead-letter handling である。
+
+この境界が claim を誠実に保つ。
+
+この境界の別名は obligation ledger である。message が interesting なのは、text が動いたからだけではない。それが role 間の obligation を open し、fill し、あるいは fill に失敗したからである。だから transport closure と task acceptance は、別々の event であり続けなければならない。
+
+Postman はこう言える。
+
+- この message は sent された
+- この recipient は reply しなければならなかった
+- この exact input request は filled された
+- この node にはまだ inbound required work がある
+- この node は誰かを待っている
+- この delivery は failed し、dead letter に入った
+
+Postman だけで言うべきではないこともある。
+
+- implementation は correct である
+- article は good である
+- reviewer は evidence を実際に understood した
+- task は semantically complete である
+
+後者は次の layer に属する。
+
+この区別があるから、"DONE" だけでは足りない。terminal-looking reply は transport loop を close できる。しかし、それだけで task を close すべきではない。completion には artifact、checklist status、evidence、verification、remaining blockers が必要である。
+
+## 4. 第二の state machine: task meaning
+
+第二の state machine は、意味上の問いに答える。
+
+- original request は何か
+- どの checklist item が pass しなければならないか
+- canonical な artifact はどれか
+- completion を支える evidence は何か
+- evidence は reviewed されたか
+- result は accepted、rejected、blocked、still under revision のどれか
+
+ここで loop engineering が実体を持ち始める。
+
+以前の記事 ["From Prompt Engineering to Loop Engineering"](../en/blog/2026-07-03-from-prompt-engineering-to-loop-engineering.qmd) で、私は prompt、context、harness、loop engineering が階段を作ると書いた。prompting は message をうまく述べる。context は reader に正しい facts を渡す。harnessing は message を正しい process へ届ける。loop engineering は、work が実際に起きたことを証明する。
+
+two-state-machine という framing は、同じ考えの次の version である。
+
+第一の state machine は、ほぼ harness と operating state である。agent、pane、mail、session、liveness、recoverability を扱う。
+
+第二の state machine は task state である。requested work、evidence、review、acceptance、rejection、unresolved な残りを扱う。
+
+この二つの layer を混同すると、system は brittle になる。分けておくと、system は inspectable になる。
+
+## 5. herdr と postman は異なる境界を指している
+
+herdr の official documentation は、強い terminal-runtime boundary を示している。server が pane と process state を所有し、client がそこへ attach する。socket API により、tool は workspace、tab、pane、agent を inspect し control できる。integration は、supported agent CLI の session identity や lifecycle state を report できる。plugin は Herdr CLI や socket API へ callback することで workflow を拡張する。
+
+これは豊かな operating substrate である。
+
+Postman は、より薄い transport boundary を示している。model session を所有しない。full workflow engine になろうとしない。mail、reply obligation、archive、status projection を、どれか一つの agent の context window の外側に保つ。
+
+この違いは重要だ。未来は、すべての tool が同じ product になることを必要としない。必要なのは clean layers である。
+
+- terminal/session substrate
+- agent operating state
+- message と handoff state
+- task semantic state
+- approval と trust state
+- human-facing summary state
+
+いくつかの product は layer を combine するだろう。いくつかの local system は小さな tool を compose するだろう。brand boundary より、state の durability のほうが重要である。
+
+このため、予測の中では Claude Code と Codex がますます interchangeable に見えてくる。execution engine としての違いはあってよい。しかし operating state と task state は、そのどちらか一つの中に閉じ込められるべきではない。
+
+その durable place は、人間の現在の body から remote にあるかもしれない。tmux は server 上で動かせる。herdr の official model も、terminal workspace を、client が detach し reattach できる server-backed runtime として扱う。private networking はこの pattern を強くする。state machine は work のそばに残り、人間は browser、phone、SSH session、review surface からそこへ届く。
+
+## 6. remote access はどこに入るか
+
+phone access は単なる convenience feature ではない。state model の stress test である。
+
+人間が terminal の前にいるとき、system は弱い state でもごまかせる。人間が手で全部 inspect できるからだ。人間が phone 上にいると、その前提は崩れる。system は何を見せるべきかを知っていなければならない。
+
+具体的な Telegram と Tailscale の evidence は ["tmux Survives, But Its Visible Form Disappears"](2026-07-14-tmux-survives-visible-form-disappears.qmd) で扱った。state-machine 上の論点はもっと狭い。SSH、phone、browser、private network review surface 経由で approval と inspection が行われるようになると、system は pane に関する人間の記憶に頼れない。obligation state を system 自身が運ばなければならない。
+
+phone access は state machine の必要性を消さない。それを露出させる。
+
+## 7. task layer は何を保存すべきか
+
+第二の state machine は、最初から重くある必要はない。checklist 付きの durable task artifact として始めればよい。
+
+最低限有用な record は、意図的に素朴でよい。
+
+- original request
+- acceptance checklist
+- active artifact paths
+- decisions and research findings
+- evidence log
+- verification commands
+- blockers
+- completion verdict
+
+これで compaction、agent handoff、review を survive できる。また、"reply sent" と "work accepted" の違いを concrete にする。
+
+時間が経つにつれ、この多くは structured になる。review verdict は record になる。approval は record になる。agent の正しい completion 履歴は queryable fact になる。audit は state transition になる。evidence のない completion は、弱い paragraph ではなく malformed claim になる。
+
+それが second-stage state machine である。
+
+## 8. 予測
+
+第一段階はすでにここにある。herdr、tmux、postman、terminal pane、status projection、session restore、mailbox archive は、どれも同じ theme の variation だ。agent operating state は、どれか一つの model turn より長く生きなければならない。
+
+第二段階はまだ固まっていないが、方向は見えている。task state も、どれか一つの model turn より長く生きなければならない。何が requested され、何が checked され、誰が accepted し、何が unresolved のままかを知らなければならない。
+
+future agent workstation は、単によりよい terminal ではない。二つの state machine を積み重ねたものだ。
+
+- 一つは agents' operating state のため
+- もう一つは task's semantic state のため
+
+人間が terminal history からそのどちらかを reconstruct する必要はなくなるべきだ。
