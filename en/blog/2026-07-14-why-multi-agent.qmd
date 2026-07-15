@@ -17,7 +17,7 @@ Why multi-agent?
 
 This question matters more than it looks. Multi-agent systems can quickly turn
 into theater. Once names like planner, implementer, reviewer, approver, and
-monitor appear, the system can look sophisticated before it has earned the
+operator appear, the system can look sophisticated before it has earned the
 complexity. More names do not make the work better. Sometimes they only make it
 slower.
 
@@ -44,11 +44,10 @@ carrying too many roles:
 
 - planner;
 - implementer;
-- memory keeper;
 - reviewer;
 - approver;
-- reporter;
-- exception handler.
+- coordinator;
+- operator.
 
 Put those roles in the same context, the same transcript, and the same desire
 to finish, and failure becomes harder to see. The actor who did the work says
@@ -67,14 +66,16 @@ context-window pressure, lower judgment quality over long tasks, one narrow
 viewpoint, and unclear human intervention points.
 
 Operationally, the same weakness appears in another form. Agents forget early
-instructions and checklists. They forget `AGENTS.md` or available skills. After
-compaction, they can continue with the wrong shape of work. The underlying
-issue is not that the agent never had the instruction; it is that the right
-context is not reliably supplied at the right moment.
+instructions and checklists. They forget project guidance or available skills.
+After compaction, they can continue with the wrong shape of work. The
+underlying issue is not that the agent never had the instruction; it is that
+the right context is not reliably supplied at the right moment.
 
-Splitting roles makes each job smaller. The implementer focuses on the change.
-The reviewer sees the diff and evidence. The coordinator sees routes and open
-obligations. The user-facing role focuses on decisions and reporting.
+Splitting roles makes each job smaller. The planner shapes the work. The
+implementer focuses on the change. The reviewer sees the diff and evidence.
+The approver stops risky actions. The coordinator sees routes and open
+obligations. The operator focuses on state, exceptions, and reporting to the
+human.
 
 This is not "more agents are magically smarter." It is "each role receives
 less irrelevant context."
@@ -165,8 +166,8 @@ Parallelism works after responsibility is legible.
 That is why multi-agent design is closer to organization design than to a
 trick for running more prompts.
 
-There are implementers, reviewers, approvers, coordinators, user-facing
-reporters, memory readers, and boundary handlers.
+There are planners, implementers, reviewers, approvers, coordinators, and
+operators.
 
 This is not because human companies are aesthetically interesting. It is
 because human organizations have spent a long time handling finite attention,

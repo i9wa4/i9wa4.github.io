@@ -35,5 +35,12 @@ share: false
 [vim-jp (2)](#category=vim-jp){.btn .btn-outline-primary .btn-sm}
 :::
 
+## 複数エージェント構成シリーズ
+
+1. [なぜ複数エージェントなのか](2026-07-14-why-multi-agent.qmd)
+2. [tmux は生き残るが、見える形は消える](2026-07-14-tmux-survives-visible-form-disappears.qmd)
+3. [エージェントを使った作業のための二つの状態機械](2026-07-14-two-state-machines-for-agent-work.qmd)
+4. [個人用コンピューターの中の会社](2026-07-14-company-inside-personal-computer.qmd)
+
 ::: {#all}
 :::

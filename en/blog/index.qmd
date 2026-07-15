@@ -28,5 +28,12 @@ share: false
 [tech-ai (13)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 :::
 
+## Multi-Agent Systems Series
+
+1. [Why Multi-Agent?](2026-07-14-why-multi-agent.qmd)
+2. [tmux Survives, But Its Visible Form Disappears](2026-07-14-tmux-survives-visible-form-disappears.qmd)
+3. [Two State Machines for Agent Work](2026-07-14-two-state-machines-for-agent-work.qmd)
+4. [A Company Inside the Personal Computer](2026-07-14-company-inside-personal-computer.qmd)
+
 ::: {#all}
 :::

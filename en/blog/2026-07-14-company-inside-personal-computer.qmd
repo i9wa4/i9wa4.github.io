@@ -7,7 +7,7 @@ categories:
 date: 2026-07-14 19:47:00 +0900
 date-modified: last-modified
 description: |
-  Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, reviewers, approvers, diplomats, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows
+  Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, planners, implementers, reviewers, approvers, coordinators, operators, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows
 image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
@@ -27,12 +27,12 @@ and [the two state machines behind agent work](2026-07-14-two-state-machines-for
 That organization does not have to be a company in the legal sense. It can live
 inside one person's computer. But the operating shape is familiar:
 
-- workers do task execution;
+- planners shape the work;
+- implementers do task execution;
 - reviewers check outputs;
 - approvers guard risky actions;
-- diplomats handle boundaries;
 - coordinators route work;
-- managers aggregate status;
+- operators handle status and trust boundaries;
 - one top-level agent talks to the human.
 
 The surprising part is not that AI can write code. The surprising part is that
@@ -76,10 +76,10 @@ task management.
 "Middle manager agent" sounds unflattering, but it is exactly the role that
 multi-agent systems need.
 
-Someone has to aggregate work. Someone has to know that one worker is waiting
-on review, another has failed verification, a third can proceed, and a fourth
-should not touch production data. Someone has to decide which details are worth
-escalating to the human.
+Someone has to aggregate work. Someone has to know that one implementer is
+waiting on review, another has failed verification, a third can proceed, and a
+fourth should not touch production data. Someone has to decide which details
+are worth escalating to the human.
 
 That is management.
 
@@ -89,9 +89,8 @@ may be several layers:
 - a project coordinator;
 - a review coordinator;
 - a release coordinator;
-- a memory or precedent reader;
 - an approval coordinator;
-- a human-facing messenger.
+- an operator.
 
 The names matter less than the flow. Execution fans out. Status rolls up.
 Decisions move to the level that can responsibly make them.
@@ -101,14 +100,14 @@ organizations will rediscover it for the same reason.
 
 ## 4. The Approver
 
-The approver role exists because some actions should not run just because a
-worker can run them.
+The approver role exists because some actions should not run just because an
+implementer can run them.
 
 Deletion, deployment, credential changes, production data writes, external
 publication, irreversible migrations, public comments, and branch publication
-all have a different risk profile from editing a local draft. A worker can be
-good at execution and still be the wrong actor to decide whether an irreversible
-action should proceed.
+all have a different risk profile from editing a local draft. An implementer
+can be good at execution and still be the wrong actor to decide whether an
+irreversible action should proceed.
 
 So the approver becomes a separate role.
 
@@ -126,9 +125,9 @@ transition:
 That looks bureaucratic when the work is small. It becomes essential when
 agents are fast, persistent, and capable of acting across many local resources.
 
-## 5. The Diplomat
+## 5. The Operator
 
-The diplomat role exists because boundaries multiply.
+The operator role exists because state and boundaries multiply.
 
 There is the boundary between private notes and a public repository. Between a
 local checkout and a remote server. Between a local terminal session and a phone
@@ -136,9 +135,10 @@ or Telegram surface. Between a Tailnet viewer and the wider internet. Between
 GitHub publication and local notes. Between production data and test fixtures.
 Between credentials, logs, generated patches, and human approval.
 
-A diplomat is not only a messenger. A messenger moves text. A diplomat carries
-context across a boundary where assumptions change: who can see the data, who
-can act, what is audited, what can be undone, and how large the blast radius is.
+An operator is not only a messenger. A messenger moves text. An operator
+carries context across a boundary where assumptions change: who can see the
+data, who can act, what is audited, what can be undone, and how large the blast
+radius is.
 
 Private networking and local execution help, but they do not erase trust
 boundaries. A Tailnet can reduce exposure without making every phone action
@@ -159,7 +159,7 @@ Telegram bridges, phone dashboards, SSH remote attach, Tailnet viewers,
 browser-based file review, GitHub publication, and local shell execution all
 have different trust assumptions.
 
-The diplomat's job is to keep those assumptions visible. It should name the
+The operator's job is to keep those assumptions visible. It should name the
 boundary being crossed, the permission or audience that changes, the evidence
 that should travel with the handoff, and the action that still requires a human
 approval gate. That is an operational design rule, not a guarantee that the
@@ -231,7 +231,7 @@ Together, they suggest the same future:
 
 - terminal sessions become the office floor;
 - panes become desks;
-- agents become workers;
+- agents become implementers or reviewers;
 - message lanes become internal mail and obligation ledgers;
 - task artifacts become case files;
 - review and approval become gates;
@@ -253,7 +253,7 @@ default.
 In the stronger version of this forecast, the user also does not need to care
 which execution engine is active most of the time. Claude Code and Codex may
 keep different temperaments, integrations, and strengths, but they become
-replaceable workers behind the same case files, panes, mail, checks, and
+replaceable implementers behind the same case files, panes, mail, checks, and
 approval gates. The organization owns continuity. The engine contributes
 labor. Provider limits then become scheduling inputs, not existential
 constraints on the whole workstation.
@@ -265,9 +265,9 @@ This is where the company-president metaphor becomes useful. The president is
 not less powerful because they do not operate the assembly line. They are more
 effective because the organization routes the right facts upward. The visible
 surface shrinks for the same reason: it should expose the state of the
-organization, not reproduce every worker's console. The question is whether the
-human can see what changed, where responsibility sits, and which boundary is
-being crossed.
+organization, not reproduce every implementer's console. The question is
+whether the human can see what changed, where responsibility sits, and which
+boundary is being crossed.
 
 For the human, the interface becomes smaller:
 
@@ -298,7 +298,8 @@ is a small organization inside the personal computer.
 The human should not have to touch tmux, but tmux-like substrates will still
 run. The human should not have to stare at decorative dashboards, but the
 system still needs precise status. The human should not have to choose every
-worker, but the system still needs roles, routing, approvals, and evidence.
+implementer, but the system still needs roles, routing, approvals, and
+evidence.
 
 The important question becomes less "was that Claude Code or Codex?" and more
 "which part of my local organization handled this, what evidence did it leave,
