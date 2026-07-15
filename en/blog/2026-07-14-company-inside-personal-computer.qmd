@@ -83,8 +83,8 @@ escalating to the human.
 
 That is management.
 
-In a small setup, this role is often called orchestrator. In a larger setup,
-there may be several layers:
+In a small setup, this role is often a coordinator. In a larger setup, there
+may be several layers:
 
 - a project coordinator;
 - a review coordinator;

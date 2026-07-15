@@ -16,10 +16,10 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 Why multi-agent?
 
 This question matters more than it looks. Multi-agent systems can quickly turn
-into theater. Once names like `orchestrator`, `worker`, `reviewer`, `guardian`,
-and `critic` appear, the system can look sophisticated before it has earned
-the complexity. More names do not make the work better. Sometimes they only
-make it slower.
+into theater. Once names like planner, implementer, reviewer, approver, and
+monitor appear, the system can look sophisticated before it has earned the
+complexity. More names do not make the work better. Sometimes they only make it
+slower.
 
 I still think about multi-agent systems because some responsibilities are a bad
 fit for one uninterrupted agent context.
@@ -62,32 +62,30 @@ This is not mainly a capability problem. It is a role-fit problem.
 
 The first reason is smaller context.
 
-In an earlier Japanese deck on multi-agent orchestration, I framed the weakness
-of the one-human, one-agent model as context-window pressure, lower judgment
-quality over long tasks, one narrow viewpoint, and unclear human intervention
-points.
+The weakness of the one-human, one-agent model often appears as
+context-window pressure, lower judgment quality over long tasks, one narrow
+viewpoint, and unclear human intervention points.
 
-In a later deck on context design and harness engineering, the framing became
-more operational. Agents forget early instructions and checklists. They forget
-`AGENTS.md` or available skills. After compaction, they can continue with the
-wrong shape of work. The underlying issue is not that the agent never had the
-instruction; it is that the right context is not reliably supplied at the right
-moment.
+Operationally, the same weakness appears in another form. Agents forget early
+instructions and checklists. They forget `AGENTS.md` or available skills. After
+compaction, they can continue with the wrong shape of work. The underlying
+issue is not that the agent never had the instruction; it is that the right
+context is not reliably supplied at the right moment.
 
-Splitting roles makes each job smaller. The worker focuses on the change. The
-reviewer sees the diff and evidence. The coordinator sees routes and open
+Splitting roles makes each job smaller. The implementer focuses on the change.
+The reviewer sees the diff and evidence. The coordinator sees routes and open
 obligations. The user-facing role focuses on decisions and reporting.
 
 This is not "more agents are magically smarter." It is "each role receives
 less irrelevant context."
 
-## 4. Separate Worker From Reviewer
+## 4. Separate Implementer From Reviewer
 
-The second reason is separating the worker from the reviewer.
+The second reason is separating the implementer from the reviewer.
 
-A setup where the worker is the only judge of completion has an obvious weak
-point. The same actor that made the change picks the evidence, runs the tests,
-and says the work is done.
+A setup where the implementer is the only judge of completion has an obvious
+weak point. The same actor that made the change picks the evidence, runs the
+tests, and says the work is done.
 
 Human software teams already know why that is weak. A pull request approved
 only by its author is not much of a review. The same issue exists with agents.
@@ -99,10 +97,10 @@ the important move is not merely giving the reviewer a different name.
 The important move is changing what the reviewer sees.
 
 The reviewer should receive the change, the evidence, the validation command,
-and the artifact. It should not need the worker's whole implementation
+and the artifact. It should not need the implementer's whole implementation
 transcript. The reviewer checks whether the result reaches the requirement,
-not whether the worker's reasoning sounded plausible. That can decorrelate the
-review enough to matter even when the underlying model family is the same.
+not whether the implementer's reasoning sounded plausible. That can decorrelate
+the review enough to matter even when the underlying model family is the same.
 
 ## 5. Approval Is a Different State
 
@@ -110,31 +108,30 @@ The third reason is approval.
 
 Deletion, deployment, credential changes, production-data writes, public
 posting, public comments, and branch publication are not the same kind of act
-as editing a draft file. A worker being technically able to perform the action
-does not mean the action should proceed.
+as editing a draft file. An implementer being technically able to perform the
+action does not mean the action should proceed.
 
-What is needed here is not only "the worker should be careful." It is a
+What is needed here is not only "the implementer should be careful." It is a
 different state transition.
 
 Routine work flows. Risky work pauses. The reason for the pause, the required
 approval, the approver, and the rejected path are recorded. That is more stable
-when represented as a role and a harness rule than as something every worker
+when represented as a role and a harness rule than as something every implementer
 must remember from the prompt.
 
-In a multi-agent setup, the approver can be separate from the worker. The role
-that can execute is not automatically the role that decides whether a risky
-boundary should be crossed. That looks organizational because the risk is
+In a multi-agent setup, the approver can be separate from the implementer. The
+role that can execute is not automatically the role that decides whether a
+risky boundary should be crossed. That looks organizational because the risk is
 organizational: execution and authorization are different responsibilities.
 
 ## 6. Move Conversation and Checklists Outside Chat
 
 The fourth reason is memory outside one conversation.
 
-My recent design notes and talk outlines keep returning to the same pattern:
-agent-to-agent conversation, checklists, artifacts, and reply obligations
-should live outside any one agent's private transcript. If the system depends
-on one conversation log, agents are hard to replace, compaction is dangerous,
-and humans end up inferring open work from terminal scrollback.
+Agent-to-agent conversation, checklists, artifacts, and reply obligations
+should live outside any one agent's private transcript. If the system depends on
+one conversation log, agents are hard to replace, compaction is dangerous, and
+humans end up inferring open work from terminal scrollback.
 
 At minimum, these things should be external:
 
@@ -168,8 +165,8 @@ Parallelism works after responsibility is legible.
 That is why multi-agent design is closer to organization design than to a
 trick for running more prompts.
 
-There are workers, reviewers, approvers, coordinators, user-facing reporters,
-memory readers, and boundary handlers.
+There are implementers, reviewers, approvers, coordinators, user-facing
+reporters, memory readers, and boundary handlers.
 
 This is not because human companies are aesthetically interesting. It is
 because human organizations have spent a long time handling finite attention,
@@ -180,7 +177,7 @@ Use one agent when one agent is enough.
 
 Reach for multi-agent structure when these questions start to matter:
 
-- Should someone other than the worker inspect the evidence?
+- Should someone other than the implementer inspect the evidence?
 - Should risky actions enter a separate approval state?
 - Should work memory outlive the chat transcript?
 - Should open requests be machine-inspectable?
