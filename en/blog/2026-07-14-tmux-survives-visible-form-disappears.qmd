@@ -54,7 +54,7 @@ and local credentials already live.
 
 But dual use of Claude Code and Codex points in a different direction. The
 human does not want two terminal products. The human wants access to the best
-worker for each kind of step, with the least possible ceremony.
+implementer for each kind of step, with the least possible ceremony.
 
 My forecast is that people who seriously use both tools will stop treating
 them as separate places to work. They will put both on the same operating
@@ -108,10 +108,10 @@ agent operations.
 
 That also changes the role of the agent brand. If the workspaces, panes,
 sessions, handoffs, and artifacts are stable outside the model client, then
-switching from Claude Code to Codex is closer to reassigning a worker than
+switching from Claude Code to Codex is closer to reassigning an implementer than
 moving the whole office. The continuity belongs to the substrate, not to a
 single CLI. The practical win is that cost, quota, outage, or fit can change
-the worker choice without forcing the user to rebuild the work state.
+the implementer choice without forcing the user to rebuild the work state.
 
 The terminal remains the substrate. The visible object becomes the agent.
 
@@ -136,7 +136,7 @@ valuable part is the responsibility state that survives beyond any one pane's
 terminal history.
 
 The human-facing dashboard matters less than the state it exposes. A message
-was delivered. A reply is required. A worker is waiting. A request was filled.
+was delivered. A reply is required. An implementer is waiting. A request was filled.
 A message fell into dead letter. Those are not vibes from terminal history. They are
 transport facts.
 
@@ -165,7 +165,7 @@ for state, and subscribe to events.
 
 Telegram support, from what I can verify, is already appearing around herdr
 rather than as the core herdr contract. [`herdr-remote`](https://github.com/dcolinmorgan/herdr-remote)
-advertises phone, menu bar, and Telegram monitoring and approvals for herdr
+advertises phone, menu bar, and Telegram status and approvals for herdr
 agents. [`ccgram`](https://github.com/alexei-led/ccgram) describes a Telegram
 bridge for Claude Code, Codex CLI, Gemini CLI, tmux, and herdr. That distinction
 matters: the official core is a terminal workspace and API; the ecosystem is
