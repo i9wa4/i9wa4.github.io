@@ -136,7 +136,7 @@ valuable part is the responsibility state that survives beyond any one pane's
 terminal history.
 
 The human-facing dashboard matters less than the state it exposes. A message
-was delivered. A reply is required. An implementer is waiting. A request was filled.
+was delivered. A reply is required. A request is waiting. A request was filled.
 A message fell into dead letter. Those are not vibes from terminal history. They are
 transport facts.
 
