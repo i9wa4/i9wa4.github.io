@@ -23,7 +23,7 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 これからのエージェント用の道具は、まずエージェントの運用状態を扱う状態機械を持ち、その上にタスクの意味を扱う状態機械を重ねる方向へ向かうと思う。
 
-これは、ゆるい三部作の二つ目の記事である。[「tmux は生き残るが、見える形は消える」](2026-07-14-tmux-survives-visible-form-disappears.qmd) と [「個人用コンピューターの中の会社」](2026-07-14-company-inside-personal-computer.qmd) と合わせて読むとよい。
+これは、四部作の三つ目の記事である。先に [「なぜ複数エージェントなのか」](2026-07-14-why-multi-agent.qmd) と [「tmux は生き残るが、見える形は消える」](2026-07-14-tmux-survives-visible-form-disappears.qmd) を置き、次の記事で [「個人用コンピューターの中の会社」](2026-07-14-company-inside-personal-computer.qmd) を扱う。
 
 ## 2. 第一の状態機械: エージェント運用
 

@@ -19,8 +19,9 @@ A single agent is a tool. A few agents with handoffs are a workflow. A durable
 set of agents with roles, review, approval, routing, memory, and escalation
 starts to look like an organization.
 
-This is the third post in a loose three-part series. The earlier posts cover
-[tmux as the surviving execution substrate](2026-07-14-tmux-survives-visible-form-disappears.qmd)
+This is the fourth post in a four-part series. The earlier posts cover
+[why multi-agent structure is useful](2026-07-14-why-multi-agent.qmd),
+[tmux as the surviving execution substrate](2026-07-14-tmux-survives-visible-form-disappears.qmd),
 and [the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd).
 
 That organization does not have to be a company in the legal sense. It can live

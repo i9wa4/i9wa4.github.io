@@ -33,9 +33,10 @@ lacks evidence.
 This is where I think agent tooling is headed: first an operating-state machine
 for agents, then a task-state machine above it.
 
-This is the second post in a loose three-part series. Read it alongside
-["tmux Survives, But Its Visible Form Disappears"](2026-07-14-tmux-survives-visible-form-disappears.qmd)
-and ["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd).
+This is the third post in a four-part series. It follows
+["Why Multi-Agent?"](2026-07-14-why-multi-agent.qmd) and
+["tmux Survives, But Its Visible Form Disappears"](2026-07-14-tmux-survives-visible-form-disappears.qmd),
+and it leads into ["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd).
 
 ## 2. The First State Machine: Agent Operations
 

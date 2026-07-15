@@ -34,8 +34,9 @@ environments.
 
 That durable form is not disappearing. More of the work is moving onto it.
 
-This is the first post in a loose three-part series. The companion posts cover
-[the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd)
+This is the second post in a four-part series. The previous post explains
+[why multi-agent structure is useful](2026-07-14-why-multi-agent.qmd). The next
+posts cover [the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd)
 and [the organizational shape of a personal agent workstation](2026-07-14-company-inside-personal-computer.qmd).
 
 It also does not have to live on the laptop in front of me. tmux is valuable
