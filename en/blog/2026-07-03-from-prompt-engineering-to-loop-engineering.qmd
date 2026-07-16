@@ -4,6 +4,7 @@ author: uma-chan
 categories:
   - "blog"
   - "tech-ai"
+  - "ai-generated"
 date: 2026-07-03 07:37:11 +0900
 date-modified: last-modified
 description: |

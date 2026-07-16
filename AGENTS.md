@@ -45,3 +45,9 @@
   Markdown info strings such as ` ```bash`, ` ```python`, or Zenn's
   ` ```bash:script.sh` filename form. Do not use Pandoc-only forms such as
   ` ```{.bash}` there unless the file is intentionally processed by Pandoc.
+
+## Quarto Verification
+
+- In this repository, run Quarto through uv. Use `uv run quarto ...` for render
+  or verification commands instead of assuming `quarto` is directly available
+  on `PATH`.
