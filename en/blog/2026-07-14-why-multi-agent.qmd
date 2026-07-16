@@ -16,32 +16,34 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 Why multi-agent?
 
-This question matters more than it looks. Multi-agent systems can quickly turn
-into theater. Once names like planner, implementer, reviewer, approver, and
-operator appear, the system can look sophisticated before it has earned the
-complexity. More names do not make the work better. Sometimes they only make it
-slower.
+The question looks simple until the role names start piling up. Planner,
+implementer, reviewer, approver, operator: after a few labels, a system can
+look serious before it has proved that the extra machinery helps. More names do
+not make the work better. Sometimes they only make it slower.
 
 I still think about multi-agent systems because some responsibilities are a bad
-fit for one uninterrupted agent context.
+fit for one uninterrupted agent context. The pressure point is not whether one
+agent is smart enough. It is whether one running conversation can carry planning,
+execution, review, approval, memory, and reporting without blurring them.
 
 The short version:
 
 > Multi-agent is not mainly about parallelism. It is about separating
 > responsibilities.
 
-This is the first post in a four-part series. It puts the "why multi-agent?"
-question first. The next posts cover [tmux as the surviving execution substrate](2026-07-14-tmux-survives-visible-form-disappears.qmd),
+This first post starts with that pressure. The next posts cover
+[tmux as the surviving execution substrate](2026-07-14-tmux-survives-visible-form-disappears.qmd),
 [the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd),
 and [the company-like shape of a personal agent workstation](2026-07-14-company-inside-personal-computer.qmd).
 
 ## 2. One Agent Looks Too Capable
 
 A strong single agent can do a lot. It can plan, research, implement, test,
-summarize, and report. For short tasks, that is often enough.
+summarize, and report. For short tasks, that is often enough, and adding roles
+would only add ceremony.
 
-The problem appears when the task gets longer and one conversation starts
-carrying too many roles:
+The trouble starts when the task gets longer and the same conversation has to
+carry too many roles:
 
 - planner;
 - implementer;
@@ -50,27 +52,29 @@ carrying too many roles:
 - coordinator;
 - operator.
 
-Put those roles in the same context, the same transcript, and the same desire
-to finish, and failure becomes harder to see. The actor who did the work says
-it is done. The same transcript preserves stale assumptions. Review is pulled
-toward implementation convenience. The agent's intermediate reasoning becomes
-something the agent is tempted to defend.
+Put those roles in the same context, the same transcript, and the same desire to
+finish, and failure becomes harder to see. The actor who did the work says it is
+done. The transcript keeps stale assumptions nearby. Review drifts toward
+implementation convenience. The agent's intermediate reasoning becomes something
+the agent is tempted to defend.
 
 This is not mainly a capability problem. It is a role-fit problem.
 
 ## 3. Keep Context Small
 
-The first reason is smaller context.
+The first reason is smaller context, but not in the vague sense that shorter is
+always better. The useful reduction is more specific: each role should receive
+the context it can act on and less of everything else.
 
 The weakness of the one-human, one-agent model often appears as
 context-window pressure, lower judgment quality over long tasks, one narrow
 viewpoint, and unclear human intervention points.
 
-Operationally, the same weakness appears in another form. Agents forget early
-instructions and checklists. They forget project guidance or available skills.
-After compaction, they can continue with the wrong shape of work. The
-underlying issue is not that the agent never had the instruction; it is that
-the right context is not reliably supplied at the right moment.
+Operationally, the same weakness appears in another form. Agents lose track of
+early instructions and checklists. They miss project guidance or available
+skills. After compaction, they can continue with the wrong shape of work. The
+underlying issue is not that the agent never saw the instruction. It is that the
+right context is not reliably supplied at the moment when a role needs it.
 
 Splitting roles makes each job smaller. The planner shapes the work. The
 implementer focuses on the change. The reviewer sees the diff and evidence.
@@ -83,7 +87,9 @@ less irrelevant context."
 
 ## 4. Separate Implementer From Reviewer
 
-The second reason is separating the implementer from the reviewer.
+The second reason is separating the implementer from the reviewer. A task can
+look finished from inside the implementation path and still be weak when judged
+from the requirement.
 
 A setup where the implementer is the only judge of completion has an obvious
 weak point. The same actor that made the change picks the evidence, runs the
@@ -94,9 +100,9 @@ only by its author is not much of a review. The same issue exists with agents.
 
 A second agent does not automatically create objectivity. Two instances of the
 same model with the same prompt and the same context can share blind spots. So
-the important move is not merely giving the reviewer a different name.
+the separation is not merely giving the reviewer a different name.
 
-The important move is changing what the reviewer sees.
+The useful separation changes what the reviewer sees.
 
 The reviewer should receive the change, the evidence, the validation command,
 and the artifact. It should not need the implementer's whole implementation
@@ -106,15 +112,14 @@ the review enough to matter even when the underlying model family is the same.
 
 ## 5. Approval Is a Different State
 
-The third reason is approval.
+The third reason is approval. Caution by the implementer is not a procedure.
 
 Deletion, deployment, credential changes, production-data writes, public
 posting, public comments, and branch publication are not the same kind of act
 as editing a draft file. An implementer being technically able to perform the
 action does not mean the action should proceed.
 
-What is needed here is not only "the implementer should be careful." It is a
-different state transition.
+What is needed here is a different state transition.
 
 Routine work flows. Risky work pauses. The reason for the pause, the required
 approval, the approver, and the rejected path are recorded. That is more stable
@@ -130,9 +135,9 @@ organizational: execution and authorization are different responsibilities.
 
 The fourth reason is memory outside one conversation.
 
-Agent-to-agent conversation, checklists, artifacts, and reply obligations
-should live outside any one agent's private transcript. If the system depends on
-one conversation log, agents are hard to replace, compaction is dangerous, and
+Agent-to-agent conversation, checklists, artifacts, and reply obligations should
+live outside any one agent's private transcript. If the system depends on one
+conversation log, agents are hard to replace, compaction becomes dangerous, and
 humans end up inferring open work from terminal scrollback.
 
 At minimum, these things should be external:
@@ -153,7 +158,8 @@ Multi-agent systems are often sold as parallelism. Parallelism does help:
 divide research, compare options, overlap implementation and review, or ask
 multiple reviewers for different perspectives.
 
-But treating parallelism as the main reason leads to bad design.
+But treating parallelism as the main reason leads to bad design. It optimizes
+for motion before the system can say what counts as done.
 
 The first-order need is role separation, reply obligations, review, approval,
 and artifact records. Without those, adding agents only makes progress look
@@ -164,8 +170,9 @@ Parallelism works after responsibility is legible.
 
 ## 8. Multi-Agent Is a Small Organization
 
-That is why multi-agent design is closer to organization design than to a
-trick for running more prompts.
+That is why multi-agent design is closer to organization design than to a trick
+for running more prompts. The resemblance is not decorative; it appears at the
+points where attention, authority, and evidence have to move between roles.
 
 There are planners, implementers, reviewers, approvers, coordinators, and
 operators.
@@ -177,7 +184,7 @@ agent tasks converge on similar problems.
 
 Use one agent when one agent is enough.
 
-Reach for multi-agent structure when these questions start to matter:
+Reach for multi-agent structure when these questions start shaping the work:
 
 - Should someone other than the implementer inspect the evidence?
 - Should risky actions enter a separate approval state?
@@ -191,7 +198,9 @@ that lets work run longer without losing its obligations.
 
 ## 9. What The Next Pieces Cover
 
-Putting this question first changes the rest of the series.
+Putting this question first changes the rest of the series. The later pieces are
+not separate tool notes; they answer what has to exist once responsibilities are
+split.
 
 The next post, ["tmux Survives, But Its Visible Form Disappears"](2026-07-14-tmux-survives-visible-form-disappears.qmd),
 is about the execution substrate that can carry multiple agents. The terminal
