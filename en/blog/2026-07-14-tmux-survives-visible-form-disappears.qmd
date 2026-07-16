@@ -1,0 +1,240 @@
+---
+title: "tmux Survives, But Its Visible Form Disappears"
+author: uma-chan
+categories:
+  - "blog"
+  - "tech-ai"
+  - "ai-generated"
+date: 2026-07-14 19:45:00 +0900
+date-modified: last-modified
+description: |
+  The terminal is not going away; the human's direct grip on it is. A forecast on Claude Code and Codex becoming replaceable engines on a shared tmux/herdr substrate. #AIAgents #Terminal #ClaudeCode #Codex
+image: "/assets/common/icon_hhkb3_large.jpg"
+---
+
+## 1. The Claim
+
+I think the terminal survives. I do not think the human keeps looking at it in
+the same way.
+
+That sounds contradictory only if "terminal" means "the thing I personally
+operate with my hands." For agent work, the terminal is increasingly a process
+container, a durable workbench, and a recovery surface. Those jobs still matter.
+What changes is who operates it.
+
+The short version:
+
+> tmux survives, but its visible form disappears.
+
+The visible form is the part where I stare at panes, remember which agent is
+blocked, decide which pane should answer, and type the next routing command.
+That is already the wrong level of work for a human. The durable form is the
+part where terminal processes keep running, sessions stay attachable, output
+can be inspected, and agents can do real work inside normal development
+environments.
+
+That durable form is not disappearing. More of the work is moving onto it.
+
+This is the second post in a four-part series. The previous post explains
+[why multi-agent structure is useful](2026-07-14-why-multi-agent.qmd). The next
+posts cover [the two state machines behind agent work](2026-07-14-two-state-machines-for-agent-work.qmd)
+and [the organizational shape of a personal agent workstation](2026-07-14-company-inside-personal-computer.qmd).
+
+It also does not have to live on the laptop in front of me. tmux is valuable
+because it can run on a personal machine, a home server, or a remote host, and
+the session remains a stable place for work even when I move between desk,
+laptop, and phone. That portability is part of why the visible pane grid can
+recede: the object worth preserving is not the screen I am touching now, but
+the sessionful execution substrate that agents can keep using.
+
+## 2. Claude Code and Codex Move Up the Stack
+
+Claude Code and Codex are still exposed as terminal-first tools. That makes
+sense today: the terminal is where the repository, shell, tests, editor habits,
+and local credentials already live.
+
+But dual use of Claude Code and Codex points in a different direction. The
+human does not want two terminal products. The human wants access to the best
+implementer for each kind of step, with the least possible ceremony.
+
+My forecast is that people who seriously use both tools will stop treating
+them as separate places to work. They will put both on the same operating
+fabric: tmux, herdr, or something with the same durable substrate properties.
+Claude Code and Codex then become mutually replaceable execution and
+personality engines behind that fabric. One may be better for a particular
+moment, but the workbench should not depend on which one is currently driving.
+That is partly an economic and operational hedge: pricing, subscription terms,
+token budgets, rate limits, availability, and model fit all change the best
+engine for a given moment.
+
+So the visible interface starts to collapse into simpler surfaces:
+
+- chat for intent and status;
+- voice input for quick delegation;
+- file viewers and diffs for review;
+- images and screenshots when the artifact is visual;
+- browser and phone surfaces for remote approval.
+
+The agent CLIs can remain underneath. They can keep their strengths, local
+state, authentication, and model-specific behavior. But the human-facing layer
+stops being "which CLI am I typing into?" and becomes "what decision do I need
+to make?"
+
+In that world, Claude Code and Codex are less like two apps competing for a
+terminal tab and more like two departments inside a local organization. The
+common substrate matters more than the currently active department.
+
+## 3. herdr Shows the Interface Direction
+
+This is why [herdr](https://herdr.dev/) is interesting. Its homepage describes
+itself as an agent multiplexer: one terminal for the whole herd, where coding
+agents run in real terminals and stay alive on a server even after the laptop
+closes. Its [concepts documentation](https://herdr.dev/docs/concepts/) makes
+the same point in more structural terms: workspaces contain tabs and panes,
+panes are real terminals, and agents are recognized processes with runtime
+states such as blocked, working, done, idle, and unknown.
+
+That is more than a nicer terminal UI. It changes the unit of attention.
+
+Traditional tmux asks me to manage windows and panes. herdr asks me to manage
+workspaces, agents, and status. Its [session state documentation](https://herdr.dev/docs/session-state/)
+separates live detach, snapshot restore, pane history replay, native agent
+session restore, and live handoff. Those distinctions matter because agent work
+is not a single command returning a value. It is a long-running process with
+state, output, context, and recovery paths.
+
+The claim is not "herdr replaces tmux." It may or may not for a given user.
+The stronger signal is that terminal multiplexing is being reframed around
+agent operations.
+
+That also changes the role of the agent brand. If the workspaces, panes,
+sessions, handoffs, and artifacts are stable outside the model client, then
+switching from Claude Code to Codex is closer to reassigning an implementer than
+moving the whole office. The continuity belongs to the substrate, not to a
+single CLI. The practical win is that cost, quota, outage, or fit can change
+the implementer choice without forcing the user to rebuild the work state.
+
+The terminal remains the substrate. The visible object becomes the agent.
+
+## 4. postman Shows the Other Half
+
+A local counterpart is [`tmux-a2a-postman`](https://github.com/i9wa4/tmux-a2a-postman).
+It takes the opposite posture from herdr in some ways. It is not trying to be
+the terminal workspace. It is a thin coordination layer around tmux panes.
+
+The README describes the shape plainly: roles and handoff edges live in
+`postman.md`; a daemon routes local mail between matching tmux pane titles; the
+system keeps inbox, read, dead-letter, reply-required, journal, projection, and
+pane-state surfaces visible. The design notes are careful about the boundary:
+postman is not a full agent runtime, not a broad workflow engine, and not a
+replacement for tmux or the agent CLIs.
+
+That boundary makes the tool useful. tmux still owns terminal processes.
+postman owns the obligation ledger around those processes: who asked for what,
+which reply is still required, which request was filled, and which work is
+blocked by a review or approval dependency. It is a message lane, but the
+valuable part is the responsibility state that survives beyond any one pane's
+terminal history.
+
+The human-facing dashboard matters less than the state it exposes. A message
+was delivered. A reply is required. A request is waiting. A request was filled.
+A message fell into dead letter. Those are not vibes from terminal history. They are
+transport facts.
+
+This is another version of the same forecast: tmux survives, but the human
+should not have to operate its visible pane grid by memory.
+
+## 5. The Phone Is the Real UI Test
+
+The easiest way to test this prediction is to leave the desk.
+
+If agent work still requires me to open a laptop, find the right terminal
+window, inspect panes, and type into the correct process, then the terminal is
+still the user interface. If I can approve, redirect, or inspect from a phone,
+then the terminal has become infrastructure.
+
+This is why I pay attention to phone and private-network experiments around
+agent terminals.
+
+herdr's official docs emphasize local and SSH-based remote attach. Its
+[remote access documentation](https://herdr.dev/docs/persistence-remote/)
+describes a background server, local clients, remote attach over SSH, direct
+terminal attach, and read-only terminal observers. Its [socket API](https://herdr.dev/docs/socket-api/)
+exposes the kind of control surface scripts and agents need: create and focus
+workspaces, manage tabs and panes, read output, send input, start agents, wait
+for state, and subscribe to events.
+
+Telegram support, from what I can verify, is already appearing around herdr
+rather than as the core herdr contract. [`herdr-remote`](https://github.com/dcolinmorgan/herdr-remote)
+advertises phone, menu bar, and Telegram status and approvals for herdr
+agents. [`ccgram`](https://github.com/alexei-led/ccgram) describes a Telegram
+bridge for Claude Code, Codex CLI, Gemini CLI, tmux, and herdr. That distinction
+matters: the official core is a terminal workspace and API; the ecosystem is
+already reaching for phone and Telegram surfaces.
+
+Tailscale is similar in my current evidence. I can verify it strongly in
+adjacent local tooling: [`markdown-remote-viewer`](https://github.com/i9wa4/markdown-remote-viewer)
+has an explicit `--tailscale` mode for serving Markdown over a Tailnet. For
+herdr itself, the official remote story I verified is SSH remote attach, not
+native Tailscale. But the direction is the same: private network access plus
+phone-readable review surfaces turns the terminal into a backend.
+
+The durable point is not a specific network product. It is location
+independence. If the execution substrate runs on a server and is reachable
+through SSH or a private network, I can inspect and approve work from almost
+anywhere without moving the work itself. tmux has had that property for a long
+time. herdr follows the same path by treating the terminal workspace as a
+server-backed thing that clients can attach to.
+
+The phone does not need a decorated cockpit. It needs a small set of decisions.
+
+## 6. AI Subscriptions Belong on the Individual's PC
+
+There is a tempting cloud-only version of this future: every agent runs in a
+vendor-controlled remote workspace, and the local machine becomes a thin
+browser tab.
+
+That will be useful for many teams, but it is not the whole shape. For personal
+work, I expect a strong counter-principle:
+
+> AI subscriptions should run against the individual's own PC.
+
+More precisely: they should run against the individual's own operating
+environment, whether that is a laptop, desktop, home server, or personally
+controlled remote machine. The reason is not nostalgia for local machines. It
+is state. I expand this organizational angle in
+["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd);
+the short version here is that the workbench should stay close to the user's
+own files, credentials, project checkouts, and operating habits.
+
+The likely pattern is hybrid. The model may be remote. The workbench stays
+local or personally controlled. The interaction layer becomes browser, phone,
+text, image, and voice. Private networking can make the workbench reachable
+without making it vendor-owned. The terminal remains the execution substrate.
+
+## 7. What Stops Mattering
+
+Visual decoration carries less of the value in this model.
+
+Design still matters. What loses value is the decorative operator surface. When
+the human is no longer driving the machinery directly, a beautiful dashboard of
+every pipe and gear is not the scarce thing.
+
+The scarce thing is a correct escalation:
+
+- What needs my decision?
+- What finished?
+- What failed?
+- What evidence should I inspect?
+- What can the system safely decide without me?
+
+That view does not have to resemble the terminal that keeps the work alive. A
+phone review pane, a remote browser surface, or a small decision inbox can sit
+above the same tmux sessions and show only the handoff that matters now. The
+machine room remains reachable, but the default surface is the decision edge:
+what changed, what needs approval, and which artifact deserves inspection.
+
+The terminal survives because someone still has to run the processes.
+
+The visible terminal disappears because that someone is increasingly an AI
+agent.
