@@ -16,7 +16,10 @@ image: "/assets/common/icon_hhkb3_large.jpg"
 
 The first mistake in agent coordination is treating all state as one thing.
 
-It is not.
+That assumption is wrong.
+
+It is tempting because a terminal pane, a mailbox entry, and a checklist item
+can all look like progress from a distance.
 
 There is the state of the agents: which processes exist, which pane is active,
 which agent is blocked, which message is unread, which reply is still required,
@@ -32,16 +35,19 @@ stuck. A reply can fill the transport request while the completion claim still
 lacks evidence.
 
 This is where I think agent tooling is headed: first an operating-state machine
-for agents, then a task-state machine above it.
+for agents, then a task-state machine above it. One keeps the work from getting
+lost. The other decides whether the work should count.
 
-This is the third post in a four-part series. It follows
+This third post follows
 ["Why Multi-Agent?"](2026-07-14-why-multi-agent.qmd) and
 ["tmux Survives, But Its Visible Form Disappears"](2026-07-14-tmux-survives-visible-form-disappears.qmd),
 and it leads into ["A Company Inside the Personal Computer"](2026-07-14-company-inside-personal-computer.qmd).
 
 ## 2. The First State Machine: Agent Operations
 
-The first state machine answers operational questions.
+The first state machine answers operational questions. These are not questions
+about quality yet. They are questions about whether the agent system still has
+the work in hand.
 
 - Is the agent process alive?
 - Is it working, blocked, done, idle, or unknown?
@@ -51,7 +57,8 @@ The first state machine answers operational questions.
 - Which required reply is still open?
 - Did the message reach a dead-letter path?
 
-herdr and tmux-a2a-postman attack different parts of this layer.
+herdr and tmux-a2a-postman attack different parts of this layer. The evidence
+they expose is different, but the layer is the same.
 
 [herdr's concepts documentation](https://herdr.dev/docs/concepts/) defines a
 workspace/tab/pane model around real terminal processes. It recognizes agents
@@ -71,12 +78,15 @@ or is waiting on someone else without asking a human to infer that from
 terminal history.
 
 Both are operating-state machines. They do not prove that the task is correct.
-They make it harder to lose the work before correctness can even be checked.
+They make it harder to lose the work before correctness can even be checked. In
+practice, that is already a major step: an invisible lost obligation cannot be
+reviewed.
 
 ## 3. postman as a Message-Lane State Machine
 
 Postman's best design choice is that it refuses to pretend the mailbox is the
-whole workflow.
+whole workflow. It records delivery without inflating delivery into
+acceptance.
 
 The README describes postman as a thin coordination layer. It keeps roles and
 edges in `postman.md`, routes local mail between tmux panes, stores archives,
@@ -109,14 +119,16 @@ Postman should not say, by itself:
 
 That second set belongs to the next layer.
 
-This distinction is why "DONE" is not enough. A terminal-looking reply can
-close a transport loop. It should not automatically close the task. Completion
-needs an artifact, checklist status, evidence, verification, and remaining
-blockers.
+This distinction is why "DONE" is not enough. A terminal-looking reply can close
+a transport loop. It should not automatically close the task. Completion needs
+an artifact, checklist status, evidence, verification, and remaining blockers.
+Without those, "DONE" is only a message that arrived.
 
 ## 4. The Second State Machine: Task Meaning
 
-The second state machine answers semantic questions.
+The second state machine answers semantic questions. Here the system stops
+asking whether work moved and starts asking whether the movement satisfied the
+request.
 
 - What was the original request?
 - Which checklist items must pass?
@@ -133,7 +145,9 @@ Prompting gets a message stated well. Context gets the reader the right facts.
 Harnessing gets the message to the right process. Loop engineering proves the
 work actually happened.
 
-The two-state-machine framing is the next version of that same idea.
+The two-state-machine framing is the next version of that same idea. The loop
+cannot merely deliver messages to agents; it has to preserve the meaning of the
+work across handoffs.
 
 The first state machine is mostly harness and operating state. It is about
 agents, panes, mail, sessions, liveness, and recoverability.
@@ -141,8 +155,9 @@ agents, panes, mail, sessions, liveness, and recoverability.
 The second state machine is task state. It is about requested work, evidence,
 review, acceptance, rejection, and what remains unresolved.
 
-Confusing these two layers creates a brittle system. Keeping them separate
-makes the system inspectable.
+Confusing these two layers creates a brittle system. Keeping them separate makes
+the system inspectable: one layer can say the work is still alive, and the other
+can still reject the result.
 
 ## 5. herdr and postman Point at Different Boundaries
 
@@ -152,14 +167,15 @@ tools inspect and control workspaces, tabs, panes, and agents. Integrations can
 report session identity or lifecycle state for supported agent CLIs. Plugins
 extend workflows by calling back into the Herdr CLI or socket API.
 
-That is a rich operating substrate.
+That is a rich operating substrate. It gives agents somewhere durable to run and
+gives operators concrete state to inspect.
 
 Postman shows a thinner transport boundary. It does not own model sessions. It
 does not try to be a full workflow engine. It keeps mail, reply obligations,
 archives, and status projection outside any one agent's context window.
 
-That difference matters because the future does not need every tool to become
-the same product. It needs clean layers:
+That difference keeps the layers visible. The future does not need every tool to
+become the same product. It needs clean layers:
 
 - terminal/session substrate;
 - agent operating state;
@@ -169,7 +185,9 @@ the same product. It needs clean layers:
 - human-facing summary state.
 
 Some products will combine layers. Some local systems will compose small tools.
-The brand boundary matters less than the durability of the state.
+The brand boundary is less useful than asking which state survives. A layer can
+be thin and still be decisive if it owns the obligation that would otherwise
+vanish.
 
 This is what makes Claude Code and Codex feel increasingly interchangeable in
 the forecast. They can differ as execution engines, but the operating state and
@@ -184,8 +202,9 @@ review surface.
 
 ## 6. Where Remote Access Fits
 
-Phone access is not just a convenience feature. It stress-tests the state
-model.
+Phone access is not just a convenience feature. It stress-tests the state model.
+The smaller screen removes the illusion that a human can keep every pane in
+mind.
 
 When the human is at the terminal, the system can get away with weak state
 because the human can inspect everything manually. When the human is on a
@@ -203,7 +222,8 @@ Phone access does not remove the need for state machines. It exposes the need.
 ## 7. What the Task Layer Should Store
 
 The second state machine does not need to be heavy at first. It can start as a
-durable task artifact with a checklist.
+durable task artifact with a checklist. That sounds plain, but plainness is a
+feature here: the record has to survive model turns before it becomes elegant.
 
 The minimum useful record is deliberately plain:
 
@@ -224,7 +244,8 @@ An approval becomes a record. An agent's history of correct completions becomes
 a queryable fact. An audit becomes a state transition. A completion without
 evidence becomes a malformed claim rather than a weak paragraph.
 
-That is the second-stage state machine.
+That is the second-stage state machine. It turns acceptance from prose into a
+state that can be inspected.
 
 ## 8. The Forecast
 
