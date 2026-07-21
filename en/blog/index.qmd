@@ -24,8 +24,8 @@ share: false
 
 ::: {.category-buttons}
 [All](.){.btn .btn-outline-secondary .btn-sm}
-[blog (14)](#category=blog){.btn .btn-outline-primary .btn-sm}
-[tech-ai (14)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
+[blog (15)](#category=blog){.btn .btn-outline-primary .btn-sm}
+[tech-ai (15)](#category=tech-ai){.btn .btn-outline-primary .btn-sm}
 :::
 
 ## Multi-Agent Systems Series
