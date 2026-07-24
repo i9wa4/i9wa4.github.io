@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2026-06-04">
+<meta name="description" content="Claude Sonnet 200k を普段使いするために、モデル選択より先に整えたい役割分担、復帰、証跡管理をまとめる。">
+
+<title>Claude Sonnet 200k を普段使いするにはワークフローが要る – uma-chan’s page</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-af8bd029fa0acc6748d0af4725462cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/social-share-1.0.0/social-share.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Claude Sonnet 200k を普段使いするにはワークフローが要る – uma-chan’s page">
+<meta property="og:description" content="Claude Sonnet 200k を普段使いするために、モデル選択より先に整えたい役割分担、復帰、証跡管理をまとめる。">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan’s page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="Claude Sonnet 200k を普段使いするにはワークフローが要る – uma-chan’s page">
+<meta name="twitter:description" content="Claude Sonnet 200k を普段使いするために、モデル選択より先に整えたい役割分担、復帰、証跡管理をまとめる。">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#コンテキストが大きくても運用は勝手に整わない" id="toc-コンテキストが大きくても運用は勝手に整わない" class="nav-link active" data-scroll-target="#コンテキストが大きくても運用は勝手に整わない">1. コンテキストが大きくても、運用は勝手に整わない</a></li>
+  <li><a href="#役割を分けて各エージェントのコンテキストを小さくする" id="toc-役割を分けて各エージェントのコンテキストを小さくする" class="nav-link" data-scroll-target="#役割を分けて各エージェントのコンテキストを小さくする">2. 役割を分けて、各エージェントのコンテキストを小さくする</a></li>
+  <li><a href="#コンパクション後に役割へ戻れるようにする" id="toc-コンパクション後に役割へ戻れるようにする" class="nav-link" data-scroll-target="#コンパクション後に役割へ戻れるようにする">3. コンパクション後に役割へ戻れるようにする</a></li>
+  <li><a href="#タスク状態は外に置く" id="toc-タスク状態は外に置く" class="nav-link" data-scroll-target="#タスク状態は外に置く">4. タスク状態は外に置く</a></li>
+  <li><a href="#tmux-a2a-postman-は受け渡しを残す層" id="toc-tmux-a2a-postman-は受け渡しを残す層" class="nav-link" data-scroll-target="#tmux-a2a-postman-は受け渡しを残す層">5. <code>tmux-a2a-postman</code> は受け渡しを残す層</a></li>
+  <li><a href="#経験則" id="toc-経験則" class="nav-link" data-scroll-target="#経験則">6. 経験則</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Claude Sonnet 200k を普段使いするにはワークフローが要る</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-ai</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Claude Sonnet 200k を普段使いするために、モデル選択より先に整えたい役割分担、復帰、証跡管理をまとめる。</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-06-04</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-06-04</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="コンテキストが大きくても運用は勝手に整わない" class="level2">
+<h2 class="anchored" data-anchor-id="コンテキストが大きくても運用は勝手に整わない">1. コンテキストが大きくても、運用は勝手に整わない</h2>
+<p>Claude Sonnet 200k は、今でも普段使いの現実的な基準だと思っています。ここでは、200k トークン級のコンテキストウィンドウを持つ Claude Sonnet モデルを指しています。</p>
+<p>ただ、コンテキストが大きいことと、作業が回しやすいことは別です。読める量は増えますが、誰がタスクを持っているのか、レビューを誰に頼むのか、コンパクション後にどこから戻るのか、エージェント間でどう受け渡すのかまでは整理してくれません。</p>
+<p>毎回 Claude Opus に寄せないと安定しないなら、モデル選択だけの問題ではなく、Sonnet で回す普段の作業経路に詰まりが残っているのかもしれません。</p>
+<p>2026-06-02 時点で、私の Claude Code の <code>/model</code> メニューでは Claude Sonnet 4.6 が普段使い、Claude Opus 4.8 が複雑な作業向けとして表示されていました。<a href="https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code">Claude Code model guide</a> も同じ整理です。</p>
+<p>利用枠やコンテキスト上限の見え方は、UI、プラン、シート、バージョン、アカウント状態で変わります。<a href="https://code.claude.com/docs/en/changelog">Claude Code changelog</a>、<a href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan">Max plan page</a>、<a href="https://support.claude.com/en/articles/9266767-what-is-the-team-plan">Team plan page</a>、<a href="https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans">paid-plan context page</a>、<a href="https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window">API context page</a> を見ても、この辺りは条件付きの話が多いです。</p>
+<p>それでも、Opus の方が利用枠とコストを食いやすい傾向は変わりません。<a href="https://platform.claude.com/docs/en/about-claude/pricing">pricing page</a> でも Opus は Sonnet より高く、<a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work">usage limits page</a> も利用量がモデル、会話の長さ、機能、ツールに依存すると説明しています。</p>
+<p>なので私は、Claude Sonnet 200k を厳密な上限値としてではなく、日常運用の基準として扱っています。まず Sonnet で回る道を整える。そのうえで、本当に深い推論が効くターンだけ Opus を選ぶ、という切り分けです。</p>
+<p>失敗の多くは、モデルがファイルを読めなかったことより、運用が曖昧になったことから起きます。たとえば、誰がタスクを持っているか分からない。現在のチェックリストが古いターンに埋もれる。レビュー依頼に誰も返さない。コンパクション後に細かいが重要な条件が抜ける。この手のものです。</p>
+<p>コンテキストは作業場です。1つのエージェントが計画、実装、レビュー、記憶、報告を全部抱えるなら、あとから参照したい依頼や証跡には別の置き場所が必要になります。</p>
+</section>
+<section id="役割を分けて各エージェントのコンテキストを小さくする" class="level2">
+<h2 class="anchored" data-anchor-id="役割を分けて各エージェントのコンテキストを小さくする">2. 役割を分けて、各エージェントのコンテキストを小さくする</h2>
+<p>1つの高性能なエージェントに、計画、編集、テスト、レビュー、報告まで任せることはできます。ただ、その全部を1つのセッションに積むと、古い選択肢、途中の確認、レビュー指摘、ユーザー向けの言い回し、実装詳細が混ざります。</p>
+<p>私はここを責務ごとに分ける方が扱いやすいと思っています。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>責務</th>
+<th>持たせる仕事</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ユーザー依頼を受ける</td>
+<td>messenger または入口の役割</td>
+</tr>
+<tr class="even">
+<td>計画して委譲する</td>
+<td>orchestrator role</td>
+</tr>
+<tr class="odd">
+<td>実装する</td>
+<td>worker role</td>
+</tr>
+<tr class="even">
+<td>検証する</td>
+<td>reviewer role</td>
+</tr>
+<tr class="odd">
+<td>ユーザーに要約して返す</td>
+<td>messenger または orchestrator handoff</td>
+</tr>
+</tbody>
+</table>
+<p>これは、複数エージェントにすれば勝手に客観的になる、という話ではありません。レビュアーも見落としますし、オーケストレーターも委譲に失敗します。</p>
+<p>利点はもっと地味です。各エージェントが、自分の役割に必要なコンテキストだけを濃く持てるようになります。大きなコンテキストウィンドウは、全員の履歴を1つに詰め続けるためではなく、役割を絞ったエージェントがファイル、ログ、証跡を深く調べるために使う方が効きます。</p>
+</section>
+<section id="コンパクション後に役割へ戻れるようにする" class="level2">
+<h2 class="anchored" data-anchor-id="コンパクション後に役割へ戻れるようにする">3. コンパクション後に役割へ戻れるようにする</h2>
+<p>自動コンパクションは、長いセッションを続けるには便利です。一方で、エージェントがすぐ参照できる文脈を圧縮して書き換えるので、そこが危なくもあります。</p>
+<p>危ないのは、タスクの途中で要約から再開して、小さいけれど重要な指示が抜けたり弱くなったりすることです。コンパクション後は、動く前に次の足場を戻しておきたいです。</p>
+<ul>
+<li>自分はどの役割か</li>
+<li>誰と話せるか</li>
+<li>今開いているタスクは何か</li>
+<li>何をもって完了とする元チェックリストか</li>
+<li>トランスクリプトの外にどんな証跡があるか</li>
+</ul>
+<p>Claude Code の after-compaction hook が使えるなら、単一エージェントでは「この指示ファイルを読み、このタスクアーティファクトから続ける」と戻せます。</p>
+<p>マルチエージェントでは、全ペインに同じリマインダーを入れるだけでは足りません。messenger、orchestrator、worker、reviewer は、必要な役割、連絡先、安全ルールが違います。</p>
+<p>tmux ベースなら、ペインタイトルを役割名として使うのが分かりやすいです。<code>worker</code> ペインは worker の役割に戻す。<code>orchestrator</code> ペインは段取り役に戻す。<code>messenger</code> ペインは transport-only のままにする。モデルのコンテキストの外にあり、ハーネスから見える情報なので、ローカルな復帰キーとして使いやすいです。</p>
+</section>
+<section id="タスク状態は外に置く" class="level2">
+<h2 class="anchored" data-anchor-id="タスク状態は外に置く">4. タスク状態は外に置く</h2>
+<p>長いコンテキストは推論には役立ちますが、タスクデータベースとしては弱いです。</p>
+<p>1つの長いチャットには、古い意思決定、捨てた計画、コマンド出力、レビューコメント、横道の議論が混ざります。モデルから見ると長いテキストですが、こちらがほしいのは、現在の意思決定、アクティブなチェックリスト、検証サマリー、未解決のレビュー指摘、次の役割へ渡せるハンドオフです。</p>
+<p>解決策はプロンプトをさらに長くすることではありません。プロンプトの外に、小さくて永続的な置き場所を作ることです。</p>
+<p>メールは依頼を運ぶ。タスクアーティファクトは証跡を残す。コンテキストは推論に使う。この分担にすると、古いトークンの山から現在の状態を推測させずに済みます。</p>
+</section>
+<section id="tmux-a2a-postman-は受け渡しを残す層" class="level2">
+<h2 class="anchored" data-anchor-id="tmux-a2a-postman-は受け渡しを残す層">5. <code>tmux-a2a-postman</code> は受け渡しを残す層</h2>
+<p>私のローカル実装は <a href="https://github.com/i9wa4/tmux-a2a-postman"><code>tmux-a2a-postman</code></a> です。メールボックス層は <a href="../en/blog/2026-05-17-tmux-a2a-postman-markdown-mail-for-ai-agent-teams.html">以前の記事</a> で紹介しました。この記事で見たいのは、Claude の作業記憶を信用しすぎず、その周りに受け渡しを残す層を置くことです。</p>
+<p><code>tmux-a2a-postman</code> は Claude を賢くしません。コンテキストウィンドウも増やしません。Claude Code、Codex CLI、tmux、ネイティブサブエージェントを置き換えるものでもありません。</p>
+<p>足しているのは、次のような薄い運用レイヤーです。</p>
+<ul>
+<li>役割を <code>postman.md</code> で名前付けする</li>
+<li>許可されたハンドオフを Mermaid の edge として定義する</li>
+<li>ノード識別に tmux のペインタイトルを使う</li>
+<li>メッセージを Markdown メールとして保存する</li>
+<li>受信者が <code>pop</code> でメールを claim する</li>
+<li>reply-required な依頼に正確な入力リクエストを開く</li>
+<li>キュー、dead letter、<code>pending</code>、<code>waiting</code>、<code>ready</code>、<code>stale</code> を見えるようにする</li>
+</ul>
+<p>最小限で役に立つトポロジーは小さくて十分です。</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    messenger["messenger&lt;br/&gt;human-facing"]
+    orchestrator["orchestrator&lt;br/&gt;task coordinator"]
+    worker["worker&lt;br/&gt;implementation"]
+    reviewer["reviewer&lt;br/&gt;verification"]
+
+    messenger --- orchestrator
+    orchestrator --- worker
+    orchestrator --- reviewer
+
+    class messenger entry
+    class orchestrator,worker,reviewer role
+    classDef entry fill:#dbeafe,stroke:#2563eb,color:#0f172a
+    classDef role fill:#f8fafc,stroke:#64748b,color:#0f172a
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>worker は人間と話す手順を覚えなくてよい。reviewer は実装の全履歴を抱えなくてよい。messenger はファイルを調べなくてよい。orchestrator が経路を持つことで、各役割のコンテキストを小さく保てます。</p>
+<p>作業の単位は Markdown メールです。送信者は reply-required な依頼を作る。受信者は <code>pop</code> で claim する。終わったら正確な入力リクエストを閉じる。このくらいの形にしておくと、誰が何を持っているかがかなり怪しくなりにくいです。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux-a2a-postman</span> pop</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux-a2a-postman</span> send-heredoc <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--to</span> orchestrator <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--fills-input-request-id</span> <span class="op">&lt;</span>input-request-id<span class="op">&gt;</span> <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--reply-to</span> <span class="op">&lt;</span>message-id<span class="op">&gt;</span> <span class="op">&lt;&lt;'MESSAGE_BODY'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">DONE: Article updated and verified.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">Task artifact: &lt;artifact-reference&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">Original checklist: PASS</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">Remaining blockers: none</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="op">MESSAGE_BODY</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>ここで閉じるのは transport slot です。作業が正しいことは、元チェックリスト、進捗、意思決定、検証証跡、ブロッカー、完了判定を持つタスクアーティファクトで示します。</p>
+</section>
+<section id="経験則" class="level2">
+<h2 class="anchored" data-anchor-id="経験則">6. 経験則</h2>
+<p>Claude Sonnet 200k 作業に対する私のルールは単純です。</p>
+<blockquote class="blockquote">
+<p>推論はコンテキストに置く。依頼はメールに置く。証跡はアーティファクトに置く。</p>
+</blockquote>
+<p>コンテキストウィンドウは強力な作業場です。信頼できる記憶システム、キュー、レビュープロセス、プロジェクトマネージャーではありません。</p>
+<p>長いエージェント実行では、私は周辺に3つのものを置きたいです。</p>
+<ol type="1">
+<li>各役割の仕事を小さくするマルチエージェント分解。</li>
+<li>コンパクション後に役割と状態を戻す復帰の仕組み。</li>
+<li>チェックリストと証跡をモデルの作業記憶の外に残すタスク管理。</li>
+</ol>
+<p><code>tmux-a2a-postman</code> は、この運用モデルのローカル実装にすぎません。日常作業では Claude Sonnet を使いやすく保ち、Claude Opus を乱雑になった状態の救済策ではなく、意図して選ぶものにできます。</p>
+
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-06-04-claude-sonnet-200k-context-tmux-a2a-postman.html&amp;text=Claude%20Sonnet%20200k%20%E3%82%92%E6%99%AE%E6%AE%B5%E4%BD%BF%E3%81%84%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%8C%E8%A6%81%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Claude%20Sonnet%20200k%20%E3%82%92%E6%99%AE%E6%AE%B5%E4%BD%BF%E3%81%84%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%8C%E8%A6%81%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-06-04-claude-sonnet-200k-context-tmux-a2a-postman.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-06-04-claude-sonnet-200k-context-tmux-a2a-postman.html&amp;title=Claude%20Sonnet%20200k%20%E3%82%92%E6%99%AE%E6%AE%B5%E4%BD%BF%E3%81%84%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%8C%E8%A6%81%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+<p>Top</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../feed.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

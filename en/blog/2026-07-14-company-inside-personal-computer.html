@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2026-07-14">
+<meta name="description" content="Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, planners, implementers, reviewers, approvers, coordinators, operators, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows">
+
+<title>A Company Inside the Personal Computer – uma-chan’s page</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-af8bd029fa0acc6748d0af4725462cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/social-share-1.0.0/social-share.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+
+
+<meta property="og:title" content="A Company Inside the Personal Computer – uma-chan’s page">
+<meta property="og:description" content="Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, planners, implementers, reviewers, approvers, coordinators, operators, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan’s page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="A Company Inside the Personal Computer – uma-chan’s page">
+<meta name="twitter:description" content="Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, planners, implementers, reviewers, approvers, coordinators, operators, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#the-shape-is-organizational" id="toc-the-shape-is-organizational" class="nav-link active" data-scroll-target="#the-shape-is-organizational">1. The Shape Is Organizational</a></li>
+  <li><a href="#the-human-stops-being-the-operator" id="toc-the-human-stops-being-the-operator" class="nav-link" data-scroll-target="#the-human-stops-being-the-operator">2. The Human Stops Being the Operator</a></li>
+  <li><a href="#middle-managers-are-not-a-joke-here" id="toc-middle-managers-are-not-a-joke-here" class="nav-link" data-scroll-target="#middle-managers-are-not-a-joke-here">3. Middle Managers Are Not a Joke Here</a></li>
+  <li><a href="#the-approver" id="toc-the-approver" class="nav-link" data-scroll-target="#the-approver">4. The Approver</a></li>
+  <li><a href="#the-operator" id="toc-the-operator" class="nav-link" data-scroll-target="#the-operator">5. The Operator</a></li>
+  <li><a href="#why-the-individual-pc-still-matters" id="toc-why-the-individual-pc-still-matters" class="nav-link" data-scroll-target="#why-the-individual-pc-still-matters">6. Why the Individual PC Still Matters</a></li>
+  <li><a href="#what-herdr-and-postman-suggest" id="toc-what-herdr-and-postman-suggest" class="nav-link" data-scroll-target="#what-herdr-and-postman-suggest">7. What herdr and postman Suggest</a></li>
+  <li><a href="#the-top-level-agent" id="toc-the-top-level-agent" class="nav-link" data-scroll-target="#the-top-level-agent">8. The Top-Level Agent</a></li>
+  <li><a href="#the-forecast" id="toc-the-forecast" class="nav-link" data-scroll-target="#the-forecast">9. The Forecast</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Company Inside the Personal Computer</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-ai</div>
+    <div class="quarto-category">ai-generated</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Multi-agent setups start to look less like tools and more like small organizations: shared substrates, replaceable engines, planners, implementers, reviewers, approvers, coordinators, operators, and a top-level agent. #AIAgents #PersonalComputing #AgenticWorkflows</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-07-14</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-07-16</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-shape-is-organizational" class="level2">
+<h2 class="anchored" data-anchor-id="the-shape-is-organizational">1. The Shape Is Organizational</h2>
+<p>Once more than one agent is involved, the metaphor changes. At first the change looks like tooling. Then the roles, handoffs, approvals, and records begin to look like something older.</p>
+<p>A single agent is a tool. A few agents with handoffs are a workflow. A durable set of agents with roles, review, approval, routing, memory, and escalation starts to look like an organization.</p>
+<p>The earlier posts cover <a href="../../en/blog/2026-07-14-why-multi-agent.html">why multi-agent structure is useful</a>, <a href="../../en/blog/2026-07-14-tmux-survives-visible-form-disappears.html">tmux as the surviving execution substrate</a>, and <a href="../../en/blog/2026-07-14-two-state-machines-for-agent-work.html">the two state machines behind agent work</a>. This final piece follows the consequence: once those responsibilities are split, the personal computer starts to contain an organization.</p>
+<p>That organization does not have to be a company in the legal sense. It can live inside one person’s computer. But the operating shape is familiar:</p>
+<ul>
+<li>planners shape the work;</li>
+<li>implementers do task execution;</li>
+<li>reviewers check outputs;</li>
+<li>approvers guard risky actions;</li>
+<li>coordinators route work;</li>
+<li>operators handle status and trust boundaries;</li>
+<li>one top-level agent talks to the human.</li>
+</ul>
+<p>The surprising part is not that AI can write code. The surprising part is that personal computing starts to borrow the structure of organizations because the same pressure appears: limited attention, risky boundaries, handoffs, and evidence.</p>
+</section>
+<section id="the-human-stops-being-the-operator" class="level2">
+<h2 class="anchored" data-anchor-id="the-human-stops-being-the-operator">2. The Human Stops Being the Operator</h2>
+<p>The old personal-computer story made the human the operator. The machine waited for commands. The user clicked, typed, dragged, copied, pasted, and watched progress.</p>
+<p>Agent work changes the user’s job. The machine can keep doing terminal work, but that no longer means the human should supervise it at terminal granularity.</p>
+<p>If terminal operation is increasingly handed to AI, the human should not spend attention on panes, process IDs, shell prompts, and routing commands. The human should spend attention on goals, priorities, exceptions, and approvals.</p>
+<p>That moves the human up the org chart. The move is only useful if the system can carry enough state upward to make that higher position real.</p>
+<p>The user becomes less like the person at the machine console and more like the company president speaking to an executive assistant. The top-level agent does not need to report every keystroke. It needs to report the decision surface:</p>
+<ul>
+<li>what is moving;</li>
+<li>what is blocked;</li>
+<li>what decision is needed;</li>
+<li>what risk changed;</li>
+<li>what artifact should be read;</li>
+<li>what can safely proceed without interruption.</li>
+</ul>
+<p>This is why the visible UI can become narrower without becoming decorative. A CEO in a working company does not personally manage every handoff, queue, and small task. They need a briefing surface: goals, exceptions, approvals, evidence, and priority changes. A personal agent workstation should make the same move. It can expose the details, but the default human-facing surface should be built for executive review, not decorative reassurance or detailed task management.</p>
+</section>
+<section id="middle-managers-are-not-a-joke-here" class="level2">
+<h2 class="anchored" data-anchor-id="middle-managers-are-not-a-joke-here">3. Middle Managers Are Not a Joke Here</h2>
+<p>“Middle manager agent” sounds unflattering, but it is exactly the role that multi-agent systems need once execution fans out.</p>
+<p>Someone has to aggregate work. Someone has to know that one implementer is waiting on review, another has failed verification, a third can proceed, and a fourth should not touch production data. Someone has to decide which details are worth escalating to the human. Without that role, the human gets either silence or a raw dump of every pane.</p>
+<p>That is management.</p>
+<p>In a small setup, this role is often a coordinator. In a larger setup, there may be several layers:</p>
+<ul>
+<li>a project coordinator;</li>
+<li>a review coordinator;</li>
+<li>a release coordinator;</li>
+<li>an approval coordinator;</li>
+<li>an operator.</li>
+</ul>
+<p>The names are less useful than the flow. Execution fans out. Status rolls up. Decisions move to the level that can responsibly make them.</p>
+<p>Human organizations invented this shape because attention is limited. Agent organizations will rediscover it for the same reason.</p>
+</section>
+<section id="the-approver" class="level2">
+<h2 class="anchored" data-anchor-id="the-approver">4. The Approver</h2>
+<p>The approver role exists because some actions should not run just because an implementer can run them. Capability is not authorization.</p>
+<p>Deletion, deployment, credential changes, production data writes, external publication, irreversible migrations, public comments, and branch publication all have a different risk profile from editing a local draft. An implementer can be good at execution and still be the wrong actor to decide whether an irreversible action should proceed.</p>
+<p>So the approver becomes a separate role. The system needs a place where momentum is allowed to stop.</p>
+<p>This separation does not make the system safe by itself. Approval is not an OS sandbox, a permissions model, or a security proof. It is a recorded decision boundary. The point is to force a risky action through a different state transition:</p>
+<ol type="1">
+<li>request the action;</li>
+<li>describe the reason and blast radius;</li>
+<li>get approval or rejection;</li>
+<li>record the decision;</li>
+<li>proceed only if approved.</li>
+</ol>
+<p>That looks bureaucratic when the work is small. It becomes essential when agents are fast, persistent, and capable of acting across many local resources.</p>
+</section>
+<section id="the-operator" class="level2">
+<h2 class="anchored" data-anchor-id="the-operator">5. The Operator</h2>
+<p>The operator role exists because state and boundaries multiply. A local agent workstation is not a single room once it touches phones, private networks, GitHub, credentials, and production-capable tools.</p>
+<p>There is the boundary between private notes and a public repository. Between a local checkout and a remote server. Between a local terminal session and a phone or Telegram surface. Between a Tailnet viewer and the wider internet. Between GitHub publication and local notes. Between production data and test fixtures. Between credentials, logs, generated patches, and human approval.</p>
+<p>An operator is not only a messenger. A messenger moves text. An operator carries context across a boundary where assumptions change: who can see the data, who can act, what is audited, what can be undone, and how large the blast radius is.</p>
+<p>Private networking and local execution help, but they do not erase trust boundaries. A Tailnet can reduce exposure without making every phone action safe. A local terminal can keep work close to the user’s files while still holding secrets and production-capable credentials. A public GitHub comment is not the same kind of act as a local draft edit.</p>
+<p>The same discipline applies to state. Runtime facts, project memory, and escalation policy should not collapse into one bucket. The runtime records what happened: message delivery, session state, approvals, and failures. Project memory stores slower-moving context: precedents, decisions, feedback, and review notes. The escalation layer decides when a phone, Telegram, GitHub, production system, or human approval boundary is being crossed. Mixing those layers makes the system harder to audit and easier to criticize.</p>
+<p>That distinction has to survive as the workstation becomes networked. Telegram bridges, phone dashboards, SSH remote attach, Tailnet viewers, browser-based file review, GitHub publication, and local shell execution all have different trust assumptions.</p>
+<p>The operator’s job is to keep those assumptions visible. It should name the boundary being crossed, the permission or audience that changes, the evidence that should travel with the handoff, and the action that still requires a human approval gate. That is an operational design rule, not a guarantee that the system is safe.</p>
+</section>
+<section id="why-the-individual-pc-still-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-individual-pc-still-matters">6. Why the Individual PC Still Matters</h2>
+<p>If the system starts to resemble an organization, it is tempting to put the whole organization in the cloud. The attraction is obvious: one hosted place, one account boundary, one interface.</p>
+<p>Some of it will live there. Model calls already do. Team systems may centralize more of the runtime. But for individual work, the personal computer remains a natural headquarters. “Personal computer” here includes the user’s personally controlled machines: a laptop, desktop, home server, or remote host that stays close to the user’s own operating environment.</p>
+<p>The reason is proximity to context. The valuable state is not only in the model conversation; it is already scattered through the user’s operating environment.</p>
+<p>The user’s PC or personally controlled server already has the repositories, notes, dotfiles, SSH identities, local scripts, browser-adjacent artifacts, test environments, project checkouts, and half-written drafts. It is not just a device. It is an accumulated operating environment.</p>
+<p>An AI subscription can provide intelligence. The personal computer provides the working memory of the user’s actual life.</p>
+<p>This is also why the choice between Claude Code and Codex may become less central over time. If both can sit on the same tmux or herdr substrate, then the personal computer is not organized around one vendor’s command line. It is organized around the user’s durable workbench, with different agent engines available as interchangeable staff.</p>
+<p>Provider constraints make that routing useful. Pricing models, subscription contracts, token budgets, rate limits, and service availability shape what the user can actually do. A small company inside the PC should be able to assign work to the engine that is affordable, available, and well matched to the task without moving the whole company-state with it.</p>
+<p>That is why I expect a hybrid shape:</p>
+<ul>
+<li>models may be remote subscriptions;</li>
+<li>execution stays close to the user’s own machine or personally controlled server;</li>
+<li>state lives in local files and local services where possible;</li>
+<li>phone/browser/voice become the human interface, often over SSH or private networking;</li>
+<li>terminal processes remain the machine interface.</li>
+</ul>
+<p>The AI organization lives where the work lives.</p>
+</section>
+<section id="what-herdr-and-postman-suggest" class="level2">
+<h2 class="anchored" data-anchor-id="what-herdr-and-postman-suggest">7. What herdr and postman Suggest</h2>
+<p>herdr and tmux-a2a-postman are not the same kind of tool, but together they make the organizational direction easier to see. One gives the office a runtime; the other gives it mail and obligations.</p>
+<p>herdr makes the terminal workspace more agent-aware. Its official docs describe workspaces, tabs, panes, agent states, persistence, remote attach, integrations, plugins, and a socket API. That is a runtime surface for the organization: it lets agents and humans see, control, and recover real terminal work.</p>
+<p>postman makes handoffs explicit. It gives roles names, routes messages through declared edges, stores archives, tracks reply obligations, and surfaces waiting or pending state. That is a coordination surface for the organization: it prevents work from depending entirely on one agent’s current context window or one human’s memory of a pane.</p>
+<p>Together, they suggest the same future:</p>
+<ul>
+<li>terminal sessions become the office floor;</li>
+<li>panes become desks;</li>
+<li>agents become implementers or reviewers;</li>
+<li>message lanes become internal mail and obligation ledgers;</li>
+<li>task artifacts become case files;</li>
+<li>review and approval become gates;</li>
+<li>the human speaks to the front office.</li>
+</ul>
+<p>The metaphor is imperfect, but it points at the operational structure.</p>
+</section>
+<section id="the-top-level-agent" class="level2">
+<h2 class="anchored" data-anchor-id="the-top-level-agent">8. The Top-Level Agent</h2>
+<p>In the mature version of this setup, the user should not talk to most of the agents. Talking to every role would recreate the terminal-pane problem at the conversation layer.</p>
+<p>The user should talk to a top-level agent that behaves like the accountable representative of the whole local organization. That agent may delegate to Claude Code for one step, Codex for another, a reviewer for another, and an approver for a risky command. The user does not need to watch that routing by default.</p>
+<p>In the stronger version of this forecast, the user also does not need to care which execution engine is active most of the time. Claude Code and Codex may keep different temperaments, integrations, and strengths, but they become replaceable implementers behind the same case files, panes, mail, checks, and approval gates. The organization owns continuity. The engine contributes labor. Provider limits then become scheduling inputs, not existential constraints on the whole workstation.</p>
+<p>The top-level agent does not need to be omniscient. It needs to know when to delegate, when to summarize, when to ask, and when to stop. Those are routing judgments, not magical intelligence.</p>
+<p>This is where the company-president metaphor becomes useful. The president is not less powerful because they do not operate the assembly line. They are more effective because the organization routes the right facts upward. The visible surface shrinks for the same reason: it should expose the state of the organization, not reproduce every implementer’s console. The question is whether the human can see what changed, where responsibility sits, and which boundary is being crossed.</p>
+<p>For the human, the interface becomes smaller:</p>
+<ul>
+<li>speak the goal;</li>
+<li>read the summary;</li>
+<li>inspect the artifact;</li>
+<li>approve or reject the exception;</li>
+<li>adjust priorities.</li>
+</ul>
+<p>For the machine, the system becomes larger:</p>
+<ul>
+<li>persistent terminal runtime;</li>
+<li>multi-agent coordination;</li>
+<li>mailbox and task state;</li>
+<li>review and approval records;</li>
+<li>memory and precedent;</li>
+<li>remote viewing and notification surfaces.</li>
+</ul>
+<p>The visible UI can shrink because the hidden organization has enough structure to carry the work and enough trust-boundary discipline to know when the human must still decide.</p>
+</section>
+<section id="the-forecast" class="level2">
+<h2 class="anchored" data-anchor-id="the-forecast">9. The Forecast</h2>
+<p>The future personal AI setup is not just an assistant or a better terminal. It is a small organization inside the personal computer.</p>
+<p>The human should not have to touch tmux, but tmux-like substrates will still run. The human should not have to stare at decorative dashboards, but the system still needs precise status. The human should not have to choose every implementer, but the system still needs roles, routing, approvals, and evidence.</p>
+<p>The question shifts from “was that Claude Code or Codex?” to “which part of my local organization handled this, what evidence did it leave, and what decision do I still own?”</p>
+<p>That is a different model of personal computing. The computer is no longer only a tool the user operates. It becomes a place where an organization works on the user’s behalf.</p>
+
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-14-company-inside-personal-computer.html&amp;text=A%20Company%20Inside%20the%20Personal%20Computer%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=A%20Company%20Inside%20the%20Personal%20Computer%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-14-company-inside-personal-computer.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-14-company-inside-personal-computer.html&amp;title=A%20Company%20Inside%20the%20Personal%20Computer%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+<p>Top</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../feed.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

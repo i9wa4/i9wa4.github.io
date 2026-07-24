@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2026-07-14">
+<meta name="description" content="tmux は消えない。ただし、人間がペインを直接見て操作する形は後景に退く。Claude Code と Codex が、共通の tmux や herdr 基盤上で差し替え可能な実行エンジンになる未来を考える。">
+
+<title>tmux は生き残るが、見える形は消える – uma-chan’s page</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-af8bd029fa0acc6748d0af4725462cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/social-share-1.0.0/social-share.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+
+
+<meta property="og:title" content="tmux は生き残るが、見える形は消える – uma-chan’s page">
+<meta property="og:description" content="tmux は消えない。ただし、人間がペインを直接見て操作する形は後景に退く。Claude Code と Codex が、共通の tmux や herdr 基盤上で差し替え可能な実行エンジンになる未来を考える。">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan’s page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="tmux は生き残るが、見える形は消える – uma-chan’s page">
+<meta name="twitter:description" content="tmux は消えない。ただし、人間がペインを直接見て操作する形は後景に退く。Claude Code と Codex が、共通の tmux や herdr 基盤上で差し替え可能な実行エンジンになる未来を考える。">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#主張" id="toc-主張" class="nav-link active" data-scroll-target="#主張">1. 主張</a></li>
+  <li><a href="#claude-code-と-codex-の位置づけ" id="toc-claude-code-と-codex-の位置づけ" class="nav-link" data-scroll-target="#claude-code-と-codex-の位置づけ">2. Claude Code と Codex の位置づけ</a></li>
+  <li><a href="#herdr-が示す方向" id="toc-herdr-が示す方向" class="nav-link" data-scroll-target="#herdr-が示す方向">3. herdr が示す方向</a></li>
+  <li><a href="#postman-が示すもう一つの面" id="toc-postman-が示すもう一つの面" class="nav-link" data-scroll-target="#postman-が示すもう一つの面">4. postman が示すもう一つの面</a></li>
+  <li><a href="#スマートフォンが本当のインターフェース試験である" id="toc-スマートフォンが本当のインターフェース試験である" class="nav-link" data-scroll-target="#スマートフォンが本当のインターフェース試験である">5. スマートフォンが本当のインターフェース試験である</a></li>
+  <li><a href="#ai-サブスクリプションは自分の作業環境を動かす" id="toc-ai-サブスクリプションは自分の作業環境を動かす" class="nav-link" data-scroll-target="#ai-サブスクリプションは自分の作業環境を動かす">6. AI サブスクリプションは自分の作業環境を動かす</a></li>
+  <li><a href="#価値を失うもの" id="toc-価値を失うもの" class="nav-link" data-scroll-target="#価値を失うもの">7. 価値を失うもの</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">tmux は生き残るが、見える形は消える</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-ai</div>
+    <div class="quarto-category">ai-generated</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>tmux は消えない。ただし、人間がペインを直接見て操作する形は後景に退く。Claude Code と Codex が、共通の tmux や herdr 基盤上で差し替え可能な実行エンジンになる未来を考える。</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-07-14</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-07-16</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="主張" class="level2">
+<h2 class="anchored" data-anchor-id="主張">1. 主張</h2>
+<p>私は、ターミナルは生き残ると思っている。ただし、人間が今と同じ見方でターミナルを見続けるとは思っていない。</p>
+<p>これは、「ターミナル」を「自分の手で直接操作するもの」と捉える場合にだけ矛盾して聞こえる。エージェントを使った作業では、ターミナルはプロセスの入れ物であり、永続する作業台であり、復旧のために戻れる場所になりつつある。これらの役割は残る。変わるのは、それを誰が操作するかである。</p>
+<p>短く言えば、こうだ。</p>
+<blockquote class="blockquote">
+<p>tmux は生き残るが、見える形は消える。</p>
+</blockquote>
+<p>見える形とは、私がペインを眺め、どのエージェントが詰まっているかを覚え、どのペインが返事すべきかを判断し、次の経路選択コマンドを打つ部分だ。そこはすでに、人間が担当するには細かすぎる仕事になっている。永続する形とは、ターミナルプロセスが動き続け、セッションに再接続でき、出力を検査でき、エージェントが普通の開発環境の中で実作業を進められる部分だ。</p>
+<p>その永続する形は消えない。むしろ、より多くの仕事がそこへ移っていく。問題は、人間がその層に座り続けるべきかどうかだ。</p>
+<p>前の記事では、<a href="../blog/2026-07-14-why-multi-agent.html">なぜ複数エージェントなのか</a> を扱った。ここでは一段下がって、複数エージェントを載せる実行基盤を見る。続く記事では、<a href="../blog/2026-07-14-two-state-machines-for-agent-work.html">エージェントを使った作業の背後にある二つの状態機械</a> と、<a href="../blog/2026-07-14-company-inside-personal-computer.html">個人用コンピューターの中の会社</a> を扱う。</p>
+<p>また、それは目の前のノート PC に置かれている必要もない。tmux が価値を持つのは、個人の機械、自宅サーバー、遠隔ホストのどれでも動かせて、机、ノート PC、スマートフォンの間を移動してもセッションが安定した作業場所として残るからだ。この可搬性があるから、見えているペインの並びは後景に退ける。保存すべき対象は、今触っている画面ではなく、エージェントが使い続けられるセッション付きの実行基盤である。</p>
+</section>
+<section id="claude-code-と-codex-の位置づけ" class="level2">
+<h2 class="anchored" data-anchor-id="claude-code-と-codex-の位置づけ">2. Claude Code と Codex の位置づけ</h2>
+<p>Claude Code と Codex は、今でもターミナルを入口にしたツールとして表に出ている。現時点ではそれが自然だ。リポジトリ、シェル、テスト、エディタの習慣、ローカルの認証情報はすでにそこにある。だから、ターミナルは最も抵抗の少ない入口になる。</p>
+<p>だが、Claude Code と Codex を並べて使うと、別の方向が見えてくる。人間が欲しいのは二つのターミナル製品ではない。各段階に最も合う実装担当へ、できるだけ少ない手順でアクセスすることだ。</p>
+<p>私の予測では、両方のツールを本気で使う人は、それらを別々の作業場所として扱わなくなる。tmux、herdr、あるいは同じように永続する基盤の上に、両方を載せるようになる。すると Claude Code と Codex は、その基盤の背後にある、相互に差し替え可能な実行エンジンになる。振る舞いの個性は残る。ある瞬間には片方のほうが向いているかもしれない。だが、作業台は今どちらが動かしているかに依存すべきではない。これは経済面と運用面の保険でもある。価格、契約条件、トークン予算、利用制限、可用性、モデル適性は、ある瞬間に最適なエンジンを変える。</p>
+<p>この予測が合っているなら、人間に見える面は、より単純な形へ畳まれ始める。</p>
+<ul>
+<li>意図と状態を伝えるチャット</li>
+<li>素早く委任するための音声入力</li>
+<li>レビューのためのファイルビューアと差分表示</li>
+<li>成果物が視覚的な場合の画像とスクリーンショット</li>
+<li>遠隔承認のためのブラウザとスマートフォン画面</li>
+</ul>
+<p>エージェント CLI は下に残ってよい。各 CLI の強み、ローカル状態、認証、モデル固有の挙動も残せる。しかし人間向けの層は、「どの CLI に入力しているか」ではなく、「自分がどの判断を下す必要があるか」になる。</p>
+<p>その世界では、Claude Code と Codex はターミナルタブを奪い合う二つのアプリというより、ローカルな組織の中にある二つの部署に近い。見るべき対象は、今どの部署が稼働しているかではなく共通基盤になる。</p>
+</section>
+<section id="herdr-が示す方向" class="level2">
+<h2 class="anchored" data-anchor-id="herdr-が示す方向">3. herdr が示す方向</h2>
+<p>だから <a href="https://herdr.dev/">herdr</a> は興味深い。ターミナルを消すのではなく、ターミナルの役目を変える。ホームページでは、自分自身をエージェント多重化器と説明している。群れ全体のための一つのターミナルであり、コーディングエージェントが実際のターミナルで動き、ノート PC を閉じた後もサーバー上で生き続ける、というものだ。<a href="https://herdr.dev/docs/concepts/">概念ドキュメント</a> でも同じ点を構造的に説明している。作業空間はタブとペインを含み、ペインは実際のターミナルであり、エージェントは <code>blocked</code>、<code>working</code>、<code>done</code>、<code>idle</code>、<code>unknown</code> などの実行時状態を持つ、認識されたプロセスである。</p>
+<p>これは、単にきれいなターミナル画面というだけではない。注意の単位を変える。</p>
+<p>従来の tmux は、ウィンドウとペインを管理するよう私に求める。herdr は、作業空間、エージェント、状態を管理するよう求める。<a href="https://herdr.dev/docs/session-state/">セッション状態ドキュメント</a> は、生きたままの切り離し、スナップショット復元、ペイン履歴の再生、エージェントセッションの復元、生きたままの引き継ぎを分けている。この区別は装飾ではない。エージェントを使った作業は、値を返して終わる単一コマンドではない。状態、出力、文脈、復旧経路を持つ、長く走るプロセスだからである。</p>
+<p>主張は「herdr が tmux を置き換える」ではない。あるユーザーにとってそうなるかもしれないし、ならないかもしれない。より強い兆候は、ターミナル多重化がエージェント運用を中心に再定義されつつあることだ。残す対象は、単なるペイン配置ではなく、復旧可能な状態を持つエージェント群になる。</p>
+<p>これにより、エージェントのブランドの役割も変わる。作業空間、ペイン、セッション、引き継ぎ、成果物がモデルクライアントの外側で安定しているなら、Claude Code から Codex へ切り替えることは、オフィス全体を移すより実装担当を割り当て直すことに近い。継続性は基盤に属し、単一 CLI には属さない。実用上の利点は、コスト、利用枠、障害、適性に応じて担当エンジンを変えても、作業状態を作り直さなくて済むことだ。</p>
+<p>ターミナルは基盤として残る。見える対象はエージェントになる。</p>
+</section>
+<section id="postman-が示すもう一つの面" class="level2">
+<h2 class="anchored" data-anchor-id="postman-が示すもう一つの面">4. postman が示すもう一つの面</h2>
+<p>ローカル側の対応物が <a href="https://github.com/i9wa4/tmux-a2a-postman"><code>tmux-a2a-postman</code></a> である。herdr とは逆の姿勢を取る面がある。ターミナル作業空間になろうとはしていない。tmux ペインの周囲にある薄い調整層として残る。</p>
+<p>README はその形を素直に説明している。役割と引き継ぎの辺は <code>postman.md</code> に置かれる。デーモンは一致する tmux ペインタイトルの間でローカルメールを配送する。システムは受信箱、既読、<code>dead-letter</code> という配送不能レーン、返信必須、<code>journal</code> という履歴台帳、<code>projection</code> という状態投影、ペイン状態を見える状態に保つ。postman は境界に慎重である。完全なエージェント実行基盤ではなく、広い作業エンジンでもなく、tmux やエージェント CLI の代替でもない。</p>
+<p>その境界がツールを有用にしている。tmux はターミナルプロセスを所有し続ける。postman は、それらのプロセスの周囲にある責務台帳を所有する。誰が何を依頼したか、どの返信がまだ必須か、どの依頼が満たされたか、どの作業がレビューや承認に依存して詰まっているか、という台帳だ。メッセージの通り道ではあるが、価値があるのは、あるペインのターミナル履歴を越えて残る責任状態である。</p>
+<p>人間向けダッシュボードは表面である。運用担当が読むべきなのは、その下にある状態だ。メッセージが配送された。返信が必須である。待機中の依頼がある。依頼が満たされた。メッセージが <code>dead-letter</code> に入った。これらはターミナル履歴から感じ取る雰囲気ではない。配送の事実である。</p>
+<p>これも同じ予測の別の形だ。tmux は生き残るが、人間が見えるペインの並びを記憶で操作する必要はなくなるべきだ。</p>
+</section>
+<section id="スマートフォンが本当のインターフェース試験である" class="level2">
+<h2 class="anchored" data-anchor-id="スマートフォンが本当のインターフェース試験である">5. スマートフォンが本当のインターフェース試験である</h2>
+<p>この予測を試すいちばん簡単な方法は、机から離れることだ。机が必要なままなら、ターミナルはまだ背景に退いていない。</p>
+<p>エージェントを使った作業がなおノート PC を開き、正しいターミナルウィンドウを探し、ペインを検査し、正しいプロセスに入力することを必要とするなら、ターミナルはまだ利用者向けインターフェースである。スマートフォンから承認、振り分け、確認できるなら、ターミナルはインフラになっている。</p>
+<p>だから私は、エージェントターミナルをめぐるスマートフォンと非公開ネットワークの実験に注意している。</p>
+<p>herdr の公式ドキュメントは、ローカル利用と SSH 経由の遠隔接続を強調している。<a href="https://herdr.dev/docs/persistence-remote/">遠隔アクセスドキュメント</a> は、バックグラウンドサーバー、ローカルクライアント、SSH 経由の遠隔接続、直接のターミナル接続、読み取り専用のターミナル観察者を説明している。<a href="https://herdr.dev/docs/socket-api/">socket API</a> は、スクリプトやエージェントが必要とする制御面を示している。作業空間の作成と注目先の変更、タブとペインの管理、出力の読み取り、入力の送信、エージェントの起動、状態待ち、イベント購読である。</p>
+<p>私が確認できる範囲では、Telegram 対応は herdr の中核契約というより、herdr の周辺にすでに現れている。<a href="https://github.com/dcolinmorgan/herdr-remote"><code>herdr-remote</code></a> は、herdr エージェントのスマートフォン、メニューバー、Telegram 監視と承認をうたっている。<a href="https://github.com/alexei-led/ccgram"><code>ccgram</code></a> は、Claude Code、Codex CLI、Gemini CLI、tmux、herdr のための Telegram 連携役と説明している。この区別で根拠の範囲が保たれる。公式の中核はターミナル作業空間と API であり、周辺ツールはすでにスマートフォンと Telegram の面へ手を伸ばしている。</p>
+<p>Tailscale も、現在の私の根拠では似ている。隣接するローカル道具では強く確認できる。<a href="https://github.com/i9wa4/markdown-remote-viewer"><code>markdown-remote-viewer</code></a> には、Tailnet 越しに Markdown を配信する明示的な <code>--tailscale</code> モードがある。herdr 自体について、私が確認した公式の遠隔利用の筋道は SSH 経由の接続であり、Tailscale への直接対応ではない。ただし方向は同じだ。非公開ネットワークからの到達性とスマートフォンで読めるレビュー面は、ターミナルをバックエンドに変える。</p>
+<p>永続する論点は、特定のネットワーク製品ではない。場所からの独立性である。実行基盤がサーバー上で動き、SSH や非公開ネットワークから到達できるなら、作業自体を動かさずに、ほぼどこからでも確認と承認ができる。tmux は長い間その性質を持っていた。herdr も、ターミナル作業空間をクライアントが接続できるサーバー支えのものとして扱うことで、同じ道をたどっている。</p>
+<p>スマートフォンに装飾された操縦席は要らない。必要なのは小さな判断の集合である。</p>
+</section>
+<section id="ai-サブスクリプションは自分の作業環境を動かす" class="level2">
+<h2 class="anchored" data-anchor-id="ai-サブスクリプションは自分の作業環境を動かす">6. AI サブスクリプションは自分の作業環境を動かす</h2>
+<p>この未来には、魅力的なクラウド完結版がある。すべてのエージェントがベンダー管理の遠隔作業空間で動き、手元の機械は薄いブラウザタブになる、という形だ。到達性の問題は解ける。ただし、個人の作業を個人の作業にしている状態から、作業台が離れすぎる危うさもある。</p>
+<p>それは多くのチームにとって有用だろう。しかし、それが全体像ではない。個人の作業では、強い対抗原則が残ると私は見ている。</p>
+<blockquote class="blockquote">
+<p>AI サブスクリプションは、利用者自身の作業台を動かすべきだ。</p>
+</blockquote>
+<p>より正確には、個人自身の運用環境に対して動くべきである。それはノート PC、デスクトップ、自宅サーバー、本人が管理する遠隔マシンのどれでもよい。理由はローカルマシンへの郷愁ではない。状態である。この組織的な角度は <a href="../blog/2026-07-14-company-inside-personal-computer.html">「個人用コンピューターの中の会社」</a> で広げている。ここでの短い版は、作業台はユーザー自身のファイル、認証情報、プロジェクトのチェックアウト、作業習慣の近くに残るべきだ、ということだ。</p>
+<p>おそらく形は混合型になる。モデルは遠隔にあるかもしれない。作業台はローカル、または本人が管理する場所に残る。対話の層はブラウザ、スマートフォン、テキスト、画像、音声になる。非公開ネットワークは、作業台をベンダー管理にせず到達可能にできる。ターミナルは実行基盤として残る。</p>
+</section>
+<section id="価値を失うもの" class="level2">
+<h2 class="anchored" data-anchor-id="価値を失うもの">7. 価値を失うもの</h2>
+<p>このモデルでは、視覚的な装飾が担う価値は小さくなる。</p>
+<p>設計にはまだ役目がある。価値を失うのは、装飾された操作盤である。人間がもう機械を直接運転していないなら、あらゆる配管や歯車を見せる美しいダッシュボードは希少なものではない。</p>
+<p>希少なものは、正しいエスカレーションである。</p>
+<ul>
+<li>何が私の判断を必要としているか</li>
+<li>何が終わったか</li>
+<li>何が失敗したか</li>
+<li>どの根拠を確認すべきか</li>
+<li>何をシステムが私なしで安全に判断できるか</li>
+</ul>
+<p>その表示は、作業を生かし続けるターミナルに似ている必要はない。スマートフォンのレビュー画面、遠隔ブラウザ画面、小さな判断用の受信箱は、同じ tmux セッションの上に座り、今確認すべき引き継ぎだけを見せられる。機械室には到達可能なままでよい。だが標準面は判断の境界になる。何が変わったか、何に承認が必要か、どの成果物を確認すべきか、である。</p>
+<p>誰かがプロセスを動かし続ける必要があるので、ターミナルは生き残る。</p>
+<p>その誰かがますます AI エージェントになるので、見えるターミナルは消えていく。</p>
+
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-07-14-tmux-survives-visible-form-disappears.html&amp;text=tmux%20%E3%81%AF%E7%94%9F%E3%81%8D%E6%AE%8B%E3%82%8B%E3%81%8C%E3%80%81%E8%A6%8B%E3%81%88%E3%82%8B%E5%BD%A2%E3%81%AF%E6%B6%88%E3%81%88%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=tmux%20%E3%81%AF%E7%94%9F%E3%81%8D%E6%AE%8B%E3%82%8B%E3%81%8C%E3%80%81%E8%A6%8B%E3%81%88%E3%82%8B%E5%BD%A2%E3%81%AF%E6%B6%88%E3%81%88%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-07-14-tmux-survives-visible-form-disappears.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-07-14-tmux-survives-visible-form-disappears.html&amp;title=tmux%20%E3%81%AF%E7%94%9F%E3%81%8D%E6%AE%8B%E3%82%8B%E3%81%8C%E3%80%81%E8%A6%8B%E3%81%88%E3%82%8B%E5%BD%A2%E3%81%AF%E6%B6%88%E3%81%88%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+<p>Top</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../feed.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

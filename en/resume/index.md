@@ -1,0 +1,192 @@
+# Resume - Daiki Mawatari
+
+
+Daiki Mawatari
+
+Data Engineering Manager / MLOps Engineer
+
+[Website](https://i9wa4.github.io) \|
+[LinkedIn](https://www.linkedin.com/in/daikm) \|
+[GitHub](https://github.com/i9wa4)
+
+Resume ([Website](https://i9wa4.github.io/en/resume/index.html),
+[PDF](https://i9wa4.github.io/en/resume/index.pdf)) \| Resume (Japanese)
+([Website](https://i9wa4.github.io/resume/index.html),
+[PDF](https://i9wa4.github.io/resume/index.pdf))
+
+## 1. Professional Summary
+
+Data Engineering Manager and MLOps Engineer with 10+ years of software
+engineering experience, including 4+ years in data engineering and
+machine-learning operations. Currently Data Engineering Team Manager at
+GENDA, leading cross-company data utilization, data-mart and dashboard
+delivery, MLOps, stakeholder alignment, and data-team operations. I
+translate business, sales, data-science, and engineering requirements
+into reliable data platforms, analytics workflows, and developer
+experience that can be operated continuously. My recent work combines
+Databricks, dbt, Snowflake, BigQuery, AWS, Google Cloud, AI-enabled
+workflows, notebook tooling, permissions, governance, and team practices
+to support data utilization and ML operations.
+
+## 2. Core Skills
+
+- Data and analytics platforms: Databricks, Snowflake, BigQuery, dbt
+  Core / Cloud, Airflow / MWAA, data marts, dashboards
+- Cloud and infrastructure: AWS, Google Cloud, Terraform, GitHub
+  Actions, Docker
+- MLOps and AI enablement: CI/CD, DataRobot, Snowpark ML, Databricks
+  notebooks, notebook tooling, MCP tooling, AI coding agent workflows
+- Developer productivity and governance: Nix / mise, Ruff, review-backed
+  deployment, permission design, data governance, documentation
+- Data-team operations: team management, code review, hiring, 1:1s,
+  technical handoff, and operating rhythms
+- Engineering foundation: Python, SQL, Shell Script, C, C++
+
+## 3. Professional Experience
+
+### 3.1. GENDA Inc. \| Data Engineer / MLOps Engineer; Data Engineering Team Manager
+
+Nov 2024 - Present \| Full-time
+
+- Lead data utilization work for group companies, connecting management,
+  sales, and field requirements in an M&A-expanding business to data
+  platforms, data marts, dashboards, and analytics workflows.
+- Became Data Engineering Team Manager in 2026/04; manage progress, code
+  reviews, 1:1s, hiring activity, and technical handoff practices.
+- For karaoke business data utilization, organized 9 management and
+  sales reports, 13 ingestion DAGs, and 37 dashboards into a roadmap
+  with dependencies and migration priorities.
+- Reduced shop-analysis report generation from roughly 1-2 days to about
+  20 minutes by improving the generation process.
+- Improved MLOps by introducing CI/CD, Ruff, mise, review-backed
+  deployment, and Databricks-based scoring migration where appropriate.
+- Improved AI-ready notebook and development workflows so data
+  scientists and data engineers can validate business value faster with
+  safer developer experience.
+
+### 3.2. PIVOT Inc. \| Freelance Data Engineer
+
+Jun 2025 - Present \| Contract
+
+- Build and optimize BigQuery and dbt models for KPI reporting, referral
+  analytics, GA4 / ULIZA tracking, and model performance.
+- Reworked OOM-prone window-function-heavy logic into a JOIN-based
+  design and reduced a major model runtime from 51-90 minutes to a few
+  minutes.
+- Implemented incremental all-period user tracking with GA4 identity
+  resolution from anonymous visit through login.
+- Improved BigQuery MERGE efficiency through stable merge keys,
+  partitioning, and clustering.
+
+### 3.3. hacomono Inc. \| Data Engineer
+
+Apr 2024 - Oct 2024 \| Full-time
+
+- Served as solo data engineer owning customer and internal DWH transfer
+  operations, infrastructure / IaC changes, and delivery support across
+  BigQuery, Embulk, AWS, Google Cloud, Terraform, and Terragrunt.
+- Improved batch transfer stability using RDS metrics, transfer logs,
+  and Embulk tuning.
+- Moved BigQuery permissions from manual grants toward Terraform-managed
+  dataset-level access control.
+- Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
+  Datastream and documented failure / recovery behavior.
+
+### 3.4. CNS HOKKAIDO Co., Ltd. \| Data Engineer / MLOps Engineer
+
+Apr 2022 - Mar 2024 \| Full-time
+
+- Migrated 50 customer-behavior prediction workflows from on-premises
+  infrastructure to AWS, Snowflake, and DataRobot.
+- Led dbt Core migration from Snowflake Python API and Jupyter Notebook
+  workflows to improve dependency visibility, readability, and
+  maintainability.
+- Investigated migration from DataRobot to Snowpark ML for cost,
+  performance, and security; led a small validation team.
+- Improved parallel execution for Bayesian retail customer-count
+  prediction across roughly 200 stores, completing processing in about 2
+  days against a 4-day requirement.
+
+### 3.5. Shinko Shoji LSI Design Center Co., Ltd. \| Embedded Software Engineer
+
+Aug 2018 - Mar 2022 \| Full-time
+
+- Developed automotive and industrial embedded firmware for
+  traction-control updates, sprayer inverter control, and operation
+  controllers across requirements, design, implementation, and testing.
+- Worked with C / assembler, Renesas and GHS embedded toolchains, RH850
+  / RL78 microcontrollers, QAC, and winAMS.
+- Automated formatting for 30+ test specification documents across 5
+  engineers; used Python for customer-facing analysis materials and
+  delivered CAN communication lectures.
+
+### 3.6. Okuma Corporation \| Windows Application Engineer
+
+Apr 2016 - Jul 2018 \| Full-time
+
+- Worked on Windows CAD / CAM applications for CNC machine tools,
+  including UI requirements, testing, user inquiries, defect handling,
+  and performance tuning.
+- Built a foundation in quality assurance, domain understanding, and
+  user-facing software maintenance.
+
+## 4. Education
+
+- Bachelor of Science in Mathematics, Hokkaido University
+
+## 5. Certifications
+
+- Apr 2023: Japan Statistical Society Certificate Grade 2
+- Mar 2015: TOEIC 805
+
+## 6. Speaking and Writing
+
+### 6.1. Talks
+
+- March 6, 2026: [Challenges and Solutions for Writing Robust Code with
+  Databricks](https://i9wa4.github.io/slides/2026-03-06-kenro-py.html)
+- January 26, 2026: [Operational Tips for Distributing Coding Agents
+  with Mosaic AI
+  Gateway](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+- December 23, 2025: [Databricks Permission Management for Enabling Data
+  Use at GENDA as M&A
+  Expands](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- December 12, 2025: [Making Data Scientists’ Development Environments
+  AI-Ready with a Jupyter Kernel for
+  Databricks](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- November 7, 2025: [Migrating GENDA’s Machine Learning Environment from
+  AWS to
+  Databricks](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
+- May 22, 2025: [Recommended Cursor Settings and How to Let Cursor
+  Handle Data
+  Analysis](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
+
+### 6.2. Writing
+
+- March 24, 2026: [Before and After Introducing Databricks to GENDA’s
+  Data Platform](https://findy-tools.io/products/databricks/11/164)
+- October 31, 2025: [Designing dbt Incremental Models to Promote Data
+  Analysis: Lower-Cost All-Period
+  Tracking](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+- September 1, 2025: [Improving GENDA’s Data Scientist Development
+  Experience: Migrating from AWS ECS to
+  Databricks](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- June 25, 2025: [Becoming a Hub for Growth: Data Platforms and MLOps
+  that Accelerate GENDA’s Data-Driven
+  Organization](https://note.com/genda_jp/n/n94def6811d47)
+- October 8, 2024: [Data Platform Architecture Feature Covering 39
+  Companies: Tool Selection Points and Use
+  Cases](https://findy-tools.io/articles/data-review/28)
+- August 21, 2024: [hacomono BigQuery Adoption Case
+  Study](https://findy-tools.io/products/bigquery/49/231)
+- July 2, 2024: [Data Transfer Challenges and Future Plans in hacomono’s
+  Data Platform](https://techblog.hacomono.jp/entry/2024/07/02/1100)
+
+### 6.3. Awards
+
+- 2026: JEDAI Order 2026 Knight, Databricks Japan User Community
+  - [JEDAI Order 2026 Award Recipients \| Databricks User
+    Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
+  - [GENDA Data Management Department Manager Daiki Mawatari Selected
+    for JEDAI Order
+    2026](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)

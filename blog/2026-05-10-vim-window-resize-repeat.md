@@ -1,0 +1,136 @@
+# Vim の window resize を連打しやすくする
+uma-chan
+2026-05-10
+
+## 1. はじめに
+
+Vim の window resize は標準で以下のキーバインドが用意されています。
+
+``` vim
+<C-w>-
+<C-w>+
+<C-w><
+<C-w>>
+```
+
+それぞれ window の高さや幅を 1 ずつ変更する操作です。
+
+標準機能としては十分なのですが、少し大きめに resize したいときに毎回
+`<C-w>` を押すのがやや面倒です。
+
+``` vim
+<C-w>-<C-w>-<C-w>-
+```
+
+気持ちとしては、最初の `<C-w>` だけ押して、あとは resize
+方向のキーを連打したい。
+
+``` vim
+<C-w>---
+```
+
+これを実現する mapping のメモです。
+
+## 2. 設定
+
+`vimrc` に以下のように書きます。
+
+<div class="code-with-filename">
+
+**vimrc**
+
+``` vim
+" Resize Window
+nmap <C-w>-    <C-w>-<SID>ws
+nmap <C-w>+    <C-w>+<SID>ws
+nmap <C-w><lt> <C-w><lt><SID>ws
+nmap <C-w>>    <C-w>><SID>ws
+nmap <SID>ws <Nop>
+nnoremap <script> <SID>ws-    <C-w>-<SID>ws
+nnoremap <script> <SID>ws+    <C-w>+<SID>ws
+nnoremap <script> <SID>ws<lt> <C-w><lt><SID>ws
+nnoremap <script> <SID>ws>    <C-w>><SID>ws
+```
+
+</div>
+
+これで以下のように resize できます。
+
+``` vim
+<C-w>----
+<C-w>++++
+<C-w><<<
+<C-w>>>>
+```
+
+`<` は key notation の開始記号として扱われるので `<lt>` と書きます。
+一方で `>` はそのまま書けます。
+
+## 3. 仕組み
+
+最初の mapping は標準の resize 操作を実行したあと、`<SID>ws` という
+script-local な中継地点に入ります。
+
+``` vim
+nmap <C-w>- <C-w>-<SID>ws
+```
+
+`<SID>ws` 自体は何もしない mapping です。
+
+``` vim
+nmap <SID>ws <Nop>
+```
+
+ただし、`<SID>ws-` や `<SID>ws+` のような続きの mapping
+も定義しておきます。 そのため、`<SID>ws` に入った直後に `-`
+を押すと、もう一度 `<C-w>-` が実行されます。
+
+``` vim
+nnoremap <script> <SID>ws- <C-w>-<SID>ws
+```
+
+そして RHS の最後でまた `<SID>ws` に戻るので、`-` を押し続けるだけで
+resize を繰り返せます。
+
+`<script>` を付けているのは、RHS の `<SID>ws` だけをこの script-local
+mapping として解決したいからです。 通常のユーザー定義 mapping
+と混ざりにくくなります。
+
+## 4. キーを変える場合
+
+標準の `<C-w>-`, `<C-w>+`, `<C-w><`, `<C-w>>`
+を尊重したい場合は上の設定でよいです。
+
+もし Vim のデフォルトにこだわらないなら、`H`, `J`, `K`, `L`
+に割り当てる形にもできます。
+
+<div class="code-with-filename">
+
+**vimrc**
+
+``` vim
+" Resize Window
+nmap <C-w>H <C-w><lt><SID>ws
+nmap <C-w>J <C-w>-<SID>ws
+nmap <C-w>K <C-w>+<SID>ws
+nmap <C-w>L <C-w>><SID>ws
+nmap <SID>ws <Nop>
+nnoremap <script> <SID>wsH <C-w><lt><SID>ws
+nnoremap <script> <SID>wsJ <C-w>-<SID>ws
+nnoremap <script> <SID>wsK <C-w>+<SID>ws
+nnoremap <script> <SID>wsL <C-w>><SID>ws
+```
+
+</div>
+
+ただし、この形は `<C-w>H` などの Vim 標準の window
+移動系キーバインドを上書きします。
+そのため、標準キーバインドを残したい場合は `-`, `+`, `<`, `>`
+のままにするのが無難です。
+
+## 5. おわりに
+
+私の dotfiles
+では今は不要になったので外しましたが、設定としてはちゃんと動くのでメモとして残しておきます。
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-05-10-vim-window-resize-repeat.html&text=Vim%20%E3%81%AE%20window%20resize%20%E3%82%92%E9%80%A3%E6%89%93%E3%81%97%E3%82%84%E3%81%99%E3%81%8F%E3%81%99%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Vim%20%E3%81%AE%20window%20resize%20%E3%82%92%E9%80%A3%E6%89%93%E3%81%97%E3%82%84%E3%81%99%E3%81%8F%E3%81%99%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-05-10-vim-window-resize-repeat.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-05-10-vim-window-resize-repeat.html&title=Vim%20%E3%81%AE%20window%20resize%20%E3%82%92%E9%80%A3%E6%89%93%E3%81%97%E3%82%84%E3%81%99%E3%81%8F%E3%81%99%E3%82%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>

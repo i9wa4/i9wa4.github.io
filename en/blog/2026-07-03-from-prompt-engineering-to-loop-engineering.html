@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2026-07-03">
+<meta name="description" content="Prompt, context, and harness engineering get a message to the right place. Loop engineering is the part most setups skip: proving the work is actually done. How far can pure instructions carry autonomous agents — and what does the substrate after them need? Ends with a requirements memo and the cold-start problem baked into it. #PromptEngineering #AIAgents #LoopEngineering #AgenticWorkflows">
+
+<title>From Prompt Engineering to Loop Engineering: A Thought Experiment – uma-chan’s page</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-af8bd029fa0acc6748d0af4725462cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/social-share-1.0.0/social-share.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="From Prompt Engineering to Loop Engineering: A Thought Experiment – uma-chan’s page">
+<meta property="og:description" content="Prompt, context, and harness engineering get a message to the right place. Loop engineering is the part most setups skip: proving the work is actually done. How far can pure instructions carry autonomous agents — and what does the substrate after them need? Ends with a requirements memo and the cold-start problem baked into it. #PromptEngineering #AIAgents #LoopEngineering #AgenticWorkflows">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan’s page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="From Prompt Engineering to Loop Engineering: A Thought Experiment – uma-chan’s page">
+<meta name="twitter:description" content="Prompt, context, and harness engineering get a message to the right place. Loop engineering is the part most setups skip: proving the work is actually done. How far can pure instructions carry autonomous agents — and what does the substrate after them need? Ends with a requirements memo and the cold-start problem baked into it. #PromptEngineering #AIAgents #LoopEngineering #AgenticWorkflows">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#four-words-for-the-same-problem-at-increasing-scale" id="toc-four-words-for-the-same-problem-at-increasing-scale" class="nav-link active" data-scroll-target="#four-words-for-the-same-problem-at-increasing-scale">1. Four Words for the Same Problem, at Increasing Scale</a></li>
+  <li><a href="#stage-one-prompt-engineering" id="toc-stage-one-prompt-engineering" class="nav-link" data-scroll-target="#stage-one-prompt-engineering">2. Stage One: Prompt Engineering</a></li>
+  <li><a href="#stage-two-context-engineering" id="toc-stage-two-context-engineering" class="nav-link" data-scroll-target="#stage-two-context-engineering">3. Stage Two: Context Engineering</a></li>
+  <li><a href="#stage-three-harness-engineering" id="toc-stage-three-harness-engineering" class="nav-link" data-scroll-target="#stage-three-harness-engineering">4. Stage Three: Harness Engineering</a></li>
+  <li><a href="#stage-four-loop-engineering-the-part-most-setups-skip" id="toc-stage-four-loop-engineering-the-part-most-setups-skip" class="nav-link" data-scroll-target="#stage-four-loop-engineering-the-part-most-setups-skip">5. Stage Four: Loop Engineering, the Part Most Setups Skip</a></li>
+  <li><a href="#the-thought-experiment-can-instructions-alone-get-you-this-far" id="toc-the-thought-experiment-can-instructions-alone-get-you-this-far" class="nav-link" data-scroll-target="#the-thought-experiment-can-instructions-alone-get-you-this-far">6. The Thought Experiment: Can Instructions Alone Get You This Far?</a></li>
+  <li><a href="#what-this-means-in-practice" id="toc-what-this-means-in-practice" class="nav-link" data-scroll-target="#what-this-means-in-practice">7. What This Means in Practice</a></li>
+  <li><a href="#where-the-boundary-moves-next" id="toc-where-the-boundary-moves-next" class="nav-link" data-scroll-target="#where-the-boundary-moves-next">8. Where the Boundary Moves Next</a></li>
+  <li><a href="#a-requirements-memo-for-whatever-comes-after" id="toc-a-requirements-memo-for-whatever-comes-after" class="nav-link" data-scroll-target="#a-requirements-memo-for-whatever-comes-after">9. A Requirements Memo for Whatever Comes After</a></li>
+  <li><a href="#what-cannot-be-distributed" id="toc-what-cannot-be-distributed" class="nav-link" data-scroll-target="#what-cannot-be-distributed">10. What Cannot Be Distributed</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">From Prompt Engineering to Loop Engineering: A Thought Experiment</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-ai</div>
+    <div class="quarto-category">ai-generated</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Prompt, context, and harness engineering get a message to the right place. Loop engineering is the part most setups skip: proving the work is actually done. How far can pure instructions carry autonomous agents — and what does the substrate after them need? Ends with a requirements memo and the cold-start problem baked into it. #PromptEngineering #AIAgents #LoopEngineering #AgenticWorkflows</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-07-03</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-07-16</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="four-words-for-the-same-problem-at-increasing-scale" class="level2">
+<h2 class="anchored" data-anchor-id="four-words-for-the-same-problem-at-increasing-scale">1. Four Words for the Same Problem, at Increasing Scale</h2>
+<p>“Prompt engineering,” “context engineering,” “harness engineering,” and “loop engineering” get used as if they were four unrelated buzzwords from four unrelated eras. I think they are better read as four stages of the same problem, each one appearing only once the previous stage’s limitation becomes visible.</p>
+<p>The problem, stated plainly: get an AI agent to do a piece of work correctly, and know that it actually happened.</p>
+<p>A single agent answering a single question only needs the first stage. A team of agents handing work to each other, over hours or days, without a human reading every message, eventually needs all four. This post is a thought experiment about that progression — not a product pitch, not a tool review. I want to ask a narrower question: how far can you push agent autonomy by evolving instructions and conventions alone, before you are forced to build something that is no longer just a prompt?</p>
+<p>The shape of the progression is a staircase: each stage solves one problem and, in doing so, exposes the next one.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    P["Stage 1: Prompt engineering&lt;br/&gt;how the thing is said"]
+    C["Stage 2: Context engineering&lt;br/&gt;what the reader knows right now"]
+    H["Stage 3: Harness engineering&lt;br/&gt;how the message moves, and fails"]
+    L["Stage 4: Loop engineering&lt;br/&gt;proving the work actually happened"]
+    N["what comes after&lt;br/&gt;(sections 8 to 10)"]
+    P -- "assumes the reader's facts are current" --&gt; C
+    C -- "facts still need a way to travel" --&gt; H
+    H -- "delivered is not the same as done" --&gt; L
+    L -- "verification is not free, and verifiers err too" --&gt; N
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="stage-one-prompt-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="stage-one-prompt-engineering">2. Stage One: Prompt Engineering</h2>
+<p>Prompt engineering is usually taught as “how to phrase a request to one model.” That framing undersells it once a second agent enters the picture.</p>
+<p>The moment Agent A’s output becomes Agent B’s input, a prompt stops being a one-off string and becomes an interface. Four disciplines fall out of that shift:</p>
+<ul>
+<li><strong>Preserve structure literally.</strong> A message body that contains code fences, shell variables, or nested quotes must survive the trip intact. If the transport mechanism mangles backticks or interpolates a variable early, the recipient reads something different from what the sender wrote. It’s the same reason structured tool-calling APIs pass arguments as typed JSON instead of hoping a natural-language description survives parsing. The fix is almost always boring — pick a format that treats the payload as data, not a string to be re-parsed.</li>
+<li><strong>Write the instructions once, not once per message.</strong> A shared role template plus a per-task delta is a prompt-engineering decision, not an infrastructure decision. It’s the same idea behind a persistent system prompt in a chat-based interface: explain the standing brief once, then let each turn add only what’s actually new, instead of restating the whole thing every time.</li>
+<li><strong>Teach the reader how to close the loop, inside the message itself.</strong> A well-formed prompt to an autonomous agent doesn’t just ask a question — it tells the recipient what a valid reply looks like and who else is a valid next hop. This is close to what tool-calling APIs already do by listing the available functions and their expected argument shapes with every turn, instead of leaving a model to guess what’s callable. That’s still just words and structure on the page, but it’s doing real work.</li>
+<li><strong>Package the recurring procedure once, not inside every task prompt.</strong> If ten tasks share the same underlying “how do I approach this class of problem” logic, that logic doesn’t belong copy-pasted into ten prompts. A small, named package of operating instructions — loaded when the task matches, ignored otherwise — lets the per-task prompt stay short and say only what’s actually new this time. The package’s short label is doing more selection work than its full body. An agent decides whether to load the detailed instructions based on a one-line name and description, so that label is the load-bearing cover — the fuller procedure underneath only matters once something has already chosen to open it.</li>
+</ul>
+<p>The limitation this stage runs into: a perfectly phrased prompt still assumes the reader has accurate situational facts. Phrasing solves <em>how something is said</em>. It does not solve <em>whether what’s being said is still true</em>.</p>
+</section>
+<section id="stage-two-context-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="stage-two-context-engineering">3. Stage Two: Context Engineering</h2>
+<p>Context engineering is the discipline of treating “what does the recipient actually know right now” as a first-class, checkable object — not an assumption baked silently into the prompt.</p>
+<p>In a long-running, multi-agent setup, the situation genuinely changes between when a message is written and when it’s read: branches move, files change, a previous step succeeds or fails. Four patterns matter here:</p>
+<ul>
+<li><strong>Snapshot, don’t assume.</strong> Attach a small, explicit bundle of situational facts to the message — current state, a timestamp, an identifier for whatever “current” means in this domain — rather than trusting that the reader’s live state matches what the sender saw. Structured logging and distributed tracing already do this by convention: every event carries its own timestamp and environment metadata, instead of leaving a later reader to reconstruct what was true when it happened.</li>
+<li><strong>Mark freshness explicitly.</strong> A snapshot that’s ten seconds old and one that’s ten hours old are different in kind, not just in degree. Whether a recipient should trust a stale snapshot is a decision that should be visible, not silent — the same reasoning behind HTTP cache-control headers: freshness and validity are metadata, not a guess. The same discipline applies to an agent’s own standing instructions. Keep them thin enough that reloading them mid-task is a cheap refresh, not a wall of text nobody rereads — instructions that decay silently over a long session are just another form of stale context.</li>
+<li><strong>Never let cheap signals waive a real read.</strong> It’s tempting to let a short label (“this is just a heartbeat,” “this is just a status ping”) excuse skipping the actual content. The cheaper the signal looks, the more tempting the shortcut, and the more damage it does when the shortcut is wrong exactly once. Good code review already enforces the same discipline: a tidy commit message or a green checkmark is not a substitute for reading the actual diff.</li>
+<li><strong>Give working memory a place outside any one turn’s head.</strong> An agent mid-task accumulates intermediate findings — partial results, discarded approaches, half-formed conclusions — that don’t fit comfortably in a single context window and shouldn’t have to. A shared scratch-file convention solves this: the agent writes working notes to a small external location instead of holding everything in its own head. A growing number of coding agents already externalize a running plan or a todo file for exactly this reason. That turns “what I currently remember” into “what’s actually recorded,” and lets the record outlive the turn that produced it.</li>
+</ul>
+<p>The limitation this stage runs into: even accurate, fresh context needs somewhere to physically live and travel. Context engineering answers <em>what the reader should know</em>. It doesn’t answer <em>how the message reaches the reader at all, or what happens when it doesn’t</em>.</p>
+</section>
+<section id="stage-three-harness-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="stage-three-harness-engineering">4. Stage Three: Harness Engineering</h2>
+<p>“Harness” has become common shorthand for everything around a model except the model itself — the tools, memory, sandboxing, and guardrails that turn a language model into something that can actually act. The term is still solidifying rather than fully settled, but the core idea already converges across the people using it: an agent is the model plus its harness, and the harness is where reliability actually gets built.</p>
+<p>This piece narrows that broad scaffolding question to one specific slice of it: who are the agents, how are they addressed, and what happens on failure. That’s still a runtime substrate question, just scoped to routing and coordination rather than to sandboxing or tool access.</p>
+<p>This is where a lot of ad-hoc multi-agent setups quietly become fragile, because the substrate is improvised per-project instead of designed once:</p>
+<ul>
+<li><strong>Give every agent a stable, addressable identity.</strong> Routing by name only works while names are stable facts, and an identity is more than a label: it’s the name plus the role plus the version of the standing instructions and the model underneath. When any of those change, a different actor is now answering to the same name — and anything previously known about the old actor’s behavior quietly stops being true. Service discovery treats this as table stakes for machines; agent setups tend to discover it the hard way.</li>
+<li><strong>Declare the topology; don’t hardcode it.</strong> Which agent can talk to which is a graph, and graphs are more legible drawn than inferred from scattered conditionals. A topology you can read is a topology you can audit — the same reasoning behind infrastructure-as-code: a system’s shape declared in a file you can diff and review, not reconstructed from scattered imperative steps.</li>
+<li><strong>Route handoffs through an addressable channel, not a direct call.</strong> A mailbox-style pattern — one agent writes a message to a shared location, another reads it whenever it’s actually ready — decouples sender and receiver in time, the same decoupling a message queue provides between producer and consumer. Neither side has to be listening at the same instant for a handoff to succeed, and the message itself persists as an inspectable artifact instead of vanishing the instant a call returns.</li>
+<li><strong>Gate risky actions behind explicit approval.</strong> Some actions shouldn’t proceed on an agent’s say-so alone. It’s the same principle as a privilege-elevation confirmation prompt, a manual-approval gate in a deployment pipeline, or a break-glass access procedure: routine work flows through, but a defined class of risky action stops for an explicit yes. The harness is where that gate belongs, not something each agent has to remember to ask for on its own.</li>
+<li><strong>Make status queryable, not just visible.</strong> A human staring at a terminal and an agent deciding whether to proceed should be able to ask the same question and get the same answer, not a status dashboard for humans and a separate, poorer signal for machines. It’s the same idea behind a service’s health-check endpoint.</li>
+<li><strong>Don’t let undeliverable work vanish.</strong> A message that can’t be routed should land somewhere labeled, with a reason, rather than disappearing — the same escape hatch message queues have used for decades: a labeled holding area for anything that couldn’t be delivered. Silent failure is the most expensive kind, because nothing tells you it happened.</li>
+</ul>
+<p>The limitation this stage runs into, and the one I think gets skipped most often: a harness can route a message flawlessly, confirm delivery, log everything — and the underlying task can still be unfinished. Delivery success and task completion are not the same fact, and most tooling conflates them.</p>
+</section>
+<section id="stage-four-loop-engineering-the-part-most-setups-skip" class="level2">
+<h2 class="anchored" data-anchor-id="stage-four-loop-engineering-the-part-most-setups-skip">5. Stage Four: Loop Engineering, the Part Most Setups Skip</h2>
+<p>The term itself is very new, and worth naming honestly rather than treating as settled. It surfaced from a single, widely circulated online argument that engineers should stop hand-prompting agents and instead design the loop that prompts them — plan, act, observe, revise, repeat. In that broader, more common usage, loop engineering is mostly about the shape of the iteration itself: how an agent cycles through a task, more than how anyone proves that cycle actually finished. Some early attempts to break the idea into concrete pieces already touch on this piece’s angle, though. They separate who executes a step from who verifies it, and keep state in a persistent, external place rather than in a single run’s memory.</p>
+<p>This piece uses “loop engineering,” in that narrower sense, for the discipline of encoding “is the work actually done” as something a machine can check, instead of something a human has to infer from tone or vibes. That’s a real, recognized slice of the wider idea, not the whole of it, and it’s worth being upfront that the term’s dominant current usage is broader than this piece’s.</p>
+<p>Concretely, that means designing for a few properties that are easy to state and easy to skip under time pressure:</p>
+<ul>
+<li><strong>Open requests should be explicit, named objects</strong>, not implicit hopes that someone eventually replies. If a piece of work is waiting on something, that waiting state should be inspectable — how many things are open, which ones, for how long. This is close to a required-approval step in a deployment pipeline: the pipeline doesn’t proceed until someone explicitly signs off, and everyone can see that it’s waiting. Not every message is equal here: some are fire-and-forget, but others should explicitly hold the sender in place until answered, because acting on an unverified assumption would be worse than waiting. Whether a given message blocks the sender should be a stated property of the message, not something either side has to guess.</li>
+<li><strong>Make the checklist visible to everyone in the workflow, not just the two agents directly involved.</strong> A stalled handoff between two agents is invisible from the outside unless a third agent — or a human — can see the same open-item list they can. An incident-response channel works the same way: anyone on call can see the same status the two people actively paging each other see, not a private thread only they can read.</li>
+<li><strong>A reply should name exactly what it closes.</strong> Once an agent has more than one thing outstanding at a time, “I replied” is ambiguous. “I replied, and here specifically is which open item this closes” is not — the same convention that lets a commit message close a specific issue by number, instead of leaving readers to guess which of several open items it resolved.</li>
+<li><strong>Closing the communication channel and finishing the task are two different events, and the second one needs its own proof.</strong> A useful convention: completion requires naming concrete evidence — what changed, what was checked, what remains uncertain — and anything short of that is reported as blocked, with the specific gap named, rather than reported as done with the gap hidden. That’s the same discipline behind a team’s definition of done, or a deployment pipeline that won’t ship without passing tests as evidence. And the strongest form of that evidence is executable rather than narrated: a command and its exit status, a test run someone else can re-run, a transcript that can be replayed. Prose describing a check can be written without the check ever having happened; an artifact that re-executes cannot.</li>
+<li><strong>Distinguish “waiting, and that’s fine” from “stuck.”</strong> A loop that’s healthy but slow and a loop that’s genuinely broken look identical from the outside unless the state machine says otherwise. A CI pipeline draws the same distinction between two flavors of “running”: one making steady progress, one hung on a step that will never finish. Both show the identical spinner until a timeout reclassifies the second as failed.</li>
+<li><strong>Don’t let the agent that did the work be the only judge of whether it’s done.</strong> A completion claim written by the same actor who wants the work accepted is a claim with an obvious incentive problem — the same reason a pull request’s approval is expected to come from someone other than its author. A second, independent reviewer role, whose only job is to check the evidence rather than to have produced it, closes that gap in a way self-assessment structurally cannot. One caveat the pull-request analogy hides, though: human review works because the reviewer’s blind spots are largely uncorrelated with the author’s, and two instances of the same model don’t get that property for free — what the author systematically misses, a same-family reviewer tends to miss too. Independence has to be manufactured, and the cheapest way to manufacture it isn’t a different model; it’s different information. A reviewer that sees only the change and the evidence, never the author’s reasoning, brings a genuinely decorrelated view even when the underlying weights are identical.</li>
+</ul>
+<p>The honest closing line for this stage: prompt engineering gets you a message. Context engineering gets the reader the right facts. Harness engineering gets the message to the right process. Loop engineering is what tells you — provably, not by vibes — that the work is actually done.</p>
+<p>But this stage has a limitation too, and it would be dishonest to end the staircase on a stage that pretends not to. Verification is not free, and the verifier is another probabilistic actor. Every check adds tokens, latency, and a new place to be wrong. A reviewer can be satisfied by evidence that was optimized to pass review rather than to be true. And “who reviews the reviewer” has no base case — only a budget. Loop engineering can tell you that a given piece of work is done. It cannot, by itself, tell you how much verification is <em>enough</em>, or whose work has earned lighter checking. Those are economic questions, and they’re where the closing sections of this post are headed.</p>
+</section>
+<section id="the-thought-experiment-can-instructions-alone-get-you-this-far" class="level2">
+<h2 class="anchored" data-anchor-id="the-thought-experiment-can-instructions-alone-get-you-this-far">6. The Thought Experiment: Can Instructions Alone Get You This Far?</h2>
+<p>Here’s the question I actually want to sit with, and it comes with a load-bearing assumption I want to state up front rather than smuggle in. Everything past stage one presupposes more than one agent — or the same agent invoked repeatedly across separate turns — coordinating over time. A single agent finishing a single uninterrupted task never needs snapshots, freshness marks, or named open requests; it just does the work. The question only gets interesting once coordination enters the picture, and I’m not aware of a way to make that assumption disappear by writing better prompts.</p>
+<p>With that stated, every one of the patterns above — snapshotting, freshness marking, named open requests, evidence-gated completion — <em>sounds</em> like something you’d need to build. Some kind of state machine, some kind of persistent store.</p>
+<p>But notice: most of it is not conceptually infrastructure-shaped at the start. One honest exception is worth naming: harness engineering already assumes some minimal shared carrier — a terminal, a queue, a file system, anything agents can run on and pass messages through. What stays pure convention is everything layered on top of that minimal carrier, plus prompt, context, and loop engineering in full: words in a shared instruction set that every agent in a workflow is told to follow. “Attach a timestamp.” “Name what you’re replying to.” “Don’t say done without naming evidence.” Those are sentences, not systems.</p>
+<p>So: how far can pure instruction design carry you before it breaks?</p>
+<p>My honest answer, from watching this pattern emerge repeatedly: instructions alone get you further than intuition suggests. They also stop working at a specific, predictable point — the moment the <em>state itself</em> needs to outlive any single agent’s context window or survive a crash.</p>
+<p>An instruction like “track how many things you’re waiting on” works fine while one agent’s memory holds that count. It stops working the instant two agents need to agree on the same count, or the count needs to be correct after a restart. At that point you’re no longer describing behavior — you’re describing a shared, durable fact. Prose can’t hold a shared, durable fact. Something has to persist it.</p>
+<p>That’s the actual boundary, and it’s worth stating precisely because it’s easy to blur: instructions can specify <em>what correct behavior looks like</em> indefinitely. They stop being sufficient the moment correctness depends on <em>state that must survive beyond any one agent’s turn</em>. Below that line, better prompts and better conventions keep paying off. Above it, you need a place for the fact to live that isn’t inside anyone’s head.</p>
+<p>One refinement before leaning on that boundary too hard: it’s drawn as if an instruction, once written, keeps being followed. It doesn’t — instructions are followed probabilistically, and a rule that survives any single handoff at some high rate quietly compounds, across a long enough chain, into a rule that has certainly broken somewhere. What keeps prose conventions alive in practice is that they partially self-heal: every well-formed message sitting in context is a live example for the next reader, and the next hop often bounces a malformed one back. But look at what that self-healing actually is — it’s enforcement. And enforcement produces records: who checked what, which claims passed, which gate refused. Records are shared, durable facts. So behavior rules, pushed hard enough, <em>generate</em> state. The boundary isn’t a fence between two static territories; it’s a one-way conveyor, and sustained scale is what powers the belt.</p>
+</section>
+<section id="what-this-means-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="what-this-means-in-practice">7. What This Means in Practice</h2>
+<p>If you’re scaling up agent-driven work, this suggests a cheap diagnostic before reaching for new infrastructure. For each rule you want to enforce, ask whether it’s a rule about <em>behavior</em> (“always name what you’re replying to”) or a rule about <em>shared state</em> (“the system must know, at all times, exactly how many things are outstanding”). The first kind can live in instructions indefinitely. The second kind needs somewhere durable to live, sooner or later, no matter how well the instructions are written.</p>
+<p>Most teams get this backward. They over-build for the first kind, reaching for new services to enforce behavior that a clearer instruction would have fixed for free. They under-build for the second, leaving genuinely shared state balanced precariously on convention and good faith. Sorting which kind of problem you actually have, before writing either a paragraph or a schema, is most of the work.</p>
+<p>There’s a second phrasing of the same test, if the first feels abstract: ask whether the thing would work on day one if you copied it into a fresh deployment. A behavior rule would — it’s words, and installing it is the same act as adopting it. Shared state wouldn’t — it has to be accumulated in place, and no copy operation substitutes for the accumulating. Section ten is about why that difference ends up mattering more than anything else in this post.</p>
+</section>
+<section id="where-the-boundary-moves-next" class="level2">
+<h2 class="anchored" data-anchor-id="where-the-boundary-moves-next">8. Where the Boundary Moves Next</h2>
+<p>Section six drew the boundary as a line you find. Its own refinement already gave the game away: it’s a line that moves. If the conveyor is real, it’s worth asking what powers it and which way it runs — and it’s worth making the predictions concrete enough to be wrong, because a future consideration that can’t fail isn’t a prediction, it’s a mood. I see three forces, each with an observable marker.</p>
+<p><strong>Absorption from below.</strong> Behavior conventions that prove their value get absorbed into model training. Chain-of-thought already made exactly this trip: it began as a prompting technique you had to ask for and became a trained-in behavior you don’t. “Attach a timestamp,” “name what you’re replying to,” “don’t say done without evidence” are candidates for the same journey. The marker is measurable: remove a convention from the instructions and count how often the behavior happens anyway, per model generation. If compliance-without-instruction climbs generation over generation, the convention is being absorbed — and the sentence that taught it is dead weight kept alive by habit.</p>
+<p><strong>Ossification from the side.</strong> Prose conventions that carry economic weight get frozen into protocol schema. REST’s folk conventions became OpenAPI documents; commit-message habits became a spec with tooling that rejects violations. The agent equivalent: “which open item does this reply close” and “what evidence accompanies this completion claim” live today as sentences in instruction files. The marker is public — watch agent-interoperability protocol changelogs for exactly those fields appearing as first-class, typed members. When they do, a chunk of what this post filed under convention will have crossed the line in one hop, for everyone at once.</p>
+<p><strong>Verification economics from above.</strong> As generation gets cheaper, the scarce resource shifts to checking. Uniform verification — every claim reviewed at the same depth — stops being affordable long before anyone admits it, and verification depth has to become a function of two things: the actor’s track record and the blast radius of being wrong. That’s how human organizations already ration attention: a senior engineer’s routine change gets a lighter review than a new contributor’s change to the auth system, and audits sample rather than inspect every return. The marker: approval systems in agent tooling moving from static policy (“always ask before X”) to adaptive policy (“ask based on this agent’s verified history with X-class work”).</p>
+<p>The same picture, drawn: one rule living as prose, three exits.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    C["a rule living as prose&lt;br/&gt;(instruction, convention)"]
+    M["model weights&lt;br/&gt;(absorption from below)"]
+    P["protocol schema&lt;br/&gt;(ossification from the side)"]
+    R["durable records&lt;br/&gt;(verification economics from above)"]
+    C -- "proves valuable:&lt;br/&gt;models internalize it" --&gt; M
+    C -- "carries economic weight:&lt;br/&gt;specs freeze it" --&gt; P
+    C -- "must survive scale:&lt;br/&gt;enforcement produces records" --&gt; R
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>There’s a second-order prediction hiding inside that third force, and I think it’s the most interesting one: <strong>track records create an identity problem.</strong> The moment trust accumulates against an agent’s name, the cheapest way to escape a bad record is to show up under a new name. Nothing about a freshly spawned agent prevents that reputation laundering. So identity becomes load-bearing — bound to the model version and the standing instructions actually running, so that a new model answering to a senior agent’s name is recognized for what it is: a new junior wearing a familiar badge, whose inherited trust should be discounted accordingly. “Who is this agent, really” becomes the next shared, durable fact that prose can’t hold. Section four’s identity pattern was the seed of this; the trust economy is what makes it germinate.</p>
+<p>Where does the conveyor stop? Some cargo never arrives. Shared durable state, enforcement, and incentives don’t get absorbed into models, because they aren’t behaviors — they’re facts about a system that has to be bigger than any one actor inside it. Which suggests an ending blunt enough to write down: prompt engineering dies a little with every model generation, as models internalize what used to need saying. State engineering doesn’t die, because no amount of model capability makes a fact persist itself.</p>
+</section>
+<section id="a-requirements-memo-for-whatever-comes-after" class="level2">
+<h2 class="anchored" data-anchor-id="a-requirements-memo-for-whatever-comes-after">9. A Requirements Memo for Whatever Comes After</h2>
+<p>If the four stages and the three forces are roughly right, then the coordination substrate that comes after the current generation of setups — whatever implements it, and I’m deliberately not naming or assuming any particular tool — has a requirements list you can already write down. Here’s mine. It’s sorted by this post’s own section-seven diagnostic: things that must live in durable machinery because they’re shared facts, and things that should deliberately stay prose because they’re behavior.</p>
+<p>What must be machinery:</p>
+<ul>
+<li><strong>Verdicts as records, not sentences.</strong> A review outcome should be a machine-readable event — pass or fail, naming exactly which open item it judges — written somewhere durable, and <em>required</em> before dependent work proceeds. Recording an opinion and enforcing an opinion are separate guarantees, and only the second one gates. A review pass that’s merely on the record isn’t the same claim as a review pass that blocks.</li>
+<li><strong>Track record as a queryable fact.</strong> Verdict history should aggregate, per agent identity and per class of work, into a number any participant can look up. The score is a stored fact. What to do about the score — how deeply to verify whom — is policy, and policy can stay prose.</li>
+<li><strong>Audits that can’t be predicted.</strong> However much trust an actor accumulates, the probability that a given completion gets independently checked must never reach zero — and the draw has to happen outside the actor being audited. Predictable checking is the one failure a track-record system can’t survive: an actor that knows which claims will be inspected is being trained to pass inspections, not to do the work. Unpredictable sampling is what keeps every other number in this list honest, and a failure surfaced by a random audit says something worse than one surfaced by routine review — it should cost accordingly.</li>
+<li><strong>Evidence slots, checked for presence.</strong> A completion claim should carry a structured slot for executable evidence — the command that ran and its exit status, or an artifact that can be re-executed — and a claim arriving without one should be refused as malformed rather than accepted and hoped about. The machinery checks that evidence <em>exists</em>; whether it’s <em>true</em> is a reviewer’s job, established by re-running it. That division of labor is exactly as much enforcement as a thin substrate can take on without becoming the agent runtime it shouldn’t be.</li>
+<li><strong>Health that volunteers itself.</strong> Thresholds on the system’s own state — the age of the oldest open item, the count of undeliverable messages — that push an escalation to whoever fronts for the human, instead of waiting to be queried. A diagnostic that must be asked for functions, in practice, as if it didn’t exist, because reaching it requires already suspecting something is wrong.</li>
+<li><strong>A meter on its own conventions.</strong> The substrate should lint its own message stream — missing reply references, missing freshness marks, completion claims without evidence slots — and report violation rates per agent. This is the instrument the whole argument has been implying: it measures how fast prose conventions actually decay in the wild, it feeds the track record, and it turns section eight’s absorption prediction into something checkable with data rather than vibes.</li>
+<li><strong>Identity bound to version.</strong> An agent’s name should bind to the model and instruction versions actually running, and accumulated trust should discount when either changes. Otherwise the trust system teaches its agents exactly one reliable skill: knowing when to change names.</li>
+</ul>
+<p>Listed like that, these read as six independent requirements. Drawn, they turn out to be one feedback loop — the track record tunes the very audit draw that feeds it:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    claim["completion claim&lt;br/&gt;with evidence slot"]
+    gate["presence gate:&lt;br/&gt;no evidence = refused"]
+    draw["audit draw:&lt;br/&gt;p from track record and blast radius,&lt;br/&gt;never zero"]
+    review["independent review:&lt;br/&gt;re-run the evidence"]
+    ledger["track record&lt;br/&gt;per identity and work class"]
+    accepted["accepted"]
+    claim --&gt; gate
+    gate --&gt; draw
+    draw -- "sampled" --&gt; review
+    review -- "verdict: pass or fail" --&gt; ledger
+    draw -. "passed through unchecked" .-&gt; accepted
+    ledger -- "tunes the next draw" --&gt; draw
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>What deliberately stays prose, by the same diagnostic: the taxonomy of work classes, the choice of verification tier a given risk deserves, and conventions like blind review — handing a reviewer the change and the evidence but not the author’s reasoning, which manufactures decorrelated judgment out of information asymmetry, no second model required. Those are behavior rules. They’ll keep paying their way as sentences right up until the conveyor takes them too.</p>
+<p>Two things about this memo are worth noticing. The sorting was mechanical — every item landed on the machinery side because it’s a shared fact that must outlive a turn, and on the prose side because it’s a description of behavior; the diagnostic did the work, which is some evidence the diagnostic is sharp. And the memo measures itself: the sampled audits and the convention meter produce, as a side effect, exactly the dataset this post lacks — which rules get broken, how often, by whom.</p>
+<p>But there’s a catch in this memo, and it deserves its own section, because it’s where the whole argument finally lands.</p>
+</section>
+<section id="what-cannot-be-distributed" class="level2">
+<h2 class="anchored" data-anchor-id="what-cannot-be-distributed">10. What Cannot Be Distributed</h2>
+<p>Everything in section nine’s machinery list passes the copy-to-a-fresh-deployment test — as a mechanism. The schema, the policy function, the audit dice, the convention meter: those are stateless artifacts. Like any software, they install in minutes and work immediately. Which also means that whichever of them prove useful will be copied by everyone, quickly, and stop being anyone’s advantage. Distributable things commoditize at the speed of distribution.</p>
+<p>What fails the test is the <em>contents</em>. A track record is not installable. Trust is indexical — a score means “this agent, on this class of work, in this environment, under these risk tolerances” — so someone else’s filled ledger is close to worthless to you, and there is no zero-shot version of it, because trust just <em>is</em> compressed history. Capability can’t synthesize it; a smarter model arriving tomorrow does not know whether yesterday’s migration was verified. History can only be recorded, and only at the time.</p>
+<p>So any system built on this memo has a structural cold-start problem: on day one, every agent is a stranger, every completion gets the full-depth check, and the verification budget burns at its maximum. That’s not a flaw to engineer away — it’s the definition of the thing being computed. But structural doesn’t mean nothing improves. It means the discipline shifts one more time. After prompt, context, harness, and loop engineering, the next scarce skill is <strong>accumulation efficiency</strong>: how fast a deployment turns operation into history. The levers are already visible:</p>
+<ul>
+<li><strong>Record what already happens.</strong> The single biggest waste is a review that occurs and evaporates as prose. And check whether your setup has been recording without your noticing: archives full of messages with legible pass-and-fail markers are a ledger waiting for a backfill script. Many cold starts are warmer than they look.</li>
+<li><strong>Front-load the verdicts.</strong> Early observations tighten an estimate fastest, so full-depth review of a new agent isn’t a grudging cost — it’s the cheapest information the system will ever buy. Give newcomers a deliberately diverse diet of small, cheap-to-verify tasks across work classes. Probation periods and rotation programs were accumulation-efficiency technologies all along; we just never called them that.</li>
+<li><strong>Warm the start with priors.</strong> An unknown agent isn’t unknowable: you know how its model version tends to perform on this class of work in general, even before it has local history. Let thin agent-level records shrink toward model-level aggregates until the local evidence takes over, and let a version change discount the record rather than zero it. This is also where the distributable and the accumulated finally connect: ship the prior, grow the evidence. And it predicts an institution — portable, signed track records, the agent’s résumé, the credit bureau — because wherever accumulated trust is valuable and non-transferable, someone eventually builds the machinery to make it semi-portable.</li>
+<li><strong>Cheapen the unit of verification.</strong> Executable evidence isn’t only an anti-gaming measure. It lowers the cost per check, which raises the number of checks a fixed budget buys, which <em>is</em> the accumulation rate. Even the free tier — the convention meter, counting violations no human looks at — is a steady stream of weak verdicts.</li>
+<li><strong>Store raw, aggregate later.</strong> Keep verdicts as immutable events with their full context — who, what class, what evidence, which versions — and derive scores as views you can recompute. Then every future improvement to the scoring applies retroactively to everything you kept.</li>
+</ul>
+<p>All of these improvements share one scoreboard: <strong>time-to-trust</strong> — how long, and at what verification cost, a new agent takes to earn its first lighter tier. Whatever makes that number shrink without letting gamed work through is progress in this discipline, measured in one place.</p>
+<p>And that’s where the thought experiment lands. The staircase keeps migrating out from under you: behaviors get absorbed into models, conventions ossify into protocols, and both arrive everywhere at once, for everyone, the day they ship. What never ships is your deployment’s history — who did what, what was checked, what held up. Mechanisms can be improved retroactively; history cannot be collected retroactively. Which turns out to be this post’s conclusion and its only real advice in one sentence: whatever substrate you build or adopt next, the scoring can wait and the policy can wait — start recording the verdicts now. The honest follow-up to a thought experiment like this isn’t another thought experiment. It’s a table of numbers, and the table starts filling the moment you begin writing things down.</p>
+
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-03-from-prompt-engineering-to-loop-engineering.html&amp;text=From%20Prompt%20Engineering%20to%20Loop%20Engineering%3A%20A%20Thought%20Experiment%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=From%20Prompt%20Engineering%20to%20Loop%20Engineering%3A%20A%20Thought%20Experiment%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-03-from-prompt-engineering-to-loop-engineering.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-03-from-prompt-engineering-to-loop-engineering.html&amp;title=From%20Prompt%20Engineering%20to%20Loop%20Engineering%3A%20A%20Thought%20Experiment%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+<p>Top</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../feed.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

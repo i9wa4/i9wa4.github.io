@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="uma-chan">
+<meta name="dcterms.date" content="2026-07-14">
+<meta name="description" content="The terminal is not going away; the human’s direct grip on it is. A forecast on Claude Code and Codex becoming replaceable engines on a shared tmux/herdr substrate. #AIAgents #Terminal #ClaudeCode #Codex">
+
+<title>tmux Survives, But Its Visible Form Disappears – uma-chan’s page</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/common/icon_hhkb3.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-af8bd029fa0acc6748d0af4725462cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d821d4c3bacc712f6d775c4f7e4478ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/social-share-1.0.0/social-share.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YMPKZMG4S9"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YMPKZMG4S9', { 'anonymize_ip': true});
+</script>
+<script>
+// Override default AnchorJS options loaded by Quarto
+// Modify settings from window.quartoConfig if it exists
+window.addEventListener('load', function() {
+  if (window.anchors) {
+    // If already initialized, modify settings and reapply
+    window.anchors.options.icon = '#';
+    window.anchors.remove('.anchored');
+    window.anchors.add('.anchored');
+  }
+});
+</script>
+<script>
+// Always follow system color scheme preference, ignoring localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  // Remove stored preference so Quarto's listener works
+  window.localStorage.removeItem("quarto-color-scheme");
+
+  // Add listener that always responds to system changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    // Clear any stored preference first
+    window.localStorage.removeItem("quarto-color-scheme");
+
+    // Toggle color mode based on system preference
+    if (typeof window.quartoToggleColorScheme === 'function') {
+      const isDark = e.matches;
+      const currentlyDark = document.body.classList.contains('quarto-dark');
+      if (isDark !== currentlyDark) {
+        window.quartoToggleColorScheme();
+      }
+    }
+  });
+});
+</script>
+<meta name="Hatena::Bookmark" content="nocomment">
+
+
+<meta property="og:title" content="tmux Survives, But Its Visible Form Disappears – uma-chan’s page">
+<meta property="og:description" content="The terminal is not going away; the human’s direct grip on it is. A forecast on Claude Code and Codex becoming replaceable engines on a shared tmux/herdr substrate. #AIAgents #Terminal #ClaudeCode #Codex">
+<meta property="og:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta property="og:site_name" content="uma-chan’s page">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:title" content="tmux Survives, But Its Visible Form Disappears – uma-chan’s page">
+<meta name="twitter:description" content="The terminal is not going away; the human’s direct grip on it is. A forecast on Claude Code and Codex becoming replaceable engines on a shared tmux/herdr substrate. #AIAgents #Terminal #ClaudeCode #Codex">
+<meta name="twitter:image" content="https://i9wa4.github.io/assets/common/icon_hhkb3_large.jpg">
+<meta name="twitter:creator" content="@i9wa4_">
+<meta name="twitter:site" content="@i9wa4_">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#the-claim" id="toc-the-claim" class="nav-link active" data-scroll-target="#the-claim">1. The Claim</a></li>
+  <li><a href="#claude-code-and-codex-move-up-the-stack" id="toc-claude-code-and-codex-move-up-the-stack" class="nav-link" data-scroll-target="#claude-code-and-codex-move-up-the-stack">2. Claude Code and Codex Move Up the Stack</a></li>
+  <li><a href="#herdr-shows-the-interface-direction" id="toc-herdr-shows-the-interface-direction" class="nav-link" data-scroll-target="#herdr-shows-the-interface-direction">3. herdr Shows the Interface Direction</a></li>
+  <li><a href="#postman-shows-the-other-half" id="toc-postman-shows-the-other-half" class="nav-link" data-scroll-target="#postman-shows-the-other-half">4. postman Shows the Other Half</a></li>
+  <li><a href="#the-phone-is-the-real-ui-test" id="toc-the-phone-is-the-real-ui-test" class="nav-link" data-scroll-target="#the-phone-is-the-real-ui-test">5. The Phone Is the Real UI Test</a></li>
+  <li><a href="#ai-subscriptions-belong-on-the-individuals-pc" id="toc-ai-subscriptions-belong-on-the-individuals-pc" class="nav-link" data-scroll-target="#ai-subscriptions-belong-on-the-individuals-pc">6. AI Subscriptions Belong on the Individual’s PC</a></li>
+  <li><a href="#what-stops-mattering" id="toc-what-stops-mattering" class="nav-link" data-scroll-target="#what-stops-mattering">7. What Stops Mattering</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">tmux Survives, But Its Visible Form Disappears</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">blog</div>
+    <div class="quarto-category">tech-ai</div>
+    <div class="quarto-category">ai-generated</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>The terminal is not going away; the human’s direct grip on it is. A forecast on Claude Code and Codex becoming replaceable engines on a shared tmux/herdr substrate. #AIAgents #Terminal #ClaudeCode #Codex</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>uma-chan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-07-14</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-07-16</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-claim" class="level2">
+<h2 class="anchored" data-anchor-id="the-claim">1. The Claim</h2>
+<p>I think the terminal survives. I do not think the human keeps looking at it in the same way.</p>
+<p>That sounds contradictory only if “terminal” means “the thing I personally operate with my hands.” For agent work, the terminal is increasingly a process container, a durable workbench, and a recovery surface. Those jobs still remain. What changes is who operates it.</p>
+<p>The short version:</p>
+<blockquote class="blockquote">
+<p>tmux survives, but its visible form disappears.</p>
+</blockquote>
+<p>The visible form is the part where I stare at panes, remember which agent is blocked, decide which pane should answer, and type the next routing command. That is already the wrong level of work for a human. The durable form is the part where terminal processes keep running, sessions stay attachable, output can be inspected, and agents can do real work inside normal development environments.</p>
+<p>That durable form is not disappearing. More of the work is moving onto it. The question is whether the human should keep sitting at that layer.</p>
+<p>The previous post explains <a href="../../en/blog/2026-07-14-why-multi-agent.html">why multi-agent structure is useful</a>. Here the focus moves down a layer, to the execution substrate. The next posts cover <a href="../../en/blog/2026-07-14-two-state-machines-for-agent-work.html">the two state machines behind agent work</a> and <a href="../../en/blog/2026-07-14-company-inside-personal-computer.html">the organizational shape of a personal agent workstation</a>.</p>
+<p>It also does not have to live on the laptop in front of me. tmux is valuable because it can run on a personal machine, a home server, or a remote host, and the session remains a stable place for work even when I move between desk, laptop, and phone. That portability is part of why the visible pane grid can recede: the object worth preserving is not the screen I am touching now, but the sessionful execution substrate that agents can keep using.</p>
+</section>
+<section id="claude-code-and-codex-move-up-the-stack" class="level2">
+<h2 class="anchored" data-anchor-id="claude-code-and-codex-move-up-the-stack">2. Claude Code and Codex Move Up the Stack</h2>
+<p>Claude Code and Codex are still exposed as terminal-first tools. That makes sense today. The repository, shell, tests, editor habits, and local credentials already live there, so the terminal is the path of least resistance.</p>
+<p>But using Claude Code and Codex side by side points in a different direction. The human does not want two terminal products. The human wants access to the best implementer for each kind of step, with the least possible ceremony.</p>
+<p>My forecast is that people who seriously use both tools will stop treating them as separate places to work. They will put both on the same operating fabric: tmux, herdr, or something with the same durable substrate properties. Claude Code and Codex then become mutually replaceable execution and personality engines behind that fabric. One may be better for a particular moment, but the workbench should not depend on which one is currently driving. That is partly an economic and operational hedge: pricing, subscription terms, token budgets, rate limits, availability, and model fit all change the best engine for a given moment.</p>
+<p>If that forecast is right, the visible interface starts to collapse into simpler surfaces:</p>
+<ul>
+<li>chat for intent and status;</li>
+<li>voice input for quick delegation;</li>
+<li>file viewers and diffs for review;</li>
+<li>images and screenshots when the artifact is visual;</li>
+<li>browser and phone surfaces for remote approval.</li>
+</ul>
+<p>The agent CLIs can remain underneath. They can keep their strengths, local state, authentication, and model-specific behavior. But the human-facing layer stops being “which CLI am I typing into?” and becomes “what decision do I need to make?”</p>
+<p>In that world, Claude Code and Codex are less like two apps competing for a terminal tab and more like two departments inside a local organization. The common substrate becomes the object to inspect, not the currently active department.</p>
+</section>
+<section id="herdr-shows-the-interface-direction" class="level2">
+<h2 class="anchored" data-anchor-id="herdr-shows-the-interface-direction">3. herdr Shows the Interface Direction</h2>
+<p>This is why <a href="https://herdr.dev/">herdr</a> is interesting. It does not make the terminal disappear. It changes what the terminal is for. Its homepage describes itself as an agent multiplexer: one terminal for the whole herd, where coding agents run in real terminals and stay alive on a server even after the laptop closes. Its <a href="https://herdr.dev/docs/concepts/">concepts documentation</a> makes the same point in more structural terms: workspaces contain tabs and panes, panes are real terminals, and agents are recognized processes with runtime states such as blocked, working, done, idle, and unknown.</p>
+<p>That is more than a nicer terminal UI. It changes the unit of attention.</p>
+<p>Traditional tmux asks me to manage windows and panes. herdr asks me to manage workspaces, agents, and status. Its <a href="https://herdr.dev/docs/session-state/">session state documentation</a> separates live detach, snapshot restore, pane history replay, native agent session restore, and live handoff. Those distinctions are not cosmetic because agent work is not a single command returning a value. It is a long-running process with state, output, context, and recovery paths.</p>
+<p>The claim is not “herdr replaces tmux.” It may or may not for a given user. The stronger signal is that terminal multiplexing is being reframed around agent operations. The durable object is no longer just a pane layout. It is a set of agents with recoverable state.</p>
+<p>That also changes the role of the agent brand. If the workspaces, panes, sessions, handoffs, and artifacts are stable outside the model client, then switching from Claude Code to Codex is closer to reassigning an implementer than moving the whole office. The continuity belongs to the substrate, not to a single CLI. The practical win is that cost, quota, outage, or fit can change the implementer choice without forcing the user to rebuild the work state.</p>
+<p>The terminal remains the substrate. The visible object becomes the agent.</p>
+</section>
+<section id="postman-shows-the-other-half" class="level2">
+<h2 class="anchored" data-anchor-id="postman-shows-the-other-half">4. postman Shows the Other Half</h2>
+<p>A local counterpart is <a href="https://github.com/i9wa4/tmux-a2a-postman"><code>tmux-a2a-postman</code></a>. It takes the opposite posture from herdr in some ways. It does not try to become the terminal workspace. It stays as a thin coordination layer around tmux panes.</p>
+<p>The README describes the shape plainly: roles and handoff edges live in <code>postman.md</code>; a daemon routes local mail between matching tmux pane titles; the system keeps inbox, read, dead-letter, reply-required, journal, projection, and pane-state surfaces visible. The design notes are careful about the boundary: postman is not a full agent runtime, not a broad workflow engine, and not a replacement for tmux or the agent CLIs.</p>
+<p>That boundary makes the tool useful. tmux still owns terminal processes. postman owns the obligation ledger around those processes: who asked for what, which reply is still required, which request was filled, and which work is blocked by a review or approval dependency. It is a message lane, but the valuable part is the responsibility state that survives beyond any one pane’s terminal history.</p>
+<p>The human-facing dashboard is only the surface. The state underneath is what the operator needs: a message was delivered, a reply is required, a request is waiting, a request was filled, or a message fell into dead letter. Those are not vibes from terminal history. They are transport facts.</p>
+<p>This is another version of the same forecast: tmux survives, but the human should not have to operate its visible pane grid by memory.</p>
+</section>
+<section id="the-phone-is-the-real-ui-test" class="level2">
+<h2 class="anchored" data-anchor-id="the-phone-is-the-real-ui-test">5. The Phone Is the Real UI Test</h2>
+<p>The easiest way to test this prediction is to leave the desk. If the work still requires the desk, the terminal has not really moved into the background.</p>
+<p>If agent work still requires me to open a laptop, find the right terminal window, inspect panes, and type into the correct process, then the terminal is still the user interface. If I can approve, redirect, or inspect from a phone, then the terminal has become infrastructure.</p>
+<p>This is why I pay attention to phone and private-network experiments around agent terminals.</p>
+<p>herdr’s official docs emphasize local and SSH-based remote attach. Its <a href="https://herdr.dev/docs/persistence-remote/">remote access documentation</a> describes a background server, local clients, remote attach over SSH, direct terminal attach, and read-only terminal observers. Its <a href="https://herdr.dev/docs/socket-api/">socket API</a> exposes the kind of control surface scripts and agents need: create and focus workspaces, manage tabs and panes, read output, send input, start agents, wait for state, and subscribe to events.</p>
+<p>Telegram support, from what I can verify, is already appearing around herdr rather than as the core herdr contract. <a href="https://github.com/dcolinmorgan/herdr-remote"><code>herdr-remote</code></a> advertises phone, menu bar, and Telegram status and approvals for herdr agents. <a href="https://github.com/alexei-led/ccgram"><code>ccgram</code></a> describes a Telegram bridge for Claude Code, Codex CLI, Gemini CLI, tmux, and herdr. That distinction keeps the evidence scoped: the official core is a terminal workspace and API; the ecosystem is already reaching for phone and Telegram surfaces.</p>
+<p>Tailscale is similar in my current evidence. I can verify it strongly in adjacent local tooling: <a href="https://github.com/i9wa4/markdown-remote-viewer"><code>markdown-remote-viewer</code></a> has an explicit <code>--tailscale</code> mode for serving Markdown over a Tailnet. For herdr itself, the official remote story I verified is SSH remote attach, not native Tailscale. But the direction is the same: private network access plus phone-readable review surfaces turns the terminal into a backend.</p>
+<p>The durable point is not a specific network product. It is location independence. If the execution substrate runs on a server and is reachable through SSH or a private network, I can inspect and approve work from almost anywhere without moving the work itself. tmux has had that property for a long time. herdr follows the same path by treating the terminal workspace as a server-backed thing that clients can attach to.</p>
+<p>The phone does not need a decorated cockpit. It needs a small set of decisions.</p>
+</section>
+<section id="ai-subscriptions-belong-on-the-individuals-pc" class="level2">
+<h2 class="anchored" data-anchor-id="ai-subscriptions-belong-on-the-individuals-pc">6. AI Subscriptions Belong on the Individual’s PC</h2>
+<p>There is a tempting cloud-only version of this future: every agent runs in a vendor-controlled remote workspace, and the local machine becomes a thin browser tab. That version solves reachability, but it risks moving the workbench away from the state that makes personal work personal.</p>
+<p>That will be useful for many teams, but it is not the whole shape. For personal work, I expect a strong counter-principle:</p>
+<blockquote class="blockquote">
+<p>AI subscriptions should run against the individual’s own PC.</p>
+</blockquote>
+<p>More precisely: they should run against the individual’s own operating environment, whether that is a laptop, desktop, home server, or personally controlled remote machine. The reason is not nostalgia for local machines. It is state. I expand this organizational angle in <a href="../../en/blog/2026-07-14-company-inside-personal-computer.html">“A Company Inside the Personal Computer”</a>; the short version here is that the workbench should stay close to the user’s own files, credentials, project checkouts, and operating habits.</p>
+<p>The likely pattern is hybrid. The model may be remote. The workbench stays local or personally controlled. The interaction layer becomes browser, phone, text, image, and voice. Private networking can make the workbench reachable without making it vendor-owned. The terminal remains the execution substrate.</p>
+</section>
+<section id="what-stops-mattering" class="level2">
+<h2 class="anchored" data-anchor-id="what-stops-mattering">7. What Stops Mattering</h2>
+<p>Visual decoration carries less of the value in this model.</p>
+<p>Design still has work to do. What loses value is the decorative operator surface. When the human is no longer driving the machinery directly, a beautiful dashboard of every pipe and gear is not the scarce thing.</p>
+<p>The scarce thing is a correct escalation:</p>
+<ul>
+<li>What needs my decision?</li>
+<li>What finished?</li>
+<li>What failed?</li>
+<li>What evidence should I inspect?</li>
+<li>What can the system safely decide without me?</li>
+</ul>
+<p>That view does not have to resemble the terminal that keeps the work alive. A phone review pane, a remote browser surface, or a small decision inbox can sit above the same tmux sessions and show only the handoff that needs a decision now. The machine room remains reachable, but the default surface is the decision edge: what changed, what needs approval, and which artifact deserves inspection.</p>
+<p>The terminal survives because someone still has to run the processes.</p>
+<p>The visible terminal disappears because that someone is increasingly an AI agent.</p>
+
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-14-tmux-survives-visible-form-disappears.html&amp;text=tmux%20Survives%2C%20But%20Its%20Visible%20Form%20Disappears%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=tmux%20Survives%2C%20But%20Its%20Visible%20Form%20Disappears%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-14-tmux-survives-visible-form-disappears.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-14-tmux-survives-visible-form-disappears.html&amp;title=tmux%20Survives%2C%20But%20Its%20Visible%20Form%20Disappears%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/i9wa4\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2024-2026 uma-chan
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+<p>Top</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../feed.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+ Built with
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org/">
+<p>Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
