@@ -3,13 +3,14 @@ title: "Iteration Clarifies What Matters"
 author: uma-chan
 categories:
   - "blog"
-date: 2026-07-30 19:40:00 +0900
+  - "ai-generated"
+date: 2026-07-30 23:40:59 +0900
 date-modified: last-modified
 description: "Clarity rarely arrives before action. A calm working theory for making room, learning from reality, and keeping your next move connected to what you care about. #Reflection #PersonalGrowth"
-image: false
+image: "/assets/common/icon_hhkb3_large.jpg"
 ---
 
-## Looking for one answer
+## 1. Looking for one answer
 
 For a long time, I thought life might yield one right answer: the right career,
 the right city, the right philosophy. The search made thinking feel productive,
@@ -30,7 +31,7 @@ This is a working theory of life, version 0.1. Iteration can clarify, test, and
 sometimes reshape what matters; it does not prove that meaning was fully formed
 in advance.
 
-## Returning to reality
+## 2. Returning to reality
 
 Parenting is not finished. Neither are writing or yoga. Each asks for another
 encounter with what is actually happening: attention, adjustment, and the
@@ -70,7 +71,7 @@ Clarity can confirm a direction, expose a weak assumption, or make a
 once-important aim feel less true. The point is not to complete a framework. It
 is to stay in contact with a life as it is lived.
 
-## Making room
+## 3. Making room
 
 Some complexity is essential: care, responsibilities, and the ordinary work of
 keeping a life going. Some is chosen because it is worth the cost. Not every
@@ -91,7 +92,7 @@ The point is not to make life constant optimization. It is to make enough room
 for honest feedback. Reality has more texture than a plan; it answers when an
 attempt gives it something to answer.
 
-## What remains
+## 4. What remains
 
 Not every iteration succeeds. A project may end, a plan may change, or an
 assumption may fail. Yet an attempt may leave learning, a capability, or the
@@ -106,7 +107,7 @@ that can be cared for, damaged, restored, and enjoyed.
 Money fits here too: not as the objective, but as one source of optionality and
 safety. Its value is the freedom it may create to choose with more care.
 
-## What matters and what we carry
+## 5. What matters and what we carry
 
 What matters belongs to a particular life, but it is rarely formed alone. For
 one person it may be family; for another, how they want to use their time. It
@@ -127,7 +128,7 @@ The theory should remain answerable to experience. Its names may change as
 life does; the test is whether it helps us notice, choose, and care more
 honestly.
 
-## Return
+## 6. Return
 
 The next move does not need to settle a whole life. It can be small: make a
 little room, try something real, notice what happens, and return with more care
