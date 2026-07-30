@@ -61,6 +61,12 @@ flowchart TD
     reality -. "clarifies" .-> matters
     reality -. "may leave" .-> remains
     remains -. "can support" .-> return
+
+    class attempt,reality,return action
+    class remains,matters outcome
+    classDef action fill:#dbeafe,stroke:#2563eb,color:#0f172a
+    classDef outcome fill:#f8fafc,stroke:#64748b,color:#0f172a
+    style practice fill:#f8fafc,stroke:#64748b,color:#0f172a
 ```
 
 Solid arrows show the continuing practice. Dotted arrows show what an encounter with reality may reveal or leave behind.
