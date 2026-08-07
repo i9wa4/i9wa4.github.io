@@ -1,0 +1,293 @@
+# Stop AI from Scattering Docs: Introducing mkmd
+uma-chan
+2026-03-22
+
+## 1. The Problem: AI Agent Work Files Are a Mess
+
+If you use Claude Code or Codex CLI on a daily basis, you end up with a
+pile of temporary Markdown files — investigation notes, plans, review
+results — that only matter during a session.
+
+Creating them inside the repository means `.gitignore` headaches.
+Putting them in `/tmp/` means they vanish on reboot. And coming up with
+a path manually every time is just inefficient.
+
+What I wanted was a tool that checks all these boxes:
+
+- Does not pollute the git repository
+- Automatically organized by project
+- Sessions distinguished by date and branch
+- No filename collisions
+- One command to create a file
+
+## 2. How It Helps
+
+### 2.1. Easy to Find Later
+
+Work files land under `~/.local/state/mkmd/`, organized by project,
+date, and branch. “Where did I put that investigation?” is solved with a
+single `ls`.
+
+``` text
+~/.local/state/mkmd/
+├── i9wa4-dotfiles/
+│   └── 2026-03-22-main/
+│       ├── research/
+│       │   └── nix-investigation-aB3xKq.md
+│       └── plans/
+│           └── plan-Xk9mZw.md
+├── i9wa4-i9wa4.github.io/
+│   └── 2026-03-22-feat-auth/
+│       └── draft/
+│           └── design-doc-pQ7rLs.md
+└── mycompany-api/
+    └── 2026-03-21-issue-42/
+        └── reviews/
+            └── completion-nW2vHj.md
+```
+
+The directory name tells you which repository, which date, and which
+branch. Even if you juggle multiple issues on the same day, nothing gets
+mixed up.
+
+### 2.2. Keeps the Repository Clean
+
+Output goes to `$XDG_STATE_HOME` (defaults to `~/.local/state`), so the
+git repository is never touched. No need to add anything to `.gitignore`
+— your repo stays clean at all times.
+
+### 2.3. AI Agents Use It Autonomously
+
+Just add one line to your CLAUDE.md / AGENTS.md and agents will create
+files at the right place during research, planning, and review phases.
+
+The agent runs something like:
+
+``` console
+mkmd --dir research --label api-investigation
+```
+
+writes the results to that file, and references it in subsequent tasks.
+
+### 2.4. Easy to Clean Up
+
+When files are no longer needed, delete an entire date directory:
+
+``` bash
+rm -rf ~/.local/state/mkmd/i9wa4-dotfiles/2026-03-20-*
+```
+
+Deleting by project is just as easy. Nothing breaks even if you wipe
+everything.
+
+## 3. mkmd: A Markdown Wrapper for mktemp
+
+`mktemp` is the standard Unix command for atomically creating temporary
+files.
+
+`mkmd` is a thin wrapper around it.
+
+``` text
+$ mkmd --dir research --label api-investigation
+~/.local/state/mkmd/i9wa4-dotfiles/2026-03-22-main/research/api-investigation-xEZZqX.md
+```
+
+The generated path follows this structure:
+
+``` text
+$MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
+```
+
+| Segment         | How It Is Determined                                   |
+|-----------------|--------------------------------------------------------|
+| `MKMD_BASE_DIR` | Environment variable (default: `$XDG_STATE_HOME/mkmd`) |
+| `owner-repo`    | Extracted from `git remote get-url origin`             |
+| `YYYY-MM-DD`    | Date of execution                                      |
+| `branch`        | `git rev-parse --abbrev-ref HEAD`                      |
+| `DIR`           | `--dir` argument                                       |
+| `LABEL-XXXXXX`  | `--label` argument + random suffix from `mktemp`       |
+
+When run outside a git repository, it falls back to
+`local-<dirname>/...-local/`.
+
+## 4. Full Script
+
+Place it in a directory on your PATH and make it executable.
+
+``` bash
+chmod +x mkmd
+```
+
+<div class="code-with-filename">
+
+**mkmd**
+
+``` bash
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o posix
+
+BASE_DIR="${MKMD_BASE_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/mkmd}"
+
+print_usage() {
+  cat <<EOF
+Usage:
+  mkmd --dir DIR --label LABEL
+
+mktemp wrapper that creates a markdown working file.
+
+Creates:
+  \$MKMD_BASE_DIR/<owner>-<repo>/YYYY-MM-DD-<branch>/<DIR>/<LABEL>-<XXXXXX>.md
+
+  Base directory: ${BASE_DIR}
+  Works in git repos (uses owner/repo from remote URL) and outside git (uses "local"/dirname).
+
+Environment:
+  MKMD_BASE_DIR  Override base directory (default: \$XDG_STATE_HOME/mkmd)
+
+Options:
+  --dir DIR      Directory name under the daily session
+  --label LABEL  File label included in the filename
+  -h, --help     Show this help and exit
+EOF
+}
+
+LABEL=""
+DIR=""
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  -h | --help)
+    print_usage
+    exit 0
+    ;;
+  --dir)
+    DIR="$2"
+    shift 2
+    ;;
+  --label)
+    LABEL="$2"
+    shift 2
+    ;;
+  -*)
+    echo "Unknown option: $1" >&2
+    exit 1
+    ;;
+  *)
+    echo "Error: Unknown argument: $1" >&2
+    exit 1
+    ;;
+  esac
+done
+
+# Validate DIR and LABEL
+if [[ -z $DIR || -z $LABEL ]]; then
+  echo "Error: --dir and --label are required" >&2
+  print_usage >&2
+  exit 1
+fi
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+
+if [[ -n $repo_root ]]; then
+  remote_url="$(git remote get-url origin 2>/dev/null || true)"
+  if [[ -n $remote_url ]]; then
+    # Extract owner/repo from remote URL (handles both SSH and HTTPS)
+    remote_url="${remote_url%.git}"
+    project_name="${remote_url##*/}"
+    remote_url="${remote_url%/*}"
+    project_owner="${remote_url##*[:/]}"
+  else
+    project_owner="local"
+    project_name="$(basename "$repo_root")"
+  fi
+  branch_name="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)"
+  branch_name="${branch_name//\//-}"
+else
+  project_owner="local"
+  project_name="$(basename "$(pwd -P)")"
+  branch_name="local"
+fi
+date_dir="$(date +%Y-%m-%d)-${branch_name}"
+TARGET_DIR="${BASE_DIR}/${project_owner}-${project_name}/${date_dir}/${DIR}"
+
+mkdir -p "$TARGET_DIR"
+# BSD mktemp requires XXXXXX at the end of the template (no suffix allowed)
+TEMP_PATH=$(mktemp "${TARGET_DIR}/${LABEL}-XXXXXX")
+trap 'rm -f "$TEMP_PATH"' EXIT
+FILE_PATH="${TEMP_PATH}.md"
+mv "$TEMP_PATH" "$FILE_PATH"
+trap - EXIT
+echo "$FILE_PATH"
+echo "Created: $FILE_PATH" >&2
+```
+
+</div>
+
+## 5. Integration with AI Agents
+
+### 5.1. Defining in CLAUDE.md / AGENTS.md
+
+In my setup, I include the following in CLAUDE.md / AGENTS.md:
+
+``` markdown
+- Create working files (not tracked by git) with `mkmd` (`mkmd --help`)
+- Common dir/label combinations:
+
+    | --dir     | --label                          |
+    | --------- | -------------------------------- |
+    | draft     | `${topic}`                       |
+    | research  | `${feature}-investigation`       |
+    | plans     | plan                             |
+    | reviews   | completion                       |
+    | tmp       | `${purpose}`                     |
+```
+
+This is all you need. The agent checks `mkmd --help` on its own and
+picks the right `--dir` / `--label`. No need to spell out usage examples
+in each skill.
+
+### 5.2. Working with PreToolUse Hooks
+
+If you use Claude Code’s PreToolUse hooks to control file writes, add
+`mkmd`’s output directory to the allow list:
+
+``` bash
+elif [[ -n $FILE_PATH && $FILE_PATH == "$HOME/.local/state/mkmd/"* ]]; then
+  : # Allow writes to mkmd state directory
+```
+
+### 5.3. Using from Other Scripts
+
+When calling `mkmd` from another script, stdout contains only the file
+path, so you can capture it with command substitution:
+
+``` bash
+FILE=$(mkmd --dir tmp --label compact-save)
+echo "# Context Save" > "$FILE"
+```
+
+The `Created: ...` message goes to stderr, so it never mixes with the
+path on stdout.
+
+## 6. Summary
+
+Managing AI agent work files is unglamorous, but clutter kills
+productivity.
+
+A thin wrapper around `mktemp` that automatically applies a “project /
+date / purpose” structure gives you:
+
+- `git status` stays clean at all times
+- Work files automatically organized by project, date, and branch
+- Agents create files autonomously; humans never have to think about
+  paths
+- Delete an entire directory when you are done
+
+If you have been struggling with where to put AI agent work files, give
+it a try.
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-03-22-mkmd-mktemp-wrapper-for-ai-agents.html&text=Stop%20AI%20from%20Scattering%20Docs%3A%20Introducing%20mkmd%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Stop%20AI%20from%20Scattering%20Docs%3A%20Introducing%20mkmd%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-03-22-mkmd-mktemp-wrapper-for-ai-agents.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-03-22-mkmd-mktemp-wrapper-for-ai-agents.html&title=Stop%20AI%20from%20Scattering%20Docs%3A%20Introducing%20mkmd%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
