@@ -40,10 +40,10 @@ subtitle: ""
 
 - 名前：uma-chan / Mawatari Daiki
 - 職種：
-    - データエンジニア / MLOpsエンジニア
+  - データエンジニア / MLOpsエンジニア
 - 受賞：
-    - JEDAI Order 2026
-    - Databricks MVP 2026
+  - JEDAI Order 2026
+  - Databricks MVP 2026
 
 ### 1.2. 本日話すこと
 
@@ -57,8 +57,8 @@ subtitle: ""
 あくまでも一例です
 
 - CLIもしくはアプリでAIエージェントを活用している
-    - Claude Code / Claude Desktop
-    - Codex CLI / Codex App
+  - Claude Code / Claude Desktop
+  - Codex CLI / Codex App
 - Windowsユーザーが多い
 
 普段の業務に順応するDatabricks活用環境があるととてもよい！
@@ -68,24 +68,24 @@ subtitle: ""
 前述のPC環境でデータ分析をするにはClaudeコネクタ・MCPサーバーを用意すればよさそうだが……
 
 - Claudeコネクタ
-    - 仕様上Databricksワークスペースと非人間IDを固定して全社利用するしかない
+  - 仕様上Databricksワークスペースと非人間IDを固定して全社利用するしかない
 - Databricks MCPサーバー
-    - ユーザー権限でログインする実装が難しい
+  - ユーザー権限でログインする実装が難しい
 
 ### 2.3. 救世主Databricks CLI
 
 元々DevContainer (Docker) で対応していましたがDatabricks CLIに乗り換え
 
 - Databricks CLIの特徴
-    - OS問わずインストールできる
-    - ユーザーとしてログインできる (OAuth U2M)
-    - CLIなのでPC上のAIエージェントとの相性が良い
+  - OS問わずインストールできる
+  - ユーザーとしてログインできる (OAuth U2M)
+  - CLIなのでPC上のAIエージェントとの相性が良い
 - 注意
-    - Databricks CLIの利用は禁止できない
-    - 開発作業もできてしまうので要権限整理
+  - Databricks CLIの利用は禁止できない
+  - 開発作業もできてしまうので要権限整理
 - 公式リンク
-    - <https://docs.databricks.com/aws/en/dev-tools/cli>
-    - <https://github.com/databricks/cli>
+  - <https://docs.databricks.com/aws/en/dev-tools/cli>
+  - <https://github.com/databricks/cli>
 
 ## 3. 分析ノウハウ集積方法
 
