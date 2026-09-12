@@ -1,0 +1,129 @@
+---
+title: "アナリストのClaude Code x Databricks活用について"
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+date: 2026-09-15
+date-modified: last-modified
+description: |
+  [登壇資料] データ界隈LT祭【第1回】
+draft: false
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: "[2026-09-15 データ界隈LT祭【第1回】～熱量や面白さを3分間に凝縮するLT祭～ - connpass](https://datayokocho.connpass.com/event/393250/)"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+subtitle: ""
+---
+
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+- 名前：uma-chan / Mawatari Daiki
+- 職種：
+    - データエンジニア / MLOpsエンジニア
+- 受賞：
+    - JEDAI Order 2026
+    - Databricks MVP 2026
+
+### 1.2. 本日話すこと
+
+- Databricksへの接続方法
+- 分析ノウハウ集積方法
+
+## 2. Databricksへの接続方法
+
+### 2.1. アナリストのPC環境の特徴
+
+あくまでも一例です
+
+- CLIもしくはアプリでAIエージェントを活用している
+    - Claude Code / Claude Desktop
+    - Codex CLI / Codex App
+- Windowsユーザーが多い
+
+普段の業務に順応するDatabricks活用環境があるととてもよい！
+
+### 2.2. Claudeコネクタ・MCPサーバー不採用理由
+
+前述のPC環境でデータ分析をするにはClaudeコネクタ・MCPサーバーを用意すればよさそうだが……
+
+- Claudeコネクタ
+    - 仕様上Databricksワークスペースと非人間IDを固定して全社利用するしかない
+- Databricks MCPサーバー
+    - ユーザー権限でログインする実装が難しい
+
+### 2.3. 救世主Databricks CLI
+
+元々DevContainer (Docker) で対応していましたがDatabricks CLIに乗り換え
+
+:::: {.columns}
+::: {.column width="60%"}
+
+- Databricks CLIの特徴
+    - OS問わずインストールできる
+    - ユーザーとしてログインできる (OAuth U2M)
+    - CLIなのでPC上のAIエージェントとの相性が良い
+- 注意
+    - Databricks CLIの利用は禁止できない
+    - 開発作業もできてしまうので要権限整理
+- 公式リンク
+    - <https://docs.databricks.com/aws/en/dev-tools/cli>
+    - <https://github.com/databricks/cli>
+
+:::
+::: {.column width="40%"}
+
+特に助かっている記事
+
+::: {style="transform: scale(1.0); transform-origin: top left;"}
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">WindowsでのDatabricks CLIのインストール <a href="https://t.co/Hp0J2MNkHC">https://t.co/Hp0J2MNkHC</a> <a href="https://x.com/hashtag/Qiita?src=hash&amp;ref_src=twsrc%5Etfw">#Qiita</a> <a href="https://x.com/taka_aki?ref_src=twsrc%5Etfw">@taka_aki</a>より</p>&mdash; uma-chan | Daiki Mawatari (@i9wa4_) <a href="https://x.com/i9wa4_/status/2098571125920010617?ref_src=twsrc%5Etfw">September 12, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+:::
+
+:::
+::::
+
+## 3. 分析ノウハウ集積方法
+
+### 3.1. Agent Skills
+
+AIエージェントとの相性の良い **Agent Skills** を利用する
+
+GitHub管理でアナリストが積極的にPull Requestを出せるようになるまで見守る
+
+認証情報等のPushを阻止するガードレールは設定してあげましょう！
+
+### 3.2. Unity Gateway Skills (ベータ版)
+
+データ格納先と同じ場所にAgent Skillsを置くことができる
+
+しかもGitHub同期ができる！
+
+現状の構成と相性が良いので活用していきたい
+
+参考: <https://docs.databricks.com/aws/en/agents/uc-skills/create-share-uc-skills>
+
+## 4. まとめ
+
+インストールさえできれば他の手法より楽ができます
+
+権限整理をしてDatabricks CLIを使ってみましょう！
