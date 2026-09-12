@@ -1,0 +1,137 @@
+# 試されDATA SAPPORO \#1
+運営チーム
+2025-11-07
+
+## 1. ようこそ
+
+### 1.1. 試されDATA SAPPORO \#1
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+<img
+src="https://i9wa4.github.io/assets/2025-11-07-tamesare-data-sapporo-opening/tamesare-data-logo.png"
+style="width:100.0%" alt="Tamesare Data Logo image" />
+
+</div>
+
+<div class="column" width="50%">
+
+<div style="font-size: 2em; margin-top: 2em;">
+
+北海道に縁のある人たちが データやAIを中心にワイワイする場所
+
+</div>
+
+<div style="font-size: 1.5em; margin-top: 2em;">
+
+2025年11月7日(金) 19:00～20:30
+
+</div>
+
+</div>
+
+</div>
+
+### 1.2. 開催概要
+
+<div style="display: flex; flex-direction: column; gap: 2em; margin-top: 2em;">
+
+<div style="text-align: left;">
+
+|          |                                                                 |
+|----------|-----------------------------------------------------------------|
+| 日時     | 2025年11月7日(金) 19:00～20:30 (開場 18:00)                     |
+| 会場     | クラスメソッド札幌オフィス                                      |
+| 住所     | 北海道札幌市中央区北３条西１丁目１−１ 札幌ブリックキューブ 10階 |
+| 参加者   | 46名 / 50名                                                     |
+| connpass | <https://tamesaredatahokkaido.connpass.com/event/369741/>       |
+
+</div>
+
+</div>
+
+## 2. タイムテーブル
+
+### 2.1. 本日のスケジュール
+
+| 時間 | 内容 |
+|----|----|
+| 18:00～ | 開場 |
+| 19:00～19:05 | オープニング & 乾杯 |
+| 19:05～19:20 | ゲスト講演「データ界隈の先端トレンドの話」（ちゅらデータCEO 真嘉比愛氏） |
+| 19:20～19:30 | 休憩 |
+| 19:30～20:15 | LT セッション (LakeHouse、Claude×Snowflake×dbt、他) |
+| 20:15～ | 閉会 |
+
+### 2.2. LT セッション詳細
+
+| 時間 | タイトル | 発表者 |
+|----|----|----|
+| 19:30～19:35 | LakeHouseの話 | 石川覚 |
+| 19:35～19:40 | Claudeと仲良くSnowflake x dbtな開発する話 | 菱沼雄太 |
+| 19:40～19:45 | Icebergのハンズオンについて | マキ |
+| 19:45～19:50 | Databricksでデータサイエンティスト向け開発環境構築 | uma-chan |
+| 19:50～19:55 | データ基盤の「育てる」コミュニケーション | やす |
+| 19:55～20:00 | ソフトウェアエンジニアとデータエンジニアの違い・キャリアチェンジ | 六車光貴 |
+| 20:00～20:05 | テレビ局でBIしようぜ | すぎもと |
+| 20:05～20:10 | たまには自然言語処理をやってみる | jewel |
+| 20:10～20:15 | Snowflake MarketplaceのPODBについて | しんや |
+
+## 3. 主要登壇者
+
+### 3.1. ゲスト講演
+
+<div style="display: flex; flex-direction: column; gap: 2em; margin-top: 2em;">
+
+<div style="font-size: 2em; font-weight: bold;">
+
+真嘉比 愛 氏
+
+</div>
+
+<div style="font-size: 1.5em;">
+
+ちゅらデータ株式会社 代表取締役
+
+</div>
+
+<div style="text-align: left; margin-top: 2em;">
+
+AI構築コンサルティング専門 データ基盤構築からAI活用まで幅広く支援
+
+</div>
+
+</div>
+
+## 4. 参加者の皆様へ
+
+### 4.1. 注意事項
+
+|  |  |
+|----|----|
+| 事前登録 | 定員に限りがありますので、イベント前に必ず登録を完了してください |
+| 参加レベル | データに関する基礎知識があると望ましいですが、すべてのレベルの参加者を歓迎 |
+| 積極的な参加 | 質問、ディスカッション、ネットワーキングセッションに積極的に参加ください |
+| プロフェッショナルな行動 | スピーカーや他の参加者に対して、敬意と礼儀を持って接してください |
+| 個人情報の保護 | 参加者やスピーカーの個人情報を無断で共有しないでください |
+| キャンセルポリシー | 参加できなくなった場合は、速やかにキャンセルしてください |
+
+## 5. お楽しみください
+
+### 5.1. Let’s enjoy
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 3em; margin-top: 5em;">
+
+<div style="font-size: 3em; font-weight: bold;">
+
+それでは、
+
+試されDATA SAPPORO \#1
+
+お楽しみください
+
+</div>
+
+</div>

@@ -1,0 +1,238 @@
+# コンテキスト設計から考えるハーネスエンジニアリング
+uma-chan
+2026-06-30
+
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+- 名前：uma-chan / 馬渡 大樹 (Mawatari Daiki)
+- 職種：データエンジニア・MLOpsエンジニア
+  - Databricks環境で両方やっている
+- 最近の趣味
+  - いつでもどこでも100%のパフォーマンスを発揮するための環境整備
+    - 場所：PC1台のみで完結させどこでも作業できるようにする
+    - PC：OS問わず貸与PC・個人PCをdotfilesでいつもの環境に変える
+    - AIエージェント：Claude CodeでもCodex CLIでも差異なく動かす
+
+### 1.2. 本日話すこと
+
+- AIエージェントを常時意図通りに制御し続けるために必要な考え方
+- コンテキスト設計を軸にしたtmux上でのハーネスエンジニアリングによる課題解決
+
+## 2. AIエージェントを制御する上で遭遇した問題
+
+### 2.1. AIエージェントを制御する上で遭遇した問題（大体Claude Sonnetの話）
+
+- いつの間にか最初の方の会話やチェックリスト化したタスクを忘れている
+  - 本質的なタスクを忘れてしまっていて想定外の方向に進んでしまっている
+- コマンドの禁止を無理矢理突破しようとする
+  - シェル芸、スクリプト実行、オプション活用など
+- CLAUDE.md/AGENTS.mdの内容を忘れる
+  - 長時間動かすと徐々に症状として現れる
+- Compaction後に滅茶苦茶な作業の進め方をしてしまう
+  - Claude CodeのCompactionの性能の悪さが目立つ
+- 適切にAgent Skillsを使ってくれない
+  - 折角作業手順をAgent Skillsに記載したのにその通りにやってくれない
+  - また長時間動かしていくとどんなAgent
+    Skillsを利用できるか忘れてしまっていそう
+
+**→ これらの真の原因は適切にコンテキストを付与できていないこと！**
+
+課題感のある方は以降の話を何らかの形で参考にできるはず
+
+## 3. AIエージェントに適切なコンテキストを付与するための思想
+
+### 3.1. 基本思想1：マルチエージェント運用で調査設計だけでなく会話もMarkdown化する
+
+個人的にはAIエージェントを交換可能にしたいので個別にもつ会話ログは参照しないようにしている
+
+マルチエージェント運用でエージェント同士にMarkdown経由で会話させる（実現方法は後述）
+
+これにより例えばClaude
+Codeの障害が発生したのでマルチエージェント運用していたClaude CodeをCodex
+CLIに差し替えてそのままタスクを継続させるということが可能になる
+
+### 3.2. 基本思想2：CLAUDE.md/AGENTS.mdをできるだけ薄くし再ロードさせる
+
+基本的にCLAUDE.md/AGENTS.mdは起動時のみロードされ、かつ記憶が薄れていくので常に意図通り動かすこととの相性が悪い
+
+以下のどちらかで対処する
+
+- Agent Skillsを手厚くしてCLAUDE.md/AGENTS.md自体を薄くする
+  - ただしこの場合もAgent
+    Skills一覧を定期的に展開しないと動きが悪くなる（後述記事参照）
+- CLAUDE.md/AGENTS.mdの再ロードの仕組みを用意する
+  - 手動再ロードの場合はAgent Skills化やcommand化でよい
+  - 自動化についてはhooks活用・後述OSS活用で対応できる
+
+### 3.3. 基本思想3：各AIエージェントのチェックリストは全員の見える場所に置く
+
+人間には見えなくてもOKだがAIエージェント同士はお互いにチェックリストを把握しているとスムーズ
+
+役割に応じてチェックリストの項目の粒度は変える（これは人間の組織と同じ）
+
+### 3.4. 基本思想4：Agent Skillsを適切に整備する
+
+- Agent Skillsで重要なのは **名前** と **説明** ！適当に作らない！
+
+  - 名前と説明を見てロードするかどうかを決めている
+
+  <div class="code-with-filename">
+
+  **SKILL.md**
+  ``` md
+  ---
+  name: skill-name
+  description: A description of what this skill does and when to use it.
+  ---
+  ```
+
+  </div>
+
+- 名前と説明は表紙、SKILL.mdは目次、references/は本文
+
+  ``` text
+  my-skill/
+  ├── SKILL.md          # Required: metadata + instructions
+  ├── scripts/          # Optional: executable code
+  ├── references/       # Optional: documentation
+  ├── assets/           # Optional: templates, resources
+  └── ...               # Any additional files or directories
+
+  See https://agentskills.io/home
+  ```
+
+### 3.5. 基本思想まとめ
+
+- マルチエージェント運用で調査設計だけでなく会話もMarkdown化する
+- CLAUDE.md/AGENTS.mdをできるだけ薄くし再ロードさせる
+- 各AIエージェントのチェックリストは全員の見える場所に置く
+- Agent Skillsを適切に整備する
+
+### 3.6. 基本思想による問題解決 (1)
+
+> - いつの間にか最初の方の会話やチェックリスト化したタスクを忘れている
+
+- マルチエージェント運用で調査設計だけでなく会話もMarkdown化する
+- 各AIエージェントのチェックリストは全員の見える場所に置く
+
+> - コマンドの禁止を無理矢理突破しようとする
+
+- CLAUDE.md/AGENTS.mdをできるだけ薄くし再ロードさせる
+- Agent Skillsを適切に整備する
+
+上記で基本思想を伝達しつつコマンド禁止理由をAIに伝達できるような設定の作り込みをする
+
+### 3.7. 基本思想による問題解決 (2)
+
+> - CLAUDE.md/AGENTS.mdの内容を忘れる
+
+- CLAUDE.md/AGENTS.mdをできるだけ薄くし再ロードさせる
+- Agent Skillsを適切に整備する
+
+> - Compaction後に滅茶苦茶な作業の進め方をしてしまう
+
+- マルチエージェント運用で調査設計だけでなく会話もMarkdown化する
+- CLAUDE.md/AGENTS.mdをできるだけ薄くし再ロードさせる
+- 各AIエージェントのチェックリストは全員の見える場所に置く
+- Agent Skillsを適切に整備する
+
+> - 適切にAgent Skillsを使ってくれない
+
+- Agent Skillsを適切に整備する
+  - → これだけでは不十分で時々Agent Skills一覧を提供する必要がある
+
+## 4. 基本思想の実現方法
+
+### 4.1. マルチエージェント向け基盤の選定
+
+1つのタスクにマルチエージェントで取り組みつつ基本思想を全て実装できる基盤として
+**tmux** を利用する
+
+<div style="transform: scale(1.4); transform-origin: top left;">
+
+<blockquote class="twitter-tweet">
+
+<p lang="ja" dir="ltr">
+
+AI エージェント時代の波に乗るための tmux 入門 —
+マルチエージェントオーケストレーションの相棒｜uma-chan
+<a href="https://t.co/mToD0i5XaC">https://t.co/mToD0i5XaC</a>
+<a href="https://x.com/hashtag/zenn?src=hash&amp;ref_src=twsrc%5Etfw">\#zenn</a>
+</p>
+
+— uma-chan🌲 (@i9wa4\_)
+<a href="https://x.com/i9wa4_/status/2071742945120948422?ref_src=twsrc%5Etfw">June
+29, 2026</a>
+</blockquote>
+
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+### 4.2. tmuxでのマルチエージェントオーケストレーション用のOSS
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+作ったもの
+
+<div style="transform: scale(1.4); transform-origin: top left;">
+
+<blockquote class="twitter-tweet">
+
+<p lang="zxx" dir="ltr">
+
+<a href="https://t.co/OwiZj72CNO">https://t.co/OwiZj72CNO</a>
+</p>
+
+— uma-chan🌲 (@i9wa4\_)
+<a href="https://x.com/i9wa4_/status/2071747807002955999?ref_src=twsrc%5Etfw">June
+30, 2026</a>
+</blockquote>
+
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+</div>
+
+<div class="column" width="50%">
+
+解説記事
+
+<div style="transform: scale(1.4); transform-origin: top left;">
+
+<blockquote class="twitter-tweet">
+
+<p lang="ja" dir="ltr">
+
+Markdown を設定ファイルにして tmux 上の
+AIエージェント間リレーを管理する｜uma-chan
+<a href="https://t.co/5XBEvvmCbQ">https://t.co/5XBEvvmCbQ</a>
+<a href="https://x.com/hashtag/zenn?src=hash&amp;ref_src=twsrc%5Etfw">\#zenn</a>
+</p>
+
+— uma-chan🌲 (@i9wa4\_)
+<a href="https://x.com/i9wa4_/status/2071749142867808687?ref_src=twsrc%5Etfw">June
+30, 2026</a>
+</blockquote>
+
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+</div>
+
+</div>
+
+## 5. まとめ
+
+### 5.1. まとめ
+
+- 地道にAIエージェントと向き合ってコンテキスト設計をしよう
+- 忘れん坊で暴れ馬 🐴 であるClaude
+  Sonnetを制御してハーネス構築力を上げよう
+- tmuxはいいぞ

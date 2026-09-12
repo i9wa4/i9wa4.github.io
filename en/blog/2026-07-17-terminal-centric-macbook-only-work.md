@@ -1,0 +1,253 @@
+# How I Work from a Bare MacBook
+uma-chan
+2026-07-17
+
+## 1. The Setup That Should Feel Too Small
+
+For the last few months, I have been working without an external
+monitor, an external keyboard, or a mouse.
+
+Just a MacBook.
+
+That sounds like a downgrade if the computer is still organized around
+windows. Every missing device removes one kind of space: no second
+display for a browser or chat window, no full-size keyboard posture, no
+mouse pointer for fast window management. If the workflow expects a
+desk, the laptop becomes cramped.
+
+The setup works because the desk is no longer the organizing unit. The
+terminal is.
+
+I do not mean that every application disappears. Chrome still exists.
+Zoom still exists. Native macOS apps still exist. The point is narrower:
+the work that needs continuity lives in terminal sessions, text files,
+shell commands, tmux panes, Neovim buffers, and reproducible dotfiles.
+The MacBook screen is only the viewport into that system.
+
+Once the workflow is shaped that way, external devices become nice to
+have rather than structural requirements.
+
+## 2. The skhd Boundary Keeps the Outside World Small
+
+The most revealing part of my macOS hotkey setup is how little it asks
+from the system.
+
+I use `skhd` for the global jump back to the two places I need most: the
+terminal and the browser. The hotkey layer itself is tiny:
+
+<div class="code-with-filename">
+
+**skhdrc**
+
+``` conf
+# App switching: Alt + 1/2/3
+alt - 1 : open -a "kitty"
+alt - 2 : open -a "Google Chrome"
+```
+
+</div>
+
+That is the laptop-only strategy in miniature. I do not try to reproduce
+a big desktop with elaborate window choreography. I keep a fast path to
+the terminal and a fast path to the browser.
+
+Kitty matters here too. My terminal is not an opaque wall over the rest
+of the screen; its background opacity is set to `0.60`, with dynamic
+opacity enabled and Option-key bindings for small opacity adjustments.
+In practice, that lets me keep working in the terminal while still
+seeing the browser behind it as a visual reference.
+
+The important detail is not `Alt-1` itself. It is the boundary. `skhd`
+handles the thin layer where macOS needs to choose an application. After
+that, the terminal takes over. Most project switching, file editing, Git
+inspection, agent work, and command history search happen without asking
+macOS to manage a new surface.
+
+This makes the built-in keyboard much less of a compromise. The keyboard
+does not need to drive a huge graphical layout. It mostly needs to get
+me back to the terminal and let the terminal’s own bindings carry the
+rest.
+
+## 3. The tmux Session Makes One Screen Stateful
+
+A small screen is painful when every task needs its own visible window.
+
+tmux changes the question. Instead of asking “how many windows can I see
+at once?”, I ask “where does this work keep living?”
+
+My tmux config does a few boring things that matter all day:
+
+<div class="code-with-filename">
+
+**tmux.conf**
+
+``` conf
+bind-key g display-popup -d '#{pane_current_path}' -w 90% -h 90% -E 'lazygit'
+
+bind-key %      split-window -h -c "#{pane_current_path}"
+bind-key '"'    split-window -v -c "#{pane_current_path}"
+bind-key c      new-window      -c "#{pane_current_path}"
+
+set-option -g history-limit 100000
+set-option -g set-clipboard on
+set-option -g allow-passthrough on
+```
+
+</div>
+
+New panes inherit the current directory. Git state opens in a popup
+instead of forcing a new app or a permanent split. The scroll-back
+buffer is deep enough that a terminal pane is not disposable. Clipboard
+pass-through is enabled because text movement still has to work when the
+terminal is inside tmux or SSH.
+
+Those details make the terminal feel less like one app among many and
+more like the workbench. A pane can hold an editor. Another pane can
+hold an agent. A popup can inspect Git. The session can survive
+detaching, reconnecting, and moving between local and remote machines.
+
+The MacBook display does not need to show everything. It needs to show
+the part I am judging right now.
+
+## 4. The Workspace Is Declared, Not Rebuilt
+
+Laptop-only work becomes fragile if the workspace has to be rebuilt by
+hand.
+
+The dotfiles avoid that by treating tmux layouts as configuration.
+`vde-layout` defines presets for everyday shapes: an editor plus an
+agent, a messenger pane, or a fuller local agent team.
+
+The smallest daily version looks like this:
+
+<div class="code-with-filename">
+
+**layout.yml**
+
+``` yaml
+presets:
+  dev:
+    name: dev
+    description: dev
+    windowMode: current-window
+    layout:
+      type: horizontal
+      ratio: [1, 1]
+      panes:
+        - name: pane
+          title: editor
+          focus: true
+        - name: agent
+          title: agent
+          command: codex --yolo --no-alt-screen --add-dir "${SUBDIR}" --model gpt-5.5 --config model_reasoning_effort=high
+```
+
+</div>
+
+This matters more on a small screen than on a large one. A large desktop
+can hide sloppy setup with spare pixels. A MacBook cannot. If each
+project starts from a predictable terminal layout, the small display
+stops being a place where I arrange things and becomes a place where I
+attach to an already-known work surface.
+
+That also changes how AI agents fit. The agent is not a separate product
+window that competes for screen space. It is a long-running process in
+the same terminal substrate as the editor, shell, Git tools, and project
+state.
+
+## 5. Text Movement Has to Cross the Boundary
+
+The hardest part of terminal-centric work is not launching commands. It
+is moving text without noticing the boundary between local, remote,
+tmux, editor, and macOS.
+
+My Neovim config keeps the clipboard target simple:
+
+<div class="code-with-filename">
+
+**init.lua**
+
+``` lua
+vim.opt.clipboard = ""
+if vim.fn.has("mac") == 1 or vim.fn.has("macunix") == 1 then
+  vim.opt.clipboard:prepend("unnamed")
+else
+  vim.opt.clipboard:prepend("unnamedplus")
+end
+
+local function send_tmux_clipboard(content)
+  if vim.fn.executable("tmux") == 1 and vim.env.TMUX and vim.env.TMUX ~= "" then
+    vim.system({ "tmux", "load-buffer", "-w", "-" }, { stdin = content }):wait()
+  end
+end
+```
+
+</div>
+
+Inside tmux, ordinary unnamed yanks are mirrored into
+`tmux load-buffer -w -`. The design note in the dotfiles says the main
+success case plainly: when editing on an Ubuntu server from a MacBook,
+text copied on the server should reach the local macOS clipboard.
+
+That detail is easy to underestimate. A laptop-only workflow cannot
+afford many manual transfer rituals. If yanking in Neovim, copying in
+tmux, and pasting into a local Mac app all feel like different systems,
+the small machine starts to feel small again.
+
+So the terminal setup treats the clipboard as part of the workflow, not
+as an afterthought.
+
+## 6. The Shell Reduces Navigation Cost
+
+The shell layer follows the same pattern: reduce trips out of the
+terminal.
+
+`EDITOR` and `VISUAL` are both `nvim`. `Ctrl-R` goes through `fzf`
+history search. `Ctrl-G` uses `zoxide` plus `fzf` to jump across known
+project directories. Changing directories can rename the tmux session
+based on the repo or linked checkout name, so the terminal itself keeps
+carrying context.
+
+<div class="code-with-filename">
+
+**zoxide.zsh**
+
+``` zsh
+zle -N zoxide-zi-widget __zoxide_zi_widget
+bindkey "^g" zoxide-zi-widget
+```
+
+</div>
+
+This is not about collecting terminal tricks. The point is to make
+navigation cheap enough that I do not compensate with extra displays,
+extra file browsers, or a pile of persistent windows.
+
+A laptop screen rewards short paths. If I can jump to a repo, open a
+file, check history, inspect Git, and return to the current pane without
+leaving the keyboard, the missing monitor matters less.
+
+## 7. The MacBook Is the Client, Not the Whole Workspace
+
+The final shift is mental.
+
+When the whole workflow depends on physical desk layout, the MacBook is
+a smaller version of the office setup. That version always feels
+compromised.
+
+When the workflow depends on terminal state, the MacBook becomes a
+client for a portable work surface. tmux sessions, Neovim configuration,
+shell history, directory-jump state, Git status, AI-agent panes, and
+clipboard bridges are all more important than the number of pixels in
+front of me.
+
+That is why the setup has held up for months. The secret is not that I
+stopped wanting comfort. It is that I moved the center of gravity away
+from hardware surface area and into a terminal environment I can
+reproduce, inspect, and carry forward.
+
+External monitors, keyboards, and mice are still useful.
+
+They are no longer load-bearing.
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-17-terminal-centric-macbook-only-work.html&text=How%20I%20Work%20from%20a%20Bare%20MacBook%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=How%20I%20Work%20from%20a%20Bare%20MacBook%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-17-terminal-centric-macbook-only-work.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-17-terminal-centric-macbook-only-work.html&title=How%20I%20Work%20from%20a%20Bare%20MacBook%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>

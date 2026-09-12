@@ -1,0 +1,138 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Zen Kaku Gothic New" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+
+        <!-- Solution 1: jupyter-databricks-kernel -->
+        <mxCell id="sol1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#c0a171;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="400" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-num" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0a171;strokeColor=#c0a171;fontColor=#ffffff;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="140" y="180" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-title" value="jupyter-databricks-kernel" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="200" y="185" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol1-desc" value="✅ ローカル Jupyter から&lt;br&gt;　 Databricks へリモート実行&lt;br&gt;✅ AI ツールが使える&lt;br&gt;✅ ファイル自動同期" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="140" y="250" width="360" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 2: Skinny Notebook Wrapper -->
+        <mxCell id="sol2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4d6cb;strokeColor=#a3ab91;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="550" y="160" width="400" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-num" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#a3ab91;strokeColor=#a3ab91;fontColor=#ffffff;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="570" y="180" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-title" value="Skinny Notebook Wrapper" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="630" y="185" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol2-desc" value="✅ 数セルの Notebook&lt;br&gt;✅ Pure Python で開発&lt;br&gt;✅ Ruff/mypy/pytest が動く&lt;br&gt;✅ Git diff が読みやすい" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="570" y="250" width="360" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 3: uv -->
+        <mxCell id="sol3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1d6d9;strokeColor=#82919b;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="980" y="160" width="400" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-num" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#82919b;strokeColor=#82919b;fontColor=#ffffff;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="180" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-title" value="uv" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="185" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol3-desc" value="✅ pyproject.toml で依存管理&lt;br&gt;✅ uv.lock で再現性確保&lt;br&gt;✅ %pip install で&lt;br&gt;　 Databricks にインストール" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="250" width="360" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Solution 4: Guardrails -->
+        <mxCell id="sol4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=4" vertex="1" parent="1">
+          <mxGeometry x="1410" y="160" width="400" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol4-num" value="4" style="ellipse;whiteSpace=wrap;html=1;fillColor=#df3348;strokeColor=#df3348;fontColor=#ffffff;fontSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1430" y="180" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol4-title" value="ガードレール" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="185" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="sol4-desc" value="✅ mise + pre-commit + Renovate&lt;br&gt;✅ ローカル/CI で同じチェック&lt;br&gt;✅ AI が作ったコードもチェック&lt;br&gt;✅ ブランチ保護ルール" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="250" width="360" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows down -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#c0a171" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="460" as="sourcePoint"/>
+            <mxPoint x="320" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#a3ab91" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="460" as="sourcePoint"/>
+            <mxPoint x="750" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#82919b" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1180" y="460" as="sourcePoint"/>
+            <mxPoint x="1180" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=6;strokeColor=#df3348" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1610" y="460" as="sourcePoint"/>
+            <mxPoint x="1610" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Combined Result -->
+        <mxCell id="result-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d2bb;strokeColor=#df3348;strokeWidth=6" vertex="1" parent="1">
+          <mxGeometry x="160" y="580" width="1600" height="360" as="geometry"/>
+        </mxCell>
+
+        <!-- AI-Ready Label -->
+        <mxCell id="aiready-badge" value="AI-Ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#df3348;strokeColor=#df3348;fontColor=#ffffff;fontSize=36;fontStyle=1;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="800" y="600" width="320" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Result Title -->
+        <mxCell id="result-title" value="最強の Databricks 開発環境" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=42;fontStyle=1;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="510" y="690" width="900" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Result Features -->
+        <mxCell id="feature1-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="192" y="780" width="360" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature1-text" value="ローカルで快適に開発&lt;br&gt;Databricks へリモート実行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="202" y="795" width="340" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature2-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="584" y="780" width="360" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2-text" value="Pure Python で AI と協働&lt;br&gt;テスト・静的解析が可能" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="594" y="795" width="340" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="976" y="780" width="360" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3-text" value="uv で依存関係管理&lt;br&gt;Databricks でも安全に実行" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="986" y="795" width="340" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="feature4-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f4f4;strokeColor=#df3348;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1368" y="780" width="360" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature4-text" value="ガードレールで品質担保&lt;br&gt;誰が書いても同じチェック" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#001722;fontFamily=Zen Kaku Gothic New;" vertex="1" parent="1">
+          <mxGeometry x="1378" y="795" width="340" height="80" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
