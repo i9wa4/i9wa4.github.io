@@ -76,9 +76,6 @@ subtitle: ""
 
 元々DevContainer (Docker) で対応していましたがDatabricks CLIに乗り換え
 
-:::: {.columns}
-::: {.column width="60%"}
-
 - Databricks CLIの特徴
     - OS問わずインストールできる
     - ユーザーとしてログインできる (OAuth U2M)
@@ -89,18 +86,6 @@ subtitle: ""
 - 公式リンク
     - <https://docs.databricks.com/aws/en/dev-tools/cli>
     - <https://github.com/databricks/cli>
-
-:::
-::: {.column width="40%"}
-
-特に助かっている記事
-
-::: {style="transform: scale(1.0); transform-origin: top left;"}
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">WindowsでのDatabricks CLIのインストール <a href="https://t.co/Hp0J2MNkHC">https://t.co/Hp0J2MNkHC</a> <a href="https://x.com/hashtag/Qiita?src=hash&amp;ref_src=twsrc%5Etfw">#Qiita</a> <a href="https://x.com/taka_aki?ref_src=twsrc%5Etfw">@taka_aki</a>より</p>&mdash; uma-chan | Daiki Mawatari (@i9wa4_) <a href="https://x.com/i9wa4_/status/2098571125920010617?ref_src=twsrc%5Etfw">September 12, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
-:::
-
-:::
-::::
 
 ## 3. 分析ノウハウ集積方法
 
