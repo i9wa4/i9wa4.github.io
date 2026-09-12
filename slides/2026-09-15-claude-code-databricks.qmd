@@ -38,12 +38,30 @@ subtitle: ""
 
 ### 1.1. 自己紹介
 
-- 名前：uma-chan / Mawatari Daiki
+:::: {.columns}
+::: {.column width="50%"}
+
+- 名前：
+  - uma-chan / Mawatari Daiki
 - 職種：
-  - データエンジニア / MLOpsエンジニア
+  - データエンジニア
+  - MLOpsエンジニア
 - 受賞：
   - JEDAI Order 2026
   - Databricks MVP 2026
+- 趣味：
+  - コーヒー☕
+    - ネスカフェ ゴールドブレンド (こだわりなし)
+  - ターミナルにすべてを集約してAIに仕事をさせる
+    - 趣味というより本業
+
+:::
+::: {.column width="50%"}
+
+[![10/15 Terminal Night 3 登壇！2026年のtmuxにできることを話します](/assets/2026-09-15-claude-code-databricks/terminal-night-3.png)](https://kichijojipm.connpass.com/event/404746/)
+
+:::
+::::
 
 ### 1.2. 本日話すこと
 
@@ -67,10 +85,14 @@ subtitle: ""
 
 前述のPC環境でデータ分析をするにはClaudeコネクタ・MCPサーバーを用意すればよさそうだが……
 
-- Claudeコネクタ
+- Claudeコネクタ (Claudeと外部サービスを繋ぐもの)
   - 仕様上Databricksワークスペースと非人間IDを固定して全社利用するしかない
+    - 複数プロダクトを抱える企業は困る
+    - 全社員同一権限でデータにアクセスできてしまう
 - Databricks MCPサーバー
-  - ユーザー権限でログインする実装が難しい
+  - ユーザー権限でログインするための実装が難しい
+  - MCPサーバーのインストールが難しい
+  - 結局ワークスペース切り替え問題も残る
 
 ### 2.3. 救世主Databricks CLI
 
@@ -78,10 +100,10 @@ subtitle: ""
 
 - Databricks CLIの特徴
   - OS問わずインストールできる
-  - ユーザーとしてログインできる (OAuth U2M)
-  - CLIなのでPC上のAIエージェントとの相性が良い
+  - ユーザーとしてDatabricksにログインできる (OAuth U2M)
+  - CLIなので難しいことはPC上のAIエージェントが全部やってくれる
 - 注意
-  - Databricks CLIの利用は禁止できない
+  - Databricks CLI利用は封鎖できません！
   - 開発作業もできてしまうので要権限整理
 - 公式リンク
   - <https://docs.databricks.com/aws/en/dev-tools/cli>
