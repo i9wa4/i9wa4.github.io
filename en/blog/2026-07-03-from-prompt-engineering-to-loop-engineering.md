@@ -1,0 +1,663 @@
+# From Prompt Engineering to Loop Engineering: A Thought Experiment
+uma-chan
+2026-07-03
+
+## 1. Four Words for the Same Problem, at Increasing Scale
+
+“Prompt engineering,” “context engineering,” “harness engineering,” and
+“loop engineering” get used as if they were four unrelated buzzwords
+from four unrelated eras. I think they are better read as four stages of
+the same problem, each one appearing only once the previous stage’s
+limitation becomes visible.
+
+The problem, stated plainly: get an AI agent to do a piece of work
+correctly, and know that it actually happened.
+
+A single agent answering a single question only needs the first stage. A
+team of agents handing work to each other, over hours or days, without a
+human reading every message, eventually needs all four. This post is a
+thought experiment about that progression — not a product pitch, not a
+tool review. I want to ask a narrower question: how far can you push
+agent autonomy by evolving instructions and conventions alone, before
+you are forced to build something that is no longer just a prompt?
+
+The shape of the progression is a staircase: each stage solves one
+problem and, in doing so, exposes the next one.
+
+``` mermaid
+flowchart TD
+    P["Stage 1: Prompt engineering<br/>how the thing is said"]
+    C["Stage 2: Context engineering<br/>what the reader knows right now"]
+    H["Stage 3: Harness engineering<br/>how the message moves, and fails"]
+    L["Stage 4: Loop engineering<br/>proving the work actually happened"]
+    N["what comes after<br/>(sections 8 to 10)"]
+    P -- "assumes the reader's facts are current" --> C
+    C -- "facts still need a way to travel" --> H
+    H -- "delivered is not the same as done" --> L
+    L -- "verification is not free, and verifiers err too" --> N
+```
+
+## 2. Stage One: Prompt Engineering
+
+Prompt engineering is usually taught as “how to phrase a request to one
+model.” That framing undersells it once a second agent enters the
+picture.
+
+The moment Agent A’s output becomes Agent B’s input, a prompt stops
+being a one-off string and becomes an interface. Four disciplines fall
+out of that shift:
+
+- **Preserve structure literally.** A message body that contains code
+  fences, shell variables, or nested quotes must survive the trip
+  intact. If the transport mechanism mangles backticks or interpolates a
+  variable early, the recipient reads something different from what the
+  sender wrote. It’s the same reason structured tool-calling APIs pass
+  arguments as typed JSON instead of hoping a natural-language
+  description survives parsing. The fix is almost always boring — pick a
+  format that treats the payload as data, not a string to be re-parsed.
+- **Write the instructions once, not once per message.** A shared role
+  template plus a per-task delta is a prompt-engineering decision, not
+  an infrastructure decision. It’s the same idea behind a persistent
+  system prompt in a chat-based interface: explain the standing brief
+  once, then let each turn add only what’s actually new, instead of
+  restating the whole thing every time.
+- **Teach the reader how to close the loop, inside the message itself.**
+  A well-formed prompt to an autonomous agent doesn’t just ask a
+  question — it tells the recipient what a valid reply looks like and
+  who else is a valid next hop. This is close to what tool-calling APIs
+  already do by listing the available functions and their expected
+  argument shapes with every turn, instead of leaving a model to guess
+  what’s callable. That’s still just words and structure on the page,
+  but it’s doing real work.
+- **Package the recurring procedure once, not inside every task
+  prompt.** If ten tasks share the same underlying “how do I approach
+  this class of problem” logic, that logic doesn’t belong copy-pasted
+  into ten prompts. A small, named package of operating instructions —
+  loaded when the task matches, ignored otherwise — lets the per-task
+  prompt stay short and say only what’s actually new this time. The
+  package’s short label is doing more selection work than its full body.
+  An agent decides whether to load the detailed instructions based on a
+  one-line name and description, so that label is the load-bearing cover
+  — the fuller procedure underneath only matters once something has
+  already chosen to open it.
+
+The limitation this stage runs into: a perfectly phrased prompt still
+assumes the reader has accurate situational facts. Phrasing solves *how
+something is said*. It does not solve *whether what’s being said is
+still true*.
+
+## 3. Stage Two: Context Engineering
+
+Context engineering is the discipline of treating “what does the
+recipient actually know right now” as a first-class, checkable object —
+not an assumption baked silently into the prompt.
+
+In a long-running, multi-agent setup, the situation genuinely changes
+between when a message is written and when it’s read: branches move,
+files change, a previous step succeeds or fails. Four patterns matter
+here:
+
+- **Snapshot, don’t assume.** Attach a small, explicit bundle of
+  situational facts to the message — current state, a timestamp, an
+  identifier for whatever “current” means in this domain — rather than
+  trusting that the reader’s live state matches what the sender saw.
+  Structured logging and distributed tracing already do this by
+  convention: every event carries its own timestamp and environment
+  metadata, instead of leaving a later reader to reconstruct what was
+  true when it happened.
+- **Mark freshness explicitly.** A snapshot that’s ten seconds old and
+  one that’s ten hours old are different in kind, not just in degree.
+  Whether a recipient should trust a stale snapshot is a decision that
+  should be visible, not silent — the same reasoning behind HTTP
+  cache-control headers: freshness and validity are metadata, not a
+  guess. The same discipline applies to an agent’s own standing
+  instructions. Keep them thin enough that reloading them mid-task is a
+  cheap refresh, not a wall of text nobody rereads — instructions that
+  decay silently over a long session are just another form of stale
+  context.
+- **Never let cheap signals waive a real read.** It’s tempting to let a
+  short label (“this is just a heartbeat,” “this is just a status ping”)
+  excuse skipping the actual content. The cheaper the signal looks, the
+  more tempting the shortcut, and the more damage it does when the
+  shortcut is wrong exactly once. Good code review already enforces the
+  same discipline: a tidy commit message or a green checkmark is not a
+  substitute for reading the actual diff.
+- **Give working memory a place outside any one turn’s head.** An agent
+  mid-task accumulates intermediate findings — partial results,
+  discarded approaches, half-formed conclusions — that don’t fit
+  comfortably in a single context window and shouldn’t have to. A shared
+  scratch-file convention solves this: the agent writes working notes to
+  a small external location instead of holding everything in its own
+  head. A growing number of coding agents already externalize a running
+  plan or a todo file for exactly this reason. That turns “what I
+  currently remember” into “what’s actually recorded,” and lets the
+  record outlive the turn that produced it.
+
+The limitation this stage runs into: even accurate, fresh context needs
+somewhere to physically live and travel. Context engineering answers
+*what the reader should know*. It doesn’t answer *how the message
+reaches the reader at all, or what happens when it doesn’t*.
+
+## 4. Stage Three: Harness Engineering
+
+“Harness” has become common shorthand for everything around a model
+except the model itself — the tools, memory, sandboxing, and guardrails
+that turn a language model into something that can actually act. The
+term is still solidifying rather than fully settled, but the core idea
+already converges across the people using it: an agent is the model plus
+its harness, and the harness is where reliability actually gets built.
+
+This piece narrows that broad scaffolding question to one specific slice
+of it: who are the agents, how are they addressed, and what happens on
+failure. That’s still a runtime substrate question, just scoped to
+routing and coordination rather than to sandboxing or tool access.
+
+This is where a lot of ad-hoc multi-agent setups quietly become fragile,
+because the substrate is improvised per-project instead of designed
+once:
+
+- **Give every agent a stable, addressable identity.** Routing by name
+  only works while names are stable facts, and an identity is more than
+  a label: it’s the name plus the role plus the version of the standing
+  instructions and the model underneath. When any of those change, a
+  different actor is now answering to the same name — and anything
+  previously known about the old actor’s behavior quietly stops being
+  true. Service discovery treats this as table stakes for machines;
+  agent setups tend to discover it the hard way.
+- **Declare the topology; don’t hardcode it.** Which agent can talk to
+  which is a graph, and graphs are more legible drawn than inferred from
+  scattered conditionals. A topology you can read is a topology you can
+  audit — the same reasoning behind infrastructure-as-code: a system’s
+  shape declared in a file you can diff and review, not reconstructed
+  from scattered imperative steps.
+- **Route handoffs through an addressable channel, not a direct call.**
+  A mailbox-style pattern — one agent writes a message to a shared
+  location, another reads it whenever it’s actually ready — decouples
+  sender and receiver in time, the same decoupling a message queue
+  provides between producer and consumer. Neither side has to be
+  listening at the same instant for a handoff to succeed, and the
+  message itself persists as an inspectable artifact instead of
+  vanishing the instant a call returns.
+- **Gate risky actions behind explicit approval.** Some actions
+  shouldn’t proceed on an agent’s say-so alone. It’s the same principle
+  as a privilege-elevation confirmation prompt, a manual-approval gate
+  in a deployment pipeline, or a break-glass access procedure: routine
+  work flows through, but a defined class of risky action stops for an
+  explicit yes. The harness is where that gate belongs, not something
+  each agent has to remember to ask for on its own.
+- **Make status queryable, not just visible.** A human staring at a
+  terminal and an agent deciding whether to proceed should be able to
+  ask the same question and get the same answer, not a status dashboard
+  for humans and a separate, poorer signal for machines. It’s the same
+  idea behind a service’s health-check endpoint.
+- **Don’t let undeliverable work vanish.** A message that can’t be
+  routed should land somewhere labeled, with a reason, rather than
+  disappearing — the same escape hatch message queues have used for
+  decades: a labeled holding area for anything that couldn’t be
+  delivered. Silent failure is the most expensive kind, because nothing
+  tells you it happened.
+
+The limitation this stage runs into, and the one I think gets skipped
+most often: a harness can route a message flawlessly, confirm delivery,
+log everything — and the underlying task can still be unfinished.
+Delivery success and task completion are not the same fact, and most
+tooling conflates them.
+
+## 5. Stage Four: Loop Engineering, the Part Most Setups Skip
+
+The term itself is very new, and worth naming honestly rather than
+treating as settled. It surfaced from a single, widely circulated online
+argument that engineers should stop hand-prompting agents and instead
+design the loop that prompts them — plan, act, observe, revise, repeat.
+In that broader, more common usage, loop engineering is mostly about the
+shape of the iteration itself: how an agent cycles through a task, more
+than how anyone proves that cycle actually finished. Some early attempts
+to break the idea into concrete pieces already touch on this piece’s
+angle, though. They separate who executes a step from who verifies it,
+and keep state in a persistent, external place rather than in a single
+run’s memory.
+
+This piece uses “loop engineering,” in that narrower sense, for the
+discipline of encoding “is the work actually done” as something a
+machine can check, instead of something a human has to infer from tone
+or vibes. That’s a real, recognized slice of the wider idea, not the
+whole of it, and it’s worth being upfront that the term’s dominant
+current usage is broader than this piece’s.
+
+Concretely, that means designing for a few properties that are easy to
+state and easy to skip under time pressure:
+
+- **Open requests should be explicit, named objects**, not implicit
+  hopes that someone eventually replies. If a piece of work is waiting
+  on something, that waiting state should be inspectable — how many
+  things are open, which ones, for how long. This is close to a
+  required-approval step in a deployment pipeline: the pipeline doesn’t
+  proceed until someone explicitly signs off, and everyone can see that
+  it’s waiting. Not every message is equal here: some are
+  fire-and-forget, but others should explicitly hold the sender in place
+  until answered, because acting on an unverified assumption would be
+  worse than waiting. Whether a given message blocks the sender should
+  be a stated property of the message, not something either side has to
+  guess.
+- **Make the checklist visible to everyone in the workflow, not just the
+  two agents directly involved.** A stalled handoff between two agents
+  is invisible from the outside unless a third agent — or a human — can
+  see the same open-item list they can. An incident-response channel
+  works the same way: anyone on call can see the same status the two
+  people actively paging each other see, not a private thread only they
+  can read.
+- **A reply should name exactly what it closes.** Once an agent has more
+  than one thing outstanding at a time, “I replied” is ambiguous. “I
+  replied, and here specifically is which open item this closes” is not
+  — the same convention that lets a commit message close a specific
+  issue by number, instead of leaving readers to guess which of several
+  open items it resolved.
+- **Closing the communication channel and finishing the task are two
+  different events, and the second one needs its own proof.** A useful
+  convention: completion requires naming concrete evidence — what
+  changed, what was checked, what remains uncertain — and anything short
+  of that is reported as blocked, with the specific gap named, rather
+  than reported as done with the gap hidden. That’s the same discipline
+  behind a team’s definition of done, or a deployment pipeline that
+  won’t ship without passing tests as evidence. And the strongest form
+  of that evidence is executable rather than narrated: a command and its
+  exit status, a test run someone else can re-run, a transcript that can
+  be replayed. Prose describing a check can be written without the check
+  ever having happened; an artifact that re-executes cannot.
+- **Distinguish “waiting, and that’s fine” from “stuck.”** A loop that’s
+  healthy but slow and a loop that’s genuinely broken look identical
+  from the outside unless the state machine says otherwise. A CI
+  pipeline draws the same distinction between two flavors of “running”:
+  one making steady progress, one hung on a step that will never finish.
+  Both show the identical spinner until a timeout reclassifies the
+  second as failed.
+- **Don’t let the agent that did the work be the only judge of whether
+  it’s done.** A completion claim written by the same actor who wants
+  the work accepted is a claim with an obvious incentive problem — the
+  same reason a pull request’s approval is expected to come from someone
+  other than its author. A second, independent reviewer role, whose only
+  job is to check the evidence rather than to have produced it, closes
+  that gap in a way self-assessment structurally cannot. One caveat the
+  pull-request analogy hides, though: human review works because the
+  reviewer’s blind spots are largely uncorrelated with the author’s, and
+  two instances of the same model don’t get that property for free —
+  what the author systematically misses, a same-family reviewer tends to
+  miss too. Independence has to be manufactured, and the cheapest way to
+  manufacture it isn’t a different model; it’s different information. A
+  reviewer that sees only the change and the evidence, never the
+  author’s reasoning, brings a genuinely decorrelated view even when the
+  underlying weights are identical.
+
+The honest closing line for this stage: prompt engineering gets you a
+message. Context engineering gets the reader the right facts. Harness
+engineering gets the message to the right process. Loop engineering is
+what tells you — provably, not by vibes — that the work is actually
+done.
+
+But this stage has a limitation too, and it would be dishonest to end
+the staircase on a stage that pretends not to. Verification is not free,
+and the verifier is another probabilistic actor. Every check adds
+tokens, latency, and a new place to be wrong. A reviewer can be
+satisfied by evidence that was optimized to pass review rather than to
+be true. And “who reviews the reviewer” has no base case — only a
+budget. Loop engineering can tell you that a given piece of work is
+done. It cannot, by itself, tell you how much verification is *enough*,
+or whose work has earned lighter checking. Those are economic questions,
+and they’re where the closing sections of this post are headed.
+
+## 6. The Thought Experiment: Can Instructions Alone Get You This Far?
+
+Here’s the question I actually want to sit with, and it comes with a
+load-bearing assumption I want to state up front rather than smuggle in.
+Everything past stage one presupposes more than one agent — or the same
+agent invoked repeatedly across separate turns — coordinating over time.
+A single agent finishing a single uninterrupted task never needs
+snapshots, freshness marks, or named open requests; it just does the
+work. The question only gets interesting once coordination enters the
+picture, and I’m not aware of a way to make that assumption disappear by
+writing better prompts.
+
+With that stated, every one of the patterns above — snapshotting,
+freshness marking, named open requests, evidence-gated completion —
+*sounds* like something you’d need to build. Some kind of state machine,
+some kind of persistent store.
+
+But notice: most of it is not conceptually infrastructure-shaped at the
+start. One honest exception is worth naming: harness engineering already
+assumes some minimal shared carrier — a terminal, a queue, a file
+system, anything agents can run on and pass messages through. What stays
+pure convention is everything layered on top of that minimal carrier,
+plus prompt, context, and loop engineering in full: words in a shared
+instruction set that every agent in a workflow is told to follow.
+“Attach a timestamp.” “Name what you’re replying to.” “Don’t say done
+without naming evidence.” Those are sentences, not systems.
+
+So: how far can pure instruction design carry you before it breaks?
+
+My honest answer, from watching this pattern emerge repeatedly:
+instructions alone get you further than intuition suggests. They also
+stop working at a specific, predictable point — the moment the *state
+itself* needs to outlive any single agent’s context window or survive a
+crash.
+
+An instruction like “track how many things you’re waiting on” works fine
+while one agent’s memory holds that count. It stops working the instant
+two agents need to agree on the same count, or the count needs to be
+correct after a restart. At that point you’re no longer describing
+behavior — you’re describing a shared, durable fact. Prose can’t hold a
+shared, durable fact. Something has to persist it.
+
+That’s the actual boundary, and it’s worth stating precisely because
+it’s easy to blur: instructions can specify *what correct behavior looks
+like* indefinitely. They stop being sufficient the moment correctness
+depends on *state that must survive beyond any one agent’s turn*. Below
+that line, better prompts and better conventions keep paying off. Above
+it, you need a place for the fact to live that isn’t inside anyone’s
+head.
+
+One refinement before leaning on that boundary too hard: it’s drawn as
+if an instruction, once written, keeps being followed. It doesn’t —
+instructions are followed probabilistically, and a rule that survives
+any single handoff at some high rate quietly compounds, across a long
+enough chain, into a rule that has certainly broken somewhere. What
+keeps prose conventions alive in practice is that they partially
+self-heal: every well-formed message sitting in context is a live
+example for the next reader, and the next hop often bounces a malformed
+one back. But look at what that self-healing actually is — it’s
+enforcement. And enforcement produces records: who checked what, which
+claims passed, which gate refused. Records are shared, durable facts. So
+behavior rules, pushed hard enough, *generate* state. The boundary isn’t
+a fence between two static territories; it’s a one-way conveyor, and
+sustained scale is what powers the belt.
+
+## 7. What This Means in Practice
+
+If you’re scaling up agent-driven work, this suggests a cheap diagnostic
+before reaching for new infrastructure. For each rule you want to
+enforce, ask whether it’s a rule about *behavior* (“always name what
+you’re replying to”) or a rule about *shared state* (“the system must
+know, at all times, exactly how many things are outstanding”). The first
+kind can live in instructions indefinitely. The second kind needs
+somewhere durable to live, sooner or later, no matter how well the
+instructions are written.
+
+Most teams get this backward. They over-build for the first kind,
+reaching for new services to enforce behavior that a clearer instruction
+would have fixed for free. They under-build for the second, leaving
+genuinely shared state balanced precariously on convention and good
+faith. Sorting which kind of problem you actually have, before writing
+either a paragraph or a schema, is most of the work.
+
+There’s a second phrasing of the same test, if the first feels abstract:
+ask whether the thing would work on day one if you copied it into a
+fresh deployment. A behavior rule would — it’s words, and installing it
+is the same act as adopting it. Shared state wouldn’t — it has to be
+accumulated in place, and no copy operation substitutes for the
+accumulating. Section ten is about why that difference ends up mattering
+more than anything else in this post.
+
+## 8. Where the Boundary Moves Next
+
+Section six drew the boundary as a line you find. Its own refinement
+already gave the game away: it’s a line that moves. If the conveyor is
+real, it’s worth asking what powers it and which way it runs — and it’s
+worth making the predictions concrete enough to be wrong, because a
+future consideration that can’t fail isn’t a prediction, it’s a mood. I
+see three forces, each with an observable marker.
+
+**Absorption from below.** Behavior conventions that prove their value
+get absorbed into model training. Chain-of-thought already made exactly
+this trip: it began as a prompting technique you had to ask for and
+became a trained-in behavior you don’t. “Attach a timestamp,” “name what
+you’re replying to,” “don’t say done without evidence” are candidates
+for the same journey. The marker is measurable: remove a convention from
+the instructions and count how often the behavior happens anyway, per
+model generation. If compliance-without-instruction climbs generation
+over generation, the convention is being absorbed — and the sentence
+that taught it is dead weight kept alive by habit.
+
+**Ossification from the side.** Prose conventions that carry economic
+weight get frozen into protocol schema. REST’s folk conventions became
+OpenAPI documents; commit-message habits became a spec with tooling that
+rejects violations. The agent equivalent: “which open item does this
+reply close” and “what evidence accompanies this completion claim” live
+today as sentences in instruction files. The marker is public — watch
+agent-interoperability protocol changelogs for exactly those fields
+appearing as first-class, typed members. When they do, a chunk of what
+this post filed under convention will have crossed the line in one hop,
+for everyone at once.
+
+**Verification economics from above.** As generation gets cheaper, the
+scarce resource shifts to checking. Uniform verification — every claim
+reviewed at the same depth — stops being affordable long before anyone
+admits it, and verification depth has to become a function of two
+things: the actor’s track record and the blast radius of being wrong.
+That’s how human organizations already ration attention: a senior
+engineer’s routine change gets a lighter review than a new contributor’s
+change to the auth system, and audits sample rather than inspect every
+return. The marker: approval systems in agent tooling moving from static
+policy (“always ask before X”) to adaptive policy (“ask based on this
+agent’s verified history with X-class work”).
+
+The same picture, drawn: one rule living as prose, three exits.
+
+``` mermaid
+flowchart TD
+    C["a rule living as prose<br/>(instruction, convention)"]
+    M["model weights<br/>(absorption from below)"]
+    P["protocol schema<br/>(ossification from the side)"]
+    R["durable records<br/>(verification economics from above)"]
+    C -- "proves valuable:<br/>models internalize it" --> M
+    C -- "carries economic weight:<br/>specs freeze it" --> P
+    C -- "must survive scale:<br/>enforcement produces records" --> R
+```
+
+There’s a second-order prediction hiding inside that third force, and I
+think it’s the most interesting one: **track records create an identity
+problem.** The moment trust accumulates against an agent’s name, the
+cheapest way to escape a bad record is to show up under a new name.
+Nothing about a freshly spawned agent prevents that reputation
+laundering. So identity becomes load-bearing — bound to the model
+version and the standing instructions actually running, so that a new
+model answering to a senior agent’s name is recognized for what it is: a
+new junior wearing a familiar badge, whose inherited trust should be
+discounted accordingly. “Who is this agent, really” becomes the next
+shared, durable fact that prose can’t hold. Section four’s identity
+pattern was the seed of this; the trust economy is what makes it
+germinate.
+
+Where does the conveyor stop? Some cargo never arrives. Shared durable
+state, enforcement, and incentives don’t get absorbed into models,
+because they aren’t behaviors — they’re facts about a system that has to
+be bigger than any one actor inside it. Which suggests an ending blunt
+enough to write down: prompt engineering dies a little with every model
+generation, as models internalize what used to need saying. State
+engineering doesn’t die, because no amount of model capability makes a
+fact persist itself.
+
+## 9. A Requirements Memo for Whatever Comes After
+
+If the four stages and the three forces are roughly right, then the
+coordination substrate that comes after the current generation of setups
+— whatever implements it, and I’m deliberately not naming or assuming
+any particular tool — has a requirements list you can already write
+down. Here’s mine. It’s sorted by this post’s own section-seven
+diagnostic: things that must live in durable machinery because they’re
+shared facts, and things that should deliberately stay prose because
+they’re behavior.
+
+What must be machinery:
+
+- **Verdicts as records, not sentences.** A review outcome should be a
+  machine-readable event — pass or fail, naming exactly which open item
+  it judges — written somewhere durable, and *required* before dependent
+  work proceeds. Recording an opinion and enforcing an opinion are
+  separate guarantees, and only the second one gates. A review pass
+  that’s merely on the record isn’t the same claim as a review pass that
+  blocks.
+- **Track record as a queryable fact.** Verdict history should
+  aggregate, per agent identity and per class of work, into a number any
+  participant can look up. The score is a stored fact. What to do about
+  the score — how deeply to verify whom — is policy, and policy can stay
+  prose.
+- **Audits that can’t be predicted.** However much trust an actor
+  accumulates, the probability that a given completion gets
+  independently checked must never reach zero — and the draw has to
+  happen outside the actor being audited. Predictable checking is the
+  one failure a track-record system can’t survive: an actor that knows
+  which claims will be inspected is being trained to pass inspections,
+  not to do the work. Unpredictable sampling is what keeps every other
+  number in this list honest, and a failure surfaced by a random audit
+  says something worse than one surfaced by routine review — it should
+  cost accordingly.
+- **Evidence slots, checked for presence.** A completion claim should
+  carry a structured slot for executable evidence — the command that ran
+  and its exit status, or an artifact that can be re-executed — and a
+  claim arriving without one should be refused as malformed rather than
+  accepted and hoped about. The machinery checks that evidence *exists*;
+  whether it’s *true* is a reviewer’s job, established by re-running it.
+  That division of labor is exactly as much enforcement as a thin
+  substrate can take on without becoming the agent runtime it shouldn’t
+  be.
+- **Health that volunteers itself.** Thresholds on the system’s own
+  state — the age of the oldest open item, the count of undeliverable
+  messages — that push an escalation to whoever fronts for the human,
+  instead of waiting to be queried. A diagnostic that must be asked for
+  functions, in practice, as if it didn’t exist, because reaching it
+  requires already suspecting something is wrong.
+- **A meter on its own conventions.** The substrate should lint its own
+  message stream — missing reply references, missing freshness marks,
+  completion claims without evidence slots — and report violation rates
+  per agent. This is the instrument the whole argument has been
+  implying: it measures how fast prose conventions actually decay in the
+  wild, it feeds the track record, and it turns section eight’s
+  absorption prediction into something checkable with data rather than
+  vibes.
+- **Identity bound to version.** An agent’s name should bind to the
+  model and instruction versions actually running, and accumulated trust
+  should discount when either changes. Otherwise the trust system
+  teaches its agents exactly one reliable skill: knowing when to change
+  names.
+
+Listed like that, these read as six independent requirements. Drawn,
+they turn out to be one feedback loop — the track record tunes the very
+audit draw that feeds it:
+
+``` mermaid
+flowchart LR
+    claim["completion claim<br/>with evidence slot"]
+    gate["presence gate:<br/>no evidence = refused"]
+    draw["audit draw:<br/>p from track record and blast radius,<br/>never zero"]
+    review["independent review:<br/>re-run the evidence"]
+    ledger["track record<br/>per identity and work class"]
+    accepted["accepted"]
+    claim --> gate
+    gate --> draw
+    draw -- "sampled" --> review
+    review -- "verdict: pass or fail" --> ledger
+    draw -. "passed through unchecked" .-> accepted
+    ledger -- "tunes the next draw" --> draw
+```
+
+What deliberately stays prose, by the same diagnostic: the taxonomy of
+work classes, the choice of verification tier a given risk deserves, and
+conventions like blind review — handing a reviewer the change and the
+evidence but not the author’s reasoning, which manufactures decorrelated
+judgment out of information asymmetry, no second model required. Those
+are behavior rules. They’ll keep paying their way as sentences right up
+until the conveyor takes them too.
+
+Two things about this memo are worth noticing. The sorting was
+mechanical — every item landed on the machinery side because it’s a
+shared fact that must outlive a turn, and on the prose side because it’s
+a description of behavior; the diagnostic did the work, which is some
+evidence the diagnostic is sharp. And the memo measures itself: the
+sampled audits and the convention meter produce, as a side effect,
+exactly the dataset this post lacks — which rules get broken, how often,
+by whom.
+
+But there’s a catch in this memo, and it deserves its own section,
+because it’s where the whole argument finally lands.
+
+## 10. What Cannot Be Distributed
+
+Everything in section nine’s machinery list passes the
+copy-to-a-fresh-deployment test — as a mechanism. The schema, the policy
+function, the audit dice, the convention meter: those are stateless
+artifacts. Like any software, they install in minutes and work
+immediately. Which also means that whichever of them prove useful will
+be copied by everyone, quickly, and stop being anyone’s advantage.
+Distributable things commoditize at the speed of distribution.
+
+What fails the test is the *contents*. A track record is not
+installable. Trust is indexical — a score means “this agent, on this
+class of work, in this environment, under these risk tolerances” — so
+someone else’s filled ledger is close to worthless to you, and there is
+no zero-shot version of it, because trust just *is* compressed history.
+Capability can’t synthesize it; a smarter model arriving tomorrow does
+not know whether yesterday’s migration was verified. History can only be
+recorded, and only at the time.
+
+So any system built on this memo has a structural cold-start problem: on
+day one, every agent is a stranger, every completion gets the full-depth
+check, and the verification budget burns at its maximum. That’s not a
+flaw to engineer away — it’s the definition of the thing being computed.
+But structural doesn’t mean nothing improves. It means the discipline
+shifts one more time. After prompt, context, harness, and loop
+engineering, the next scarce skill is **accumulation efficiency**: how
+fast a deployment turns operation into history. The levers are already
+visible:
+
+- **Record what already happens.** The single biggest waste is a review
+  that occurs and evaporates as prose. And check whether your setup has
+  been recording without your noticing: archives full of messages with
+  legible pass-and-fail markers are a ledger waiting for a backfill
+  script. Many cold starts are warmer than they look.
+- **Front-load the verdicts.** Early observations tighten an estimate
+  fastest, so full-depth review of a new agent isn’t a grudging cost —
+  it’s the cheapest information the system will ever buy. Give newcomers
+  a deliberately diverse diet of small, cheap-to-verify tasks across
+  work classes. Probation periods and rotation programs were
+  accumulation-efficiency technologies all along; we just never called
+  them that.
+- **Warm the start with priors.** An unknown agent isn’t unknowable: you
+  know how its model version tends to perform on this class of work in
+  general, even before it has local history. Let thin agent-level
+  records shrink toward model-level aggregates until the local evidence
+  takes over, and let a version change discount the record rather than
+  zero it. This is also where the distributable and the accumulated
+  finally connect: ship the prior, grow the evidence. And it predicts an
+  institution — portable, signed track records, the agent’s résumé, the
+  credit bureau — because wherever accumulated trust is valuable and
+  non-transferable, someone eventually builds the machinery to make it
+  semi-portable.
+- **Cheapen the unit of verification.** Executable evidence isn’t only
+  an anti-gaming measure. It lowers the cost per check, which raises the
+  number of checks a fixed budget buys, which *is* the accumulation
+  rate. Even the free tier — the convention meter, counting violations
+  no human looks at — is a steady stream of weak verdicts.
+- **Store raw, aggregate later.** Keep verdicts as immutable events with
+  their full context — who, what class, what evidence, which versions —
+  and derive scores as views you can recompute. Then every future
+  improvement to the scoring applies retroactively to everything you
+  kept.
+
+All of these improvements share one scoreboard: **time-to-trust** — how
+long, and at what verification cost, a new agent takes to earn its first
+lighter tier. Whatever makes that number shrink without letting gamed
+work through is progress in this discipline, measured in one place.
+
+And that’s where the thought experiment lands. The staircase keeps
+migrating out from under you: behaviors get absorbed into models,
+conventions ossify into protocols, and both arrive everywhere at once,
+for everyone, the day they ship. What never ships is your deployment’s
+history — who did what, what was checked, what held up. Mechanisms can
+be improved retroactively; history cannot be collected retroactively.
+Which turns out to be this post’s conclusion and its only real advice in
+one sentence: whatever substrate you build or adopt next, the scoring
+can wait and the policy can wait — start recording the verdicts now. The
+honest follow-up to a thought experiment like this isn’t another thought
+experiment. It’s a table of numbers, and the table starts filling the
+moment you begin writing things down.
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-03-from-prompt-engineering-to-loop-engineering.html&text=From%20Prompt%20Engineering%20to%20Loop%20Engineering%3A%20A%20Thought%20Experiment%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=From%20Prompt%20Engineering%20to%20Loop%20Engineering%3A%20A%20Thought%20Experiment%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-03-from-prompt-engineering-to-loop-engineering.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-07-03-from-prompt-engineering-to-loop-engineering.html&title=From%20Prompt%20Engineering%20to%20Loop%20Engineering%3A%20A%20Thought%20Experiment%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
