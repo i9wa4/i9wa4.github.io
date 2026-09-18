@@ -13,16 +13,24 @@ Resume ([Website](https://i9wa4.github.io/en/resume/index.html), [PDF](https://i
 
 ## 1. Professional Summary
 
-Data Engineering Manager and MLOps Engineer with 10+ years of software
-engineering experience, including 4+ years in data engineering and
-machine-learning operations. Currently Data Engineering Team Manager at GENDA,
-leading cross-company data utilization, data-mart and dashboard delivery,
-MLOps, stakeholder alignment, and data-team operations. I translate business,
-sales, data-science, and engineering requirements into reliable data platforms,
-analytics workflows, and developer experience that can be operated
-continuously. My recent work combines Databricks, dbt, Snowflake, BigQuery,
-AWS, Google Cloud, AI-enabled workflows, notebook tooling, permissions,
-governance, and team practices to support data utilization and ML operations.
+Across software engineering, data engineering, and MLOps, I have built
+development environments and operational practices that help data scientists
+focus on analysis and validating machine-learning use cases. I bring 10+ years
+of software engineering experience, including 4+ years in data engineering and
+machine-learning platform operations. At GENDA, I currently manage the Data
+Engineering Team, leading cross-group data initiatives, stakeholder alignment,
+and team operations. In October 2026, I will take on the role of Data Science
+Team Manager, extending my technical support for data scientists into team
+building.
+
+I work between business units, sales teams, and data scientists, covering
+requirements, data platforms, compute environments, access controls, CI/CD, and
+operations to take experiments through to production. I have placed particular
+emphasis on improving developer experience for data scientists. I developed the
+open-source jupyter-databricks-kernel, which lets local Jupyter environments and
+AI coding agents use Databricks clusters and enables notebook testing and CI/CD.
+This work and my contributions to the Databricks community earned the
+Databricks MVP 2026 award in August 2026.
 
 ## 2. Core Skills
 
@@ -157,6 +165,7 @@ Apr 2016 - Jul 2018 | Full-time
 
 ### 6.3. Awards
 
+- August 12, 2026: [Databricks MVP 2026](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
 - 2026: JEDAI Order 2026 Knight, Databricks Japan User Community
   - [JEDAI Order 2026 Award Recipients | Databricks User Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
   - [GENDA Data Management Department Manager Daiki Mawatari Selected for JEDAI Order 2026](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)
