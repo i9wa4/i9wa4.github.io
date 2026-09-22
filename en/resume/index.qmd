@@ -13,24 +13,11 @@ Resume ([Website](https://i9wa4.github.io/en/resume/index.html), [PDF](https://i
 
 ## 1. Professional Summary
 
-Across software engineering, data engineering, and MLOps, I have built
-development environments and operational practices that help data scientists
-focus on analysis and validating machine-learning use cases. I bring 10+ years
-of software engineering experience, including 4+ years in data engineering and
-machine-learning platform operations. At GENDA, I currently manage the Data
-Engineering Team, leading cross-group data initiatives, stakeholder alignment,
-and team operations. In October 2026, I will take on the role of Data Science
-Team Manager, extending my technical support for data scientists into team
-building.
+I manage the Data Engineering Team at GENDA and will become Data Science Team Manager in October 2026.
 
-I work between business units, sales teams, and data scientists, covering
-requirements, data platforms, compute environments, access controls, CI/CD, and
-operations to take experiments through to production. I have placed particular
-emphasis on improving developer experience for data scientists. I developed the
-open-source jupyter-databricks-kernel, which lets local Jupyter environments and
-AI coding agents use Databricks clusters and enables notebook testing and CI/CD.
-This work and my contributions to the Databricks community earned the
-Databricks MVP 2026 award in August 2026.
+Drawing on over 10 years of software engineering experience, I work across data engineering and MLOps to help data scientists focus on analysis and model development. I take a hands-on role in designing and building data platforms and development environments, as well as running machine learning systems in production. My responsibilities also include defining requirements with business teams, hiring, and team management.
+
+At GENDA, I’ve built data pipelines and data marts for group companies and migrated our machine learning platform to Databricks. I also created jupyter-databricks-kernel, an open-source tool that lets data scientists work with Databricks using their preferred editors and AI agents. I share insights from this work through technical articles and talks, and was named a Databricks MVP for 2026. Alongside my role at GENDA, I help improve PIVOT’s data platform as an independent contractor.
 
 ## 2. Core Skills
 
@@ -95,7 +82,7 @@ Apr 2024 - Oct 2024 | Full-time
 - Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
   Datastream and documented failure / recovery behavior.
 
-### 3.4.  CNS HOKKAIDO Co., Ltd. | Data Engineer / MLOps Engineer
+### 3.4. CNS HOKKAIDO Co., Ltd. | Data Engineer / MLOps Engineer
 
 Apr 2022 - Mar 2024 | Full-time
 
