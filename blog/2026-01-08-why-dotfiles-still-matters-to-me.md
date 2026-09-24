@@ -1,0 +1,291 @@
+# AIコーディングエージェント時代になぜ私は dotfiles を育てるのか
+uma-chan
+2026-01-08
+
+## 1. Claude Code の進化が示すもの
+
+Claude Code 開発者の Boris
+による最近の変更をまとめたポストが話題になっていました。
+
+<blockquote class="twitter-tweet">
+
+<p lang="ja" dir="ltr">
+
+Claude
+Codeの開発者Borisが、冬休み期間中に作成したであろう変更をまとめてみた:<br>
+<br>【機能拡張】<br>・/teleport コマンド、CLI セッションを web/mobile
+に引き継ぎ<br>・tmux
+風にバックグラウンドでエージェント継続実行<br>・Subagentsの frontmatter
+で hooksを追加可能…
+<a href="https://t.co/ivKZvzimb3">pic.twitter.com/ivKZvzimb3</a>
+</p>
+
+— Oikon (@oikon48)
+<a href="https://twitter.com/oikon48/status/2008125761128144965?ref_src=twsrc%5Etfw">January
+5, 2026</a>
+</blockquote>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+ポスト全文：
+
+> **【機能拡張】**
+>
+> - /teleport コマンド、CLI セッションを web/mobile に引き継ぎ
+> - tmux 風にバックグラウンドでエージェント継続実行
+> - Subagentsの frontmatter で hooksを追加可能
+> - CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS
+>   、ファイル読み込みの最大出力トークンをカスタマイズ
+> - 長時間 CLI セッション完了時にモバイルへ通知
+> - /skill-name でSkillsをスラッシュコマンドとして呼び出し
+> - Subagents の frontmatter で MCPを指定可能
+> - カスタムコマンドレベルでのHooks定義
+> - 現在のセッション名の表示
+> - Escキー操作での割り込みの文字色の変更
+> - Subagentsの並列実行およびバックグラウンド実行の無効化設定
+>
+> **【バグ修正】**
+>
+> - –resume –fork-session
+>   でのセッションをフォークし過去メッセージに巻き戻し
+> - General Subagentsが親のモデルを継承するよう修正
+> - ターミナルのちらつきを 85% 低減
+> - Web版でPlanモードから復帰できない問題を修正
+> - LSP (Language Server Protocol) 実装のバグ修正
+> - ウィンドウサイズ変更について描画改善
+> - Thinking時の ctrl+O の内容の改善
+> - パイプを使ってclaudeを起動する際のバグを修正
+> - 画像サイズが大きい時の自動圧縮
+> - バックグラウンド Subagentsのコンテキストが親に漏れるバグを修正
+>
+> 多すぎる😂
+> 分かる範囲なので抜け漏れもあるかもしれない。上記の多くは次回のリリースに入るとのこと。
+>
+> I’m worried if you got enough rest during your vacation lol, @bcherny
+
+これを見てまず思ったのは、
+
+**「ターミナルじゃないとできない」とは、いずれ言えなくなる**
+ということです。
+
+## 2. 機能比較は意味がなくなる
+
+### 2.1. 現時点での比較
+
+今 2026/1/7 時点では、ターミナル + Claude Code
+は並列実行の面で多少の優位性があります (tmux
+で無制限かつ同一ディレクトリで異なるタスクを実行可能)。
+
+しかし Boris の開発内容を見るに、この差もなくなっていくことになります。
+
+### 2.2. 収斂する未来
+
+Claude Code の VS Code拡張もターミナル版と同じ設定ファイルを使用します。
+最近みなさん熱心に育成中と思しき以下の設定群ですね。
+
+``` text
+.claude/
+├── CLAUDE.md
+├── rules/
+├── skills/
+├── agents/
+└── commands/
+```
+
+つまり、 **Claude Code 固有の機能はインターフェースに依存しない**
+というわけです。
+
+そんな世界に向かっていく中でターミナルを選ぶ理由とは一体何なのか。
+
+## 3. 残るもの：環境構築力
+
+### 3.1. ターミナル環境の価値
+
+ターミナル環境の本当の価値は星取り表で比較できるような機能ではないと思います。
+
+**ターミナル環境の本当の価値とは、開発環境すべてをテキストファイルで定義し、Git
+で管理できること** です。
+
+### 3.2. Unix 哲学との親和性
+
+Claude Code 公式ドキュメントでも謳われています。
+
+> ## Why developers love Claude Code
+>
+> - **Works in your terminal:** Not another chat window. Not another
+>   IDE. Claude Code meets you where you already work, with the tools
+>   you already love.
+>
+> - **Unix philosophy:** Claude Code is composable and scriptable.
+>
+> — [Claude Code Overview](https://code.claude.com/docs/en/overview)
+
+ターミナル環境では、AIエージェントをシェルスクリプトや他の CLI
+ツールと組み合わせて、自分だけの開発環境を構築できます。
+
+### 3.3. 周辺ツールを自由に付け替えられる
+
+ターミナル環境では、すべてのツールが交換可能です。
+
+| レイヤー | 選択肢 | 交換可能性 |
+|----|----|----|
+| ターミナルエミュレータ | Ghostty, WezTerm, iTerm2, Kitty | 自由に変更可能 |
+| ターミナルマルチプレクサ | tmux, zellij, screen | 自由に変更可能 |
+| シェル | zsh, bash, fish | 自由に変更可能 |
+| テキストエディタ | Neovim, Vim, Emacs, Helix | 自由に変更可能 |
+| AIコーディングエージェント | Claude Code, Codex CLI, Gemini CLI | 自由に変更可能 |
+
+ターミナル環境では各レイヤーを独立して進化させられます。
+
+実際私は最近ターミナルを Alacritty, Ghostty, WezTerm
+と頻繁に乗り換えていますが開発体験は全く変わっていません。
+
+また私の環境では tmux, Vim, Zsh
+の統合利用を加味したキーバインドをそれぞれのツールに設定していて手に実に馴染みます。
+
+## 4. dotfiles のすすめ
+
+### 4.1. dotfiles とは
+
+dotfiles とはホームディレクトリにある設定ファイル群を Git
+で管理する文化です。
+
+たとえば以下のような構成になります。
+
+``` text
+dotfiles/
+├── .config/
+│   ├── claude/      # AIコーディングエージェント設定
+│   ├── tmux/        # ターミナルマルチプレクサ設定
+│   ├── wezterm/     # ターミナル設定
+│   └── nvim/        # テキストエディタ設定
+├── .zshrc            # シェル設定
+└── bin/              # 自作スクリプト
+```
+
+### 4.2. なぜ dotfiles を育てるのか
+
+#### 4.2.1. 環境の再現性
+
+新しいマシンでも `git clone` と数コマンドで同じ環境が再現できます。
+
+いつでも再現できるという安心感があるので、快適さを追求して自身の資産にしていくモチベーションが湧きます。
+
+#### 4.2.2. 進化の軌跡
+
+設定の変更がすべて Git に残ります。
+
+なぜその設定にしたか後から追えますし、過去の状態に戻すことも簡単です。
+
+#### 4.2.3. 知識の蓄積
+
+dotfiles は「自分がどう働きたいか」の具体化です。
+
+年月をかけて育てた設定は、他では得られない資産になります。
+
+#### 4.2.4. 共有と学習
+
+他人の dotfiles を見て学び、自分の dotfiles を公開して切磋琢磨できます。
+
+dotfiles
+はテキストファイルなので、AIに読み込ませて「この設定は何をしているのか」「自分の環境に取り入れるにはどうすればいいか」を質問できます。他人の複雑な設定を理解するハードルがかなり下がりました。
+
+以下は2025年で象徴的だなと思った投稿です。
+
+dotfiles を愛する者の間では割と常識になっていた設定についての会話です。
+設定なんてものは dotfiles
+を使っている人以外にはなかなか広まらないんです。
+情報格差、感じますよね。
+
+<blockquote class="twitter-tweet">
+
+<p lang="ja" dir="ltr">
+
+ryoppippiからclaude
+codeの設定を学ぶといいので、みんなryoppippiのdotfilesも見ような<a href="https://t.co/RduDuxgLml">https://t.co/RduDuxgLml</a>
+<a href="https://t.co/NJMD3hNyFP">https://t.co/NJMD3hNyFP</a>
+</p>
+
+— yasunori🫖@loglass🐳 (@YKirin0418)
+<a href="https://twitter.com/YKirin0418/status/1977585870787301738?ref_src=twsrc%5Etfw">October
+13, 2025</a>
+</blockquote>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### 4.3. Claude Code 設定 + 周辺環境 = 最強オレオレ開発環境
+
+Claude Code 設定だけなら、IDEでも使えます。しかし……
+
+``` text
+dotfiles/
+├── .config/
+│   ├── claude/         # <- IDEでも使える
+│   │   ├── CLAUDE.md
+│   │   ├── rules/
+│   │   ├── agents/
+│   │   └── commands/
+│   │
+│   ├── tmux/           # <- ターミナル固有
+│   │   └── tmux.conf
+│   │
+│   └── wezterm/        # <- ターミナル固有
+│       └── wezterm.lua
+│
+├── .zshrc               # <- ターミナル固有
+│
+└── bin/                 # <- ターミナル固有
+```
+
+Claude Code 設定は「点」、dotfiles 全体は「面」ですね。
+
+周辺ツールとの連携によってAIは開発フロー全体に溶け込みます。
+
+## 5. dotfiles の始め方
+
+dotfiles
+の始め方については、以下の記事が親しみがあってわかりやすいと思いました。
+
+- [ようこそdotfilesの世界へ -
+  Qiita](https://qiita.com/yutkat/items/c6c7584d9795799ee164)
+- [ゆるりとはじめる dotfiles 入門 -
+  Zenn](https://zenn.dev/timetree/articles/904126d3570345)
+
+dotfiles
+は一日で完成しません。使いながら情報感度を上げつつ徐々に育てていくものです。
+
+まずは Claude Code
+の設定など小さいところから始めて、徐々に充実させていくのがおすすめです。
+
+## 6. まとめ
+
+### 6.1. 機能は収斂する
+
+Claude Code の `/teleport`
+やバックグラウンド実行が示すように、ターミナルと IDE
+の機能差はなくなっていきます。
+
+### 6.2. 残るのは「環境構築力」
+
+ターミナル環境の価値はプログラマブル、コンポーザブル、交換可能、ポータブルであることです。
+すべてをテキストファイルで定義し、Git で管理できているる環境は Claude
+Code の機能の収斂後も輝きを失いません。
+
+### 6.3. dotfiles を育てよう
+
+Claude Code 設定は IDE でも使えます。しかし……
+
+- スクリプトでワークフロー自動化
+- 自作ツールや最新ツールとの連携
+- 複数ツール間で統一した操作感
+
+これらは自分で構築した環境でしか実現できません。
+
+### 6.4. そして何より
+
+**dotfiles
+は楽しいのでオススメ！ぜひやろう！生き様を反映させていこう！**
+
+これが言いたかっただけです。
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-01-08-why-dotfiles-still-matters-to-me.html&text=AI%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%99%82%E4%BB%A3%E3%81%AB%E3%81%AA%E3%81%9C%E7%A7%81%E3%81%AF%20dotfiles%20%E3%82%92%E8%82%B2%E3%81%A6%E3%82%8B%E3%81%AE%E3%81%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=AI%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%99%82%E4%BB%A3%E3%81%AB%E3%81%AA%E3%81%9C%E7%A7%81%E3%81%AF%20dotfiles%20%E3%82%92%E8%82%B2%E3%81%A6%E3%82%8B%E3%81%AE%E3%81%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-01-08-why-dotfiles-still-matters-to-me.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-01-08-why-dotfiles-still-matters-to-me.html&title=AI%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%99%82%E4%BB%A3%E3%81%AB%E3%81%AA%E3%81%9C%E7%A7%81%E3%81%AF%20dotfiles%20%E3%82%92%E8%82%B2%E3%81%A6%E3%82%8B%E3%81%AE%E3%81%8B%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
