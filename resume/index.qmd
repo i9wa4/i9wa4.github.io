@@ -29,7 +29,7 @@ GENDAでは、グループ各社のデータ連携・データマートの整備
 - IaC：Terraform、HCP Terraform、CloudFormation
 - MLOps・AI活用：Snowpark ML、Databricks Notebooks、Jupyter Kernel、MCP、AI coding agent workflow
 - 開発ツール：Git、GitHub、CI/CD、DataRobot、Renovate、Docker、Nix、mise
-- プログラミング言語 - Python、Go、SQL、C、C++、Shell Script
+- プログラミング言語：Python、Go、SQL、C、C++、Shell Script
 - 組織運営：データチームマネジメント、コードレビュー、採用、1on1、技術移譲
 
 ## 3. 職務経歴
