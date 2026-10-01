@@ -24,8 +24,8 @@ At GENDA, I’ve built data pipelines and data marts for group companies and mig
 - Data platforms: Databricks, Snowflake, BigQuery, dbt Core, dbt platform, Airflow (MWAA)
 - Cloud platforms: AWS, Google Cloud, Azure
 - Infrastructure as code: Terraform, HCP Terraform, CloudFormation
-- MLOps and AI: Snowpark ML, Databricks Notebooks, Jupyter Kernel, MCP, AI coding agent workflow
-- Development tools: Git, GitHub, CI/CD, DataRobot, Renovate, Docker, Nix, mise
+- MLOps and AI: DataRobot, Snowpark ML, Databricks Notebooks, Jupyter Kernel, MCP, AI coding agent workflow
+- Development tools: Git, GitHub, CI/CD, Dependabot, Renovate, Docker, Nix, mise
 - Programming languages: Python, Go, SQL, C, C++, Shell Script
 - Team leadership: data team management, code review, hiring, 1:1s, technical handoff
 

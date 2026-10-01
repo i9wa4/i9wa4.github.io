@@ -24,8 +24,8 @@ GENDAでは、グループ各社のデータ連携・データマートの整備
 - データ基盤：Databricks、Snowflake、BigQuery、dbt Core、dbt platform、Airflow (MWAA)
 - クラウド基盤：AWS、Google Cloud、Azure
 - IaC：Terraform、HCP Terraform、CloudFormation
-- MLOps・AI活用：Snowpark ML、Databricks Notebooks、Jupyter Kernel、MCP、AI coding agent workflow
-- 開発ツール：Git、GitHub、CI/CD、DataRobot、Renovate、Docker、Nix、mise
+- MLOps・AI活用：DataRobot、Snowpark ML、Databricks Notebooks、Jupyter Kernel、MCP、AI coding agent workflow
+- 開発ツール：Git、GitHub、CI/CD、Dependabot、Renovate、Docker、Nix、mise
 - プログラミング言語：Python、Go、SQL、C、C++、Shell Script
 - 組織運営：データチームマネジメント、コードレビュー、採用、1on1、技術移譲
 
