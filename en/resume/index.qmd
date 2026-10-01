@@ -34,7 +34,7 @@ At GENDA, I’ve built data pipelines and data marts for group companies and mig
 
 ## 3. Professional Experience
 
-### 3.1. GENDA Inc. | Data Engineer / MLOps Engineer; Data Engineering Team Manager
+### 3.1. GENDA Inc. | Data Engineer / MLOps Engineer; Data Science Team Manager
 
 Nov 2024 - Present | Full-time
 
@@ -43,6 +43,8 @@ Nov 2024 - Present | Full-time
   marts, dashboards, and analytics workflows.
 - Became Data Engineering Team Manager in 2026/04; manage progress, code
   reviews, 1:1s, hiring activity, and technical handoff practices.
+- Became Data Science Team Manager in October 2026, with responsibility for
+  hiring, project management, 1:1s, and engineering work outside data science.
 - For karaoke business data utilization, organized 9 management and sales
   reports, 13 ingestion DAGs, and 37 dashboards into a roadmap with
   dependencies and migration priorities.
