@@ -5,7 +5,10 @@ date-modified: last-modified
 
 馬渡 大樹
 
-データエンジニアリングチームマネージャー・MLOpsエンジニア
+- Data Science Manager
+- Data Engineer
+- MLOps Engineer
+- Applied AI Engineer
 
 [Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4)
 
@@ -13,20 +16,21 @@ date-modified: last-modified
 
 ## 1. 職務要約
 
-GENDAでデータエンジニアチームのマネージャーを務めています。2026年10月からはデータサイエンスチームのマネージャーに就任予定です。
+GENDAでデータサイエンスチームのマネージャーを務めています。
 
-10年以上のソフトウェア開発経験を生かし、データエンジニアリングとMLOpsを通じて、データサイエンティストが分析・モデル開発に集中できる環境をつくってきました。データ基盤や開発環境の設計・実装から機械学習の本番運用まで自ら担い、事業部門との要件整理や採用・チーム運営にも取り組んでいます。
+10年以上のソフトウェア開発経験を生かし、データエンジニアリングとMLOpsを通じて、データサイエンティストが分析・モデル開発に集中できる環境をつくってきました。データ基盤や開発環境の設計・実装から機械学習の本番運用まで自ら担い、事業部門との要件整理・プロジェクト管理・採用・チーム運営にも取り組んでいます。
 
 GENDAでは、グループ各社のデータ連携・データマートの整備や、機械学習基盤のDatabricks移行を進めてきました。データサイエンティストが使い慣れたエディタやAIエージェントを活用できるよう、OSS「jupyter-databricks-kernel」も開発しました。実務で得た知見を記事や登壇でも発信し、Databricks MVP 2026に選出されました。業務委託ではPIVOTのデータ基盤改善も支援しています。
 
 ## 2. コアスキル
 
-- データ基盤・分析基盤 - Databricks、Snowflake、BigQuery、dbt Core / Cloud、Airflow / MWAA、データマート、ダッシュボード
-- クラウド・インフラ - AWS、Google Cloud、Terraform、GitHub Actions、Docker
-- MLOps・AI活用 - CI/CD、DataRobot、Snowpark ML、Databricks notebooks、Notebook tooling、MCP tooling、AI coding agent workflow
-- 開発生産性・ガバナンス - Nix / mise、Ruff、レビュー前提のデプロイ、権限設計、データガバナンス、ドキュメンテーション
-- 組織運営 - チームマネジメント、コードレビュー、採用、1on1、技術移譲、データチーム運営
-- エンジニアリング基盤 - Python、SQL、Shell Script、C、C++
+- データ基盤：Databricks、Snowflake、BigQuery、dbt Core、dbt platform、Airflow (MWAA)
+- クラウド基盤：AWS、Google Cloud、Azure
+- IaC：Terraform、HCP Terraform、CloudFormation
+- MLOps・AI活用：Snowpark ML、Databricks Notebooks、Jupyter Kernel、MCP、AI coding agent workflow
+- 開発ツール：Git、GitHub、CI/CD、DataRobot、Renovate、Docker、Nix、mise
+- プログラミング言語 - Python、Go、SQL、C、C++、Shell Script
+- 組織運営：データチームマネジメント、コードレビュー、採用、1on1、技術移譲
 
 ## 3. 職務経歴
 

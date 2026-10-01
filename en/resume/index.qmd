@@ -5,7 +5,10 @@ date-modified: last-modified
 
 Daiki Mawatari
 
-Data Engineering Manager / MLOps Engineer
+- Data Science Manager
+- Data Engineer
+- MLOps Engineer
+- Applied AI Engineer
 
 [Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4)
 
@@ -13,25 +16,21 @@ Resume ([Website](https://i9wa4.github.io/en/resume/index.html), [PDF](https://i
 
 ## 1. Professional Summary
 
-I manage the Data Engineering Team at GENDA and will become Data Science Team Manager in October 2026.
+I manage the Data Science Team at GENDA.
 
-Drawing on over 10 years of software engineering experience, I work across data engineering and MLOps to help data scientists focus on analysis and model development. I take a hands-on role in designing and building data platforms and development environments, as well as running machine learning systems in production. My responsibilities also include defining requirements with business teams, hiring, and team management.
+Drawing on over 10 years of software engineering experience, I work across data engineering and MLOps to help data scientists focus on analysis and model development. I take a hands-on role in designing and building data platforms and development environments, as well as running machine learning systems in production. My responsibilities also include defining requirements with business teams, managing projects, hiring, and leading teams.
 
 At GENDA, I’ve built data pipelines and data marts for group companies and migrated our machine learning platform to Databricks. I also created jupyter-databricks-kernel, an open-source tool that lets data scientists work with Databricks using their preferred editors and AI agents. I share insights from this work through technical articles and talks, and was named a Databricks MVP for 2026. Alongside my role at GENDA, I help improve PIVOT’s data platform as an independent contractor.
 
 ## 2. Core Skills
 
-- Data and analytics platforms: Databricks, Snowflake, BigQuery, dbt Core /
-  Cloud, Airflow / MWAA, data marts, dashboards
-- Cloud and infrastructure: AWS, Google Cloud, Terraform, GitHub Actions,
-  Docker
-- MLOps and AI enablement: CI/CD, DataRobot, Snowpark ML, Databricks notebooks,
-  notebook tooling, MCP tooling, AI coding agent workflows
-- Developer productivity and governance: Nix / mise, Ruff, review-backed
-  deployment, permission design, data governance, documentation
-- Data-team operations: team management, code review, hiring, 1:1s, technical
-  handoff, and operating rhythms
-- Engineering foundation: Python, SQL, Shell Script, C, C++
+- Data platforms: Databricks, Snowflake, BigQuery, dbt Core, dbt platform, Airflow (MWAA)
+- Cloud platforms: AWS, Google Cloud, Azure
+- Infrastructure as code: Terraform, HCP Terraform, CloudFormation
+- MLOps and AI: Snowpark ML, Databricks Notebooks, Jupyter Kernel, MCP, AI coding agent workflow
+- Development tools: Git, GitHub, CI/CD, DataRobot, Renovate, Docker, Nix, mise
+- Programming languages: Python, Go, SQL, C, C++, Shell Script
+- Team leadership: data team management, code review, hiring, 1:1s, technical handoff
 
 ## 3. Professional Experience
 
