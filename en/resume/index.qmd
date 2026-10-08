@@ -130,6 +130,8 @@ Apr 2016 - Jul 2018 | Full-time
 
 ### 6.1. Talks
 
+- September 15, 2026: [How Analysts Use Claude Code with Databricks](https://datayokocho.connpass.com/event/393250/)
+  - [Speaker Profile: uma-chan | Data Community LT Festival](https://ltfes.datayokocho.info/todanvol1_uma-chan/)
 - June 30, 2026: [Harness Engineering Through the Lens of Context Design](https://i9wa4.github.io/slides/2026-06-30-context-design-harness#/title-slide)
 - March 6, 2026: [Challenges and Solutions for Writing Robust Code with Databricks](https://i9wa4.github.io/slides/2026-03-06-kenro-py.html)
 - January 26, 2026: [Operational Tips for Distributing Coding Agents with Mosaic AI Gateway](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
