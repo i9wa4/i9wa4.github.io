@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="1">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+
+        <!-- Header Row -->
+        <mxCell id="header-aws" value="AWS構成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=33;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="520" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-databricks" value="Databricks構成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#01579b;fontSize=33;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="520" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="header-benefit" value="改善ポイント" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;fontSize=33;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="200" width="400" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 1: Compute -->
+        <mxCell id="aws1" value="ECS Fargate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow1" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="340" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="databricks1" value="Databricks Compute" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3e5fc;strokeColor=#0277bd;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="320" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="benefit1" value="自動起動/停止" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=24;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="320" width="400" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 2: Development Environment -->
+        <mxCell id="aws2" value=".pyファイル実行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="460" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow2" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="480" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="databricks2" value="Databricks Notebook" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3e5fc;strokeColor=#0277bd;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="460" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="benefit2" value="REPL環境で即座実行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=24;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="460" width="400" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 3: Logs -->
+        <mxCell id="aws3" value="CloudWatch Logs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="600" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow3" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="620" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="databricks3" value="Notebook内ログ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3e5fc;strokeColor=#0277bd;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="600" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="benefit3" value="即座に確認可能" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=24;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="600" width="400" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 4: IAM -->
+        <mxCell id="aws4" value="IAM Role" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="740" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow4" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="760" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="databricks4" value="Instance Profile" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3e5fc;strokeColor=#0277bd;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="740" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="benefit4" value="権限設定が簡単" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=24;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="740" width="400" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 5: S3 -->
+        <mxCell id="aws5" value="Amazon S3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="200" y="880" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow5" value="→" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=48;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="900" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="databricks5" value="Amazon S3 (そのまま!)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b3e5fc;strokeColor=#0277bd;fontSize=27;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="800" y="880" width="520" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="benefit5" value="既存データ活用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=24;fontStyle=1;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="1400" y="880" width="400" height="100" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
