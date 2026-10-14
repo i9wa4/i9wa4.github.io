@@ -1,0 +1,372 @@
+---
+title: "私とtmux、2026年の現在地"
+subtitle: "AIエージェントで作る、PCの中の会社"
+author:
+  - name: uma-chan
+categories:
+  - "slides"
+date: 2026-10-15
+date-modified: last-modified
+description: |
+  [登壇資料] Terminal Night 3
+draft: true
+image: "/assets/common/icon_hhkb3_large.jpg"
+format:
+  revealjs:
+    auto-stretch: false
+    code-copy: true
+    footer: "Terminal Night 3 / 2026-10-15"
+    include-in-header:
+      - ../_includes/hatena-nocomment.html
+    incremental: false
+    scrollable: true
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    theme:
+      - simple
+      - ../themes/font.scss
+    title-prefix: ""
+    toc-depth: 2
+    toc: false
+    height: 1080
+    width: 1920
+  gfm: default
+---
+
+### 1.1. 私とtmux、2026年の現在地 <!-- rumdl-disable-line MD001 -->
+
+```{=html}
+<style>
+.reveal .presentation-diagram svg[id^="mermaid"] {
+  width: var(--diagram-width) !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+</style>
+```
+
+<!--
+5分LT、ライブデモなし。話す文面と時間配分は各スライドのnotes内。
+tmux-mac-voiceは完成した場合を想定した発表用の文面。
+実機でのエンドツーエンド検証前に、完成済みとして公開しない。
+diplomatとセッション階層化は、現在の通信経路と完成した機能を混同しない。
+-->
+
+**tmuxの中で、AIエージェントの会社を動かしています。**
+
+- 複数のプロジェクトを並行して進める
+- 各プロジェクトに、役割の異なるAIエージェントを置く
+- 人間は仕事を預け、進捗と判断を受け取る
+
+**今日は、私がtmuxをどこまで使い倒しているかの話です。**
+
+::: {.notes}
+【0:00–0:25】
+
+今日は、私とtmuxの2026年の現在地、という話をします。
+tmuxの中にAIエージェントの会社のようなものを作っています。
+複数のプロジェクトに、仕事を割り振る人、実装する人、レビューする人がいます。
+僕が全員を直接操作するわけではありません。
+この形にたどり着いた経緯を紹介します。
+:::
+
+<!-- 2. なぜtmuxなのか -->
+
+### 2.1. 複数プロジェクト × マルチエージェント
+
+**プロジェクトが複数ある。各プロジェクトの中にも、複数のAIがいる。**
+
+::: {.presentation-diagram style="--diagram-width: 1700px"}
+```{mermaid}
+flowchart TD
+    T["tmux"] --> A["project A"]
+    T --> B["project B"]
+    T --> C["project C"]
+    A --> A1["進捗管理"]
+    A --> A2["実装"]
+    A --> A3["レビュー"]
+    B --> B1["進捗管理"]
+    B --> B2["実装"]
+    B --> B3["レビュー"]
+    C --> C1["進捗管理"]
+    C --> C2["実装"]
+    C --> C3["レビュー"]
+```
+:::
+
+**人間が全員の作業を覚えておくのは難しい。**
+
+::: {.notes}
+【0:25–0:57】
+
+やりたいのは、単にエージェントをたくさん起動することではありません。
+まず、複数のプロジェクトを同時に進めたい。
+一つのプロジェクトでも、実装とレビューを分け、進捗管理の担当を置きたい。
+それを全部人間が管理すると、別の仕事に戻るたびに「あれ、どこまでやったっけ？」と思い出す時間がかかります。
+その負担を組織側に持ってもらいたいんです。
+:::
+
+### 2.2. tmuxには必要な機能が揃っている
+
+**端末を整理するだけでなく、外から操作できる。**
+
+| tmuxの機能              | エージェント環境での使い道 |
+| ----------------------- | -------------------------- |
+| session / window / pane | 作業とエージェントの整理   |
+| 動的なペイン管理        | エージェントの増減         |
+| `send-keys`             | 外部からの入力             |
+| `capture-pane`          | 作業状況の観測             |
+| CLI・スクリプト         | 環境の再現と自動制御       |
+
+参考：[AIエージェント時代のtmux入門](https://zenn.dev/i9wa4/articles/2026-02-08-tmux-intro-ai-agent-orchestration)
+
+::: {.notes}
+【0:57–1:23】
+
+そこでtmuxです。
+プロジェクトごとにセッションを分け、その中で複数のエージェントを動かせます。
+でも、選んだ理由は画面分割だけではありません。
+コマンドで別のペインに入力し、状態を見て、ペインを増減できます。
+つまり、エージェント自身にもtmuxを操作させられる。
+こうした基本機能が揃っているのは大きいと思っています。
+:::
+
+### 2.3. 使うAIエージェントは、自由でありたい
+
+**tmuxが管理するのは、モデルではなく端末とプロセス。**
+
+::: {.presentation-diagram style="--diagram-width: 900px"}
+```{mermaid}
+flowchart LR
+    T["tmux"] --> A["Claude Code"]
+    T --> B["Codex"]
+    T --> C["その他のCLIエージェント"]
+```
+:::
+
+- モデルが変わっても入れ替えられる
+- 複数ベンダーを組み合わせられる
+- 同じ作業台で新しいモデルを比較できる
+
+::: {.notes}
+【1:23–1:45】
+
+もう一つ大きいのが、使うエージェントの自由です。
+Claude CodeでもCodexでも、CLIなら載せられます。
+モデルの性能や料金は変わります。
+そのたびに作業環境まで作り直したくはありません。
+tmuxは、変化の中でも使い続ける土台になります。
+:::
+
+<!-- 3. tmux-a2a-postman -->
+
+### 3.1. send-keysだけでは、仕事は任せきれない
+
+```{.bash}
+tmux send-keys -t worker "このIssueを修正して" Enter
+```
+
+**これは「文字を送った」だけ。**
+
+- 依頼は読まれたか？
+- 誰から誰への依頼か？
+- 返信が必要な依頼は、返ってきたか？
+- 過去の経緯をどう引き継ぐか？
+
+::: {.notes}
+【1:45–2:14】
+
+tmuxを使っている人なら、「send-keysでエージェント同士に話させればいい」と思うかもしれません。
+文字を送るだけなら、それで十分です。
+でも仕事が増えると、未回答の依頼や、誰が誰を待っているかが分かりにくくなります。
+モデルを替えても、依頼の経緯は残したい。
+そこで作ったのが、tmux-a2a-postmanです。
+:::
+
+### 3.2. Postmanは通信に責任を持つ
+
+**[tmux-a2a-postman](https://github.com/i9wa4/tmux-a2a-postman)**
+
+- Markdown形式のメッセージとファイルベースのメールボックス
+- 返信必須の依頼と未回答の追跡
+- メッセージ履歴と状態の検査
+- 宣言した通信経路
+
+**tmuxは実行基盤。Postmanは通信基盤。**
+
+`execute-bash`はエージェント間の審査・監査の経路。OSの隔離機構ではない。
+
+公開・本番への書き込みには、人間の明示的な許可が必要。
+
+::: {.notes}
+【2:14–2:38】
+
+Postmanは、ペイン同士をつなぐ通信の仕組みです。
+メッセージはMarkdownで残り、返信が必要な依頼を追跡できます。
+実行コマンドの審査もできますが、これはエージェント間の監査で、OSの隔離ではありません。
+公開や本番への書き込みには、人間の明示的な許可が必要です。
+tmuxが端末を動かし、Postmanが通信を扱います。
+:::
+
+<!-- 4. PCの中に会社を作る -->
+
+### 4.1. postman.mdが組織図になる
+
+**役割と通信経路を、Markdownで定義する。**
+
+::: {.presentation-diagram style="--diagram-width: 1050px"}
+```{mermaid}
+graph LR
+    agent["agent"] --- orchestrator["orchestrator"]
+    messenger["messenger / 対話窓口"] --- orchestrator
+    orchestrator --- worker["worker"]
+    orchestrator --- worker_alt["worker-alt"]
+    orchestrator --- guardian["guardian"]
+    orchestrator --- approver["approver"]
+    orchestrator --- diplomat["diplomat / 予約"]
+    guardian --- critic["critic"]
+    classDef coord fill:#dbeafe,color:#172554
+    classDef work fill:#dcfce7,color:#14532d
+    classDef review fill:#fce7f3,color:#831843
+    classDef future fill:#f3f4f6,color:#374151,stroke-dasharray: 5 5
+    class messenger,orchestrator coord
+    class worker,worker_alt work
+    class guardian,critic,approver review
+    class diplomat future
+```
+:::
+
+- diplomat：経路はあるが、セッション間中継は今後の機能
+
+[実際のpostman.md](https://github.com/i9wa4/dotfiles/blob/main/config/tmux-a2a-postman/postman.md)
+
+::: {.notes}
+【2:38–3:18】
+
+これは、実際のpostman.mdの通信経路を表したものです。
+オーケストレーターが仕事を割り振り、ワーカーが実装します。
+ガーディアンとクリティックが別の視点から検証し、問題があれば戻します。
+アプルーバーはコマンド実行を審査します。
+対話窓口は人間とのやり取りを担当します。
+図には予約済みのdiplomatもありますが、セッション間の中継はまだ完成していません。
+役割と経路をMarkdownで定義し、自分の運用に合わせて育てています。
+:::
+
+### 4.2. 仕事を増やしても、人間が管理者にならない
+
+**一つのタスクが終わっても、組織は解散しない。**
+
+::: {.presentation-diagram style="--diagram-width: 1250px"}
+```{mermaid}
+flowchart LR
+    H["私"] -->|"Issue群を進めて"| O["orchestrator"]
+    O -->|"実装"| W["worker"]
+    W -->|"結果"| O
+    O -->|"レビュー"| G["guardian"]
+    G -->|"判定"| O
+    O -->|"進捗と判断事項"| H
+```
+:::
+
+**オーケストレーターに聞くこと**
+
+- 何件終わった？　どこが詰まっている？
+- 次に何を進める？　私の判断は必要？
+
+::: {.notes}
+【3:18–3:55】
+
+最近、Postmanの開発をこの組織にかなり任せています。
+たくさんIssueを作り、オーケストレーターに全体のTODOを管理させ、ワーカーに実装させ、ガーディアンにレビューさせる。
+それを繰り返します。
+僕は途中で別のことをしていてもいい。
+後から「全体の進捗は？」と聞くと、状況を整理して報告してくれます。
+大事なのは人数ではなく、一人ひとりの進捗を人間が覚え続けなくて済むことです。
+複数のプロジェクトを並行するときに助かっています。
+:::
+
+### 4.3. モデルの得意な場所を、組織の中に作れる
+
+**役割に合わせて、モデルを割り当てる。**
+
+| 得意なこと         | 任せる仕事         |
+| ------------------ | ------------------ |
+| 複雑な推論         | 設計・難しい判断   |
+| 実装               | コーディング・修正 |
+| 独立した批判的検討 | レビュー・検証     |
+| 限定的な判断       | コマンド承認など   |
+
+- 必要な文脈はメッセージで引き継ぐ
+- 異なるベンダーを混ぜ、新モデルを並行で試せる
+
+::: {.notes}
+【3:55–4:19】
+
+全員に同じモデルを使う必要はありません。
+難しい判断は得意なモデルへ。狭い仕事には、その役割に合うモデルを使います。
+文脈はメッセージで渡し、ベンダーを混ぜたり新モデルを比較したりできます。
+調整の手間もあり、費用が必ず下がるわけではありません。
+選択の自由と変化への強さを重視しています。
+:::
+
+<!-- 5. 人間のインターフェース -->
+
+### 5.1. tmux-mac-voice：組織に声で仕事を頼む
+
+**人間は、個々のペインを操作せずに仕事を頼める。**
+
+::: {.presentation-diagram style="--diagram-width: 1500px"}
+```{mermaid}
+flowchart LR
+    H["人間の声"] <--> B["ブラウザ"]
+    B <--> V["tmux-mac-voice"]
+    V <--> M["現在のmessenger"]
+    M <--> O["AIエージェント組織"]
+```
+:::
+
+**現在：** messengerが対話窓口。
+
+**開発中：** mouthpiece（専用窓口）組織とセッション間の階層化。
+
+**「このIssue群を進めておいて」**
+
+**「全体の進捗、どうなってる？」**
+
+[tmux-mac-voice](https://github.com/i9wa4/tmux-mac-voice)
+
+::: {.notes}
+【4:19–4:44】
+
+そして、人間のインターフェースです。
+tmux-mac-voiceを使って、ブラウザから音声でこの組織に話しかけます。
+現在の対話窓口はmessengerです。
+mouthpiece（専用窓口）組織とセッション間の階層化は、まだ開発中です。
+diplomatは経路のみ予約済みで、中継機能は未実装です。
+:::
+
+<!-- 6. まとめ -->
+
+### 6.1. 私とtmux、2026年の現在地
+
+**自分で育てられるAIエージェントの組織。**
+
+- tmux：作業台
+- Postman：通信と役割の経路
+- Markdown / Skills：運用ルール
+- mac-voice：人間との対話インターフェース
+
+**AIエージェントは乗り換える。でも、作業台まで乗り換える必要はない。**
+
+- <https://github.com/i9wa4/tmux-a2a-postman>
+- <https://github.com/i9wa4/tmux-mac-voice>
+
+::: {.notes}
+【4:44–5:00】
+
+僕のtmuxは、今こんな形です。
+AIエージェントが変わっても、組織は自分で育て続けたい。
+エージェントは乗り換えても、作業台はtmuxのままでいい。
+これが、私とtmuxの現在地です。
+:::
