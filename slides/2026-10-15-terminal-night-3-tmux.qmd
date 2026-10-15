@@ -49,7 +49,6 @@ format:
 - 趣味：
   - dotfiles
   - Vim
-    - 最近ご無沙汰😢
   - Nix
     - Rustビルド重い😢
   - tmux
