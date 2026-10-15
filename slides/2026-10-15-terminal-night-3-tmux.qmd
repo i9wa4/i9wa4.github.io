@@ -37,6 +37,9 @@ format:
 
 ### 1.1. 自己紹介
 
+:::: {.columns}
+::: {.column width="50%"}
+
 - 名前：
   - uma-chan / Mawatari Daiki
 - 仕事：
@@ -45,8 +48,20 @@ format:
   - MLOpsエンジニア
 - 趣味：
   - dotfiles
+  - Vim
+    - 最近ご無沙汰😢
+  - Nix
+    - Rustビルド重い😢
   - tmux
     - 大tmux時代の到来を待っている
+
+:::
+::: {.column width="50%"}
+
+![icon](/assets/common/icon_hhkb3.png){width="60%"}
+
+:::
+::::
 
 ### 1.2. 私とtmux：2026年の現在地 <!-- rumdl-disable-line MD001 -->
 
@@ -390,7 +405,9 @@ flowchart LR
 
 **「このIssue群を進めておいて」**
 
-**「全体の進捗はどうなってる？」→ 詳細を記載したページのURLをタップ**
+**「全体の進捗はどうなってる？」
+
+**チャットUIから詳細を記載したページのURLをタップする**
 
 ::: {.notes}
 【4:19–4:44】
