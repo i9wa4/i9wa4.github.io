@@ -134,7 +134,7 @@ flowchart TB
 ::: {style="transform: scale(1.3); transform-origin: top left;"}
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">tmuxの話をするときの土台
 
-AI エージェント時代の波に乗るための tmux 入門 — マルチエージェントオーケストレーションの相棒｜uma-chan https://t.co/mToD0i5XaC #zenn</p>&mdash; uma-chan | Daiki Mawatari (@i9wa4_) <a href="https://x.com/i9wa4_/status/2110237777833144516?ref_src=twsrc%5Etfw">October 14, 2026</a></blockquote>
+AI エージェント時代の波に乗るための tmux 入門 — マルチエージェントオーケストレーションの相棒｜uma-chan <a href="https://t.co/mToD0i5XaC">https://t.co/mToD0i5XaC</a> #zenn</p>&mdash; uma-chan | Daiki Mawatari (@i9wa4_) <a href="https://x.com/i9wa4_/status/2110237777833144516?ref_src=twsrc%5Etfw">October 14, 2026</a></blockquote>
 <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
 :::
 
