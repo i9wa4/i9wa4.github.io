@@ -51,7 +51,7 @@ format:
   - Vim/Neovim
   - tmux
     - 大tmux時代の到来を待っている
-  - kitty
+  - Kitty
   - Nix
     - Rustビルド重い😢
 
