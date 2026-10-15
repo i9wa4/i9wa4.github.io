@@ -1,6 +1,6 @@
 ---
 title: "私とtmux、2026年の現在地"
-subtitle: "AIエージェントで作る、PCの中の会社"
+subtitle: "PC内のAIエージェントを束ねる社長になる"
 author:
   - name: uma-chan
 categories:
@@ -15,7 +15,7 @@ format:
   revealjs:
     auto-stretch: false
     code-copy: true
-    footer: "Terminal Night 3 / 2026-10-15"
+    footer: "[Terminal Night 3 - connpass](https://kichijojipm.connpass.com/event/404746/)"
     include-in-header:
       - ../_includes/hatena-nocomment.html
     incremental: false
@@ -34,7 +34,36 @@ format:
   gfm: default
 ---
 
-### 1.1. 私とtmux、2026年の現在地 <!-- rumdl-disable-line MD001 -->
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- 名前：
+  - uma-chan / Mawatari Daiki
+- 仕事：
+  - データサイエンスチームマネージャーやデータエンジニアなどをやってます
+- 趣味：
+  - dotfiles (4,900 commits)
+  - tmux
+  - ターミナルにすべてを集約してAIに仕事をさせる
+
+:::
+::: {.column width="50%"}
+
+[![10/15 Terminal Night 3 登壇！2026年のtmuxにできることを話します](/assets/2026-09-15-claude-code-databricks/terminal-night-3.png)](https://kichijojipm.connpass.com/event/404746/)
+
+:::
+::::
+
+### 1.2. 本日話すこと
+
+- Databricksへの接続方法
+- 分析ノウハウ集積方法
+
+### 1.3. 私とtmux、2026年の現在地 <!-- rumdl-disable-line MD001 -->
 
 ```{=html}
 <style>
@@ -73,7 +102,7 @@ tmuxの中にAIエージェントの会社のようなものを作っていま�
 
 <!-- 2. なぜtmuxなのか -->
 
-### 2.1. 複数プロジェクト × マルチエージェント
+### 1.4. 複数プロジェクト × マルチエージェント
 
 **プロジェクトが複数ある。各プロジェクトの中にも、複数のAIがいる。**
 
@@ -107,7 +136,7 @@ flowchart TD
 その負担を組織側に持ってもらいたいんです。
 :::
 
-### 2.2. tmuxには必要な機能が揃っている
+### 1.5. tmuxには必要な機能が揃っている
 
 **端末を整理するだけでなく、外から操作できる。**
 
@@ -132,7 +161,7 @@ flowchart TD
 こうした基本機能が揃っているのは大きいと思っています。
 :::
 
-### 2.3. 使うAIエージェントは、自由でありたい
+### 1.6. 使うAIエージェントは、自由でありたい
 
 **tmuxが管理するのは、モデルではなく端末とプロセス。**
 
@@ -161,7 +190,7 @@ tmuxは、変化の中でも使い続ける土台になります。
 
 <!-- 3. tmux-a2a-postman -->
 
-### 3.1. send-keysだけでは、仕事は任せきれない
+### 1.7. send-keysだけでは、仕事は任せきれない
 
 ```{.bash}
 tmux send-keys -t worker "このIssueを修正して" Enter
@@ -184,7 +213,7 @@ tmuxを使っている人なら、「send-keysでエージェント同士に話�
 そこで作ったのが、tmux-a2a-postmanです。
 :::
 
-### 3.2. Postmanは通信に責任を持つ
+### 1.8. Postmanは通信に責任を持つ
 
 **[tmux-a2a-postman](https://github.com/i9wa4/tmux-a2a-postman)**
 
@@ -211,7 +240,7 @@ tmuxが端末を動かし、Postmanが通信を扱います。
 
 <!-- 4. PCの中に会社を作る -->
 
-### 4.1. postman.mdが組織図になる
+### 1.9. postman.mdが組織図になる
 
 **役割と通信経路を、Markdownで定義する。**
 
@@ -253,7 +282,7 @@ graph LR
 役割と経路をMarkdownで定義し、自分の運用に合わせて育てています。
 :::
 
-### 4.2. 仕事を増やしても、人間が管理者にならない
+### 1.10. 仕事を増やしても、人間が管理者にならない
 
 **一つのタスクが終わっても、組織は解散しない。**
 
@@ -286,7 +315,7 @@ flowchart LR
 複数のプロジェクトを並行するときに助かっています。
 :::
 
-### 4.3. モデルの得意な場所を、組織の中に作れる
+### 1.11. モデルの得意な場所を、組織の中に作れる
 
 **役割に合わせて、モデルを割り当てる。**
 
@@ -312,7 +341,7 @@ flowchart LR
 
 <!-- 5. 人間のインターフェース -->
 
-### 5.1. tmux-mac-voice：組織に声で仕事を頼む
+### 1.12. tmux-mac-voice：組織に声で仕事を頼む
 
 **人間は、個々のペインを操作せずに仕事を頼める。**
 
@@ -348,7 +377,7 @@ diplomatは経路のみ予約済みで、中継機能は未実装です。
 
 <!-- 6. まとめ -->
 
-### 6.1. 私とtmux、2026年の現在地
+### 1.13. 私とtmux、2026年の現在地
 
 **自分で育てられるAIエージェントの組織。**
 
