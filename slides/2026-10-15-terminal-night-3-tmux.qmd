@@ -58,7 +58,7 @@ format:
 :::
 ::: {.column width="50%"}
 
-![icon](/assets/common/icon_hhkb3.png){width="60%"}
+![X: [@i9wa4_](https://x.com/i9wa4_) | GitHub: [@i9wa4](https://github.com/i9wa4)](/assets/common/icon_hhkb3.png){width="60%" fig-align="left"}
 
 :::
 ::::
