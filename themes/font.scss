@@ -38,7 +38,33 @@ body.quarto-dark svg.mermaid-js {
   --mermaid-edge-color: #94a3b8;
 }
 
-// Apply Japanese font to SVG text
+// Keep Mermaid's measured and displayed label widths in sync across diagrams.
+pre.mermaid-js,
+pre.mermaid-js *,
+svg.mermaid-js,
+svg.mermaid-js *,
+svg.mermaid-js foreignObject * {
+  --mermaid-font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif !important;
+  font-variant-ligatures: none;
+}
+
+svg.mermaid-js .node foreignObject,
+svg.mermaid-js .cluster-label foreignObject,
+svg.mermaid-js .edgeLabel foreignObject {
+  overflow: visible !important;
+}
+
+svg.mermaid-js .node foreignObject > div,
+svg.mermaid-js .cluster-label foreignObject > div,
+svg.mermaid-js .edgeLabel foreignObject > div {
+  width: 100% !important;
+  max-width: none !important;
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+// Apply Japanese font to other SVG text
 svg, svg *, foreignObject, foreignObject * {
   font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
