@@ -48,7 +48,7 @@ format:
   - MLOpsエンジニア
 - 趣味（本職）：
   - dotfiles
-  - Vim
+  - Vim/Neovim
   - Nix
     - Rustビルド重い😢
   - tmux
