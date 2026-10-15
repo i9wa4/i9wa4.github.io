@@ -49,10 +49,11 @@ format:
 - 趣味（本職）：
   - dotfiles
   - Vim/Neovim
-  - Nix
-    - Rustビルド重い😢
   - tmux
     - 大tmux時代の到来を待っている
+  - kitty
+  - Nix
+    - Rustビルド重い😢
 
 :::
 ::: {.column width="50%"}
