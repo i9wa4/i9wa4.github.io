@@ -9,7 +9,6 @@ date: 2026-10-15
 date-modified: last-modified
 description: |
   [登壇資料] Terminal Night 3
-draft: true
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
