@@ -47,8 +47,6 @@ svg.mermaid-js .edgeLabel foreignObject {
 svg.mermaid-js .node foreignObject > div,
 svg.mermaid-js .cluster-label foreignObject > div,
 svg.mermaid-js .edgeLabel foreignObject > div {
-  width: 100% !important;
-  max-width: none !important;
   white-space: nowrap;
   text-align: center !important;
 }
