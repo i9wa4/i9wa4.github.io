@@ -389,7 +389,7 @@ ghq/github.com/ の上位セッションでは人間が対話用agentに仕事�
 
 **ハンズフリー音声会話しつつ詳細は画面で見る**
 
-::: {.presentation-diagram style="--diagram-width: 1500px"}
+::: {.presentation-diagram .voice-diagram style="--diagram-width: 1500px"}
 ```{mermaid}
 flowchart LR
     H((人間)) <-->|"話す・聞く<br/>URLを開く"| B["スマホのWebブラウザ<br/>音声 + チャット表示（構想）"]
@@ -398,6 +398,60 @@ flowchart LR
     class H human
 ```
 :::
+
+```{=html}
+<script>
+(() => {
+  const host = document.querySelector(".voice-diagram");
+  const source = host?.querySelector("pre.mermaid")?.textContent;
+  if (!source) return;
+
+  let rendered = false;
+  const rerender = async () => {
+    const svg = host.querySelector("svg.mermaid-js");
+    if (rendered || !svg) return;
+    rendered = true;
+    observer.disconnect();
+    await document.fonts.ready;
+
+    const section = host.closest("section");
+    const slides = document.querySelector(".reveal .slides");
+    const saved = [section, slides].map((element) => ({
+      element,
+      value: element.style.getPropertyValue("transform"),
+      priority: element.style.getPropertyPriority("transform"),
+    }));
+    const original = svg.cloneNode(true);
+    const pre = document.createElement("pre");
+    pre.className = "mermaid mermaid-js";
+    pre.textContent = source;
+
+    try {
+      for (const { element } of saved) {
+        element.style.setProperty("transform", "none", "important");
+      }
+      svg.replaceWith(pre);
+      await mermaid.run({ nodes: [pre] });
+      const resized = pre.querySelector("svg");
+      if (!resized) throw new Error("Mermaid produced no SVG");
+      resized.classList.add("mermaid-js");
+      pre.replaceWith(resized);
+    } catch (error) {
+      pre.replaceWith(original);
+      console.error("Could not size voice diagram", error);
+    } finally {
+      for (const { element, value, priority } of saved) {
+        if (value) element.style.setProperty("transform", value, priority);
+        else element.style.removeProperty("transform");
+      }
+    }
+  };
+  const observer = new MutationObserver(rerender);
+  observer.observe(host, { childList: true, subtree: true });
+  rerender();
+})();
+</script>
+```
 
 **目指す体験：**
 
