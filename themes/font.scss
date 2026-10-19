@@ -22,6 +22,18 @@ svg.mermaid-js {
   margin: 1rem auto;
 }
 
+// Mermaid measures labels before Reveal removes the temporary pre. Cancel the
+// slide scale during that measurement (these Reveal decks use 1920px slides).
+.reveal pre.mermaid-js {
+  --mermaid-layout-zoom: clamp(1, max(calc(1920px / 100vw / 0.9), calc(1080px / 100vh / 0.9)), 5);
+  zoom: var(--mermaid-layout-zoom);
+}
+
+.reveal pre.mermaid-js,
+.reveal pre.mermaid-js * {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
+}
+
 body.quarto-dark svg.mermaid-js {
   --mermaid-edge-color: #94a3b8;
 }

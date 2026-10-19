@@ -10,8 +10,6 @@ date-modified: last-modified
 description: |
   [登壇資料] Terminal Night 3
 image: "/assets/common/icon_hhkb3_large.jpg"
-resources:
-  - 2026-10-15-terminal-night-3-tmux-voice-diagram.js
 format:
   revealjs:
     auto-stretch: false
@@ -391,7 +389,7 @@ ghq/github.com/ の上位セッションでは人間が対話用agentに仕事�
 
 **ハンズフリー音声会話しつつ詳細は画面で見る**
 
-::: {.presentation-diagram .voice-diagram style="--diagram-width: 1500px"}
+::: {.presentation-diagram style="--diagram-width: 1500px"}
 ```{mermaid}
 flowchart LR
     H((人間)) <-->|"話す・聞く<br/>URLを開く"| B["スマホのWebブラウザ<br/>音声 + チャット表示（構想）"]
@@ -400,10 +398,6 @@ flowchart LR
     class H human
 ```
 :::
-
-```{=html}
-<script src="2026-10-15-terminal-night-3-tmux-voice-diagram.js"></script>
-```
 
 **目指す体験：**
 
