@@ -48,7 +48,10 @@
       const { svg: markup, bindFunctions } = await mermaid.mermaidAPI.render(
         `mermaid-reveal-refresh-${++sequence}`, source, pre
       );
-      if (!pre.isConnected || !reveal.contains(pre)) return;
+      if (!pre.isConnected || !reveal.contains(pre)) {
+        pre.textContent = original;
+        return;
+      }
 
       const template = document.createElement("template");
       template.innerHTML = markup;
