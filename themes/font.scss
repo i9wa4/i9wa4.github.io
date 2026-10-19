@@ -16,44 +16,26 @@ code *, pre *, .sourceCode * {
 }
 
 svg.mermaid-js {
-  --mermaid-bg-color: var(--bs-tertiary-bg);
-  --mermaid-label-bg-color: var(--bs-tertiary-bg);
-
+  --mermaid-edge-color: #475569;
   display: block;
-  box-sizing: border-box;
   max-width: 100%;
-  margin: 1rem 0;
-  padding: 1rem;
-  overflow: visible;
-  background-color: var(--bs-tertiary-bg);
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
+  margin: 1rem auto;
 }
 
-body.quarto-light svg.mermaid-js {
-  --mermaid-edge-color: #475569;
+// Mermaid measures labels before Reveal removes the temporary pre. Cancel the
+// slide scale during that measurement (these Reveal decks use 1920px slides).
+.reveal pre.mermaid-js {
+  --mermaid-layout-zoom: clamp(1, max(calc(1920px / 100vw / 0.9), calc(1080px / 100vh / 0.9)), 5);
+  zoom: var(--mermaid-layout-zoom);
+}
+
+.reveal pre.mermaid-js,
+.reveal pre.mermaid-js * {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
 
 body.quarto-dark svg.mermaid-js {
   --mermaid-edge-color: #94a3b8;
-}
-
-svg.mermaid-js .node foreignObject,
-svg.mermaid-js .cluster-label foreignObject,
-svg.mermaid-js .edgeLabel foreignObject {
-  overflow: visible !important;
-}
-
-svg.mermaid-js .node foreignObject > div,
-svg.mermaid-js .cluster-label foreignObject > div,
-svg.mermaid-js .edgeLabel foreignObject > div {
-  white-space: nowrap;
-  text-align: center !important;
-}
-
-// Apply Japanese font to other SVG text
-svg, svg *, foreignObject, foreignObject * {
-  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif !important;
 }
 
 // Responsive table (horizontal scroll)

@@ -1,0 +1,149 @@
+<script>
+(() => {
+  if (window.__quartoRevealMermaidRefresh) return;
+  const reveal = document.querySelector(".reveal");
+  if (!reveal) return;
+  window.__quartoRevealMermaidRefresh = true;
+
+  const initial = new WeakSet(reveal.querySelectorAll("pre.mermaid-js"));
+  const internal = new WeakSet();
+  const queued = new Set();
+  const attempts = new WeakMap();
+  const dependencyAttempts = new WeakMap();
+  let sequence = 0;
+  let running = false;
+  let scheduled = false;
+
+  function enqueue(pre) {
+    if (!pre.isConnected || !reveal.contains(pre)) return;
+    queued.add(pre);
+    schedule();
+  }
+
+  function schedule() {
+    if (running || scheduled) return;
+    scheduled = true;
+    queueMicrotask(() => {
+      scheduled = false;
+      void drain();
+    });
+  }
+
+  function retry(pre, error, dependency = false) {
+    const counts = dependency ? dependencyAttempts : attempts;
+    const limit = dependency ? 8 : 2;
+    const count = (counts.get(pre) || 0) + 1;
+    counts.set(pre, count);
+    if (count < limit && pre.isConnected && reveal.contains(pre)) {
+      setTimeout(() => enqueue(pre), dependency ? 250 * count : 100);
+    } else {
+      console.error("Could not restore Mermaid diagram", error);
+    }
+  }
+
+  async function restore(pre) {
+    const original = pre.textContent;
+    const source = original.replaceAll("&nbsp;", " ");
+    try {
+      const { svg: markup, bindFunctions } = await mermaid.mermaidAPI.render(
+        `mermaid-reveal-refresh-${++sequence}`, source, pre
+      );
+      if (!pre.isConnected || !reveal.contains(pre)) {
+        pre.textContent = original;
+        return;
+      }
+
+      const template = document.createElement("template");
+      template.innerHTML = markup;
+      const svg = template.content.querySelector("svg");
+      if (!svg) throw new Error("Mermaid produced no SVG");
+      if (pre.dataset.label) {
+        const style = svg.querySelector("style");
+        if (!style) throw new Error("Mermaid produced no SVG style");
+        style.innerHTML = style.innerHTML.replaceAll(
+          `#${svg.id}`, `#${pre.dataset.label}-mermaid`
+        );
+        svg.id = `${pre.dataset.label}-mermaid`;
+      }
+      svg.classList.add("mermaid-js");
+
+      // Mermaid itself can mutate the measurement pre. Preserve its source
+      // until the new SVG has passed Quarto post-processing and binding.
+      const container = document.createElement("div");
+      container.className = "mermaid-reveal-refresh-container";
+      container.style.display = "contents";
+      internal.add(pre);
+      try {
+        pre.replaceWith(svg);
+        // Quarto resolves options through the SVG's original ancestors.
+        _quartoMermaid.postProcess(svg);
+        svg.replaceWith(container);
+        container.append(svg);
+        bindFunctions?.(container);
+      } catch (error) {
+        if (container.isConnected) container.replaceWith(pre);
+        else if (svg.isConnected) svg.replaceWith(pre);
+        throw error;
+      } finally {
+        // The observer sees our swap before this queued cleanup.
+        queueMicrotask(() => internal.delete(pre));
+      }
+    } catch (error) {
+      pre.textContent = original;
+      throw error;
+    }
+  }
+
+  async function drain() {
+    if (running) return;
+    running = true;
+    try {
+      await document.fonts.ready;
+      while (queued.size) {
+        const pre = queued.values().next().value;
+        queued.delete(pre);
+        if (!pre.isConnected || !reveal.contains(pre)) continue;
+        if (!window.mermaid || !mermaid.mermaidAPI ||
+            typeof _quartoMermaid === "undefined") {
+          retry(pre, new Error("Mermaid runtime unavailable"), true);
+          continue;
+        }
+        try {
+          await restore(pre);
+        } catch (error) {
+          retry(pre, error);
+        }
+      }
+    } finally {
+      running = false;
+      if (queued.size) schedule();
+    }
+  }
+
+  function visit(node, callback) {
+    if (node.nodeType !== Node.ELEMENT_NODE) return;
+    if (node.matches("pre.mermaid-js")) callback(node);
+    node.querySelectorAll("pre.mermaid-js").forEach(callback);
+  }
+
+  new MutationObserver((records) => {
+    // Quarto owns the initial pre nodes. A later external reconnection resets
+    // the retry budget; our own transactional swap never does.
+    for (const record of records) {
+      for (const node of record.removedNodes) {
+        visit(node, (pre) => initial.delete(pre));
+      }
+    }
+    for (const record of records) {
+      for (const node of record.addedNodes) {
+        visit(node, (pre) => {
+          if (initial.has(pre) || internal.has(pre)) return;
+          attempts.delete(pre);
+          dependencyAttempts.delete(pre);
+          enqueue(pre);
+        });
+      }
+    }
+  }).observe(reveal, { childList: true, subtree: true });
+})();
+</script>
