@@ -36,9 +36,6 @@ format:
     toc-depth: 2
     toc-expand: 2
     toc: true
-  revealjs:
-    include-after-body:
-      - _includes/mermaid-reveal-refresh.html
   gfm: default
 
 website:
