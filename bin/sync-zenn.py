@@ -107,6 +107,7 @@ def generate_description_with_codex(title: str, body: str) -> str | None:
                     str(output_file),
                     prompt,
                 ],
+                check=False,
                 capture_output=True,
                 text=True,
                 timeout=60,
