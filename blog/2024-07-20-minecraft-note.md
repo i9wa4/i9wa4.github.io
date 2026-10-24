@@ -1,0 +1,109 @@
+# 自分用 Minecraft メモ
+uma-chan
+2024-07-20
+
+Minecraft の自分用メモを公開しておきます。
+
+## 1. TODO
+
+- [ ] 地下トラップタワー (経験値自動取得)
+- [ ] 倉庫チェスト再設計
+- [ ] 武器防具予備作成
+- [ ] エンチャント本予備作成
+- [ ] 羊毛仕分け
+- [ ] 山削り
+- [ ] 苔式骨粉製造機
+- [ ] 襲撃者トラップ@前哨基地 1880 632
+- [ ] 弓作り直し
+- [ ] エンダーチェスト
+- [ ] エンダードラゴン
+- [ ] ポーション醸造所
+- [ ] ウーパールーパー
+
+## 2. 座標メモ
+
+| X   | Y   | Z    | Description    |
+|-----|-----|------|----------------|
+| -32 | 15  | 26   | ゾンビスポナー |
+| 112 | 59  | 8    | ゾンビスポナー |
+| 338 | -28 | -148 | ゾンビスポナー |
+
+## 3. エンチャント
+
+### 3.1. 防具
+
+- 共通
+  - 修繕I
+  - 耐久力III
+  - ダメージ軽減IV
+- ヘルメット
+  - 水中採掘
+  - 水中呼吸III
+- チェストプレート
+- レギンス
+  - スニーク速度上昇
+- ブーツ
+  - 水中歩行III
+  - 落下耐性IV
+
+### 3.2. 武器
+
+- 共通
+  - 修繕I
+  - 耐久力III
+- 剣
+  - 火属性II
+  - ドロップ増加III
+  - ノックバックII
+  - ダメージ増加V
+- 弓
+  - フレイム
+  - 射撃ダメージ増加V
+  - パンチII
+  - 無限
+- クロスボウ
+  - 高速充填III
+  - 貫通IV
+- トライデント
+  - 水性特攻V
+  - 忠誠III
+  - 召雷
+
+### 3.3. 道具
+
+- 共通
+  - 修繕I
+  - 耐久力III
+  - 効率強化V
+  - 幸運III or シルクタッチ
+
+## 4. 村人職業設計
+
+- 司書 書見台 (20)
+  - Tier1 (10)
+    - [x] 修繕I (2)
+    - [x] 耐久力III (2)
+    - [x] 効率強化V (2)
+    - [x] 幸運III (1)
+    - [x] シルクタッチ (1)
+    - [x] ダメージ軽減IV (2)
+  - Tier2 (10)
+    - [x] 水中採掘
+    - [x] 水中呼吸III
+    - [x] 水中歩行III
+    - [x] 落下耐性IV
+    - [x] 火属性II
+    - [x] ドロップ増加III
+    - [x] ノックバックII
+    - [x] ダメージ増加V
+    - [x] フレイム
+    - [x] 射撃ダメージ増加V
+- 武器鍛冶 石臼 (1)
+- 防具鍛冶 溶鉱炉 (2)
+- 道具鍛冶 鍛冶台 (1+6)
+- 石工 石切台 ()
+  - クォーツブロック
+  - テラコッタ
+  - レンガ
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-07-20-minecraft-note.html&text=%E8%87%AA%E5%88%86%E7%94%A8%20Minecraft%20%E3%83%A1%E3%83%A2%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=%E8%87%AA%E5%88%86%E7%94%A8%20Minecraft%20%E3%83%A1%E3%83%A2%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-07-20-minecraft-note.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2024-07-20-minecraft-note.html&title=%E8%87%AA%E5%88%86%E7%94%A8%20Minecraft%20%E3%83%A1%E3%83%A2%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
