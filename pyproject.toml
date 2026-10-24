@@ -29,6 +29,8 @@ disable = [
   "MD036",  # Emphasis instead of heading: intentional in slides
   "MD046",  # Code block style: breaks YAML frontmatter
   "MD051",  # Link fragments: false positive with Quarto category filters
+  "MD077",  # Keep existing continuation indentation
+  "MD078",  # Quarto chunks and Mermaid diagrams do not require labels
 ]
 include = ["**/*.md", "**/*.qmd"]
 exclude = [".git", ".github", "node_modules", "_site", ".venv"]
