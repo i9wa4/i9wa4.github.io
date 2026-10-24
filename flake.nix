@@ -57,7 +57,7 @@
           '';
           rumdlConfig = pkgs.writeText "rumdl.toml" ''
             [global]
-            disable = ["MD013", "MD024", "MD033", "MD036", "MD046", "MD051"]
+            disable = ["MD013", "MD024", "MD033", "MD036", "MD046", "MD051", "MD077", "MD078"]
           '';
         in
         {
@@ -152,6 +152,7 @@
               # === Secrets detection ===
               gitleaks = {
                 enable = true;
+                entry = "${pkgs.gitleaks}/bin/gitleaks protect --verbose --redact --staged";
                 pass_filenames = false;
               };
 
