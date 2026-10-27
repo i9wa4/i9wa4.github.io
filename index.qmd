@@ -1,25 +1,8 @@
 ---
 title: "uma-chan's page"
 toc: false
-description: "Notes on making room, trying things, learning from reality, and noticing what matters."
+description: ""
 ---
-
-I think about how we make room, try things, learn from reality, and notice what
-matters.
-
-```{mermaid}
-flowchart LR
-    space["Make space"] --> practice["Move and practice"]
-    practice --> feedback["Let reality answer"]
-    feedback --> clarity["See a clearer next move"]
-    clarity --> practice
-    feedback -. "may leave" .-> remains["What may remain<br/>skill · judgment · support"]
-```
-
-This is a place for notes on work, family, health, tools, money, and the
-practices that connect them. [Read the longer note](en/blog/2026-07-30-iteration-clarifies-what-matters.qmd).
-
-## Start here
 
 - [Feed](https://i9wa4.github.io/feed.html)
 - [Resume](https://i9wa4.github.io/en/resume/)
