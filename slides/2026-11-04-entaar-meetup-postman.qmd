@@ -1,20 +1,20 @@
 ---
-title: "AIと働く環境を、育て続ける"
-subtitle: "Postmanで試す分業と引き継ぎ"
+title: "AIと働く環境を育て続ける"
+subtitle: "複数観点での縛りを課す"
 author:
-  - name: uma-chan
+  - name: Mawatari Daiki
 categories:
   - "slides"
 date: 2026-11-04
 date-modified: last-modified
 description: |
-  [登壇資料] Entaar エンジニアMeetup。AIの分業と引き継ぎに向き合い、小さな道具とテキストで組み替えられる環境を育てる。
+  [登壇資料] EntaarエンジニアMeetup
 image: "/assets/common/icon_hhkb3_large.jpg"
 format:
   revealjs:
     auto-stretch: false
     code-copy: true
-    footer: "2026-11-04 Entaar エンジニアMeetup / uma-chan"
+    footer: "2026-11-04 EntaarエンジニアMeetup"
     include-in-header:
       - ../_includes/hatena-nocomment.html
     incremental: false
@@ -33,7 +33,9 @@ format:
   gfm: default
 ---
 
-### AIと働く環境を、自分で作っている <!-- rumdl-disable-line MD001 -->
+## 1. はじめに
+
+### 1.1. Mawatari Daiki | 馬渡 大樹
 
 ```{=html}
 <style>
@@ -45,153 +47,125 @@ format:
 </style>
 ```
 
-**uma-chan / 馬渡 大樹**  
-データエンジニア・MLOps・データサイエンスマネージャー
+2026年10月にジョインしました！
 
-個人開発では、**tmux上のAIチームをつなぐPostman**を作っている
+- 仕事
+  - データエンジニア
+  - MLOpsエンジニア
+  - データサイエンスチームマネージャー
+- 趣味
+  - ターミナル
+    - 先日 Terminal Night 3 に登壇してきました
 
-::: {.presentation-diagram style="--diagram-width: 850px"}
+### 1.2. tmux上のAIチームをつなぐツールを作っている
+
+<https://github.com/i9wa4/tmux-a2a-postman>
+
+::: {.presentation-diagram style="--diagram-width: 1920px"}
 ```{mermaid}
-flowchart TB
-    agent["対話担当"] <--> manager["進捗管理"]
-    manager <--> worker["実装"]
-    manager <--> reviewer["レビュー"]
+flowchart LR
+    H((人間)) <-->|"依頼・進捗"| PA
+    subgraph parent["ghq/github.com/"]
+        PA["agent<br/>人間との対話"] <--> PO["orchestrator<br/>全体を管理"]
+        PO <--> PM["messenger<br/>interface_node"]
+        PO <--> PW["worker"]
+        PO <--> PR["reviewer"]
+        PO <--> PAP["approver"]
+    end
+    subgraph dotfiles["ghq/github.com/org/pj2"]
+        DM["messenger<br/>interface_node"] <--> DO["orchestrator"]
+        DO <--> DW["worker"]
+        DO <--> DR["reviewer"]
+        DO <--> DAP["approver"]
+    end
+    subgraph postman["ghq/github.com/org/pj1"]
+        TM["messenger<br/>interface_node"] <--> TO["orchestrator"]
+        TO <--> TW["worker"]
+        TO <--> TR["reviewer"]
+        TO <--> TAP["approver"]
+    end
+    PM <-->|"親子間の連絡"| DM
+    PM <-->|"親子間の連絡"| TM
+    classDef human fill:#fef3c7,stroke:#d97706,color:#78350f
     classDef dialogue fill:#e0f2fe,stroke:#0891b2,color:#164e63
+    classDef interface fill:#dbeafe,stroke:#2563eb,color:#172554
     classDef orchestration fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
     classDef implementation fill:#dcfce7,stroke:#16a34a,color:#14532d
     classDef review fill:#fce7f3,stroke:#db2777,color:#831843
-    class agent dialogue
-    class manager orchestration
-    class worker implementation
-    class reviewer review
+    classDef approval fill:#ffedd5,stroke:#ea580c,color:#7c2d12
+    class H human
+    class PA dialogue
+    class PM,DM,TM interface
+    class PO,DO,TO orchestration
+    class PW,DW,TW implementation
+    class PR,DR,TR review
+    class PAP,DAP,TAP approval
+    style parent fill:#eff6ff,stroke:#1d4ed8,stroke-width:3px
+    style dotfiles fill:#f8fafc,stroke:#94a3b8
+    style postman fill:#f8fafc,stroke:#94a3b8
 ```
 :::
 
-[GitHub: i9wa4/tmux-a2a-postman](https://github.com/i9wa4/tmux-a2a-postman)
+### 1.3. [縛り1] 各AIエージェントの仕事を小さくする
 
-::: {.notes}
-【0:05–0:30】
+**仮説：担当する仕事を絞るワークフローがうまく回るとワークフロー自体をスケールできるのでは**
 
-uma-chanです。普段はデータエンジニアリングやMLOps、マネジメントをしています。
-個人ではtmuxの中で複数のAIに実装やレビューを分担させ、連絡をつなぐPostmanを作っています。
-図はそのチームの一部です。
-今日は機能の紹介よりも、なぜこの環境を自分で作って使い続けているかを話します。
+- メリット
+  - 責務が小さいと動きの一貫性を追求しやすい
+  - こなせるタスクの数や量を増やしやすい
+- デメリット
+  - 役割分担をするとエッジの数だけ情報の欠落や認識齟齬が増えやすくなる
+  - 各担当の完了報告の真偽判定が難しい
 
-参考：[前回のTerminal Night 3資料](2026-10-15-terminal-night-3-tmux.qmd)、[Postman README](https://github.com/i9wa4/tmux-a2a-postman/blob/main/README.md)。
-:::
+**ゴール：各AIエージェントの責務は小さくした上で本質的な課題解決に必要なトークンや時間を最小化したい**
 
-### 一体の仕事を小さくしたい
+- 現状
+  - 人間の関与が減り本質を見失うことがある
+  - それぞれがコンテキストを維持しつつあまり共有しないことで敵対的レビューが成功しやすい
+  - 問題を小さくしているためかトークンはかなり減らせるが所要時間はなかなか短縮できていない
 
-**仮説：担当する仕事を絞った方が、AIは安定するのでは？**
+### 1.4. [縛り2] 小さな道具とテキストでマルチエージェントオーケストレーションを成立させる
 
-- 分けると、引き継ぎで背景や制約が落ちる
-- 全部渡すと、受け手が必要な情報を選ぶ負担が増える
-- 各担当の「完了」が、元の依頼の達成につながるとは限らない
+**UNIX哲学を意識して大きな飛躍の余地を残す**
 
-**一体の責務は小さくしたい。でも、全体の目的は失わせたくない**
+| 部品     | 責務                                 |
+| -------- | ------------------------------------ |
+| tmux     | AIエージェントの作業場所             |
+| CLI      | 通信基盤                             |
+| Markdown | 送受信内容、設定ファイルとしての利用 |
 
-いま試していること：元の依頼とチェックリストを同じ参照先に残し、成果を照合する
+**世界のハーネスの進化に追従できる特徴**
 
-::: {.notes}
-【0:30–1:40】
+- AIエージェントの動きを邪魔しない
+- 透明性が高く追跡ができる
+- プリミティブな構成なので最新理論やトレンドを取り込むことができる
 
-出発点には、一体のAIにできるだけ少ない仕事をさせた方が安定するのでは、という仮説があります。
-ただ、分けるだけでは済みません。実装担当へ依頼を渡すとき、背景や守るべき制約が落ちることがあります。
-逆に会話を全部渡すと、受け手が必要な情報を選ばないといけない。
-しかも、実装が終わってレビューも通ったとして、最初に僕が頼んだことを全体として満たしているかは別に確認が要ります。
-毎回僕がつなぎ直すなら、任せたかった仕事が調整として戻ってきます。
-そこで元の依頼やチェックリストを同じ参照先に残して、引き継ぎや完了確認で立ち返るようにしています。
-これで全部解決したわけではありません。一体の責務を小さくすることと、全体の目的を保つこと。この両立を実際の開発で試しています。
+**ツールの自己改善ループを組めるようになった理由**
 
-参考：[Durable Task Tracking](https://github.com/i9wa4/dotfiles/blob/main/skills/plan-design/references/durable-task-tracking.md)、[環境比較の研究](https://github.com/i9wa4/tmux-a2a-postman/blob/main/docs/research/891-agent-environment-comparison.md)。チェックリストの参照は運用方針であり、モデルの遵守や生産性向上を実証した主張ではない。
-:::
+- デーモンレス化で常駐サービスをなくす
+- doc / skillをバイナリに内包しコンテキストの更新サイクルも揃える
 
-### 小さな道具とテキストで組み立てる
+### 1.5. [縛り3] 端末やAIが変わっても変わらず作業が続けられる
 
-**UNIX哲学を意識して、後から組み替えられる構成にする**
+- **いま試していること**
+  - 複数のPCやスマホのAIアプリでメールボックスを共有して仕事を進める
+- **その先に目指すこと**
+  - この先どのように環境の変化が起きても **人間に最適化されたインタフェース層** と **業務遂行に適した環境** をシームレスに繋ぎ続ける
 
-| 部品 | 受け持つこと |
-| --- | --- |
-| tmux | AIエージェントの作業場所 |
-| Markdown | 依頼・返事、役割・通信経路の設定 |
-| Postman CLI | 宛先の検証、送受信、元の依頼と返信の対応 |
+### 1.6. 育て続けられる環境に賭ける
 
-中身を読める。別の道具から扱える。**必要な部品を取り替えられる**
+自環境をベンダーロックインさせず本質的な事柄に向き合って改善を続けたい
 
-**daemonless化にも挑戦**：常駐サービスをなくし、必要なときにCLIがファイルを扱う構成へ
-
-自分たちが使う道具を直して試す、自己改善ループにつなげたい
-
-::: {.notes}
-【1:40–2:50】
-
-この試行錯誤を続けるために、UNIX哲学を意識しています。
-作業場所はtmux、連絡はMarkdown、送受信は小さなCLIです。役割や誰と話せるかも設定として外に出します。
-大事なのは、中身を確認できて、別の道具からも扱えて、部品を組み替えられることです。
-新しいAIを試すときも、仕事の進め方を変えるときも、積み上げたものを生かしたい。
-最近はdaemonless化にも挑戦しました。常駐サービスをなくし、必要なときにCLIが処理して終了する形です。
-これは難しい挑戦ですが、通信を常駐プロセスから切り離せれば、AIたちが使う道具そのものを直して試す、自己改善ループにつなげられるのではと思っています。
-もちろん、テキストにすれば文脈の欠落が消えるわけではありません。宛先や返信の対応はコードで保証し、何を渡すか、成果が十分かは役割や手順の側で改善します。
-
-参考：[README](https://github.com/i9wa4/tmux-a2a-postman/blob/main/README.md)、[File-first architecture](https://github.com/i9wa4/tmux-a2a-postman/blob/main/docs/design/file-first-architecture.md)、[Design philosophy](https://github.com/i9wa4/tmux-a2a-postman/blob/main/docs/design/project-design-philosophy.md)。2026-11-03のmainを確認。CLIは配達と通知を分けて扱い、配達成功はタスク達成を意味しない。
-:::
-
-### 端末やAIが変わっても、同じ仕事の続きを
-
-**いま試していること**
-
-複数のMacやスマホから、GitHub IssuesのMailboxなどを組み合わせて仕事を確認・指示する
-
-**その先に目指すこと**
-
-目的・決定事項・次にやることを、一つの端末やAIの会話に閉じずに引き継ぐ
-
-スマホからの操作を入口に、**環境が変わっても仕事が続く状態**へ
-
-::: {.notes}
-【2:50–3:40】
-
-さらに、一台のPCの中だけで完結させたくないと思っています。
-複数のMacやスマホをまたぎ、PostmanやGitHub IssuesのMailboxを組み合わせて、PCを離れても確認や指示をする試みです。
-MailboxにはIssueのコメントとローカルのMarkdownを連携する実装があります。
-ただ、その先に欲しいのは、端末やAIが替わっても同じ仕事の続きを扱えることです。
-目的や決定事項、次にやることを、一つのAIの会話だけに置かないようにしたい。
-ここはまだ目標で、文書の同期や音声まで一体化した環境が完成しているわけではありません。端末ごとの認証や共有範囲も別に保ちます。
-
-参考：[Mailbox実装](https://github.com/i9wa4/dotfiles/blob/main/scripts/gh-issue-mailbox.py)、[PR #974の方向性整理](https://github.com/i9wa4/tmux-a2a-postman/pull/974#issuecomment-6569719829)。Mailboxはメッセージの連携。更新し続ける文書の一般的な同期サービスではなく、Postman CoreにGitHub・モバイル・音声機能が一体実装されたという主張でもない。
-:::
-
-### 育て続けられる環境に賭ける
-
-**便利なモデルやサービスを使いながら、自分の試したい形に組み替えたい**
-
-::: {.presentation-diagram style="--diagram-width: 1150px"}
+::: {.presentation-diagram style="--diagram-width: 600px"}
 ```{mermaid}
-flowchart LR
-    use["使う"] --> gap["課題と原因を確かめる"]
-    gap --> change["コード・設定・Skillsを見直す"]
-    change --> check["元の目的に照らして検証する"]
+flowchart TD
+    use["タスクを進める"] --> gap["課題と原因を抽出させる"]
+    gap --> change["環境改善を試みる"]
+    change --> check["検証する"]
     check --> use
 ```
 :::
 
-改善には、**削除・統合・簡素化**も含める
+改善には **削除・統合・簡素化** も含めるので人間が剪定し続けておきたい
 
-課題を解き続けることで、**自分も環境も強くなれるのではないか**
-
-::: {.notes}
-【3:40–5:00】
-
-ベンダーが用意した仕組みに乗る方が楽な場面はありますし、便利なモデルやサービスは使いたいです。
-ただ、自分が試したい分業や情報の渡し方まで、用意された形だけに合わせたくはありません。
-自分で組み立てると、面倒な問題にも向き合うことになります。そのとき、誰に何を任せるか、どんな情報が必要かを考えて、改善をコードや設定、Skillsとして残せます。
-例えば設定を監査するSkillを使い、役割や通信経路を見直す。その知見を自分のdotfilesの環境にも反映する、という循環です。daemonless化も、この循環を道具そのものへ広げたい挑戦です。
-今後は、元の目的からどこでずれたかを調べ、原因に効く変更を再現可能な形で確かめる取り組みも進めたいと思っています。
-ルールやAIの人数を増やすことが改善とは限りません。削ったり、一つにまとめたりすることも含めます。
-新しいAIが出ても、積み上げたものを捨てずに取り込んで、また使う。
-この難しさに向き合って課題を解き続けることで、自分も環境も強くなれるんじゃないか。その発展の余地に賭けています。
-
-参考：[Config Auditor](https://github.com/i9wa4/tmux-a2a-postman/tree/main/skills/postman-config-auditor)、[Design philosophy](https://github.com/i9wa4/tmux-a2a-postman/blob/main/docs/design/project-design-philosophy.md)、[Issue #1005](https://github.com/i9wa4/tmux-a2a-postman/issues/1005)。図は人が関わる改善の循環であり、自動自己改善の実装図ではない。
-
-質疑用メモ（2026-11-03確認）：[PR #974](https://github.com/i9wa4/tmux-a2a-postman/pull/974)はマージ済みの研究文書。[PR #989](https://github.com/i9wa4/tmux-a2a-postman/pull/989)のCLIヘルプ・Skill手順配布、[PR #1003](https://github.com/i9wa4/tmux-a2a-postman/pull/1003)の標準チーム・運用手順は未マージ。#1005の目的に照らした評価・改善Skillは構想段階。公開ソースの確認は本人の実環境での動作確認を意味しない。
-:::
+縛りの中で課題を解き続けることで **自分も環境も強くする！**
