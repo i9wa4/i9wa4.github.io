@@ -99,6 +99,7 @@ GENDAでは、グループ各社のデータ連携・データマートの整備
 
 ### 6.1. 登壇
 
+- 2026/10/15: [AIとtmuxと私、2026年の現在地](https://i9wa4.github.io/slides/2026-10-15-terminal-night-3-tmux.html#/title-slide)
 - 2026/09/15: [アナリストのClaude Code x Databricks活用について](https://i9wa4.github.io/slides/2026-09-15-claude-code-databricks.html)
   - [【第１回登壇者】uma-chan | データ界隈 LT祭](https://ltfes.datayokocho.info/todanvol1_uma-chan/)
 - 2026/06/30: [コンテキスト設計から考えるハーネスエンジニアリング](https://i9wa4.github.io/slides/2026-06-30-context-design-harness.html)
