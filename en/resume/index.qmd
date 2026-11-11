@@ -142,6 +142,7 @@ Apr 2016 - Jul 2018 | Full-time
 
 ### 6.1. Talks
 
+- October 15, 2026: [AI, tmux, and Me: Where We Stand in 2026](https://i9wa4.github.io/slides/2026-10-15-terminal-night-3-tmux.html)
 - September 15, 2026: [How Analysts Use Claude Code with Databricks](https://i9wa4.github.io/slides/2026-09-15-claude-code-databricks.html)
   - [Speaker Profile: uma-chan | Data Community LT Festival](https://ltfes.datayokocho.info/todanvol1_uma-chan/)
 - June 30, 2026: [Harness Engineering Through the Lens of Context Design](https://i9wa4.github.io/slides/2026-06-30-context-design-harness.html)
