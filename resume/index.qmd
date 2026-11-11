@@ -122,7 +122,9 @@ GENDAでは、グループ各社のデータ連携・データマートの整備
 
 ### 6.3. 受賞
 
-- 2026/08/12: [Databricks MVP 2026](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
+- 2026/08/12: Databricks MVP 2026
+  - [Databricks MVP 2026 Credential](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
+  - [データマネジメント部 マネージャーの馬渡がDatabricks MVP 2026に選出](https://zenn.dev/genda_jp/articles/cca9cbba54d06f)
 - 2026/03/24: JEDAI Order 2026 Knight
   - [JEDAI Order 2026 受賞者一覧 | Databricks User Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
   - [データマネジメント部 マネージャーの馬渡がJEDAI Order 2026に選出](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)
