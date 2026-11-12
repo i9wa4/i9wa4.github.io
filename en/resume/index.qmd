@@ -53,8 +53,6 @@ Nov 2024 - Present | Full-time
   data engineers can validate business value faster with safer developer
   experience.
 
-[Detailed work history (Japanese)](../../resume/05-genda.qmd)
-
 ### 3.2. PIVOT Inc. | Freelance Data Engineer
 
 Jun 2025 - Present | Contract
@@ -67,8 +65,6 @@ Jun 2025 - Present | Contract
   from anonymous visit through login.
 - Improved BigQuery MERGE efficiency through stable merge keys, partitioning,
   and clustering.
-
-[Detailed work history (Japanese)](../../resume/07-pivot.qmd)
 
 ### 3.3. hacomono Inc. | Data Engineer
 
@@ -84,8 +80,6 @@ Apr 2024 - Oct 2024 | Full-time
 - Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
   Datastream and documented failure / recovery behavior.
 
-[Detailed work history (Japanese)](../../resume/04-hacomono.qmd)
-
 ### 3.4. CNS HOKKAIDO Co., Ltd. | Data Engineer / MLOps Engineer
 
 Apr 2022 - Mar 2024 | Full-time
@@ -100,8 +94,6 @@ Apr 2022 - Mar 2024 | Full-time
   across roughly 200 stores, completing processing in about 2 days against a
   4-day requirement.
 
-[Detailed work history (Japanese)](../../resume/03-cnsh.qmd)
-
 ### 3.5. Shinko Shoji LSI Design Center Co., Ltd. | Embedded Software Engineer
 
 Aug 2018 - Mar 2022 | Full-time
@@ -115,8 +107,6 @@ Aug 2018 - Mar 2022 | Full-time
   used Python for customer-facing analysis materials and delivered CAN
   communication lectures.
 
-[Detailed work history (Japanese)](../../resume/02-sld.qmd)
-
 ### 3.6. Okuma Corporation | Windows Application Engineer
 
 Apr 2016 - Jul 2018 | Full-time
@@ -126,8 +116,6 @@ Apr 2016 - Jul 2018 | Full-time
   tuning.
 - Built a foundation in quality assurance, domain understanding, and
   user-facing software maintenance.
-
-[Detailed work history (Japanese)](../../resume/01-okuma.qmd)
 
 ## 4. Education
 
