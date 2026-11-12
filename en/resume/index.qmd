@@ -5,7 +5,7 @@ date-modified: last-modified
 
 Daiki Mawatari
 
-Data Science Manager | Data Engineer | MLOps Engineer | Applied AI Engineer | Databricks MVP 2026
+Data Science Manager | Data Engineer | MLOps Engineer | Databricks MVP 2026
 
 [Website](https://i9wa4.github.io) | [LinkedIn](https://www.linkedin.com/in/daikm) | [GitHub](https://github.com/i9wa4)
 
@@ -153,7 +153,9 @@ Apr 2016 - Jul 2018 | Full-time
 
 ### 6.3. Awards
 
-- August 12, 2026: [Databricks MVP 2026](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
+- August 12, 2026: Databricks MVP 2026
+  - [Databricks MVP 2026 Credential](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
+  - [GENDA Data Management Department Manager Daiki Mawatari Selected for Databricks MVP 2026](https://zenn.dev/genda_jp/articles/cca9cbba54d06f)
 - 2026: JEDAI Order 2026 Knight, Databricks Japan User Community
   - [JEDAI Order 2026 Award Recipients | Databricks User Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
   - [GENDA Data Management Department Manager Daiki Mawatari Selected for JEDAI Order 2026](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)
