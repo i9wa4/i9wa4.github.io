@@ -1,0 +1,477 @@
+# AIとtmuxと私、2026年の現在地
+uma-chan
+2026-10-15
+
+## 1. はじめに
+
+### 1.1. 自己紹介
+
+<div class="columns">
+
+<div class="column" width="50%">
+
+- 名前：
+  - uma-chan / Mawatari Daiki
+- 仕事：
+  - データサイエンスマネージャー
+  - データエンジニア
+  - MLOpsエンジニア
+- 趣味（本職）：
+  - dotfiles
+  - Vim/Neovim
+  - tmux
+    - 大tmux時代の到来を待っている
+  - Kitty
+  - Nix
+    - Rustビルド重い😢
+
+</div>
+
+<div class="column" width="50%">
+
+<img src="https://i9wa4.github.io/assets/common/icon_hhkb3.png" style="width:60.0%"
+data-fig-align="left" alt="X: @i9wa4_ | GitHub: @i9wa4" />
+
+</div>
+
+</div>
+
+### 1.2. 私とtmux：2026年の現在地 <!-- rumdl-disable-line MD001 -->
+
+<style>
+.reveal .presentation-diagram svg[id^="mermaid"] {
+  width: var(--diagram-width) !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+</style>
+
+<!--
+5分LTライブデモなし話す文面と時間配分は各スライドのnotes内
+音声入力は開発中の構想として紹介する
+実機でのエンドツーエンド検証前に完成済みとして公開しない
+親子セッション間の通信は設定済みの親子関係とinterface_nodeを前提に説明する
+-->
+
+**tmuxでAIエージェント組織を作った**
+
+- プロジェクトごとにチームを作り進捗管理・実装・レビューの担当がいる
+  - プロジェクト統括チームもある
+- 私はプロジェクト統括チームと会話して進捗の報告を受ける
+
+**今日はこの組織をtmuxでどう動かしているかの話！**
+
+<div class="notes">
+
+【0:00–0:25】
+
+今日は私とtmuxの2026年の現在地という話をします。
+tmuxの中にAIエージェントの会社を作りました。
+プロジェクトごとにチームがあり進捗管理・実装・レビューを分担しています。
+社長役の僕は全体の方針を決め進捗の報告を受けます。
+この組織をtmuxでどう動かしているか紹介します。
+
+</div>
+
+<!-- 2. なぜtmuxなのか -->
+
+### 1.3. 出発点：こんな組織がほしい
+
+**一つの窓口に頼めば複数プロジェクトのAIが動く**
+
+<div class="presentation-diagram" style="--diagram-width: 1200px">
+
+``` mermaid
+flowchart TB
+    H((人間)) <--> P
+    P["全体を扱う tmux session"]
+    P --> A["project A の tmux session"]
+    P --> B["project B の tmux session"]
+    classDef human fill:#fef3c7,stroke:#d97706,color:#78350f
+    class H human
+```
+
+</div>
+
+**各プロジェクトには進捗管理・実装・レビューの担当がいる**
+
+<div class="notes">
+
+【0:25–0:57】
+
+出発点はこんな組織がほしいということでした。
+僕が話すのは全体を扱う窓口だけでプロジェクトごとの作業はそれぞれのAIチームに任せたい。
+各チームには進捗管理・実装・レビューの担当がいます。
+人間が全員の進捗を覚え続けなくても別の仕事から戻ってすぐ再開できる形です。
+
+</div>
+
+### 1.4. tmuxならAIエージェント実行基盤を作れる
+
+<div class="columns">
+
+<div class="column" width="60%">
+
+**プロジェクト毎にtmux sessionを置きpaneにエージェントを並べる**
+
+| tmuxの機能 | エージェント環境での使い道 |
+|----|----|
+| session / window / pane | 作業とエージェントの整理 |
+| 動的なpane管理 | エージェントの増減 |
+| `send-keys` | 外部からの入力 |
+| `capture-pane` | 作業状況の観測 |
+| `new-session` / `split-window` | プロジェクトのセッションと担当paneをまとめて起動 |
+
+</div>
+
+<div class="column" width="40%">
+
+<div style="transform: scale(1.3); transform-origin: top left;">
+
+<blockquote class="twitter-tweet">
+
+<p lang="ja" dir="ltr">
+
+tmuxの話をするときの土台
+
+AI エージェント時代の波に乗るための tmux 入門 —
+マルチエージェントオーケストレーションの相棒｜uma-chan
+<a href="https://t.co/mToD0i5XaC">記事を読む</a> \#zenn
+</p>
+
+— uma-chan \| Daiki Mawatari (@i9wa4\_)
+<a href="https://x.com/i9wa4_/status/2110237777833144516?ref_src=twsrc%5Etfw">October
+14, 2026</a>
+</blockquote>
+
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="notes">
+
+【0:57–1:23】
+
+この作業場所を作るのに使っているのがtmuxです。
+プロジェクトごとにセッションを分けその中のペインで複数のエージェントを動かせます。
+コマンドでペインに入力し状態を見て必要ならペインも増やせます。
+セッションとペインの構成はスクリプトで毎回立ち上げられます。
+エージェント自身にもこの操作を任せられます。
+まずはtmuxだけで複数のAIが働く場所を作れます。
+
+</div>
+
+### 1.5. AIエージェントはpaneごとに選べる
+
+**Claude CodeもCodexも同じtmuxで動かせる**
+
+<div class="presentation-diagram" style="--diagram-width: 900px">
+
+``` mermaid
+flowchart LR
+    A["pane 1<br/>Claude Code"] ~~~ B["pane 2<br/>Codex"] ~~~ C["pane 3<br/>別のCLIエージェント"]
+    classDef pane fill:#f8fafc,stroke:#64748b,color:#0f172a
+    class A,B,C pane
+```
+
+</div>
+
+- プロジェクトや役割に合わせてAIエージェントを組み合わせる
+- AIエージェントを乗り換えてもtmuxの作業環境はそのまま使える
+
+<div class="notes">
+
+【1:23–1:45】
+
+tmuxではペインごとに別のCLIエージェントを動かせます。 Claude
+CodeやCodexを並べて役割に合わせて選べます。
+新しいエージェントが出たらペイン単位で試せます。
+使うエージェントを替えてもtmuxの作業環境はそのままです。
+
+</div>
+
+<!-- 3. tmux上のエージェントをつなぐ -->
+
+### 1.6. 別のpaneにタスクを依頼したその先は？
+
+``` bash
+tmux send-keys -t %42 "このIssueを修正して" Enter
+```
+
+**別のpaneへタスクを依頼できたらその依頼の状態も知りたい**
+
+- 誰に何を頼んだか
+- 返事を待っている依頼はどれか
+- 後から経緯をたどれるか
+
+<div class="notes">
+
+【1:45–2:14】
+
+tmuxのsend-keysを使えば別のペインにいるAIへ入力できます。
+この例の%42はworkerペインのIDです。ペインのタイトルだけでは送信先を指定できません。
+ただ送った後は依頼先と内容を確認しながら返事を待ちたくなります。
+エージェントを入れ替えても依頼の経緯をたどりたい。
+この連絡の管理をtmuxの作業環境に加えることにしました。
+
+</div>
+
+### 1.7. ファイルとCLIによる解決
+
+<div class="columns">
+
+<div class="column" width="60%">
+
+**UNIX哲学をAIエージェント組織にも適用する**
+
+- tmuxでAIエージェントの作業場所をつくる
+- Markdownで依頼と返事を管理する
+  - 設定ファイルもMarkdown
+- 小さなコマンド群でできるだけすべてを成立させる
+
+私は `tmux-a2a-postman` というOSSを作って実現させている
+
+</div>
+
+<div class="column" width="40%">
+
+<div style="transform: scale(1.3); transform-origin: top left;">
+
+<blockquote class="twitter-tweet">
+
+<p lang="zxx" dir="ltr">
+
+https://t.co/OwiZj72CNO
+</p>
+
+— uma-chan \| Daiki Mawatari (@i9wa4\_)
+<a href="https://x.com/i9wa4_/status/2110613906465186122?ref_src=twsrc%5Etfw">October
+15, 2026</a>
+</blockquote>
+
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="notes">
+
+【2:14–2:38】
+
+ここにはUNIX哲学の発想があります。小さな道具を組み合わせテキストを共通の接点にする考え方です。
+tmuxが作業場所を用意し依頼と返事はMarkdownに残し連絡経路もMarkdownで設定します。CLIで送信や確認をします。
+この連絡のために作ったtmux-a2a-postmanは誰が返事を待っているかも追います。
+ペインごとに話せる相手を決め親子セッションの窓口同士も連絡できます。
+tmuxを作業場所にしてファイルに残る会話でAIたちが仕事を引き継げるようにしています。
+
+参考：[Bell
+LabsのUNIX史](https://www.nokia.com/bell-labs/unix-history/philosophy.html)
+
+</div>
+
+<!-- 4. PCの中に会社を作る -->
+
+### 1.8. 実装もレビューもコマンド承認も分担する
+
+**役割と会話の経路を決めて組織図を自由に作れる**
+
+<div class="presentation-diagram" style="--diagram-width: 1050px">
+
+``` mermaid
+graph LR
+    agent["agent<br/>人間との対話"] --- orchestrator["orchestrator"]
+    messenger["messenger<br/>セッション間の窓口"] --- orchestrator
+    orchestrator --- worker["worker"]
+    orchestrator --- reviewer["reviewer"]
+    orchestrator --- approver["approver"]
+    classDef dialogue fill:#e0f2fe,stroke:#0891b2,color:#164e63
+    classDef interface fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef orchestration fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+    classDef implementation fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef review fill:#fce7f3,stroke:#db2777,color:#831843
+    classDef approval fill:#ffedd5,stroke:#ea580c,color:#7c2d12
+    class agent dialogue
+    class messenger interface
+    class orchestrator orchestration
+    class worker implementation
+    class reviewer review
+    class approver approval
+```
+
+</div>
+
+**approverはコマンド実行の承認担当 → CodexがClaude
+Codeのコマンド実行承認をする運用も可能！**
+
+<div class="notes">
+
+【2:38–3:18】
+
+これは一つのtmuxセッションに置いている役割を抜き出した図です。
+役割と誰が誰に話せるかを設定すればプロジェクトに合わせた組織図を作れます。
+オーケストレーターが仕事を割り振りワーカーが実装します。
+レビュー担当が成果を確認します。
+ここにはコマンドの決裁担当もいます。実行役が申請しapproverが可否を判断します。
+Postmanの承認経路では承認されたコマンドだけを実行し判断も記録に残します。
+これはOSの権限管理ではなくPostmanを通した実行の承認です。
+agentは人間と対話しmessengerはセッション間の連絡を担当します。
+
+</div>
+
+### 1.9. 上位セッションが下位のチームを束ねる
+
+**人間は最上位のAIエージェントと話して親子セッション同士も会話する**
+
+<div class="presentation-diagram" style="--diagram-width: 1550px">
+
+``` mermaid
+flowchart LR
+    H((人間)) <-->|"依頼・進捗"| PA
+    subgraph parent["ghq/github.com/"]
+        PA["agent<br/>人間との対話"] <--> PO["orchestrator<br/>全体を管理"]
+        PO <--> PM["messenger<br/>interface_node"]
+        PO <--> PW["worker"]
+        PO <--> PR["reviewer"]
+        PO <--> PAP["approver"]
+    end
+    subgraph dotfiles["ghq/github.com/i9wa4/dotfiles"]
+        DM["messenger<br/>interface_node"] <--> DO["orchestrator"]
+        DO <--> DW["worker"]
+        DO <--> DR["reviewer"]
+        DO <--> DAP["approver"]
+    end
+    subgraph postman["ghq/github.com/i9wa4/tmux-a2a-postman"]
+        TM["messenger<br/>interface_node"] <--> TO["orchestrator"]
+        TO <--> TW["worker"]
+        TO <--> TR["reviewer"]
+        TO <--> TAP["approver"]
+    end
+    PM <-->|"親子間の連絡"| DM
+    PM <-->|"親子間の連絡"| TM
+    classDef human fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef dialogue fill:#e0f2fe,stroke:#0891b2,color:#164e63
+    classDef interface fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef orchestration fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+    classDef implementation fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef review fill:#fce7f3,stroke:#db2777,color:#831843
+    classDef approval fill:#ffedd5,stroke:#ea580c,color:#7c2d12
+    class H human
+    class PA dialogue
+    class PM,DM,TM interface
+    class PO,DO,TO orchestration
+    class PW,DW,TW implementation
+    class PR,DR,TR review
+    class PAP,DAP,TAP approval
+    style parent fill:#eff6ff,stroke:#1d4ed8,stroke-width:3px
+    style dotfiles fill:#f8fafc,stroke:#94a3b8
+    style postman fill:#f8fafc,stroke:#94a3b8
+```
+
+</div>
+
+**人間は社長として全プロジェクトの進捗統括レベルの会話をしていく**
+
+<div class="notes">
+
+【3:18–3:55】
+
+最近は複数のリポジトリでの開発をこの形で進めています。 ghq/github.com/
+の上位セッションでは人間が対話用agentに仕事を頼みオーケストレーターが全体のTODOを管理します。
+リポジトリごとの下位セッションには双方のmessengerを通じて仕事を渡します。
+各セッションでワーカーが実装しレビュー担当が確認します。コマンド実行にはapproverの承認を挟みます。
+僕は途中で別のことをしていてもいい。
+後から上位セッションのagentに「全プロジェクトの進捗は？」と聞くと状況を整理して報告してくれます。
+僕は優先順位を決めて必要なところだけ判断します。
+この「社長になる」感覚が複数のプロジェクトを並行するときに助かっています。
+
+</div>
+
+### 1.10. モデルの得意な場所を組織の中に作れる
+
+**役割に合わせてモデルを割り当てる**
+
+| 得意なこと         | 任せる仕事         |
+|--------------------|--------------------|
+| 複雑な推論         | 設計・難しい判断   |
+| 実装               | コーディング・修正 |
+| 独立した批判的思考 | レビュー・検証     |
+| 限定的な素早い判断 | コマンド承認など   |
+
+<div class="notes">
+
+【3:55–4:19】
+
+全員に同じモデルを使う必要はありません。
+難しい判断は得意なモデルへ。狭い仕事にはその役割に合うモデルを使います。
+文脈はメッセージで渡しベンダーを混ぜたり新モデルを比較したりできます。
+調整の手間もあり費用が必ず下がるわけではありません。
+選択の自由と変化への強さを重視しています。
+
+</div>
+
+<!-- 5. 人間のインターフェース -->
+
+### 1.11. 次はハンズフリー音声 + チャット表示
+
+**ハンズフリー音声会話しつつ詳細は画面で見る**
+
+<div class="presentation-diagram" style="--diagram-width: 1500px">
+
+``` mermaid
+flowchart LR
+    H((人間)) <-->|"話す・聞く<br/>URLを開く"| B["スマホのWebブラウザ<br/>音声 + チャット表示（構想）"]
+    B <-->|"tmux-mac-voice"| T["Mac上のtmux<br/>上位agent + チーム"]
+    classDef human fill:#fef3c7,stroke:#d97706,color:#78350f
+    class H human
+```
+
+</div>
+
+**目指す体験：**
+
+- 最初に一度開始したら声でやり取りし返事のURLから詳細を開く
+  - 「このIssue群を進めておいて」
+  - 「全体の進捗はどうなってる？」
+- チャットUIから詳細を記載したページのURLをタップする
+
+<div class="notes">
+
+【4:19–4:44】
+
+最後にTerminal Nightには間に合わなかった音声の入口です。
+スマホのWebブラウザで一度開始したらボタンなしで話し返事も声で聞くことを目指します。
+さらに返事をチャットにも残しURLをタップして詳細を開きたいです。
+チャット表示はまだ未設計で音声もiPhone実機での確認はこれからです。
+
+</div>
+
+<!-- 6. まとめ -->
+
+### 1.12. AIとtmuxと私：2026年の現在地
+
+- AIエージェントの実行基盤を自分のtmuxで握る
+- tmuxには必要な機能が揃っているからどこまでも行ける
+- 新しいモデルもベストプラクティスも自分で選んで取り込める
+
+**今後は……**
+
+tmuxとPCから離れてスマホからAI組織に仕事を頼む社長としての振る舞いを磨く
+
+<div class="notes">
+
+【4:44–5:00】
+
+僕のtmuxは今こんな形です。セッションとペインに役割を置きファイルで仕事をつないでいます。
+tmuxには外部からの制御やペインの管理などAIエージェントを動かすための基本機能が揃っています。MarkdownやCLIと組み合わせて新しいモデルやベストプラクティスを自分の基盤に組み込めます。
+上位セッションのagentに頼めば僕がtmuxの各ペインを見張り続ける必要はありません。
+音声とチャットを入口にしてtmuxとPCから離れても仕事を頼み必要な判断だけする形を目指します。
+これが私とtmuxの現在地です。
+
+</div>

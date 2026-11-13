@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.7.17">
+  <diagram name="Page-1" id="group-management">
+    <mxGraphModel defaultFontFamily="Noto Sans JP" dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Account Level Groups -->
+        <mxCell id="account-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#3F51B5;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="400" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="account-label" value="アカウントレベルグループ" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#3F51B5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="380" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="account-note" value="(ワークスペース横断)" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#5C6BC0;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="180" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp-data" value="data_team" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontFamily=Noto Sans JP;fillColor=#3F51B5;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="360" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-analysts" value="genda_analysts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontFamily=Noto Sans JP;fillColor=#4CAF50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="360" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Company Level Groups -->
+        <mxCell id="ws-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="400" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-label" value="グループ企業レベル" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="50" y="260" width="380" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="ws-note" value="(各社内で完結)" style="text;html=1;fontSize=16;fontFamily=Noto Sans JP;fontColor=#FF9800;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="290" width="180" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp-gigo" value="gigo_members" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontFamily=Noto Sans JP;fillColor=#4CAF50;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="60" y="330" width="170" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-banban" value="banban_members" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontFamily=Noto Sans JP;fillColor=#FF9800;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="250" y="330" width="170" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="grp-other" value="..." style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontFamily=Noto Sans JP;fillColor=#B0BEC5;fontColor=#455A64;" vertex="1" parent="1">
+          <mxGeometry x="60" y="390" width="360" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Benefits -->
+        <mxCell id="benefit-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#2196F3;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="500" y="-10" width="560" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit-label" value="グループ管理のメリット" style="text;html=1;fontSize=22;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="45" width="540" height="35" as="geometry" />
+        </mxCell>
+
+        <mxCell id="benefit1" value="1. 権限付与が簡単" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit1-detail" value="グループに権限を付与すれば&lt;br&gt;メンバー全員に適用される" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fontFamily=Noto Sans JP;fillColor=#BBDEFB;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="115" width="520" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="benefit2" value="2. オンボーディングが即座" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="185" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit2-detail" value="新メンバーをグループに追加するだけで&lt;br&gt;必要な権限がすべて付与される" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fontFamily=Noto Sans JP;fillColor=#BBDEFB;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="220" width="520" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="benefit3" value="3. 監査が容易" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit3-detail" value="誰がどのグループに属しているか&lt;br&gt;グループにどの権限があるか一目瞭然" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fontFamily=Noto Sans JP;fillColor=#BBDEFB;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="325" width="520" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="benefit4" value="4. M&amp;A対応がスムーズ" style="text;html=1;fontSize=20;fontFamily=Noto Sans JP;fontStyle=1;fontColor=#1565C0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="395" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="benefit4-detail" value="新会社用のグループを作成→テンプレート権限を付与" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fontFamily=Noto Sans JP;fillColor=#BBDEFB;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="430" width="520" height="35" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
