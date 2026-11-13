@@ -72,6 +72,20 @@
               shellHook = ''
                 uv sync --frozen
                 ${config.pre-commit.installationScript}
+                # Use the shared hooks directory from both root and linked worktrees.
+                (
+                  git="${config.pre-commit.settings.gitPackage}/bin/git"
+                  if "$git" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+                    if dir=$("$git" rev-parse --path-format=absolute --git-common-dir 2>/dev/null); then
+                      case "$dir" in
+                        /*) "$git" config --local core.hooksPath "$dir/hooks" ;;
+                        *) echo "warning: Git hooks directory is not absolute; core.hooksPath unchanged" >&2 ;;
+                      esac
+                    else
+                      echo "warning: cannot find Git hooks directory; core.hooksPath unchanged" >&2
+                    fi
+                  fi
+                )
               '';
             };
             ci = pkgs.mkShell {
