@@ -35,40 +35,11 @@ At GENDA, I have helped build data marts and dashboards, connect business system
 
 Nov 2024 - Present | Full-time
 
-- Since November 2024, I have reviewed aggregation logic and queries for
-  business dashboards, developed dbt data marts, and helped establish Git-based
-  dashboard change management. In 2026, I implemented a job to generate and
-  deliver a daily report and worked on missing-data checks and failure alerts.
-- In 2025, I helped validate a master-data management workflow and explored
-  ways to bring business-system data into the analytics platform. The team
-  connected business-system data to Databricks, made external BigQuery data
-  available for analysis, and included the integrated data in marts and a daily
-  dashboard.
-- For machine learning development, I set up code checks and CI/CD, aligned
-  development tools, and established a review-based release process. I also
-  contributed to a workflow that lets the team test training and inference code
-  in Databricks notebooks, and prepared an environment and guidance for interns.
-- From 2025, I tested and shared ways to use AI coding tools in data work. I
-  created the open-source
-  [jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
-  so data scientists could develop Databricks notebooks with local editors and
-  AI tools.
-- In February 2026, I added the initial configuration for the team's analysis
-  development environment to a repository. In June, I proposed moving from a
-  Dev Container setup to individual local
-  environments, then refined setup guidance after requesting tests. In July, I
-  removed the Dev Container configuration and announced its removal. In August,
-  I called for an access-rights inventory; in October, I maintained
-  dependencies.
-- From March through May 2026, I worked on phased dbt repository consolidation
-  and documented migration issues. I also reorganized Databricks job
-  configuration and contributed to data-platform migration work from May.
-- I managed the Data Engineering Team from April through September 2026 and
-  have managed the Data Science Team since October. Across these roles, I have
-  handled progress checks, 1:1s, reviews, and hiring interviews. I have also
-  been running regular team meetings and sharing working practices.
-- I share data development and operations practices through articles and talks
-  and was selected as a Databricks MVP in 2026.
+- I reviewed aggregation logic for business dashboards, developed dbt data marts, and implemented a job to generate and deliver a daily report. The team connected business-system and external data to the analytics platform and included it in data marts and a daily dashboard. I also worked on phased dbt repository consolidation and reorganized Databricks job configuration.
+- I set up code checks, CI/CD, and a review-based release process for machine learning development, and contributed to a workflow for testing training and inference code in Databricks notebooks. I also created the open-source [jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel) so data scientists could develop notebooks with local editors and AI tools.
+- For the team's AI-assisted analysis development environment, I added the initial configuration and proposed a technical direction for development on individual local machines. I prepared setup guidance and requested tests, then removed the Dev Container configuration and announced its removal.
+- I managed the Data Engineering Team from April through September 2026 and have managed the Data Science Team since October. Across these roles, I have handled progress checks, 1:1s, reviews, hiring interviews, and regular team meetings, and shared working practices and review guidance.
+- I share data development and operations practices through articles and talks and was selected as a Databricks MVP in 2026.
 
 ### 3.2. PIVOT Inc. | Freelance Data Engineer
 
