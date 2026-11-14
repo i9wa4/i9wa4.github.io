@@ -51,9 +51,7 @@
               exit 0
             fi
 
-            exec "${
-              inputs.markdown-formatter.packages.${system}.default
-            }/bin/mdfmt" --no-heading-numbering --write "$@"
+            exec "${inputs.markdown-formatter.packages.${system}.default}/bin/mdfmt" --write "$@"
           '';
           rumdlConfig = pkgs.writeText "rumdl.toml" ''
             [global]
