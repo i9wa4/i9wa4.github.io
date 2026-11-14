@@ -13,7 +13,7 @@ Resume ([Website](https://i9wa4.github.io/en/resume/index.html), [PDF](https://i
 
 ## 1. Professional Summary
 
-I joined GENDA's Data Management Department in November 2024. I managed the Data Engineering Team from April through September 2026 and have managed the Data Science Team since October 2026.
+I joined GENDA in November 2024. In the Data Management Department, I managed the Data Engineering Team from April through September 2026 and have managed the Data Science Team since October 2026.
 
 Drawing on over 10 years of software engineering experience, I work across data engineering and MLOps to help data scientists focus on analysis and model development. I take a hands-on role in designing and building data platforms and development environments, as well as running machine learning systems in production. My responsibilities also include defining requirements with business teams, managing projects, hiring, and leading teams.
 
