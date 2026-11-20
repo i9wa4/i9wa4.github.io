@@ -1,0 +1,302 @@
+# Databricks Developer Workflows Need Auth Boundaries
+uma-chan
+2026-06-09
+
+## 1. The Repos Are Not the Architecture
+
+I recently looked across public repositories in the `databricks`,
+`databrickslabs`, and `databricks-solutions` GitHub organizations, then
+narrowed the results against my own Databricks development interests:
+local Python workflows, Jupyter-style execution, Databricks Apps, MCP,
+Model Serving agents, Unity Catalog, and AI-assisted development.
+
+The useful result was not a single “best repo.” It was a map of
+boundaries.
+
+Databricks now has several development surfaces that look similar from
+the outside:
+
+- a local CLI or SDK process using a developer’s OAuth profile
+- a Jupyter kernel executing commands on a Databricks cluster
+- a Databricks App running as an app service principal
+- a Databricks App using the current user’s forwarded access token
+- a Model Serving agent receiving an invoking user’s scoped-down token
+- an MCP client/server pair using OAuth scopes and Unity Catalog
+  permissions
+- a service principal doing automation through M2M credentials
+
+Those are not interchangeable. The wrong mental model is to treat
+“Databricks auth” as one bucket and then expect every surface to become
+OBO automatically.
+
+The practical model is stricter: choose the repository for the
+development surface, then make the identity boundary explicit.
+
+## 2. A Short Repository Map
+
+The broad recommendation pass considered 407 public repositories. I
+would not turn that into a long bookmark dump. For the workflows I care
+about, this is the shorter map.
+
+| Need | Start with | Why it matters |
+|----|----|----|
+| AI-assisted Databricks coding | [databricks-solutions/ai-dev-kit](https://github.com/databricks-solutions/ai-dev-kit), [databricks/databricks-agent-skills](https://github.com/databricks/databricks-agent-skills), [databricks/devhub](https://github.com/databricks/devhub) | These are the most direct references for coding-agent workflows, Databricks-specific skills, and developer documentation patterns. |
+| Databricks Apps and app auth | [databricks/app-templates](https://github.com/databricks/app-templates), [Databricks AppKit](https://github.com/databricks/appkit), [databricks-solutions/databricks-api-explorer](https://github.com/databricks-solutions/databricks-api-explorer) | These show app service principal auth, user authorization patterns, SQL/Serving calls, and production-shaped app templates. |
+| MCP on Databricks | [databricks/app-templates](https://github.com/databricks/app-templates), [databricks-solutions/custom-mcp-databricks-app](https://github.com/databricks-solutions/custom-mcp-databricks-app), [databrickslabs/mcp](https://github.com/databrickslabs/mcp) | The app templates are the most current custom-server starting point; the Labs repo is still useful but has deprecation and construction caveats. |
+| Model Serving and agent auth | [databricks/databricks-ai-bridge](https://github.com/databricks/databricks-ai-bridge), [databricks/databricks-sdk-py](https://github.com/databricks/databricks-sdk-py), [databricks/app-templates](https://github.com/databricks/app-templates) | These contain the current practical evidence for serving-runtime user credentials, Apps OBO examples, and agent integration patterns. |
+| Local Python and Jupyter work | [databricks/databricks-sdk-py](https://github.com/databricks/databricks-sdk-py), [databricks/cli](https://github.com/databricks/cli), [databricks/databricks-vscode](https://github.com/databricks/databricks-vscode), [databricks/notebook-best-practices](https://github.com/databricks/notebook-best-practices) | These match local auth, workspace profiles, IDE workflows, and notebook-to-package discipline. |
+| SQL, dbt, governance, and infra | [databricks/dbt-databricks](https://github.com/databricks/dbt-databricks), [databricks/databricks-sql-python](https://github.com/databricks/databricks-sql-python), [databricks/terraform-provider-databricks](https://github.com/databricks/terraform-provider-databricks), [databrickslabs/ucx](https://github.com/databrickslabs/ucx), [databrickslabs/dqx](https://github.com/databrickslabs/dqx) | These are the lower-level pieces that usually decide whether the workflow can be governed and tested rather than just demoed. |
+
+That map is intentionally opinionated. There are many more useful
+Databricks repositories, but these are the ones I would reach for first
+when building developer workflow around Apps, MCP, Model Serving, and
+local execution.
+
+## 3. Keep a Jupyter Kernel Local and Honest
+
+The local `jupyter-databricks-kernel` work is closest to three
+Databricks surfaces:
+
+- [Databricks SDK for
+  Python](https://github.com/databricks/databricks-sdk-py)
+- [Databricks CLI](https://github.com/databricks/cli)
+- Databricks Command Execution on an all-purpose cluster
+
+That shape is important. A Jupyter kernel is not a Model Serving
+endpoint, and it is not an MCP server by itself. Its natural contract
+is:
+
+- load Databricks workspace configuration through unified auth
+- create or reuse a command execution context
+- send Python cells to a configured classic all-purpose cluster
+- keep enough state for an interactive notebook-like session
+- sync local files when the project needs more than one cell
+
+That makes `databricks-sdk-py` and `databricks/cli` the core
+dependencies. The CLI owns the local profile and login experience. The
+SDK owns `WorkspaceClient` and the API surface.
+[databricks/databricks-vscode](https://github.com/databricks/databricks-vscode)
+is a useful comparison point for IDE behavior, and
+[databricks/notebook-best-practices](https://github.com/databricks/notebook-best-practices)
+is useful because the kernel should encourage modular code rather than
+larger notebooks.
+
+There are adjacent options, but they should stay adjacent:
+
+- [databrickslabs/lsql](https://github.com/databrickslabs/lsql) and
+  [databricks/databricks-sql-python](https://github.com/databricks/databricks-sql-python)
+  are good references for SQL-only or warehouse-backed execution, not
+  stateful Python cell execution.
+- [databricks-solutions/databricks-exec-code-mcp](https://github.com/databricks-solutions/databricks-exec-code-mcp)
+  is relevant because it also touches command execution, but it is an
+  MCP template and should not define the kernel’s core auth model.
+- Archived or SSH-based Jupyter integration projects are useful history,
+  not the current foundation.
+
+The architectural recommendation is simple: keep the kernel on local
+unified auth and command execution. Add MCP, Apps, or Serving
+integrations as separate surfaces with their own auth contracts, not as
+hidden behavior inside the kernel.
+
+## 4. Databricks Apps Have Two Auth Modes
+
+Databricks Apps are a natural place to build user-facing tools, custom
+MCP servers, API explorers, and chat interfaces. The important
+distinction is app authorization versus user authorization.
+
+With app authorization, the app runs as its app service principal. This
+is useful for shared app resources and controlled automation, but every
+user is effectively going through the app’s resource permissions. That
+is not per-user OBO.
+
+With user authorization, Databricks forwards the current user’s access
+token to the app, and the app uses that token to call Databricks APIs
+with declared user scopes. In app code and templates, this shows up as
+the forwarded access-token header. This is the Databricks Apps OBO-style
+pattern, and it is currently a Public Preview capability rather than a
+default production baseline.
+
+The constraints matter:
+
+- Apps are workspace-scoped objects.
+- App users must belong to the same Databricks account.
+- User authorization and requested API scopes must be configured
+  explicitly.
+- The app service principal still matters for app-owned resources.
+- A Databricks App token should not be treated as a universal
+  cross-workspace credential.
+
+For implementation examples,
+[databricks/app-templates](https://github.com/databricks/app-templates)
+is the first stop. [Databricks
+AppKit](https://github.com/databricks/appkit) is the higher-level
+TypeScript path.
+[databricks-solutions/databricks-api-explorer](https://github.com/databricks-solutions/databricks-api-explorer)
+is useful because it demonstrates the local CLI SSO versus production
+App OBO split in a concrete tool.
+
+The official docs to keep open are [Databricks Apps
+authorization](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/auth)
+and [Databricks Apps key
+concepts](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/key-concepts).
+
+## 5. Model Serving OBO Is Runtime-Specific
+
+Model Serving and Agent Framework have their own user-auth story. This
+is where it is easy to overgeneralize.
+
+The Python SDK and bridge libraries expose
+`ModelServingUserCredentials`, and
+[databricks/databricks-ai-bridge](https://github.com/databricks/databricks-ai-bridge)
+contains especially useful evidence around Model Serving OBO and
+integration tests. The key point is that this credential strategy is
+meaningful inside the Model Serving runtime. It reads a
+serving-runtime-provided, scoped-down token for the user who invoked the
+endpoint.
+
+That is not the same as a local developer credential. It is not a magic
+OBO token factory for any process.
+
+The practical requirements are platform-shaped:
+
+- OBO is disabled by default and requires workspace-admin enablement for
+  the relevant Agent Framework or serving user-auth capability
+- the model or agent must be logged and configured for user
+  authorization and scopes
+- the user must be allowed to query the endpoint
+- downstream Databricks and Unity Catalog resources must still authorize
+  that user
+- SDK clients that need the user’s token should be constructed at
+  request time inside the serving path, not as a process-global startup
+  client
+
+This is why Model Serving OBO should be tested with at least two caller
+identities. If both callers see the same downstream identity, the
+endpoint is not proving per-user OBO.
+
+The official anchor is [Agent Framework and Model Serving
+authentication](https://docs.databricks.com/aws/en/generative-ai/agent-framework/agent-authentication-model-serving).
+The practical repo anchors are
+[databricks-ai-bridge](https://github.com/databricks/databricks-ai-bridge)
+and the [Databricks SDK for Python credential
+provider](https://github.com/databricks/databricks-sdk-py/blob/main/databricks/sdk/credentials_provider.py).
+
+## 6. MCP Is Not One Thing
+
+MCP on Databricks has at least three useful shapes.
+
+| MCP shape | Practical auth boundary |
+|----|----|
+| Managed MCP | Databricks-hosted server URLs, OAuth scopes, and Unity Catalog permissions. Public Preview behavior needs to be treated as current but still evolving. |
+| External MCP | A Unity Catalog connection can use shared principal auth or per-user auth. Shared principal auth is not per-user OBO. |
+| Custom MCP on Apps | The server is a Databricks App, so it inherits the Databricks Apps service-principal and user-authorization split. |
+
+This means MCP is not an escape hatch around Databricks permissions.
+Unity Catalog privileges, OAuth scopes, and server configuration remain
+central.
+
+For custom servers,
+[databricks/app-templates](https://github.com/databricks/app-templates)
+is the most practical starting point.
+[databricks-solutions/custom-mcp-databricks-app](https://github.com/databricks-solutions/custom-mcp-databricks-app)
+is also useful as a template-style reference.
+[databrickslabs/mcp](https://github.com/databrickslabs/mcp) is useful
+for understanding the ecosystem, but parts of that repo are
+experimental, deprecated, or under construction, so I would not treat it
+as the only source of truth.
+
+The official docs to keep close are [Databricks
+MCP](https://docs.databricks.com/aws/en/generative-ai/mcp/), [managed
+MCP
+servers](https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp),
+[MCP clients and
+OAuth](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-clients),
+[external MCP
+servers](https://docs.databricks.com/aws/en/generative-ai/mcp/external-mcp),
+and [custom MCP
+servers](https://docs.databricks.com/aws/en/generative-ai/mcp/custom-mcp).
+
+## 7. Multi-Workspace OBO Is a Design, Not a Switch
+
+The most important finding from the OBO follow-up is negative: I did not
+find a generic account-wide switch that makes every user perform OBO
+into every workspace and every Databricks surface automatically.
+
+That does not mean the target state is impossible. It means it is an
+architecture.
+
+A realistic multi-workspace design looks like this:
+
+1.  Manage users, groups, and service principals at the Databricks
+    account level.
+2.  Provision or sync them through the normal identity-management path.
+3.  Assign the intended groups to every target workspace that they must
+    use.
+4.  Grant workspace entitlements, endpoint permissions, app permissions,
+    SQL warehouse access, and Unity Catalog privileges deliberately.
+5.  Check workspace-catalog bindings if Unity Catalog data should be
+    reachable only from specific workspaces.
+6.  Configure Apps, Model Serving endpoints, MCP servers, and OAuth
+    clients per surface and, where needed, per workspace.
+7.  Use service principals for automation only when per-user
+    authorization is not required.
+
+The local tooling story is separate. OAuth user-to-machine auth is the
+right pattern for a developer using the CLI, SDK, or REST APIs as
+themselves. A workspace-level token is scoped to that workspace.
+Account-level OAuth U2M can call account APIs and workspace APIs across
+workspaces the user can access. That is still user authentication for
+the current user, not a server-side way to impersonate arbitrary users.
+
+The official docs that matter here are [Databricks users and
+groups](https://docs.databricks.com/aws/en/admin/users-groups), [SCIM
+provisioning](https://docs.databricks.com/aws/en/admin/users-groups/scim),
+[OAuth
+U2M](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-u2m), [CLI
+authentication](https://docs.databricks.com/aws/en/dev-tools/cli/authentication),
+and [Unity Catalog workspace-catalog
+binding](https://docs.databricks.com/en/catalogs/binding.html).
+
+## 8. The Recommendation
+
+The safe way to combine these findings is to keep each auth boundary
+explicit.
+
+For local and Jupyter-style workflows:
+
+- Build around `databricks-sdk-py`, `databricks/cli`, unified auth
+  profiles, and command execution.
+- Keep Model Serving and Apps OBO out of the local kernel’s core
+  contract.
+- Add SQL or MCP paths as separate adapters only when their auth
+  boundaries are visible.
+
+For Databricks Apps and custom MCP:
+
+- Start from `databricks/app-templates` or Databricks AppKit.
+- Decide whether the operation should run as the app service principal
+  or as the current user.
+- Use user authorization and explicit scopes when downstream access must
+  respect the user’s identity.
+
+For Model Serving agents:
+
+- Treat user auth as serving-runtime behavior.
+- Use `ModelServingUserCredentials` only in the runtime path where the
+  invoking user’s token is actually provided.
+- Test with multiple caller identities before trusting the governance
+  story.
+
+For multi-workspace OBO:
+
+- Start with account-level identity and group assignment.
+- Configure every workspace and product surface intentionally.
+- Do not describe service-principal automation, shared-principal MCP, or
+  app service-principal access as per-user OBO.
+- Do not promise a generic account-wide cross-workspace OBO switch.
+
+That last point is the rule I would keep in the margin: the repository
+tells you where to build, but the auth boundary tells you what the
+workflow really is.
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-06-09-databricks-developer-workflows-auth-boundaries.html&text=Databricks%20Developer%20Workflows%20Need%20Auth%20Boundaries%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=Databricks%20Developer%20Workflows%20Need%20Auth%20Boundaries%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-06-09-databricks-developer-workflows-auth-boundaries.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fen%2Fblog%2F2026-06-09-databricks-developer-workflows-auth-boundaries.html&title=Databricks%20Developer%20Workflows%20Need%20Auth%20Boundaries%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>

@@ -1,0 +1,99 @@
+# GENDAデータチームの登壇まとめ (2025年12月〜2026年1月)
+uma-chan
+2026-02-20
+
+## 1. はじめに
+
+2025年12月から2026年1月にかけてデータチームは3回登壇しました。
+
+それぞれ別のイベントですが、振り返ってみると共通しているテーマがありました。Databricksを軸にして、開発環境・権限管理・AIエージェント配布という3つの方向から「使いにくさを取り除く」という話をしていました。
+
+まとめて記事にしておきます。
+
+## 2. 登壇一覧
+
+- 2025/12/12 Databricks Data + AI World Tour Tokyo After Party
+  - [Databricks向けJupyter
+    Kernelでデータサイエンティストの開発環境をAI-Readyにする / Data+AI
+    World Tour Tokyo After Party - Speaker
+    Deck](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- 2025/12/22 [モダンデータ基盤の最前線：現場から学ぶ実践と挑戦 -
+  connpass](https://aeon.connpass.com/event/375097/)
+  - [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 /
+    AEON TECH HUB \#22 - Speaker
+    Deck](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- 2026/01/27 [JEDAI 2026 新春 Meetup! AIコーディング特集 -
+  connpass](https://jedai.connpass.com/event/379174/)
+  - [Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips /
+    JEDAI 2026 新春 Meetup! AIコーディング特集 - Speaker
+    Deck](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+
+## 3. 各登壇の詳細
+
+### 3.1. Databricks向けJupyter KernelでデータサイエンティストをAI-Readyにする (2025-12-12)
+
+この登壇では、Databricks向けにJupyterカーネル（jupyter-databricks-kernel）を自作し、ローカルのAIコーディングアシスタントからDatabricks
+Notebookを直接操作できる環境を構築する方法を紹介しました。Databricks
+Notebookはクラウド上でしか動かないため、ローカルエディタのAIコーディングアシスタントを使いたいデータサイエンティストには悩みのタネでした——スライドでは「AI時代の新たな課題」として提起し、jupyter-databricks-kernelによってその壁を取り除く具体的な構成を解説しました。
+
+ローカルVS
+CodeからDatabricksのコンピュートに接続できるようになり、`jupyter execute notebook.ipynb`
+でノートブックをCLI実行できます。AIコーディングアシスタントがローカルファイルとして扱えるのが重要なポイントです。
+
+カーネル単体では実用的な開発環境にまでは至れないため、あわせて4つのベストプラクティスも紹介しました。
+
+- Skinny Notebook Wrapper + Pure Python —
+  ノートブックは薄いラッパーにして、メインロジックは .py
+  に切り出すパターン
+- uvによる依存関係管理 — Pythonパッケージのバージョンを明示管理
+- mise + pre-commit + Renovateによるガードレール —
+  AIが触っても崩れにくいコード品質の自動担保
+- CLIでの実行例 — `jupyter execute notebook.ipynb`
+
+4つの構成はそれぞれ独立していますが、組み合わせることで「AIが書いたコードを自動検証しながらDatabricksを使い続けられる」環境になります。なかでも、mise +
+pre-commit +
+Renovateのガードレールは、AI生成コードの品質劣化を自動で防ぐ役割を担っています。
+
+### 3.2. M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理 (2025-12-22)
+
+この登壇では、M&Aで拡大し続けるGENDAが直面してきたDatabricks権限管理の課題と、現在取り組んでいる解決策を紹介しました。GENDAはグループ企業が増えるたびに権限設計を見直す必要があり、ロール（データエンジニア・機械学習エンジニア・データアナリスト・ビジネスメンバー）ごとに必要な機能が異なるため、設計の複雑さが増し続けていました。スライドでは、マルチワークスペース構成を前提に、そのロールごとの権限設計を具体的に解説しました。
+
+今取り組んでいるのはワークスペースレベルの権限とUnity
+Catalogのデータアクセス権限を2層で管理する設計です。どちらもグループ単位で管理していて、新メンバーのオンボーディングはグループに追加するだけで完結します。新規M&A企業が増えてもグループを作ってテンプレートの権限を付与すればすぐ動けるようになります。
+
+本番環境はService
+Principal（非人間アカウント）経由でのみ操作できる構造にしていて、人間が直接本番データを操作できないようにしています。現在は概ね想定通りに動作しています。
+
+ロールごとの使い分けにも特徴があります。ビジネスメンバーにはDatabricks
+Oneのシンプルなビューを提供していて、Genieという機能で自然言語によるデータ分析ができます。SQLを書けなくてもデータを使える入口として機能します。データアナリストには行レベルセキュリティと列マスキングを組み合わせ、必要なデータのみアクセスできる構成にしています。
+
+### 3.3. Mosaic AI Gatewayでコーディングエージェントを配るための運用Tips (2026-01-27)
+
+この登壇では、インターン・外部協力者・非エンジニアメンバーへのAIコーディング環境配布を、管理コストを抑えながら実現する方法を紹介しました。APIキー管理・利用量監視・環境セットアップのハードルを下げるのが主題で、スライド冒頭では「大量利用するヘビーユーザーには向かない」とスコープを明示したうえで、ライトユーザー向けの実用的な構成を解説しました。
+
+Mosaic AI
+Gatewayを使うと複数のLLM（Claude、GPTなど）への接続を一本化できて、システムテーブルで利用量をモニタリングしながら予算超過時に自動遮断もできます。認証はOAuth
+U2Mで完結するのでPersonal Access
+Tokenを各自で管理してもらう必要がなく、運用負荷を下げる点で実用的な利点です。
+
+予算超過時の自動遮断はDatabricks
+Jobで実装しています。一定間隔（たとえば15分ごと）でシステムテーブルの利用量を確認し、上限を超えた場合にRate
+Limit
+APIで遮断します。ライトユーザーが短時間に上限を使い切ることはほぼなく、ジョブとして管理できるので基盤管理者も把握しやすい構造です。
+
+ローカル側はBlock社のOSSコーディングエージェントGooseをDev
+Containerに組み込む構成にしました。GooseはDatabricksをネイティブサポートしているのでOAuth
+U2M認証がそのまま通ります。Claude CodeやCodex
+CLIと比べると機能面で物足りない部分はありますが、Dev
+Container起動時にOAuth
+U2M認証を自動で済ませるスクリプトを用意しておけば、環境配布の手間がほぼゼロになるのが利点です。また、3.1で紹介したjupyter-databricks-kernelと組み合わせると、ノートブックの読み取り・編集・実行もGooseに任せられます。
+
+## 4. まとめ
+
+3つとも「Databricksの機能を使って、使えない人を減らす」という話でした。
+
+データサイエンティストのAI活用の壁、M&A後のオンボーディングの壁、エンジニア以外へのAIツール配布の壁——いずれもまだ完全に解決できているわけではありませんが、取り組みの方向性は固まってきました。
+
+引き続き改善しながら発信していきます。
+
+<div class="social-share"><a href="https://twitter.com/share?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-02-20-genda-talks-summary.html&text=GENDA%E3%83%87%E3%83%BC%E3%82%BF%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E7%99%BB%E5%A3%87%E3%81%BE%E3%81%A8%E3%82%81%20%282025%E5%B9%B412%E6%9C%88%E3%80%9C2026%E5%B9%B41%E6%9C%88%29%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="twitter"><i class="bi bi-twitter-x"></i></a><a href="https://bsky.app/intent/compose?text=GENDA%E3%83%87%E3%83%BC%E3%82%BF%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E7%99%BB%E5%A3%87%E3%81%BE%E3%81%A8%E3%82%81%20%282025%E5%B9%B412%E6%9C%88%E3%80%9C2026%E5%B9%B41%E6%9C%88%29%20%E2%80%93%20uma-chan%E2%80%99s%20page%20https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-02-20-genda-talks-summary.html" target="_blank" class="bsky"><i class="bi bi-bluesky"></i></a><a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fi9wa4.github.io%2Fblog%2F2026-02-20-genda-talks-summary.html&title=GENDA%E3%83%87%E3%83%BC%E3%82%BF%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E7%99%BB%E5%A3%87%E3%81%BE%E3%81%A8%E3%82%81%20%282025%E5%B9%B412%E6%9C%88%E3%80%9C2026%E5%B9%B41%E6%9C%88%29%20%E2%80%93%20uma-chan%E2%80%99s%20page" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a></div>

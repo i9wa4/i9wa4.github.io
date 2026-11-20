@@ -1,0 +1,230 @@
+# Resume - Daiki Mawatari
+
+
+Daiki Mawatari
+
+Manager in the Data Management Department (assigned to the Data Science
+Team) \| Data Engineer \| MLOps Engineer \| Databricks MVP 2026
+
+[Website](https://i9wa4.github.io) \|
+[LinkedIn](https://www.linkedin.com/in/daikm) \|
+[GitHub](https://github.com/i9wa4)
+
+Resume ([Website](https://i9wa4.github.io/en/resume/index.html),
+[PDF](https://i9wa4.github.io/en/resume/index.pdf)) \| Resume (Japanese)
+([Website](https://i9wa4.github.io/resume/index.html),
+[PDF](https://i9wa4.github.io/resume/index.pdf))
+
+## 1. Professional Summary
+
+I joined GENDA in November 2024. In the Data Management Department, I
+managed the Data Engineering Team from April through September 2026 and
+have managed the Data Science Team since October 2026.
+
+Drawing on over 10 years of software engineering experience, I work
+across data engineering and MLOps to help data scientists focus on
+analysis and model development. I take a hands-on role in designing and
+building data platforms and development environments, as well as running
+machine learning systems in production. My responsibilities also include
+defining requirements with business teams, managing projects, hiring,
+and leading teams.
+
+At GENDA, I have helped build data marts and dashboards, connect
+business systems and external data to the analytics platform, and
+improve the machine learning development environment. I created
+jupyter-databricks-kernel, an open-source tool that lets data scientists
+develop Databricks notebooks with local editors and AI tools. I share
+insights from this work through articles and talks and was named a
+Databricks MVP for 2026. Alongside my role at GENDA, I help improve
+PIVOT’s data platform as an independent contractor.
+
+## 2. Core Skills
+
+- Data platforms: Databricks, Snowflake, BigQuery, dbt Core, dbt
+  platform, Airflow (MWAA)
+- Cloud platforms: AWS, Google Cloud, Azure
+- Infrastructure as code: Terraform, HCP Terraform, CloudFormation
+- MLOps and AI: DataRobot, Snowpark ML, Databricks Notebooks, Jupyter
+  Kernel, MCP, AI coding agent workflow
+- Development tools: Git, GitHub, CI/CD, Dependabot, Renovate, Docker,
+  Nix, mise
+- Programming languages: Python, Go, SQL, C, C++, Shell Script
+- Team leadership: data team management, code review, hiring, 1:1s,
+  technical handoff
+
+## 3. Professional Experience
+
+### 3.1. GENDA Inc. \| Manager in the Data Management Department (assigned to the Data Science Team) / Data Engineer / MLOps Engineer
+
+Nov 2024 - Present \| Full-time
+
+- I reviewed aggregation logic for business dashboards, developed dbt
+  data marts, and implemented a job to generate and deliver a daily
+  report. The team connected business-system and external data to the
+  analytics platform and included it in data marts and a daily
+  dashboard. I also worked on phased dbt repository consolidation and
+  reorganized Databricks job configuration.
+- I set up code checks, CI/CD, and a review-based release process for
+  machine learning development, and contributed to a workflow for
+  testing training and inference code in Databricks notebooks. I also
+  created the open-source
+  [jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)
+  so data scientists could develop notebooks with local editors and AI
+  tools.
+- I brought the initial configuration into a shared repository for the
+  team’s AI-assisted analysis development. I advocated keeping reusable
+  analysis know-how as version-controlled skills and added repository
+  checks. I proposed moving development from Dev Containers to
+  individual local environments, prepared setup guidance, and requested
+  testing. I then updated the guidance and configuration, announced the
+  removal of the Dev Container configuration, and maintained
+  dependencies.
+- I managed the Data Engineering Team from April through September 2026
+  and have managed the Data Science Team since October. Across these
+  roles, I have handled progress checks, 1:1s, reviews, hiring
+  interviews, and regular team meetings, and shared working practices
+  and review guidance.
+- I share data development and operations practices through articles and
+  talks and was selected as a Databricks MVP in 2026.
+
+### 3.2. PIVOT Inc. \| Freelance Data Engineer
+
+Jun 2025 - Present \| Contract
+
+- Build and optimize BigQuery and dbt models for KPI reporting, referral
+  analytics, GA4 / ULIZA tracking, and model performance.
+- Reworked OOM-prone window-function-heavy logic into a JOIN-based
+  design and reduced a major model runtime from 51-90 minutes to a few
+  minutes.
+- Implemented incremental all-period user tracking with GA4 identity
+  resolution from anonymous visit through login.
+- Improved BigQuery MERGE efficiency through stable merge keys,
+  partitioning, and clustering.
+
+### 3.3. hacomono Inc. \| Data Engineer
+
+Apr 2024 - Oct 2024 \| Full-time
+
+- Served as solo data engineer owning customer and internal DWH transfer
+  operations, infrastructure / IaC changes, and delivery support across
+  BigQuery, Embulk, AWS, Google Cloud, Terraform, and Terragrunt.
+- Improved batch transfer stability using RDS metrics, transfer logs,
+  and Embulk tuning.
+- Moved BigQuery permissions from manual grants toward Terraform-managed
+  dataset-level access control.
+- Validated RDS MySQL to BigQuery real-time transfer with Google Cloud
+  Datastream and documented failure / recovery behavior.
+
+### 3.4. CNS HOKKAIDO Co., Ltd. \| Data Engineer / MLOps Engineer
+
+Apr 2022 - Mar 2024 \| Full-time
+
+- Migrated 50 customer-behavior prediction workflows from on-premises
+  infrastructure to AWS, Snowflake, and DataRobot.
+- Led dbt Core migration from Snowflake Python API and Jupyter Notebook
+  workflows to improve dependency visibility, readability, and
+  maintainability.
+- Investigated migration from DataRobot to Snowpark ML for cost,
+  performance, and security; led a small validation team.
+- Improved parallel execution for Bayesian retail customer-count
+  prediction across roughly 200 stores, completing processing in about 2
+  days against a 4-day requirement.
+
+### 3.5. Shinko Shoji LSI Design Center Co., Ltd. \| Embedded Software Engineer
+
+Aug 2018 - Mar 2022 \| Full-time
+
+- Developed automotive and industrial embedded firmware for
+  traction-control updates, sprayer inverter control, and operation
+  controllers across requirements, design, implementation, and testing.
+- Worked with C / assembler, Renesas and GHS embedded toolchains, RH850
+  / RL78 microcontrollers, QAC, and winAMS.
+- Automated formatting for 30+ test specification documents across 5
+  engineers; used Python for customer-facing analysis materials and
+  delivered CAN communication lectures.
+
+### 3.6. Okuma Corporation \| Windows Application Engineer
+
+Apr 2016 - Jul 2018 \| Full-time
+
+- Worked on Windows CAD / CAM applications for CNC machine tools,
+  including UI requirements, testing, user inquiries, defect handling,
+  and performance tuning.
+- Built a foundation in quality assurance, domain understanding, and
+  user-facing software maintenance.
+
+## 4. Education
+
+- Bachelor of Science in Mathematics, Hokkaido University
+
+## 5. Certifications
+
+- Apr 2023: Japan Statistical Society Certificate Grade 2
+- Mar 2015: TOEIC 805
+
+## 6. Speaking and Writing
+
+### 6.1. Talks
+
+- October 15, 2026: [AI, tmux, and Me: Where We Stand in
+  2026](https://i9wa4.github.io/slides/2026-10-15-terminal-night-3-tmux.html)
+- September 15, 2026: [How Analysts Use Claude Code with
+  Databricks](https://i9wa4.github.io/slides/2026-09-15-claude-code-databricks.html)
+  - [Speaker Profile: uma-chan \| Data Community LT
+    Festival](https://ltfes.datayokocho.info/todanvol1_uma-chan/)
+- June 30, 2026: [Harness Engineering Through the Lens of Context
+  Design](https://i9wa4.github.io/slides/2026-06-30-context-design-harness.html)
+- March 6, 2026: [Challenges and Solutions for Writing Robust Code with
+  Databricks](https://i9wa4.github.io/slides/2026-03-06-kenro-py.html)
+- January 27, 2026: [Operational Tips for Distributing Coding Agents
+  with Mosaic AI
+  Gateway](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+- December 22, 2025: [Databricks Permission Management for Enabling Data
+  Use at GENDA as M&A
+  Expands](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- December 12, 2025: [Making Data Scientists’ Development Environments
+  AI-Ready with a Jupyter Kernel for
+  Databricks](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- November 7, 2025: [Migrating GENDA’s Machine Learning Environment from
+  AWS to
+  Databricks](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
+- May 22, 2025: [Recommended Cursor Settings and How to Let Cursor
+  Handle Data
+  Analysis](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
+
+### 6.2. Writing
+
+- March 24, 2026: [Before and After Introducing Databricks to GENDA’s
+  Data Platform](https://findy-tools.io/products/databricks/11/164)
+- October 31, 2025: [Designing dbt Incremental Models to Promote Data
+  Analysis: Lower-Cost All-Period
+  Tracking](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+- September 1, 2025: [Improving GENDA’s Data Scientist Development
+  Experience: Migrating from AWS ECS to
+  Databricks](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- June 25, 2025: [Becoming a Hub for Growth: Data Platforms and MLOps
+  that Accelerate GENDA’s Data-Driven
+  Organization](https://note.com/genda_jp/n/n94def6811d47)
+- October 8, 2024: [Data Platform Architecture Feature Covering 39
+  Companies: Tool Selection Points and Use
+  Cases](https://findy-tools.io/articles/data-review/28)
+- August 21, 2024: [hacomono BigQuery Adoption Case
+  Study](https://findy-tools.io/products/bigquery/49/231)
+- July 2, 2024: [Data Transfer Challenges and Future Plans in hacomono’s
+  Data Platform](https://techblog.hacomono.jp/entry/2024/07/02/1100)
+
+### 6.3. Awards
+
+- August 12, 2026: Databricks MVP 2026
+  - [Databricks MVP 2026
+    Credential](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
+  - [GENDA Data Management Department Manager Daiki Mawatari Selected
+    for Databricks MVP
+    2026](https://zenn.dev/genda_jp/articles/cca9cbba54d06f)
+- March 24, 2026: JEDAI Order 2026 Knight, Databricks Japan User
+  Community
+  - [JEDAI Order 2026 Award Recipients \| Databricks User
+    Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
+  - [GENDA Data Management Department Manager Daiki Mawatari Selected
+    for JEDAI Order
+    2026](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)
