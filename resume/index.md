@@ -1,0 +1,181 @@
+# 職務経歴書 ― 馬渡 大樹
+
+
+馬渡 大樹
+
+Manager in the Data Management Department (assigned to the Data Science
+Team) \| Data Engineer \| MLOps Engineer \| Databricks MVP 2026
+
+[Website](https://i9wa4.github.io) \|
+[LinkedIn](https://www.linkedin.com/in/daikm) \|
+[GitHub](https://github.com/i9wa4)
+
+職務経歴書 ([Website](https://i9wa4.github.io/resume/index.html),
+[PDF](https://i9wa4.github.io/resume/index.pdf)) \| Resume
+([Website](https://i9wa4.github.io/en/resume/index.html),
+[PDF](https://i9wa4.github.io/en/resume/index.pdf))
+
+## 1. 職務要約
+
+2024年11月にGENDAに入社しました。データマネジメント部では、2026年4月から9月はデータエンジニアリングチームのマネージャーを務め、10月からはデータサイエンスチームのマネージャーを担当しています。
+
+10年以上のソフトウェア開発経験を生かし、データエンジニアリングとMLOpsを通じて、データサイエンティストが分析・モデル開発に集中できる環境をつくってきました。データ基盤や開発環境の設計・実装から機械学習の本番運用まで自ら担い、事業部門との要件整理・プロジェクト管理・採用・チーム運営にも取り組んでいます。
+
+GENDAでは、データマートとダッシュボード、事業システム・外部データとの連携、機械学習の開発環境を整備してきました。データサイエンティストがローカルのエディタやAIツールを使えるよう、OSS「jupyter-databricks-kernel」を開発しました。実務で得た知見を記事や登壇で発信し、Databricks
+MVP
+2026に選出されました。業務委託ではPIVOTのデータ基盤改善も支援しています。
+
+## 2. コアスキル
+
+- データ基盤：Databricks、Snowflake、BigQuery、dbt Core、dbt
+  platform、Airflow (MWAA)
+- クラウド基盤：AWS、Google Cloud、Azure
+- IaC：Terraform、HCP Terraform、CloudFormation
+- MLOps・AI活用：DataRobot、Snowpark ML、Databricks Notebooks、Jupyter
+  Kernel、MCP、AI coding agent workflow
+- 開発ツール：Git、GitHub、CI/CD、Dependabot、Renovate、Docker、Nix、mise
+- プログラミング言語：Python、Go、SQL、C、C++、Shell Script
+- 組織運営：データチームマネジメント、コードレビュー、採用、1on1、技術移譲
+
+## 3. 職務経歴
+
+### 3.1. 株式会社GENDA \| データマネジメント部 マネージャー（データサイエンスチーム担当） / データエンジニア / MLOpsエンジニア
+
+2024/11 - 現在 \| 正社員
+
+- 事業部門向けダッシュボードの集計ロジックをレビューし、dbt
+  のデータマートと日次レポートの生成・配信ジョブを整備しました。チームでは事業システムや外部データを分析基盤につなぎ、データマートと日次ダッシュボードに反映しました。私は
+  dbt リポジトリの段階的な統合と Databricks
+  のジョブ設定の整理も担当しました。
+- 機械学習開発のコード検査・CI/CD
+  とレビューを経たリリース手順を整え、チームが Databricks
+  のノートブックで学習・推論コードを試せる開発フローづくりに携わりました。データサイエンティストがローカルのエディタや
+  AI ツールからノートブックを開発できる
+  OSS「[jupyter-databricks-kernel](https://github.com/i9wa4/jupyter-databricks-kernel)」も開発しました。
+- AI
+  を活用したチームの分析開発用の共通リポジトリに初期構成を取り込みました。分析で繰り返し使う知見をスキルとしてバージョン管理することを推奨し、リポジトリに自動チェックを追加しました。Dev
+  Container
+  から各自のローカル環境へ移す技術方針を提案し、導入手順を整えて検証を依頼しました。その後、手順と設定を更新し、Dev
+  Container 設定の削除を周知したうえで、依存関係を保守しました。
+- 2026年4月から9月はデータエンジニアリングチーム、10月からはデータサイエンスチームのマネージャーとして、進捗確認、1on1、レビュー、採用面談、定例運営を担当し、作業手順とレビューの進め方を共有しました。
+- データ開発・運用の知見を記事や登壇で発信し、2026年に Databricks MVP
+  2026 に選出されました。詳しくは[活動欄](#activities)にまとめています。
+
+### 3.2. PIVOT株式会社 \| 業務委託データエンジニア
+
+2025/06 - 現在 \| 業務委託
+
+- KPIレポート、リファラル分析、GA4 /
+  ULIZAトラッキング、パフォーマンス改善向けのBigQuery /
+  dbtモデルを構築・改善しています。
+- OOMを起こしていたウィンドウ関数中心のロジックをJOIN中心の設計へ変更し、主要モデルの実行時間を51-90分から数分へ短縮しました。
+- GA4のユーザー同定・トラッキング継続性を整備し、匿名訪問からログイン後までを追跡する全期間ユーザー分析のincrementalモデルを実装しました。
+- 安定したマージキー、パーティション、クラスタリング設定によりBigQuery
+  MERGEの効率を改善しました。
+
+### 3.3. 株式会社hacomono \| データエンジニア
+
+2024/04 - 2024/10 \| 正社員
+
+- 一人データエンジニアとして、BigQuery、Embulk、AWS、Google
+  Cloud、Terraform、Terragruntを用いた顧客向け・社内向けDWH転送運用、インフラ
+  / IaC変更、提供支援を担当しました。
+- RDSメトリクス、転送ログ、Embulkチューニングによりバッチ転送の安定性を改善しました。
+- BigQuery権限を手動付与からTerraform管理のdatasetレベル権限へ移行しました。
+- Google Cloud DatastreamによるRDS
+  MySQLからBigQueryへのリアルタイム転送を検証し、障害・復旧時の挙動を文書化しました。
+
+### 3.4. 株式会社シイエヌエス北海道 \| データエンジニア / MLOpsエンジニア
+
+2022/04 - 2024/03 \| 正社員
+
+- 顧客行動予測ワークフロー50本をオンプレミス環境からAWS、Snowflake、DataRobotへ移行しました。
+- Snowflake Python APIとJupyter Notebook中心のワークフローからdbt
+  Coreへ移行し、依存関係の可視性、可読性、保守性を改善しました。
+- DataRobotからSnowpark
+  MLへの移行をコスト、性能、セキュリティの観点で調査し、小規模な検証チームをリードしました。
+- 約200店舗を対象としたベイズ統計ベースの来店客数予測処理を並列実行改善により約2日で完了させ、4日以内という要件を満たしました。
+
+### 3.5. 株式会社新光商事LSIデザインセンター \| 組込ソフトウェアエンジニア
+
+2018/08 - 2022/03 \| 正社員
+
+- 車載・産業機器向け組込ファームウェアとして、トラクション制御更新機能、噴霧器インバータ制御、操作コントローラーを要件整理から設計、実装、テストまで担当しました。
+- C / アセンブラ、Renesas / GHS系ツールチェーン、RH850 /
+  RL78、QAC、winAMSを用いた開発に従事しました。
+- 5名が扱う30件以上のテスト仕様書整形を自動化し、Pythonで顧客向け分析資料を作成し、CAN通信講座も担当しました。
+
+### 3.6. オークマ株式会社 \| Windowsアプリケーションエンジニア
+
+2016/04 - 2018/07 \| 正社員
+
+- CNC工作機械向けWindows CAD /
+  CAMアプリケーションについて、UI要件、テスト、ユーザー問い合わせ、不具合対応、性能改善を担当しました。
+- 品質保証、業務ドメイン理解、ユーザー向けソフトウェア保守の基礎を身につけました。
+
+## 4. 学歴
+
+- 北海道大学 理学部 数学科 卒業
+
+## 5. 資格
+
+- 2023/04: 統計検定2級
+- 2015/03: TOEIC スコア 805 <!-- - 2012/11: 普通自動車第一種運転免許 -->
+
+## 6. 登壇・執筆
+
+### 6.1. 登壇
+
+- 2026/10/15:
+  [AIとtmuxと私、2026年の現在地](https://i9wa4.github.io/slides/2026-10-15-terminal-night-3-tmux.html#/title-slide)
+- 2026/09/15: [アナリストのClaude Code x
+  Databricks活用について](https://i9wa4.github.io/slides/2026-09-15-claude-code-databricks.html)
+  - [【第１回登壇者】uma-chan \| データ界隈
+    LT祭](https://ltfes.datayokocho.info/todanvol1_uma-chan/)
+- 2026/06/30:
+  [コンテキスト設計から考えるハーネスエンジニアリング](https://i9wa4.github.io/slides/2026-06-30-context-design-harness.html)
+- 2026/03/06:
+  [Databricksで堅牢なコードを書く上での課題とその解決](https://i9wa4.github.io/slides/2026-03-06-kenro-py.html)
+- 2026/01/27: [Mosaic AI
+  Gatewayでコーディングエージェントを配るための運用Tips](https://speakerdeck.com/genda/jedai-2026-meetup-ai-coding-mawatari)
+- 2025/12/22:
+  [M&Aで拡大し続けるGENDAのデータ活用を促すためのDatabricks権限管理](https://speakerdeck.com/genda/aeon-tech-hub-22-mawatari)
+- 2025/12/12: [Databricks向けJupyter
+  Kernelでデータサイエンティストの開発環境をAI-Readyにする](https://speakerdeck.com/genda/data-ai-world-tour-tokyo-after-party-mawatari)
+- 2025/11/07: [GENDA の機械学習環境を AWS から Databricks
+  に移行してみた](https://i9wa4.github.io/slides/2025-11-07-tamesare-data-sapporo-uma-chan.html)
+- 2025/05/22: [Cursorのおすすめ設定 &
+  Cursorにデータ分析を任せる方法](https://i9wa4.github.io/slides/2025-05-22-midas-cursor-tips.html)
+
+### 6.2. 執筆
+
+- 2026/03/24:
+  [GENDAデータ基盤へのDatabricks導入時の状況と現在](https://findy-tools.io/products/databricks/11/164)
+- 2025/10/31: [データ分析を促進する dbt incremental モデル設計 ―
+  全期間追跡の低コスト化](https://zenn.dev/pivotmedia/articles/pivot-incremental-friendly-dbt-model)
+- 2025/09/01:
+  [GENDAのデータサイエンティスト開発体験向上の取り組み紹介―AWS
+  ECSからDatabricksへの移行](https://zenn.dev/genda_jp/articles/724a597e8f18ff)
+- 2025/06/25:
+  [成長を支えるハブとなりたい。データドリブンな組織を加速させるデータ基盤とMLOps｜GENDA](https://note.com/genda_jp/n/n94def6811d47)
+- 2024/10/08: [39社のデータ基盤アーキテクチャ特集 -
+  ツールの技術選定のポイントと活用術 - Findy
+  Tools](https://findy-tools.io/articles/data-review/28)
+- 2024/08/21:
+  [株式会社hacomonoのBigQuery導入事例](https://findy-tools.io/products/bigquery/49/231)
+- 2024/07/02: [hacomonoデータ基盤におけるデータ転送の課題と今後の対応 -
+  hacomono TECH
+  BLOG](https://techblog.hacomono.jp/entry/2024/07/02/1100)
+
+### 6.3. 受賞
+
+- 2026/08/12: Databricks MVP 2026
+  - [Databricks MVP 2026
+    Credential](https://credentials.databricks.com/a6c07ff2-6101-474c-8d4a-941d78794199)
+  - [データマネジメント部 マネージャーの馬渡がDatabricks MVP
+    2026に選出](https://zenn.dev/genda_jp/articles/cca9cbba54d06f)
+- 2026/03/24: JEDAI Order 2026 Knight
+  - [JEDAI Order 2026 受賞者一覧 \| Databricks User
+    Groups](https://usergroups.databricks.com/v0/forum/databricks-japan-user-group-27/topic/jedai-order-2026-受賞者一覧-118/)
+  - [データマネジメント部 マネージャーの馬渡がJEDAI Order
+    2026に選出](https://zenn.dev/genda_jp/articles/e3f6da7d2224c1)
